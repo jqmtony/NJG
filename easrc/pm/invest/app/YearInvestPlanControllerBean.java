@@ -6,12 +6,25 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.codingrule.CodingRuleManagerFactory;
 import com.kingdee.eas.base.codingrule.ICodingRuleManager;
 import com.kingdee.eas.base.permission.UserFactory;
 import com.kingdee.eas.base.permission.UserInfo;
+import com.kingdee.eas.basedata.assistant.IProject;
+import com.kingdee.eas.basedata.assistant.ProjectFactory;
+import com.kingdee.eas.basedata.assistant.ProjectInfo;
+import com.kingdee.eas.basedata.assistant.ProjectStatus;
+import com.kingdee.eas.basedata.assistant.ProjectTypeEnum;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitFactory;
+import com.kingdee.eas.basedata.org.ICompanyOrgUnit;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.port.pm.base.IProjectType;
+import com.kingdee.eas.port.pm.base.ProjectTypeFactory;
+import com.kingdee.eas.port.pm.base.coms.PlanTypeEnum;
+import com.kingdee.eas.port.pm.invest.IYearInvestPlan;
 import com.kingdee.eas.port.pm.invest.ObjectStateEnum;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
@@ -60,6 +73,58 @@ public class YearInvestPlanControllerBean extends AbstractYearInvestPlanControll
     		info.setObjectState(ObjectStateEnum.declared);
     	}
     	YearInvestPlanFactory.getLocalInstance(ctx).update(pk, info);
+    	
+    	createProject(ctx, info); // 
+    }
+    
+    public void createProject(Context ctx,YearInvestPlanInfo info) throws BOSException,EASBizException{
+    	IProject Iproject = ProjectFactory.getLocalInstance(ctx);
+    	IYearInvestPlan IyearInvestPlan = YearInvestPlanFactory.getLocalInstance(ctx);
+    	ICompanyOrgUnit ICompanyOrgUnit = CompanyOrgUnitFactory.getLocalInstance(ctx);
+    	IProjectType IProjectType = ProjectTypeFactory.getLocalInstance(ctx);
+    	if(PlanTypeEnum.companyPlan.equals(info.getPlanType())){// 自有项目
+    		String oql = "select id,number,projectName,PlanType,planStartDate,planEndDate,portProject.id,projectType.name,buildType.name,year.number" +
+			",cu.id where id='"+info.getId()+"'";
+			YearInvestPlanInfo planInfo = IyearInvestPlan.getYearInvestPlanInfo(oql);
+			ProjectInfo yearProject = YIPlanAccredControllerBean.createYearDoc(ctx, Iproject, planInfo);
+			ProjectInfo parentproInfo = YIPlanAccredControllerBean.createParentProject(ctx,Iproject,IProjectType,planInfo);
+			ProjectInfo proInfo = new ProjectInfo();
+			proInfo.setId(BOSUuid.create(proInfo.getBOSType()));
+			proInfo.setNumber(planInfo.getNumber());
+			proInfo.setCompany(ICompanyOrgUnit.getCompanyOrgUnitInfo("select id,name,number where id='"+planInfo.getCU().getId().toString()+"'"));
+			proInfo.setType(ProjectTypeEnum.CUS_PROJECT);
+			proInfo.setStatus(ProjectStatus.PREPARE);
+			proInfo.setScheduleStartDate(planInfo.getPlanStartDate());
+			proInfo.setSchedulEndDate(planInfo.getPlanEndDate());
+			proInfo.setNJGyearInvest(planInfo);
+			proInfo.setIsSysCreate(Boolean.TRUE);
+			proInfo.setIsLeaf(true);
+			proInfo.setIsListItem(true);
+			proInfo.setNJGprojectType(IProjectType.getProjectTypeInfo("select id,name,number where id='"+planInfo.getProjectType().getId().toString()+"'"));
+			if(planInfo.getProjectType().getName().equals("项目前期")){
+				if(planInfo.getProjectName().contains("前期"))
+					proInfo.setName(planInfo.getProjectName()+planInfo.getYear().getNumber());
+				else
+					proInfo.setName(planInfo.getProjectName()+"前期"+planInfo.getYear().getNumber());
+			}else if(planInfo.getProjectType().getName().equals("基本建设")){
+				proInfo.setName(planInfo.getProjectName()+planInfo.getYear().getNumber());
+			}else{
+				proInfo.setName(planInfo.getProjectName());
+			}
+			
+			if((planInfo.getProjectType().getName().equals("项目前期")||planInfo.getProjectType().getName().equals("基本建设") )){
+				proInfo.setParent(parentproInfo);
+			}else{
+				proInfo.setParent(yearProject);
+			}
+			Iproject.addnew(proInfo);
+			
+			planInfo.setProject(proInfo);
+			IyearInvestPlan.update(new ObjectUuidPK(planInfo.getId()), planInfo);
+			
+			YIPlanAccredControllerBean.createNewProject(ctx, proInfo);
+
+    	}
     }
     
     protected void _unAudit(Context ctx, IObjectPK pk) throws BOSException,EASBizException {

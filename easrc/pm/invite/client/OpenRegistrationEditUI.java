@@ -44,6 +44,7 @@ import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryPersonI
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockFactory;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
 import com.kingdee.eas.port.pm.invite.IInviteReportEntry2;
+import com.kingdee.eas.port.pm.invite.InviteReportCollection;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry2Collection;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry2Factory;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry2Info;
@@ -83,12 +84,14 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     		filter.getFilterItems().add(new FilterItemInfo("proName.longnumber", info.getLongNumber()+"%", CompareType.LIKE));
     		filter.getFilterItems().add(new FilterItemInfo("status","4", CompareType.EQUALS));
     		prmtreportName.setEntityViewInfo(evi);
+    		InviteReportCollection coll = InviteReportFactory.getRemoteInstance().getInviteReportCollection(evi);
+    		if(coll.size()==1)
+    			prmtreportName.setValue(coll.get(0));
 		}
     	com.kingdee.eas.port.pm.invite.client.InviteReportEditUI.initContainerButton(this.kDContainer1, this.kdtEntry_detailPanel);
     	
     	this.pkopDate.setTimeEnabled(true);
     	this.pkopDate.setDatePattern("yyyy-MM-dd HH:mm");
-    	
     	pkopDate.setValue(new Date());
     }
     private void initConpoment() {
@@ -139,8 +142,17 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     				SysUtil.abort();
     			}
     	}
+    	for(int i = 0; i < this.kdtEntry.getRowCount(); i++) {
+    		IRow row = this.kdtEntry.getRow(i);
+    		if(row.getCell("isPresent").getValue().equals(true))
+    			if(row.getCell("prjPeriod").getValue() == null) {
+    				MarketSupplierStockInfo supplierInfo =  (MarketSupplierStockInfo)row.getCell("supplierName").getValue();
+    				MsgBox.showWarning("已到场的供应商【"+supplierInfo.getSupplierName()+"】，工期不能为空!");
+    				SysUtil.abort();
+    			}
+    	}
     	//工期,质量不能为空
-    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, this.kdtEntry, "prjPeriod");
+//    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, this.kdtEntry, "prjPeriod");
 //    	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, this.kdtEntry, "quality");
     	super.verifyInput(e);
     }

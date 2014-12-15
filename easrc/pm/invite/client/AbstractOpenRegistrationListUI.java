@@ -277,6 +277,7 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
         this.toolBar.add(btnAttachment);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
+        this.toolBar.add(btnDoCancel);
         this.toolBar.add(separatorFW1);
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnPrint);
@@ -302,7 +303,6 @@ public abstract class AbstractOpenRegistrationListUI extends com.kingdee.eas.xr.
         this.toolBar.add(btnCancel);
         this.toolBar.add(btnCancelCancel);
         this.toolBar.add(btnWFViewdoProccess);
-        this.toolBar.add(btnDoCancel);
 
 
     }

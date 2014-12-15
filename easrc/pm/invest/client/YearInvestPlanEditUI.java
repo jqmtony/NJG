@@ -15,7 +15,6 @@ import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
-import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.swing.KDTextField;
@@ -30,6 +29,7 @@ import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SorterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
@@ -39,6 +39,7 @@ import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.CtrlUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
@@ -83,7 +84,6 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	 */
 	public YearInvestPlanEditUI() throws Exception {
 		super();
-
 	}
 	ProgrammingEditUI programmingEditUI = null;
 	public void onLoad() throws Exception {
@@ -119,7 +119,7 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			}
 			EntityViewInfo evInfo = new EntityViewInfo();
 			FilterInfo filter = new FilterInfo();
-			filter.getFilterItems().add(new FilterItemInfo("cu.id",cuid));
+			filter.getFilterItems().add(new FilterItemInfo("AdminOrgUnit.longnumber",SysContext.getSysContext().getCurrentCtrlUnit().getLongNumber()+"%",CompareType.LIKE));
 			evInfo.setFilter(filter);
 			prmtrequestPerson.setEntityViewInfo(evInfo);
 			prmtCU.setValue(SysContext.getSysContext().getCurrentCtrlUnit());
@@ -656,10 +656,9 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			objectState.requestFocus(true);
 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"项目状态"});
 		}
-			super.beforeStoreFields(arg0);
-		}
+	}
 		void init(){
-			this.prmtportProject.setEnabled(false);
+//			this.prmtportProject.setEnabled(false);
 			this.prmtproject.setEnabled(false);
 			this.btnEdit.setVisible(false);
 			this.txtseq.setRequired(true);
@@ -736,7 +735,7 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			    	    	MsgBox.showWarning("计划完工日期不能早于计划开工日期！");abort();
 			    	    }
 			    	}	
-			    	String cuid = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
+			    	String cuid =( (CtrlUnitInfo)prmtCU.getValue()).getId().toString() ;
 			    	String yearid = ((InvestYearInfo)prmtyear.getValue()).getId().toString();
 			    	BigDecimal seq = (BigDecimal)txtseq.getValue();
 					String oql = " where cu.id='"+cuid+"' and year.id='"+yearid+"' and seq='"+seq+"' and id<>'"+editData.getId()+"' " +
@@ -746,8 +745,8 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 						MsgBox.showWarning("本年度该项目序号已经存在，请重新编号！");
 						abort();
 					}
-					if(txtBIMUDF0027.getText()!=null && txtBIMUDF0027.getText().length()>500){
-						MsgBox.showWarning("项目建设内容不能多于240个字！");
+					if(txtBIMUDF0027.getText()!=null && txtBIMUDF0027.getText().length()>200){
+						MsgBox.showWarning("项目建设内容不能多于100个字！");
 						abort();
 					}
 					super.verifyInput(e);

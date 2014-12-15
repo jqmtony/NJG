@@ -4,15 +4,10 @@
 package com.kingdee.eas.port.pm.invite.client;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
-
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import org.apache.log4j.Logger;
 
@@ -36,18 +31,18 @@ import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.IAdminOrgUnit;
 import com.kingdee.eas.basedata.org.client.f7.AdminF7;
+import com.kingdee.eas.basedata.person.IPerson;
+import com.kingdee.eas.basedata.person.PersonFactory;
+import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
-import com.kingdee.eas.port.pm.base.IJudges;
 import com.kingdee.eas.port.pm.base.IJudgesTree;
-import com.kingdee.eas.port.pm.base.JudgesFactory;
-import com.kingdee.eas.port.pm.base.JudgesInfo;
 import com.kingdee.eas.port.pm.base.JudgesTreeFactory;
 import com.kingdee.eas.port.pm.base.JudgesTreeInfo;
 import com.kingdee.eas.port.pm.invite.IInviteReportEntry5;
-import com.kingdee.eas.port.pm.invite.InvitePlanInfo;
+import com.kingdee.eas.port.pm.invite.InviteReportCollection;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry3Collection;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry3Info;
 import com.kingdee.eas.port.pm.invite.InviteReportEntry5Collection;
@@ -113,6 +108,10 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
     		filter.getFilterItems().add(new FilterItemInfo("proName.longnumber", info.getLongNumber()+"%", CompareType.LIKE));
     		filter.getFilterItems().add(new FilterItemInfo("status","4", CompareType.EQUALS));
 			prmtplanName.setEntityViewInfo(evi);
+			
+			InviteReportCollection coll = InviteReportFactory.getRemoteInstance().getInviteReportCollection(evi);
+    		if(coll.size()==1)
+    			prmtplanName.setValue(coll.get(0));
 		}
 //    	InitWorkButton(this.kDContainer2);
     }
@@ -185,52 +184,52 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
     //专家信息分录添加引入招标成员组按钮
     private void InitInvitePerson(KDContainer kDContainer) {
     	KDWorkButton invitePerson = new KDWorkButton();
-    	invitePerson.setText("引入招标成员信息");
-    	invitePerson.setIcon(EASResource.getIcon("imgTbtn_synchronization"));
-    	kDContainer.addButton(invitePerson);
-    	invitePerson.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				InviteReportInfo info = (InviteReportInfo) prmtplanName.getValue();
-				if(info != null) {
-			    	InviteReportEntry3Collection coll = info.getEntry3();
-			    	kdtEntry.removeRows();
-					try {
-						IJudges ijudges = JudgesFactory.getRemoteInstance();
-						IJudgesTree ijudgesTree = JudgesTreeFactory.getRemoteInstance();
-						IAdminOrgUnit iadmin = AdminOrgUnitFactory.getRemoteInstance();
-						
-						for(int i = 0; i < coll.size(); i++) {
-				    		InviteReportEntry3Info entryInfo = coll.get(i);
-				    		IRow row = kdtEntry.addRow();
-				    		if(entryInfo.getInvitePerson()==null)
-				    			continue;
-							JudgesInfo person = ijudges.getJudgesInfo(new ObjectUuidPK(entryInfo.getInvitePerson().getId()));
-							row.getCell("judgeNumber").setValue(person);
-							row.getCell("judgesName").setValue(person.getPersonName());
-							
-							JudgesTreeInfo jtree = ijudgesTree.getJudgesTreeInfo(new ObjectUuidPK(person.getJudgeType().getId()));
-							row.getCell("juType").setValue(jtree.getName());
-							if(person.getCurDep() != null) {
-								AdminOrgUnitInfo orginfo = iadmin.getAdminOrgUnitInfo(new ObjectUuidPK(person.getCurDep().getId()));
-								row.getCell("orgUnit").setValue(orginfo.getName());
-								row.getCell("telephone").setValue(person.getTelephone()); 
-							} else {
-								row.getCell("orgUnit").setValue(null);
-								row.getCell("telephone").setValue(null); 
-							}
-				    	}
-					} catch (BOSException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (EASBizException e2) {
-						// TODO Auto-generated catch block
-						e2.printStackTrace();
-					}
-				}
-			}
-    	});
+//    	invitePerson.setText("引入招标成员信息");
+//    	invitePerson.setIcon(EASResource.getIcon("imgTbtn_synchronization"));
+//    	kDContainer.addButton(invitePerson);
+//    	invitePerson.addActionListener(new ActionListener() {
+//
+//			public void actionPerformed(ActionEvent e) {
+//				// TODO Auto-generated method stub
+//				InviteReportInfo info = (InviteReportInfo) prmtplanName.getValue();
+//				if(info != null) {
+//			    	InviteReportEntry3Collection coll = info.getEntry3();
+//			    	kdtEntry.removeRows();
+//					try {
+//						IPerson iPerson = PersonFactory.getRemoteInstance();
+//						IJudgesTree ijudgesTree = JudgesTreeFactory.getRemoteInstance();
+//						IAdminOrgUnit iadmin = AdminOrgUnitFactory.getRemoteInstance();
+//						
+//						for(int i = 0; i < coll.size(); i++) {
+//				    		InviteReportEntry3Info entryInfo = coll.get(i);
+//				    		IRow row = kdtEntry.addRow();
+//				    		if(entryInfo.getInvitePerson()==null)
+//				    			continue;
+//				    		PersonInfo person = iPerson.getPersonInfo(new ObjectUuidPK(entryInfo.getInvitePerson().getId()));
+//							row.getCell("judgeNumber").setValue(person);
+//							row.getCell("judgesName").setValue(person.getName());
+//							
+//							JudgesTreeInfo jtree = ijudgesTree.getJudgesTreeInfo(new ObjectUuidPK(person.getJudgeType().getId()));
+//							row.getCell("juType").setValue(jtree.getName());
+//							if(person.getCurDep() != null) {
+//								AdminOrgUnitInfo orginfo = iadmin.getAdminOrgUnitInfo(new ObjectUuidPK(person.getCurDep().getId()));
+//								row.getCell("orgUnit").setValue(orginfo.getName());
+//								row.getCell("telephone").setValue(person.getTelephone()); 
+//							} else {
+//								row.getCell("orgUnit").setValue(null);
+//								row.getCell("telephone").setValue(null); 
+//							}
+//				    	}
+//					} catch (BOSException e1) {
+//						// TODO Auto-generated catch block
+//						e1.printStackTrace();
+//					} catch (EASBizException e2) {
+//						// TODO Auto-generated catch block
+//						e2.printStackTrace();
+//					}
+//				}
+//			}
+//    	});
     }
     
     //重构分录增删按钮

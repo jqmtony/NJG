@@ -75,7 +75,8 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     	YIPlanAccredInfo Info = getYIPlanAccredInfo(ctx, pk);
     	Info.setAccredDate( new Timestamp(System.currentTimeMillis()));
     	YIPlanAccredFactory.getLocalInstance(ctx).update(pk, Info);
-    	if(Info.getAccredType().equals(AccredTypeEnum.approve))
+    	
+    	if(AccredTypeEnum.approve.equals(Info.getAccredType()))
     	{
     		creatProjectBase(ctx,Info);
     	}
@@ -219,7 +220,7 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
   * @throws BOSException
   * @throws EASBizException
   */
-    private void creatProjectBase(Context ctx,YIPlanAccredInfo Info) throws BOSException, EASBizException
+    private static void creatProjectBase(Context ctx,YIPlanAccredInfo Info) throws BOSException, EASBizException
     {
     	IProject Iproject = ProjectFactory.getLocalInstance(ctx);
     	IYearInvestPlan IyearInvestPlan = YearInvestPlanFactory.getLocalInstance(ctx);
@@ -281,7 +282,7 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
      * @throws BOSException 
      * @throws EASBizException 
      */
-    ProjectInfo createParentProject(Context ctx,IProject iproject,IProjectType IProjectType,YearInvestPlanInfo planInfo) throws EASBizException, BOSException{
+    static ProjectInfo createParentProject(Context ctx,IProject iproject,IProjectType IProjectType,YearInvestPlanInfo planInfo) throws EASBizException, BOSException{
     	ProjectInfo parentproInfo = new ProjectInfo();
     	if(planInfo.getPortProject()!=null && planInfo.getBuildType().getName().equals("续建项目")){
     		parentproInfo = iproject.getProjectInfo(new ObjectUuidPK(planInfo.getPortProject().getId())).getParent();
@@ -315,7 +316,7 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     /**
      * 生成项目---年度文件夹（2014）
      */
-    ProjectInfo createYearDoc(Context ctx,IProject iproject,YearInvestPlanInfo planInfo) throws EASBizException, BOSException{
+    static ProjectInfo createYearDoc(Context ctx,IProject iproject,YearInvestPlanInfo planInfo) throws EASBizException, BOSException{
     	InvestYearInfo  year = planInfo.getYear();
     	ProjectInfo proInfo = new ProjectInfo();
     	CtrlUnitInfo cu = CtrlUnitFactory.getLocalInstance(ctx).getCtrlUnitInfo(new ObjectUuidPK(planInfo.getCU().getId()));
@@ -343,7 +344,7 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     /**
      * 生成订单中的项目---生成制造项目
      */
-    protected com.kingdee.eas.mm.project.ProjectInfo createNewProject(Context ctx,ProjectInfo proInfo )
+    protected static com.kingdee.eas.mm.project.ProjectInfo createNewProject(Context ctx,ProjectInfo proInfo )
     {
     	com.kingdee.eas.mm.project.ProjectInfo objectValue = null;
     	try

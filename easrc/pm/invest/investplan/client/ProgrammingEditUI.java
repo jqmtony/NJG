@@ -221,14 +221,15 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 //    			conProgramming.removeButton(btnExports);
     		}
     		
-    		FlowLayout flowLayout = new FlowLayout();
-    		flowLayout.setAlignment(FlowLayout.LEFT);
-    		flowLayout.setHgap(10);
-    		colorPanel.setLayout(flowLayout);
-    		drawALogo("增加",new Color(248,171,166));
-    		drawALogo("减少",new Color(163,207,98));
-    		this.kDTabbedPane1.remove(this.conCompare);
-    		this.kDTabbedPane1.remove(this.kDScrollPane1);
+//    		FlowLayout flowLayout = new FlowLayout();
+//    		flowLayout.setAlignment(FlowLayout.LEFT);
+//    		flowLayout.setHgap(10);
+//    		colorPanel.setLayout(flowLayout);
+//    		drawALogo("增加",new Color(248,171,166));
+//    		drawALogo("减少",new Color(163,207,98));
+//    		this.kDTabbedPane1.remove(this.conCompare);
+//    		this.kDTabbedPane1.remove(this.kDScrollPane1);
+    		colorPanel.setVisible(false);
     	    kDTable1.removeRows();
     	}
     }
@@ -240,8 +241,8 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		colorLable.setPreferredSize(d);
 		colorLable.setOpaque(true);
 		colorLable.setBackground(color);
-		colorPanel.add(lable);
-		colorPanel.add(colorLable);
+//		colorPanel.add(lable);
+//		colorPanel.add(colorLable);
 
 	}
     public void initListener() {
@@ -1632,10 +1633,16 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
     		}else{
     			this.kdtEntries.getCell(i, "isLeaf").setValue(true);
     		}
+    		ProgrammingEntryInfo entryInfo = editData.getEntries().get(i);
+    		entryInfo.setInvestAmount(UIRuleUtil.getBigDecimal(irow.getCell("investAmount").getValue()));
+    		entryInfo.setBalance(UIRuleUtil.getBigDecimal(irow.getCell("balance").getValue()));
+    		entryInfo.setInvestProportion(Double.parseDouble(irow.getCell("investProportion").getValue().toString()));
+    		entryInfo.setCumulativeInvest(UIRuleUtil.getBigDecimal(irow.getCell("cumulativeInvest").getValue()));
 		}
     	String projectName = txtprojectName.getText();
 		String projectNumber = txtprojectNumber.getText();
 		ProgrammingEntryInfo entryInfo = editData.getEntries().get(k);
+		
 		String feeNumber = UIRuleUtil.getString(row.getCell("longNumber").getValue());
 		String feename = UIRuleUtil.getString(row.getCell("name").getValue());
 		BigDecimal GoalCost = UIRuleUtil.getBigDecimal(row.getCell("amount").getValue());
@@ -2159,6 +2166,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 	 */
 	public void actionSave_actionPerformed(ActionEvent e) throws Exception {
 		veryfyForSave();
+		
 		super.actionSave_actionPerformed(e);
 		sumClass.appendProFootRow(null, null);
 		setHeadRowColor();

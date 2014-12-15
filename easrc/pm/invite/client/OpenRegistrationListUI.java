@@ -40,6 +40,7 @@ import com.kingdee.eas.port.pm.invite.OpenRegistrationFactory;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationInfo;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 import com.kingdee.eas.xr.helper.common.PortProjectTreeBuilder;
 
@@ -58,9 +59,7 @@ public class OpenRegistrationListUI extends AbstractOpenRegistrationListUI
         super();
     }
 
-    @Override
     public void onLoad() throws Exception {
-    	// TODO Auto-generated method stub
     	super.onLoad();
     	buildProjectTree();
     	if(this.kDTree1.getRowCount()>0){
@@ -69,6 +68,8 @@ public class OpenRegistrationListUI extends AbstractOpenRegistrationListUI
     	}
     	if(getUIContext().get("reportId") != null)
     		kDTreeView1.setVisible(false);
+    	
+    	 btnDoCancel.setIcon(EASResource.getIcon("imgTbtn_blankout"));
     }
     protected Set authorizedOrgs = null;
     public void buildProjectTree() throws Exception {

@@ -18,9 +18,9 @@ public class ObjectStateEnum extends StringEnum
     public static final String AUDIT_VALUE = "3";//alias=初审中
     public static final String THROUGHAUDIT_VALUE = "4";//alias=初审通过
     public static final String ASSESSMENT_VALUE = "5";//alias=评审中
-    public static final String ACCREDIT_VALUE = "6";//alias=评审通过
+    public static final String ACCREDIT_VALUE = "6";//alias=评审同意
     public static final String COMPLEMENT_VALUE = "7";//alias=补充完善
-    public static final String APPROVAL_VALUE = "8";//alias=已立项
+    public static final String APPROVAL_VALUE = "8";//alias=同意立项
     public static final String VETO_VALUE = "9";//alias=否决
     public static final String ADJUSTED_VALUE = "10";//alias=已被调整
     public static final String STOP_VALUE = "11";//alias=暂缓

@@ -1008,17 +1008,17 @@ public abstract class AbstractYearInvestPlanEditUI extends com.kingdee.eas.xr.cl
         contLastUpdateTime.setBounds(new Rectangle(378, 621, 270, 19));
         this.add(contLastUpdateTime, new KDLayout.Constraints(378, 621, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contDescription.setBounds(new Rectangle(8, 627, 270, 19));
-        this.add(contDescription, new KDLayout.Constraints(8, 627, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contDescription, new KDLayout.Constraints(8, 627, 270, 19, 0));
         contAuditor.setBounds(new Rectangle(748, 593, 270, 19));
         this.add(contAuditor, new KDLayout.Constraints(748, 593, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contBizStatus.setBounds(new Rectangle(285, 631, 270, 19));
-        this.add(contBizStatus, new KDLayout.Constraints(285, 631, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contBizStatus, new KDLayout.Constraints(285, 631, 270, 19, 0));
         contAuditTime.setBounds(new Rectangle(748, 621, 270, 19));
         this.add(contAuditTime, new KDLayout.Constraints(748, 621, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kDTabbedPane1.setBounds(new Rectangle(10, 190, 1009, 400));
         this.add(kDTabbedPane1, new KDLayout.Constraints(10, 190, 1009, 400, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contremark.setBounds(new Rectangle(571, 633, 270, 19));
-        this.add(contremark, new KDLayout.Constraints(571, 633, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(contremark, new KDLayout.Constraints(571, 633, 270, 19, 0));
         contcostTemp.setBounds(new Rectangle(863, 632, 68, 19));
         this.add(contcostTemp, new KDLayout.Constraints(863, 632, 68, 19, 0));
         kDPanel6.setBounds(new Rectangle(14, 3, 1004, 179));
@@ -2031,7 +2031,33 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
     
         
 					protected void beforeStoreFields(ActionEvent arg0) throws Exception {
-		
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtrequestPerson.getData())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"申报人"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtNumber.getText())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"单据编号"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(planType.getSelectedItem())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"计划类型"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtrequestOrg.getData())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"申报部门"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtfundSource.getData())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"资金来源"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtbuildType.getData())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"建设性质"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(prmtprojectType.getData())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"项目类型"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(objectState.getSelectedItem())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"项目状态"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtprojectName.getText())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"项目名称"});
+		}
 			super.beforeStoreFields(arg0);
 		}
 

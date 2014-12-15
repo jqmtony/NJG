@@ -58,6 +58,7 @@ import com.kingdee.eas.port.pm.base.EvaluationTemplateFactory;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateInfo;
 import com.kingdee.eas.port.pm.invite.EvaluationFactory;
 import com.kingdee.eas.port.pm.invite.IInviteReport;
+import com.kingdee.eas.port.pm.invite.InviteReportCollection;
 import com.kingdee.eas.port.pm.invite.InviteReportE6Collection;
 import com.kingdee.eas.port.pm.invite.InviteReportE6Info;
 import com.kingdee.eas.port.pm.invite.InviteReportE7Collection;
@@ -119,6 +120,10 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		filter.getFilterItems().add(new FilterItemInfo("proName.longnumber", info.getLongNumber()+"%", CompareType.LIKE));
     		filter.getFilterItems().add(new FilterItemInfo("status", "4", CompareType.EQUALS));
     		prmtinviteReport.setEntityViewInfo(evi);
+    		
+    		InviteReportCollection coll = InviteReportFactory.getRemoteInstance().getInviteReportCollection(evi);
+    		if(coll.size()==1)
+    			prmtinviteReport.setValue(coll.get(0));
 		}
     }
     private void initConpomentAttr() {
@@ -646,245 +651,6 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     	super.storeFields();
     }
 
-    /**
-     * output btnAddLine_actionPerformed method
-     */
-    protected void btnAddLine_actionPerformed(java.awt.event.ActionEvent e) throws Exception
-    {
-        super.btnAddLine_actionPerformed(e);
-    }
-
-    /**
-     * output menuItemEnterToNextRow_itemStateChanged method
-     */
-    protected void menuItemEnterToNextRow_itemStateChanged(java.awt.event.ItemEvent e) throws Exception
-    {
-        super.menuItemEnterToNextRow_itemStateChanged(e);
-    }
-
-    /**
-     * output actionPageSetup_actionPerformed
-     */
-    public void actionPageSetup_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPageSetup_actionPerformed(e);
-    }
-
-    /**
-     * output actionExitCurrent_actionPerformed
-     */
-    public void actionExitCurrent_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExitCurrent_actionPerformed(e);
-    }
-
-    /**
-     * output actionHelp_actionPerformed
-     */
-    public void actionHelp_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionHelp_actionPerformed(e);
-    }
-
-    /**
-     * output actionAbout_actionPerformed
-     */
-    public void actionAbout_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAbout_actionPerformed(e);
-    }
-
-    /**
-     * output actionOnLoad_actionPerformed
-     */
-    public void actionOnLoad_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionOnLoad_actionPerformed(e);
-    }
-
-    /**
-     * output actionSendMessage_actionPerformed
-     */
-    public void actionSendMessage_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSendMessage_actionPerformed(e);
-    }
-
-    /**
-     * output actionCalculator_actionPerformed
-     */
-    public void actionCalculator_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCalculator_actionPerformed(e);
-    }
-
-    /**
-     * output actionExport_actionPerformed
-     */
-    public void actionExport_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExport_actionPerformed(e);
-    }
-
-    /**
-     * output actionExportSelected_actionPerformed
-     */
-    public void actionExportSelected_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExportSelected_actionPerformed(e);
-    }
-
-    /**
-     * output actionRegProduct_actionPerformed
-     */
-    public void actionRegProduct_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionRegProduct_actionPerformed(e);
-    }
-
-    /**
-     * output actionPersonalSite_actionPerformed
-     */
-    public void actionPersonalSite_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPersonalSite_actionPerformed(e);
-    }
-
-    /**
-     * output actionProcductVal_actionPerformed
-     */
-    public void actionProcductVal_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionProcductVal_actionPerformed(e);
-    }
-
-    /**
-     * output actionExportSave_actionPerformed
-     */
-    public void actionExportSave_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExportSave_actionPerformed(e);
-    }
-
-    /**
-     * output actionExportSelectedSave_actionPerformed
-     */
-    public void actionExportSelectedSave_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExportSelectedSave_actionPerformed(e);
-    }
-
-    /**
-     * output actionKnowStore_actionPerformed
-     */
-    public void actionKnowStore_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionKnowStore_actionPerformed(e);
-    }
-
-    /**
-     * output actionAnswer_actionPerformed
-     */
-    public void actionAnswer_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAnswer_actionPerformed(e);
-    }
-
-    /**
-     * output actionRemoteAssist_actionPerformed
-     */
-    public void actionRemoteAssist_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionRemoteAssist_actionPerformed(e);
-    }
-
-    /**
-     * output actionPopupCopy_actionPerformed
-     */
-    public void actionPopupCopy_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPopupCopy_actionPerformed(e);
-    }
-
-    /**
-     * output actionHTMLForMail_actionPerformed
-     */
-    public void actionHTMLForMail_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionHTMLForMail_actionPerformed(e);
-    }
-
-    /**
-     * output actionExcelForMail_actionPerformed
-     */
-    public void actionExcelForMail_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExcelForMail_actionPerformed(e);
-    }
-
-    /**
-     * output actionHTMLForRpt_actionPerformed
-     */
-    public void actionHTMLForRpt_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionHTMLForRpt_actionPerformed(e);
-    }
-
-    /**
-     * output actionExcelForRpt_actionPerformed
-     */
-    public void actionExcelForRpt_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionExcelForRpt_actionPerformed(e);
-    }
-
-    /**
-     * output actionLinkForRpt_actionPerformed
-     */
-    public void actionLinkForRpt_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionLinkForRpt_actionPerformed(e);
-    }
-
-    /**
-     * output actionPopupPaste_actionPerformed
-     */
-    public void actionPopupPaste_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionPopupPaste_actionPerformed(e);
-    }
-
-    /**
-     * output actionToolBarCustom_actionPerformed
-     */
-    public void actionToolBarCustom_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionToolBarCustom_actionPerformed(e);
-    }
-
-    /**
-     * output actionCloudFeed_actionPerformed
-     */
-    public void actionCloudFeed_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCloudFeed_actionPerformed(e);
-    }
-
-    /**
-     * output actionCloudShare_actionPerformed
-     */
-    public void actionCloudShare_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCloudShare_actionPerformed(e);
-    }
-
-    /**
-     * output actionCloudScreen_actionPerformed
-     */
-    public void actionCloudScreen_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCloudScreen_actionPerformed(e);
-    }
 
     /**
      * output actionSave_actionPerformed
@@ -971,10 +737,13 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
 		
 		OpenRegistrationEntryCollection openRegEntryColl = openRegInfo.getEntry();
 		//设置总分分录报价
+		int wdc = 0;//未到场
 		for(int i = 0; i < openRegEntryColl.size(); i++) {
 			OpenRegistrationEntryInfo openRegEntryInfo = openRegEntryColl.get(i);
-			if(!openRegEntryInfo.isIsPresent()||!openRegEntryInfo.isIsQualified())
+			if(!openRegEntryInfo.isIsPresent()||!openRegEntryInfo.isIsQualified()){
+				wdc++;
 				continue;
+			}
 			this.kDTable3.getRow(0).getCell(i+1).setValue(openRegEntryInfo.getQuotedPrice());
 		}
     	//总分分录符合性
@@ -1026,6 +795,15 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		BigDecimal basePrice = new BigDecimal(0);
     		int rmLow = Integer.parseInt(reportInfo.getRmlow());//去除几个最低
     		int rmHigh = Integer.parseInt(reportInfo.getRmhigh());//去除几个最高
+    		if(rmLow-wdc < 0)
+    			rmLow = 0;
+    		else
+    			rmLow = rmLow-wdc;
+    		if(rmHigh-wdc < 0)
+    			rmHigh = 0;
+    		else
+    			rmHigh = rmHigh-wdc;
+    		
     		int validCount = price.size() - (rmLow+rmHigh-a);
     		if(validCount > 0) {
 	    		basePrice = new BigDecimal(0);
