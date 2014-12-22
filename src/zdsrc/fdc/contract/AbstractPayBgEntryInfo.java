@@ -116,6 +116,19 @@ public class AbstractPayBgEntryInfo extends com.kingdee.eas.framework.CoreBillEn
     {
         setString("remark", item);
     }
+    /**
+     * Object:费用清单基类's 是否有单据property 
+     */
+    public com.kingdee.eas.fdc.contract.app.YesOrNoEnum getIsHasBill()
+    {
+        return com.kingdee.eas.fdc.contract.app.YesOrNoEnum.getEnum(getString("isHasBill"));
+    }
+    public void setIsHasBill(com.kingdee.eas.fdc.contract.app.YesOrNoEnum item)
+    {
+		if (item != null) {
+        setString("isHasBill", item.getValue());
+		}
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("44A37DE0");

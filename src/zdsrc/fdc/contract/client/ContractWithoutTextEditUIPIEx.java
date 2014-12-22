@@ -19,6 +19,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
+import com.kingdee.bos.ctrl.swing.KDComboBox;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
@@ -60,6 +61,7 @@ import com.kingdee.eas.fdc.contract.ContractWithoutTextFactory;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillBgEntryInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
+import com.kingdee.eas.fdc.contract.app.YesOrNoEnum;
 import com.kingdee.eas.fdc.remk.CRMHelper;
 import com.kingdee.eas.fdc.remk.client.CRMClientHelper;
 import com.kingdee.eas.fi.cas.PaymentBillEntryInfo;
@@ -395,6 +397,7 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 			row.getCell("requestAmount").setValue(entry.getRequestAmount());
 			row.getCell("bgBalance").setValue(entry.getBgBalance());
 			row.getCell("remark").setValue(entry.getRemark());
+			row.getCell("isHasBill").setValue(entry.getIsHasBill());
 		}
 	}
 	protected void storeBgEntryTable(){
@@ -410,6 +413,7 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
     		entry.setRequestAmount((BigDecimal)row.getCell("requestAmount").getValue());
     		entry.setBgBalance((BigDecimal)row.getCell("bgBalance").getValue());
     		entry.setRemark((String)row.getCell("remark").getValue());
+    		entry.setIsHasBill((YesOrNoEnum) row.getCell("isHasBill").getValue());
     		editData.getBgEntry().add(entry);
     	}
 	}
@@ -485,6 +489,13 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 		this.kdtBgEntry.getColumn("currency").setRequired(true);
 		
 		this.kdtBgEntry.getColumn("remark").setRequired(true);
+		this.kdtBgEntry.getColumn("isHasBill").setRequired(true);
+		KDComboBox box=new KDComboBox();
+		for(int i=0;i<YesOrNoEnum.getEnumList().size();i++){
+			box.addItem(YesOrNoEnum.getEnumList().get(i));
+		}
+		KDTDefaultCellEditor editor=new KDTDefaultCellEditor(box);
+		this.kdtBgEntry.getColumn("isHasBill").setEditor(editor);
 	}
 	protected void kdtBgEntry_tableSelectChanged(KDTSelectEvent e) throws Exception {
 		getBgAmount();
@@ -846,6 +857,11 @@ public class ContractWithoutTextEditUIPIEx extends ContractWithoutTextEditUI{
 			if (((BigDecimal)row.getCell("requestAmount").getValue()).compareTo(FDCHelper.ZERO)<=0) {
 				FDCMsgBox.showWarning(this,"费用清单申请金额必须大于0！");
 				this.kdtBgEntry.getEditManager().editCellAt(row.getRowIndex(), this.kdtBgEntry.getColumnIndex("requestAmount"));
+				SysUtil.abort();
+			}
+			if (row.getCell("isHasBill").getValue() == null) {
+				FDCMsgBox.showWarning(this, "费用清单是否有单据不能为空！");
+				this.kdtBgEntry.getEditManager().editCellAt(row.getRowIndex(), this.kdtBgEntry.getColumnIndex("isHasBill"));
 				SysUtil.abort();
 			}
 			if (row.getCell("remark").getValue() == null||"".equals(row.getCell("remark").getValue().toString().trim())) {

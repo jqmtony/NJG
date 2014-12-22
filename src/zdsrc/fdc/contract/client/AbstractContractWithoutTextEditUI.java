@@ -454,28 +454,28 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.menuItemSubmit.setText(resHelper.getString("menuItemSubmit.text"));		
         this.menuItemSubmit.setToolTipText(resHelper.getString("menuItemSubmit.toolTipText"));		
         this.menuSubmitOption.setVisible(false);		
+        this.btnTraceUp.setVisible(false);		
+        this.btnTraceDown.setVisible(false);		
+        this.btnCreateFrom.setVisible(false);		
+        this.btnCopyFrom.setVisible(false);		
         this.btnAddLine.setVisible(false);		
         this.btnInsertLine.setVisible(false);		
         this.btnRemoveLine.setVisible(false);		
-        this.btnCreateFrom.setVisible(false);		
-        this.btnCopyFrom.setVisible(false);		
-        this.btnTraceUp.setVisible(false);		
-        this.btnTraceDown.setVisible(false);		
         this.btnAuditResult.setVisible(false);		
+        this.separator1.setVisible(false);		
         this.menuItemCreateFrom.setVisible(false);		
         this.menuItemCopyFrom.setVisible(false);		
-        this.separator1.setVisible(false);		
         this.separator2.setVisible(false);		
         this.separator3.setVisible(false);		
         this.menuItemTraceUp.setVisible(false);		
         this.menuItemTraceDown.setVisible(false);		
-        this.menuItemViewSubmitProccess.setVisible(false);		
-        this.menuItemViewDoProccess.setVisible(false);		
-        this.menuItemAuditResult.setVisible(false);		
         this.menuTable1.setVisible(false);		
         this.menuItemAddLine.setVisible(false);		
         this.menuItemInsertLine.setVisible(false);		
-        this.menuItemRemoveLine.setVisible(false);
+        this.menuItemRemoveLine.setVisible(false);		
+        this.menuItemViewSubmitProccess.setVisible(false);		
+        this.menuItemViewDoProccess.setVisible(false);		
+        this.menuItemAuditResult.setVisible(false);
         this.btnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionAudit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAudit.setText(resHelper.getString("btnAudit.text"));		
         this.btnAudit.setToolTipText(resHelper.getString("btnAudit.toolTipText"));
@@ -1025,7 +1025,7 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.contCreateTime.setBoundLabelUnderline(true);		
         this.contCreateTime.setEnabled(false);
         // kdtBgEntry
-		String kdtBgEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles /><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"bgItem\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"currency\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" /><t:Column t:key=\"rate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"requestAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"bgBalance\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{bgItem}</t:Cell><t:Cell>$Resource{currency}</t:Cell><t:Cell>$Resource{rate}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{requestAmount}</t:Cell><t:Cell>$Resource{bgBalance}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtBgEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles /><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"bgItem\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"currency\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" /><t:Column t:key=\"rate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"requestAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"bgBalance\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isHasBill\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{bgItem}</t:Cell><t:Cell>$Resource{currency}</t:Cell><t:Cell>$Resource{rate}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{requestAmount}</t:Cell><t:Cell>$Resource{bgBalance}</t:Cell><t:Cell>$Resource{isHasBill}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtBgEntry.setFormatXml(resHelper.translateString("kdtBgEntry",kdtBgEntryStrXML));
         this.kdtBgEntry.addKDTSelectListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTSelectListener() {
@@ -1408,8 +1408,8 @@ contBgEntry.getContentPane().setLayout(new BorderLayout(0, 0));        contBgEnt
         menuEdit.add(menuItemReset);
         menuEdit.add(separator1);
         menuEdit.add(menuItemCreateFrom);
-        menuEdit.add(menuItemCopyFrom);
         menuEdit.add(menuItemCreateTo);
+        menuEdit.add(menuItemCopyFrom);
         menuEdit.add(separatorEdit1);
         menuEdit.add(separator2);
         menuEdit.add(menuItemEnterToNextRow);
@@ -1478,8 +1478,9 @@ contBgEntry.getContentPane().setLayout(new BorderLayout(0, 0));        contBgEnt
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        this.toolBar.add(kDSeparatorCloud);
+//        this.toolBar.add(btnXunTong);
         this.toolBar.add(btnSave);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);
@@ -1502,8 +1503,8 @@ contBgEntry.getContentPane().setLayout(new BorderLayout(0, 0));        contBgEnt
         this.toolBar.add(btnWorkFlowG);
         this.toolBar.add(separatorFW4);
         this.toolBar.add(btnSignature);
-        this.toolBar.add(separatorFW7);
         this.toolBar.add(btnNumberSign);
+        this.toolBar.add(separatorFW7);
         this.toolBar.add(btnViewSignature);
         this.toolBar.add(btnCreateFrom);
         this.toolBar.add(btnCopyFrom);
