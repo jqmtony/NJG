@@ -1,14 +1,23 @@
 package com.kingdee.eas.xr.helper;
 
+import java.awt.Dimension;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
+import com.kingdee.bos.ctrl.kds.expans.model.data.ParameterImpl;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIFactory;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIException;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.btp.BTPException;
 import com.kingdee.eas.base.btp.BTPManagerFactory;
@@ -31,10 +40,14 @@ import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.SaleOrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fm.common.ContextHelperFactory;
 import com.kingdee.eas.fm.common.IContextHelper;
 import com.kingdee.eas.framework.CoreBillBaseInfo;
 import com.kingdee.eas.framework.DataBaseInfo;
+import com.kingdee.eas.port.pm.JavaDataSet.MyExtReportRunUI;
+import com.kingdee.eas.rpts.ctrlreport.client.ExtReportRunUI;
 import com.kingdee.eas.util.app.ContextUtil;
 import com.kingdee.eas.util.client.ExceptionHandler;
 import com.kingdee.jdbc.rowset.IRowSet;
@@ -245,5 +258,39 @@ public class SysPlatformXRHelper {
 	    BasReceiverCollection receivercoll = new BasReceiverCollection();
 	    receivercoll.add(receiverInfo);
 	    iBMCMessage.addHandMsg(msgInfo, receivercoll);
+	}
+	
+	public static void openPrintForRpt(CoreUIObject ui, String billId,String reportId) throws UIException
+	{
+		Map filterMap = new HashMap();
+		
+		Map valuesMap = new HashMap();
+		valuesMap.put("DT", "0");
+		valuesMap.put("NM", "billId");
+		valuesMap.put("AA","billId" );
+		valuesMap.put("VA", billId);
+		ParameterImpl impl = new ParameterImpl();
+		impl.fromJsonMap(valuesMap);
+		
+		filterMap.put("billId", impl);
+		
+		UIContext uiContext = new UIContext(ui);
+		uiContext.put("checkLicense", "true");
+		uiContext.put("UIClassParam", reportId);
+		uiContext.put("MainMenuName", "´òÓ¡Êý¾ÝÔ¤ÀÀ");
+		uiContext.put("canExcute", "true");
+		uiContext.put("isEntryFromMenu", "false");
+
+		uiContext.put("isLimitRecord", "false");
+		uiContext.put("filterMap", filterMap);
+
+		String name = MyExtReportRunUI.class.getName();
+		
+		IUIFactory uiFactory = UIFactory.createUIFactory(UIFactoryName.NEWWIN);
+		IUIWindow uiWindow = uiFactory.create(name, uiContext,null, "VIEW");
+		
+		ExtReportRunUI rptui = (ExtReportRunUI)uiWindow.getUIObject();
+		rptui.setPreferredSize(new Dimension(111,111));
+		uiWindow.show();
 	}
 }
