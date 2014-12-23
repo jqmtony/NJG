@@ -7,10 +7,16 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import org.apache.log4j.Logger;
 
@@ -23,6 +29,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
+import com.kingdee.bos.ctrl.kds.expans.model.data.ParameterImpl;
 import com.kingdee.bos.ctrl.swing.KDContainer;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
@@ -33,6 +40,8 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIFactory;
+import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
@@ -69,8 +78,10 @@ import com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI;
 import com.kingdee.eas.port.pm.invite.InvitePlanInfo;
 import com.kingdee.eas.port.pm.invite.judgeSolution;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.rpts.ctrlreport.client.ExtReportRunUI;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
+import com.kingdee.eas.xr.helper.SysPlatformXRHelper;
 
 /**
  * output class name
@@ -890,7 +901,8 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 	 * output actionPrint_actionPerformed
 	 */
 	public void actionPrint_actionPerformed(ActionEvent e) throws Exception {
-		super.actionPrint_actionPerformed(e);
+//		super.actionPrint_actionPerformed(e);
+		openRptUI();
 	}
 
 	/**
@@ -898,7 +910,8 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 	 */
 	public void actionPrintPreview_actionPerformed(ActionEvent e)
 			throws Exception {
-		super.actionPrintPreview_actionPerformed(e);
+//		super.actionPrintPreview_actionPerformed(e);
+		openRptUI();
 	}
 
 	/**
@@ -906,6 +919,22 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 	 */
 	public void actionCopy_actionPerformed(ActionEvent e) throws Exception {
 		super.actionCopy_actionPerformed(e);
+	}
+	
+	private void openRptUI() throws UIException
+	{
+		//select * from T_BAS_DefineReport where fid ='6vYAAAAsYLc/8MJf'
+		
+		if(editData.getId()==null)
+		{
+			com.kingdee.eas.util.client.MsgBox.showWarning("当前单据未保存，不允许此操作！");
+			SysUtil.abort();
+		}
+		
+		String billId = editData.getId().toString();
+		String reportId = "6vYAAAAyrxA/8MJf";
+		
+		SysPlatformXRHelper.openPrintForRpt(this,billId, reportId);
 	}
 
 	/**

@@ -118,7 +118,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	public void onLoad() throws Exception {
 		this.setPreferredSize(new Dimension(1000,555));
 		super.onLoad();
-		this.actionAddNew.setVisible(false);
+		actionAddNew.setVisible(false);
 		contDescription.setVisible(false);
 		txtDescription.setVisible(false);
 		contBizDate.setVisible(false);
