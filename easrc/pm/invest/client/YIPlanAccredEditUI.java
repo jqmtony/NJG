@@ -78,6 +78,8 @@ import com.kingdee.eas.xr.helper.ClientVerifyXRHelper;
 import com.kingdee.eas.xr.helper.DateXRHelper;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
 import com.kingdee.eas.xr.helper.WorkflowXRHelper;
+import com.kingdee.eas.xr.helper.XRSQLBuilder;
+import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.util.StringUtils;
 
 /**

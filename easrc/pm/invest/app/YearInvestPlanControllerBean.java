@@ -21,6 +21,8 @@ import com.kingdee.eas.basedata.assistant.ProjectTypeEnum;
 import com.kingdee.eas.basedata.org.CompanyOrgUnitFactory;
 import com.kingdee.eas.basedata.org.ICompanyOrgUnit;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.port.equipment.maintenance.RepairOrderInfo;
 import com.kingdee.eas.port.pm.base.IProjectType;
 import com.kingdee.eas.port.pm.base.ProjectTypeFactory;
 import com.kingdee.eas.port.pm.base.coms.PlanTypeEnum;
@@ -31,6 +33,7 @@ import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
 import com.kingdee.eas.util.app.ContextUtil;
 import com.kingdee.util.NumericExceptionSubItem;
+import com.kingdee.util.UuidException;
 
 public class YearInvestPlanControllerBean extends AbstractYearInvestPlanControllerBean
 {
@@ -43,6 +46,8 @@ public class YearInvestPlanControllerBean extends AbstractYearInvestPlanControll
 //		}
 		return super._addnew(ctx,model);
 	}
+	
+
 	protected void setAutoNumberByOrg(Context ctx,com.kingdee.eas.framework.ObjectBaseInfo model,String orgType) {
 			String sysNumber = null;
 			String strCompanyID =  com.kingdee.eas.util.app.ContextUtil.getCurrentOrgUnit(ctx).getString("id");
