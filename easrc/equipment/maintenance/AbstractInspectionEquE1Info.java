@@ -96,6 +96,17 @@ public class AbstractInspectionEquE1Info extends com.kingdee.eas.framework.CoreB
     {
         setString("question", item);
     }
+    /**
+     * Object:第1个表体's 厂内编号property 
+     */
+    public String getCnNumber()
+    {
+        return getString("cnNumber");
+    }
+    public void setCnNumber(String item)
+    {
+        setString("cnNumber", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("9DFCCA31");

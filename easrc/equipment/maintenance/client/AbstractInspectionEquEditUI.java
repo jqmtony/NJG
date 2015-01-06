@@ -249,7 +249,7 @@ public abstract class AbstractInspectionEquEditUI extends com.kingdee.eas.xr.cli
         this.contAuditTime.setBoundLabelLength(100);		
         this.contAuditTime.setBoundLabelUnderline(true);
         // kdtE1
-		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"equNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"model\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"incPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"xunjianResult\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"question\" t:width=\"340\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{equNumber}</t:Cell><t:Cell>$Resource{equName}</t:Cell><t:Cell>$Resource{model}</t:Cell><t:Cell>$Resource{incPerson}</t:Cell><t:Cell>$Resource{xunjianResult}</t:Cell><t:Cell>$Resource{question}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"equNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"cnNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"model\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"incPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"xunjianResult\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"question\" t:width=\"340\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{equNumber}</t:Cell><t:Cell>$Resource{equName}</t:Cell><t:Cell>$Resource{cnNumber}</t:Cell><t:Cell>$Resource{model}</t:Cell><t:Cell>$Resource{incPerson}</t:Cell><t:Cell>$Resource{xunjianResult}</t:Cell><t:Cell>$Resource{question}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
         kdtE1.addKDTEditListener(new KDTEditAdapter() {
@@ -274,10 +274,18 @@ public abstract class AbstractInspectionEquEditUI extends com.kingdee.eas.xr.cli
             }
         });
 
-                this.kdtE1.putBindContents("editData",new String[] {"seq","equNumber","equName","model","incPerson","xunjianResult","question"});
+                this.kdtE1.putBindContents("editData",new String[] {"seq","equNumber","equName","cnNumber","model","incPerson","xunjianResult","question"});
 
 
         this.kdtE1.checkParsed();
+        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
+        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
+        kdtE1_seq_TextField.setVisible(true);
+        kdtE1_seq_TextField.setEditable(true);
+        kdtE1_seq_TextField.setHorizontalAlignment(2);
+        kdtE1_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
+        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         final KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
         kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
         kdtE1_equNumber_PromptBox.setVisible(true);
@@ -295,6 +303,11 @@ public abstract class AbstractInspectionEquEditUI extends com.kingdee.eas.xr.cli
         kdtE1_equName_TextField.setMaxLength(80);
         KDTDefaultCellEditor kdtE1_equName_CellEditor = new KDTDefaultCellEditor(kdtE1_equName_TextField);
         this.kdtE1.getColumn("equName").setEditor(kdtE1_equName_CellEditor);
+        KDTextField kdtE1_cnNumber_TextField = new KDTextField();
+        kdtE1_cnNumber_TextField.setName("kdtE1_cnNumber_TextField");
+        kdtE1_cnNumber_TextField.setMaxLength(80);
+        KDTDefaultCellEditor kdtE1_cnNumber_CellEditor = new KDTDefaultCellEditor(kdtE1_cnNumber_TextField);
+        this.kdtE1.getColumn("cnNumber").setEditor(kdtE1_cnNumber_CellEditor);
         KDTextField kdtE1_model_TextField = new KDTextField();
         kdtE1_model_TextField.setName("kdtE1_model_TextField");
         kdtE1_model_TextField.setMaxLength(80);
@@ -373,18 +386,16 @@ public abstract class AbstractInspectionEquEditUI extends com.kingdee.eas.xr.cli
         this.pkAuditTime.setEnabled(false);
         // prmtuserDepatrt		
         this.prmtuserDepatrt.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
-        this.prmtuserDepatrt.setVisible(true);		
         this.prmtuserDepatrt.setEditable(true);		
         this.prmtuserDepatrt.setDisplayFormat("$name$");		
         this.prmtuserDepatrt.setEditFormat("$number$");		
         this.prmtuserDepatrt.setCommitFormat("$number$");		
         this.prmtuserDepatrt.setRequired(false);
         // txtchangNumber		
-        this.txtchangNumber.setVisible(true);		
         this.txtchangNumber.setHorizontalAlignment(2);		
         this.txtchangNumber.setMaxLength(100);		
         this.txtchangNumber.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtuserDepatrt,txtchangNumber}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {comboStatus,comboBizStatus,pkAuditTime,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,pkCreateTime,prmtLastUpdateUser,pkLastUpdateTime,prmtCU,prmtuserDepatrt,txtchangNumber,kdtE1}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -661,6 +672,7 @@ vo.put("xunjianResult","10");
 		dataBinder.registerBinding("E1.incPerson", java.lang.Object.class, this.kdtE1, "incPerson.text");
 		dataBinder.registerBinding("E1.xunjianResult", com.kingdee.util.enums.Enum.class, this.kdtE1, "xunjianResult.text");
 		dataBinder.registerBinding("E1.question", String.class, this.kdtE1, "question.text");
+		dataBinder.registerBinding("E1.cnNumber", String.class, this.kdtE1, "cnNumber.text");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
@@ -706,7 +718,7 @@ vo.put("xunjianResult","10");
     public void onShow() throws Exception
     {
         super.onShow();
-        this.prmtuserDepatrt.requestFocusInWindow();
+        this.comboStatus.requestFocusInWindow();
     }
 
 	
@@ -817,6 +829,7 @@ vo.put("xunjianResult","10");
 		getValidateHelper().registerBindProperty("E1.incPerson", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.xunjianResult", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.question", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.cnNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
@@ -871,6 +884,11 @@ kdtE1.getCell(rowIndex,"model").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getS
 
 }
 
+    if ("equNumber".equalsIgnoreCase(kdtE1.getColumn(colIndex).getKey())) {
+kdtE1.getCell(rowIndex,"cnNumber").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(rowIndex,"equNumber").getValue(),"innerNumber")));
+
+}
+
 
     }
     /**
@@ -912,6 +930,7 @@ kdtE1.getCell(rowIndex,"model").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getS
 		}
     	sic.add(new SelectorItemInfo("E1.xunjianResult"));
     	sic.add(new SelectorItemInfo("E1.question"));
+    	sic.add(new SelectorItemInfo("E1.cnNumber"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));

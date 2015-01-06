@@ -149,6 +149,17 @@ public class AbstractMonMPApplicationE1Info extends com.kingdee.eas.framework.Co
     {
         setBigDecimal("planWeixiuDay", item);
     }
+    /**
+     * Object:月度维保计划申请's 厂内编号property 
+     */
+    public String getCnNumber()
+    {
+        return getString("cnNumber");
+    }
+    public void setCnNumber(String item)
+    {
+        setString("cnNumber", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("B99906BD");

@@ -614,7 +614,10 @@ public class AnnualYearPlanListUI extends AbstractAnnualYearPlanListUI
 		EntityViewInfo viewInfo = (EntityViewInfo)arg1.clone();
 		FilterInfo filInfo = new FilterInfo();
 		String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
-		filInfo.getFilterItems().add(new FilterItemInfo("CU.id",id ,CompareType.EQUALS));
+		String name =SysContext.getSysContext().getCurrentCtrlUnit().getName();
+//		filInfo.getFilterItems().add(new FilterItemInfo("CU.id",id ,CompareType.EQUALS));
+		filInfo.getFilterItems().add(new FilterItemInfo("Entry.useUnit",name ,CompareType.EQUALS));
+//		filInfo.setMaskString("#0 and #1");
 		if(viewInfo.getFilter()!=null)
 	    	{
 	    
