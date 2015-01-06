@@ -1,6 +1,5 @@
 package com.kingdee.eas.port.pm.invest.app;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -12,6 +11,7 @@ import org.apache.log4j.Logger;
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectPK;
+import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.MetaDataLoaderFactory;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -40,35 +40,69 @@ import com.kingdee.eas.basedata.org.CtrlUnitInfo;
 import com.kingdee.eas.basedata.org.ICompanyOrgUnit;
 import com.kingdee.eas.basedata.org.StorageOrgUnitFactory;
 import com.kingdee.eas.common.EASBizException;
-import com.kingdee.eas.common.SysConstant;
 import com.kingdee.eas.common.SysContextConstant;
-import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.CoreBaseInfo;
-import com.kingdee.eas.mm.common.MMBaseStatusEnum;
-import com.kingdee.eas.mm.project.ProjectGroupFactory;
 import com.kingdee.eas.mm.project.ProjectOrgInfo;
-import com.kingdee.eas.mm.project.ProjectPriorityEnum;
 import com.kingdee.eas.port.pm.base.IProjectType;
 import com.kingdee.eas.port.pm.base.InvestYearInfo;
 import com.kingdee.eas.port.pm.base.ProjectTypeFactory;
 import com.kingdee.eas.port.pm.base.coms.PlanTypeEnum;
 import com.kingdee.eas.port.pm.invest.AccredTypeEnum;
+import com.kingdee.eas.port.pm.invest.IYIPlanAccredE1;
 import com.kingdee.eas.port.pm.invest.IYearInvestPlan;
 import com.kingdee.eas.port.pm.invest.ObjectStateEnum;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredE1Collection;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredE1E2Info;
+import com.kingdee.eas.port.pm.invest.YIPlanAccredE1Factory;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredE1Info;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredFactory;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredInfo;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
+import com.kingdee.eas.util.app.DbUtil;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.util.NumericExceptionSubItem;
 
 public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBean
 {
     private static Logger logger =
         Logger.getLogger("com.kingdee.eas.port.pm.invest.app.YIPlanAccredControllerBean");
+    
+    protected IObjectPK _save(Context ctx, IObjectValue model)throws BOSException, EASBizException {
+    	YIPlanAccredInfo YIPlanAccredInfo = (YIPlanAccredInfo)model;
+    	
+    	if(YIPlanAccredInfo.getAccredType()== null)
+    		return super._save(ctx, YIPlanAccredInfo);
+    	else
+    	{
+    		AccredTypeEnum AccredType =YIPlanAccredInfo.getAccredType();
+    		
+    		IYIPlanAccredE1 IYIPlanAccredE1 = YIPlanAccredE1Factory.getLocalInstance(ctx);
+    		
+    		for (int i = 0; i < YIPlanAccredInfo.getE1().size(); i++)
+    		{
+    			YIPlanAccredE1Info YIPlanAccredE1Info = YIPlanAccredInfo.getE1().get(i);
+    			if(YIPlanAccredE1Info.getProjectName() == null)
+    				continue;
+    			String id = ((YearInvestPlanInfo)YIPlanAccredE1Info.getProjectName()).getId().toString();
+    			
+    			String oql = "select projectName.projectName where projectName.id='"+id+"' and parent.status<>'4' and parent.accredType='"+AccredType.getValue()+"'";
+    			if(YIPlanAccredInfo.getId()!=null)
+    				oql = oql+" and parent.id<>'"+YIPlanAccredInfo.getId()+"'";
+    			
+    			YIPlanAccredE1Collection yiE1Col = IYIPlanAccredE1.getYIPlanAccredE1Collection(oql);
+    			if(yiE1Col.size()>0)
+    			{
+    				YIPlanAccredE1Info newAccredE1Info =  yiE1Col.get(0);
+    				throw new EASBizException(new NumericExceptionSubItem("100"," 当前投资计划["+newAccredE1Info.getProjectName().getProjectName()+"]" +
+    						" 已有["+AccredType.getAlias()+"]！"));
+    			}
+    		}
+    		return super._save(ctx, YIPlanAccredInfo);
+    	}
+    }
+    
     
     protected void _audit(Context ctx, IObjectPK pk) throws BOSException,EASBizException {
     	super._audit(ctx, pk);

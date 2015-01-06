@@ -182,6 +182,7 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		evi.setFilter(filter);
 		if(editData.getId()!=null){
 			filter.getFilterItems().add(new FilterItemInfo("projectName.id",editData.getId().toString()));
+			filter.getFilterItems().add(new FilterItemInfo("status","4" ,CompareType.EQUALS));
 			evi.getSorter().add(new SorterItemInfo("auditTime"));
 			evi.getSorter().get(0).setSortType(SortType.DESCEND);
 			try {
