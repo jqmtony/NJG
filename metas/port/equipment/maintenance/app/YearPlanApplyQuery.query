@@ -129,37 +129,6 @@
     </subObjects>
     <units>
         <queryField>
-            <name>status</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[status].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Int</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>538d4f61-cd00-40af-a241-ff4504ba65d2</key>
-                    <parentUnit>
-                        <key name="name" value="status" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="YearPlanApply" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="status" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
-                <key name="name" value="YearPlanApplyQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>number</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -182,6 +151,37 @@
                     </subEntity>
                     <refProperty>
                         <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="YearPlanApplyQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>status</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[status].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>538d4f61-cd00-40af-a241-ff4504ba65d2</key>
+                    <parentUnit>
+                        <key name="name" value="status" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YearPlanApply" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="status" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -222,59 +222,28 @@
             </query>
         </queryField>
         <queryField>
-            <name>creator.name</name>
+            <name>planYear</name>
             <userDefined>true</userDefined>
-            <formulaString />
+            <formulaString>#0</formulaString>
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[creator.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>7adc4c92-9787-486e-ba95-3db724e75b36</key>
-                    <parentUnit>
-                        <key name="name" value="creator.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="creator" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
-                <key name="name" value="YearPlanApplyQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>createTime</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[createTime].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[planYear].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
             <isSorter>true</isSorter>
             <isParameter>false</isParameter>
-            <returnType>Timestamp</returnType>
+            <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>49ba5ef1-f78b-4df1-9e0a-dfb8ea209208</key>
+                    <key>ef813080-752c-45da-8eaa-7bbe11517328</key>
                     <parentUnit>
-                        <key name="name" value="createTime" />
+                        <key name="name" value="planYear" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="YearPlanApply" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="createTime" />
+                        <key name="name" value="planYear" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -284,121 +253,28 @@
             </query>
         </queryField>
         <queryField>
-            <name>lastUpdateUser.name</name>
+            <name>applyDepart.name</name>
             <userDefined>true</userDefined>
-            <formulaString />
+            <formulaString>#0</formulaString>
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[applyDepart.name].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
+            <isSorter>true</isSorter>
             <isParameter>false</isParameter>
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>978ac494-6508-4912-86d0-4d934ca8fb6f</key>
+                    <key>bcc8262d-a615-415e-a454-c3c32a12fe1d</key>
                     <parentUnit>
-                        <key name="name" value="lastUpdateUser.name" />
+                        <key name="name" value="applyDepart.name" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="lastUpdateUser" />
+                        <key name="name" value="applyDepart" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
-                <key name="name" value="YearPlanApplyQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>lastUpdateTime</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[lastUpdateTime].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Timestamp</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>fed2a620-b4f9-4320-86d0-ad1a98a04ce9</key>
-                    <parentUnit>
-                        <key name="name" value="lastUpdateTime" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="YearPlanApply" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="lastUpdateTime" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
-                <key name="name" value="YearPlanApplyQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>auditor.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[auditor.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>62e79ba2-0ff2-44e1-9435-6498d0029bd2</key>
-                    <parentUnit>
-                        <key name="name" value="auditor.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="auditor" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
-                <key name="name" value="YearPlanApplyQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>auditTime</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[auditTime].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Timestamp</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>60bee6c4-14c8-4937-b5c6-052285fd7ad2</key>
-                    <parentUnit>
-                        <key name="name" value="auditTime" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="YearPlanApply" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="auditTime" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -709,6 +585,37 @@
                     </subEntity>
                     <refProperty>
                         <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="YearPlanApplyQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>CU.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[CU.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>375b1106-226f-4e0f-be49-e843848118e9</key>
+                    <parentUnit>
+                        <key name="name" value="CU.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -1183,28 +1090,28 @@
             </query>
         </queryField>
         <queryField>
-            <name>planYear</name>
+            <name>creator.name</name>
             <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
+            <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[planYear].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[creator.name].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
+            <isSorter>false</isSorter>
             <isParameter>false</isParameter>
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>ef813080-752c-45da-8eaa-7bbe11517328</key>
+                    <key>7adc4c92-9787-486e-ba95-3db724e75b36</key>
                     <parentUnit>
-                        <key name="name" value="planYear" />
+                        <key name="name" value="creator.name" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="YearPlanApply" />
+                        <key name="name" value="creator" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="planYear" />
+                        <key name="name" value="name" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -1214,28 +1121,152 @@
             </query>
         </queryField>
         <queryField>
-            <name>applyDepart.name</name>
+            <name>createTime</name>
             <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
+            <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[applyDepart.name].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[createTime].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
             <isSorter>true</isSorter>
             <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>49ba5ef1-f78b-4df1-9e0a-dfb8ea209208</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YearPlanApply" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="YearPlanApplyQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>bcc8262d-a615-415e-a454-c3c32a12fe1d</key>
+                    <key>978ac494-6508-4912-86d0-4d934ca8fb6f</key>
                     <parentUnit>
-                        <key name="name" value="applyDepart.name" />
+                        <key name="name" value="lastUpdateUser.name" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="applyDepart" />
+                        <key name="name" value="lastUpdateUser" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="YearPlanApplyQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fed2a620-b4f9-4320-86d0-ad1a98a04ce9</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YearPlanApply" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="YearPlanApplyQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditor.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[auditor.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>62e79ba2-0ff2-44e1-9435-6498d0029bd2</key>
+                    <parentUnit>
+                        <key name="name" value="auditor.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="YearPlanApplyQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[auditTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>60bee6c4-14c8-4937-b5c6-052285fd7ad2</key>
+                    <parentUnit>
+                        <key name="name" value="auditTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="YearPlanApply" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditTime" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -1306,6 +1337,37 @@
                 <key name="name" value="YearPlanApplyQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>E1.cnNumber</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[E1.cnNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>87bfdfa0-008f-4396-8f98-7985ec612672</key>
+                    <parentUnit>
+                        <key name="name" value="E1.cnNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="cnNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="YearPlanApplyQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1753,6 +1815,28 @@
             <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[CU.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[E1.cnNumber].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="厂内编号" />
+            <lang locale="zh_HK" value="廠內編號" />
+            <lang locale="zh_TW" value="廠內編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[E1.cnNumber].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[E1.cnNumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.YearPlanApplyQuery].units.queryField[E1.equName.name].displayName">
             <lang locale="en_US" value="null" />

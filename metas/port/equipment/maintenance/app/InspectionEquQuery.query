@@ -1275,6 +1275,37 @@
                 <key name="name" value="InspectionEquQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>E1.cnNumber</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquQuery].units.queryField[E1.cnNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>560f7e7c-f109-442f-a132-cf8cbe071fd7</key>
+                    <parentUnit>
+                        <key name="name" value="E1.cnNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="cnNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.maintenance.app" />
+                <key name="name" value="InspectionEquQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1728,6 +1759,22 @@
             <lang locale="zh_CN" value="名称" />
             <lang locale="zh_HK" value="名稱" />
             <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquQuery].units.queryField[E1.cnNumber].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="厂内编号" />
+            <lang locale="zh_HK" value="廠內編號" />
+            <lang locale="zh_TW" value="廠內編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquQuery].units.queryField[E1.cnNumber].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquQuery].units.queryField[E1.cnNumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.maintenance.app.InspectionEquQuery].units.queryField[E1.equName].displayName">
             <lang locale="en_US" value="null" />
