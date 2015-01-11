@@ -705,6 +705,37 @@
             </query>
         </queryField>
         <queryField>
+            <name>Entry.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailQuery].units.queryField[Entry.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2d080f67-0260-44a2-b176-e16bdce836fa</key>
+                    <parentUnit>
+                        <key name="name" value="Entry.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.special.app" />
+                <key name="name" value="AnnualYearDetailQuery" />
+            </query>
+        </queryField>
+        <queryField>
             <name>Entry.seq</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
@@ -2194,6 +2225,12 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailQuery].units.queryField[Entry.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.special.app.AnnualYearDetailQuery].units.queryField[Entry.planDate].displayName">
             <lang locale="en_US" value="null" />
