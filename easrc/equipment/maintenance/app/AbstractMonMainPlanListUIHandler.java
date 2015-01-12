@@ -19,4 +19,9 @@ public abstract class AbstractMonMainPlanListUIHandler extends com.kingdee.eas.x
 	}
 	protected void _handleActionScrws(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleActionExcel(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionExcel(request,response,context);
+	}
+	protected void _handleActionExcel(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

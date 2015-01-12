@@ -5,6 +5,7 @@ package com.kingdee.eas.port.equipment.maintenance.client;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
@@ -36,6 +37,8 @@ import com.kingdee.eas.port.equipment.maintenance.MonMainPlanFactory;
 import com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo;
 import com.kingdee.eas.port.equipment.maintenance.RepairOrderE1Factory;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
+import com.kingdee.eas.tools.datatask.DatataskParameter;
+import com.kingdee.eas.tools.datatask.client.DatataskCaller;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.KDTableUtil;
@@ -846,5 +849,19 @@ public class MonMainPlanListUI extends AbstractMonMainPlanListUI
 	protected void initWorkButton() {
 		super.initWorkButton();
 		btnScrws.setIcon(EASResource.getIcon("imgTbtn_associatecreate"));
+		btnExcel.setIcon(EASResource.getIcon("imgTbtn_inputoutput"));
 	}
+	
+    public void actionExcel_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionExcel_actionPerformed(e);
+    	String strSolutionName = "eas.equ.009";
+		DatataskCaller task = new DatataskCaller();
+		task.setParentComponent(this);
+		DatataskParameter param = new DatataskParameter();
+		param.solutionName = strSolutionName;
+		param.alias = btnExcel.getText();
+		ArrayList paramList = new ArrayList();
+		paramList.add(param);
+		task.invoke(paramList, 0, true);
+    }
 }

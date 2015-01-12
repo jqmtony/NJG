@@ -256,6 +256,7 @@ public class ImportEquIdUI extends AbstractImportEquIdUI
 				String equName = UIRuleUtil.getString(UIRuleUtil.getProperty((IObjectValue)row.getCell("zdaNumber").getValue(),"name"));
 				row.getCell("equipmentName").setValue(equName);
 				
+				selectIndex +=1;
 				if(equIdInfo.getEqmType()!=null)
 				{
 					String oql = "select id,name,number where type.id='"+equIdInfo.getEqmType().getId()+"'";

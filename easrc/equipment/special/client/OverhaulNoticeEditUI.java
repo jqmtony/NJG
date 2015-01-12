@@ -4,6 +4,7 @@
 package com.kingdee.eas.port.equipment.special.client;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
@@ -35,6 +36,10 @@ import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
+import com.kingdee.eas.fi.fa.basedata.FaCatInfo;
+import com.kingdee.eas.fi.fa.manage.FaCurCardFactory;
+import com.kingdee.eas.fi.fa.manage.FaCurCardInfo;
 import com.kingdee.eas.port.equipment.base.ISpecialCheckItem;
 import com.kingdee.eas.port.equipment.base.SpecialCheckItemCollection;
 import com.kingdee.eas.port.equipment.base.SpecialCheckItemFactory;
@@ -752,7 +757,9 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 			
 			if(equIdInfo.getEqmType()!=null)
 			{
-				String oql = "select id,name,number where type.id='"+equIdInfo.getEqmType().getId()+"'";
+				String id = ((FaCatInfo)equIdInfo.getEqmType()).getId().toString();
+				FaCatInfo faInfo = FaCatFactory.getRemoteInstance().getFaCatInfo(new ObjectUuidPK(id));
+				String oql = "select id,name,number where type.longNumber='"+faInfo.getLongNumber()+"'";
 				SpecialCheckItemCollection specialCheckItemCollection = Ispecial.getSpecialCheckItemCollection(oql);
 				for (int j = 0; j < specialCheckItemCollection.size(); j++) 
 				{
@@ -780,7 +787,7 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 		this.kdtEntry.getColumn("noCheckItem").getStyleAttributes().setLocked(true);
 		pkbackDate.setEnabled(false);
 		txtfeedback.setEnabled(false);
-	    actionAddNew.setVisible(false);
+//	    actionAddNew.setVisible(false);
 		if(getUIContext().get("FeedInfor")!=null)
 		{
 			pkBizDate.setEnabled(false);
@@ -793,6 +800,8 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 		}
 		super.onLoad();
 		this.setUITitle("整改通知单");
+		this.kdtEntry.getColumn("zdaNumber").getStyleAttributes().setFontColor(Color.BLUE);
+		this.kdtEntry.getColumn("zdaNumber").getStyleAttributes().setUnderline(true);
 		if(getUIContext().get("FeedInfor")!=null)
 		{
 			this.toolBar.removeAll();
@@ -899,10 +908,10 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 		this.kDContainer1.getContentPane().add(kdtEntry, BorderLayout.CENTER);
 		KDWorkButton  addnewButton =kdtEntry_detailPanel.getAddNewLineButton();
 		addnewButton.setText("新增行");
-		addnewButton.setVisible(false);
+		addnewButton.setVisible(true);
 		KDWorkButton RemoveButton =kdtEntry_detailPanel.getRemoveLinesButton();
 		RemoveButton.setText("删除行");
-		RemoveButton.setVisible(false);
+		RemoveButton.setVisible(true);
 		this.kDContainer1.addButton(addnewButton);
 		this.kDContainer1.addButton(RemoveButton);
 		if(addnewButton.getActionListeners()[0]!=null)
@@ -924,7 +933,12 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 					context.put("equID", set);
 					uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ImportEquIdUI.class.getName(), context, null, OprtState.ADDNEW);
 					uiWindow.show(); 
+					
+					
+					toBotp(); 
 				} catch (UIException e1) {
+					e1.printStackTrace();
+				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
 			}
@@ -934,13 +948,16 @@ public class OverhaulNoticeEditUI extends AbstractOverhaulNoticeEditUI
 
 	protected void kdtEntry_tableClicked(KDTMouseEvent e) throws Exception {
 		super.kdtEntry_tableClicked(e);
-		  if ((e.getButton() == 1) && (e.getClickCount() == 2))
+		
+		String key = kdtEntry.getColumnKey(e.getColIndex());
+		  if ((e.getButton() == 1) && (e.getClickCount() == 2)&&key.equals("zdaNumber"))
 	        {
 			  if(editData.getId() ==null){
 				  MsgBox.showInfo("请先保存单据！");
 					SysUtil.abort();
 			  }else{
 			  if(e.getRowIndex() != -1){
+				  
 				  if(kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue() !=null){
 				    String id = ((EquIdInfo)kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue()).getId().toString();
 					IUIWindow uiWindow = null;

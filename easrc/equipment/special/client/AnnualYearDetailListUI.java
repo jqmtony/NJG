@@ -9,6 +9,9 @@ import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.bot.BOTMappingFactory;
+import com.kingdee.bos.metadata.bot.BOTMappingInfo;
+import com.kingdee.bos.metadata.bot.IBOTMapping;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
@@ -17,6 +20,7 @@ import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -26,13 +30,25 @@ import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.fm.ecore.app.bean.node.MsgInf;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.maintenance.IMonMainPlanE1;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanE1Collection;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanE1Factory;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanFactory;
+import com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo;
 import com.kingdee.eas.port.equipment.operate.ComproductionInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailEntryCollection;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailEntryFactory;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
 import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
+import com.kingdee.eas.port.equipment.special.IAnnualYearDetailEntry;
 import com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.KDTableUtil;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
 
@@ -444,7 +460,56 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
      */
     public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionCreateTo_actionPerformed(e);
+//        super.actionCreateTo_actionPerformed(e);
+	    	checkSelected();
+	    	int selectIndex[] = KDTableUtil.getSelectedRows(tblMain);
+	    	
+	    	StringBuffer sb = new StringBuffer();
+	    	String innerId = "'null'";
+	    	String billId = "'null'";
+	    	
+	     	for (int j = 0; j < selectIndex.length; j++) 
+	    	{
+	    		String entryId = UIRuleUtil.getString(this.tblMain.getRow(selectIndex[j]).getCell("Entry.id").getValue());
+	    	
+	    			innerId = innerId+",'"+entryId+"'";
+	    			billId = billId+",'"+UIRuleUtil.getString(this.tblMain.getRow(selectIndex[j]).getCell("id").getValue())+"'";
+			}
+	    	
+	    	if(sb!=null&&!"".equals(sb.toString().trim()))
+	    	{
+	    		MsgBox.showConfirm3a("有不满足条件的记录，请查看详细信息！", sb.toString());
+	    		return;
+	    	}
+	    	else
+	    	{
+	    		IBOTMapping botMapping = BOTMappingFactory.getRemoteInstance();
+	    		BOTMappingInfo botInfo = (BOTMappingInfo) botMapping.getValue("where name='NJP00006'");
+	    		if(botInfo== null)
+	    		{
+	    			MsgBox.showWarning("规则错误，请检查BOTP！");SysUtil.abort();
+	    		}
+	    		
+	    		IAnnualYearDetailEntry IAnnualYearDetailEntry = AnnualYearDetailEntryFactory.getRemoteInstance();
+	    		
+	    		CoreBillBaseCollection eqcollection = AnnualYearDetailFactory.getRemoteInstance().getCoreBillBaseCollection("where id in("+billId+")");
+	    		
+	    		for (int i = 0; i < eqcollection.size(); i++)
+	    		{
+	    			AnnualYearDetailInfo Info = (AnnualYearDetailInfo)eqcollection.get(i);
+	    			String oql = "where id in("+innerId+") and parent.id='"+Info.getId()+"'";
+	    			
+	    			AnnualYearDetailEntryCollection e1Collection = IAnnualYearDetailEntry.getAnnualYearDetailEntryCollection(oql);
+	    			Info.getEntry().clear();
+	    			for (int j = 0; j < e1Collection.size(); j++) 
+	    			{
+	    				Info.getEntry().add(e1Collection.get(j));
+					}
+				}
+	    		ToolHelp.generateDestBill("22366297", "D2BED306",eqcollection , new ObjectUuidPK(botInfo.getId()));
+	    		MsgBox.showInfo("生成整改通知单成功！");
+	    		refresh(null);
+	    	}
     }
 
     /**

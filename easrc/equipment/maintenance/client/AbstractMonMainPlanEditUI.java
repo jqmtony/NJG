@@ -78,6 +78,7 @@ public abstract class AbstractMonMainPlanEditUI extends com.kingdee.eas.xr.clien
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtplanTotalCost;
     protected com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo editData = null;
     protected ActionScrws actionScrws = null;
+    protected ActionExcel actionExcel = null;
     /**
      * output class constructor
      */
@@ -135,6 +136,14 @@ public abstract class AbstractMonMainPlanEditUI extends com.kingdee.eas.xr.clien
         this.actionScrws.setExtendProperty("isObjectUpdateLock", "false");
          this.actionScrws.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionScrws.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionExcel
+        this.actionExcel = new ActionExcel(this);
+        getActionManager().registerAction("actionExcel", actionExcel);
+        this.actionExcel.setExtendProperty("canForewarn", "true");
+        this.actionExcel.setExtendProperty("userDefined", "true");
+        this.actionExcel.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionExcel.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionExcel.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -1142,6 +1151,15 @@ kdtE1.getCell(rowIndex,"cnNumber").setValue(com.kingdee.bos.ui.face.UIRuleUtil.g
     {
         com.kingdee.eas.port.equipment.maintenance.MonMainPlanFactory.getRemoteInstance().scrws(editData);
     }
+    	
+
+    /**
+     * output actionExcel_actionPerformed method
+     */
+    public void actionExcel_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.port.equipment.maintenance.MonMainPlanFactory.getRemoteInstance().excel(editData);
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1175,6 +1193,17 @@ kdtE1.getCell(rowIndex,"cnNumber").setValue(com.kingdee.bos.ui.face.UIRuleUtil.g
 	public boolean isPrepareActionScrws() {
     	return false;
     }
+	public RequestContext prepareActionExcel(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExcel() {
+    	return false;
+    }
 
     /**
      * output ActionScrws class
@@ -1203,6 +1232,36 @@ kdtE1.getCell(rowIndex,"cnNumber").setValue(com.kingdee.bos.ui.face.UIRuleUtil.g
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractMonMainPlanEditUI.this, "ActionScrws", "actionScrws_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionExcel class
+     */     
+    protected class ActionExcel extends ItemAction {     
+    
+        public ActionExcel()
+        {
+            this(null);
+        }
+
+        public ActionExcel(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionExcel.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcel.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcel.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractMonMainPlanEditUI.this, "ActionExcel", "actionExcel_actionPerformed", e);
         }
     }
 

@@ -642,8 +642,8 @@ public class OverhaulNoticeListUI extends AbstractOverhaulNoticeListUI
     }
     
     public void onLoad() throws Exception {
-    	actionAddNew.setEnabled(false);
-    	actionAddNew.setVisible(false);
+//    	actionAddNew.setEnabled(false);
+//    	actionAddNew.setVisible(false);
     	super.onLoad();
     	this.setUITitle("整改通知单");
     }

@@ -12,11 +12,13 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 import java.math.BigDecimal;
 import java.text.DateFormat;
+import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -44,6 +46,8 @@ import com.kingdee.bos.ctrl.kdf.table.KDTMenuManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTDataFillListener;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTDataRequestEvent;
+import com.kingdee.bos.ctrl.report.forapp.kdnote.client.KDNoteHelper;
+import com.kingdee.bos.ctrl.reportone.kdrs.exception.KDRSException;
 import com.kingdee.bos.ctrl.swing.KDFileChooser;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.ctrl.swing.util.SimpleFileFilter;
@@ -60,9 +64,16 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.bos.util.BOSObjectType;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.permission.client.longtime.ILongTimeTask;
 import com.kingdee.eas.base.permission.client.longtime.LongTimeDialog;
+import com.kingdee.eas.basedata.assistant.AbstractPrintIntegrationInfo;
+import com.kingdee.eas.basedata.assistant.IPrintIntegration;
+import com.kingdee.eas.basedata.assistant.PrintIntegrationFactory;
+import com.kingdee.eas.basedata.assistant.util.CommonPrintIntegrationDataProvider;
+import com.kingdee.eas.basedata.assistant.util.MultiDataSourceDataProviderProxy;
+import com.kingdee.eas.basedata.assistant.util.PrintIntegrationManager;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.IAdminOrgUnit;
 import com.kingdee.eas.common.EASBizException;
@@ -91,6 +102,7 @@ import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.eas.xr.helper.common.QueryTaoDaDataProvider;
 
 /**
  * output class name
@@ -418,7 +430,8 @@ public class EquIdListUI extends AbstractEquIdListUI
      */
     public void actionPrint_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionPrint_actionPerformed(e);
+//    	super.actionPrint_actionPerformed(e);
+    	invokeMultiPrintFunction(true);
     }
 
     /**
@@ -426,7 +439,8 @@ public class EquIdListUI extends AbstractEquIdListUI
      */
     public void actionPrintPreview_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionPrintPreview_actionPerformed(e);
+//        super.actionPrintPreview_actionPerformed(e);
+        invokeMultiPrintFunction(false);
     }
 
     /**
@@ -1118,7 +1132,7 @@ public class EquIdListUI extends AbstractEquIdListUI
 				}
 				String citycellRawVal = excelSheet.getCell(rowIndex, colcityInt.intValue(), true).getDisplayFormula();
 //				String hongkcellRawVal = excelSheet.getCell(rowIndex, colhongkInt.intValue(), true).getDisplayFormula();
-				String colValue = cellRawVal.toString();
+				String colValue = cellRawVal.toString().trim();
 				if(iEquId.exists("where tzdaNumber='"+colValue+"'"))
 				{
 					EquIdInfo equInfo = iEquId.getEquIdCollection("where tzdaNumber='"+colValue+"'").get(0);
@@ -1303,4 +1317,111 @@ public class EquIdListUI extends AbstractEquIdListUI
 		paramList.add(param);
 		task.invoke(paramList, 0, true);
 	}
+	
+	
+    //连续打印
+    protected void invokeMultiPrintFunction(List idList, boolean isPrint)
+    {
+		if(idList == null || idList.size() == 0 || getTDQueryPK() == null || getTDFileName() == null)
+			return;
+		StringBuffer failToPrintMsg = new StringBuffer();
+		KDNoteHelper tpHelper = new KDNoteHelper();
+		try
+        {
+			int curNum = 1;
+			String bosType = getBizInterface().getType().toString();
+			IPrintIntegration pinfo = PrintIntegrationFactory.getRemoteInstance();
+			List infoList = pinfo.getBillsPrintInfoByList(idList, bosType);
+			tpHelper.prepareBizCall(getTDFileName());
+			boolean isTimesCtrl = tpHelper.isPrintTimesControllable2(getTDFileName());
+			if(getTDFileName() != null && getTDFileName().trim().length() > 0 && isTimesCtrl)
+            {
+				for(int i = 0; i < infoList.size(); i++)
+                {
+					logger.info("start the print control!");
+					int maxNum = tpHelper.getMaxPrintTimes2(getTDFileName());
+					int pnum = ((AbstractPrintIntegrationInfo)infoList.get(i)).getPrintedNumber();
+					String billID = ((AbstractPrintIntegrationInfo)infoList.get(i)).getPrintBillID();
+					logger.info("Max print number:>>" + maxNum);
+					logger.info("Alreadey print number:>>" + pnum);
+					logger.info("current print number:>>" + curNum);
+					if(pnum >= maxNum)
+                    {
+						idList.remove(billID);
+						String billNumber = pinfo.getBillNumberByBosType(bosType, billID);
+						String msgInfo = EASResource.getString("com.kingdee.eas.basedata.assistant.PrintIntegrationResource", "pi.controlinfo1");
+						Object objs[] = {
+								billNumber, String.valueOf(curNum), String.valueOf(pnum), String.valueOf(maxNum)
+                        };
+					failToPrintMsg.append(MessageFormat.format(msgInfo, objs) + "\n");
+					continue;
+                    }
+					if(curNum + pnum > maxNum)
+                    {
+						idList.remove(billID);
+						String billNumber = pinfo.getBillNumberByBosType(bosType, billID);
+						String msgInfo = EASResource.getString("com.kingdee.eas.basedata.assistant.PrintIntegrationResource", "pi.controlinfo2");
+						Object objs[] = {
+								billNumber, String.valueOf(curNum), String.valueOf(pnum), String.valueOf(maxNum)
+                        };
+						failToPrintMsg.append(MessageFormat.format(msgInfo, objs) + "\n");
+                    }
+                }
+				if(failToPrintMsg.toString().trim().length() > 0)
+                {
+					String error = EASResource.getString("com.kingdee.eas.scm.common.SCMResource", "FailToPrintMsg");
+					MsgBox.showDetailAndOK(null, error, failToPrintMsg.toString(), 8188);
+                }
+            }
+        }
+		catch(KDRSException e)
+        {
+			handUIException(e);
+        }
+		catch(BOSException e)
+        {
+			handUIException(e);
+        }
+		catch(Exception e)
+        {
+			handUIException(e);
+        }
+		if(idList == null || idList.size() == 0 || getTDQueryPK() == null || getTDFileName() == null)
+			return;
+		MultiDataSourceDataProviderProxy data = new MultiDataSourceDataProviderProxy();
+		QueryTaoDaDataProvider mainQueryData = new QueryTaoDaDataProvider(idList, "com.kingdee.eas.port.equipment.record.app.EquPrientQuery");
+		mainQueryData.setIds(new HashSet(idList));
+		data.put("MainQuery", mainQueryData);
+//		QueryTaoDaDataProvider PrintReceiptionEntryQuery = new QueryTaoDaDataProvider(idList, "com.kingdee.eas.custom.funds.app.PrintReceiptionEntryQuery");
+//		PrintReceiptionEntryQuery.setIds(new HashSet(idList));
+//		data.put("PrintReceiptionEntryQuery", PrintReceiptionEntryQuery);
+		BOSObjectType bosType = null;
+		try
+        {
+			bosType = getBizInterface().getType();
+			logger.info("current bostype:>>" + bosType.toString());
+        }
+		catch(Exception e)
+        {
+			MsgBox.showError(EASResource.getString("com.kingdee.eas.basedata.assistant.PrintIntegrationResource", "pi.remoteerror"));
+			SysUtil.abort();
+        }
+		CommonPrintIntegrationDataProvider printQueryData = new CommonPrintIntegrationDataProvider(bosType.toString(), PrintIntegrationManager.getPrintQueryPK());
+		data.put("PrintQuery", printQueryData);
+		PrintIntegrationManager.initPrint(tpHelper, bosType, idList, getTDFileName(), "com.kingdee.eas.scm.common.SCMResource", false);
+		if(isPrint)
+			tpHelper.print(getTDFileName(), data, SwingUtilities.getWindowAncestor(this));
+		else
+			tpHelper.printPreview(getTDFileName(), data, SwingUtilities.getWindowAncestor(this));
+		
+		
+    }
+    //连续打印
+    protected void invokeMultiPrintFunction(boolean isPrint)
+	{
+		checkSelected();
+		ArrayList idList = getSelectedIdValues();
+		invokeMultiPrintFunction(((List) (idList)), isPrint);
+	}
+	
 }

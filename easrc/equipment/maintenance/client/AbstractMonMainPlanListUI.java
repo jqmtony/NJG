@@ -46,8 +46,10 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractMonMainPlanListUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractMonMainPlanListUI.class);
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnExcel;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnScrws;
     protected ActionScrws actionScrws = null;
+    protected ActionExcel actionExcel = null;
     /**
      * output class constructor
      */
@@ -92,7 +94,17 @@ public abstract class AbstractMonMainPlanListUI extends com.kingdee.eas.xr.clien
         this.actionScrws.setExtendProperty("isObjectUpdateLock", "false");
          this.actionScrws.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionScrws.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionExcel
+        this.actionExcel = new ActionExcel(this);
+        getActionManager().registerAction("actionExcel", actionExcel);
+        this.actionExcel.setExtendProperty("canForewarn", "true");
+        this.actionExcel.setExtendProperty("userDefined", "true");
+        this.actionExcel.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionExcel.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionExcel.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        this.btnExcel = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnScrws = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnExcel.setName("btnExcel");
         this.btnScrws.setName("btnScrws");
         // CoreUI
 		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol3\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol18\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol21\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol22\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol23\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol24\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol25\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol26\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol30\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol32\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" /><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"CU.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"planMonth.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"planTotalCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"E1.seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"E1.equNumber.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /><t:Column t:key=\"E1.equName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"E1.cnNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" /><t:Column t:key=\"E1.appDepart.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" /><t:Column t:key=\"E1.mainContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" /><t:Column t:key=\"E1.planStartTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" /><t:Column t:key=\"E1.planCompleteT\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" /><t:Column t:key=\"E1.planCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" /><t:Column t:key=\"E1.implementDepart.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"18\" t:styleID=\"sCol18\" /><t:Column t:key=\"E1.actualCompleteT\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"19\" /><t:Column t:key=\"E1.complete\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"20\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"21\" t:styleID=\"sCol21\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"22\" t:styleID=\"sCol22\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"23\" t:styleID=\"sCol23\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"24\" t:styleID=\"sCol24\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"25\" t:styleID=\"sCol25\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"26\" t:styleID=\"sCol26\" /><t:Column t:key=\"E1.implementUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"27\" /><t:Column t:key=\"E1.useDepart.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"28\" /><t:Column t:key=\"E1.weixiuType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"29\" /><t:Column t:key=\"E1.planWeixiuDay\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"30\" t:styleID=\"sCol30\" /><t:Column t:key=\"E1.note\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"31\" /><t:Column t:key=\"E1.shangyuandanjuID\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"32\" t:styleID=\"sCol32\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell><t:Cell>$Resource{CU.name}</t:Cell><t:Cell>$Resource{planMonth.name}</t:Cell><t:Cell>$Resource{planTotalCost}</t:Cell><t:Cell>$Resource{E1.id}</t:Cell><t:Cell>$Resource{E1.seq}</t:Cell><t:Cell>$Resource{E1.equNumber.number}</t:Cell><t:Cell>$Resource{E1.equName}</t:Cell><t:Cell>$Resource{E1.cnNumber}</t:Cell><t:Cell>$Resource{E1.appDepart.name}</t:Cell><t:Cell>$Resource{E1.mainContent}</t:Cell><t:Cell>$Resource{E1.planStartTime}</t:Cell><t:Cell>$Resource{E1.planCompleteT}</t:Cell><t:Cell>$Resource{E1.planCost}</t:Cell><t:Cell>$Resource{E1.implementDepart.name}</t:Cell><t:Cell>$Resource{E1.actualCompleteT}</t:Cell><t:Cell>$Resource{E1.complete}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{E1.implementUnit}</t:Cell><t:Cell>$Resource{E1.useDepart.name}</t:Cell><t:Cell>$Resource{E1.weixiuType.name}</t:Cell><t:Cell>$Resource{E1.planWeixiuDay}</t:Cell><t:Cell>$Resource{E1.note}</t:Cell><t:Cell>$Resource{E1.shangyuandanjuID}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
@@ -103,6 +115,9 @@ public abstract class AbstractMonMainPlanListUI extends com.kingdee.eas.xr.clien
 
         this.tblMain.checkParsed();
         this.tblMain.getGroupManager().setGroup(true);
+        // btnExcel
+        this.btnExcel.setAction((IItemAction)ActionProxyFactory.getProxy(actionExcel, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnExcel.setText(resHelper.getString("btnExcel.text"));
         // btnScrws
         this.btnScrws.setAction((IItemAction)ActionProxyFactory.getProxy(actionScrws, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnScrws.setText(resHelper.getString("btnScrws.text"));
@@ -249,6 +264,7 @@ public abstract class AbstractMonMainPlanListUI extends com.kingdee.eas.xr.clien
         this.toolBar.add(btnAttachment);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
+        this.toolBar.add(btnExcel);
         this.toolBar.add(separatorFW1);
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnPrint);
@@ -454,6 +470,17 @@ public abstract class AbstractMonMainPlanListUI extends com.kingdee.eas.xr.clien
 com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo editData = (com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
 com.kingdee.eas.port.equipment.maintenance.MonMainPlanFactory.getRemoteInstance().scrws(editData);
     }
+    	
+
+    /**
+     * output actionExcel_actionPerformed method
+     */
+    public void actionExcel_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo editData = (com.kingdee.eas.port.equipment.maintenance.MonMainPlanInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.port.equipment.maintenance.MonMainPlanFactory.getRemoteInstance().excel(editData);
+    }
 	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionRemove(itemAction);		
 		if (request != null) {
@@ -474,6 +501,17 @@ com.kingdee.eas.port.equipment.maintenance.MonMainPlanFactory.getRemoteInstance(
     }
 	
 	public boolean isPrepareActionScrws() {
+    	return false;
+    }
+	public RequestContext prepareActionExcel(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExcel() {
     	return false;
     }
 
@@ -504,6 +542,36 @@ com.kingdee.eas.port.equipment.maintenance.MonMainPlanFactory.getRemoteInstance(
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractMonMainPlanListUI.this, "ActionScrws", "actionScrws_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionExcel class
+     */     
+    protected class ActionExcel extends ItemAction {     
+    
+        public ActionExcel()
+        {
+            this(null);
+        }
+
+        public ActionExcel(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionExcel.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcel.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionExcel.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractMonMainPlanListUI.this, "ActionExcel", "actionExcel_actionPerformed", e);
         }
     }
 

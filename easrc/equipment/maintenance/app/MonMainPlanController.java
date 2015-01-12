@@ -54,4 +54,5 @@ public interface MonMainPlanController extends XRBillBaseController
     public void updatePartial(Context ctx, MonMainPlanInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
     public void scrws(Context ctx, MonMainPlanInfo model) throws BOSException, RemoteException;
+    public void excel(Context ctx, MonMainPlanInfo model) throws BOSException, RemoteException;
 }

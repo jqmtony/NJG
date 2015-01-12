@@ -664,6 +664,26 @@ public abstract class AbstractMonMainPlanControllerBean extends XRBillBaseContro
         return;
     }
 
+    public void excel(Context ctx, MonMainPlanInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("c966661c-fcb1-47a2-abb7-6f8f469f555f"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _excel(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _excel(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException
     {
     	return (XRBillBaseCollection)(getMonMainPlanCollection(ctx).cast(XRBillBaseCollection.class));

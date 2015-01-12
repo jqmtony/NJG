@@ -250,6 +250,7 @@ public class ToolHelp {
 		String lastTheme = "";
 		int colIndex = table.getColumnIndex(columnName);
 		int nameIndex = table.getColumnIndex("equipmentName");
+		int testResults = table.getColumnIndex("testResults");
 		KDTMergeManager mm = table.getMergeManager();
 		int rowIndx = 0;
 		int endIndx = 0;
@@ -263,12 +264,14 @@ public class ToolHelp {
 				if (!theme.equals(lastTheme)) { // 获取当前主题 与 上一主题 不相同，所在的行号
 					mm.mergeBlock(rowIndx, colIndex, endIndx - 1, colIndex); // 将最后相同的主题融合
 					mm.mergeBlock(rowIndx, nameIndex, endIndx - 1, nameIndex); // 将最后相同的主题融合
+					mm.mergeBlock(rowIndx, testResults, endIndx - 1, testResults); // 将最后相同的主题融合
 					rowIndx = endIndx;
 				}
 			}
 		}
 		mm.mergeBlock(rowIndx, colIndex, endIndx, colIndex); // 将最后相同的主题融合
 		mm.mergeBlock(rowIndx, nameIndex, endIndx, nameIndex); // 将最后相同的主题融合
+		mm.mergeBlock(rowIndx, testResults, endIndx, testResults); // 将最后相同的主题融合
 	}
 
     
