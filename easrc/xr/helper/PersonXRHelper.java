@@ -34,10 +34,13 @@ import com.kingdee.eas.base.permission.util.ToolUtils;
 import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitFactory;
 import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.basedata.org.IAdminOrgUnit;
+import com.kingdee.eas.basedata.org.ICompanyOrgUnit;
 import com.kingdee.eas.basedata.org.IPositionMember;
+import com.kingdee.eas.basedata.org.IPurchaseOrgUnit;
 import com.kingdee.eas.basedata.org.JobInfo;
 import com.kingdee.eas.basedata.org.OrgType;
 import com.kingdee.eas.basedata.org.PositionFactory;
@@ -46,6 +49,8 @@ import com.kingdee.eas.basedata.org.PositionHierarchyFactory;
 import com.kingdee.eas.basedata.org.PositionInfo;
 import com.kingdee.eas.basedata.org.PositionMemberCollection;
 import com.kingdee.eas.basedata.org.PositionMemberFactory;
+import com.kingdee.eas.basedata.org.PurchaseOrgUnitFactory;
+import com.kingdee.eas.basedata.org.PurchaseOrgUnitInfo;
 import com.kingdee.eas.basedata.person.IPerson;
 import com.kingdee.eas.basedata.person.PersonCollection;
 import com.kingdee.eas.basedata.person.PersonFacadeFactory;
@@ -800,5 +805,50 @@ public class PersonXRHelper {
 		}
 		public static void main(String[] args){
 		}
+		
+		
+		/**
+		 * 由部门得到财务组织
+		 */
+		public static CompanyOrgUnitInfo getComOrgByCompanyOrg(Context ctx,String adminOrgUnitId) throws EASBizException,
+				BOSException {
+			if(adminOrgUnitId==null||"".equals(adminOrgUnitId.trim())){return null;}
+			CompanyOrgUnitInfo costCenterOrgUnitInfo = null;
+			AdminOrgUnitInfo parentCost = null;
+			if(ctx!=null)
+				parentCost = AdminOrgUnitFactory.getLocalInstance(ctx).getAdminOrgUnitInfo(new ObjectUuidPK(adminOrgUnitId));
+			else
+				parentCost = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(adminOrgUnitId));
+			do {
+				if (parentCost == null)
+					break;
+				if (parentCost.isIsCompanyOrgUnit()) {
+					String id = parentCost.getId().toString();
+					if (id == null)
+						continue;
+					ICompanyOrgUnit iCompanyOrgUnit = null;
+					if(ctx!=null)
+						iCompanyOrgUnit = CompanyOrgUnitFactory.getLocalInstance(ctx);
+					else
+						iCompanyOrgUnit = CompanyOrgUnitFactory.getRemoteInstance();
+					costCenterOrgUnitInfo = (CompanyOrgUnitInfo) iCompanyOrgUnit.getValue(new ObjectUuidPK(id));
+					break;
+				}
+				parentCost = parentCost.getParent();
+				if (parentCost != null) {
+					String id = parentCost.getId().toString();
+					if (id != null) {
+						IAdminOrgUnit iAdmin = null;
+						if (ctx!=null) 
+							iAdmin = AdminOrgUnitFactory.getLocalInstance(ctx);
+						else
+							iAdmin = AdminOrgUnitFactory.getRemoteInstance();
+						parentCost = (AdminOrgUnitInfo) iAdmin.getValue(new ObjectUuidPK(id));
+					}
+				}
+			} while (true);
+			return costCenterOrgUnitInfo;
+		}
+
 		
 }
