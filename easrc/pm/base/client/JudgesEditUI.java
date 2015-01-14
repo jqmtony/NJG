@@ -20,7 +20,9 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.basedata.hraux.DiplomaFactory;
 import com.kingdee.eas.basedata.hraux.DiplomaInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitCollection;
+import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.basedata.org.PositionInfo;
 import com.kingdee.eas.basedata.org.PositionMemberCollection;
@@ -125,21 +127,28 @@ public class JudgesEditUI extends AbstractJudgesEditUI
 		if(person!=null){
 			person = PersonFactory.getRemoteInstance().getPersonInfo(new ObjectUuidPK(person.getId()));
 			String personid = person.getId().toString();
-			DiplomaInfo diplomaInfo = person.getHighestDegree();
-			diplomaInfo = DiplomaFactory.getRemoteInstance().getDiplomaInfo(new ObjectUuidPK(diplomaInfo.getId()));
-			sex.setSelectedItem(person.getGender());
-			pkbirthday.setValue(person.getBirthday());
-			prmteducation.setValue(diplomaInfo);
-			txtprofession.setText(getPositionInfo(personid).getName());
-			txttechLevel.setText(getPersonTechnicalPostInfo(personid).getName());
-			AdminOrgUnitCollection orgColl = PersonXRHelper.getDepartmentByUserCollection(person);
-			AdminOrgUnitInfo adminInfo = orgColl.get(0);
-			prmtcurDep.setValue(adminInfo);
-			PersonContactMethodInfo info = getPersonContactMethodInfo(personid);
-			txttelephone.setText(info.getOfficePhone());
-			txtmobile.setText(info.getMobile());
+				DiplomaInfo diplomaInfo = person.getHighestDegree();
+				diplomaInfo = DiplomaFactory.getRemoteInstance().getDiplomaInfo(new ObjectUuidPK(diplomaInfo.getId()));
+				sex.setSelectedItem(person.getGender());
+				pkbirthday.setValue(person.getBirthday());
+				prmteducation.setValue(diplomaInfo);
+				txtprofession.setText(getPositionInfo(personid).getName());
+				txttechLevel.setText(getPersonTechnicalPostInfo(personid).getName());
+				AdminOrgUnitCollection orgColl = PersonXRHelper.getDepartmentByUserCollection(person);
+				AdminOrgUnitInfo adminInfo = orgColl.get(0);
+				prmtcurDep.setValue(adminInfo);
+				CompanyOrgUnitInfo CompanyOrgInfo = PersonXRHelper.getComOrgByCompanyOrg(null, adminInfo.getId().toString());
+				AdminOrgUnitInfo admin = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(CompanyOrgInfo.getId().toString()));
+				prmtssAddmin.setValue(admin);
+				PersonContactMethodInfo info = getPersonContactMethodInfo(personid);
+				txttelephone.setText(info.getOfficePhone());
+				txtmobile.setText(info.getMobile());
 		}
 	}
+	
+	
+	
+	
 	PositionInfo getPositionInfo(String personid){
 		PositionMemberInfo info = new PositionMemberInfo();
 		PositionInfo position = new PositionInfo();

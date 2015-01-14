@@ -65,6 +65,7 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkisUse;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contpersonName;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkisOuter;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contssAddmin;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtSimpleName;
@@ -82,6 +83,7 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
     protected com.kingdee.bos.ctrl.swing.KDTextField txttechLevel;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtjudgeType;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtpersonName;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtssAddmin;
     protected com.kingdee.eas.port.pm.base.JudgesInfo editData = null;
     /**
      * output class constructor
@@ -121,6 +123,7 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
         this.chkisUse = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.contpersonName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.chkisOuter = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.contssAddmin = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
         this.txtSimpleName = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -138,6 +141,7 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
         this.txttechLevel = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtjudgeType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtpersonName = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.prmtssAddmin = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDLabelContainer1.setName("kDLabelContainer1");
         this.kDLabelContainer2.setName("kDLabelContainer2");
         this.kDLabelContainer3.setName("kDLabelContainer3");
@@ -157,6 +161,7 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
         this.chkisUse.setName("chkisUse");
         this.contpersonName.setName("contpersonName");
         this.chkisOuter.setName("chkisOuter");
+        this.contssAddmin.setName("contssAddmin");
         this.txtNumber.setName("txtNumber");
         this.txtName.setName("txtName");
         this.txtSimpleName.setName("txtSimpleName");
@@ -174,6 +179,7 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
         this.txttechLevel.setName("txttechLevel");
         this.prmtjudgeType.setName("prmtjudgeType");
         this.txtpersonName.setName("txtpersonName");
+        this.prmtssAddmin.setName("prmtssAddmin");
         // CoreUI		
         this.setPreferredSize(new Dimension(585,235));		
         this.btnPrint.setVisible(false);		
@@ -281,6 +287,11 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
                 }
             }
         });
+        // contssAddmin		
+        this.contssAddmin.setBoundLabelText(resHelper.getString("contssAddmin.boundLabelText"));		
+        this.contssAddmin.setBoundLabelLength(100);		
+        this.contssAddmin.setBoundLabelUnderline(true);		
+        this.contssAddmin.setVisible(true);
         // txtNumber		
         this.txtNumber.setMaxLength(80);
         // txtName
@@ -399,7 +410,15 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
         this.txtpersonName.setHorizontalAlignment(2);		
         this.txtpersonName.setMaxLength(80);		
         this.txtpersonName.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtjuName,sex,pkbirthday,prmteducation,txttelephone,txtmobile,txtprofession,txtyears,txttechLevel,prmtcurDep,txtcurPost,prmtjudgeType,chkisUse,txtpersonName,chkisOuter}));
+        // prmtssAddmin		
+        this.prmtssAddmin.setQueryInfo("com.kingdee.eas.basedata.org.app.AdminItemQuery");		
+        this.prmtssAddmin.setVisible(true);		
+        this.prmtssAddmin.setEditable(true);		
+        this.prmtssAddmin.setDisplayFormat("$name$");		
+        this.prmtssAddmin.setEditFormat("$number$");		
+        this.prmtssAddmin.setCommitFormat("$number$");		
+        this.prmtssAddmin.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtjuName,sex,pkbirthday,prmteducation,txttelephone,txtmobile,txtprofession,txtyears,txttechLevel,prmtcurDep,txtcurPost,prmtjudgeType,chkisUse,txtpersonName,chkisOuter,prmtssAddmin}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -444,16 +463,16 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
         this.add(contbirthday, new KDLayout.Constraints(14, 82, 270, 19, 0));
         conteducation.setBounds(new Rectangle(299, 82, 270, 19));
         this.add(conteducation, new KDLayout.Constraints(299, 82, 270, 19, 0));
-        conttelephone.setBounds(new Rectangle(299, 154, 270, 19));
-        this.add(conttelephone, new KDLayout.Constraints(299, 154, 270, 19, 0));
+        conttelephone.setBounds(new Rectangle(299, 179, 270, 19));
+        this.add(conttelephone, new KDLayout.Constraints(299, 179, 270, 19, 0));
         contmobile.setBounds(new Rectangle(14, 179, 270, 19));
         this.add(contmobile, new KDLayout.Constraints(14, 179, 270, 19, 0));
         contprofession.setBounds(new Rectangle(14, 106, 270, 19));
         this.add(contprofession, new KDLayout.Constraints(14, 106, 270, 19, 0));
         contyears.setBounds(new Rectangle(299, 106, 270, 19));
         this.add(contyears, new KDLayout.Constraints(299, 106, 270, 19, 0));
-        contcurDep.setBounds(new Rectangle(299, 130, 270, 19));
-        this.add(contcurDep, new KDLayout.Constraints(299, 130, 270, 19, 0));
+        contcurDep.setBounds(new Rectangle(299, 154, 270, 19));
+        this.add(contcurDep, new KDLayout.Constraints(299, 154, 270, 19, 0));
         contcurPost.setBounds(new Rectangle(14, 154, 270, 19));
         this.add(contcurPost, new KDLayout.Constraints(14, 154, 270, 19, 0));
         conttechLevel.setBounds(new Rectangle(14, 130, 270, 19));
@@ -466,6 +485,8 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
         this.add(contpersonName, new KDLayout.Constraints(14, 58, 270, 19, 0));
         chkisOuter.setBounds(new Rectangle(14, 10, 270, 19));
         this.add(chkisOuter, new KDLayout.Constraints(14, 10, 270, 19, 0));
+        contssAddmin.setBounds(new Rectangle(299, 130, 270, 19));
+        this.add(contssAddmin, new KDLayout.Constraints(299, 130, 270, 19, 0));
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtNumber);
         //kDLabelContainer2
@@ -500,6 +521,8 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
         contjudgeType.setBoundEditor(prmtjudgeType);
         //contpersonName
         contpersonName.setBoundEditor(txtpersonName);
+        //contssAddmin
+        contssAddmin.setBoundEditor(prmtssAddmin);
 
     }
 
@@ -627,7 +650,8 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
 		dataBinder.registerBinding("curPost", String.class, this.txtcurPost, "text");
 		dataBinder.registerBinding("techLevel", String.class, this.txttechLevel, "text");
 		dataBinder.registerBinding("judgeType", com.kingdee.eas.port.pm.base.JudgesInfo.class, this.prmtjudgeType, "data");
-		dataBinder.registerBinding("personName", String.class, this.txtpersonName, "text");		
+		dataBinder.registerBinding("personName", String.class, this.txtpersonName, "text");
+		dataBinder.registerBinding("ssAddmin", com.kingdee.eas.basedata.org.AdminOrgUnitInfo.class, this.prmtssAddmin, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){
@@ -792,7 +816,8 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
 		getValidateHelper().registerBindProperty("curPost", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("techLevel", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("judgeType", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("personName", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("personName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("ssAddmin", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -907,6 +932,15 @@ public abstract class AbstractJudgesEditUI extends com.kingdee.eas.framework.cli
         	sic.add(new SelectorItemInfo("judgeType.name"));
 		}
         sic.add(new SelectorItemInfo("personName"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("ssAddmin.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("ssAddmin.id"));
+        	sic.add(new SelectorItemInfo("ssAddmin.number"));
+        	sic.add(new SelectorItemInfo("ssAddmin.name"));
+		}
         return sic;
     }        
 

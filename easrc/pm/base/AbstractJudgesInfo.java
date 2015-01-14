@@ -195,6 +195,17 @@ public class AbstractJudgesInfo extends com.kingdee.eas.framework.DataBaseInfo i
     {
         setBoolean("isOuter", item);
     }
+    /**
+     * Object: 专家库 's 所属组织 property 
+     */
+    public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getSsAddmin()
+    {
+        return (com.kingdee.eas.basedata.org.AdminOrgUnitInfo)get("ssAddmin");
+    }
+    public void setSsAddmin(com.kingdee.eas.basedata.org.AdminOrgUnitInfo item)
+    {
+        put("ssAddmin", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("18EA4FBD");
