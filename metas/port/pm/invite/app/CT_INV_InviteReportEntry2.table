@@ -91,6 +91,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFSuccTableID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InviteReportEntry2].columns.column[CFSuccTableID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InviteReportEntry2].columns.column[CFSuccTableID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_INV_InvtRE2ul5</name>
@@ -121,6 +135,25 @@
                     </refColumn>
                     <fkColumn>
                         <key name="name" value="CFEvaEnterpriseID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_INV_INVIRE2Uqe</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="CT_INV_WinInviteReport" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFSuccTableID" />
                     </fkColumn>
                 </fkColumnPair>
             </fkColumnPairs>
@@ -167,6 +200,18 @@
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InviteReportEntry2].columns.column[CFSuccTableID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="中标核备表" />
+            <lang locale="zh_HK" value="中標核備表" />
+            <lang locale="zh_TW" value="中標核備表" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InviteReportEntry2].columns.column[CFSuccTableID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="中标核备表" />
+            <lang locale="zh_HK" value="中標核備表" />
+            <lang locale="zh_TW" value="中標核備表" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InviteReportEntry2].columns.column[FID].alias">
             <lang locale="en_US" value="null" />

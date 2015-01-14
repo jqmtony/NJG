@@ -1510,6 +1510,37 @@
                 <key name="name" value="InviteReportQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>evaluaMethod</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[evaluaMethod].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>68148e56-8632-411d-aabc-33791038f8ea</key>
+                    <parentUnit>
+                        <key name="name" value="evaluaMethod" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InviteReport" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="evaluaMethod" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InviteReportQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2038,6 +2069,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[evaTemplate.templateName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[evaluaMethod].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评标办法" />
+            <lang locale="zh_HK" value="評標辦法" />
+            <lang locale="zh_TW" value="評標辦法" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[evaluaMethod].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[evaluaMethod].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
