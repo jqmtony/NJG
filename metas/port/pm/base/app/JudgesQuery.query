@@ -74,6 +74,19 @@
                 <key name="name" value="Diploma" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>ssAddmin</name>
+            <alias>joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].subObjects.subEntity[ssAddmin].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="JudgesQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="AdminOrgUnit" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <propertyUnit>
@@ -882,6 +895,99 @@
                 <key name="name" value="JudgesQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>ssAddmin.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.queryField[ssAddmin.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>dbc0a13e-deb4-4bfa-8434-236853b5e8cb</key>
+                    <parentUnit>
+                        <key name="name" value="ssAddmin.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ssAddmin" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="JudgesQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>e7f081d2-4b8a-494f-bbaf-5356575aa220</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.propertyUnit[e7f081d2-4b8a-494f-bbaf-5356575aa220].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>00c33b4e-5045-457a-b166-2a7910997599</key>
+                    <parentUnit>
+                        <key name="name" value="e7f081d2-4b8a-494f-bbaf-5356575aa220" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Judges" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="ssAddmin" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="JudgesQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>b18a5720-4568-4307-89f2-e19eaab20fcb</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.propertyUnit[b18a5720-4568-4307-89f2-e19eaab20fcb].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>26dc6328-412d-48e7-9444-c90f75e2d3ec</key>
+                    <parentUnit>
+                        <key name="name" value="b18a5720-4568-4307-89f2-e19eaab20fcb" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ssAddmin" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="JudgesQuery" />
+            </query>
+        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1023,6 +1129,36 @@
                 <key name="name" value="JudgesQuery" />
             </query>
         </join>
+        <join>
+            <name>e99e91d7-2d04-44b0-946e-c91e39d3ac96</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Judges" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="ssAddmin" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>5e30fd7f-6f21-4248-886c-d9cafc48128f</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="e7f081d2-4b8a-494f-bbaf-5356575aa220" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="b18a5720-4568-4307-89f2-e19eaab20fcb" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="e99e91d7-2d04-44b0-946e-c91e39d3ac96" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="JudgesQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].alias">
@@ -1084,6 +1220,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].subObjects.subEntity[ssAddmin].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.propertyUnit[25451fc9-8277-47ac-b17e-d1210316fec4].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1120,7 +1262,19 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.propertyUnit[b18a5720-4568-4307-89f2-e19eaab20fcb].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.propertyUnit[c681088a-e9ab-464a-a00e-9be8bf13e8a4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.propertyUnit[e7f081d2-4b8a-494f-bbaf-5356575aa220].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1358,6 +1512,27 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.queryField[sex].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.queryField[ssAddmin.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="所属组织" />
+            <lang locale="zh_HK" value="所屬組織" />
+            <lang locale="zh_TW" value="所屬組織" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.queryField[ssAddmin.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.queryField[ssAddmin.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.queryField[ssAddmin.name].extendedProperty.isUsingF7">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
