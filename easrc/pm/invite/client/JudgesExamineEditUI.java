@@ -45,6 +45,7 @@ import com.kingdee.eas.port.pm.invite.JudgesComfirmEntryCollection;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmEntryInfo;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmFactory;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmInfo;
+import com.kingdee.eas.port.pm.invite.examRecord;
 
 /**
  * output class name
@@ -67,7 +68,7 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
     	btnAddNew.setVisible(false);
     	txtprjName.setEnabled(false);
     	txtprjOrg.setEnabled(false);
-    	txtppr.setEditable(false);
+    	txtppr.setEditable(true);
     	
     	prmtreportName.setRequired(true);
     	prmtinvitePerson.setRequired(true);
@@ -104,6 +105,11 @@ public class JudgesExamineEditUI extends AbstractJudgesExamineEditUI
         		
         		this.kdtEntryIndicators.getMergeManager().mergeBlock(start, 1, end, 1);
         	}
+        	
+        //设置分录考核记录默认值为无
+        	for (int i = 0; i < kdtEntryIndicators.getRowCount(); i++) {
+        		kdtEntryIndicators.getCell(i, "record").setValue(examRecord.none);
+			}
     	}
     	ProjectInfo info = (ProjectInfo) getUIContext().get("treeInfo");
     	if(info != null) {

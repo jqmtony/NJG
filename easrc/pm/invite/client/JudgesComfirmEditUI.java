@@ -12,8 +12,12 @@ import java.util.Set;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.swing.KDContainer;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
@@ -114,6 +118,19 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
     			prmtplanName.setValue(coll.get(0));
 		}
 //    	InitWorkButton(this.kDContainer2);
+    	
+    	 final KDBizPromptBox kdtEntry_judgeNumber_PromptBox = new KDBizPromptBox();
+         kdtEntry_judgeNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.base.app.JudgesQuery");
+         kdtEntry_judgeNumber_PromptBox.setVisible(true);
+         kdtEntry_judgeNumber_PromptBox.setEditable(true);
+         kdtEntry_judgeNumber_PromptBox.setDisplayFormat("$personName$");
+         kdtEntry_judgeNumber_PromptBox.setEditFormat("$personName$");
+         kdtEntry_judgeNumber_PromptBox.setCommitFormat("$number$");
+         KDTDefaultCellEditor kdtEntry_judgeNumber_CellEditor = new KDTDefaultCellEditor(kdtEntry_judgeNumber_PromptBox);
+         this.kdtEntry.getColumn("judgeNumber").setEditor(kdtEntry_judgeNumber_CellEditor);
+         ObjectValueRender kdtEntry_judgeNumber_OVR = new ObjectValueRender();
+         kdtEntry_judgeNumber_OVR.setFormat(new BizDataFormat("$personName$"));
+         this.kdtEntry.getColumn("judgeNumber").setRenderer(kdtEntry_judgeNumber_OVR);
     }
     
     protected void prmtplanName_dataChanged(DataChangeEvent e) throws Exception {
@@ -276,6 +293,33 @@ public class JudgesComfirmEditUI extends AbstractJudgesComfirmEditUI
 				}
 			}
     	});
+    }
+    
+    
+    public void kdtEntry_Changed(int rowIndex, int colIndex) throws Exception {
+    	  if ("judgeNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+    		  kdtEntry.getCell(rowIndex,"juName").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"judgeNumber").getValue(),"juName.name")));
+
+    		  }
+
+    		      if ("judgeNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+    		  kdtEntry.getCell(rowIndex,"juType").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"judgeNumber").getValue(),"judgeType.name")));
+
+    		  }
+
+    		      if ("judgeNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+    		  kdtEntry.getCell(rowIndex,"orgUnit").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"judgeNumber").getValue(),"ssAddmin.name")));
+
+    		  }
+
+    		      if ("judgeNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+    		  kdtEntry.getCell(rowIndex,"telephone").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"judgeNumber").getValue(),"mobile")));
+
+    		  }
+
+    		      if ("judgeNumber".equalsIgnoreCase(kdtEntry.getColumn(colIndex).getKey())) {
+    		  kdtEntry.getCell(rowIndex,"judgesName").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"judgeNumber").getValue(),"personName")));
+    		 }
     }
     
     /**

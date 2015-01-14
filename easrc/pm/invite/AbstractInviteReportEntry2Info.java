@@ -50,6 +50,17 @@ public class AbstractInviteReportEntry2Info extends com.kingdee.eas.framework.Co
     {
         put("evaEnterprise", item);
     }
+    /**
+     * Object: 招标单位分录 's 中标核备表 property 
+     */
+    public com.kingdee.eas.port.pm.invite.WinInviteReportInfo getSuccTable()
+    {
+        return (com.kingdee.eas.port.pm.invite.WinInviteReportInfo)get("succTable");
+    }
+    public void setSuccTable(com.kingdee.eas.port.pm.invite.WinInviteReportInfo item)
+    {
+        put("succTable", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("76421706");

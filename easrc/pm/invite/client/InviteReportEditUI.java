@@ -59,6 +59,8 @@ import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.framework.client.multiDetail.DetailPanel;
 import com.kingdee.eas.hr.emp.client.EmployeeMultiF7PromptBox;
+import com.kingdee.eas.port.equipment.uitl.ToolHelp;
+import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockFactory;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
 import com.kingdee.eas.port.markesupplier.subill.client.MarketSupplierStockEditUI;
 import com.kingdee.eas.port.pm.base.EvaluationIndicatorsFactory;
@@ -76,6 +78,7 @@ import com.kingdee.eas.port.pm.invest.ProjectStartRequestCollection;
 import com.kingdee.eas.port.pm.invest.ProjectStartRequestFactory;
 import com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI;
 import com.kingdee.eas.port.pm.invite.InvitePlanInfo;
+import com.kingdee.eas.port.pm.invite.WinInviteReportInfo;
 import com.kingdee.eas.port.pm.invite.judgeSolution;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.rpts.ctrlreport.client.ExtReportRunUI;
@@ -243,6 +246,8 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		
 		this.kdtEntry2.getColumn("evaEnterprise").getStyleAttributes().setUnderline(true);
 		this.kdtEntry2.getColumn("evaEnterprise").getStyleAttributes().setFontColor(Color.BLUE);
+		this.kdtEntry2.getColumn("succTable").getStyleAttributes().setUnderline(true);
+		this.kdtEntry2.getColumn("succTable").getStyleAttributes().setFontColor(Color.BLUE);
 		
 		if(OprtState.ADDNEW.equals(getOprtState())){
 			this.prmtapplicant.setValue(SysContext.getSysContext().getCurrentUserInfo().getPerson());
@@ -269,6 +274,8 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
         ObjectValueRender kdtEntry3_invitePerson_OVR = new ObjectValueRender();
         kdtEntry3_invitePerson_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtEntry3.getColumn("invitePerson").setRenderer(kdtEntry3_invitePerson_OVR);
+        
+      
         
         pkaudDate.setValue(new Date());
 	}
@@ -345,6 +352,22 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		        ObjectValueRender kdtEntry2_evaEnterprise_OVR = new ObjectValueRender();
 		        kdtEntry2_evaEnterprise_OVR.setFormat(new BizDataFormat("$supplierName$"));
 		        this.kdtEntry2.getColumn("evaEnterprise").setRenderer(kdtEntry2_evaEnterprise_OVR);
+		        
+			}
+			
+			if(Info.getName().equals("引用招标成果")){
+				this.kdtEntry2.getColumn("succTable").getStyleAttributes().setHided(false);
+				kDTabbedPane2.add("评标办法", kDPanel9);
+			}else{
+				this.kdtEntry2.getColumn("succTable").getStyleAttributes().setHided(true);
+				kDTabbedPane2.remove(kDPanel9);
+			}
+			
+			
+			if(Info.getName().equals("公开招标")||Info.getName().equals("邀请招标")||Info.getName().equals("竞争性谈判")){
+				kDTabbedPane2.add("评标办法", kDPanel4);
+			}else{
+				kDTabbedPane2.remove(kDPanel4);
 			}
 		}
 	}
@@ -459,18 +482,68 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 	
 	protected void kdtEntry2_tableClicked(KDTMouseEvent e) throws Exception {
 		super.kdtEntry2_tableClicked(e);
-		
-		if(e.getRowIndex()==-1|| e.getColIndex()==-1||UIRuleUtil.isNull(kdtEntry2.getCell(e.getRowIndex(), e.getColIndex()).getValue()))
+		if(e.getRowIndex()==-1|| e.getColIndex()==-1)
 			return;
+		
+		if(e.getColIndex()==kdtEntry2.getColumnIndex("succTable"))
+		{
+			if(UIRuleUtil.isNull(kdtEntry2.getCell(e.getRowIndex(), "evaEnterprise").getValue()))
+			{
+				MsgBox.showWarning("请先选择供应商！");
+				kdtEntry2.getEditManager().editCellAt(e.getRowIndex(), kdtEntry2.getColumnIndex("evaEnterprise"));
+				SysUtil.abort();
+			}
+			
+			String id = ((MarketSupplierStockInfo)kdtEntry2.getCell(e.getRowIndex(), "evaEnterprise").getValue()).getId().toString();
+//			MarketSupplierStockInfo maInfo = MarketSupplierStockFactory.getRemoteInstance().getMarketSupplierStockInfo(new ObjectUuidPK(id));
+//			String name = maInfo.getSupplierName();
+	       	EntityViewInfo evi = new EntityViewInfo();
+	        FilterInfo filter = new FilterInfo();
+	        filter.getFilterItems().add(new FilterItemInfo("winInviteUnit.id",id ,CompareType.EQUALS));
+	        evi.setFilter(filter);
+	        ((KDBizPromptBox)this.kdtEntry2.getColumn("succTable").getEditor().getComponent()).setEntityViewInfo(evi);
+	        
+		}
+		
 		
 		if(e.getClickCount()==2&&e.getColIndex()==kdtEntry2.getColumnIndex("evaEnterprise"))
 		{
+			if(UIRuleUtil.isNull(kdtEntry2.getCell(e.getRowIndex(), e.getColIndex()).getValue()))
+				return;
 			BOSUuid id = ((MarketSupplierStockInfo)kdtEntry2.getCell(e.getRowIndex(), e.getColIndex()).getValue()).getId();
 			UIContext context = new UIContext(this);
 			context.put("ID", id);
 			UIFactory.createUIFactory(UIFactoryName.NEWWIN).create(MarketSupplierStockEditUI.class.getName(), context, null,OprtState.VIEW).show();
 		}
+		
+		if(e.getClickCount()==2&&e.getColIndex()==kdtEntry2.getColumnIndex("succTable"))
+		{
+			if(UIRuleUtil.isNull(kdtEntry2.getCell(e.getRowIndex(),"succTable").getValue()))
+				return;
+			BOSUuid id = ((WinInviteReportInfo)kdtEntry2.getCell(e.getRowIndex(),"succTable").getValue()).getId();
+			UIContext context = new UIContext(this);
+			context.put("ID", id);
+			UIFactory.createUIFactory(UIFactoryName.NEWWIN).create(WinInviteReportEditUI.class.getName(), context, null,OprtState.VIEW).show();
+		}
+		
 	}
+	
+	protected void kdtEntry2_editStopped(KDTEditEvent e) throws Exception {
+		super.kdtEntry2_editStopped(e);
+		
+		if(e.getRowIndex()==-1||e.getColIndex()==-1||!kdtEntry2.getColumnKey(e.getColIndex()).equals("evaEnterprise"))
+			return;
+		
+		Object oldValue = e.getOldValue(); 
+		Object newValue = e.getValue();
+		
+		String oldStr = oldValue!=null?((MarketSupplierStockInfo)oldValue).getId().toString():"";	
+		String newStr = newValue!=null?((MarketSupplierStockInfo)newValue).getId().toString():"";	
+		
+		if(!newStr.equals(oldStr))
+			kdtEntry2.getCell(e.getRowIndex(), "succTable").setValue(null);
+	}
+	
 	
 	/**
 	 * output loadFields method
