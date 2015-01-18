@@ -854,6 +854,75 @@
             </parent>
         </component>
         <component>
+            <name>chkwuxu</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI].components.component[chkwuxu].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDCheckBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>360,99,270,19,480</constraints>
+            <tabIndex>28</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI].components.component[chkwuxu].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI].components.component[chkwuxu].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI].components.component[chkwuxu].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>selected</propertyName>
+                    <propertyType>boolean</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>wuxu</bindingField>
+                    <fieldType>boolean</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+            <eventBindings>
+                <eventBinding>
+                    <name>actionPerformed</name>
+                    <eventType>java.awt.event.ActionEvent</eventType>
+                    <scene />
+                    <listenerType>java.awt.event.ActionListener</listenerType>
+                    <listenerAdapter>java.awt.event.ActionListener</listenerAdapter>
+                    <methodName>chkwuxu_actionPerformed</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
             <name>prmtCreator</name>
             <alias>uiObject[com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI].components.component[prmtCreator].alias</alias>
             <userDefined>true</userDefined>
@@ -2829,6 +2898,30 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI].components.component[chkwuxu].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="无需招标" />
+            <lang locale="zh_HK" value="無需招標" />
+            <lang locale="zh_TW" value="無需招標" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI].components.component[chkwuxu].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI].components.component[chkwuxu].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="无需招标" />
+            <lang locale="zh_HK" value="無需招標" />
+            <lang locale="zh_TW" value="無需招標" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI].components.component[chkwuxu].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI].components.component[comboBizStatus].alias">
             <lang locale="en_US" value="null" />
