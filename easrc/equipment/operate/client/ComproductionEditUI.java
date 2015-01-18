@@ -1023,7 +1023,7 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 			this.prmtCreator.setValue(SysContext.getSysContext().getCurrentUserInfo().getPerson());
 			setEntry();
 		}
-		setSumEntry();
+//		setSumEntry();
 		this.kdtEntrys.getColumn("project").setWidth(30);
 		this.kdtEntrys.getColumn("project1").setWidth(180);
 		KDTMergeManager mm = this.kdtEntrys.getMergeManager();
@@ -1390,18 +1390,18 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 	 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"报表月份"});
 	 		}
 		super.verifyInput(e);
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		String time = (df.format(this.pkBizDate.getSqlDate())).substring(0, 7);
-		String id = ((AdminOrgUnitInfo)prmtreportingUnit.getData()).getId().toString();
-		StringBuffer sb = new StringBuffer();
-		sb.append("/*dialect*/select to_char(fbizdate,'yyyy-mm') datetime");
-		sb.append(" from CT_OPE_Comproduction");
-		sb.append(" where CFReportingUnitID = '"+id+"'");
-		sb.append(" and to_char(fbizdate,'yyyy-mm')='"+time+"'and fnumber <>'"+editData.getNumber()+"'");
-		IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
-		if(rowSet.size()>0){
-			MsgBox.showInfo("本单位本月已有公司产能报表，不允许再新增!");
-  			SysUtil.abort();
-		}
+//		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//		String time = (df.format(this.pkBizDate.getSqlDate())).substring(0, 7);
+//		String id = ((AdminOrgUnitInfo)prmtreportingUnit.getData()).getId().toString();
+//		StringBuffer sb = new StringBuffer();
+//		sb.append("/*dialect*/select to_char(fbizdate,'yyyy-mm') datetime");
+//		sb.append(" from CT_OPE_Comproduction");
+//		sb.append(" where CFReportingUnitID = '"+id+"'");
+//		sb.append(" and to_char(fbizdate,'yyyy-mm')='"+time+"'and fnumber <>'"+editData.getNumber()+"'");
+//		IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
+//		if(rowSet.size()>0){
+//			MsgBox.showInfo("本单位本月已有公司产能报表，不允许再新增!");
+//  			SysUtil.abort();
+//		}
 	}
 }

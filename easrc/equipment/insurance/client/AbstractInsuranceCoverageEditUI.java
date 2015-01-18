@@ -745,7 +745,7 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         conttbrmc.setBounds(new Rectangle(736, 75, 270, 19));
         this.add(conttbrmc, new KDLayout.Constraints(736, 75, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contxzdm.setBounds(new Rectangle(736, 99, 270, 19));
-        this.add(contxzdm, new KDLayout.Constraints(736, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        this.add(contxzdm, new KDLayout.Constraints(736, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contbaodanNo.setBounds(new Rectangle(10, 99, 270, 19));
         this.add(contbaodanNo, new KDLayout.Constraints(10, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contxianzhongTwo.setBounds(new Rectangle(366, 99, 270, 19));

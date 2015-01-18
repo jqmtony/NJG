@@ -64,6 +64,7 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprojectType;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contamount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyear;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkwuxu;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -169,6 +170,7 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
         this.contprojectType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contamount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contyear = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.chkwuxu = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -222,6 +224,7 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
         this.contprojectType.setName("contprojectType");
         this.contamount.setName("contamount");
         this.contyear.setName("contyear");
+        this.chkwuxu.setName("chkwuxu");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -347,6 +350,22 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
         this.contyear.setBoundLabelLength(100);		
         this.contyear.setBoundLabelUnderline(true);		
         this.contyear.setVisible(true);
+        // chkwuxu		
+        this.chkwuxu.setText(resHelper.getString("chkwuxu.text"));		
+        this.chkwuxu.setVisible(true);		
+        this.chkwuxu.setHorizontalAlignment(2);
+        this.chkwuxu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    chkwuxu_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -401,6 +420,14 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
 
 
         this.kdtEntry.checkParsed();
+        KDFormattedTextField kdtEntry_seq_TextField = new KDFormattedTextField();
+        kdtEntry_seq_TextField.setName("kdtEntry_seq_TextField");
+        kdtEntry_seq_TextField.setVisible(true);
+        kdtEntry_seq_TextField.setEditable(true);
+        kdtEntry_seq_TextField.setHorizontalAlignment(2);
+        kdtEntry_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtEntry_seq_CellEditor = new KDTDefaultCellEditor(kdtEntry_seq_TextField);
+        this.kdtEntry.getColumn("seq").setEditor(kdtEntry_seq_CellEditor);
         KDTextArea kdtEntry_inviteName_TextArea = new KDTextArea();
         kdtEntry_inviteName_TextArea.setName("kdtEntry_inviteName_TextArea");
         kdtEntry_inviteName_TextArea.setMaxLength(255);
@@ -454,6 +481,14 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
 
 
         this.kdtE2.checkParsed();
+        KDFormattedTextField kdtE2_seq_TextField = new KDFormattedTextField();
+        kdtE2_seq_TextField.setName("kdtE2_seq_TextField");
+        kdtE2_seq_TextField.setVisible(true);
+        kdtE2_seq_TextField.setEditable(true);
+        kdtE2_seq_TextField.setHorizontalAlignment(2);
+        kdtE2_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtE2_seq_CellEditor = new KDTDefaultCellEditor(kdtE2_seq_TextField);
+        this.kdtE2.getColumn("seq").setEditor(kdtE2_seq_CellEditor);
         KDTextField kdtE2_evaluationIndex_TextField = new KDTextField();
         kdtE2_evaluationIndex_TextField.setName("kdtE2_evaluationIndex_TextField");
         kdtE2_evaluationIndex_TextField.setMaxLength(200);
@@ -574,7 +609,7 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
         this.prmtyear.setCommitFormat("$number$");		
         this.prmtyear.setRequired(false);		
         this.prmtyear.setEnabled(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtperson,prmtdeparment,txtamount,prmtyear,prmtprojectType,kdtE2,kdtEntry,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,prmtprojectName,txtscheme}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtperson,prmtdeparment,txtamount,prmtyear,prmtprojectType,kdtE2,kdtEntry,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,prmtprojectName,txtscheme,chkwuxu}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -639,6 +674,8 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
         this.add(contamount, new KDLayout.Constraints(17, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contyear.setBounds(new Rectangle(703, 69, 270, 19));
         this.add(contyear, new KDLayout.Constraints(703, 69, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        chkwuxu.setBounds(new Rectangle(360, 99, 270, 19));
+        this.add(chkwuxu, new KDLayout.Constraints(360, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -889,6 +926,7 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
 
 	//Regiester control's property binding.
 	private void registerBindings(){
+		dataBinder.registerBinding("wuxu", boolean.class, this.chkwuxu, "selected");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
@@ -1056,6 +1094,7 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
+		getValidateHelper().registerBindProperty("wuxu", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
@@ -1114,6 +1153,13 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
     }
 
     /**
+     * output chkwuxu_actionPerformed method
+     */
+    protected void chkwuxu_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+    }
+
+    /**
      * output prmtperson_dataChanged method
      */
     protected void prmtperson_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
@@ -1138,6 +1184,7 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
+        sic.add(new SelectorItemInfo("wuxu"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));

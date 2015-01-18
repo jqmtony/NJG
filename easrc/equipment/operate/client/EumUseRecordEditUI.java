@@ -3,6 +3,7 @@
  */
 package com.kingdee.eas.port.equipment.operate.client;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -86,6 +87,8 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 		 prmtUseOrgUnit.setEnabled(false);
 		super.onLoad();
 		prmtreportMonth.setRequired(true);
+		this.kdtEqmUse.getColumn("eqmName").getStyleAttributes().setFontColor(Color.BLUE);
+		this.kdtEqmUse.getColumn("eqmName").getStyleAttributes().setUnderline(true);
 		if(getOprtState().equals(OprtState.ADDNEW)){
 			pkBizDate.setValue(new Date());
 			//获取当前的登录人，除了User用户之外。
@@ -978,25 +981,27 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 
 	protected void kdtEqmUse_tableClicked(KDTMouseEvent e) throws Exception {
 		super.kdtEqmUse_tableClicked(e);
-		  if ((e.getButton() == 1) && (e.getClickCount() == 2))
-	        {
-			  if(editData.getId() ==null){
-				  MsgBox.showInfo("请先保存单据！");
-					SysUtil.abort();
-			  }else{
-			  if(e.getRowIndex() != -1){
-				  if(kdtEqmUse.getCell(e.getRowIndex(), "eqmName").getValue() !=null){
-				    String id = ((EquIdInfo)kdtEqmUse.getCell(e.getRowIndex(), "eqmName").getValue()).getId().toString();
-					IUIWindow uiWindow = null;
-					UIContext context = new UIContext(this);
-					context.put("ID", id);
-					context.put("anid", editData.getId().toString());
-					uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(EquIdEditUI.class.getName(), context, null, OprtState.VIEW);
-					uiWindow.show(); 
+			String key = kdtEqmUse.getColumnKey(e.getColIndex());
+			  if ((e.getButton() == 1) && (e.getClickCount() == 2)&&key.equals("eqmName"))
+		        {
+				  if(editData.getId() ==null){
+					  MsgBox.showInfo("请先保存单据！");
+						SysUtil.abort();
+				  }else{
+				  if(e.getRowIndex() != -1){
+					  
+					  if(kdtEqmUse.getCell(e.getRowIndex(), "eqmName").getValue() !=null){
+					    String id = ((EquIdInfo)kdtEqmUse.getCell(e.getRowIndex(), "eqmName").getValue()).getId().toString();
+						IUIWindow uiWindow = null;
+						UIContext context = new UIContext(this);
+						context.put("ID", id);
+						context.put("anid", editData.getId().toString());
+						uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(EquIdEditUI.class.getName(), context, null, OprtState.VIEW);
+						uiWindow.show(); 
+					  }
+				    }
 				  }
-			    }
-			  }
-	        }
+		        }
 	}
 	
 	

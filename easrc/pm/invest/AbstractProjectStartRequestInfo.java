@@ -132,6 +132,17 @@ public class AbstractProjectStartRequestInfo extends com.kingdee.eas.xr.XRBillBa
     {
         setString("dec", item);
     }
+    /**
+     * Object:项目启动申请's 无需招标property 
+     */
+    public boolean isWuxu()
+    {
+        return getBoolean("wuxu");
+    }
+    public void setWuxu(boolean item)
+    {
+        setBoolean("wuxu", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("3BA1FA89");

@@ -758,7 +758,7 @@ public class ShipFuelEditUI extends AbstractShipFuelEditUI
 		 FilterInfo filter = new FilterInfo();
 		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
 		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
-		 filter.getFilterItems().add(new FilterItemInfo("eqmType.name","%´¬%",CompareType.LIKE));
+		 filter.getFilterItems().add(new FilterItemInfo("eqmType.longnumber","05%",CompareType.LIKE));
 		 filter.setMaskString("#0 and #1");
 		 evi.setFilter(filter);
 		 prmtshipName.setSelector(ToolHelp.initPrmtEquIdByF7Color(evi, false)); 

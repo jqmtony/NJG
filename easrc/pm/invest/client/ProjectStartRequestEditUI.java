@@ -327,4 +327,14 @@ public class ProjectStartRequestEditUI extends AbstractProjectStartRequestEditUI
 		return this.txtNumber;
 	}
 
+	protected void verifyInput(ActionEvent e) throws Exception {
+		if(!chkwuxu.isSelected()){
+			if(kdtEntry.getRowCount()==0){
+				MsgBox.showInfo("需要招标，请填写招标计划");
+				SysUtil.abort();
+			}
+		}
+		super.verifyInput(e);
+	}
+	
 }
