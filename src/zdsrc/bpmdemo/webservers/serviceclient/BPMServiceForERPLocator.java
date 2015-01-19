@@ -11,7 +11,7 @@ public class BPMServiceForERPLocator extends org.apache.axis.client.Service impl
 
     // Use to get a proxy class for BPMServiceForERPSoap
     private final java.lang.String BPMServiceForERPSoap_address = "http://10.130.12.20/services/BPMServiceForERP.asmx";
-
+	//private final java.lang.String BPMServiceForERPSoap_address = "http://bpm.cpmlg.net/Services/BPMServiceForERP.asmx";
     public java.lang.String getBPMServiceForERPSoapAddress() {
         return BPMServiceForERPSoap_address;
     }
@@ -52,7 +52,8 @@ public class BPMServiceForERPLocator extends org.apache.axis.client.Service impl
 
     // Use to get a proxy class for BPMServiceForERPSoap12
     private final java.lang.String BPMServiceForERPSoap12_address = "http://10.130.12.20/services/BPMServiceForERP.asmx";
-
+    //private final java.lang.String BPMServiceForERPSoap12_address = "http://bpm.cpmlg.net/Services/BPMServiceForERP.asmx"; 
+    
     public java.lang.String getBPMServiceForERPSoap12Address() {
         return BPMServiceForERPSoap12_address;
     }

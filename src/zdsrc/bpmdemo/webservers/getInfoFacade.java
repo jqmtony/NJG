@@ -119,4 +119,44 @@ public class getInfoFacade extends AbstractBizCtrl implements IgetInfoFacade
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *获取工程项目-User defined method
+     *@return
+     */
+    public String[] GetcurProject() throws BOSException
+    {
+        try {
+            return getController().GetcurProject(getContext());
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *获取会议系统模板信息-User defined method
+     *@return
+     */
+    public String[] GetDemo() throws BOSException
+    {
+        try {
+            return getController().GetDemo(getContext());
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *Getpoint-User defined method
+     *@param pointID 工程项目编号
+     *@return
+     */
+    public String[] Getpoint(String pointID) throws BOSException
+    {
+        try {
+            return getController().Getpoint(getContext(), pointID);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

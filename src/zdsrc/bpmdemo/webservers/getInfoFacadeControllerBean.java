@@ -26,6 +26,7 @@ import com.kingdee.eas.bpm.selectors.DeductBillFacade;
 import com.kingdee.eas.bpm.selectors.JLFacade;
 import com.kingdee.eas.bpm.selectors.PayRequestFacade;
 import com.kingdee.eas.bpm.selectors.SettleMentFacade;
+import com.kingdee.eas.bpm.selectors.SupplierFacade;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
@@ -44,6 +45,8 @@ import com.kingdee.eas.fdc.contract.GuerdonBillInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 import com.kingdee.eas.fdc.finance.DeductBillFactory;
 import com.kingdee.eas.fdc.finance.DeductBillInfo;
+import com.kingdee.eas.fdc.invite.supplier.SupplierStockInfo;
+import com.kingdee.eas.fdc.schedule.FDCScheduleInfo;
 
 public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeControllerBean
 {
@@ -100,9 +103,15 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str=new DeductBillFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
 			}
-			if(billInfo instanceof AimAimCostAdjustInfo)
+//			if(billInfo instanceof AimAimCostAdjustInfo)
+//			{
+//				str=new AimAimcostAdjustFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+//			}
+			
+			if(billInfo instanceof SupplierStockInfo)  /*供应商*/
 			{
-				str=new AimAimcostAdjustFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+				str=new SupplierFacade().SubmitResult(ctx, strBSID, billInfo, success, procInstID, procURL, strMessage);
+				
 			}
 			return str;
 		}
@@ -159,13 +168,95 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str=new DeductBillFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
 			}
-			if(billInfo instanceof AimAimCostAdjustInfo)
+//			if(billInfo instanceof AimAimCostAdjustInfo)
+//			{
+//				str=new AimAimcostAdjustFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+//			}
+			
+			if(billInfo instanceof SupplierStockInfo)  /*供应商*/
 			{
-				str=new AimAimcostAdjustFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+				str=new SupplierFacade().ApproveClose(ctx, strBSID, billInfo, procInstID, processInstanceResult, strComment, dtTime);
+				
 			}
 			return str;
 		}
 	}
+    
+    /*模板*/
+    protected String[] _GetDemo(Context ctx) throws BOSException {
+    	String[] str = new String[3];
+    	IObjectValue billInfo = null;
+    	try{
+    		str=ViewXmlUtil.getViewXmlMBString(ctx, "MBBT"); 
+    	}
+    	catch (Exception e) {
+			str[2] = "获取当前存在项目失败，并查看服务器log日志";
+			e.printStackTrace();
+		}finally{
+			BPMLogInfo log = new BPMLogInfo();
+			try {
+				log.setLogDate(new Date());
+				log.setName("EAS结果:"+str[0]);
+				log.setDescription("错误信息"+str[2]);
+				log.setBeizhu("调用接口方法：_GetDemo");
+				BPMLogFactory.getLocalInstance(ctx).save(log);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return str;
+		}
+    }
+    
+    public String[] _GetcurProject(Context ctx)
+    {
+    	String[] str = new String[3];
+    	IObjectValue billInfo = null;
+    	try{
+    		str=ViewXmlUtil.getViewXmlCurProjectString(ctx, "CurProject"); //当前项目
+    	}
+    	catch (Exception e) {
+			str[2] = "获取当前存在项目失败，并查看服务器log日志";
+			e.printStackTrace();
+		}finally{
+			BPMLogInfo log = new BPMLogInfo();
+			try {
+				log.setLogDate(new Date());
+				log.setName("EAS结果:"+str[0]);
+				log.setDescription("错误信息"+str[2]);
+				log.setBeizhu("调用接口方法：_GetcurProject");
+				BPMLogFactory.getLocalInstance(ctx).save(log);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return str;
+		}
+    }
+    
+    @Override
+    protected String[] _Getpoint(Context ctx, String pointID)
+    		throws BOSException {
+    	String[] str = new String[3];
+    	IObjectValue billInfo = null;
+    	try{
+    		str=ViewXmlUtil.getViewXmlPOINTString(ctx, "MainPlanOrUpBT",pointID); //主项任务编制
+    	}
+    	catch (Exception e) {
+			str[2] = "获取当前存在项目失败，并查看服务器log日志";
+			e.printStackTrace();
+		}finally{
+			BPMLogInfo log = new BPMLogInfo();
+			try {
+				log.setLogDate(new Date());
+				log.setName("EAS结果:"+str[0]);
+				log.setDescription("错误信息"+str[2]);
+				log.setBeizhu("调用接口方法：_Getpoint");
+				BPMLogFactory.getLocalInstance(ctx).save(log);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return str;
+		}
+    }
 
 	public String[] _GetbillInfo(Context ctx, String strBSID, String strBOID) throws BOSException {
 		
@@ -187,6 +278,7 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			if(billInfo instanceof PayRequestBillInfo)
 			{
 				str = new PayRequestFacade().GetbillInfo(ctx, strBSID, billInfo);
+				//str=ViewXmlUtil.getFKQK(ctx, "FK01",((PayRequestBillInfo) billInfo).getId().toString());
 			}
 			if(billInfo instanceof ContractWithoutTextInfo)
 			{
@@ -212,10 +304,22 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
 			{
 				str=ViewXmlUtil.getViewXmlBTANDFLString(ctx, "KKD",((DeductBillInfo) billInfo).getId().toString());
 			}
-			if(billInfo instanceof AimAimCostAdjustInfo)
+//			if(billInfo instanceof AimAimCostAdjustInfo)
+//			{
+//				str=ViewXmlUtil.getViewXmlBTANDFLString(ctx, "BBCBTZbt",((AimAimCostAdjustInfo) billInfo).getId().toString());
+//			}
+//			if(billInfo instanceof FDCScheduleInfo)  /*主项、专项计划*/
+//			{
+//				str=ViewXmlUtil.getViewXmlBTANDFLString(ctx, "MainPlanOrUpBT",((FDCScheduleInfo) billInfo).getId().toString());
+//				
+//			}
+			
+			if(billInfo instanceof SupplierStockInfo)  /*供应商*/
 			{
-				str=ViewXmlUtil.getViewXmlBTANDFLString(ctx, "BBCBTZbt",((AimAimCostAdjustInfo) billInfo).getId().toString());
+				str=ViewXmlUtil.getViewXmlBTANDFLString(ctx, "Supplier",((SupplierStockInfo) billInfo).getId().toString());
+				
 			}
+
 			
     	}catch (Exception e) {
 			str[2] = "根据单据ID获取对象数据失败,请检查单据ID是否存在，并查看服务器log日志";

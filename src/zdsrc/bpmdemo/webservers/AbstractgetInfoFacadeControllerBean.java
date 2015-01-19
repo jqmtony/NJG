@@ -146,4 +146,70 @@ public abstract class AbstractgetInfoFacadeControllerBean extends AbstractBizCon
         return null;
     }
 
+    public String[] GetcurProject(Context ctx) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("4bcd0768-e696-4fc0-a46a-29bdff13dcf5"), new Object[]{ctx});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            String[] retValue = (String[])_GetcurProject(ctx);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+            return (String[])svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected String[] _GetcurProject(Context ctx) throws BOSException
+    {    	
+        return null;
+    }
+
+    public String[] GetDemo(Context ctx) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("66acf46f-2ca7-485d-b22b-d6a3b70eaf46"), new Object[]{ctx});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            String[] retValue = (String[])_GetDemo(ctx);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+            return (String[])svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected String[] _GetDemo(Context ctx) throws BOSException
+    {    	
+        return null;
+    }
+
+    public String[] Getpoint(Context ctx, String pointID) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("1bedb683-a6cf-4dc8-8661-192a9c6051f3"), new Object[]{ctx, pointID});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            String[] retValue = (String[])_Getpoint(ctx, pointID);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+            return (String[])svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected String[] _Getpoint(Context ctx, String pointID) throws BOSException
+    {    	
+        return null;
+    }
+
 }

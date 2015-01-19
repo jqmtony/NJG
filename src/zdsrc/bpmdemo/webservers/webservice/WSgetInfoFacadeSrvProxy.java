@@ -1,6 +1,6 @@
 package com.kingdee.eas.bpmdemo.webservers.webservice;
 
-import  org.apache.axis.Message;
+import org.apache.axis.Message;
 
 import org.apache.axis.MessageContext;
 
@@ -51,6 +51,15 @@ public class WSgetInfoFacadeSrvProxy {
         }
     }
 
+    public String[] GetcurProject() throws WSInvokeException {
+        try {
+            return getController().GetcurProject();
+        }
+        catch( Throwable e ) {
+            throw new WSInvokeException( e ) ;
+        }
+    }
+
     public String[] SubmitResult( String strBSID , String strBOID , boolean bSuccess , int iProcInstID , String procURL , String strMessage ) throws WSInvokeException {
         try {
             return getController().SubmitResult(
@@ -60,6 +69,16 @@ public class WSgetInfoFacadeSrvProxy {
             iProcInstID,
             procURL,
             strMessage);
+        }
+        catch( Throwable e ) {
+            throw new WSInvokeException( e ) ;
+        }
+    }
+
+    public String[] Getpoint( String pointID ) throws WSInvokeException {
+        try {
+            return getController().Getpoint(
+            pointID);
         }
         catch( Throwable e ) {
             throw new WSInvokeException( e ) ;
@@ -83,6 +102,15 @@ public class WSgetInfoFacadeSrvProxy {
             return getController().GetbillInfo(
             strBSID,
             strBOID);
+        }
+        catch( Throwable e ) {
+            throw new WSInvokeException( e ) ;
+        }
+    }
+
+    public String[] GetDemo() throws WSInvokeException {
+        try {
+            return getController().GetDemo();
         }
         catch( Throwable e ) {
             throw new WSInvokeException( e ) ;
