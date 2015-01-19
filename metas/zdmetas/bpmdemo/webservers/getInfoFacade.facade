@@ -277,6 +277,62 @@
             </parameters>
             <configured>false</configured>
         </method>
+        <method>
+            <name>GetcurProject</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetcurProject].alias</alias>
+            <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetcurProject].description</description>
+            <innerID>4bcd0768-e696-4fc0-a46a-29bdff13dcf5</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>GetDemo</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetDemo].alias</alias>
+            <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetDemo].description</description>
+            <innerID>66acf46f-2ca7-485d-b22b-d6a3b70eaf46</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>Getpoint</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[Getpoint].alias</alias>
+            <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[Getpoint].description</description>
+            <innerID>1bedb683-a6cf-4dc8-8661-192a9c6051f3</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pointID</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[Getpoint].parameters.parameter[pointID].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[Getpoint].parameters.parameter[pointID].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <resource>
         <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].alias">
@@ -289,6 +345,11 @@
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].extendedProperty.genBusinessImplCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].extendedProperty.userDefined">
             <lang locale="en_US" value="true" />
@@ -419,6 +480,18 @@
             <lang locale="zh_HK" value="為K2介面提供的資訊反饋" />
             <lang locale="zh_TW" value="為K2介面提供的資訊反饋" />
         </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetDemo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="获取会议系统模板信息" />
+            <lang locale="zh_HK" value="獲取會議系統範本信息" />
+            <lang locale="zh_TW" value="獲取會議系統範本信息" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetDemo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="获取会议系统模板信息" />
+            <lang locale="zh_HK" value="獲取會議系統範本信息" />
+            <lang locale="zh_TW" value="獲取會議系統範本信息" />
+        </rs>
         <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="获取与BMP相关单据数据" />
@@ -449,6 +522,41 @@
             <lang locale="zh_TW" value="業務系統類型ID" />
         </rs>
         <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].parameters.parameter[strBSID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetcurProject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="获取工程项目" />
+            <lang locale="zh_HK" value="獲取工程項目" />
+            <lang locale="zh_TW" value="獲取工程項目" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetcurProject].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[Getpoint].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[Getpoint].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[Getpoint].parameters.parameter[pointID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目编号" />
+            <lang locale="zh_HK" value="工程項目編號" />
+            <lang locale="zh_TW" value="工程項目編號" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[Getpoint].parameters.parameter[pointID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
