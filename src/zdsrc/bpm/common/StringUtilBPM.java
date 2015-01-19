@@ -14,6 +14,7 @@ public class StringUtilBPM{
 	 * */
 	public static String getBPMServerURL(){
 		String str = "http://10.130.12.20/BPMStart.aspx";
+		//String str = "http://bpm.cpmlg.net/BPMStart.aspx";              
 		BPMServerConfigInfo info;
 		try {
 			info = BPMServerConfigFactory.getRemoteInstance().getBPMServerConfigCollection().get(0);

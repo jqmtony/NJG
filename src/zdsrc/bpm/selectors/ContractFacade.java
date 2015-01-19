@@ -237,7 +237,13 @@ public class ContractFacade implements BillBaseSelector {
     			if(Info.getProgrammingContract()!=null)
     				xml.append("<programmingContract>"+StringUtilBPM.isNULl(Info.getProgrammingContract().getName())+"</programmingContract>\n");
     			if(Info.getProgrammingContract()!=null)
+    			{
     				xml.append("<controlBalance>"+Info.getProgrammingContract().getControlBalance()+"</controlBalance>\n");
+    			}
+    			else
+    			{
+    				xml.append("<controlBalance>0</controlBalance>\n");
+    			}
     				xml.append("<bizDate>"+Info.getBookedDate()+"</bizDate>\n");
     			if(Info.getGrtRate()!=null)
     				xml.append("<grtRate>"+Info.getGrtRate()+"</grtRate>\n");

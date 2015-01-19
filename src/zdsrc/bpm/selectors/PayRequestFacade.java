@@ -71,9 +71,13 @@ public class PayRequestFacade implements BillBaseSelector {
 			}
 			try{
 				Info.setState(FDCBillStateEnum.AUDITTING);
+//				String sql = " update t_con_payrequestbill set fState='"+Info.getState().getValue()+"'" +
+//						", fDescription='"+procURL+"' " +
+//						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
+				
 				String sql = " update t_con_payrequestbill set fState='"+Info.getState().getValue()+"'" +
-						", fDescription='"+procURL+"' " +
-						", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
+				", FProcess='"+procURL+"' " +
+				", FSourceFunction='"+procInstID+"' where fid='"+Info.getId()+"'";
 				FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 				bu.appendSql(sql);
 				bu.executeUpdate(ctx);
@@ -157,7 +161,8 @@ public class PayRequestFacade implements BillBaseSelector {
 					if(FDCBillStateEnum.AUDITTING.equals(Info.getState()))
 					{
 						Info.setState(FDCBillStateEnum.SAVED);
-						sql = " update t_con_payrequestbill set fDescription='' where fid='"+Info.getId()+"'";
+						//sql = " update t_con_payrequestbill set fDescription='' where fid='"+Info.getId()+"'";
+						sql = " update t_con_payrequestbill set FProcess='' where fid='"+Info.getId()+"'";
 						FDCSQLBuilder bu = new FDCSQLBuilder(ctx);
 						bu.appendSql(sql);
 						bu.executeUpdate(ctx);
@@ -274,22 +279,23 @@ public class PayRequestFacade implements BillBaseSelector {
 			}
 			xml.append("<Process>"+StringUtilBPM.isNULl(Info.getProcess())+"</Process>\n");
 			xml.append("<payTimes>"+Info.getPayTimes()+"</payTimes>\n");
-			if(Info.getDepPlanState()==null)
-			{
-				xml.append("<DepPlanState>无计划付款</DepPlanState>\n");
-			}
-			else if(Info.getDepPlanState().getName()=="0")
-			{
-				xml.append("<DepPlanState>无计划付款</DepPlanState>\n");	
-			}
-			else if(Info.getDepPlanState().getName()=="1")
-			{
-				xml.append("<DepPlanState>计划内付款</DepPlanState>\n");	
-			}
-			else if(Info.getDepPlanState().getName()=="2")
-			{
-				xml.append("<DepPlanState>超计划付款</DepPlanState>\n");	
-			}
+			xml.append("<DepPlanState>"+Info.getDepPlanState()+"</DepPlanState>\n");
+//			if(Info.getDepPlanState()==null)
+//			{
+//				xml.append("<DepPlanState>无计划付款</DepPlanState>\n");
+//			}
+//			else if(Info.getDepPlanState().getName()=="0")
+//			{
+//				xml.append("<DepPlanState>无计划付款</DepPlanState>\n");	
+//			}
+//			else if(Info.getDepPlanState().getName()=="1")
+//			{
+//				xml.append("<DepPlanState>计划内付款</DepPlanState>\n");	
+//			}
+//			else if(Info.getDepPlanState().getName()=="2")
+//			{
+//				xml.append("<DepPlanState>超计划付款</DepPlanState>\n");	
+//			}
 			if(false==Info.isIsPay())
 			xml.append("<IsPay>否</IsPay>\n");//是否提交付款
 			else
@@ -302,7 +308,6 @@ public class PayRequestFacade implements BillBaseSelector {
 				xml.append("<completePrjAmt>"+Info.getCompletePrjAmt()+"</completePrjAmt>\n");
 			if(Info.getTotalSettlePrice()!=null)//已实现产值
 				xml.append("<TotalSettlePrice>"+Info.getTotalSettlePrice()+"</TotalSettlePrice>\n");
-			
 				xml.append("<invoiceNumber>"+StringUtilBPM.isNULl(Info.getInvoiceNumber())+"</invoiceNumber>\n");//发票号
 		
 			if(Info.getInvoiceOriAmt()!=null)//发票金额原币
@@ -405,6 +410,20 @@ public class PayRequestFacade implements BillBaseSelector {
 					  xml.append("<BgeRequestAmount>"+Conbaseinfo.getRequestAmount()+"</BgeRequestAmount>\n");//本币金额
 					  xml.append("<BgeBalance>"+Conbaseinfo.getBgBalance()+"</BgeBalance>\n");//预算余额 
 					  xml.append("<BgeRemark>"+StringUtilBPM.isNULl(Conbaseinfo.getRemark())+"</BgeRemark>\n");//备注
+//					  if(Conbaseinfo.getIsHasBill().equals("0"))
+//					  {
+//						  xml.append("<IsHasBill>否</IsHasBill>\n");//是否有单据  
+//					  }
+//					  else
+//					  {
+//						  xml.append("<IsHasBill>是</IsHasBill>\n");//是否有单据
+//					  }
+					  if(Conbaseinfo.getIsHasBill().equals(""))
+					  {
+						  xml.append("<IsHasBill></IsHasBill>\n");//是否有单据
+					  }
+					  xml.append("<IsHasBill>"+Conbaseinfo.getIsHasBill()+"</IsHasBill>\n");//是否有单据  
+					  
 				      xml.append("</item>\n");
 				      BigDecimal balance=Conbaseinfo.getBgBalance()!=null?Conbaseinfo.getBgBalance():FDCHelper.ZERO;
 				      if(balance.compareTo(Conbaseinfo.getRequestAmount())<0){
@@ -519,6 +538,7 @@ public class PayRequestFacade implements BillBaseSelector {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
 	
 

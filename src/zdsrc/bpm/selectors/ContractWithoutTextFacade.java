@@ -257,7 +257,7 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     			}
     			if(Info.getContractType()!=null)
     			{
-    			xml.append("<contractType>"+StringUtilBPM.isNULl(Info.getContractType().getName())+"</contractType>\n");//合同类型
+    			xml.append("<contractTypeName>"+StringUtilBPM.isNULl(Info.getContractType().getName())+"</contractTypeName>\n");//合同类型
     			}
     			xml.append("<currency>"+StringUtilBPM.isNULl(Info.getCurrency().getName())+"</currency>\n");//币别
     			if(Info.getReceiveUnit()!=null)
@@ -270,7 +270,6 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
     			xml.append("<BcAmount>"+Info.getAmount()+"</BcAmount>\n");//本币金额
     			xml.append("<NoPaidReason>"+Info.getNoPaidReason()+"</NoPaidReason>\n");  //无需付款原因
     			xml.append("<realSupplier>"+StringUtilBPM.isNULl(Info.getReceiveUnit().getName())+"</realSupplier>\n");//实际收款单位
-    			
     			
     			BigDecimal rate = ExchangeRate.getRate(ctx,Info.getCurrency().getName(), Info.getBizDate().toString(), "1");
     			if(rate!=null)
@@ -425,6 +424,15 @@ public class ContractWithoutTextFacade implements BillBaseSelector {
 					  xml.append("<BgeRequestAmount>"+Conbaseinfo.getRequestAmount()+"</BgeRequestAmount>\n");//本币金额
 					  xml.append("<BgeBalance>"+Conbaseinfo.getBgBalance()+"</BgeBalance>\n");//预算余额 
 					  xml.append("<BgeRemark>"+StringUtilBPM.isNULl(Conbaseinfo.getRemark())+"</BgeRemark>\n");//备注
+//					  if(Conbaseinfo.getIsHasBill().equals("0"))   //0？1？ 是否正确？
+//					  {
+//						  xml.append("<IsHasBill>否</IsHasBill>\n");//是否有单据   
+//					  }
+//					  else
+//					  {
+//						  xml.append("<IsHasBill>是</IsHasBill>\n");//是否有单据 
+//					  }
+					  xml.append("<IsHasBill>"+Conbaseinfo.getIsHasBill()+"</IsHasBill>\n");
 				      xml.append("</item>\n");
 				      BigDecimal balance=Conbaseinfo.getBgBalance()!=null?Conbaseinfo.getBgBalance():FDCHelper.ZERO;
 				      if(balance.compareTo(Conbaseinfo.getRequestAmount())<0){
