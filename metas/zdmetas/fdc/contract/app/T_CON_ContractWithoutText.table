@@ -744,8 +744,8 @@
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
             <defaultValue />
-            <sqlType>INT</sqlType>
-            <length>4</length>
+            <sqlType>VARCHAR</sqlType>
+            <length>100</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -805,6 +805,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFIsSaleCommitments</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[CFIsSaleCommitments].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[CFIsSaleCommitments].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_ContractWithout</name>
@@ -826,10 +840,23 @@
             <lang locale="zh_HK" value="無文本合同" />
             <lang locale="zh_TW" value="無文本合同" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[CFIsSaleCommitments].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否影响销售承诺" />
+            <lang locale="zh_HK" value="是否影響銷售承諾" />
+            <lang locale="zh_TW" value="是否影響銷售承諾" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[CFIsSaleCommitments].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否影响销售承诺" />
+            <lang locale="zh_HK" value="是否影響銷售承諾" />
+            <lang locale="zh_TW" value="是否影響銷售承諾" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FAccountId].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="贷方科目" />
+            <lang locale="zh_HK" value="貸方科目" />
+            <lang locale="zh_TW" value="貸方科目" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FAccountId].description">
             <lang locale="en_US" value="null" />
@@ -872,9 +899,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FAuditorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FAuditorID].description">
             <lang locale="en_US" value="null" />
@@ -890,8 +917,7 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FBankAcct].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FBank].alias">
@@ -902,8 +928,7 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FBank].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FBizDate].alias">
@@ -932,8 +957,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FCodeTypeID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="编码类型" />
+            <lang locale="zh_HK" value="編碼類型" />
+            <lang locale="zh_TW" value="編碼類型" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FCodeTypeID].description">
             <lang locale="en_US" value="null" />
@@ -943,8 +969,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FConChargeTypeID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="合同费用项目" />
+            <lang locale="zh_HK" value="合同費用項目" />
+            <lang locale="zh_TW" value="合同費用項目" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FConChargeTypeID].description">
             <lang locale="en_US" value="null" />
@@ -966,9 +993,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FContractBaseDataID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="合同基础资料" />
-            <lang locale="zh_HK" value="合同基礎資料" />
-            <lang locale="zh_TW" value="合同基礎資料" />
+            <lang locale="zh_CN" value="合同基础信息" />
+            <lang locale="zh_HK" value="合同基礎信息" />
+            <lang locale="zh_TW" value="合同基礎信息" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FContractBaseDataID].description">
             <lang locale="en_US" value="null" />
@@ -978,20 +1005,21 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FContractTypeId].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="合同类型" />
+            <lang locale="zh_HK" value="合同類型" />
+            <lang locale="zh_TW" value="合同類型" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FContractTypeId].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value=" " />
-            <lang locale="zh_HK" value=" " />
-            <lang locale="zh_TW" value=" " />
+            <lang locale="zh_CN" value="合同类型" />
+            <lang locale="zh_HK" value="合同類型" />
+            <lang locale="zh_TW" value="合同類型" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FControlUnitID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
+            <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FControlUnitID].description">
             <lang locale="en_US" value="null" />
@@ -1001,8 +1029,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FCostedCompanyId].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="预算承担公司" />
+            <lang locale="zh_HK" value="預算承擔公司" />
+            <lang locale="zh_TW" value="預算承擔公司" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FCostedCompanyId].description">
             <lang locale="en_US" value="null" />
@@ -1012,8 +1041,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FCostedDeptId].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="预算承担部门" />
+            <lang locale="zh_HK" value="預算承擔部門" />
+            <lang locale="zh_TW" value="預算承擔部門" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FCostedDeptId].description">
             <lang locale="en_US" value="null" />
@@ -1035,9 +1065,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FCreatorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FCreatorID].description">
             <lang locale="en_US" value="null" />
@@ -1059,8 +1089,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FCurrencyId].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="币别" />
+            <lang locale="zh_HK" value="幣別" />
+            <lang locale="zh_TW" value="幣別" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FCurrencyId].description">
             <lang locale="en_US" value="null" />
@@ -1069,13 +1100,15 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FDepPlanState].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="计划付款状态" />
+            <lang locale="zh_HK" value="計畫付款狀態" />
+            <lang locale="zh_TW" value="計畫付款狀態" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FDepPlanState].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="计划付款状态" />
+            <lang locale="zh_HK" value="計畫付款狀態" />
+            <lang locale="zh_TW" value="計畫付款狀態" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FDescription].alias">
             <lang locale="en_US" value="null" />
@@ -1091,8 +1124,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FFdcDepConPlanID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="合同月度滚动计划无合同分录" />
+            <lang locale="zh_HK" value="合同月度滾動計畫無合同分錄" />
+            <lang locale="zh_TW" value="合同月度滾動計畫無合同分錄" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FFdcDepConPlanID].description">
             <lang locale="en_US" value="null" />
@@ -1150,9 +1184,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FHandlerID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="经手人" />
+            <lang locale="zh_HK" value="經手人" />
+            <lang locale="zh_TW" value="經手人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FHandlerID].description">
             <lang locale="en_US" value="null" />
@@ -1268,9 +1302,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FLastUpdateUserID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FLastUpdateUserID].description">
             <lang locale="en_US" value="null" />
@@ -1314,9 +1348,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FOrgUnitID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="组织" />
+            <lang locale="zh_HK" value="組織" />
+            <lang locale="zh_TW" value="組織" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FOrgUnitID].description">
             <lang locale="en_US" value="null" />
@@ -1331,27 +1365,24 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FOriginalAmount].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FPayRequestBillID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="付款申请单" />
-            <lang locale="zh_HK" value="付款申請單" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="付款申請單" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FPayRequestBillID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="关联的付款申请单" />
-            <lang locale="zh_HK" value="關聯的付款申請單" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="關聯的付款申請單" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FPaymentTypeID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="付款类型" />
+            <lang locale="zh_HK" value="付款類型" />
+            <lang locale="zh_TW" value="付款類型" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FPaymentTypeID].description">
             <lang locale="en_US" value="null" />
@@ -1361,9 +1392,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FPeriodId].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="期间" />
+            <lang locale="zh_HK" value="期間" />
+            <lang locale="zh_TW" value="期間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FPeriodId].description">
             <lang locale="en_US" value="null" />
@@ -1372,9 +1403,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FProgrammingContract].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="FProgrammingContract" />
-            <lang locale="zh_HK" value="FProgrammingContract" />
-            <lang locale="zh_TW" value="FProgrammingContract" />
+            <lang locale="zh_CN" value="框架合约" />
+            <lang locale="zh_HK" value="框架合約" />
+            <lang locale="zh_TW" value="框架合約" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FProgrammingContract].description">
             <lang locale="en_US" value="null" />
@@ -1474,8 +1505,7 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FState].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FUseDepartmentID].alias">

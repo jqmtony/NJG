@@ -1728,6 +1728,61 @@
             </parent>
         </component>
         <component>
+            <name>chkisSaleCommitments</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[chkisSaleCommitments].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDCheckBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>879,346,123,19,137</constraints>
+            <tabIndex>58</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[chkisSaleCommitments].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[chkisSaleCommitments].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[chkisSaleCommitments].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>selected</propertyName>
+                    <propertyType>boolean</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>isSaleCommitments</bindingField>
+                    <fieldType>boolean</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
             <name>txtNumber</name>
             <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtNumber].alias</alias>
             <userDefined>true</userDefined>
@@ -7165,9 +7220,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[cbPeriod].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="期间" />
+            <lang locale="zh_HK" value="期間" />
+            <lang locale="zh_TW" value="期間" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[cbPeriod].properties.property[enabled].value">
             <lang locale="en_US" value="null" />
@@ -7177,9 +7232,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[chkCostsplit].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="是否成本拆分" />
+            <lang locale="zh_HK" value="是否成本拆分" />
+            <lang locale="zh_TW" value="是否成本拆分" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[chkCostsplit].properties.property[text].value">
             <lang locale="en_US" value="null" />
@@ -7189,9 +7244,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[chkNeedPaid].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="是否需要付款" />
+            <lang locale="zh_HK" value="是否需要付款" />
+            <lang locale="zh_TW" value="是否需要付款" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[chkNeedPaid].properties.property[text].value">
             <lang locale="en_US" value="null" />
@@ -7210,6 +7265,30 @@
             <lang locale="zh_CN" value="加急" />
             <lang locale="zh_HK" value="加急" />
             <lang locale="zh_TW" value="加急" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[chkisSaleCommitments].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否影响销售承诺" />
+            <lang locale="zh_HK" value="是否影響銷售承諾" />
+            <lang locale="zh_TW" value="是否影響銷售承諾" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[chkisSaleCommitments].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[chkisSaleCommitments].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否影响销售承诺" />
+            <lang locale="zh_HK" value="是否影響銷售承諾" />
+            <lang locale="zh_TW" value="是否影響銷售承諾" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[chkisSaleCommitments].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[cmbAttachment].alias">
             <lang locale="en_US" value="null" />
@@ -7867,9 +7946,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDDateCreateTime].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDDateCreateTime].properties.property[enabled].value">
             <lang locale="en_US" value="false" />
@@ -8461,9 +8540,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kdDepPlanState].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="计划付款状态" />
+            <lang locale="zh_HK" value="計畫付款狀態" />
+            <lang locale="zh_TW" value="計畫付款狀態" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kdDepPlanState].properties.property[enabled].value">
             <lang locale="en_US" value="false" />
@@ -8803,15 +8882,15 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[pkInvoiceDate].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="发票日期" />
+            <lang locale="zh_HK" value="發票日期" />
+            <lang locale="zh_TW" value="發票日期" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[pkauditTime].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="审批时间" />
+            <lang locale="zh_HK" value="審批時間" />
+            <lang locale="zh_TW" value="審批時間" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[pkauditTime].extendedProperty.addedByBIM">
             <lang locale="en_US" value="true" />
@@ -8832,15 +8911,15 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[pkbookedDate].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="业务记录日期" />
+            <lang locale="zh_HK" value="業務記錄日期" />
+            <lang locale="zh_TW" value="業務記錄日期" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[pksignDate].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="签约日期" />
+            <lang locale="zh_HK" value="簽約日期" />
+            <lang locale="zh_TW" value="簽約日期" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[pksignDate].extendedProperty.addedByBIM">
             <lang locale="en_US" value="true" />
@@ -8867,9 +8946,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtAccount].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="贷方科目" />
+            <lang locale="zh_HK" value="貸方科目" />
+            <lang locale="zh_TW" value="貸方科目" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtAccount].properties.property[commitFormat].value">
             <lang locale="en_US" value="$number$" />
@@ -8903,9 +8982,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtAuditor].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtAuditor].properties.property[commitFormat].value">
             <lang locale="en_US" value="null" />
@@ -8933,9 +9012,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtConCharge].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="合同费用项目" />
+            <lang locale="zh_HK" value="合同費用項目" />
+            <lang locale="zh_TW" value="合同費用項目" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtConCharge].properties.property[commitFormat].value">
             <lang locale="en_US" value="$number$" />
@@ -8963,9 +9042,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtContractType].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="合同类型" />
+            <lang locale="zh_HK" value="合同類型" />
+            <lang locale="zh_TW" value="合同類型" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtContractType].properties.property[commitFormat].value">
             <lang locale="en_US" value="null" />
@@ -9005,21 +9084,21 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtCostedCompany].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="预算承担公司" />
+            <lang locale="zh_HK" value="預算承擔公司" />
+            <lang locale="zh_TW" value="預算承擔公司" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtCostedDept].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="预算承担部门" />
+            <lang locale="zh_HK" value="預算承擔部門" />
+            <lang locale="zh_TW" value="預算承擔部門" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtCreator].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtCreator].properties.property[commitFormat].value">
             <lang locale="en_US" value="null" />
@@ -9047,9 +9126,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtPayment].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="付款类型" />
+            <lang locale="zh_HK" value="付款類型" />
+            <lang locale="zh_TW" value="付款類型" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtPayment].properties.property[commitFormat].value">
             <lang locale="en_US" value="$number$" />
@@ -9095,15 +9174,15 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtPlanProject].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="合同月度滚动计划无合同分录" />
+            <lang locale="zh_HK" value="合同月度滾動計畫無合同分錄" />
+            <lang locale="zh_TW" value="合同月度滾動計畫無合同分錄" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtcurProject].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtcurProject].properties.property[commitFormat].value">
             <lang locale="en_US" value="$number$" />
@@ -9149,9 +9228,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtcurrency].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="币别" />
+            <lang locale="zh_HK" value="幣別" />
+            <lang locale="zh_TW" value="幣別" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtcurrency].properties.property[commitFormat].value">
             <lang locale="en_US" value="$number$" />
@@ -9245,9 +9324,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtreceiveUnit].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="收款单位" />
+            <lang locale="zh_HK" value="收款單位" />
+            <lang locale="zh_TW" value="收款單位" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtreceiveUnit].properties.property[commitFormat].value">
             <lang locale="en_US" value="$number$" />
@@ -9293,9 +9372,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtsettlementType].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="结算方式" />
+            <lang locale="zh_HK" value="結算方式" />
+            <lang locale="zh_TW" value="結算方式" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtsettlementType].properties.property[commitFormat].value">
             <lang locale="en_US" value="$number$" />
@@ -9335,9 +9414,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtuseDepartment].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="用款部门" />
+            <lang locale="zh_HK" value="用款部門" />
+            <lang locale="zh_TW" value="用款部門" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtuseDepartment].properties.property[commitFormat].value">
             <lang locale="en_US" value="$number$" />
@@ -9479,9 +9558,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtAllInvoiceAmt].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="累计发票金额" />
+            <lang locale="zh_HK" value="累計發票金額" />
+            <lang locale="zh_TW" value="累計發票金額" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtAllInvoiceAmt].properties.property[dataType].value">
             <lang locale="en_US" value="1" />
@@ -9533,9 +9612,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtBank].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="开户银行" />
+            <lang locale="zh_HK" value="開戶銀行" />
+            <lang locale="zh_TW" value="開戶銀行" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtBank].properties.property[required].value">
             <lang locale="en_US" value="null" />
@@ -9545,9 +9624,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtBcAmount].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="本位币金额" />
+            <lang locale="zh_HK" value="本位幣金額" />
+            <lang locale="zh_TW" value="本位幣金額" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtBcAmount].properties.property[dataType].value">
             <lang locale="en_US" value="1" />
@@ -9575,9 +9654,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtInvoiceAmt].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="发票金额" />
+            <lang locale="zh_HK" value="發票金額" />
+            <lang locale="zh_TW" value="發票金額" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtInvoiceAmt].properties.property[enabled].value">
             <lang locale="en_US" value="false" />
@@ -9593,9 +9672,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtInvoiceNumber].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="发票号" />
+            <lang locale="zh_HK" value="發票號" />
+            <lang locale="zh_TW" value="發票號" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtInvoiceNumber].properties.property[required].value">
             <lang locale="en_US" value="true" />
@@ -9641,9 +9720,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtNoPaidReason].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="无需付款原因" />
+            <lang locale="zh_HK" value="無需付款原因" />
+            <lang locale="zh_TW" value="無需付款原因" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtNoPaidReason].properties.property[enabled].value">
             <lang locale="en_US" value="null" />
@@ -9653,9 +9732,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtNumber].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtNumber].properties.property[enabled].value">
             <lang locale="en_US" value="true" />
@@ -9761,9 +9840,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtamount].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="原币金额" />
+            <lang locale="zh_HK" value="原幣金額" />
+            <lang locale="zh_TW" value="原幣金額" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtamount].properties.property[dataType].value">
             <lang locale="en_US" value="1" />
@@ -9863,9 +9942,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtbillName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[txtbillName].properties.property[enabled].value">
             <lang locale="en_US" value="true" />
