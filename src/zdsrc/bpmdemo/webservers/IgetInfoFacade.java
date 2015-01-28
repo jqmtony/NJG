@@ -23,4 +23,6 @@ public interface IgetInfoFacade extends IBizCtrl
     public String[] GetcurProject() throws BOSException;
     public String[] GetDemo() throws BOSException;
     public String[] Getpoint(String pointID) throws BOSException;
+    public void GetProgressReport(String Domxml) throws BOSException;
+    public void GetTaskEvalation(String Domxml) throws BOSException;
 }

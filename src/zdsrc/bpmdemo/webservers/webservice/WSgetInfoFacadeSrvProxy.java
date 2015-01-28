@@ -24,6 +24,17 @@ import com.kingdee.bos.BOSObjectFactory;
 
 public class WSgetInfoFacadeSrvProxy { 
 
+    public void GetProgressReport( String Domxml ) throws WSInvokeException {
+        try {
+            getController().GetProgressReport(
+            Domxml
+            );
+        }
+        catch( Throwable e ) {
+            throw new WSInvokeException( e ) ;
+        }
+    }
+
     public String[] ApproveClose( String strBSID , String strBOID , int iProcInstID , String eProcessInstanceResult , String strComment , String dtTime ) throws WSInvokeException {
         try {
             return getController().ApproveClose(
@@ -69,6 +80,17 @@ public class WSgetInfoFacadeSrvProxy {
             iProcInstID,
             procURL,
             strMessage);
+        }
+        catch( Throwable e ) {
+            throw new WSInvokeException( e ) ;
+        }
+    }
+
+    public void GetTaskEvalation( String Domxml ) throws WSInvokeException {
+        try {
+            getController().GetTaskEvalation(
+            Domxml
+            );
         }
         catch( Throwable e ) {
             throw new WSInvokeException( e ) ;

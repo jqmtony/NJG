@@ -3,6 +3,7 @@ package com.kingdee.eas.bpmdemo.webservers;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Dictionary;
 
 import org.apache.log4j.Logger;
 
@@ -47,6 +48,18 @@ import com.kingdee.eas.fdc.finance.DeductBillFactory;
 import com.kingdee.eas.fdc.finance.DeductBillInfo;
 import com.kingdee.eas.fdc.invite.supplier.SupplierStockInfo;
 import com.kingdee.eas.fdc.schedule.FDCScheduleInfo;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;   
+import java.io.Writer;   
+import java.util.Iterator; 
+import org.dom4j.Document;   
+import org.dom4j.DocumentException;  
+import org.dom4j.DocumentHelper;   
+import org.dom4j.Element;   
+import org.dom4j.io.SAXReader;   
+import org.dom4j.io.XMLWriter;
+
 
 public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeControllerBean
 {
@@ -372,5 +385,57 @@ public class getInfoFacadeControllerBean extends AbstractgetInfoFacadeController
         return str;		
 	}
 	
+    
+	/**
+	 * 获取BPM进度汇报信息
+	 * */
+    public void _GetProgressReport(Context ctx, String Domxml)
+    		throws BOSException {
+   	 File inputXml=new File(Domxml); 
+	 SAXReader saxReader = new SAXReader(); 
+	 try
+	 {
+		 Document document = saxReader.read(inputXml);  
+		 Element employees=document.getRootElement();  
+		 for(Iterator i = employees.elementIterator(); i.hasNext();){
+			 Element employee = (Element) i.next();  
+			 for(Iterator j = employee.elementIterator(); j.hasNext();)
+             {   
+              Element node=(Element) j.next();   
+              System.out.println(node.getName()+":"+node.getText());
+              
+             }
+           } 
+	 }catch(Exception e)
+	 {
+		 
+	 } 
+    	super._GetProgressReport(ctx, Domxml);
+    }
 	
+    /**
+     * 获取BPM任务评价信息
+     * */
+    public void _GetTaskEvalation(Context ctx, String Domxml)
+		throws BOSException {
+    	 File inputXml=new File(Domxml); 
+    	 SAXReader saxReader = new SAXReader(); 
+    	 try
+    	 {
+    		 Document document = saxReader.read(inputXml);  
+    		 Element employees=document.getRootElement();  
+    		 for(Iterator i = employees.elementIterator(); i.hasNext();){
+    			 Element employee = (Element) i.next();  
+    			 for(Iterator j = employee.elementIterator(); j.hasNext();)
+                 {   
+                  Element node=(Element) j.next();   
+                  System.out.println(node.getName()+":"+node.getText());
+                 }
+               } 
+    	 }catch(Exception e)
+    	 {
+    		 
+    	 }
+    	 super._GetTaskEvalation(ctx, Domxml);
+    }
 }

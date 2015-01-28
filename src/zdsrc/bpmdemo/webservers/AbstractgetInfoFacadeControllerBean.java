@@ -212,4 +212,44 @@ public abstract class AbstractgetInfoFacadeControllerBean extends AbstractBizCon
         return null;
     }
 
+    public void GetProgressReport(Context ctx, String Domxml) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("5710187e-841d-4217-93dd-a0195fd92284"), new Object[]{ctx, Domxml});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _GetProgressReport(ctx, Domxml);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _GetProgressReport(Context ctx, String Domxml) throws BOSException
+    {    	
+        return;
+    }
+
+    public void GetTaskEvalation(Context ctx, String Domxml) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("19cc5177-6aa9-4518-aa3a-0fb8e84dc7b8"), new Object[]{ctx, Domxml});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _GetTaskEvalation(ctx, Domxml);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _GetTaskEvalation(Context ctx, String Domxml) throws BOSException
+    {    	
+        return;
+    }
+
 }

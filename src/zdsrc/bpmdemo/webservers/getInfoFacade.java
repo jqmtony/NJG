@@ -159,4 +159,30 @@ public class getInfoFacade extends AbstractBizCtrl implements IgetInfoFacade
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *读取BPM穿入的数据-填入ERP数据中-User defined method
+     *@param Domxml XML数据
+     */
+    public void GetProgressReport(String Domxml) throws BOSException
+    {
+        try {
+            getController().GetProgressReport(getContext(), Domxml);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *获取XML反馈信息-填入ERP-User defined method
+     *@param Domxml XML数据额
+     */
+    public void GetTaskEvalation(String Domxml) throws BOSException
+    {
+        try {
+            getController().GetTaskEvalation(getContext(), Domxml);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

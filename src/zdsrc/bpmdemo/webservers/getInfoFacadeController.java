@@ -26,4 +26,6 @@ public interface getInfoFacadeController extends BizController
     public String[] GetcurProject(Context ctx) throws BOSException, RemoteException;
     public String[] GetDemo(Context ctx) throws BOSException, RemoteException;
     public String[] Getpoint(Context ctx, String pointID) throws BOSException, RemoteException;
+    public void GetProgressReport(Context ctx, String Domxml) throws BOSException, RemoteException;
+    public void GetTaskEvalation(Context ctx, String Domxml) throws BOSException, RemoteException;
 }
