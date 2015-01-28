@@ -1,9 +1,12 @@
 package com.kingdee.eas.bpm.selectors;
 
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.sql.RowSet;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
@@ -23,6 +26,8 @@ import com.kingdee.eas.bpm.BPMLogFactory;
 import com.kingdee.eas.bpm.BPMLogInfo;
 import com.kingdee.eas.bpm.BillBaseSelector;
 import com.kingdee.eas.bpm.common.StringUtilBPM;
+import com.kingdee.eas.bpm.viewpz.PzViewFactory;
+import com.kingdee.eas.bpm.viewpz.PzViewInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.basedata.ContractTypeCollection;
 import com.kingdee.eas.fdc.basedata.ContractTypeFactory;
@@ -46,6 +51,7 @@ import com.kingdee.eas.fdc.contract.PayRequestBillEntryFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillEntryInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
+import com.kingdee.eas.fi.arap.util.DBUtil;
 import com.kingdee.eas.ma.bg.BgItemCollection;
 import com.kingdee.eas.ma.bg.BgItemFactory;
 import com.kingdee.eas.ma.bg.BgItemInfo;
@@ -434,6 +440,9 @@ public class PayRequestFacade implements BillBaseSelector {
 			  }
 			xml.append("<controlType>"+control+"</controlType>\n");//控制类型
 			
+			
+			
+			xml.append(GetFK(ctx,Info.getContractId(),Info.getNumber()));
 			xml.append("</DATA>"); 
 			str[1] = xml.toString();
 		}catch (Exception e) {
@@ -539,7 +548,133 @@ public class PayRequestFacade implements BillBaseSelector {
 		return null;
 	}
 	
+	
+	
+	public String GetFK(Context ctx,String contractID,String paynumber)
+	{ 
+		String FK = null;
+		PzViewInfo info = null;
+		try {
+			info = PzViewFactory.getLocalInstance(ctx).getPzViewInfo(" where number='GCQKFKB'");
+		} catch (EASBizException e1) {
+			
+			e1.printStackTrace();
+		} catch (BOSException e1) {
+			
+			e1.printStackTrace();
+		}
+		if(info==null){
+			
+		}
+		String view = info.getSqlView();
+		if(view==null || "".equals(view)){
+		}
+		try {
+			String where = " where fid='"+contractID+"' and fnumber='"+paynumber+"'";
+			StringBuffer xml = new StringBuffer();
+			RowSet rs = DBUtil.executeQuery(ctx,"select * from "+view+where );
+			int colunmCount;
+			try {
+				colunmCount = rs.getMetaData().getColumnCount();
+		        String[] colNameArr = new String[colunmCount];  
+		        String[] colTypeArr = new String[colunmCount];  
+		       // xml.append("<GCQKbillEntries>");
+		        while(rs.next()){
+		         // xml.append("<item>");
+		        	for (int i = 0; i < colunmCount; i++) {  
+			        	colNameArr[i] = rs.getMetaData().getColumnName(i + 1);  
+			        	colTypeArr[i] = rs.getMetaData().getColumnTypeName(i + 1); 
+			        	xml.append("<"+colNameArr[i]+">");
+			        	xml.append(rs.getObject(i+1));
+			        	xml.append("</"+colNameArr[i]+">\n");
+			        }
+		        	
+		          //xml.append("</item>\n");
+		          //xml.append(GetKKentry(ctx,contractID,paynumber)); 
+		          
+		        }
+		        //xml.append("</GCQKbillEntries>");
+		        FK=xml.toString();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}  
+		} catch (BOSException e) {
 
+			e.printStackTrace();
+		}finally{
+			BPMLogInfo log = new BPMLogInfo();
+			try {
+				log.setBeizhu("调用接口方法：GetFK");
+				BPMLogFactory.getLocalInstance(ctx).save(log);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return FK;
+	}
+    
+	
+	
+//	public String GetKKentry(Context ctx,String contractID,String paynumber)
+//	{ 
+//		String FK = null;
+//		PzViewInfo info = null;
+//		try {
+//			info = PzViewFactory.getLocalInstance(ctx).getPzViewInfo(" where number='GCQKFKENTRY'");
+//		} catch (EASBizException e1) {
+//			
+//			e1.printStackTrace();
+//		} catch (BOSException e1) {
+//			
+//			e1.printStackTrace();
+//		}
+//		if(info==null){
+//			
+//		}
+//		String view = info.getSqlView();
+//		if(view==null || "".equals(view)){
+//		}
+//		try {
+//			String where = " where fid='"+contractID+"' and fnumber='"+paynumber+"'";
+//			StringBuffer xml = new StringBuffer();
+//			RowSet rs = DBUtil.executeQuery(ctx,"select * from "+view+where );
+//			int colunmCount;
+//			try {
+//				colunmCount = rs.getMetaData().getColumnCount();
+//		        String[] colNameArr = new String[colunmCount];  
+//		        String[] colTypeArr = new String[colunmCount];
+//		        xml.append("<GCQKKKbillEntries>");
+//		        while(rs.next()){
+//		          xml.append("<item>");
+//		        	for (int i = 0; i < colunmCount; i++) {  
+//			        	colNameArr[i] = rs.getMetaData().getColumnName(i + 1);  
+//			        	colTypeArr[i] = rs.getMetaData().getColumnTypeName(i + 1); 
+//			        	xml.append("<"+colNameArr[i]+">");
+//			        	xml.append(rs.getObject(i+1));
+//			        	xml.append("</"+colNameArr[i]+">\n");
+//			        }
+//		        	
+//		          xml.append("</item>\n");
+//		        }
+//		        xml.append("</GCQKKKbillEntries>");
+//		        FK=xml.toString();
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}  
+//		} catch (BOSException e) {
+//
+//			e.printStackTrace();
+//		}finally{
+//			BPMLogInfo log = new BPMLogInfo();
+//			try {
+//				log.setBeizhu("调用接口方法：GetKKentry");
+//				BPMLogFactory.getLocalInstance(ctx).save(log);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return FK;
+//	}
 	
 
 }
