@@ -333,6 +333,58 @@
             </parameters>
             <configured>false</configured>
         </method>
+        <method>
+            <name>GetProgressReport</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetProgressReport].alias</alias>
+            <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetProgressReport].description</description>
+            <innerID>5710187e-841d-4217-93dd-a0195fd92284</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>Domxml</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetProgressReport].parameters.parameter[Domxml].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetProgressReport].parameters.parameter[Domxml].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>GetTaskEvalation</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetTaskEvalation].alias</alias>
+            <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetTaskEvalation].description</description>
+            <innerID>19cc5177-6aa9-4518-aa3a-0fb8e84dc7b8</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>Domxml</name>
+                    <alias>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetTaskEvalation].parameters.parameter[Domxml].alias</alias>
+                    <description>facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetTaskEvalation].parameters.parameter[Domxml].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <resource>
         <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].alias">
@@ -491,6 +543,53 @@
             <lang locale="zh_CN" value="获取会议系统模板信息" />
             <lang locale="zh_HK" value="獲取會議系統範本信息" />
             <lang locale="zh_TW" value="獲取會議系統範本信息" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetProgressReport].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="进度汇报" />
+            <lang locale="zh_HK" value="進度彙報" />
+            <lang locale="zh_TW" value="進度彙報" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetProgressReport].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="读取BPM穿入的数据-填入ERP数据中" />
+            <lang locale="zh_HK" value="讀取BPM穿入的數據-填入ERP數據中" />
+            <lang locale="zh_TW" value="讀取BPM穿入的數據-填入ERP數據中" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetProgressReport].parameters.parameter[Domxml].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="XML数据" />
+            <lang locale="zh_HK" value="XML數據" />
+            <lang locale="zh_TW" value="XML數據" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetProgressReport].parameters.parameter[Domxml].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="XML数据" />
+            <lang locale="zh_HK" value="XML數據" />
+            <lang locale="zh_TW" value="XML數據" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetTaskEvalation].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="任务评价" />
+            <lang locale="zh_HK" value="任務評價" />
+            <lang locale="zh_TW" value="任務評價" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetTaskEvalation].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="获取XML反馈信息-填入ERP" />
+            <lang locale="zh_HK" value="獲取XML反饋信息-填入ERP" />
+            <lang locale="zh_TW" value="獲取XML反饋信息-填入ERP" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetTaskEvalation].parameters.parameter[Domxml].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="XML数据额" />
+            <lang locale="zh_HK" value="XML數據額" />
+            <lang locale="zh_TW" value="XML數據額" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetTaskEvalation].parameters.parameter[Domxml].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="facade[com.kingdee.eas.bpmdemo.webservers.getInfoFacade].methods.method[GetbillInfo].alias">
             <lang locale="en_US" value="null" />
