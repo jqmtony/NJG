@@ -868,33 +868,35 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 			return;
 		if(e.getColIndex()==this.kdtEntry.getColumnIndex("zdaNumber"))
 		{
-			String id = ((EquIdInfo)this.kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue()).getId().toString();
-			EquIdInfo eqInfo = 	EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
-			this.kdtEntry.removeRow(e.getRowIndex());
-			IRow row = this.kdtEntry.addRow();
-			row.getCell("zdaNumber").setValue(eqInfo);
-			if(eqInfo.isCityTest()&&eqInfo.isPortTest()){
-				InitEntry(row, eqInfo, CheckType.city);
-				row = kdtEntry.addRow();
+			if(this.kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue() != null){
+				String id = ((EquIdInfo)this.kdtEntry.getCell(e.getRowIndex(), "zdaNumber").getValue()).getId().toString();
+				EquIdInfo eqInfo = 	EquIdFactory.getRemoteInstance().getEquIdInfo(new ObjectUuidPK(id));
+				this.kdtEntry.removeRow(e.getRowIndex());
+				IRow row = this.kdtEntry.addRow();
 				row.getCell("zdaNumber").setValue(eqInfo);
-				InitEntry(row, eqInfo, CheckType.port);
-			}
-			else
-			{
-				if(eqInfo.isCityTest())
-				{
+				if(eqInfo.isCityTest()&&eqInfo.isPortTest()){
 					InitEntry(row, eqInfo, CheckType.city);
-				}
-				if(eqInfo.isPortTest())
-				{
+					row = kdtEntry.addRow();
+					row.getCell("zdaNumber").setValue(eqInfo);
 					InitEntry(row, eqInfo, CheckType.port);
 				}
-				if(eqInfo.isChuanCheck())
+				else
 				{
-					InitEntry(row, eqInfo, CheckType.chuan);
+					if(eqInfo.isCityTest())
+					{
+						InitEntry(row, eqInfo, CheckType.city);
+					}
+					if(eqInfo.isPortTest())
+					{
+						InitEntry(row, eqInfo, CheckType.port);
+					}
+					if(eqInfo.isChuanCheck())
+					{
+						InitEntry(row, eqInfo, CheckType.chuan);
+					}
 				}
-			}
-			EntityViewFilterEquId();
+				EntityViewFilterEquId();
+			  }
 		}
 	}
 	
@@ -960,7 +962,7 @@ public class AnnualYearDetailEditUI extends AbstractAnnualYearDetailEditUI
 		 String id = SysContext.getSysContext().getCurrentCtrlUnit().getId().toString();
  		 filter.getFilterItems().add(new FilterItemInfo("ssOrgUnit.id",id ,CompareType.EQUALS));
  		 filter.getFilterItems().add(new FilterItemInfo("special",1 ,CompareType.EQUALS));
- 		 filter.getFilterItems().add(new FilterItemInfo("id",set ,CompareType.NOTINCLUDE));
+// 		 filter.getFilterItems().add(new FilterItemInfo("id",set ,CompareType.NOTINCLUDE));
 		 evi.setFilter(filter);
 		 
 //		kdtE1_equNumber_PromptBox.setEntityViewInfo(evi);

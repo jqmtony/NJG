@@ -259,6 +259,17 @@ public class AbstractRepairOrderE1Info extends com.kingdee.eas.framework.CoreBil
     {
         setString("repPersonID", item);
     }
+    /**
+     * Object:维修明细's 设备使用部门property 
+     */
+    public String getEquUseDepart()
+    {
+        return getString("equUseDepart");
+    }
+    public void setEquUseDepart(String item)
+    {
+        setString("equUseDepart", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("58358BBD");

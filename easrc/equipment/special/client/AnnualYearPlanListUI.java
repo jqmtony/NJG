@@ -3,28 +3,37 @@
  */
 package com.kingdee.eas.port.equipment.special.client;
 
-import java.awt.event.*;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+
 import org.apache.log4j.Logger;
 
-import com.ibm.db2.jcc.am.on;
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTDataFillListener;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTDataRequestEvent;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.util.BOSUuid;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
-import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
-import com.kingdee.eas.framework.*;
-import com.kingdee.eas.util.SysUtil;
-import com.kingdee.eas.util.client.MsgBox;
-import com.kingdee.eas.xr.IXRBillBase;
-import com.kingdee.eas.xr.helper.WorkflowXRHelper;
+import com.kingdee.eas.port.equipment.record.EquIdInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
+import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryFactory;
+import com.kingdee.eas.port.equipment.special.AnnualYearPlanEntryInfo;
+import com.kingdee.eas.port.equipment.special.DetectionE2Factory;
+import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
+import com.kingdee.eas.port.equipment.special.IAnnualYearPlanEntry;
+import com.kingdee.eas.port.equipment.special.IDetectionE2;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
 
 /**
  * output class name
@@ -32,7 +41,26 @@ import com.kingdee.eas.xr.helper.WorkflowXRHelper;
 public class AnnualYearPlanListUI extends AbstractAnnualYearPlanListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AnnualYearPlanListUI.class);
-    
+    /**
+     * 已生成检查明细
+     */
+    private Color a = new Color(109,169,235);
+    /**
+     * 已下达
+     */
+    private Color b = new Color(220,124,172);
+    /**
+     * 已确认
+     */
+    private Color c = new Color(101,243,122);
+    /**
+     * 已执行
+     */
+    private Color d = new Color(211,145,44);
+    /**
+     * 已生成检测小结
+     */
+    private Color e1 = new Color(189,200,145);
     /**
      * output class constructor
      */
@@ -605,6 +633,24 @@ public class AnnualYearPlanListUI extends AbstractAnnualYearPlanListUI
   
     }
     
+    public void onLoad() throws Exception {
+    	tblMain.addKDTDataFillListener(new KDTDataFillListener() {
+            public void afterDataFill(KDTDataRequestEvent e)
+            {
+                try
+                {
+                    tblMain_afterDataFill(e);
+                }
+                catch(Exception exc)
+                {
+                    handUIException(exc);
+                }
+            }
+        });
+    	super.onLoad();
+//    	setRowColor();
+    }
+    
   //去除CU隔离
 	protected boolean isIgnoreCUFilter() {
 		return true;
@@ -640,5 +686,76 @@ public class AnnualYearPlanListUI extends AbstractAnnualYearPlanListUI
 		      viewInfo = (EntityViewInfo)arg1.clone();
 		    }
 		return super.getQueryExecutor(arg0, viewInfo);
+	}
+	
+	private IAnnualYearDetail iAnnualYearDetail = AnnualYearDetailFactory.getRemoteInstance();
+	private IDetectionE2 iDetectionE2 = DetectionE2Factory.getRemoteInstance();
+	private IAnnualYearPlanEntry IAnnualYearPlanEntry = AnnualYearPlanEntryFactory.getRemoteInstance();
+	
+	private void tblMain_afterDataFill(KDTDataRequestEvent e)
+	{
+		EntityViewInfo view = new EntityViewInfo();
+		FilterInfo filInfo = new FilterInfo();
+		
+		SelectorItemCollection sic = new SelectorItemCollection();
+		sic.add("id");
+		sic.add("status");
+		sic.add("isConfirmation");
+		
+		for (int i = e.getFirstRow(); i <= e.getLastRow(); i++)
+        {
+			IRow row = tblMain.getRow(i);
+			String billId = UIRuleUtil.getString(row.getCell("id").getValue());
+			String entryId = UIRuleUtil.getString(row.getCell("Entry.id").getValue());
+			
+			try 
+			{
+				AnnualYearPlanEntryInfo annEntryPlanEntryInfo = IAnnualYearPlanEntry.getAnnualYearPlanEntryInfo(new ObjectUuidPK(entryId));
+				EquIdInfo equIdInfo = annEntryPlanEntryInfo.getZdaNumber();
+				if(equIdInfo==null)
+					continue;
+				String equId = equIdInfo.getId().toString();
+				
+				String sql = "select a.fid from CT_SPE_AnnualYearDetail a left join CT_SPE_AnnualYearDetailEntry b on b.fparentid=a.fid " +
+						" where a.fsourceBillId='"+billId+"' and b.CFZdaNumberID='"+equId+"'";
+				view = new EntityViewInfo();
+				filInfo = new FilterInfo();
+				filInfo.getFilterItems().add(new FilterItemInfo("id",sql,CompareType.INNER));
+				view.setFilter(filInfo);
+				view.setSelector(sic);
+				if(!iAnnualYearDetail.exists(filInfo))
+					continue;
+				row.getStyleAttributes().setBackground(a);
+				AnnualYearDetailInfo detailInfo = iAnnualYearDetail.getAnnualYearDetailCollection(view).get(0);
+				
+				XRBillStatusEnum status = detailInfo.getStatus();
+				//下达
+				if(status.equals(XRBillStatusEnum.RELEASED))
+					row.getStyleAttributes().setBackground(b);
+				//确认
+				if(detailInfo.isIsConfirmation())
+					row.getStyleAttributes().setBackground(c);
+				//执行 
+				if(status.equals(XRBillStatusEnum.EXECUTION))
+					row.getStyleAttributes().setBackground(d);
+					
+				//当前设备是否已经有小结
+				if(iDetectionE2.exists("select id where parent.sourceBillId='"+detailInfo.getId()+"' and zdaNumber.id='"+equId+"'"))
+				{
+					row.getStyleAttributes().setBackground(e1);
+				}
+			} 
+			catch (EASBizException e1) 
+			{
+				e1.printStackTrace();
+			} 
+			catch (BOSException e1)
+			{
+				e1.printStackTrace();
+			}
+				
+			
+			
+        }
 	}
 }

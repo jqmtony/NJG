@@ -75,6 +75,10 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contxzdm;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbaodanNo;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contxianzhongTwo;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contpolicyNumThree;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contpolicyNumFour;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contxianzhongThree;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contxianzhongFour;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -102,6 +106,10 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
     protected com.kingdee.bos.ctrl.swing.KDTextField txtxzdm;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtbaodanNo;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtxianzhongTwo;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtpolicyNumThree;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtpolicyNumFour;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtxianzhongThree;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtxianzhongFour;
     protected com.kingdee.eas.port.equipment.insurance.InsuranceCoverageInfo editData = null;
     protected ActionExcelBxmx actionExcelBxmx = null;
     /**
@@ -190,6 +198,10 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.contxzdm = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contbaodanNo = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contxianzhongTwo = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contpolicyNumThree = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contpolicyNumFour = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contxianzhongThree = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contxianzhongFour = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -216,6 +228,10 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.txtxzdm = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtbaodanNo = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtxianzhongTwo = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtpolicyNumThree = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtpolicyNumFour = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.prmtxianzhongThree = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtxianzhongFour = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -245,6 +261,10 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.contxzdm.setName("contxzdm");
         this.contbaodanNo.setName("contbaodanNo");
         this.contxianzhongTwo.setName("contxianzhongTwo");
+        this.contpolicyNumThree.setName("contpolicyNumThree");
+        this.contpolicyNumFour.setName("contpolicyNumFour");
+        this.contxianzhongThree.setName("contxianzhongThree");
+        this.contxianzhongFour.setName("contxianzhongFour");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -271,6 +291,10 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.txtxzdm.setName("txtxzdm");
         this.txtbaodanNo.setName("txtbaodanNo");
         this.prmtxianzhongTwo.setName("prmtxianzhongTwo");
+        this.txtpolicyNumThree.setName("txtpolicyNumThree");
+        this.txtpolicyNumFour.setName("txtpolicyNumFour");
+        this.prmtxianzhongThree.setName("prmtxianzhongThree");
+        this.prmtxianzhongFour.setName("prmtxianzhongFour");
         // CoreUI
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
@@ -432,6 +456,26 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.contxianzhongTwo.setBoundLabelLength(100);		
         this.contxianzhongTwo.setBoundLabelUnderline(true);		
         this.contxianzhongTwo.setVisible(true);
+        // contpolicyNumThree		
+        this.contpolicyNumThree.setBoundLabelText(resHelper.getString("contpolicyNumThree.boundLabelText"));		
+        this.contpolicyNumThree.setBoundLabelLength(100);		
+        this.contpolicyNumThree.setBoundLabelUnderline(true);		
+        this.contpolicyNumThree.setVisible(true);
+        // contpolicyNumFour		
+        this.contpolicyNumFour.setBoundLabelText(resHelper.getString("contpolicyNumFour.boundLabelText"));		
+        this.contpolicyNumFour.setBoundLabelLength(100);		
+        this.contpolicyNumFour.setBoundLabelUnderline(true);		
+        this.contpolicyNumFour.setVisible(true);
+        // contxianzhongThree		
+        this.contxianzhongThree.setBoundLabelText(resHelper.getString("contxianzhongThree.boundLabelText"));		
+        this.contxianzhongThree.setBoundLabelLength(100);		
+        this.contxianzhongThree.setBoundLabelUnderline(true);		
+        this.contxianzhongThree.setVisible(true);
+        // contxianzhongFour		
+        this.contxianzhongFour.setBoundLabelText(resHelper.getString("contxianzhongFour.boundLabelText"));		
+        this.contxianzhongFour.setBoundLabelLength(100);		
+        this.contxianzhongFour.setBoundLabelUnderline(true);		
+        this.contxianzhongFour.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setCommitFormat("$name$");		
@@ -663,7 +707,33 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.prmtxianzhongTwo.setEditFormat("$number$");		
         this.prmtxianzhongTwo.setCommitFormat("$number$");		
         this.prmtxianzhongTwo.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtxianzhongID,prmtinsurance,prmtinsuranceCompany,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,kdtE1,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,txtcoverNumber,txtcontNumber,pkeffectDate,pkendDate,txtyear,prmttbrmc,txtxzdm,txtbaodanNo,prmtxianzhongTwo}));
+        // txtpolicyNumThree		
+        this.txtpolicyNumThree.setVisible(true);		
+        this.txtpolicyNumThree.setHorizontalAlignment(2);		
+        this.txtpolicyNumThree.setMaxLength(100);		
+        this.txtpolicyNumThree.setRequired(false);
+        // txtpolicyNumFour		
+        this.txtpolicyNumFour.setVisible(true);		
+        this.txtpolicyNumFour.setHorizontalAlignment(2);		
+        this.txtpolicyNumFour.setMaxLength(100);		
+        this.txtpolicyNumFour.setRequired(false);
+        // prmtxianzhongThree		
+        this.prmtxianzhongThree.setQueryInfo("com.kingdee.eas.port.equipment.base.app.InsuranceQuery");		
+        this.prmtxianzhongThree.setVisible(true);		
+        this.prmtxianzhongThree.setEditable(true);		
+        this.prmtxianzhongThree.setDisplayFormat("$name$");		
+        this.prmtxianzhongThree.setEditFormat("$number$");		
+        this.prmtxianzhongThree.setCommitFormat("$number$");		
+        this.prmtxianzhongThree.setRequired(false);
+        // prmtxianzhongFour		
+        this.prmtxianzhongFour.setQueryInfo("com.kingdee.eas.port.equipment.base.app.InsuranceQuery");		
+        this.prmtxianzhongFour.setVisible(true);		
+        this.prmtxianzhongFour.setEditable(true);		
+        this.prmtxianzhongFour.setDisplayFormat("$name$");		
+        this.prmtxianzhongFour.setEditFormat("$number$");		
+        this.prmtxianzhongFour.setCommitFormat("$number$");		
+        this.prmtxianzhongFour.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtxianzhongID,prmtinsurance,prmtinsuranceCompany,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,kdtE1,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,txtcoverNumber,txtcontNumber,pkeffectDate,pkendDate,txtyear,prmttbrmc,txtxzdm,txtbaodanNo,prmtxianzhongTwo,txtpolicyNumThree,txtpolicyNumFour,prmtxianzhongThree,prmtxianzhongFour}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -722,8 +792,8 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.add(continsuranceCompany, new KDLayout.Constraints(366, 29, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDInsuranceDetail.setBounds(new Rectangle(663, 477, 197, 21));
         this.add(kDInsuranceDetail, new KDLayout.Constraints(663, 477, 197, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDContainer1.setBounds(new Rectangle(11, 122, 992, 289));
-        this.add(kDContainer1, new KDLayout.Constraints(11, 122, 992, 289, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDContainer1.setBounds(new Rectangle(11, 175, 992, 236));
+        this.add(kDContainer1, new KDLayout.Constraints(11, 175, 992, 236, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         btnExportExcel.setBounds(new Rectangle(887, 474, 101, 21));
         this.add(btnExportExcel, new KDLayout.Constraints(887, 474, 101, 21, 0));
         btnImportExcel.setBounds(new Rectangle(672, 446, 22, 19));
@@ -750,6 +820,14 @@ public abstract class AbstractInsuranceCoverageEditUI extends com.kingdee.eas.xr
         this.add(contbaodanNo, new KDLayout.Constraints(10, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contxianzhongTwo.setBounds(new Rectangle(366, 99, 270, 19));
         this.add(contxianzhongTwo, new KDLayout.Constraints(366, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contpolicyNumThree.setBounds(new Rectangle(10, 124, 270, 19));
+        this.add(contpolicyNumThree, new KDLayout.Constraints(10, 124, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contpolicyNumFour.setBounds(new Rectangle(10, 148, 270, 19));
+        this.add(contpolicyNumFour, new KDLayout.Constraints(10, 148, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contxianzhongThree.setBounds(new Rectangle(366, 124, 270, 19));
+        this.add(contxianzhongThree, new KDLayout.Constraints(366, 124, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contxianzhongFour.setBounds(new Rectangle(366, 148, 270, 19));
+        this.add(contxianzhongFour, new KDLayout.Constraints(366, 148, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -803,6 +881,14 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
         contbaodanNo.setBoundEditor(txtbaodanNo);
         //contxianzhongTwo
         contxianzhongTwo.setBoundEditor(prmtxianzhongTwo);
+        //contpolicyNumThree
+        contpolicyNumThree.setBoundEditor(txtpolicyNumThree);
+        //contpolicyNumFour
+        contpolicyNumFour.setBoundEditor(txtpolicyNumFour);
+        //contxianzhongThree
+        contxianzhongThree.setBoundEditor(prmtxianzhongThree);
+        //contxianzhongFour
+        contxianzhongFour.setBoundEditor(prmtxianzhongFour);
 
     }
 
@@ -1014,7 +1100,11 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
 		dataBinder.registerBinding("tbrmc", com.kingdee.eas.basedata.org.CompanyOrgUnitInfo.class, this.prmttbrmc, "data");
 		dataBinder.registerBinding("xzdm", String.class, this.txtxzdm, "text");
 		dataBinder.registerBinding("baodanNo", String.class, this.txtbaodanNo, "text");
-		dataBinder.registerBinding("xianzhongTwo", com.kingdee.eas.port.equipment.base.InsuranceInfo.class, this.prmtxianzhongTwo, "data");		
+		dataBinder.registerBinding("xianzhongTwo", com.kingdee.eas.port.equipment.base.InsuranceInfo.class, this.prmtxianzhongTwo, "data");
+		dataBinder.registerBinding("policyNumThree", String.class, this.txtpolicyNumThree, "text");
+		dataBinder.registerBinding("policyNumFour", String.class, this.txtpolicyNumFour, "text");
+		dataBinder.registerBinding("xianzhongThree", com.kingdee.eas.port.equipment.base.InsuranceInfo.class, this.prmtxianzhongThree, "data");
+		dataBinder.registerBinding("xianzhongFour", com.kingdee.eas.port.equipment.base.InsuranceInfo.class, this.prmtxianzhongFour, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1187,7 +1277,11 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE1_de
 		getValidateHelper().registerBindProperty("tbrmc", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("xzdm", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("baodanNo", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("xianzhongTwo", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("xianzhongTwo", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("policyNumThree", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("policyNumFour", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("xianzhongThree", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("xianzhongFour", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1407,6 +1501,26 @@ kdtE1.getCell(rowIndex,"equType").setValue(com.kingdee.bos.ui.face.UIRuleUtil.ge
         	sic.add(new SelectorItemInfo("xianzhongTwo.id"));
         	sic.add(new SelectorItemInfo("xianzhongTwo.number"));
         	sic.add(new SelectorItemInfo("xianzhongTwo.name"));
+		}
+        sic.add(new SelectorItemInfo("policyNumThree"));
+        sic.add(new SelectorItemInfo("policyNumFour"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("xianzhongThree.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("xianzhongThree.id"));
+        	sic.add(new SelectorItemInfo("xianzhongThree.number"));
+        	sic.add(new SelectorItemInfo("xianzhongThree.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("xianzhongFour.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("xianzhongFour.id"));
+        	sic.add(new SelectorItemInfo("xianzhongFour.number"));
+        	sic.add(new SelectorItemInfo("xianzhongFour.name"));
 		}
         return sic;
     }        

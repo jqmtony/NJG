@@ -157,6 +157,50 @@ public class AbstractInsuranceCoverageInfo extends com.kingdee.eas.xr.XRBillBase
     {
         put("xianzhongTwo", item);
     }
+    /**
+     * Object:保险投保明细表's 保单号码3property 
+     */
+    public String getPolicyNumThree()
+    {
+        return getString("policyNumThree");
+    }
+    public void setPolicyNumThree(String item)
+    {
+        setString("policyNumThree", item);
+    }
+    /**
+     * Object:保险投保明细表's 保单号码4property 
+     */
+    public String getPolicyNumFour()
+    {
+        return getString("policyNumFour");
+    }
+    public void setPolicyNumFour(String item)
+    {
+        setString("policyNumFour", item);
+    }
+    /**
+     * Object: 保险投保明细表 's 险种3 property 
+     */
+    public com.kingdee.eas.port.equipment.base.InsuranceInfo getXianzhongThree()
+    {
+        return (com.kingdee.eas.port.equipment.base.InsuranceInfo)get("xianzhongThree");
+    }
+    public void setXianzhongThree(com.kingdee.eas.port.equipment.base.InsuranceInfo item)
+    {
+        put("xianzhongThree", item);
+    }
+    /**
+     * Object: 保险投保明细表 's 险种4 property 
+     */
+    public com.kingdee.eas.port.equipment.base.InsuranceInfo getXianzhongFour()
+    {
+        return (com.kingdee.eas.port.equipment.base.InsuranceInfo)get("xianzhongFour");
+    }
+    public void setXianzhongFour(com.kingdee.eas.port.equipment.base.InsuranceInfo item)
+    {
+        put("xianzhongFour", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("46F6E919");

@@ -801,6 +801,12 @@ public class MonMPApplicationEditUI extends AbstractMonMPApplicationEditUI
 					}
 			}
 		}
+		for (int i = 0; i < kdtE1.getRowCount(); i++) {
+			if(kdtE1.getCell(i, "equNumber").getValue()== null){
+				  MsgBox.showInfo("第{"+(i+1)+"}行分录的设备编号不允许为空！");
+					SysUtil.abort();
+			}
+		}
 	}
 	
 	protected void kdtE1_tableClicked(KDTMouseEvent e) throws Exception {

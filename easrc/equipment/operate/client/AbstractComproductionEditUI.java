@@ -559,6 +559,16 @@ public abstract class AbstractComproductionEditUI extends com.kingdee.eas.framew
         this.prmtreportMonth.setEditFormat("$number$");		
         this.prmtreportMonth.setCommitFormat("$number$");		
         this.prmtreportMonth.setRequired(false);
+        this.prmtreportMonth.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtreportMonth_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // btnAudit
         this.btnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionAudit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAudit.setText(resHelper.getString("btnAudit.text"));
@@ -1062,6 +1072,13 @@ public abstract class AbstractComproductionEditUI extends com.kingdee.eas.framew
     protected void prmtreportingUnit_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
     {
         //write your code here111
+    }
+
+    /**
+     * output prmtreportMonth_dataChanged method
+     */
+    protected void prmtreportMonth_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
     }
 
     /**

@@ -460,56 +460,56 @@ public class AnnualYearDetailListUI extends AbstractAnnualYearDetailListUI
      */
     public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception
     {
-//        super.actionCreateTo_actionPerformed(e);
-	    	checkSelected();
-	    	int selectIndex[] = KDTableUtil.getSelectedRows(tblMain);
-	    	
-	    	StringBuffer sb = new StringBuffer();
-	    	String innerId = "'null'";
-	    	String billId = "'null'";
-	    	
-	     	for (int j = 0; j < selectIndex.length; j++) 
-	    	{
-	    		String entryId = UIRuleUtil.getString(this.tblMain.getRow(selectIndex[j]).getCell("Entry.id").getValue());
-	    	
-	    			innerId = innerId+",'"+entryId+"'";
-	    			billId = billId+",'"+UIRuleUtil.getString(this.tblMain.getRow(selectIndex[j]).getCell("id").getValue())+"'";
-			}
-	    	
-	    	if(sb!=null&&!"".equals(sb.toString().trim()))
-	    	{
-	    		MsgBox.showConfirm3a("有不满足条件的记录，请查看详细信息！", sb.toString());
-	    		return;
-	    	}
-	    	else
-	    	{
-	    		IBOTMapping botMapping = BOTMappingFactory.getRemoteInstance();
-	    		BOTMappingInfo botInfo = (BOTMappingInfo) botMapping.getValue("where name='NJP00006'");
-	    		if(botInfo== null)
-	    		{
-	    			MsgBox.showWarning("规则错误，请检查BOTP！");SysUtil.abort();
-	    		}
-	    		
-	    		IAnnualYearDetailEntry IAnnualYearDetailEntry = AnnualYearDetailEntryFactory.getRemoteInstance();
-	    		
-	    		CoreBillBaseCollection eqcollection = AnnualYearDetailFactory.getRemoteInstance().getCoreBillBaseCollection("where id in("+billId+")");
-	    		
-	    		for (int i = 0; i < eqcollection.size(); i++)
-	    		{
-	    			AnnualYearDetailInfo Info = (AnnualYearDetailInfo)eqcollection.get(i);
-	    			String oql = "where id in("+innerId+") and parent.id='"+Info.getId()+"'";
-	    			
-	    			AnnualYearDetailEntryCollection e1Collection = IAnnualYearDetailEntry.getAnnualYearDetailEntryCollection(oql);
-	    			Info.getEntry().clear();
-	    			for (int j = 0; j < e1Collection.size(); j++) 
-	    			{
-	    				Info.getEntry().add(e1Collection.get(j));
-					}
-				}
-	    		ToolHelp.generateDestBill("22366297", "D2BED306",eqcollection , new ObjectUuidPK(botInfo.getId()));
-	    		MsgBox.showInfo("生成整改通知单成功！");
-	    		refresh(null);
-	    	}
+        super.actionCreateTo_actionPerformed(e);
+//	    	checkSelected();
+//	    	int selectIndex[] = KDTableUtil.getSelectedRows(tblMain);
+//	    	
+//	    	StringBuffer sb = new StringBuffer();
+//	    	String innerId = "'null'";
+//	    	String billId = "'null'";
+//	    	
+//	     	for (int j = 0; j < selectIndex.length; j++) 
+//	    	{
+//	    		String entryId = UIRuleUtil.getString(this.tblMain.getRow(selectIndex[j]).getCell("Entry.id").getValue());
+//	    	
+//	    			innerId = innerId+",'"+entryId+"'";
+//	    			billId = billId+",'"+UIRuleUtil.getString(this.tblMain.getRow(selectIndex[j]).getCell("id").getValue())+"'";
+//			}
+//	    	
+//	    	if(sb!=null&&!"".equals(sb.toString().trim()))
+//	    	{
+//	    		MsgBox.showConfirm3a("有不满足条件的记录，请查看详细信息！", sb.toString());
+//	    		return;
+//	    	}
+//	    	else
+//	    	{
+//	    		IBOTMapping botMapping = BOTMappingFactory.getRemoteInstance();
+//	    		BOTMappingInfo botInfo = (BOTMappingInfo) botMapping.getValue("where name='NJP00006'");
+//	    		if(botInfo== null)
+//	    		{
+//	    			MsgBox.showWarning("规则错误，请检查BOTP！");SysUtil.abort();
+//	    		}
+//	    		
+//	    		IAnnualYearDetailEntry IAnnualYearDetailEntry = AnnualYearDetailEntryFactory.getRemoteInstance();
+//	    		
+//	    		CoreBillBaseCollection eqcollection = AnnualYearDetailFactory.getRemoteInstance().getCoreBillBaseCollection("where id in("+billId+")");
+//	    		
+//	    		for (int i = 0; i < eqcollection.size(); i++)
+//	    		{
+//	    			AnnualYearDetailInfo Info = (AnnualYearDetailInfo)eqcollection.get(i);
+//	    			String oql = "where id in("+innerId+") and parent.id='"+Info.getId()+"'";
+//	    			
+//	    			AnnualYearDetailEntryCollection e1Collection = IAnnualYearDetailEntry.getAnnualYearDetailEntryCollection(oql);
+//	    			Info.getEntry().clear();
+//	    			for (int j = 0; j < e1Collection.size(); j++) 
+//	    			{
+//	    				Info.getEntry().add(e1Collection.get(j));
+//					}
+//				}
+//	    		ToolHelp.generateDestBill("22366297", "D2BED306",eqcollection , new ObjectUuidPK(botInfo.getId()));
+//	    		MsgBox.showInfo("生成整改通知单成功！");
+//	    		refresh(null);
+//	    	}
     }
 
     /**

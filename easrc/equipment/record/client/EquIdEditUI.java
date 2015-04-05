@@ -380,7 +380,7 @@ public class EquIdEditUI extends AbstractEquIdEditUI {
 		Tool.setRespDeptF7(this.prmtwxOrgUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setRespDeptF7(this.prmtwxDept, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setRespDeptF7(this.prmtssOrgUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
-		Tool.setRespDeptF7(this.prmtuseUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+//		Tool.setRespDeptF7(this.prmtuseUnit, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setRespDeptF7(this.prmtusingDept, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		Tool.setPersonF7(this.prmtresPerson, this, SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
 		

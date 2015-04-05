@@ -94,6 +94,17 @@ public class AbstractEqmOverhaulE1Info extends com.kingdee.eas.framework.CoreBil
     {
         setString("remark", item);
     }
+    /**
+     * Object:设备维大修's 费用property 
+     */
+    public java.math.BigDecimal getAmount()
+    {
+        return getBigDecimal("amount");
+    }
+    public void setAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("amount", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("5D1385B9");

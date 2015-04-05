@@ -389,7 +389,7 @@ public abstract class AbstractEqmOverhaulEditUI extends com.kingdee.eas.xr.clien
         this.contprojectLeader.setBoundLabelUnderline(true);		
         this.contprojectLeader.setVisible(true);
         // kdtE1
-		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection locked=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"equNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"equType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"useDepart\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equTecParametetr\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{equNumber}</t:Cell><t:Cell>$Resource{equName}</t:Cell><t:Cell>$Resource{equType}</t:Cell><t:Cell>$Resource{useDepart}</t:Cell><t:Cell>$Resource{equTecParametetr}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"equNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"equType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"useDepart\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"equTecParametetr\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{equNumber}</t:Cell><t:Cell>$Resource{equName}</t:Cell><t:Cell>$Resource{equType}</t:Cell><t:Cell>$Resource{useDepart}</t:Cell><t:Cell>$Resource{equTecParametetr}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
         kdtE1.addKDTEditListener(new KDTEditAdapter() {
@@ -404,10 +404,18 @@ public abstract class AbstractEqmOverhaulEditUI extends com.kingdee.eas.xr.clien
 	});
 
 
-                this.kdtE1.putBindContents("editData",new String[] {"seq","equNumber","equName","equType","useDepart","equTecParametetr","remark"});
+                this.kdtE1.putBindContents("editData",new String[] {"seq","equNumber","equName","equType","useDepart","equTecParametetr","amount","remark"});
 
 
         this.kdtE1.checkParsed();
+        KDFormattedTextField kdtE1_seq_TextField = new KDFormattedTextField();
+        kdtE1_seq_TextField.setName("kdtE1_seq_TextField");
+        kdtE1_seq_TextField.setVisible(true);
+        kdtE1_seq_TextField.setEditable(true);
+        kdtE1_seq_TextField.setHorizontalAlignment(2);
+        kdtE1_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtE1_seq_CellEditor = new KDTDefaultCellEditor(kdtE1_seq_TextField);
+        this.kdtE1.getColumn("seq").setEditor(kdtE1_seq_CellEditor);
         final KDBizPromptBox kdtE1_equNumber_PromptBox = new KDBizPromptBox();
         kdtE1_equNumber_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.record.app.EquIdQuery");
         kdtE1_equNumber_PromptBox.setVisible(true);
@@ -447,6 +455,17 @@ public abstract class AbstractEqmOverhaulEditUI extends com.kingdee.eas.xr.clien
         kdtE1_equTecParametetr_TextField.setMaxLength(80);
         KDTDefaultCellEditor kdtE1_equTecParametetr_CellEditor = new KDTDefaultCellEditor(kdtE1_equTecParametetr_TextField);
         this.kdtE1.getColumn("equTecParametetr").setEditor(kdtE1_equTecParametetr_CellEditor);
+        KDFormattedTextField kdtE1_amount_TextField = new KDFormattedTextField();
+        kdtE1_amount_TextField.setName("kdtE1_amount_TextField");
+        kdtE1_amount_TextField.setVisible(true);
+        kdtE1_amount_TextField.setEditable(true);
+        kdtE1_amount_TextField.setHorizontalAlignment(2);
+        kdtE1_amount_TextField.setDataType(1);
+        	kdtE1_amount_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E18"));
+        	kdtE1_amount_TextField.setMaximumValue(new java.math.BigDecimal("1.0E18"));
+        kdtE1_amount_TextField.setPrecision(10);
+        KDTDefaultCellEditor kdtE1_amount_CellEditor = new KDTDefaultCellEditor(kdtE1_amount_TextField);
+        this.kdtE1.getColumn("amount").setEditor(kdtE1_amount_CellEditor);
         KDTextField kdtE1_remark_TextField = new KDTextField();
         kdtE1_remark_TextField.setName("kdtE1_remark_TextField");
         kdtE1_remark_TextField.setMaxLength(255);
@@ -849,6 +868,7 @@ public abstract class AbstractEqmOverhaulEditUI extends com.kingdee.eas.xr.clien
 		dataBinder.registerBinding("E1.equName", String.class, this.kdtE1, "equName.text");
 		dataBinder.registerBinding("E1.equType", String.class, this.kdtE1, "equType.text");
 		dataBinder.registerBinding("E1.remark", String.class, this.kdtE1, "remark.text");
+		dataBinder.registerBinding("E1.amount", java.math.BigDecimal.class, this.kdtE1, "amount.text");
 		dataBinder.registerBinding("CU", com.kingdee.eas.basedata.org.CtrlUnitInfo.class, this.prmtCU, "data");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("bizDate", java.util.Date.class, this.pkBizDate, "value");
@@ -1013,6 +1033,7 @@ public abstract class AbstractEqmOverhaulEditUI extends com.kingdee.eas.xr.clien
 		getValidateHelper().registerBindProperty("E1.equName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.equType", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.remark", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("E1.amount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("CU", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("bizDate", ValidateHelper.ON_SAVE);    
@@ -1138,6 +1159,7 @@ kdtE1.getCell(rowIndex,"equType").setValue(com.kingdee.bos.ui.face.UIRuleUtil.ge
     	sic.add(new SelectorItemInfo("E1.equName"));
     	sic.add(new SelectorItemInfo("E1.equType"));
     	sic.add(new SelectorItemInfo("E1.remark"));
+    	sic.add(new SelectorItemInfo("E1.amount"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("CU.*"));

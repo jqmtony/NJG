@@ -27,10 +27,14 @@ import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.fi.fa.basedata.FaCatFactory;
+import com.kingdee.eas.fi.fa.basedata.FaCatInfo;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.record.EquIdFactory;
 import com.kingdee.eas.port.equipment.record.EquIdInfo;
 import com.kingdee.eas.port.equipment.wdx.IEqmOverhaul;
+import com.kingdee.eas.port.pm.invest.ProjectStartRequestFactory;
+import com.kingdee.eas.port.pm.invest.ProjectStartRequestInfo;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanFactory;
 import com.kingdee.eas.port.pm.invest.YearInvestPlanInfo;
 import com.kingdee.eas.port.pm.invest.uitls.F7ProjectDialog;
@@ -733,7 +737,7 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 		prmtprojectLeader.setEnabled(false);
 		 this.kdtE1.getColumn("seq").getStyleAttributes().setHided(true);
 		super.onLoad();
-		
+		txtexpenseAccount.setRequired(true);
 		this.prmtprojectNumber.setSelector(new F7ProjectDialog(this.prmtprojectNumber));
 		
 		prmtprojectNumber.addDataChangeListener(new DataChangeListener(){
@@ -741,6 +745,14 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 				if(prmtprojectNumber.getValue() != null){
 				String id = ((ProjectInfo)prmtprojectNumber.getData()).getId().toString();
 				try {
+					String oql1 = " where projectName.id ='"+id+"' order by createTime desc ";
+					if(ProjectStartRequestFactory.getRemoteInstance().exists(oql1))
+					{
+						ProjectStartRequestInfo prostInfo = ProjectStartRequestFactory.getRemoteInstance().getProjectStartRequestCollection(oql1).get(0);
+						if(prostInfo.getScheme() != null){
+							txtRepairProgram.setText(prostInfo.getScheme());
+						}
+					}
 					ProjectInfo ppInfo = ProjectFactory.getRemoteInstance().getProjectInfo(new ObjectUuidPK(id));
 					if(ppInfo.getNJGyearInvest() !=null){
 						String id2 = ((YearInvestPlanInfo)ppInfo.getNJGyearInvest()).getId().toString();
@@ -786,6 +798,7 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 		    		txtexpenseAccount.setValue(null);
 		    		prmtprojectLeader.setValue(null);
 		    		prmtprojectName.setValue(null);
+		    		txtRepairProgram.setText(null);
 		    	}
 			}
 		});
@@ -867,6 +880,19 @@ public class EqmOverhaulEditUI extends AbstractEqmOverhaulEditUI
 				AdminOrgUnitInfo aoInfo = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(id1));
 				this.kdtE1.getCell(rowIndex, "useDepart").setValue(aoInfo);
 			}
+			if(edInfo.getEqmType() != null){
+				String id2 = ((FaCatInfo)edInfo.getEqmType()).getId().toString();
+				FaCatInfo faInfo = FaCatFactory.getRemoteInstance().getFaCatInfo(new ObjectUuidPK(id2));
+				this.kdtE1.getCell(rowIndex, "equType").setValue(faInfo.getName());
+				
+			}
 		}
+	}
+	
+	protected void verifyInput(ActionEvent e) throws Exception {
+		 if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtexpenseAccount.getText())) {
+	 			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"æˆÀ„∑—”√"});
+	 		}
+		super.verifyInput(e);
 	}
 }

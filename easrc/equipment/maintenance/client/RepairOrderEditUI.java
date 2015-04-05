@@ -911,6 +911,13 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 	        kdtE1_equNameOne_OVR.setFormat(new BizDataFormat("$name$"));
 	        this.kdtE1.getColumn("equNameOne").setRenderer(kdtE1_equNameOne_OVR);
 		 
+	        for (int i = 0; i < kdtE1.getRowCount(); i++) {
+	        	 if ("equNameOne".equalsIgnoreCase(kdtE1.getColumn(i).getKey())) {
+	 	        	kdtE1.getCell(i,"equUseDepart").setValue(com.kingdee.bos.ui.face.UIRuleUtil.getString(com.kingdee.bos.ui.face.UIRuleUtil.getProperty((com.kingdee.bos.dao.IObjectValue)kdtE1.getCell(i,"equNameOne").getValue(),"usingDept.name")));
+
+	 	        	}
+			}
+	        
 	        EmployeeMultiF7PromptBox pmt = new EmployeeMultiF7PromptBox();
 		    pmt.setIsSingleSelect(false);
 		    pmt.showNoPositionPerson(false);
@@ -933,7 +940,7 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 	        kdtE1_replaceSparePart_OVR.setFormat(new BizDataFormat("$name$"));
 	        this.kdtE1.getColumn("repairPerson").setRenderer(kdtE1_replaceSparePart_OVR);
 	        
-//	        String id1 = SysContext.getSysContext().getCurrentStorageUnit().getId().toString();
+	        String id1 = SysContext.getSysContext().getCurrentStorageUnit().getId().toString();
 	        KDBizPromptBox kdtE1_replaceSparePart_PromptBox = new KDBizPromptBox();
 	        kdtE1_replaceSparePart_PromptBox.setQueryInfo("com.kingdee.eas.port.equipment.rpt.F7MaterialQuery");
 //	        kdtE1_replaceSparePart_PromptBox.setQueryInfo("com.kingdee.eas.fi.rpt.app.F7MaterialQuery");
@@ -942,12 +949,12 @@ public class RepairOrderEditUI extends AbstractRepairOrderEditUI
 	        kdtE1_replaceSparePart_PromptBox.setDisplayFormat("$number$");
 	        kdtE1_replaceSparePart_PromptBox.setEditFormat("$number$");
 	        kdtE1_replaceSparePart_PromptBox.setCommitFormat("$number$");
-	        kdtE1_replaceSparePart_PromptBox.setSelector(new F7MaterialSimpleSelector(this,kdtE1_replaceSparePart_PromptBox));
-//	   	     EntityViewInfo evi1 = new EntityViewInfo();
-//			 FilterInfo filter1 = new FilterInfo();
-//	 		 filter1.getFilterItems().add(new FilterItemInfo("Storage.id",id1 ,CompareType.EQUALS));
-//			 evi1.setFilter(filter1);
-//			 kdtE1_replaceSparePart_PromptBox.setEntityViewInfo(evi1);
+//	        kdtE1_replaceSparePart_PromptBox.setSelector(new F7MaterialSimpleSelector(this,kdtE1_replaceSparePart_PromptBox));
+	   	     EntityViewInfo evi1 = new EntityViewInfo();
+			 FilterInfo filter1 = new FilterInfo();
+	 		 filter1.getFilterItems().add(new FilterItemInfo("Storage.id",id1 ,CompareType.EQUALS));
+			 evi1.setFilter(filter1);
+			 kdtE1_replaceSparePart_PromptBox.setEntityViewInfo(evi1);
 			 KDTDefaultCellEditor kdtEntry_feeType_CellEditor = new KDTDefaultCellEditor(kdtE1_replaceSparePart_PromptBox);
 			 kdtE1.getColumn("replaceSparePart").setEditor(kdtEntry_feeType_CellEditor);
 			 

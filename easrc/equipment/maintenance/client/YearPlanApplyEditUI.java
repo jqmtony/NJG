@@ -20,6 +20,7 @@ import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.port.equipment.uitl.ToolHelp;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
@@ -743,6 +744,12 @@ public class YearPlanApplyEditUI extends AbstractYearPlanApplyEditUI
 	protected void verifyInput(ActionEvent e) throws Exception {
 		 if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtplanYear.getText())) {
 				throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"计划年度"});
+			}
+		 for (int i = 0; i < kdtE1.getRowCount(); i++) {
+				if(kdtE1.getCell(i, "equName").getValue()== null){
+					  MsgBox.showInfo("第{"+(i+1)+"}行分录的设备名称不允许为空！");
+						SysUtil.abort();
+				}
 			}
 		super.verifyInput(e);
 	}

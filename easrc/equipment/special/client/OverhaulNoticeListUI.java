@@ -3,6 +3,7 @@
  */
 package com.kingdee.eas.port.equipment.special.client;
 
+import java.awt.Color;
 import java.awt.event.*;
 
 import org.apache.log4j.Logger;
@@ -17,16 +18,23 @@ import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTDataRequestEvent;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.port.equipment.special.AnnualYearDetailFactory;
 import com.kingdee.eas.port.equipment.special.AnnualYearDetailInfo;
+import com.kingdee.eas.port.equipment.special.IAnnualYearDetail;
+import com.kingdee.eas.port.equipment.special.OverhaulNoticeFactory;
 import com.kingdee.eas.port.equipment.special.OverhaulNoticeInfo;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
@@ -40,6 +48,8 @@ public class OverhaulNoticeListUI extends AbstractOverhaulNoticeListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(OverhaulNoticeListUI.class);
     
+    
+    private Color b = new Color(220,124,172);
     /**
      * output class constructor
      */
@@ -682,4 +692,5 @@ public class OverhaulNoticeListUI extends AbstractOverhaulNoticeListUI
 		    }
 	    return super.getQueryExecutor(arg0, viewInfo);
 	}
+	
 }

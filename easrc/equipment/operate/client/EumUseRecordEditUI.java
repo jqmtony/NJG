@@ -189,19 +189,6 @@ public class EumUseRecordEditUI extends AbstractEumUseRecordEditUI {
 	
 	
 	protected void verifyInput(ActionEvent e) throws Exception {
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		String time = (df.format(this.pkBizDate.getSqlDate())).substring(0, 7);
-		String id = ((AdminOrgUnitInfo)prmtUseOrgUnit.getData()).getId().toString();
-		StringBuffer sb = new StringBuffer();
-		sb.append("/*dialect*/select to_char(fbizdate,'yyyy-mm') datetime");
-		sb.append(" from CT_OPE_EumUseRecord");
-		sb.append(" where CFUseOrgUnitID = '"+id+"'");
-		sb.append(" and to_char(fbizdate,'yyyy-mm')='"+time+"'and fnumber <> '"+editData.getNumber()+"'");
-		IRowSet rowSet = new XRSQLBuilder().appendSql(sb.toString()).executeQuery();
-		if(rowSet.size()>0){
-			MsgBox.showInfo("本单位本月已有设备使用记录，不允许再新增!");
-  			SysUtil.abort();
-		}
 		for (int i = 0; i <kdtEqmUse.getRowCount(); i++) {
 			if(chkinitialiRecord.isSelected()){
 				if(UIRuleUtil.isNull(kdtEqmUse.getCell(i, "startTime").getValue()))

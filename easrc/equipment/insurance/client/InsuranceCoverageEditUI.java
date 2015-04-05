@@ -1156,6 +1156,9 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 	        sic.add(new SelectorItemInfo("bizStatus"));
 	        sic.add(new SelectorItemInfo("auditTime"));
 	        sic.add(new SelectorItemInfo("xzdm"));
+	        sic.add(new SelectorItemInfo("baodanNo"));
+	        sic.add(new SelectorItemInfo("policyNumThree"));
+	        sic.add(new SelectorItemInfo("policyNumFour"));
 			if(selectorAll.equalsIgnoreCase("true"))
 			{
 				sic.add(new SelectorItemInfo("insurance.*"));
@@ -1164,6 +1167,33 @@ this.prmtinsurance.setEnabledMultiSelection(true);
 	        	sic.add(new SelectorItemInfo("insurance.id"));
 	        	sic.add(new SelectorItemInfo("insurance.number"));
 	        	sic.add(new SelectorItemInfo("insurance.name"));
+			}
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("xianzhongTwo.*"));
+			}
+			else{
+	        	sic.add(new SelectorItemInfo("xianzhongTwo.id"));
+	        	sic.add(new SelectorItemInfo("xianzhongTwo.number"));
+	        	sic.add(new SelectorItemInfo("xianzhongTwo.name"));
+			}
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("xianzhongThree.*"));
+			}
+			else{
+	        	sic.add(new SelectorItemInfo("xianzhongThree.id"));
+	        	sic.add(new SelectorItemInfo("xianzhongThree.number"));
+	        	sic.add(new SelectorItemInfo("xianzhongThree.name"));
+			}
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("xianzhongFour.*"));
+			}
+			else{
+	        	sic.add(new SelectorItemInfo("xianzhongFour.id"));
+	        	sic.add(new SelectorItemInfo("xianzhongFour.number"));
+	        	sic.add(new SelectorItemInfo("xianzhongFour.name"));
 			}
 			if(selectorAll.equalsIgnoreCase("true"))
 			{
