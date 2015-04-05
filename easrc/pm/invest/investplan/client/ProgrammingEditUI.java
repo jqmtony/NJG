@@ -625,6 +625,14 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		kdtEntries.getColumn("changeAmount").getStyleAttributes().setHided(true);
 		kdtEntries.getColumn("settleAmount").getStyleAttributes().setHided(true);
 		kdtEntries.getColumn("estimateAmount").getStyleAttributes().setHided(true);
+		
+		// by shilei ,项目启动申请 新增项目带不出默认的年度累计投资金额
+		if(OprtState.ADDNEW.equals(getOprtState()))
+		{
+			if(investB!=null && !"1".equals(isAdjust))
+				investB.setValue(UIRuleUtil.getBigDecimal(this.kdtEntries.getFootRow(0).getCell("investAmount").getValue()));//本年度投资金额
+			
+		}
 	}
 	
 	/**

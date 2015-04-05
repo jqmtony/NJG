@@ -145,7 +145,15 @@ public class ProjectStartRequestEditUI extends AbstractProjectStartRequestEditUI
 		}
     }
     
-    protected void prmtprojectName_dataChanged(DataChangeEvent e)throws Exception {
+	protected void prmtyear_dataChanged(DataChangeEvent e) throws Exception {
+		super.prmtyear_dataChanged(e);
+		if(prmtyear.getValue()!=null){
+			InvestYearInfo info = (InvestYearInfo)prmtyear.getValue();
+			programmingEditUI.year = info.getNumber();
+		}
+	}
+	
+	protected void prmtprojectName_dataChanged(DataChangeEvent e)throws Exception {
     	super.prmtprojectName_dataChanged(e);
 
     	if(prmtprojectName.getValue()==null)

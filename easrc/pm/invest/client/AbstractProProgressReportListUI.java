@@ -43,13 +43,13 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 /**
  * output class name
  */
-public abstract class AbstractProjectStartRequestListUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
+public abstract class AbstractProProgressReportListUI extends com.kingdee.eas.xr.client.XRBillBaseListUI
 {
-    private static final Logger logger = CoreUIObject.getLogger(AbstractProjectStartRequestListUI.class);
+    private static final Logger logger = CoreUIObject.getLogger(AbstractProProgressReportListUI.class);
     /**
      * output class constructor
      */
-    public AbstractProjectStartRequestListUI() throws Exception
+    public AbstractProProgressReportListUI() throws Exception
     {
         super();
         this.defaultObjectName = "mainQuery";
@@ -63,9 +63,9 @@ public abstract class AbstractProjectStartRequestListUI extends com.kingdee.eas.
      */
     private void jbInit() throws Exception
     {
-        this.resHelper = new ResourceBundleHelper(AbstractProjectStartRequestListUI.class.getName());
+        this.resHelper = new ResourceBundleHelper(AbstractProProgressReportListUI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
-        mainQueryPK = new MetaDataPK("com.kingdee.eas.port.pm.invest.app", "ProjectStartRequestQuery");
+        mainQueryPK = new MetaDataPK("com.kingdee.eas.port.pm.invest.app", "ProProgressReportQuery");
         //actionRemove
         String _tempStr = null;
         actionRemove.setEnabled(true);
@@ -83,10 +83,10 @@ public abstract class AbstractProjectStartRequestListUI extends com.kingdee.eas.
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
         // CoreUI
-		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol6\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol16\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol17\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol18\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol21\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style><c:Style id=\"sCol22\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" /><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" /><t:Column t:key=\"projectType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"year.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"projectName.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"scheme\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"person.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" /><t:Column t:key=\"deparment.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol17\" /><t:Column t:key=\"Entry.seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol18\" /><t:Column t:key=\"Entry.inviteName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.type.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.planDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol21\" /><t:Column t:key=\"Entry.amount0\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol22\" /><t:Column t:key=\"Entry.linkPerson\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Entry.beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"BIMUDF0022\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"dec\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"wuxu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{projectType.name}</t:Cell><t:Cell>$Resource{year.name}</t:Cell><t:Cell>$Resource{projectName.name}</t:Cell><t:Cell>$Resource{scheme}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{person.name}</t:Cell><t:Cell>$Resource{deparment.name}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell><t:Cell>$Resource{Entry.seq}</t:Cell><t:Cell>$Resource{Entry.inviteName}</t:Cell><t:Cell>$Resource{Entry.type.name}</t:Cell><t:Cell>$Resource{Entry.planDate}</t:Cell><t:Cell>$Resource{Entry.amount0}</t:Cell><t:Cell>$Resource{Entry.linkPerson}</t:Cell><t:Cell>$Resource{Entry.beizhu}</t:Cell><t:Cell>$Resource{BIMUDF0022}</t:Cell><t:Cell>$Resource{dec}</t:Cell><t:Cell>$Resource{wuxu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol3\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"month.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"CU.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"E1.seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.proName.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.projectBudget\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.sigContract\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.payment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.lastMonth\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.theMonth\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"E1.note\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{month.number}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{CU.name}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell><t:Cell>$Resource{E1.seq}</t:Cell><t:Cell>$Resource{E1.proName.name}</t:Cell><t:Cell>$Resource{E1.projectBudget}</t:Cell><t:Cell>$Resource{E1.sigContract}</t:Cell><t:Cell>$Resource{E1.payment}</t:Cell><t:Cell>$Resource{E1.lastMonth}</t:Cell><t:Cell>$Resource{E1.theMonth}</t:Cell><t:Cell>$Resource{E1.note}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
-                this.tblMain.putBindContents("mainQuery",new String[] {"number","status","projectType.name","year.name","projectName.name","scheme","amount","bizDate","person.name","deparment.name","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","auditTime","id","CU.id","Entry.seq","Entry.inviteName","Entry.type.name","Entry.planDate","Entry.amount0","Entry.linkPerson","Entry.beizhu","BIMUDF0022","dec","wuxu"});
+                this.tblMain.putBindContents("mainQuery",new String[] {"number","status","month.number","id","CU.name","CU.id","E1.seq","E1.proName.name","E1.projectBudget","E1.sigContract","E1.payment","E1.lastMonth","E1.theMonth","E1.note","bizDate","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","auditTime"});
 
 
         this.tblMain.checkParsed();
@@ -270,7 +270,7 @@ public abstract class AbstractProjectStartRequestListUI extends com.kingdee.eas.
 	private void registerUIState(){		
 	}
 	public String getUIHandlerClassName() {
-	    return "com.kingdee.eas.port.pm.invest.app.ProjectStartRequestListUIHandler";
+	    return "com.kingdee.eas.port.pm.invest.app.ProProgressReportListUIHandler";
 	}
 	public IUIActionPostman prepareInit() {
 		IUIActionPostman clientHanlder = super.prepareInit();
@@ -377,8 +377,20 @@ public abstract class AbstractProjectStartRequestListUI extends com.kingdee.eas.
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
-        sic.add(new SelectorItemInfo("status"));
         sic.add(new SelectorItemInfo("number"));
+        sic.add(new SelectorItemInfo("status"));
+        sic.add(new SelectorItemInfo("month.number"));
+        sic.add(new SelectorItemInfo("id"));
+        sic.add(new SelectorItemInfo("CU.name"));
+        sic.add(new SelectorItemInfo("CU.id"));
+        sic.add(new SelectorItemInfo("E1.seq"));
+        sic.add(new SelectorItemInfo("E1.proName.name"));
+        sic.add(new SelectorItemInfo("E1.projectBudget"));
+        sic.add(new SelectorItemInfo("E1.sigContract"));
+        sic.add(new SelectorItemInfo("E1.payment"));
+        sic.add(new SelectorItemInfo("E1.lastMonth"));
+        sic.add(new SelectorItemInfo("E1.theMonth"));
+        sic.add(new SelectorItemInfo("E1.note"));
         sic.add(new SelectorItemInfo("bizDate"));
         sic.add(new SelectorItemInfo("creator.name"));
         sic.add(new SelectorItemInfo("createTime"));
@@ -386,25 +398,6 @@ public abstract class AbstractProjectStartRequestListUI extends com.kingdee.eas.
         sic.add(new SelectorItemInfo("lastUpdateTime"));
         sic.add(new SelectorItemInfo("auditor.name"));
         sic.add(new SelectorItemInfo("auditTime"));
-        sic.add(new SelectorItemInfo("scheme"));
-        sic.add(new SelectorItemInfo("id"));
-        sic.add(new SelectorItemInfo("CU.id"));
-        sic.add(new SelectorItemInfo("projectName.name"));
-        sic.add(new SelectorItemInfo("person.name"));
-        sic.add(new SelectorItemInfo("deparment.name"));
-        sic.add(new SelectorItemInfo("amount"));
-        sic.add(new SelectorItemInfo("year.name"));
-        sic.add(new SelectorItemInfo("projectType.name"));
-        sic.add(new SelectorItemInfo("Entry.seq"));
-        sic.add(new SelectorItemInfo("Entry.inviteName"));
-        sic.add(new SelectorItemInfo("Entry.type.name"));
-        sic.add(new SelectorItemInfo("Entry.planDate"));
-        sic.add(new SelectorItemInfo("Entry.amount0"));
-        sic.add(new SelectorItemInfo("Entry.linkPerson"));
-        sic.add(new SelectorItemInfo("Entry.beizhu"));
-        sic.add(new SelectorItemInfo("BIMUDF0022"));
-        sic.add(new SelectorItemInfo("dec"));
-        sic.add(new SelectorItemInfo("wuxu"));
         return sic;
     }            protected java.util.List getQuerySorterFields() 
     { 
@@ -412,12 +405,7 @@ public abstract class AbstractProjectStartRequestListUI extends com.kingdee.eas.
         sorterFieldList.add("createTime"); 
         return sorterFieldList; 
     } 
-    protected java.util.List getQueryPKFields() 
-    { 
-        java.util.List pkList = new ArrayList(); 
-        pkList.add("id"); 
-        return pkList;
-    }
+
     	
 
     /**
@@ -444,7 +432,7 @@ public abstract class AbstractProjectStartRequestListUI extends com.kingdee.eas.
      */
     public IMetaDataPK getMetaDataPK()
     {
-        return new MetaDataPK("com.kingdee.eas.port.pm.invest.client", "ProjectStartRequestListUI");
+        return new MetaDataPK("com.kingdee.eas.port.pm.invest.client", "ProProgressReportListUI");
     }
     /**
      * output isBindWorkFlow method
@@ -459,7 +447,7 @@ public abstract class AbstractProjectStartRequestListUI extends com.kingdee.eas.
      */
     protected String getEditUIName()
     {
-        return com.kingdee.eas.port.pm.invest.client.ProjectStartRequestEditUI.class.getName();
+        return com.kingdee.eas.port.pm.invest.client.ProProgressReportEditUI.class.getName();
     }
 
     /**
@@ -467,7 +455,7 @@ public abstract class AbstractProjectStartRequestListUI extends com.kingdee.eas.
      */
     protected com.kingdee.eas.framework.ICoreBase getBizInterface() throws Exception
     {
-        return com.kingdee.eas.port.pm.invest.ProjectStartRequestFactory.getRemoteInstance();
+        return com.kingdee.eas.port.pm.invest.ProProgressReportFactory.getRemoteInstance();
     }
 
     /**
@@ -475,7 +463,7 @@ public abstract class AbstractProjectStartRequestListUI extends com.kingdee.eas.
      */
     protected IObjectValue createNewData()
     {
-        com.kingdee.eas.port.pm.invest.ProjectStartRequestInfo objectValue = new com.kingdee.eas.port.pm.invest.ProjectStartRequestInfo();		
+        com.kingdee.eas.port.pm.invest.ProProgressReportInfo objectValue = new com.kingdee.eas.port.pm.invest.ProProgressReportInfo();		
         return objectValue;
     }
 
@@ -484,16 +472,16 @@ public abstract class AbstractProjectStartRequestListUI extends com.kingdee.eas.
      */
     public String[] getMergeColumnKeys()
     {
-        return new String[] {"number","status","projectType.name","year.name","projectName.name","scheme","amount","bizDate","person.name","deparment.name","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","auditTime","id","CU.id","Entry.type.name","BIMUDF0022","dec","wuxu"};
+        return new String[] {"number","status","month.number","id","CU.name","CU.id","E1.proName.name","bizDate","creator.name","createTime","lastUpdateUser.name","lastUpdateTime","auditor.name","auditTime"};
     }
 
 
 
 	protected String getTDFileName() {
-    	return "/bim/port/pm/invest/ProjectStartRequest";
+    	return "/bim/port/pm/invest/ProProgressReport";
 	}
     protected IMetaDataPK getTDQueryPK() {
-    	return new MetaDataPK("com.kingdee.eas.port.pm.invest.app.ProjectStartRequestQuery");
+    	return new MetaDataPK("com.kingdee.eas.port.pm.invest.app.ProProgressReportQuery");
 	}
 
 }

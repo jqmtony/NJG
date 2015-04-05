@@ -420,14 +420,6 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
 
 
         this.kdtEntry.checkParsed();
-        KDFormattedTextField kdtEntry_seq_TextField = new KDFormattedTextField();
-        kdtEntry_seq_TextField.setName("kdtEntry_seq_TextField");
-        kdtEntry_seq_TextField.setVisible(true);
-        kdtEntry_seq_TextField.setEditable(true);
-        kdtEntry_seq_TextField.setHorizontalAlignment(2);
-        kdtEntry_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtEntry_seq_CellEditor = new KDTDefaultCellEditor(kdtEntry_seq_TextField);
-        this.kdtEntry.getColumn("seq").setEditor(kdtEntry_seq_CellEditor);
         KDTextArea kdtEntry_inviteName_TextArea = new KDTextArea();
         kdtEntry_inviteName_TextArea.setName("kdtEntry_inviteName_TextArea");
         kdtEntry_inviteName_TextArea.setMaxLength(255);
@@ -481,14 +473,6 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
 
 
         this.kdtE2.checkParsed();
-        KDFormattedTextField kdtE2_seq_TextField = new KDFormattedTextField();
-        kdtE2_seq_TextField.setName("kdtE2_seq_TextField");
-        kdtE2_seq_TextField.setVisible(true);
-        kdtE2_seq_TextField.setEditable(true);
-        kdtE2_seq_TextField.setHorizontalAlignment(2);
-        kdtE2_seq_TextField.setDataType(0);
-        KDTDefaultCellEditor kdtE2_seq_CellEditor = new KDTDefaultCellEditor(kdtE2_seq_TextField);
-        this.kdtE2.getColumn("seq").setEditor(kdtE2_seq_CellEditor);
         KDTextField kdtE2_evaluationIndex_TextField = new KDTextField();
         kdtE2_evaluationIndex_TextField.setName("kdtE2_evaluationIndex_TextField");
         kdtE2_evaluationIndex_TextField.setMaxLength(200);
@@ -609,6 +593,16 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
         this.prmtyear.setCommitFormat("$number$");		
         this.prmtyear.setRequired(false);		
         this.prmtyear.setEnabled(false);
+        this.prmtyear.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtyear_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtperson,prmtdeparment,txtamount,prmtyear,prmtprojectType,kdtE2,kdtEntry,prmtCU,pkLastUpdateTime,prmtLastUpdateUser,pkCreateTime,prmtCreator,prmtAuditor,pkBizDate,txtNumber,pkAuditTime,comboBizStatus,comboStatus,prmtprojectName,txtscheme,chkwuxu}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -1172,6 +1166,14 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
     protected void prmtprojectName_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
     {
         //write your code here00
+    }
+
+    /**
+     * output prmtyear_dataChanged method
+     */
+    protected void prmtyear_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+        //write your code here1
     }
 
     /**

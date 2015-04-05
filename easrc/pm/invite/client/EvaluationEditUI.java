@@ -6,14 +6,18 @@ package com.kingdee.eas.port.pm.invite.client;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.Map.Entry;
 
 import javax.swing.SwingUtilities;
 
@@ -26,7 +30,6 @@ import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.report.forapp.kdnote.client.KDNoteHelper;
-import com.kingdee.bos.ctrl.reportone.kdrs.exception.KDRSException;
 import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDTextField;
@@ -41,7 +44,6 @@ import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSObjectType;
-import com.kingdee.eas.basedata.assistant.AbstractPrintIntegrationInfo;
 import com.kingdee.eas.basedata.assistant.IPrintIntegration;
 import com.kingdee.eas.basedata.assistant.PrintIntegrationFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
@@ -52,7 +54,6 @@ import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.port.markesupplier.subill.IMarketSupplierStock;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockFactory;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
-import com.kingdee.eas.port.pm.base.EvaluationIndicatorsFactory;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateEntryCollection;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateFactory;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateInfo;
@@ -894,22 +895,70 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		//最低价评分法排名
     		IRow rowPrice = this.kDTable3.getRow(0);//报价行
     		IRow rowValid = this.kDTable3.getRow(1);//符合审查结果行
-    		ArrayList<String> price = new ArrayList<String>();
-    		HashMap<String, String> hmap = new HashMap<String, String>();
-    		for(int i = 1; i < this.kDTable3.getColumnCount();i++) {
+//    		ArrayList<String> price = new ArrayList<String>();
+    		IRow rowHead = this.kDTable3.getHeadRow(0);
+    		
+    		TreeMap<BigDecimal,String> hmap = new TreeMap<BigDecimal, String>(new Comparator<BigDecimal>(){  
+    			public int compare(BigDecimal o1, BigDecimal o2) {
+                    return o1.compareTo(o2);
+    			}     
+            });  
+    		
+    		Map<BigDecimal,Integer> colMap = new HashMap<BigDecimal,Integer>();
+    		for(int i = 1; i < this.kDTable3.getColumnCount();i++)
+    		{
     			if("合格".equals(rowValid.getCell(i).getValue().toString().trim()))
-    				price.add(rowPrice.getCell(i).getValue().toString().trim());
+    				hmap.put(UIRuleUtil.getBigDecimal(rowPrice.getCell(i).getValue()), rowHead.getCell(i).getValue().toString());
+//    			colMap.put( rowHead.getCell(i).getValue().toString(),i);
     		}
-    		Collections.sort(price);
-    		for(int i = 0; i < price.size(); i++) {
-    			if(hmap.containsKey(price.get(i)))
-    				continue;
-    			hmap.put(price.get(i), String.valueOf(i+1));
-    		}
+    		
+    		
+    		
+    		
+    		
     		IRow row = this.kDTable3.getRow(5);
-    		for(int i = 1; i < this.kDTable3.getColumnCount(); i++) {
-    			row.getCell(i).setValue(hmap.get(rowPrice.getCell(i).getValue().toString()));
+    		
+    		Set<Entry<BigDecimal, String>> set = hmap.entrySet();
+    		Iterator<Entry<BigDecimal, String>> itemSet = set.iterator();
+    		int ps = 1;
+    		while(itemSet.hasNext())
+    		{
+    			Entry<BigDecimal, String> entry = itemSet.next();
+    			colMap.put(entry.getKey(), ps);
+    			
+//    			if(colMap.get(entry.getValue())!=null)
+//    			{
+//    				row.getCell(colMap.get(entry.getValue())).setValue(ps);
+    				ps+=1;
+//    			}
     		}
+    		
+    		for(int i = 1; i < this.kDTable3.getColumnCount(); i++) 
+    		{
+    			row.getCell(i).setValue(colMap.get(UIRuleUtil.getBigDecimal(rowPrice.getCell(i).getValue())));
+    		}
+    		
+//    		IRow row = this.kDTable3.getRow(5);
+//    		for(int i = 1; i < this.kDTable3.getColumnCount(); i++) 
+//    		{
+//    			row.getCell(i).setValue(hmap.get(rowPrice.getCell(i).getValue().toString()));
+//    		}
+    		
+//    		HashMap<String, String> hmap = new HashMap<String, String>();
+//    		for(int i = 1; i < this.kDTable3.getColumnCount();i++) {
+//    			if("合格".equals(rowValid.getCell(i).getValue().toString().trim()))
+//    				price.add(rowPrice.getCell(i).getValue().toString().trim());
+//    		}
+//    		Collections.sort(price);
+//    		for(int i = 0; i < price.size(); i++) {
+//    			if(hmap.containsKey(price.get(i)))
+//    				continue;
+//    			hmap.put(price.get(i), String.valueOf(i+1));
+//    		}
+//    		IRow row = this.kDTable3.getRow(5);
+//    		for(int i = 1; i < this.kDTable3.getColumnCount(); i++) {
+//    			row.getCell(i).setValue(hmap.get(rowPrice.getCell(i).getValue().toString()));
+//    		}
     	}
     	
     	//保存总分分录
