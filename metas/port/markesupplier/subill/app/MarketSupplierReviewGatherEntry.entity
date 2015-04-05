@@ -366,6 +366,20 @@
                 <key name="name" value="CFContract" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>conName</name>
+            <alias>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].properties.linkProperty[conName].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].properties.linkProperty[conName].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFConNameID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
+                <key name="name" value="R_MarketSupplierReviewGatherEntry_ContractBill_conName" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -402,6 +416,11 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].defaultViewextendedProperty.genBusinessImplCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].description">
             <lang locale="en_US" value="null" />
@@ -508,6 +527,58 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].properties.linkProperty[conName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同名称" />
+            <lang locale="zh_HK" value="合同名稱" />
+            <lang locale="zh_TW" value="合同名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].properties.linkProperty[conName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同名称" />
+            <lang locale="zh_HK" value="合同名稱" />
+            <lang locale="zh_TW" value="合同名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].properties.linkProperty[conName].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].properties.linkProperty[conName].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].properties.linkProperty[conName].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].properties.linkProperty[conName].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].properties.linkProperty[conName].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].properties.linkProperty[conName].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].properties.linkProperty[conName].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].properties.linkProperty[conName].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierReviewGatherEntry].properties.linkProperty[parent].alias">
             <lang locale="en_US" value="null" />

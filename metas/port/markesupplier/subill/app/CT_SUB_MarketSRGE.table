@@ -175,6 +175,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFConNameID</name>
+            <alias>dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSRGE].columns.column[CFConNameID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSRGE].columns.column[CFConNameID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_SUB_MrktSRGg8d</name>
@@ -228,6 +242,25 @@
                 </fkColumnPair>
             </fkColumnPairs>
         </foreignKey>
+        <foreignKey>
+            <name>CFK_POR_SUBMSRGE5n</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
+                <key name="name" value="CT_CON_ContractBill" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFConNameID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSRGE].alias">
@@ -235,6 +268,18 @@
             <lang locale="zh_CN" value="分录" />
             <lang locale="zh_HK" value="分錄" />
             <lang locale="zh_TW" value="分錄" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSRGE].columns.column[CFConNameID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同名称" />
+            <lang locale="zh_HK" value="合同名稱" />
+            <lang locale="zh_TW" value="合同名稱" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSRGE].columns.column[CFConNameID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同名称" />
+            <lang locale="zh_HK" value="合同名稱" />
+            <lang locale="zh_TW" value="合同名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSRGE].columns.column[CFContractAmount].alias">
             <lang locale="en_US" value="null" />
