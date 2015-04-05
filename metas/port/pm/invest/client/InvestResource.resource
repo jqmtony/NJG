@@ -62,6 +62,11 @@
             <value>i18nResource[com.kingdee.eas.port.pm.invest.client.InvestResource].resourceItems.resourceItem[CostTempQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>ProProgressReportQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.port.pm.invest.client.InvestResource].resourceItems.resourceItem[ProProgressReportQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.port.pm.invest.client.InvestResource].alias">
@@ -93,6 +98,12 @@
             <lang locale="zh_CN" value="项目前期" />
             <lang locale="zh_HK" value="項目前期" />
             <lang locale="zh_TW" value="項目前期" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.port.pm.invest.client.InvestResource].resourceItems.resourceItem[ProProgressReportQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目进度汇报" />
+            <lang locale="zh_HK" value="項目進度彙報" />
+            <lang locale="zh_TW" value="項目進度彙報" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.port.pm.invest.client.InvestResource].resourceItems.resourceItem[ProjectAdjuestQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
