@@ -1717,6 +1717,37 @@
                 <key name="name" value="EqmOverhaulQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>E1.amount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulQuery].units.queryField[E1.amount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>852dbbe7-f52d-4958-8e5d-32f50589d6c4</key>
+                    <parentUnit>
+                        <key name="name" value="E1.amount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="amount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.equipment.wdx.app" />
+                <key name="name" value="EqmOverhaulQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2308,6 +2339,22 @@
             <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulQuery].units.queryField[E1.amount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="费用" />
+            <lang locale="zh_HK" value="費用" />
+            <lang locale="zh_TW" value="費用" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulQuery].units.queryField[E1.amount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulQuery].units.queryField[E1.amount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.equipment.wdx.app.EqmOverhaulQuery].units.queryField[E1.equName].displayName">
             <lang locale="en_US" value="null" />
