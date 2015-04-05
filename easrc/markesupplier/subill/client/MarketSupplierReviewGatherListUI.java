@@ -133,6 +133,7 @@ public class MarketSupplierReviewGatherListUI extends AbstractMarketSupplierRevi
 		try	{
 			FilterInfo filter = new FilterInfo();
 			if(this.getUIContext().get("IDSET")!=null){
+				this.kDContainer1.setTitle("");
 				filter.getFilterItems().add(new FilterItemInfo("id", (Set)this.getUIContext().get("IDSET"),CompareType.INCLUDE));
 			}else{
 				filter = getTreeFilter();

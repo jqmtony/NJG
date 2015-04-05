@@ -127,6 +127,17 @@ public class AbstractMarketSupplierReviewGatherEntryInfo extends com.kingdee.eas
     {
         setString("contract", item);
     }
+    /**
+     * Object: 分录 's 合同名称 property 
+     */
+    public com.kingdee.eas.port.pm.contract.ContractBillInfo getConName()
+    {
+        return (com.kingdee.eas.port.pm.contract.ContractBillInfo)get("conName");
+    }
+    public void setConName(com.kingdee.eas.port.pm.contract.ContractBillInfo item)
+    {
+        put("conName", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("970BE857");

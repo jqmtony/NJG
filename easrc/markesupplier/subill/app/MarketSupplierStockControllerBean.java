@@ -1,5 +1,6 @@
 package com.kingdee.eas.port.markesupplier.subill.app;
 
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -45,6 +46,8 @@ import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockFactory;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.app.ContextUtil;
+import com.kingdee.eas.util.app.DbUtil;
+import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.util.NumericExceptionSubItem;
 
 public class MarketSupplierStockControllerBean extends AbstractMarketSupplierStockControllerBean
@@ -238,7 +241,7 @@ public class MarketSupplierStockControllerBean extends AbstractMarketSupplierSto
         		{
         			CSSPGroupStandardInfo strd = new CSSPGroupStandardInfo();
         			strd.setId(BOSUuid.create(strd.getBOSType()));
-        			strd.setNumber("NJGsupplierGstrd");
+        			strd.setNumber("supplierGroupStandard");
         			strd.setName("供应商分类标准");
         			strd.setType(2);
         			strd.setIsBasic(StandardTypeEnum.defaultStandard);
@@ -270,30 +273,30 @@ public class MarketSupplierStockControllerBean extends AbstractMarketSupplierSto
         		Gdinfo.setSupplierGroupStandard(groupInfo.getGroupStandard());
         		supplier.getSupplierGroupDetails().add(Gdinfo);
         		
-        		view = new EntityViewInfo();
-        		filter = new FilterInfo();
-        		view.setFilter(filter);
-        		filter.getFilterItems().add(new FilterItemInfo("name", "%集团外%",CompareType.LIKE));
-        		filter.getFilterItems().add(new FilterItemInfo("CU.id", OrgConstants.DEF_CU_ID));
-        		
-        		sheGroupCol = CSSPGroupFactory.getLocalInstance(ctx).getCSSPGroupCollection(view);
-        		if(sheGroupCol.size()>0)
-        		{
-        			groupInfo = sheGroupCol.get(0);
-        			
-        			Gdinfo = new SupplierGroupDetailInfo();
-            		Gdinfo.setSupplierGroup(groupInfo);
-            		Gdinfo.setSupplierGroupFullName(groupInfo.getName());
-            		Gdinfo.setSupplierGroupStandard(groupInfo.getGroupStandard());
-            		supplier.getSupplierGroupDetails().add(Gdinfo);
-        		}
+//        		view = new EntityViewInfo();
+//        		filter = new FilterInfo();
+//        		view.setFilter(filter);
+//        		filter.getFilterItems().add(new FilterItemInfo("name", "%集团外%",CompareType.LIKE));
+//        		filter.getFilterItems().add(new FilterItemInfo("CU.id", OrgConstants.DEF_CU_ID));
+//        		
+//        		sheGroupCol = CSSPGroupFactory.getLocalInstance(ctx).getCSSPGroupCollection(view);
+//        		if(sheGroupCol.size()>0)
+//        		{
+//        			groupInfo = sheGroupCol.get(0);
+//        			
+//        			Gdinfo = new SupplierGroupDetailInfo();
+//            		Gdinfo.setSupplierGroup(groupInfo);
+//            		Gdinfo.setSupplierGroupFullName(groupInfo.getName());
+//            		Gdinfo.setSupplierGroupStandard(groupInfo.getGroupStandard());
+//            		supplier.getSupplierGroupDetails().add(Gdinfo);
+//        		}
     			SupplierFactory.getLocalInstance(ctx).addnew(supplier);
     			
     			Set cuIds = getSupplierMgeCu(ctx,supplier.getAdminCU().getId().toString());
     	    	for(Iterator itor = cuIds.iterator(); itor.hasNext(); )
     	    	{
     	    		String cuId = (String) itor.next();
-    	    		SupplierFactory.getLocalInstance(ctx).assign(new ObjectUuidPK(supplier.getAdminCU().getId()), new ObjectUuidPK(supplier.getId()), new ObjectUuidPK(cuId));
+//    	    		SupplierFactory.getLocalInstance(ctx).assign(new ObjectUuidPK(supplier.getAdminCU().getId()), new ObjectUuidPK(supplier.getId()), new ObjectUuidPK(cuId));
     	    	}
     		}
 	    	info.setSysSupplier(supplier);
@@ -355,7 +358,19 @@ public class MarketSupplierStockControllerBean extends AbstractMarketSupplierSto
 	}
     
 	private void setSysSupplierValue(Context ctx, MarketSupplierStockInfo info, SupplierInfo supplier) throws BOSException, EASBizException {
-		supplier.setNumber("Sys-" + info.getNumber());
+		
+		int maxNum = 0;
+		String sql = " select fnumber from(select SUBSTRING (fnumber,2,7) fnumber from T_BD_Supplier where fnumber like 'G%' and len(fnumber)=7 and fnumber<>'G999999'  order by  fnumber desc) where rownum<=1";
+		IRowSet rowSet = DbUtil.executeQuery(ctx,sql );
+		try 
+		{
+			rowSet.next();
+			maxNum = rowSet.getInt(1);
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		supplier.setNumber("G" + String.valueOf(maxNum+1));
 		supplier.setName(info.getSupplierName());
 		supplier.setAddress(info.getAddress());
 		supplier.setDescription(info.getDescription());

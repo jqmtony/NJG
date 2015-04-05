@@ -275,14 +275,18 @@ public class MarketSupplierStockListUI extends AbstractMarketSupplierStockListUI
 	}
 	protected void buildOrgTree() throws Exception{
 		OrgUnitInfo cuInfo = SysContext.getSysContext().getCurrentOrgUnit();
-		if (!cuInfo.isIsPurchaseOrgUnit()) {
-			MsgBox.showInfo(this, "非采购组织不能操作");
+		if (cuInfo.isIsPurchaseOrgUnit()) {
+			TreeModel orgTreeModel = NewOrgUtils.getTreeModel(OrgViewType.PURCHASE,"", cuInfo.getId().toString(), null, getActionPK(actionOnLoad));
+			this.orgTree.setModel(orgTreeModel);
+			this.orgTree.setSelectionRow(0);
+		}else{
+			MsgBox.showInfo("此组织不是采购组织");
 			SysUtil.abort();
 		}
-		TreeModel orgTreeModel = NewOrgUtils.getTreeModel(OrgViewType.PURCHASE,"", cuInfo.getId().toString(), null, getActionPK(actionOnLoad));
-		this.orgTree.setModel(orgTreeModel);
-		this.orgTree.setSelectionRow(0);
+	
 	}
+	
+	
 	protected void refresh(ActionEvent e) throws Exception{
 		this.tblMain.removeRows();
 	}

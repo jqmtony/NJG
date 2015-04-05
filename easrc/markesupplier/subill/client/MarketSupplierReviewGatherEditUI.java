@@ -69,6 +69,8 @@ import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryPersonC
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryPersonFactory;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockFactory;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
+import com.kingdee.eas.port.pm.contract.ContractBillFactory;
+import com.kingdee.eas.port.pm.contract.ContractBillInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -91,6 +93,7 @@ public class MarketSupplierReviewGatherEditUI extends AbstractMarketSupplierRevi
     public void onLoad() throws Exception {
     	this.prmtEntry.setEnabledMultiSelection(true);
     	setEnable();
+    	 this.kdtEntrys.getColumn("contract").getStyleAttributes().setHided(true);
     	super.onLoad();
     	
     	initButton();
@@ -665,6 +668,18 @@ public class MarketSupplierReviewGatherEditUI extends AbstractMarketSupplierRevi
     protected void kdtEntrys_editStopped(KDTEditEvent e) throws Exception {
     	super.kdtEntrys_editStopped(e);
 		DecimalFormat df = new DecimalFormat("##.00");
+		
+		if(this.kdtEntrys.getRow(e.getRowIndex()).getCell("conName").getValue() != null){
+			String id =((ContractBillInfo)this.kdtEntrys.getRow(e.getRowIndex()).getCell("conName").getValue()).getId().toString();
+			ContractBillInfo conInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(id));
+			if(conInfo.getAmount() != null){
+				this.kdtEntrys.getRow(e.getRowIndex()).getCell("contractAmount").setValue(conInfo.getAmount());
+			}
+		}else{
+			this.kdtEntrys.getRow(e.getRowIndex()).getCell("contractAmount").setValue(null);
+		}
+		
+		
 		if(this.kdtEntrys.getColumnKey(e.getColIndex()).equals("contractPrice")){
 			double contractAmount = UIRuleUtil.getBigDecimalValue(this.kdtEntrys.getRow(e.getRowIndex()).getCell("contractAmount").getValue());
 			double contractPrice = UIRuleUtil.getBigDecimalValue(this.kdtEntrys.getRow(e.getRowIndex()).getCell("contractPrice").getValue());

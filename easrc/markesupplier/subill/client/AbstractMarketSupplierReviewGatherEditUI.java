@@ -630,7 +630,7 @@ public abstract class AbstractMarketSupplierReviewGatherEditUI extends com.kingd
         this.IsPass.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.markesupplier.subase.IsGradeEnum").toArray());		
         this.IsPass.setRequired(true);
         // kdtEntrys
-		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"isHasContract\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contract\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"manager\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"managerPhone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractPrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"Quantity\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"uniy\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"ValueForMoney\" t:width=\"160\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{isHasContract}</t:Cell><t:Cell>$Resource{contract}</t:Cell><t:Cell>$Resource{contractAmount}</t:Cell><t:Cell>$Resource{manager}</t:Cell><t:Cell>$Resource{managerPhone}</t:Cell><t:Cell>$Resource{contractPrice}</t:Cell><t:Cell>$Resource{Quantity}</t:Cell><t:Cell>$Resource{uniy}</t:Cell><t:Cell>$Resource{ValueForMoney}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol8\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"isHasContract\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contract\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"conName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"manager\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"managerPhone\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractPrice\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"Quantity\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"uniy\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"ValueForMoney\" t:width=\"160\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{isHasContract}</t:Cell><t:Cell>$Resource{contract}</t:Cell><t:Cell>$Resource{conName}</t:Cell><t:Cell>$Resource{contractAmount}</t:Cell><t:Cell>$Resource{manager}</t:Cell><t:Cell>$Resource{managerPhone}</t:Cell><t:Cell>$Resource{contractPrice}</t:Cell><t:Cell>$Resource{Quantity}</t:Cell><t:Cell>$Resource{uniy}</t:Cell><t:Cell>$Resource{ValueForMoney}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
         this.kdtEntrys.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
@@ -643,7 +643,7 @@ public abstract class AbstractMarketSupplierReviewGatherEditUI extends com.kingd
             }
         });
 
-                this.kdtEntrys.putBindContents("editData",new String[] {"id","isHasContract","contract","contractAmount","manager","managerPhone","contractPrice","Quantity","uniy","ValueForMoney"});
+                this.kdtEntrys.putBindContents("editData",new String[] {"id","isHasContract","contract","conName","contractAmount","manager","managerPhone","contractPrice","Quantity","uniy","ValueForMoney"});
 
 
         this.kdtEntrys.checkParsed();
@@ -656,6 +656,18 @@ public abstract class AbstractMarketSupplierReviewGatherEditUI extends com.kingd
         kdtEntrys_contract_TextField.setMaxLength(100);
         KDTDefaultCellEditor kdtEntrys_contract_CellEditor = new KDTDefaultCellEditor(kdtEntrys_contract_TextField);
         this.kdtEntrys.getColumn("contract").setEditor(kdtEntrys_contract_CellEditor);
+        final KDBizPromptBox kdtEntrys_conName_PromptBox = new KDBizPromptBox();
+        kdtEntrys_conName_PromptBox.setQueryInfo("com.kingdee.eas.port.pm.contract.app.ContractBillQuery");
+        kdtEntrys_conName_PromptBox.setVisible(true);
+        kdtEntrys_conName_PromptBox.setEditable(true);
+        kdtEntrys_conName_PromptBox.setDisplayFormat("$number$");
+        kdtEntrys_conName_PromptBox.setEditFormat("$number$");
+        kdtEntrys_conName_PromptBox.setCommitFormat("$number$");
+        KDTDefaultCellEditor kdtEntrys_conName_CellEditor = new KDTDefaultCellEditor(kdtEntrys_conName_PromptBox);
+        this.kdtEntrys.getColumn("conName").setEditor(kdtEntrys_conName_CellEditor);
+        ObjectValueRender kdtEntrys_conName_OVR = new ObjectValueRender();
+        kdtEntrys_conName_OVR.setFormat(new BizDataFormat("$name$"));
+        this.kdtEntrys.getColumn("conName").setRenderer(kdtEntrys_conName_OVR);
         KDFormattedTextField kdtEntrys_contractAmount_TextField = new KDFormattedTextField();
         kdtEntrys_contractAmount_TextField.setName("kdtEntrys_contractAmount_TextField");
         kdtEntrys_contractAmount_TextField.setVisible(true);
@@ -1184,6 +1196,7 @@ vo.put("isPass","1");
 		dataBinder.registerBinding("entrys.uniy", java.lang.Object.class, this.kdtEntrys, "uniy.text");
 		dataBinder.registerBinding("entrys.ValueForMoney", String.class, this.kdtEntrys, "ValueForMoney.text");
 		dataBinder.registerBinding("entrys.contract", String.class, this.kdtEntrys, "contract.text");
+		dataBinder.registerBinding("entrys.conName", java.lang.Object.class, this.kdtEntrys, "conName.text");
 		dataBinder.registerBinding("EntryPs.seq", int.class, this.kdtEntryPs, "seq.text");
 		dataBinder.registerBinding("EntryPs", com.kingdee.eas.port.markesupplier.subill.MarketSupplierReviewGatherEntryPInfo.class, this.kdtEntryPs, "userObject");
 		dataBinder.registerBinding("EntryPs.guideType", String.class, this.kdtEntryPs, "guideType.text");
@@ -1364,6 +1377,7 @@ vo.put("isPass","1");
 		getValidateHelper().registerBindProperty("entrys.uniy", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.ValueForMoney", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.contract", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.conName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EntryPs.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EntryPs", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EntryPs.guideType", ValidateHelper.ON_SAVE);    
@@ -1564,6 +1578,15 @@ vo.put("isPass","1");
 		}
     	sic.add(new SelectorItemInfo("entrys.ValueForMoney"));
     	sic.add(new SelectorItemInfo("entrys.contract"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entrys.conName.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entrys.conName.id"));
+			sic.add(new SelectorItemInfo("entrys.conName.name"));
+        	sic.add(new SelectorItemInfo("entrys.conName.number"));
+		}
     	sic.add(new SelectorItemInfo("EntryPs.seq"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{

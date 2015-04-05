@@ -52,6 +52,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDTextField txtDescription;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel8;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel4;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel3;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contLastUpdateUser;
@@ -223,6 +224,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.txtDescription = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.kDPanel8 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel4 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel3 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -326,6 +328,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.txtDescription.setName("txtDescription");
         this.kDPanel1.setName("kDPanel1");
         this.kDPanel2.setName("kDPanel2");
+        this.kDPanel8.setName("kDPanel8");
         this.kDPanel4.setName("kDPanel4");
         this.kDPanel3.setName("kDPanel3");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -459,6 +462,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.txtDescription.setMaxLength(80);
         // kDPanel1
         // kDPanel2
+        // kDPanel8
         // kDPanel4
         // kDPanel3		
         this.kDPanel3.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel3.border.title")));
@@ -1095,6 +1099,7 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         //kDTabbedPane1
         kDTabbedPane1.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
         kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
+        kDTabbedPane1.add(kDPanel8, resHelper.getString("kDPanel8.constraints"));
         //kDPanel1
 kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDPanel4, BorderLayout.CENTER);
         //kDPanel4
@@ -1295,7 +1300,7 @@ kDPanel7.setLayout(new BorderLayout(0, 0));        kDPanel7.add(kDContainer6, Bo
 kDContainer6.getContentPane().setLayout(new BorderLayout(0, 0));        kdtE4_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtE4,new com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockE4Info(),null,false);
         kDContainer6.getContentPane().add(kdtE4_detailPanel, BorderLayout.CENTER);
         kDPanel2.setLayout(new KDLayout());
-        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1005, 731));        //kDContainer1
+        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1005, 731));        kDPanel8.setLayout(null);        //kDContainer1
 kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer1.getContentPane().add(contPunish, BorderLayout.CENTER);
         //contPunish
         contPunish.setBoundEditor(scrollPanePunish);

@@ -67,6 +67,8 @@ import com.kingdee.eas.port.markesupplier.subase.MarketSupplierPersonFactory;
 import com.kingdee.eas.port.markesupplier.subase.MarketSupplierPersonInfo;
 import com.kingdee.eas.port.markesupplier.subase.SupplierInvoiceTypeTreeInfo;
 import com.kingdee.eas.port.markesupplier.subase.SupplierState;
+import com.kingdee.eas.port.markesupplier.subill.MarketSupplierReviewGatherCollection;
+import com.kingdee.eas.port.markesupplier.subill.MarketSupplierReviewGatherFactory;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryAttCollection;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockEntryAttInfo;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
@@ -119,6 +121,7 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
     	this.kDPanel4.setPreferredSize(new Dimension(1013,1010));		
         this.kDPanel4.setMinimumSize(new Dimension(1013,1010));
         this.kDTabbedPane1.remove(kDPanel2);
+        this.kDTabbedPane1.remove(kDPanel8);
         this.kdtE4.getColumn("EvaluationIndex").getStyleAttributes().setLocked(true);
         this.kdtE4.getColumn("Description").setRequired(true);
         
@@ -147,6 +150,31 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
 	        	UIContext uiContext = new UIContext(this);
 	        	uiContext.put("IDSET", idSet);
 	        	panel.setViewportView((Component)UIFactoryHelper.initUIObject(WinInviteReportListUI.class.getName(), uiContext, null,OprtState.VIEW));
+	        	panel.setKeyBoardControl(true);
+	        	panel.setEnabled(false);
+	        
+	        }
+    	}
+    	
+    	if(editData.getId()!=null)
+    	{
+    		Set idSet = new HashSet();
+    		String oql = "where Supplier.id = '"+editData.getId()+"'";
+    		MarketSupplierReviewGatherCollection collection = MarketSupplierReviewGatherFactory.getRemoteInstance().getMarketSupplierReviewGatherCollection(oql);
+    		for (int i = 0; i < collection.size(); i++) 
+    			idSet.add(collection.get(i).getId());
+//    		
+    		KDScrollPane panel=new KDScrollPane();
+			panel.setName("供应商评审");
+			panel.setMinimumSize(new Dimension(1013,600));		
+			panel.setPreferredSize(new Dimension(1013,600));
+	        this.kDTabbedPane1.add(panel,"供应商评审");
+	        
+	        if(idSet.size()>0)
+	        {
+	        	UIContext uiContext = new UIContext(this);
+	        	uiContext.put("IDSET", idSet);
+	        	panel.setViewportView((Component)UIFactoryHelper.initUIObject(MarketSupplierReviewGatherListUI.class.getName(), uiContext, null,OprtState.VIEW));
 	        	panel.setKeyBoardControl(true);
 	        	panel.setEnabled(false);
 	        
@@ -709,6 +737,7 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
     	this.prmtAuditor.setValue(null);
     	this.pkauditDate.setValue(null);
     	this.kDPanel2.removeAll();
+    	this.kDPanel8.removeAll();
     	
     	this.editData.setSysSupplier(null);
     	this.editData.setLevel(null);
