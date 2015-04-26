@@ -84,9 +84,9 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBizRegisterNo;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contboEnterpriseKind;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contRecommended;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contserverfees;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contState;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contEvatemp;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contserverfees;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtsupplierName;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtPurchaseOrgUnit;
@@ -100,9 +100,9 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDTextField txtBizRegisterNo;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtboEnterpriseKind;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtRecommended;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtserverfees;
     protected com.kingdee.bos.ctrl.swing.KDComboBox State;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtEvatemp;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtserverfees;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker kDDateLastUpdateTime;
@@ -256,9 +256,9 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.contBizRegisterNo = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contboEnterpriseKind = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contRecommended = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contserverfees = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contState = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contEvatemp = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contserverfees = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtsupplierName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtPurchaseOrgUnit = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -272,9 +272,9 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.txtBizRegisterNo = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtboEnterpriseKind = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtRecommended = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtserverfees = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.State = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.prmtEvatemp = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtserverfees = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDDateLastUpdateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
@@ -360,9 +360,9 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.contBizRegisterNo.setName("contBizRegisterNo");
         this.contboEnterpriseKind.setName("contboEnterpriseKind");
         this.contRecommended.setName("contRecommended");
-        this.contserverfees.setName("contserverfees");
         this.contState.setName("contState");
         this.contEvatemp.setName("contEvatemp");
+        this.contserverfees.setName("contserverfees");
         this.txtNumber.setName("txtNumber");
         this.txtsupplierName.setName("txtsupplierName");
         this.prmtPurchaseOrgUnit.setName("prmtPurchaseOrgUnit");
@@ -376,9 +376,9 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.txtBizRegisterNo.setName("txtBizRegisterNo");
         this.txtboEnterpriseKind.setName("txtboEnterpriseKind");
         this.txtRecommended.setName("txtRecommended");
-        this.txtserverfees.setName("txtserverfees");
         this.State.setName("State");
         this.prmtEvatemp.setName("prmtEvatemp");
+        this.txtserverfees.setName("txtserverfees");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
         this.prmtCreator.setName("prmtCreator");
         this.kDDateLastUpdateTime.setName("kDDateLastUpdateTime");
@@ -605,10 +605,6 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.contRecommended.setBoundLabelLength(100);		
         this.contRecommended.setBoundLabelUnderline(true);		
         this.contRecommended.setVisible(true);
-        // contserverfees		
-        this.contserverfees.setBoundLabelText(resHelper.getString("contserverfees.boundLabelText"));		
-        this.contserverfees.setBoundLabelLength(100);		
-        this.contserverfees.setBoundLabelUnderline(true);
         // contState		
         this.contState.setBoundLabelText(resHelper.getString("contState.boundLabelText"));		
         this.contState.setBoundLabelLength(100);		
@@ -619,6 +615,11 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.contEvatemp.setBoundLabelLength(100);		
         this.contEvatemp.setBoundLabelUnderline(true);		
         this.contEvatemp.setVisible(true);
+        // contserverfees		
+        this.contserverfees.setBoundLabelText(resHelper.getString("contserverfees.boundLabelText"));		
+        this.contserverfees.setBoundLabelLength(100);		
+        this.contserverfees.setBoundLabelUnderline(true);		
+        this.contserverfees.setVisible(true);
         // txtNumber		
         this.txtNumber.setMaxLength(80);
         // txtsupplierName		
@@ -689,15 +690,6 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.txtRecommended.setHorizontalAlignment(2);		
         this.txtRecommended.setMaxLength(100);		
         this.txtRecommended.setRequired(false);
-        // txtserverfees		
-        this.txtserverfees.setVisible(true);		
-        this.txtserverfees.setHorizontalAlignment(2);		
-        this.txtserverfees.setDataType(1);		
-        this.txtserverfees.setSupportedEmpty(true);		
-        this.txtserverfees.setMinimumValue( new java.math.BigDecimal("-1.0E18"));		
-        this.txtserverfees.setMaximumValue( new java.math.BigDecimal("1.0E18"));		
-        this.txtserverfees.setPrecision(2);		
-        this.txtserverfees.setRequired(false);
         // State		
         this.State.setVisible(true);		
         this.State.addItems(EnumUtils.getEnumList("com.kingdee.eas.port.markesupplier.subase.SupplierState").toArray());		
@@ -737,6 +729,11 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
                 }
             }
         });
+        // txtserverfees		
+        this.txtserverfees.setVisible(true);		
+        this.txtserverfees.setHorizontalAlignment(2);		
+        this.txtserverfees.setMaxLength(100);		
+        this.txtserverfees.setRequired(false);
         // prmtLastUpdateUser		
         this.prmtLastUpdateUser.setEnabled(false);
         // prmtCreator		
@@ -1061,6 +1058,8 @@ public abstract class AbstractMarketSupplierStockEditUI extends com.kingdee.eas.
         this.txtPunish.setVisible(true);		
         this.txtPunish.setRequired(false);		
         this.txtPunish.setMaxLength(500);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtserverfees}));
+        this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -1166,12 +1165,12 @@ kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDPanel4, Border
         kDPanel3.add(contboEnterpriseKind, new KDLayout.Constraints(355, 117, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contRecommended.setBounds(new Rectangle(14, 144, 611, 19));
         kDPanel3.add(contRecommended, new KDLayout.Constraints(14, 144, 611, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contserverfees.setBounds(new Rectangle(14, 117, 270, 19));
-        kDPanel3.add(contserverfees, new KDLayout.Constraints(14, 117, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contState.setBounds(new Rectangle(704, 89, 270, 19));
         kDPanel3.add(contState, new KDLayout.Constraints(704, 89, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contEvatemp.setBounds(new Rectangle(704, 117, 270, 19));
         kDPanel3.add(contEvatemp, new KDLayout.Constraints(704, 117, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contserverfees.setBounds(new Rectangle(14, 117, 270, 19));
+        kDPanel3.add(contserverfees, new KDLayout.Constraints(14, 117, 270, 19, KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contNumber
         contNumber.setBoundEditor(txtNumber);
         //contsupplierName
@@ -1198,12 +1197,12 @@ kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDPanel4, Border
         contboEnterpriseKind.setBoundEditor(txtboEnterpriseKind);
         //contRecommended
         contRecommended.setBoundEditor(txtRecommended);
-        //contserverfees
-        contserverfees.setBoundEditor(txtserverfees);
         //contState
         contState.setBoundEditor(State);
         //contEvatemp
         contEvatemp.setBoundEditor(prmtEvatemp);
+        //contserverfees
+        contserverfees.setBoundEditor(txtserverfees);
         //contLastUpdateUser
         contLastUpdateUser.setBoundEditor(prmtLastUpdateUser);
         //contCreator
@@ -1491,9 +1490,9 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		dataBinder.registerBinding("BizRegisterNo", String.class, this.txtBizRegisterNo, "text");
 		dataBinder.registerBinding("boEnterpriseKind", String.class, this.txtboEnterpriseKind, "text");
 		dataBinder.registerBinding("Recommended", String.class, this.txtRecommended, "text");
-		dataBinder.registerBinding("serverfees", java.math.BigDecimal.class, this.txtserverfees, "value");
 		dataBinder.registerBinding("State", com.kingdee.eas.port.markesupplier.subase.SupplierState.class, this.State, "selectedItem");
 		dataBinder.registerBinding("Evatemp", com.kingdee.eas.port.pm.base.EvaluationTemplateInfo.class, this.prmtEvatemp, "data");
+		dataBinder.registerBinding("serverfees", String.class, this.txtserverfees, "text");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("lastUpdateTime", java.sql.Timestamp.class, this.kDDateLastUpdateTime, "value");
@@ -1569,6 +1568,14 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     }
 
 
+    /**
+     * output onShow method
+     */
+    public void onShow() throws Exception
+    {
+        super.onShow();
+        this.txtserverfees.requestFocusInWindow();
+    }
 
 	
 	
@@ -1684,9 +1691,9 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		getValidateHelper().registerBindProperty("BizRegisterNo", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("boEnterpriseKind", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Recommended", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("serverfees", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("State", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Evatemp", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("serverfees", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateTime", ValidateHelper.ON_SAVE);    
@@ -1802,7 +1809,6 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         sic.add(new SelectorItemInfo("BizRegisterNo"));
         sic.add(new SelectorItemInfo("boEnterpriseKind"));
         sic.add(new SelectorItemInfo("Recommended"));
-        sic.add(new SelectorItemInfo("serverfees"));
         sic.add(new SelectorItemInfo("State"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -1814,6 +1820,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         	sic.add(new SelectorItemInfo("Evatemp.name"));
         	sic.add(new SelectorItemInfo("Evatemp.templateName"));
 		}
+        sic.add(new SelectorItemInfo("serverfees"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("lastUpdateUser.*"));

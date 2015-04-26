@@ -194,17 +194,6 @@ public class AbstractMarketSupplierStockInfo extends com.kingdee.eas.framework.C
         put("Visibility", item);
     }
     /**
-     * Object:供应商档案登记's 服务费用property 
-     */
-    public java.math.BigDecimal getServerfees()
-    {
-        return getBigDecimal("serverfees");
-    }
-    public void setServerfees(java.math.BigDecimal item)
-    {
-        setBigDecimal("serverfees", item);
-    }
-    /**
      * Object:供应商档案登记's 三年内是否有法律纠纷，是否被政府部门处罚property 
      */
     public String getPunish()
@@ -424,6 +413,17 @@ public class AbstractMarketSupplierStockInfo extends com.kingdee.eas.framework.C
     public void setEvatemp(com.kingdee.eas.port.pm.base.EvaluationTemplateInfo item)
     {
         put("Evatemp", item);
+    }
+    /**
+     * Object:供应商档案登记's 银行账号property 
+     */
+    public String getServerfees()
+    {
+        return getString("serverfees");
+    }
+    public void setServerfees(String item)
+    {
+        setString("serverfees", item);
     }
     public BOSObjectType getBOSType()
     {
