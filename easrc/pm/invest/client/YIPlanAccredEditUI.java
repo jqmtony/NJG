@@ -59,6 +59,7 @@ import com.kingdee.eas.port.pm.base.ReviewerE1Factory;
 import com.kingdee.eas.port.pm.base.ReviewerE1Info;
 import com.kingdee.eas.port.pm.invest.AccredTypeEnum;
 import com.kingdee.eas.port.pm.invest.ObjectStateEnum;
+import com.kingdee.eas.port.pm.invest.YIPlanAccredE1E2Collection;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredE1E2Info;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredE1Info;
 import com.kingdee.eas.port.pm.invest.YIPlanAccredFactory;
@@ -81,6 +82,7 @@ import com.kingdee.eas.xr.helper.WorkflowXRHelper;
 import com.kingdee.eas.xr.helper.XRSQLBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.util.StringUtils;
+import com.kingdee.util.enums.EnumUtils;
 
 /**
  * output class name
@@ -217,6 +219,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	    btnSave.setEnabled(true);
 	    YIPlanAccredFactory.getRemoteInstance().save(editData);
 	}
+	
 	/**
 	 * 分录“accredResu”列值改变时“projectConclude”列值默认带出“同意”
 	 */
@@ -239,6 +242,62 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		        }
 			}
 		}
+		if(key.equals("accreConclu") || key.equals("opinion"))
+		{
+			if(this.kdtE1.getCell(rowIndex, "accreConclu").getValue()!=null)
+			{
+				ObjectStateEnum accreConclu = (ObjectStateEnum)kdtE1.getCell(rowIndex, "accreConclu").getValue();
+				if(accreConclu.equals(ObjectStateEnum.throughAudit)
+						||accreConclu.equals(ObjectStateEnum.accredit)
+						||accreConclu.equals(ObjectStateEnum.approval)){
+					if(key.equals("accreConclu"))
+						this.kdtE1.getCell(rowIndex,"opinion").setValue("同意");
+				}
+				String opion = (String)kdtE1.getCell(rowIndex, "opinion").getValue();
+				setE2Value(rowIndex,accreConclu ,opion );
+			}
+		}
+	}
+	/**
+	 * 设置E1 评审结论可见性
+	 * */
+	void setE1AccreConcluVisiable(){
+		String userid = SysContext.getSysContext().getCurrentUserInfo().getId().toString();
+		PersonInfo person = SysContext.getSysContext().getCurrentUserInfo().getPerson();
+		if(person==null)
+			return;
+		if(editData.getCreator().getId().toString().equals(userid)){
+			kdtE1.getColumn("accreConclu").getStyleAttributes().setHided(true);
+			kdtE1.getColumn("opinion").getStyleAttributes().setHided(true);
+			
+			kdtE1.getColumn("accredResu").getStyleAttributes().setHided(false);
+			kdtE1.getColumn("projectConclude").getStyleAttributes().setHided(false);
+		}else{
+			kdtE1.getColumn("accreConclu").getStyleAttributes().setHided(false);
+			kdtE1.getColumn("opinion").getStyleAttributes().setHided(false);
+			
+			kdtE1.getColumn("accredResu").getStyleAttributes().setHided(true);
+			kdtE1.getColumn("projectConclude").getStyleAttributes().setHided(true);
+		}
+	}
+	/**
+	 * 将E1 评审结论、意见 赋值给E2，对应评审人
+	 * */
+	void setE2Value(int index,ObjectStateEnum obj,String opinion){
+		PersonInfo personId = SysContext.getSysContext().getCurrentUserInfo().getPerson();
+		if(personId==null)
+			return;
+		YIPlanAccredE1E2Collection coll = editData.getE1().get(index).getE2();
+		for (int i = 0; i < coll.size(); i++) {
+			YIPlanAccredE1E2Info info = coll.get(i);
+			String accredPersonId = info.getAccredPerson().getId().toString();
+			if(personId.getId().toString().equals(accredPersonId)){
+				info.setAccreConclu(obj);
+				info.setOpinion(opinion);
+				info.setAduitTime(DateXRHelper.getServerDate());
+			}
+		}
+		kdtE2.refresh();
 	}
 	protected void kdtE2_editStopped(KDTEditEvent e) throws Exception {
 		super.kdtE2_editStopped(e);
@@ -381,6 +440,7 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 	}
 	protected void initProWorkButton(KDContainer container, boolean flse) {
 		KDWorkButton btnApprove = new KDWorkButton();
+		KDWorkButton btnOpion = new KDWorkButton();
 		KDWorkButton btnperson = new KDWorkButton();
 		KDWorkButton btnAddRowinfo = new KDWorkButton();
 		KDWorkButton btnInsertRowinfo = new KDWorkButton();
@@ -395,10 +455,11 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		
 		btnperson.setEnabled((OprtState.EDIT.equals(getOprtState()) || OprtState.ADDNEW.equals(getOprtState())) ? true : false);
 		btnApprove.setEnabled((OprtState.EDIT.equals(getOprtState()))||OprtState.ADDNEW.equals(getOprtState()) ? true : false);
+		btnOpion.setEnabled((OprtState.EDIT.equals(getOprtState()))||OprtState.ADDNEW.equals(getOprtState()) ? true : false);
 		
 		btnperson.setIcon(EASResource.getIcon("imgTbtn_addline"));
 		container.addButton(btnperson);
-		btnperson.setText("评审人员");
+		btnperson.setText("加签");
 		btnperson.setSize(new Dimension(140, 19));
 		btnperson.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -448,14 +509,47 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 				boolean flag = MsgBox.isYes(MsgBox.showConfirm2( "是否确认批量批准"));
 				if(flag)
 				for (int i = 0; i < kdtE1.getRowCount(); i++) {
-					kdtE1.getCell(i, "accredResu").setValue(ObjectStateEnum.approval);
-					kdtE1.getCell(i,"projectConclude").setValue("同意");
+					String userid = SysContext.getSysContext().getCurrentUserInfo().getId().toString();
+					PersonInfo person = SysContext.getSysContext().getCurrentUserInfo().getPerson();
+					if(person==null)
+						return;
+					if(editData.getCreator().getId().toString().equals(userid)){
+						kdtE1.getCell(i, "accredResu").setValue(ObjectStateEnum.approval);
+						kdtE1.getCell(i,"projectConclude").setValue("同意");
+					}
+					
+					setE2Value(i, ObjectStateEnum.approval, "同意");
+				}
+			}
+		});
+		
+		btnOpion.setIcon(EASResource.getIcon("imgTbtn_addline"));
+		container.addButton(btnOpion);
+		btnOpion.setText("批量评审");
+		btnOpion.setSize(new Dimension(140, 19));
+		btnOpion.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				boolean flag = MsgBox.isYes(MsgBox.showConfirm2( "是否确认批量评审"));
+				if(flag)
+				for (int i = 0; i < kdtE1.getRowCount(); i++) {
+					String userid = SysContext.getSysContext().getCurrentUserInfo().getId().toString();
+					PersonInfo person = SysContext.getSysContext().getCurrentUserInfo().getPerson();
+					if(person==null)
+						return;
+					if(editData.getCreator().getId().toString().equals(userid)){
+						kdtE1.getCell(i, "accredResu").setValue(ObjectStateEnum.accredit);
+						kdtE1.getCell(i,"projectConclude").setValue("同意");
+					}
+					
+					setE2Value(i, ObjectStateEnum.accredit, "同意");
 				}
 			}
 		});
 		
 		if(!accredType.getSelectedItem().equals(AccredTypeEnum.approve)){
 			btnApprove.setVisible(false);
+		}if(!accredType.getSelectedItem().equals(AccredTypeEnum.accred)){
+			btnOpion.setVisible(false);
 		}
 		
 		
@@ -687,6 +781,32 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
     		kdtE1.getColumn("projectConclude").getStyleAttributes().setLocked(true);
     	}
     	setLockAuditTable();
+    	
+    	ArrayList listE2 = new ArrayList();
+    	if(accredType.getSelectedItem().equals(AccredTypeEnum.trial)){
+    		listE2.add(ObjectStateEnum.throughAudit);
+    		listE2.add(ObjectStateEnum.complement);
+    		listE2.add(ObjectStateEnum.veto);
+		}
+		//分录投资信息”评审结果“，分录评审信息”评审结论“枚举值设为“评审通过”，“补充完善”，“否决”
+		else if(accredType.getSelectedItem().equals(AccredTypeEnum.accred))  {
+	        listE2.add(ObjectStateEnum.accredit);
+	        listE2.add(ObjectStateEnum.complement);
+	        listE2.add(ObjectStateEnum.veto);
+		}
+		else {
+	        listE2.add(ObjectStateEnum.approval);
+	        listE2.add(ObjectStateEnum.complement);
+	        listE2.add(ObjectStateEnum.veto);
+		}
+    	KDComboBox kdtE1_accreConclu_ComboBox = new KDComboBox();
+        kdtE1_accreConclu_ComboBox.setName("kdtE1_accreConclu_ComboBox");
+        kdtE1_accreConclu_ComboBox.setVisible(true);
+        kdtE1_accreConclu_ComboBox.addItems(listE2.toArray());
+        KDTDefaultCellEditor kdtE1_accreConclu_CellEditor = new KDTDefaultCellEditor(kdtE1_accreConclu_ComboBox);
+        this.kdtE1.getColumn("accreConclu").setEditor(kdtE1_accreConclu_CellEditor);
+        
+        setE1AccreConcluVisiable();
 	}
 	/**
      * output accredType_actionPerformed method

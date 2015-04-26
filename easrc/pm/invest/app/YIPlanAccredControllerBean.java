@@ -126,7 +126,9 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
 					filter.getFilterItems().add(new FilterItemInfo("id",yipid.toString()));
 					evInfo.setFilter(filter);
 					YearInvestPlanInfo planInfo = YearInvestPlanFactory.getLocalInstance(ctx).getYearInvestPlanCollection(evInfo).get(0);
-		    		
+		    		if(yipInfo.getAccredResu()==null){
+		    			throw new EASBizException(new NumericExceptionSubItem("100","评审结果不能为空！"));
+		    		}
 		    		if(yipInfo.getAccredResu().equals(ObjectStateEnum.complement))
 		    		{
 		    			planInfo.setStatus(XRBillStatusEnum.TEMPORARILYSAVED);
