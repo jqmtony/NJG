@@ -347,9 +347,10 @@ public class YIPlanAccredEditUI extends AbstractYIPlanAccredEditUI
 		if(kdtE1.getRow(rowIndex)!=null){
 			YearInvestPlanInfo info = (YearInvestPlanInfo)kdtE1.getRow(rowIndex).getCell("projectName").getValue();
 			info = YearInvestPlanFactory.getRemoteInstance().getYearInvestPlanInfo(new ObjectUuidPK(info.getId()));
-			ProgrammingInfo programmingInfo = getProgrammingInfo(info);
-			context.put("programmingInfo", programmingInfo);
-			context.put("projectInfo-edit", info);
+//			ProgrammingInfo programmingInfo = getProgrammingInfo(info);
+//			context.put("programmingInfo", programmingInfo);
+//			context.put("projectInfo-edit", info);
+			context.put("projectInfo-editingTO", info);
 			context.put("ID", info.getId());
 			UIFactory.createUIFactory().create(YearInvestPlanEditUI.class.getName(), context, null,OprtState.EDIT).show();
 		}

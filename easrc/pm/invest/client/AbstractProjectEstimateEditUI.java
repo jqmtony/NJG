@@ -691,8 +691,8 @@ public abstract class AbstractProjectEstimateEditUI extends com.kingdee.eas.xr.c
         kDTabbedPane1.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
         //kDPanel1
         kDPanel1.setLayout(new KDLayout());
-        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 964, 347));        kDScrollPane1.setBounds(new Rectangle(2, 0, 958, 434));
-        kDPanel1.add(kDScrollPane1, new KDLayout.Constraints(2, 0, 958, 434, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 964, 347));        kDScrollPane1.setBounds(new Rectangle(2, 0, 958, 348));
+        kDPanel1.add(kDScrollPane1, new KDLayout.Constraints(2, 0, 958, 348, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //contNumber
         contNumber.setBoundEditor(txtNumber);
         //contprojectName

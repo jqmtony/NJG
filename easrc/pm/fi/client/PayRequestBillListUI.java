@@ -39,6 +39,7 @@ import com.kingdee.bos.ctrl.swing.tree.KingdeeTreeModel;
 import com.kingdee.bos.dao.IObjectCollection;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.framework.cache.ActionCache;
 import com.kingdee.bos.metadata.MetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
@@ -57,11 +58,13 @@ import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.common.AttachmentClientManager;
 import com.kingdee.eas.base.attachment.common.AttachmentManagerFactory;
 import com.kingdee.eas.base.param.ParamControlFactory;
+import com.kingdee.eas.base.permission.PermissionFactory;
 import com.kingdee.eas.basedata.assistant.CurrencyFactory;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.FullOrgUnitFactory;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgStructureInfo;
+import com.kingdee.eas.basedata.org.OrgType;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
@@ -105,6 +108,7 @@ import com.kingdee.eas.port.pm.fi.PayRequestBillInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.eas.xr.helper.common.PortProjectTreeBuilder;
 import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.util.Assert;
 import com.kingdee.util.UuidException;
@@ -120,6 +124,30 @@ public class PayRequestBillListUI extends AbstractPayRequestBillListUI {
 	// 新增付款申请单，是否校验合同未完全拆分
 	private boolean checkAllSplit = true;
 
+	public void buildProjectTree() throws Exception {
+		
+		ProjectTreeBuildZj projectTreeBuilder = new ProjectTreeBuildZj();
+
+		projectTreeBuilder.build(this, treeProject, actionOnLoad);
+		
+		authorizedOrgs = (Set)ActionCache.get("FDCBillListUIHandler.authorizedOrgs");
+		if(authorizedOrgs==null){
+			authorizedOrgs = new HashSet();
+			Map orgs = PermissionFactory.getRemoteInstance().getAuthorizedOrgs(
+					 new ObjectUuidPK(SysContext.getSysContext().getCurrentUserInfo().getId()),
+			            OrgType.CostCenter, 
+			            null,  null, null);
+			if(orgs!=null){
+				Set orgSet = orgs.keySet();
+				Iterator it = orgSet.iterator();
+				while(it.hasNext()){
+					authorizedOrgs.add(it.next());
+				}
+			}		
+		}
+		
+	}
+	
 	/**
 	 * output class constructor
 	 */

@@ -164,7 +164,7 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 		kDTabbedPane1.remove(kDPanel5);
 		pkplanEndDate.setRequired(true);
 		pkplanStartDate.setRequired(true);
-		if(getUIContext().get("projectInfo-edit")!=null){
+		if(getUIContext().get("projectInfo-edit")!=null||getUIContext().get("projectInfo-editingTO")!=null){
 			btnSave.setText("确认修改并保存");
 			btnAddNew.setVisible(false);
 			btnEdit.setVisible(false);

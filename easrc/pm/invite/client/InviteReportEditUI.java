@@ -406,14 +406,83 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 				SysUtil.abort();
 			}
 		}
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry2, "evaEnterprise");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry3, "invitePerson");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry5, "judgeType");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry5, "amount");
 		
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE6, "evaluationNameTex");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE6, "weight");
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE7, "EvaluationName");
+		if(kdtEntry2.getRowCount()==0){
+			MsgBox.showInfo("请填写投标单位分录!");
+			SysUtil.abort();
+		}
+		
+		for (int i = 0; i < kdtEntry2.getRowCount(); i++) {
+			if(kdtEntry2.getCell(i, "evaEnterprise").getValue() == null){
+				MsgBox.showInfo("请填写投标单位分录的投标单位!");
+				SysUtil.abort();
+			}
+		}
+		
+		if(kdtEntry3.getRowCount()==0){
+			MsgBox.showInfo("请填写招标人员信息的招标项目组分录!");
+			SysUtil.abort();
+		}
+		
+		for (int i = 0; i < kdtEntry3.getRowCount(); i++) {
+			if(kdtEntry3.getCell(i, "invitePerson").getValue() == null){
+				MsgBox.showInfo("请填写招标人员信息的招标项目组分录的招标成员!");
+				SysUtil.abort();
+			}
+		}
+		
+		if(kdtEntry5.getRowCount()==0){
+			MsgBox.showInfo("请填写招标人员信息的评标专家组分录!");
+			SysUtil.abort();
+		}
+		
+		for (int i = 0; i < kdtEntry5.getRowCount(); i++) {
+			if(kdtEntry5.getCell(i, "judgeType").getValue() == null){
+				MsgBox.showInfo("请填写招标人员信息的评标专家组分录的专家类别!");
+				SysUtil.abort();
+			}
+			if(kdtEntry5.getCell(i, "amount").getValue() == null){
+				MsgBox.showInfo("请填写招标人员信息的评标专家组分录的人数!");
+				SysUtil.abort();
+			}
+		}
+		
+		if(kdtE6.getRowCount()==0){
+			MsgBox.showInfo("请填写评标办法的评审指标信息分录!");
+			SysUtil.abort();
+		}
+		
+		for (int i = 0; i < kdtE6.getRowCount(); i++) {
+			if(kdtE6.getCell(i, "evaluationNameTex").getValue() == null){
+				MsgBox.showInfo("请填写评标办法的评审指标信息分录的评审指标名称!");
+				SysUtil.abort();
+			}
+			if(kdtE6.getCell(i, "weight").getValue() == null){
+				MsgBox.showInfo("请填写评标办法的评审指标信息分录的权重!");
+				SysUtil.abort();
+			}
+		}
+	
+		if(kdtE7.getRowCount()==0){
+			MsgBox.showInfo("请填写评标办法的符合性审查分录!");
+			SysUtil.abort();
+		}
+		
+		for (int i = 0; i < kdtE7.getRowCount(); i++) {
+			if(kdtE7.getCell(i, "EvaluationName").getValue() == null){
+				MsgBox.showInfo("请填写评标办法的符合性审查分录的评审指标名称!");
+				SysUtil.abort();
+			}
+		}
+		
+//		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry2, "evaEnterprise");
+//		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry3, "invitePerson");
+//		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry5, "judgeType");
+//		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtEntry5, "amount");
+//		
+//		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE6, "evaluationNameTex");
+//		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE6, "weight");
+//		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE7, "EvaluationName");
 
 		if(UIRuleUtil.sum(kdtE6, "weight")!=100)
 		{

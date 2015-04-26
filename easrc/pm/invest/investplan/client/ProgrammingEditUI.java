@@ -486,7 +486,7 @@ public class ProgrammingEditUI extends AbstractProgrammingEditUI
 		super.loadFields();
 		//加载数据时按长编码排序
 		List rows = kdtEntries.getBody().getRows();
-		Collections.sort(rows, new TableCellComparator(kdtEntries.getColumnIndex("sortNumber"), KDTSortManager.SORT_ASCEND));
+		Collections.sort(rows, new TableCellComparator(kdtEntries.getColumnIndex("longNumber"), KDTSortManager.SORT_ASCEND));
 		kdtEntries.setRefresh(true);
 		//单元格编码模式
 		kdtEntries.getSelectManager().setSelectMode(KDTSelectManager.CELL_SELECT);

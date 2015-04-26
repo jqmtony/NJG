@@ -119,9 +119,13 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     	YIPlanAccredE1Collection coll =Info.getE1();
     		for (int i = 0; i <coll.size(); i++) {
 					YIPlanAccredE1Info yipInfo = coll.get(i);
-					
+					  
 					BOSUuid yipid =yipInfo.getProjectName().getId();
-		    		YearInvestPlanInfo planInfo = YearInvestPlan.getYearInvestPlanInfo(new ObjectUuidPK(yipid));
+					EntityViewInfo evInfo = new EntityViewInfo();
+					FilterInfo filter = new FilterInfo();
+					filter.getFilterItems().add(new FilterItemInfo("id",yipid.toString()));
+					evInfo.setFilter(filter);
+					YearInvestPlanInfo planInfo = YearInvestPlanFactory.getLocalInstance(ctx).getYearInvestPlanCollection(evInfo).get(0);
 		    		
 		    		if(yipInfo.getAccredResu().equals(ObjectStateEnum.complement))
 		    		{
