@@ -550,26 +550,6 @@
             </relationship>
         </linkProperty>
         <ownProperty>
-            <name>serverfees</name>
-            <alias>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].alias</alias>
-            <description>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <dataType>BigDecimal</dataType>
-            <metadataRef />
-            <isMultilingual>false</isMultilingual>
-            <isNullable>false</isNullable>
-            <formula />
-            <length>28</length>
-            <precision>28</precision>
-            <decimalDigits>10</decimalDigits>
-            <defaultValue>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].defaultValue</defaultValue>
-            <displayFormat />
-            <mappingField>
-                <key name="name" value="CFServerfees" />
-            </mappingField>
-        </ownProperty>
-        <ownProperty>
             <name>Punish</name>
             <alias>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[Punish].alias</alias>
             <description>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[Punish].description</description>
@@ -920,6 +900,26 @@
                 <key name="name" value="R_MarketSupplierStock_EvaluationTemplate_Evatemp" />
             </relationship>
         </linkProperty>
+        <ownProperty>
+            <name>serverfees</name>
+            <alias>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFServerfees" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -3750,9 +3750,9 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="服务费用" />
-            <lang locale="zh_HK" value="服務費用" />
-            <lang locale="zh_TW" value="服務費用" />
+            <lang locale="zh_CN" value="银行账号" />
+            <lang locale="zh_HK" value="銀行賬號" />
+            <lang locale="zh_TW" value="銀行賬號" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].defaultValue">
             <lang locale="en_US" value="null" />
@@ -3762,9 +3762,9 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="文本" />
-            <lang locale="zh_HK" value="文本" />
-            <lang locale="zh_TW" value="文本" />
+            <lang locale="zh_CN" value="银行账号" />
+            <lang locale="zh_HK" value="銀行賬號" />
+            <lang locale="zh_TW" value="銀行賬號" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].extendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />
@@ -3772,9 +3772,9 @@
             <lang locale="zh_TW" value="50" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].extendedProperty.bizDataType">
-            <lang locale="en_US" value="AMOUNT" />
-            <lang locale="zh_CN" value="AMOUNT" />
-            <lang locale="zh_TW" value="AMOUNT" />
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].extendedProperty.enableFieldPermission">
             <lang locale="en_US" value="false" />
@@ -3797,9 +3797,9 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].extendedProperty.isForWrittenBack">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStock].properties.ownProperty[serverfees].extendedProperty.isInCode">
             <lang locale="en_US" value="false" />

@@ -414,20 +414,6 @@
             <precision>0</precision>
         </column>
         <column>
-            <name>CFServerfees</name>
-            <alias>dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFServerfees].alias</alias>
-            <description>dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFServerfees].description</description>
-            <userDefined>true</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>NUMERIC</sqlType>
-            <length>28</length>
-            <scale>10</scale>
-            <precision>28</precision>
-        </column>
-        <column>
             <name>CFPunish</name>
             <alias>dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFPunish].alias</alias>
             <description>dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFPunish].description</description>
@@ -676,6 +662,20 @@
             <defaultValue />
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFServerfees</name>
+            <alias>dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFServerfees].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFServerfees].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -1272,15 +1272,15 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFServerfees].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="服务费用" />
-            <lang locale="zh_HK" value="服務費用" />
-            <lang locale="zh_TW" value="服務費用" />
+            <lang locale="zh_CN" value="银行账号" />
+            <lang locale="zh_HK" value="銀行賬號" />
+            <lang locale="zh_TW" value="銀行賬號" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFServerfees].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="文本" />
-            <lang locale="zh_HK" value="文本" />
-            <lang locale="zh_TW" value="文本" />
+            <lang locale="zh_CN" value="银行账号" />
+            <lang locale="zh_HK" value="銀行賬號" />
+            <lang locale="zh_TW" value="銀行賬號" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.markesupplier.subill.app.CT_SUB_MarketSupplierStock].columns.column[CFServiceTypeID].alias">
             <lang locale="en_US" value="null" />

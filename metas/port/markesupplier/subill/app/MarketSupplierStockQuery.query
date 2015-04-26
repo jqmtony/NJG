@@ -1212,37 +1212,6 @@
             </query>
         </propertyUnit>
         <queryField>
-            <name>serverfees</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.queryField[serverfees].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Number</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>22a706dd-8c55-46b0-afdc-3542c6b16f43</key>
-                    <parentUnit>
-                        <key name="name" value="serverfees" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="MarketSupplierStock" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="serverfees" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
-                <key name="name" value="MarketSupplierStockQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>Punish</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
@@ -2358,6 +2327,37 @@
                 <key name="name" value="MarketSupplierStockQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>serverfees</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.queryField[serverfees].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>39139b41-a224-495a-8f25-b439b8a3daaf</key>
+                    <parentUnit>
+                        <key name="name" value="serverfees" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MarketSupplierStock" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="serverfees" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.markesupplier.subill.app" />
+                <key name="name" value="MarketSupplierStockQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -3745,9 +3745,9 @@
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.queryField[serverfees].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="服务费用" />
-            <lang locale="zh_HK" value="服務費用" />
-            <lang locale="zh_TW" value="服務費用" />
+            <lang locale="zh_CN" value="银行账号" />
+            <lang locale="zh_HK" value="銀行賬號" />
+            <lang locale="zh_TW" value="銀行賬號" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.markesupplier.subill.app.MarketSupplierStockQuery].units.queryField[serverfees].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="true" />
