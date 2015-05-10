@@ -1578,11 +1578,14 @@ public class ComproductionEditUI extends AbstractComproductionEditUI {
 				  //吞吐量同比节超量(节-，超+)=（本期单耗-去年同期单耗）*吞吐量本期实绩
 				BigDecimal qq = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(0, "periodCon").getValue());
 				BigDecimal ww = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(0, "samePeriod").getValue());
+				BigDecimal qq1 = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(1, "periodCon").getValue());
+				BigDecimal ww1 = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(1, "samePeriod").getValue());
 				BigDecimal rr = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(0, "stagePerformance").getValue());
 				BigDecimal uu1 = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(1, "stagePerformance").getValue());
 				BigDecimal qw = qq.subtract(ww);//本期单耗-去年同期单耗
+				BigDecimal qw1 = qq1.subtract(ww1);//本期单耗-去年同期单耗
 				kdtEntrys.getCell(0, "excessSection").setValue(qw.multiply(rr));
-				kdtEntrys.getCell(1, "excessSection").setValue(qw.multiply(uu1));
+				kdtEntrys.getCell(1, "excessSection").setValue(qw1.multiply(uu1));
 				//水、电等同比节超量(节-，超+)=（本期单耗-去年同期单耗）*自然吨本期实绩
 				for (int i = 2; i < 10; i++) {
 					BigDecimal tt = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(i, "periodCon").getValue());
