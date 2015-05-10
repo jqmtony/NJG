@@ -416,7 +416,7 @@ public class MarketSupplierStockListUI extends AbstractMarketSupplierStockListUI
     		sel.add("longNumber");
     		PurchaseOrgUnitInfo org=PurchaseOrgUnitFactory.getRemoteInstance().getPurchaseOrgUnitInfo(new ObjectUuidPK(((OrgStructureInfo)orgNode.getUserObject()).getUnit().getId()),sel);
     		String longNumber=org.getLongNumber();
-    		filterItems.add(new FilterItemInfo("purchaseOrgUnit.longNumber", longNumber+"%",CompareType.LIKE));
+//    		filterItems.add(new FilterItemInfo("purchaseOrgUnit.longNumber", longNumber+"%",CompareType.LIKE));
     	}
     	return filter;
 	}

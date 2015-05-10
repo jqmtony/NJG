@@ -75,8 +75,10 @@ import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
 import com.kingdee.eas.port.pm.base.EvaluationIndicatorsFactory;
 import com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateEntryInfo;
+import com.kingdee.eas.port.pm.base.EvaluationTemplateFactory;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateInfo;
 import com.kingdee.eas.port.pm.base.IEvaluationIndicators;
+import com.kingdee.eas.port.pm.base.IEvaluationTemplate;
 import com.kingdee.eas.port.pm.invite.WinInviteReportUnitCollection;
 import com.kingdee.eas.port.pm.invite.WinInviteReportUnitFactory;
 import com.kingdee.eas.port.pm.invite.client.WinInviteReportListUI;
@@ -118,6 +120,10 @@ public class MarketSupplierStockEditUI extends AbstractMarketSupplierStockEditUI
     public void onLoad() throws Exception {
     	setEnable();
     	super.onLoad();
+    	if(OprtState.ADDNEW.equals(getOprtState())){
+    		EvaluationTemplateInfo evaInfo = EvaluationTemplateFactory.getRemoteInstance().getEvaluationTemplateInfo(new ObjectUuidPK("6vYAAAApfSRjUt3X"));
+    		prmtEvatemp.setValue(evaInfo);
+    	}
     	this.kDPanel4.setPreferredSize(new Dimension(1013,1010));		
         this.kDPanel4.setMinimumSize(new Dimension(1013,1010));
         this.kDTabbedPane1.remove(kDPanel2);
