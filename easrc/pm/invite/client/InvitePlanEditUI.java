@@ -96,14 +96,12 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
 		this.prmtresponse.setSelector(person);
     }
     
-    @Override
     protected void prmtresponse_dataChanged(DataChangeEvent e) throws Exception {
     	// TODO Auto-generated method stub
     	super.prmtresponse_dataChanged(e);
     	PersonInfo personInfo = (PersonInfo) this.prmtresponse.getValue();
     	this.prmtdepartment.setValue(com.kingdee.eas.xr.helper.PersonXRHelper.getPosiMemByDeptUser(personInfo));
     }
-    @Override
     protected void verifyInput(ActionEvent actionevent) throws Exception {
     	// TODO Auto-generated method stub
     	if("".equals(txtplanName.getText().trim())) {
@@ -127,12 +125,12 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
     		MsgBox.showWarning("计划结束日期不能早于计划开始时间");
     		SysUtil.abort();
     	}
-    	if(editData.getStartDate() != null && editData.getEndDate() != null && editData.getInDate().before(editData.getStartDate()))
+    	if(editData.getStartDate() != null && editData.getInDate() != null && editData.getInDate().before(editData.getStartDate()))
     	{
     		MsgBox.showWarning("进场日期不能早于计划开始时间");
     		SysUtil.abort();
     	}
-    	if(editData.getStartDate() != null && editData.getEndDate() != null && editData.getInDate().after(editData.getEndDate()))
+    	if(editData.getInDate() != null && editData.getEndDate() != null && editData.getInDate().after(editData.getEndDate()))
     	{
     		MsgBox.showWarning("进场日期不能晚于计划结束时间");
     		SysUtil.abort();

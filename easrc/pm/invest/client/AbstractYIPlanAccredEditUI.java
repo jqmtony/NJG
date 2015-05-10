@@ -45,7 +45,6 @@ import com.kingdee.bos.appframework.uip.UINavigator;
  */
 public abstract class AbstractYIPlanAccredEditUI extends com.kingdee.eas.xr.client.XRBillBaseEditUI
 {
-	
     private static final Logger logger = CoreUIObject.getLogger(AbstractYIPlanAccredEditUI.class);
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCreator;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCreateTime;

@@ -116,15 +116,15 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, txtopLocation, "开标地点");
     	com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this, pkopDate, "开标时间");
     	
-    	InviteReportInfo planInfo = (InviteReportInfo)prmtreportName.getValue();
+//    	InviteReportInfo planInfo = (InviteReportInfo)prmtreportName.getValue();
 		
-		String oql = "select id where reportName.id='"+planInfo.getId()+"' and cancel<>'1'";
-		if(editData.getId()!=null)
-			oql = oql+"and id <>'"+editData.getId()+"'";
-		if(OpenRegistrationFactory.getRemoteInstance().exists(oql))
-		{
-			MsgBox.showWarning("当前开标登记<"+planInfo.getReportName()+">已有对应的开标登记，不允许重复登记！");SysUtil.abort();
-		}
+//		String oql = "select id where reportName.id='"+planInfo.getId()+"' and cancel<>'1'";
+//		if(editData.getId()!=null)
+//			oql = oql+"and id <>'"+editData.getId()+"'";
+//		if(OpenRegistrationFactory.getRemoteInstance().exists(oql))
+//		{
+//			MsgBox.showWarning("当前开标登记<"+planInfo.getReportName()+">已有对应的开标登记，不允许重复登记！");SysUtil.abort();
+//		}
     	for(int i = 0; i < this.kdtEntry.getRowCount(); i++) {
     		IRow row = this.kdtEntry.getRow(i);
     		if(row.getCell("payDeposit").getValue().equals(true))
@@ -855,8 +855,8 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
      */
     public void actionPrint_actionPerformed(ActionEvent e) throws Exception
     {
-//        super.actionPrint_actionPerformed(e);
-    	invokeMultiPrintFunction(false); 
+        super.actionPrint_actionPerformed(e);
+//    	invokeMultiPrintFunction(false); 
     }
 
     /**
@@ -864,8 +864,8 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
      */
     public void actionPrintPreview_actionPerformed(ActionEvent e) throws Exception
     {
-//        super.actionPrintPreview_actionPerformed(e);
-    	invokeMultiPrintFunction(false); 
+        super.actionPrintPreview_actionPerformed(e);  
+//    	invokeMultiPrintFunction(false); 
     }
     public void actionMultiPrint_actionPerformed(java.awt.event.ActionEvent e)
     throws Exception
@@ -889,7 +889,7 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
 	
     protected IMetaDataPK getTDQueryPK()
     {
-    	return new MetaDataPK("com.kingdee.eas.port.pm.fi.app.PayRequestBillQuery");
+    	return new MetaDataPK("com.kingdee.eas.port.pm.invite.app.OpenRegistrationPrintQuery");
     }
 	protected void invokeMultiPrintFunction(List idList, boolean isPrint)
     {

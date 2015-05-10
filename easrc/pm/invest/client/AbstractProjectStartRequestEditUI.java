@@ -927,6 +927,7 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
 		dataBinder.registerBinding("lastUpdateTime", java.sql.Timestamp.class, this.pkLastUpdateTime, "value");
 		dataBinder.registerBinding("auditor", com.kingdee.eas.base.permission.UserInfo.class, this.prmtAuditor, "data");
 		dataBinder.registerBinding("auditTime", java.sql.Timestamp.class, this.pkAuditTime, "value");
+		dataBinder.registerBinding("description", String.class, this.txtDescription, "text");
 		dataBinder.registerBinding("scheme", String.class, this.txtscheme, "text");
 		dataBinder.registerBinding("Entry.seq", int.class, this.kdtEntry, "seq.text");
 		dataBinder.registerBinding("Entry", com.kingdee.eas.port.pm.invest.ProjectStartRequestEntryInfo.class, this.kdtEntry, "userObject");
@@ -1095,6 +1096,7 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
 		getValidateHelper().registerBindProperty("lastUpdateTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditor", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("scheme", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry", ValidateHelper.ON_SAVE);    
@@ -1217,6 +1219,7 @@ public abstract class AbstractProjectStartRequestEditUI extends com.kingdee.eas.
         	sic.add(new SelectorItemInfo("auditor.name"));
 		}
         sic.add(new SelectorItemInfo("auditTime"));
+        sic.add(new SelectorItemInfo("description"));
         sic.add(new SelectorItemInfo("scheme"));
     	sic.add(new SelectorItemInfo("Entry.seq"));
 		if(selectorAll.equalsIgnoreCase("true"))

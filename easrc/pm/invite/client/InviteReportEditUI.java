@@ -68,6 +68,7 @@ import com.kingdee.eas.port.pm.base.EvaluationIndicatorsInfo;
 import com.kingdee.eas.port.pm.base.EvaluationIndicatorsTreeFactory;
 import com.kingdee.eas.port.pm.base.EvaluationIndicatorsTreeInfo;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateEntryInfo;
+import com.kingdee.eas.port.pm.base.EvaluationTemplateFactory;
 import com.kingdee.eas.port.pm.base.EvaluationTemplateInfo;
 import com.kingdee.eas.port.pm.base.IEvaluationIndicators;
 import com.kingdee.eas.port.pm.base.IEvaluationIndicatorsTree;
@@ -124,6 +125,21 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 		this.contdevOrg.setVisible(false);
 		this.contproSite.setVisible(false);
 		super.onLoad();
+		
+		if(OprtState.ADDNEW.equals(getOprtState())){
+    		EvaluationTemplateInfo evaInfo = EvaluationTemplateFactory.getRemoteInstance().getEvaluationTemplateInfo(new ObjectUuidPK("6vYAAAAk6WljUt3X"));
+    		prmtvalidTemplate.setValue(evaInfo);
+    		EvaluationTemplateInfo evaInfo1 = EvaluationTemplateFactory.getRemoteInstance().getEvaluationTemplateInfo(new ObjectUuidPK("6vYAAAAnUW1jUt3X"));
+    		prmtevaTemplate.setValue(evaInfo1);
+    		txtrmhigh.setText("0");
+			txtrmlow.setText("0");
+			txtreduHigh.setText("0");
+			txtreduLow.setText("0");
+			txtbusinessScore.setText("0");
+			txttechScore.setText("0"); 
+			txtbusinessScore.setText("70");
+			txttechScore.setText("30");
+    	}
 		this.btnCopyLine.setVisible(false);
 		this.btnAddLine.setVisible(false);
 		this.btnInsertLine.setVisible(false);
@@ -382,23 +398,23 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 			MsgBox.showError("招标预算不能为0，请选择标段预算！\n 如果选择不到标段预算，请确认是否完成项目启动申请！");
 			SysUtil.abort();
 		}
-		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtvalidTemplate, "符合性审查模板");
-		if (this.judgeSolution.getSelectedItem().equals(
-				com.kingdee.eas.port.pm.invite.judgeSolution.integrate)) {
-			com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-					prmtevaTemplate, "评分模板");
-			com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-					txtrmhigh, "去除几个最高");
-			com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-					txtrmlow, "去除几个最低");
-			com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-					txtreduHigh, "高%1扣");
-			com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-					txtreduLow, "低%1扣");
-			com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-					txtbusinessScore, "商务分");
-			com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
-					txttechScore, "技术分");
+			com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,prmtvalidTemplate, "符合性审查模板");
+			if (this.judgeSolution.getSelectedItem().equals(
+					com.kingdee.eas.port.pm.invite.judgeSolution.integrate)) {
+				com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
+						prmtevaTemplate, "评标模板");
+				com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
+						txtrmhigh, "去除几个最高");
+				com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
+						txtrmlow, "去除几个最低");
+				com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
+						txtreduHigh, "高%1扣");
+				com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
+						txtreduLow, "低%1扣");
+				com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
+						txtbusinessScore, "商务分");
+				com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyNull(this,
+						txttechScore, "技术分");
 			BigDecimal business = new BigDecimal(txtbusinessScore.getText());
 			if (business.add(new BigDecimal(txttechScore.getText())).compareTo(
 					new BigDecimal(100)) != 0) {
@@ -447,20 +463,25 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 			}
 		}
 		
-		if(kdtE6.getRowCount()==0){
-			MsgBox.showInfo("请填写评标办法的评审指标信息分录!");
-			SysUtil.abort();
-		}
-		
-		for (int i = 0; i < kdtE6.getRowCount(); i++) {
-			if(kdtE6.getCell(i, "evaluationNameTex").getValue() == null){
-				MsgBox.showInfo("请填写评标办法的评审指标信息分录的评审指标名称!");
+		if(judgeSolution.getSelectedItem() !=null  ){
+			judgeSolution jus = (judgeSolution)this.judgeSolution.getSelectedItem();
+			if (jus.equals(com.kingdee.eas.port.pm.invite.judgeSolution.integrate)){
+			if(kdtE6.getRowCount()==0){
+				MsgBox.showInfo("请填写评标办法的评审指标信息分录!");
 				SysUtil.abort();
 			}
-			if(kdtE6.getCell(i, "weight").getValue() == null){
-				MsgBox.showInfo("请填写评标办法的评审指标信息分录的权重!");
-				SysUtil.abort();
+			
+			for (int i = 0; i < kdtE6.getRowCount(); i++) {
+				if(kdtE6.getCell(i, "evaluationNameTex").getValue() == null){
+					MsgBox.showInfo("请填写评标办法的评审指标信息分录的评审指标名称!");
+					SysUtil.abort();
+				}
+				if(kdtE6.getCell(i, "weight").getValue() == null){
+					MsgBox.showInfo("请填写评标办法的评审指标信息分录的权重!");
+					SysUtil.abort();
+				}
 			}
+		 }
 		}
 	
 		if(kdtE7.getRowCount()==0){
@@ -484,10 +505,10 @@ public class InviteReportEditUI extends AbstractInviteReportEditUI {
 //		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE6, "weight");
 //		com.kingdee.eas.xr.helper.ClientVerifyXRHelper.verifyKDTColumnNull(this, kdtE7, "EvaluationName");
 
-		if(UIRuleUtil.sum(kdtE6, "weight")!=100)
-		{
-			MsgBox.showWarning("评标办法内评审指标信息权重比不等于100，不能保存、提交！");SysUtil.abort();
-		}
+//		if(UIRuleUtil.sum(kdtE6, "weight")!=100)
+//		{
+//			MsgBox.showWarning("评标办法内评审指标信息权重比不等于100，不能保存、提交！");SysUtil.abort();
+//		}
 		
 		judgeSolution jud = (judgeSolution)judgeSolution.getSelectedItem();
     	if(jud.getValue().equals("1")) {

@@ -324,7 +324,11 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     				rowAdd.getCell("Judges").setValue(juEntryInfo.getJuName());
     				rowAdd.getCell("Indicator").setValue("总分");
     				rowAdd.getCell("Indicator").getStyleAttributes().setBackground(Color.RED);
-    				rowAdd.getCell("fullScore").setValue("100");
+    				BigDecimal sumweight =BigDecimal.ZERO; 
+    	    		for (int k = 0; k <reportInfo.getE6().size();k++) {
+    	    			 sumweight = sumweight.add(reportInfo.getE6().get(k).getWeight()==null ? BigDecimal.ZERO : reportInfo.getE6().get(k).getWeight());
+    				}
+    				rowAdd.getCell("fullScore").setValue(sumweight);
     				rowAdd.getStyleAttributes().setLocked(true);
     				rowAdd.getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_DISABLE_BG_COLOR);
         		}
@@ -771,13 +775,17 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		int jucount = judgeComEntryColl.size(); //评分专家人数
     		BigDecimal BusinessScoQz = new BigDecimal(reportInfo.getBusinessScore()).divide(new BigDecimal("100"));//商务分权重
     		BigDecimal TechScoreQz = new BigDecimal(reportInfo.getTechScore()).divide(new BigDecimal("100"));//技术分权重
+    		BigDecimal sumweight =BigDecimal.ZERO; 
+    		for (int i = 0; i <reportInfo.getE6().size(); i++) {
+    			 sumweight = sumweight.add(reportInfo.getE6().get(i).getWeight()==null ? BigDecimal.ZERO : reportInfo.getE6().get(i).getWeight());
+			}
     		//技术标得分
     		for(int c = 3; c < this.kDTable2.getColumnCount(); c++) {
         		BigDecimal fullscore = new BigDecimal(0);
     			for(int r = cont; r < this.kDTable2.getRowCount(); r += cont + 1) {	
     					fullscore = fullscore.add(new BigDecimal(kDTable2.getRow(r).getCell(c).getValue().toString()));
     				}
-    			kDTable3.getRow(2).getCell(c-2).setValue((fullscore.divide(new BigDecimal(jucount), 2).multiply(TechScoreQz)).setScale(2, 4).toString());
+    			kDTable3.getRow(2).getCell(c-2).setValue((fullscore.divide(new BigDecimal(jucount), 10, BigDecimal.ROUND_HALF_UP).multiply(TechScoreQz).divide(sumweight, 10, BigDecimal.ROUND_HALF_UP).multiply(new BigDecimal("100"))).setScale(2, 4).toString());
     		}
     		//计算评标基准价
     		ArrayList<String> price = new ArrayList<String>();//存放有效报价(通过符合性审查的)

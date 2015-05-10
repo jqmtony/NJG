@@ -38,6 +38,7 @@ import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockFactory;
 import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
 import com.kingdee.eas.port.pm.base.InviteTypeFactory;
@@ -160,7 +161,10 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
 	}
 	protected void prmtinviteReport_dataChanged(DataChangeEvent e)throws Exception {
     	super.prmtinviteReport_dataChanged(e);
-    	InviteReportInfo inviteReport = (InviteReportInfo) this.prmtinviteReport.getValue();
+    	boolean ischange = BizCollUtil.isF7ValueChanged(e);
+    	if(!ischange||e.getNewValue()==null)
+    		return;
+    	InviteReportInfo inviteReport = (InviteReportInfo) e.getNewValue();
     	txtbudgetAmount.setValue(UIRuleUtil.getBigDecimal(inviteReport.getInviteBudget()));
     	this.txtcontent.setText(inviteReport.getBIMUDF0004());
     	this.evaSolution.setSelectedItem(inviteReport.getJudgeSolution());//设置评标访法
@@ -181,57 +185,61 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     	//过滤专家评标
     	oql = "where inviteReport.id = '" + inviteReport.getId() + "'";
     	EvaluationCollection evaColl = EvaluationFactory.getRemoteInstance().getEvaluationCollection(oql);
-    	EvaluationInfo evaInfo = evaColl.get(0);
-    	this.pkevaDate.setValue(evaInfo.getEvaDate() == null ? null : evaInfo.getEvaDate());
-    	EvaluationEntryUnitCollection enterpriseColl = evaInfo.getEntryUnit();
-    	EvaluationEntryTotalCollection totalColl = evaInfo.getEntryTotal();
     	
-        KDTable kdtable = new KDTable();
-        kdtable.addHeadRow(0);
-    	IColumn col = kdtable.addColumn();
-		col.setKey("enterprise");
-		col.getStyleAttributes().setLocked(true);
-		kdtable.getHeadRow(0).getCell("enterprise").setValue("投标单位");
-    	//构建表头投标单位
-		for(int i = 0; i < enterpriseColl.size(); i++) {
-			EvaluationEntryUnitInfo info = enterpriseColl.get(i);
-			col = kdtable.addColumn();
-			col.setKey("Unit"+i);
-			kdtable.getHeadRow(0).getCell("Unit"+i).setValue(info.getEnterprise());
-		}
-		
-		IRow row = kdtable.addRow();
-		row.getCell("enterprise").setValue("投标报价");
-		row = kdtable.addRow();
-		row.getCell("enterprise").setValue("符合性结果");
-		row = kdtable.addRow();
-		row.getCell("enterprise").setValue("技术标得分");
-		row = kdtable.addRow();
-		row.getCell("enterprise").setValue("商务标得分");
-		row = kdtable.addRow();
-		row.getCell("enterprise").setValue("总分");
-		row = kdtable.addRow();
-		row.getCell("enterprise").setValue("排名");
+    	IRow rowTotal = null;
+    	if(evaColl.size()>0){
+    		EvaluationInfo evaInfo = evaColl.get(0);
+    		this.pkevaDate.setValue(evaInfo.getEvaDate() == null ? null : evaInfo.getEvaDate());
+    		EvaluationEntryUnitCollection enterpriseColl = evaInfo.getEntryUnit();
+    		EvaluationEntryTotalCollection totalColl = evaInfo.getEntryTotal();
+    		
+    		KDTable kdtable = new KDTable();
+            kdtable.addHeadRow(0);
+        	IColumn col = kdtable.addColumn();
+    		col.setKey("enterprise");
+    		col.getStyleAttributes().setLocked(true);
+    		kdtable.getHeadRow(0).getCell("enterprise").setValue("投标单位");
+        	//构建表头投标单位
+    		for(int i = 0; i < enterpriseColl.size(); i++) {
+    			EvaluationEntryUnitInfo info = enterpriseColl.get(i);
+    			col = kdtable.addColumn();
+    			col.setKey("Unit"+i);
+    			kdtable.getHeadRow(0).getCell("Unit"+i).setValue(info.getEnterprise());
+    		}
+    		
+    		IRow row = kdtable.addRow();
+    		row.getCell("enterprise").setValue("投标报价");
+    		row = kdtable.addRow();
+    		row.getCell("enterprise").setValue("符合性结果");
+    		row = kdtable.addRow();
+    		row.getCell("enterprise").setValue("技术标得分");
+    		row = kdtable.addRow();
+    		row.getCell("enterprise").setValue("商务标得分");
+    		row = kdtable.addRow();
+    		row.getCell("enterprise").setValue("总分");
+    		row = kdtable.addRow();
+    		row.getCell("enterprise").setValue("排名");
+        	
+    		int line = 0;
+    		for(int i = 0; i < totalColl.size(); i += enterpriseColl.size()) {
+    			IRow rowAdd = kdtable.getRow(line++);
+    			for(int j = i; j < enterpriseColl.size() + i; j++) {
+    				EvaluationEntryTotalInfo info = totalColl.get(j);
+    				rowAdd.getCell("enterprise").setValue(info.getIndicators());
+        			rowAdd.getCell(j-i+1).setValue(info.getResult());
+    			}
+    		}		
+    	    rowTotal = kdtable.getRow(5);
+    	    System.out.println(totalColl.size());
+    	    for(int i = 0; i < kdtable.getRowCount(); i++) {
+    	    	IRow rowT = kdtable.getRow(i);
+    	    	for(int j = 0; j < kdtable.getColumnCount(); j++) {
+    	    		System.out.print(rowT.getCell(j).getValue() + "   ");
+    	    	}
+    	    	System.out.println();
+    	    }
+    	}
     	
-		int line = 0;
-		for(int i = 0; i < totalColl.size(); i += enterpriseColl.size()) {
-			IRow rowAdd = kdtable.getRow(line++);
-			for(int j = i; j < enterpriseColl.size() + i; j++) {
-				EvaluationEntryTotalInfo info = totalColl.get(j);
-				rowAdd.getCell("enterprise").setValue(info.getIndicators());
-    			rowAdd.getCell(j-i+1).setValue(info.getResult());
-			}
-		}		
-	    IRow rowTotal = kdtable.getRow(5);
-	    System.out.println(totalColl.size());
-	    for(int i = 0; i < kdtable.getRowCount(); i++) {
-	    	IRow rowT = kdtable.getRow(i);
-	    	for(int j = 0; j < kdtable.getColumnCount(); j++) {
-	    		System.out.print(rowT.getCell(j).getValue() + "   ");
-	    	}
-	    	System.out.println();
-	    }
-		
     	//投标单位分录
     	this.kdtUnit.removeRows();
     	OpenRegistrationEntryCollection opRegEntryColl = openRegInfo.getEntry();
@@ -243,33 +251,39 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     		rowAdd.getCell("unitName").setValue(supplier);
     		rowAdd.getCell("quality").setValue(opRegEntryInfo.getQuality());
     		rowAdd.getCell("inviteAmount").setValue(new BigDecimal(opRegEntryInfo.getQuotedPrice()));
-    		if(rowTotal.getCell(i+1).getValue() != null) {
-	    		rowAdd.getCell("seq").setValue(rowTotal.getCell(i+1).getValue());
-	    		if(rowTotal.getCell(i+1).getValue().toString().equals("1")){
-	    			rowAdd.getCell("win").setValue(true);
-	    			txtinvitedAmount.setValue(rowAdd.getCell("inviteAmount").getValue());
-	    			prmtwinInviteUnit.setValue(supplier);
-	    		}
+    		rowAdd.getCell("win").setValue(false);
+    		if(rowTotal!=null){
+    			if(rowTotal.getCell(i+1).getValue() != null) {
+    				rowAdd.getCell("seq").setValue(rowTotal.getCell(i+1).getValue());
+    				if(rowTotal.getCell(i+1).getValue().toString().equals("1")){
+    					rowAdd.getCell("win").setValue(true);
+    					txtinvitedAmount.setValue(rowAdd.getCell("inviteAmount").getValue());
+    					prmtwinInviteUnit.setValue(supplier);
+    				}
+    			}
     		}
     	}
     	//过滤专家确定
     	this.kdtJudges.removeRows();
     	oql = "where planName.id = '" + inviteReport.getId() + "'";
     	JudgesComfirmCollection juColl = JudgesComfirmFactory.getRemoteInstance().getJudgesComfirmCollection(oql);
-    	JudgesComfirmInfo juInfo = juColl.get(0);
-    	JudgesComfirmEntryCollection juEntryColl = juInfo.getEntry();
-    	for(int i = 0; i < juEntryColl.size(); i++) {
-    		JudgesComfirmEntryInfo juEntryInfo = juEntryColl.get(i);
-    		JudgesInfo judgeInfo = juEntryInfo.getJudgeNumber();
-    		judgeInfo = JudgesFactory.getRemoteInstance().getJudgesInfo(new ObjectUuidPK(judgeInfo.getId()));
-    		AdminOrgUnitInfo admin = judgeInfo.getCurDep();
-    		IRow rowAdd = this.kdtJudges.addRow();
-    		rowAdd.getCell("judgesName").setValue(judgeInfo);
-    		if(admin !=null) {
-	    		admin = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(admin.getId()));
-	    		rowAdd.getCell("org").setValue(admin);
-    		} else {
-	    		rowAdd.getCell("org").setValue(null);
+    	
+    	if( juColl.size()>0){
+    		JudgesComfirmInfo juInfo = juColl.get(0);
+    		JudgesComfirmEntryCollection juEntryColl = juInfo.getEntry();
+    		for(int i = 0; i < juEntryColl.size(); i++) {
+    			JudgesComfirmEntryInfo juEntryInfo = juEntryColl.get(i);
+    			JudgesInfo judgeInfo = juEntryInfo.getJudgeNumber();
+    			judgeInfo = JudgesFactory.getRemoteInstance().getJudgesInfo(new ObjectUuidPK(judgeInfo.getId()));
+    			AdminOrgUnitInfo admin = judgeInfo.getCurDep();
+    			IRow rowAdd = this.kdtJudges.addRow();
+    			rowAdd.getCell("judgesName").setValue(judgeInfo);
+    			if(admin !=null) {
+    				admin = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(admin.getId()));
+    				rowAdd.getCell("org").setValue(admin);
+    			} else {
+    				rowAdd.getCell("org").setValue(null);
+    			}
     		}
     	}
     	//加载开标登记的列表界面,重载开标登记列表界面的getQueryExecutor方法
@@ -281,6 +295,7 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     	
     	InviteReportEntry4Collection coll = inviteReport.getEntry4();
     	BigDecimal sumAmount = new BigDecimal(0);
+    	kdtBudgetEntry.removeRows();
     	for (int i = 0; i < coll.size(); i++) {
     		InviteReportEntry4Info entry = coll.get(i);
     		entry = InviteReportEntry4Factory.getRemoteInstance().getInviteReportEntry4Info(new ObjectUuidPK(entry.getId()));
@@ -331,9 +346,15 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     	int rowIndex = e.getRowIndex();
     	String key = kdtUnit.getColumnKey(colIndex);
     	if("win".equals(key)){
-    		String win = kdtUnit.getRow(rowIndex).getCell("win").getValue().toString();
-    		if("1".equals(win)){
-    			prmtwinInviteUnit.setValue(kdtUnit.getRow(rowIndex).getCell("win").getValue());
+    		if(!UIRuleUtil.getBoolean(kdtUnit.getCell(rowIndex, key).getValue())){
+    			prmtwinInviteUnit.setValue(kdtUnit.getCell(rowIndex, "unitName").getValue());
+    			txtinvitedAmount.setValue(kdtUnit.getCell(rowIndex, "inviteAmount").getValue());
+    			
+    			IRow row = this.kdtBudgetEntry.getRow(0);
+    			if(row==null)
+    				return;
+    			row.getCell("amount").setValue(kdtUnit.getCell(rowIndex, "inviteAmount").getValue());
+    			kdtBudgetEntry_Changed(0, this.kdtBudgetEntry.getColumnIndex("amount"));
     		}
     	}
     }
