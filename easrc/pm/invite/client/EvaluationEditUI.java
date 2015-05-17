@@ -4,8 +4,10 @@
 package com.kingdee.eas.port.pm.invite.client;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -20,15 +22,24 @@ import java.util.TreeMap;
 import java.util.Map.Entry;
 
 import javax.swing.SwingUtilities;
+import javax.swing.text.Style;
 
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.data.wizard.common.TableView;
+import com.kingdee.bos.ctrl.kdf.form.Page;
+import com.kingdee.bos.ctrl.kdf.headfootdesigner.HeadFootModel;
+import com.kingdee.bos.ctrl.kdf.headfootdesigner.HeadFootParser;
 import com.kingdee.bos.ctrl.kdf.table.IColumn;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
+import com.kingdee.bos.ctrl.kdf.table.KDTIndexColumn;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.KDTableHelper;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
+import com.kingdee.bos.ctrl.kdf.util.style.StyleAttributes;
+import com.kingdee.bos.ctrl.kdf.util.style.Styles;
 import com.kingdee.bos.ctrl.report.forapp.kdnote.client.KDNoteHelper;
 import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
@@ -42,6 +53,7 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSObjectType;
 import com.kingdee.eas.basedata.assistant.IPrintIntegration;
@@ -81,6 +93,7 @@ import com.kingdee.eas.port.pm.utils.FDCClientHelper;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.xr.helper.SysPlatformXRHelper;
 import com.kingdee.eas.xr.helper.common.SqlTaoDaDataProvider;
 
 /**
@@ -101,8 +114,10 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     public void onLoad() throws Exception {
     	initConpomentAttr();
     	super.onLoad();
+    	btnPrintFHX.setEnabled(true);
+    	btnPrintPFXX.setEnabled(true);
+    	btnPrintZF.setEnabled(true);
     	this.kDTable3.setEnabled(false);
-    	this.kDToolBar1.setVisible(false);
     	this.kDTable2.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
             public void editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
                 try {
@@ -646,6 +661,15 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		}
         }
         
+        for (int i = 0; i < kDTable1.getColumnCount(); i++) {
+    		KDTableHelper.autoFitColumnWidth(kDTable1, i);
+		}
+    	for (int i = 0; i < kDTable2.getColumnCount(); i++) {
+    		KDTableHelper.autoFitColumnWidth(kDTable2, i);
+    	}
+    	for (int i = 0; i < kDTable3.getColumnCount(); i++) {
+    		KDTableHelper.autoFitColumnWidth(kDTable3, i);
+    	}
     }
 
     /**
@@ -743,13 +767,15 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
 		OpenRegistrationEntryCollection openRegEntryColl = openRegInfo.getEntry();
 		//设置总分分录报价
 		int wdc = 0;//未到场
+		int celIndex = 0;
 		for(int i = 0; i < openRegEntryColl.size(); i++) {
 			OpenRegistrationEntryInfo openRegEntryInfo = openRegEntryColl.get(i);
 			if(!openRegEntryInfo.isIsPresent()||!openRegEntryInfo.isIsQualified()){
 				wdc++;
 				continue;
 			}
-			this.kDTable3.getRow(0).getCell(i+1).setValue(openRegEntryInfo.getQuotedPrice());
+			celIndex +=1;
+			this.kDTable3.getRow(0).getCell(celIndex).setValue(openRegEntryInfo.getQuotedPrice());
 		}
     	//总分分录符合性
     	for(int c = 2; c < kDTable1.getColumnCount()-1; c++) {
@@ -1413,7 +1439,8 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     public void actionPrint_actionPerformed(ActionEvent e) throws Exception
     {
 //        super.actionPrint_actionPerformed(e);
-    	invokeMultiPrintFunction(false); 
+//    	invokeMultiPrintFunction(false); 
+    	openRptUI();
     }
 
     /**
@@ -1422,8 +1449,25 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     public void actionPrintPreview_actionPerformed(ActionEvent e) throws Exception
     {
 //        super.actionPrintPreview_actionPerformed(e);
-    	invokeMultiPrintFunction(false); 
+//    	invokeMultiPrintFunction(false); 
+    	openRptUI();
     }
+    
+    private void openRptUI() throws UIException
+	{
+		//select * from T_BAS_DefineReport where fid ='6vYAAAAsYLc/8MJf'
+		
+		if(editData.getId()==null)
+		{
+			com.kingdee.eas.util.client.MsgBox.showWarning("当前单据未保存，不允许此操作！");
+			SysUtil.abort();
+		}
+		
+		String billId = editData.getId().toString();
+		String reportId = "6vYAAABGV9A/8MJf";
+		
+		SysPlatformXRHelper.openPrintForRpt(this,billId, reportId);
+	}
     public void actionMultiPrint_actionPerformed(java.awt.event.ActionEvent e)
     throws Exception
 	{
@@ -1519,5 +1563,156 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
 			e.printStackTrace();
 		}
 		return sb.toString();
+	}
+	
+	public void actionPrintFHX_actionPerformed(ActionEvent e) throws Exception {
+		super.actionPrintFHX_actionPerformed(e);
+		HeadFootModel header = new HeadFootModel();
+    	String text = this.txtprjName.getText()+"总分汇总";
+//    	String text2 = "left&|right";
+    	
+    	KDTable taleView = new KDTable();
+    	IColumn icolumn = taleView.addColumn();
+    	StyleAttributes sa = icolumn.getStyleAttributes();
+    	sa.setFont(new Font("宋体",Font.BOLD, 20));
+    	StyleAttributes sa1 = icolumn.getStyleAttributes();
+    	sa1.setFont(new Font("宋体",Font.BOLD, 9));
+//    	StyleAttributes sa2 = this.kDTable3.getColumn(1).getStyleAttributes();
+    	
+//    	StyleAttributes sa = new StyleAttributes(com.kingdee.bos.ctrl.kdf.util.style.Style.getDefaultAttributes());
+//    	sa.getInterior().setBackground(Color.blue);
+    	// 添加一行页眉（一个页眉可包含多行），每行包括一个文本和StyleAttributes（描述文本的样式），文本可以通过“&|”分割符分割成多段，
+    	header.addRow(text, sa);
+//    	header.addRow(text2, sa);
+    	// 页脚的设置同页眉
+    	SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd");
+    	String time1 = time.format(this.pkevaDate.getValue());
+    	HeadFootModel footer = new HeadFootModel();
+    	String text3 = "专家签字：&| ";
+    	String textDate = "&|&|评标日期："+time1;
+//    	StyleAttributes sa2 = new StyleAttributes(Style.getDefaultAttributes());
+//    	sa2.getInterior().setBackground(Color.red);
+    	footer.addRow(text3, sa1); 
+    	footer.addRow(textDate, sa1); 
+//    	// 将页眉页脚的模转化成Page对象
+    	Page hPage = HeadFootParser.parseModel2HeadFootPage(header);
+    	Page fPage = HeadFootParser.parseModel2HeadFootPage(footer);
+    	// 将页眉页脚添加到打印管理器中
+//    	this.kDTable3.getPrintManager().setHeaderFooter(hPage, fPage);
+    	this.kDTable1.getPrintManager().setHeader(hPage);
+    	this.kDTable1.getPrintManager().setFooter(fPage);
+
+    	this.kDTable1.getPrintManager().printPreview();
+		
+	}
+	
+	public void actionPrintPFXX_actionPerformed(ActionEvent e) throws Exception {
+		super.actionPrintPFXX_actionPerformed(e);
+		HeadFootModel header = new HeadFootModel();
+    	String text = this.txtprjName.getText()+"总分汇总";
+//    	String text2 = "left&|right";
+    	
+    	KDTable taleView = new KDTable();
+    	IColumn icolumn = taleView.addColumn();
+    	StyleAttributes sa = icolumn.getStyleAttributes();
+    	sa.setFont(new Font("宋体",Font.BOLD, 20));
+    	StyleAttributes sa1 = icolumn.getStyleAttributes();
+    	sa1.setFont(new Font("宋体",Font.BOLD, 9));
+//    	StyleAttributes sa2 = this.kDTable3.getColumn(1).getStyleAttributes();
+    	
+//    	StyleAttributes sa = new StyleAttributes(com.kingdee.bos.ctrl.kdf.util.style.Style.getDefaultAttributes());
+//    	sa.getInterior().setBackground(Color.blue);
+    	// 添加一行页眉（一个页眉可包含多行），每行包括一个文本和StyleAttributes（描述文本的样式），文本可以通过“&|”分割符分割成多段，
+    	header.addRow(text, sa);
+//    	header.addRow(text2, sa);
+    	// 页脚的设置同页眉
+    	SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd");
+    	String time1 = time.format(this.pkevaDate.getValue());
+    	HeadFootModel footer = new HeadFootModel();
+    	String text3 = "专家签字：&| ";
+    	String textDate = "&|&|评标日期："+time1;
+//    	StyleAttributes sa2 = new StyleAttributes(Style.getDefaultAttributes());
+//    	sa2.getInterior().setBackground(Color.red);
+    	footer.addRow(text3, sa1); 
+    	footer.addRow(textDate, sa1); 
+//    	// 将页眉页脚的模转化成Page对象
+    	Page hPage = HeadFootParser.parseModel2HeadFootPage(header);
+    	Page fPage = HeadFootParser.parseModel2HeadFootPage(footer);
+    	// 将页眉页脚添加到打印管理器中
+//    	this.kDTable3.getPrintManager().setHeaderFooter(hPage, fPage);
+    	this.kDTable2.getPrintManager().setHeader(hPage);
+    	this.kDTable2.getPrintManager().setFooter(fPage);
+
+    	this.kDTable2.getPrintManager().printPreview();
+		
+	}
+	
+	public void actionPrintZF_actionPerformed(ActionEvent e) throws Exception {
+		super.actionPrintZF_actionPerformed(e);
+    	HeadFootModel header = new HeadFootModel();
+    	String text = this.txtprjName.getText()+"总分汇总";
+//    	String text2 = "left&|right";
+    	
+    	KDTable taleView = new KDTable();
+    	IColumn icolumn = taleView.addColumn();
+    	StyleAttributes sa = icolumn.getStyleAttributes();
+    	sa.setFont(new Font("宋体",Font.BOLD, 20));
+    	StyleAttributes sa1 = icolumn.getStyleAttributes();
+    	sa1.setFont(new Font("宋体",Font.BOLD, 9));
+//    	StyleAttributes sa2 = this.kDTable3.getColumn(1).getStyleAttributes();
+    	
+//    	StyleAttributes sa = new StyleAttributes(com.kingdee.bos.ctrl.kdf.util.style.Style.getDefaultAttributes());
+//    	sa.getInterior().setBackground(Color.blue);
+    	// 添加一行页眉（一个页眉可包含多行），每行包括一个文本和StyleAttributes（描述文本的样式），文本可以通过“&|”分割符分割成多段，
+    	header.addRow(text, sa);
+//    	header.addRow(text2, sa);
+    	// 页脚的设置同页眉
+    	SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd");
+    	String time1 = time.format(this.pkevaDate.getValue());
+    	HeadFootModel footer = new HeadFootModel();
+    	String text3 = "专家签字：&| ";
+    	String textDate = "&|&|评标日期："+time1;
+//    	StyleAttributes sa2 = new StyleAttributes(Style.getDefaultAttributes());
+//    	sa2.getInterior().setBackground(Color.red);
+    	footer.addRow(text3, sa1); 
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1); 
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1); 
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1); 
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow(textDate, sa1); 
+    	footer.addRow("", sa1); 
+    	footer.addRow("", sa1); 
+    	footer.addRow("", sa1); 
+    	footer.addRow("", sa1); 
+    	footer.addRow("", sa1); 
+//    	// 将页眉页脚的模转化成Page对象
+    	Page hPage = HeadFootParser.parseModel2HeadFootPage(header);
+    	Page fPage = HeadFootParser.parseModel2HeadFootPage(footer);
+    	// 将页眉页脚添加到打印管理器中
+//    	this.kDTable3.getPrintManager().setHeaderFooter(hPage, fPage);
+    	this.kDTable3.getPrintManager().setHeader(hPage);
+    	this.kDTable3.getPrintManager().setFooter(fPage);
+
+    	this.kDTable3.getPrintManager().printPreview();
+		
 	}
 }

@@ -437,7 +437,14 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		if (editData.getState() == FDCBillStateEnum.SUBMITTED) {
 			actionSave.setEnabled(false);
 		}
-
+		//
+		if(UIRuleUtil.isNotNull(editData.getSignDate())){
+			this.pksignDate.setValue(editData.getSignDate());
+			this.editData.setSignDate(editData.getSignDate());
+		}else{
+			this.pksignDate.setValue(null);
+			this.editData.setSignDate(null);
+		}
 		//币别选择
 		GlUtils.setSelectedItem(comboCurrency, editData.getCurrency());
 
@@ -590,7 +597,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			coll.add(bailEntryInfo);
 		} //del by wp
 
-		editData.setSignDate(DateTimeUtils.truncateDate(editData.getSignDate()));
+		editData.setSignDate(DateTimeUtils.truncateDate(this.pksignDate.getSqlDate()));
 		editData.setIsAmtWithoutCost(isUseAmtWithoutCost);
 		editData.setOverRate(Double.valueOf(txtOverAmt.getText()).doubleValue());
 		super.storeFields();
@@ -824,7 +831,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		} catch (Exception e) {
 			handUIException(e);
 		}
-		objectValue.setSignDate(new Date());// 签约日期
+		
 		objectValue.setCostProperty(CostPropertyEnum.BASE_CONFIRM);//造价性质
 		/*
 		 * 变更提示比例％数值设置缺省值5.00，手工修改（可以在【预警】设置初始值）。结算提示比例％数值设置缺省值100.00，手工修改（可以在【预警】设置初始值）。付款提示比例％数值设置缺省值85.00，手工修改（可以在【预警】设置初始值）。
@@ -965,7 +972,11 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		} catch (Exception e) {
 			handUIException(e);
 		}
+		
+		if(OprtState.ADDNEW.equals(getOprtState())){
 		 editData.setSignDate(new Date());// 签约日期
+		}
+		 
 		editData.setCostProperty(CostPropertyEnum.BASE_CONFIRM);//造价性质
 		/*
 		 * 变更提示比例％数值设置缺省值5.00，手工修改（可以在【预警】设置初始值）。结算提示比例％数值设置缺省值100.00，手工修改（可以在【预警】设置初始值）。付款提示比例％数值设置缺省值85.00，手工修改（可以在【预警】设置初始值）。
@@ -2891,6 +2902,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		sic.add(new SelectorItemInfo("contractType.name"));
 		sic.add(new SelectorItemInfo("contractType.orgType"));
 		
+		sic.add(new SelectorItemInfo("signDate"));
 		sic.add(new SelectorItemInfo("codeType.id"));
 		sic.add(new SelectorItemInfo("codeType.name"));
 		sic.add(new SelectorItemInfo("codeType.number"));
@@ -4598,7 +4610,32 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		if (!chkCostSplit.isSelected()) {
 			MsgBox.showInfo(this, ContractClientUtils.getRes("NotEntryCost"));
 		}
-
+		
+			if(tblEconItem.getRowCount()==0){
+				MsgBox.showWarning(this, "合同经济条款的付款事项分录不能为空！");
+				SysUtil.abort();
+			}
+			for (int i = 0; i < tblEconItem.getRowCount(); i++) {
+		         if(tblEconItem.getCell(i, "payType").getValue()==null){
+		        	 MsgBox.showWarning(this, "合同经济条款的付款事项分录第"+(i+1)+"行的付款类型不能为空");
+						SysUtil.abort();
+		         }
+		         if(tblEconItem.getCell(i, "payCondition").getValue()==null){
+		        	 MsgBox.showWarning(this, "合同经济条款的付款事项分录第"+(i+1)+"行的付款条件不能为空");
+						SysUtil.abort();
+		         }
+		         if(tblEconItem.getCell(i, "payRate").getValue()==null){
+		        	 MsgBox.showWarning(this, "合同经济条款的付款事项分录第"+(i+1)+"行的付款比例不能为空");
+						SysUtil.abort();
+		         }
+		         if(tblEconItem.getCell(i, "payAmount").getValue()==null){
+		        	 MsgBox.showWarning(this, "合同经济条款的付款事项分录第"+(i+1)+"行的付款金额不能为空");
+						SysUtil.abort();
+		         }
+			
+			}
+		
+		
 		checkStampMatch();
 
 		checkProjStatus();

@@ -10,6 +10,7 @@ import java.lang.String;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.dao.IObjectPK;
+import java.lang.Object;
 import com.kingdee.eas.port.pm.invite.app.*;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.eas.framework.CoreBaseCollection;
@@ -382,6 +383,20 @@ public class WinInviteReport extends XRBillBase implements IWinInviteReport
     {
         try {
             return getController().getBindingProperty(getContext());
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *getAuditPersonCollection-User defined method
+     *@param billID µ¥¾ÝID
+     *@return
+     */
+    public Object getAuditPersonCollection(String billID) throws BOSException
+    {
+        try {
+            return getController().getAuditPersonCollection(getContext(), billID);
         }
         catch(RemoteException err) {
             throw new EJBRemoteException(err);

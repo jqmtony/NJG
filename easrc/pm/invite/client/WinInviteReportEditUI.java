@@ -12,6 +12,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IColumn;
@@ -24,6 +25,7 @@ import com.kingdee.bos.ctrl.swing.KDScrollPane;
 import com.kingdee.bos.ctrl.swing.KDTabbedPane;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
+import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -36,6 +38,7 @@ import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
 import com.kingdee.eas.basedata.assistant.ProjectInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.cp.bc.BizCollUtil;
@@ -44,8 +47,11 @@ import com.kingdee.eas.port.markesupplier.subill.MarketSupplierStockInfo;
 import com.kingdee.eas.port.pm.base.InviteTypeFactory;
 import com.kingdee.eas.port.pm.base.JudgesFactory;
 import com.kingdee.eas.port.pm.base.JudgesInfo;
+import com.kingdee.eas.port.pm.invest.ProjectBudgetFacadeFactory;
+import com.kingdee.eas.port.pm.invest.investplan.IProgrammingEntryCostEntry;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryCostEntryInfo;
+import com.kingdee.eas.port.pm.invest.uitls.CLUtil;
 import com.kingdee.eas.port.pm.invite.EvaluationCollection;
 import com.kingdee.eas.port.pm.invite.EvaluationEntryTotalCollection;
 import com.kingdee.eas.port.pm.invite.EvaluationEntryTotalInfo;
@@ -67,6 +73,13 @@ import com.kingdee.eas.port.pm.invite.OpenRegistrationEntryCollection;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationEntryInfo;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationFactory;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationInfo;
+import com.kingdee.eas.port.pm.invite.WinInviteReportBudgetEntryInfo;
+import com.kingdee.eas.port.pm.invite.WinInviteReportFactory;
+import com.kingdee.eas.port.pm.invite.WinInviteReportInfo;
+import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.xr.app.XRBillException;
+import com.kingdee.eas.xr.helper.WorkflowXRHelper;
 
 /**
  * output class name
@@ -180,8 +193,11 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
 				break;
 			}
 		}
-    	this.txtaddress.setText(openRegInfo.getOpLocation());
-    	this.pkinviteDate.setValue(openRegInfo.getOpDate() == null ? null : openRegInfo.getOpDate());
+    	
+    	if(openRegInfo!=null){
+    		this.txtaddress.setText(openRegInfo.getOpLocation());
+    		this.pkinviteDate.setValue(openRegInfo.getOpDate() == null ? null : openRegInfo.getOpDate());
+    	}
     	//过滤专家评标
     	oql = "where inviteReport.id = '" + inviteReport.getId() + "'";
     	EvaluationCollection evaColl = EvaluationFactory.getRemoteInstance().getEvaluationCollection(oql);
@@ -242,23 +258,25 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     	
     	//投标单位分录
     	this.kdtUnit.removeRows();
-    	OpenRegistrationEntryCollection opRegEntryColl = openRegInfo.getEntry();
-    	for(int i = 0; i < opRegEntryColl.size(); i++) {
-    		OpenRegistrationEntryInfo opRegEntryInfo = opRegEntryColl.get(i);
-    		MarketSupplierStockInfo supplier = opRegEntryInfo.getSupplierName();//投标单位
-    		supplier = MarketSupplierStockFactory.getRemoteInstance().getMarketSupplierStockInfo(new ObjectUuidPK(supplier.getId()));
-    		IRow rowAdd = this.kdtUnit.addRow();
-    		rowAdd.getCell("unitName").setValue(supplier);
-    		rowAdd.getCell("quality").setValue(opRegEntryInfo.getQuality());
-    		rowAdd.getCell("inviteAmount").setValue(new BigDecimal(opRegEntryInfo.getQuotedPrice()));
-    		rowAdd.getCell("win").setValue(false);
-    		if(rowTotal!=null){
-    			if(rowTotal.getCell(i+1).getValue() != null) {
-    				rowAdd.getCell("seq").setValue(rowTotal.getCell(i+1).getValue());
-    				if(rowTotal.getCell(i+1).getValue().toString().equals("1")){
-    					rowAdd.getCell("win").setValue(true);
-    					txtinvitedAmount.setValue(rowAdd.getCell("inviteAmount").getValue());
-    					prmtwinInviteUnit.setValue(supplier);
+    	if(openRegInfo!=null){
+    		OpenRegistrationEntryCollection opRegEntryColl = openRegInfo.getEntry();
+    		for(int i = 0; i < opRegEntryColl.size(); i++) {
+    			OpenRegistrationEntryInfo opRegEntryInfo = opRegEntryColl.get(i);
+    			MarketSupplierStockInfo supplier = opRegEntryInfo.getSupplierName();//投标单位
+    			supplier = MarketSupplierStockFactory.getRemoteInstance().getMarketSupplierStockInfo(new ObjectUuidPK(supplier.getId()));
+    			IRow rowAdd = this.kdtUnit.addRow();
+    			rowAdd.getCell("unitName").setValue(supplier);
+    			rowAdd.getCell("quality").setValue(opRegEntryInfo.getQuality());
+    			rowAdd.getCell("inviteAmount").setValue(new BigDecimal(opRegEntryInfo.getQuotedPrice()));
+    			rowAdd.getCell("win").setValue(false);
+    			if(rowTotal!=null){
+    				if(rowTotal.getCell(i+1).getValue() != null) {
+    					rowAdd.getCell("seq").setValue(rowTotal.getCell(i+1).getValue());
+    					if(rowTotal.getCell(i+1).getValue().toString().equals("1")){
+    						rowAdd.getCell("win").setValue(true);
+    						txtinvitedAmount.setValue(rowAdd.getCell("inviteAmount").getValue());
+    						prmtwinInviteUnit.setValue(supplier);
+    					}
     				}
     			}
     		}
@@ -364,6 +382,51 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     public void loadFields()
     {
         super.loadFields();
+    }
+    
+    
+    public static void checkBgtItemAmount(String pk,String actionName) throws EASBizException, BOSException{
+    	if(actionName.equals("AUDIT")){
+    		WinInviteReportInfo info = WinInviteReportFactory.getRemoteInstance().getWinInviteReportInfo(new ObjectUuidPK(pk));
+    		IProgrammingEntryCostEntry iProgrammingEntryCostEntry = ProgrammingEntryCostEntryFactory.getRemoteInstance();
+    		for (int i = 0; i <info.getBudgetEntry().size(); i++) {
+    			WinInviteReportBudgetEntryInfo entry = info.getBudgetEntry().get(i);
+    			ProgrammingEntryCostEntryInfo budgetInfo= iProgrammingEntryCostEntry.getProgrammingEntryCostEntryInfo(new ObjectUuidPK(entry.getBudgetNumber().getId()));
+    			String projectNumber = budgetInfo.getNumber();
+    			String budgetNumber = budgetInfo.getFeeNumber();
+    			String budgetName = budgetInfo.getFeeName();
+    			String year = budgetInfo.getYear();
+    			BigDecimal backAmount = UIRuleUtil.getBigDecimal(entry.getDiffAmount());
+    			String[] str = ProjectBudgetFacadeFactory.getRemoteInstance().subBudgetAmount(projectNumber,year,budgetNumber
+    					,String.valueOf(entry.getAmount()),CLUtil.stag_zb,true,backAmount.toString());
+    			if("失败".equals(str[0])){
+//    				throw new XRBillException(XRBillException.NOBUDGET, new Object[] {
+//    						"预算编码："+budgetNumber+","+budgetName , str[1]
+//    				});
+    				MsgBox.showWarning("预算编码："+budgetNumber+","+budgetName +" 该费用预算不足"+ str[1]);
+    			}
+    		}
+    	}else{
+    		WinInviteReportInfo info = WinInviteReportFactory.getRemoteInstance().getWinInviteReportInfo(new ObjectUuidPK(pk));
+    		IProgrammingEntryCostEntry iProgrammingEntryCostEntry = ProgrammingEntryCostEntryFactory.getRemoteInstance();
+    		for (int i = 0; i <info.getBudgetEntry().size(); i++) {
+    			WinInviteReportBudgetEntryInfo entry = info.getBudgetEntry().get(i);
+    			ProgrammingEntryCostEntryInfo budgetInfo= iProgrammingEntryCostEntry.getProgrammingEntryCostEntryInfo(new ObjectUuidPK(entry.getBudgetNumber().getId()));
+    			String projectNumber = budgetInfo.getNumber();
+    			String budgetNumber = budgetInfo.getFeeNumber();
+    			String budgetName = budgetInfo.getFeeName();
+    			String year = budgetInfo.getYear();
+    			BigDecimal backAmount = UIRuleUtil.getBigDecimal(entry.getDiffAmount());
+    			String[] str = ProjectBudgetFacadeFactory.getRemoteInstance().backBudgetAmount(projectNumber,year,budgetNumber
+    																,String.valueOf(entry.getAmount()),CLUtil.stag_zb,true,backAmount.toString());
+    			if("失败".equals(str[0])){
+//    				 throw new XRBillException(XRBillException.NOBUDGET, new Object[] {
+//    						 "预算编码："+budgetNumber+","+budgetName , str[1]
+//    			            });
+    				 MsgBox.showWarning("预算编码："+budgetNumber+","+budgetName +" 该费用预算不足"+ str[1]);
+    			}
+    		}
+    	}
     }
 
     /**
@@ -964,6 +1027,7 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     public void actionAudit_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionAudit_actionPerformed(e);
+        checkBgtItemAmount(editData.getId().toString(), "AUDIT");
     }
 
     /**
@@ -972,6 +1036,7 @@ public class WinInviteReportEditUI extends AbstractWinInviteReportEditUI
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionUnAudit_actionPerformed(e);
+        checkBgtItemAmount(editData.getId().toString(), "UNAUDIT");
     }
 
     /**

@@ -24,9 +24,10 @@ import java.lang.String;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.dao.IObjectPK;
+import java.lang.Object;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
-import com.kingdee.bos.metadata.entity.SorterItemCollection;
 import com.kingdee.eas.framework.CoreBaseCollection;
+import com.kingdee.bos.metadata.entity.SorterItemCollection;
 import com.kingdee.eas.xr.XRBillBaseCollection;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.eas.xr.app.XRBillBaseControllerBean;
@@ -642,6 +643,29 @@ public abstract class AbstractWinInviteReportControllerBean extends XRBillBaseCo
         } finally {
             super.cleanUpServiceState();
         }
+    }
+
+    public Object getAuditPersonCollection(Context ctx, String billID) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("13a5c5f2-905c-43f6-a8ce-b5a695633b2c"), new Object[]{ctx, billID});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            Object retValue = (Object)_getAuditPersonCollection(ctx, billID);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+            return (Object)svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected Object _getAuditPersonCollection(Context ctx, String billID) throws BOSException
+    {    	
+        return null;
     }
 
     public XRBillBaseCollection getXRBillBaseCollection (Context ctx) throws BOSException

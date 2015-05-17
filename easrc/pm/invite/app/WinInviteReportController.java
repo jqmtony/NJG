@@ -10,6 +10,7 @@ import java.lang.String;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.dao.IObjectPK;
+import java.lang.Object;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.bos.metadata.entity.SorterItemCollection;
@@ -53,4 +54,5 @@ public interface WinInviteReportController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, WinInviteReportInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, WinInviteReportInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public Object getAuditPersonCollection(Context ctx, String billID) throws BOSException, RemoteException;
 }

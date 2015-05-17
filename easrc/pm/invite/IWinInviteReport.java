@@ -10,9 +10,10 @@ import java.lang.String;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.dao.IObjectPK;
+import java.lang.Object;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
-import com.kingdee.bos.metadata.entity.SorterItemCollection;
 import com.kingdee.eas.framework.CoreBaseCollection;
+import com.kingdee.bos.metadata.entity.SorterItemCollection;
 import com.kingdee.bos.util.*;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.BOSException;
@@ -48,4 +49,5 @@ public interface IWinInviteReport extends IXRBillBase
     public void updateBigObject(IObjectPK pk, WinInviteReportInfo model) throws BOSException;
     public void updatePartial(WinInviteReportInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public Object getAuditPersonCollection(String billID) throws BOSException;
 }

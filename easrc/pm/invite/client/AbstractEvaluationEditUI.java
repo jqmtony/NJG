@@ -46,7 +46,6 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client.XRBillBaseEditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractEvaluationEditUI.class);
-    protected com.kingdee.bos.ctrl.swing.KDToolBar kDToolBar1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCreator;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCreateTime;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contLastUpdateUser;
@@ -98,7 +97,13 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer2;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable2;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnPrintFHX;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnPrintPFXX;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnPrintZF;
     protected com.kingdee.eas.port.pm.invite.EvaluationInfo editData = null;
+    protected actionPrintFHX actionPrintFHX = null;
+    protected actionPrintPFXX actionPrintPFXX = null;
+    protected actionPrintZF actionPrintZF = null;
     /**
      * output class constructor
      */
@@ -148,7 +153,18 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         actionUnAudit.putValue(ItemAction.NAME, _tempStr);
         this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
-        this.kDToolBar1 = new com.kingdee.bos.ctrl.swing.KDToolBar();
+        //actionPrintFHX
+        this.actionPrintFHX = new actionPrintFHX(this);
+        getActionManager().registerAction("actionPrintFHX", actionPrintFHX);
+         this.actionPrintFHX.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionPrintPFXX
+        this.actionPrintPFXX = new actionPrintPFXX(this);
+        getActionManager().registerAction("actionPrintPFXX", actionPrintPFXX);
+         this.actionPrintPFXX.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionPrintZF
+        this.actionPrintZF = new actionPrintZF(this);
+        getActionManager().registerAction("actionPrintZF", actionPrintZF);
+         this.actionPrintZF.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -196,7 +212,9 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDContainer2 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kDTable2 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.kDToolBar1.setName("kDToolBar1");
+        this.btnPrintFHX = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnPrintPFXX = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnPrintZF = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -244,9 +262,13 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         this.kDTable1.setName("kDTable1");
         this.kDContainer2.setName("kDContainer2");
         this.kDTable2.setName("kDTable2");
+        this.btnPrintFHX.setName("btnPrintFHX");
+        this.btnPrintPFXX.setName("btnPrintPFXX");
+        this.btnPrintZF.setName("btnPrintZF");
         // CoreUI		
-        this.setPreferredSize(new Dimension(1013,629));
-        // kDToolBar1
+        this.setPreferredSize(new Dimension(1013,629));		
+        this.btnPrint.setVisible(false);		
+        this.btnPrintPreview.setVisible(false);
         // contCreator		
         this.contCreator.setBoundLabelText(resHelper.getString("contCreator.boundLabelText"));		
         this.contCreator.setBoundLabelLength(100);		
@@ -541,6 +563,18 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
         
 
         this.kDTable2.checkParsed();
+        // btnPrintFHX
+        this.btnPrintFHX.setAction((IItemAction)ActionProxyFactory.getProxy(actionPrintFHX, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnPrintFHX.setText(resHelper.getString("btnPrintFHX.text"));		
+        this.btnPrintFHX.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_print"));
+        // btnPrintPFXX
+        this.btnPrintPFXX.setAction((IItemAction)ActionProxyFactory.getProxy(actionPrintPFXX, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnPrintPFXX.setText(resHelper.getString("btnPrintPFXX.text"));		
+        this.btnPrintPFXX.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_print"));
+        // btnPrintZF
+        this.btnPrintZF.setAction((IItemAction)ActionProxyFactory.getProxy(actionPrintZF, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnPrintZF.setText(resHelper.getString("btnPrintZF.text"));		
+        this.btnPrintZF.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_print"));
         this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {comboStatus,comboBizStatus,pkAuditTime,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,pkCreateTime,prmtLastUpdateUser,pkLastUpdateTime,prmtCU,prmtinviteReport,txtprjName,evaSolution,pkevaDate,kdtEntryValid,kdtEntryScore,kdtEntryUnit,txtbasePrice}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
@@ -556,7 +590,6 @@ public abstract class AbstractEvaluationEditUI extends com.kingdee.eas.xr.client
 		if (bars != null) {
 			list.addAll(java.util.Arrays.asList(bars));
 		}
-		list.add(this.kDToolBar1);
 		return (com.kingdee.bos.ctrl.swing.KDToolBar[])list.toArray(new com.kingdee.bos.ctrl.swing.KDToolBar[list.size()]);
 	}
 
@@ -806,6 +839,9 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         this.toolBar.add(btnLast);
         this.toolBar.add(btnPrint);
         this.toolBar.add(btnPrintPreview);
+        this.toolBar.add(btnPrintFHX);
+        this.toolBar.add(btnPrintPFXX);
+        this.toolBar.add(btnPrintZF);
         this.toolBar.add(btnAttachment);
         this.toolBar.add(separatorFW1);
         this.toolBar.add(separatorFW2);
@@ -839,7 +875,6 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         this.toolBar.add(btnNumberSign);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
-
 
 
     }
@@ -1229,6 +1264,30 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     {
         super.actionUnAudit_actionPerformed(e);
     }
+    	
+
+    /**
+     * output actionPrintFHX_actionPerformed method
+     */
+    public void actionPrintFHX_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
+    	
+
+    /**
+     * output actionPrintPFXX_actionPerformed method
+     */
+    public void actionPrintPFXX_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
+    	
+
+    /**
+     * output actionPrintZF_actionPerformed method
+     */
+    public void actionPrintZF_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1250,6 +1309,132 @@ kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 	
 	public boolean isPrepareActionUnAudit() {
     	return false;
+    }
+	public RequestContext prepareactionPrintFHX(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionPrintFHX() {
+    	return false;
+    }
+	public RequestContext prepareactionPrintPFXX(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionPrintPFXX() {
+    	return false;
+    }
+	public RequestContext prepareactionPrintZF(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionPrintZF() {
+    	return false;
+    }
+
+    /**
+     * output actionPrintFHX class
+     */     
+    protected class actionPrintFHX extends ItemAction {     
+    
+        public actionPrintFHX()
+        {
+            this(null);
+        }
+
+        public actionPrintFHX(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionPrintFHX.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionPrintFHX.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionPrintFHX.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEvaluationEditUI.this, "actionPrintFHX", "actionPrintFHX_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionPrintPFXX class
+     */     
+    protected class actionPrintPFXX extends ItemAction {     
+    
+        public actionPrintPFXX()
+        {
+            this(null);
+        }
+
+        public actionPrintPFXX(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionPrintPFXX.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionPrintPFXX.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionPrintPFXX.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEvaluationEditUI.this, "actionPrintPFXX", "actionPrintPFXX_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionPrintZF class
+     */     
+    protected class actionPrintZF extends ItemAction {     
+    
+        public actionPrintZF()
+        {
+            this(null);
+        }
+
+        public actionPrintZF(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionPrintZF.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionPrintZF.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionPrintZF.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractEvaluationEditUI.this, "actionPrintZF", "actionPrintZF_actionPerformed", e);
+        }
     }
 
     /**

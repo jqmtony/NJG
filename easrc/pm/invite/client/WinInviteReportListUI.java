@@ -21,6 +21,7 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -696,6 +697,10 @@ public class WinInviteReportListUI extends AbstractWinInviteReportListUI
     public void actionAudit_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionAudit_actionPerformed(e);
+        String billID = getSelectedKeyValue();
+        if(billID == null)
+            return;
+        WinInviteReportEditUI.checkBgtItemAmount(billID, "AUDIT");
     }
 
     /**
@@ -704,6 +709,10 @@ public class WinInviteReportListUI extends AbstractWinInviteReportListUI
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionUnAudit_actionPerformed(e);
+        String billID = getSelectedKeyValue();
+        if(billID == null)
+            return;
+        WinInviteReportEditUI.checkBgtItemAmount(billID, "UNAUDIT");
     }
 
     /**
