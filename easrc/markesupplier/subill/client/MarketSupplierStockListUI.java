@@ -506,7 +506,7 @@ public class MarketSupplierStockListUI extends AbstractMarketSupplierStockListUI
 		
 		SupplierInfo obj = (SupplierInfo)suppBox.getData();
 		
-		if(obj==null)
+		if(obj==null||f7supplier.isCanceled())
 			return;
 		
 		SupplierInfo supplierInfo = SupplierFactory.getRemoteInstance().getSupplierInfo(new ObjectUuidPK(obj.getId()));
@@ -514,10 +514,12 @@ public class MarketSupplierStockListUI extends AbstractMarketSupplierStockListUI
 		
 		PurchaseOrgUnitInfo org = SysContext.getSysContext().getCurrentPurchaseUnit();
 		
-		String oql = "select id where supplierName='"+supplierInfo.getName()+"' and PurchaseOrgUnit.id='"+org.getId()+"'";
-		if(MarketSupplierStockFactory.getRemoteInstance().exists(oql))
+		FilterInfo filInfo = new FilterInfo();
+		filInfo.getFilterItems().add(new FilterItemInfo("supplierName",supplierInfo.getName()));
+		if(MarketSupplierStockFactory.getRemoteInstance().exists(filInfo))
 		{
-			MsgBox.showWarning("当前供应商已在【"+org.getName()+"】存在，不需要引入！");
+			MsgBox.showWarning("当前供应商已存在，不需要引入！");
+			SysUtil.abort();
 		}
 		
 		SupplierInvoiceTypeTreeCollection treeInfo = SupplierInvoiceTypeTreeFactory.getRemoteInstance().getSupplierInvoiceTypeTreeCollection();

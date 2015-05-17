@@ -118,21 +118,21 @@ public class MarketSupplierStockControllerBean extends AbstractMarketSupplierSto
 		filter = new FilterInfo();
 		filter.getFilterItems().add(new FilterItemInfo("supplierName", info.getSupplierName()));
 		
-		if(info.getInviteType()!=null)
-		{
-			filter.getFilterItems().add(new FilterItemInfo("inviteType.id", info.getInviteType().getId().toString()));
-		}
-		if(info.getPurchaseOrgUnit()!=null)
-		{
-			filter.getFilterItems().add(new FilterItemInfo("purchaseOrgUnit.id", info.getPurchaseOrgUnit().getId().toString()));
-		}
+//		if(info.getInviteType()!=null)
+//		{
+//			filter.getFilterItems().add(new FilterItemInfo("inviteType.id", info.getInviteType().getId().toString()));
+//		}
+//		if(info.getPurchaseOrgUnit()!=null)
+//		{
+//			filter.getFilterItems().add(new FilterItemInfo("purchaseOrgUnit.id", info.getPurchaseOrgUnit().getId().toString()));
+//		}
 		if (info.getId() != null) 
 		{
 			filter.getFilterItems().add(new FilterItemInfo("id", info.getId().toString(),CompareType.NOTEQUALS));
 		}
 		if (_exists(ctx, filter)) 
 		{
-			throw new ContractException(new NumericExceptionSubItem("100", "供应商名称+采购类别+所属组织不能重复！"));
+			throw new ContractException(new NumericExceptionSubItem("100", "供应商名称不能重复！"));
 		}
 	}
 	
@@ -352,7 +352,7 @@ public class MarketSupplierStockControllerBean extends AbstractMarketSupplierSto
 		selCol.add("version");
 		selCol.add("usedStatus");
 		selCol.add("effectedStatus");
-		selCol.add("simpleName");
+//		selCol.add("simpleName");
 		selCol.add("isInternalCompany");
 		SupplierFactory.getLocalInstance(ctx).updatePartial(supplier, selCol);
 	}
