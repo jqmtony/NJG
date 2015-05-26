@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facade xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.custom.richfacade</package>
+    <name>EASRichFacade</name>
+    <alias>facade[com.kingdee.eas.custom.richfacade.EASRichFacade].alias</alias>
+    <description>facade[com.kingdee.eas.custom.richfacade.EASRichFacade].description</description>
+    <userDefined>true</userDefined>
+    <bosType>452A57AD</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.custom.richfacade.EASRichFacade</businessImplName>
+    <businessControllerName>com.kingdee.eas.custom.richfacade.EASRichFacadeController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>saveTempData</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveTempData].alias</alias>
+            <description>facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveTempData].description</description>
+            <innerID>86d1255d-b20e-41bd-abb4-4582d981a6ad</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>String</name>
+                    <alias>facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveTempData].parameters.parameter[String].alias</alias>
+                    <description>facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveTempData].parameters.parameter[String].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>saveExamBill</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveExamBill].alias</alias>
+            <description>facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveExamBill].description</description>
+            <innerID>03b69072-3b9b-4771-9661-3ac7065ec749</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>date</name>
+                    <alias>facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveExamBill].parameters.parameter[date].alias</alias>
+                    <description>facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveExamBill].parameters.parameter[date].description</description>
+                    <direction>in</direction>
+                    <dataType>Date</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>String</name>
+                    <alias>facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveExamBill].parameters.parameter[String].alias</alias>
+                    <description>facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveExamBill].parameters.parameter[String].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+    </methods>
+    <resource>
+        <rs key="facade[com.kingdee.eas.custom.richfacade.EASRichFacade].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="瑞慈功能接口" />
+            <lang locale="zh_HK" value="瑞慈功能介面" />
+            <lang locale="zh_TW" value="瑞慈功能介面" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.custom.richfacade.EASRichFacade].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.custom.richfacade.EASRichFacade].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveExamBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="生成到检单" />
+            <lang locale="zh_HK" value="生成到檢單" />
+            <lang locale="zh_TW" value="生成到檢單" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveExamBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveExamBill].parameters.parameter[String].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备用参数" />
+            <lang locale="zh_HK" value="備用參數" />
+            <lang locale="zh_TW" value="備用參數" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveExamBill].parameters.parameter[String].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveExamBill].parameters.parameter[date].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="体检日期" />
+            <lang locale="zh_HK" value="體檢日期" />
+            <lang locale="zh_TW" value="體檢日期" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveExamBill].parameters.parameter[date].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveTempData].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保存明细表" />
+            <lang locale="zh_HK" value="保存明細表" />
+            <lang locale="zh_TW" value="保存明細表" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveTempData].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveTempData].parameters.parameter[String].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="dataXml" />
+            <lang locale="zh_HK" value="dataXml" />
+            <lang locale="zh_TW" value="dataXml" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.custom.richfacade.EASRichFacade].methods.method[saveTempData].parameters.parameter[String].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</facade>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.test</package>
+    <name>PurOrder_Entry_Reration</name>
+    <alias>relationship[com.kingdee.eas.test.PurOrder_Entry_Reration].alias</alias>
+    <description>relationship[com.kingdee.eas.test.PurOrder_Entry_Reration].description</description>
+    <userDefined>true</userDefined>
+    <type>Composition</type>
+    <clientCardinality>1</clientCardinality>
+    <supplierCardinality>0..*</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.test" />
+        <key name="name" value="PurOrder" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.test" />
+        <key name="name" value="PurOrderEntry" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.test.PurOrder_Entry_Reration].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="采购订单与分录关联" />
+            <lang locale="zh_HK" value="採購訂單與分錄關聯" />
+            <lang locale="zh_TW" value="採購訂單與分錄關聯" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.test.PurOrder_Entry_Reration].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.test.PurOrder_Entry_Reration].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</relationship>
+

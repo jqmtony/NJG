@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.custom.richinf.app</package>
+    <name>RichInvoiceRequestRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>75e7f8eb-95a9-433c-aa06-aadc5228b434</id>
+            <parentID />
+            <source>entrys.djjg=entrys.djd.djCompany.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>ea6c1523-acee-45c3-9885-db72908ba44b</id>
+            <parentID>75e7f8eb-95a9-433c-aa06-aadc5228b434</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>5caf99dc-d1ec-4274-b187-6ebbe8e84b37</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>5caf99dc-d1ec-4274-b187-6ebbe8e84b37</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntrys.getCell(rowIndex,"djjg")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>89337123-b636-4e44-ac0c-a71d53ba9e4f</id>
+            <parentID>75e7f8eb-95a9-433c-aa06-aadc5228b434</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>ac7ce357-785f-4a4b-a7ff-13475dfeff7d</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>53c30b6a-63ea-4e55-bda6-f133e8f3e99b</id>
+                        <expressionID>e1ec57c3-463e-4d0b-bece-902d433e4e4e</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>ecdbdde6-3f6c-46e5-b223-0826602be4c1</id>
+                        <expressionID>7e065954-0881-4f4a-a331-8f44483579e7</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ac7ce357-785f-4a4b-a7ff-13475dfeff7d</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e1ec57c3-463e-4d0b-bece-902d433e4e4e</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>e1f2b066-6afb-49dc-acf2-788b55e8a163</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>e1f2b066-6afb-49dc-acf2-788b55e8a163</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntrys.getCell(rowIndex,"djd")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>7e065954-0881-4f4a-a331-8f44483579e7</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>djCompany.name</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>24fb42f1-2c81-4fb0-a194-06cccf9627ac</id>
+            <name>entrys_djjg_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].actions.action[entrys_djjg_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].actions.action[entrys_djjg_ActionInfo].description</description>
+            <expressionID>75e7f8eb-95a9-433c-aa06-aadc5228b434</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>entrys_djjg_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].rules.conditionRule[entrys_djjg_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].rules.conditionRule[entrys_djjg_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="24fb42f1-2c81-4fb0-a194-06cccf9627ac" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].actions.action[entrys_djjg_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_djCompany" />
+            <lang locale="zh_HK" value="攜帶字段屬性_djCompany" />
+            <lang locale="zh_TW" value="攜帶字段屬性_djCompany" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].actions.action[entrys_djjg_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].rules.conditionRule[entrys_djjg_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_djCompany" />
+            <lang locale="zh_HK" value="攜帶字段屬性_djCompany" />
+            <lang locale="zh_TW" value="攜帶字段屬性_djCompany" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].rules.conditionRule[entrys_djjg_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].rules.conditionRule[entrys_djjg_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="djd" />
+            <lang locale="zh_CN" value="djd" />
+            <lang locale="zh_TW" value="djd" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestRuleSet].rules.conditionRule[entrys_djjg_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

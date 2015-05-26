@@ -1,0 +1,1669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.custom.richinf.app</package>
+    <name>RichCompayWriteOffRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>9e84f8a0-ba49-4123-aab9-5726cb8b9fd1</id>
+            <parentID />
+            <source>entrys.FpEntry.invoiceType=entrys.FpEntry.arInvoice.type</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>d0ff0a83-ca40-4f8b-82c9-93205c36786c</id>
+            <parentID>9e84f8a0-ba49-4123-aab9-5726cb8b9fd1</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>8787175a-d5f0-4ab5-be60-59a64ab642ba</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8787175a-d5f0-4ab5-be60-59a64ab642ba</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtFpEntry.getCell(rowIndex,"invoiceType")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>26e906e5-c889-4496-97cb-eea73f3b624e</id>
+            <parentID>9e84f8a0-ba49-4123-aab9-5726cb8b9fd1</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Enum</valueType>
+            <value />
+            <method>
+                <ownerID>8e8501a2-a479-48ca-949d-10dc00c7a05f</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>30217334-a9bc-4eb9-a469-3d1cf15468d0</id>
+                        <expressionID>b66a3280-b367-46b2-bf0e-b4cd5e0f5d16</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>6725c516-90ee-4802-aab5-9f0788b564f1</id>
+                        <expressionID>ff46e1eb-71d9-463b-a842-31b8f921d46e</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8e8501a2-a479-48ca-949d-10dc00c7a05f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b66a3280-b367-46b2-bf0e-b4cd5e0f5d16</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>fe402dcc-dbea-4da0-9ba9-def7289319be</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>fe402dcc-dbea-4da0-9ba9-def7289319be</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtFpEntry.getCell(rowIndex,"arInvoice")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ff46e1eb-71d9-463b-a842-31b8f921d46e</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>type</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>e34b61ca-2cce-425f-acb3-a94f6da9f7f2</id>
+            <parentID />
+            <source>entrys.FpEntry.invoiceDate=entrys.FpEntry.arInvoice.billDate</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>70a21bb4-22f3-41d7-96fb-2e788598ef8a</id>
+            <parentID>e34b61ca-2cce-425f-acb3-a94f6da9f7f2</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Date</valueType>
+            <value />
+            <property>
+                <ownerID>20d5ed70-c626-464f-ab58-b9628c57ad15</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>20d5ed70-c626-464f-ab58-b9628c57ad15</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtFpEntry.getCell(rowIndex,"invoiceDate")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>aa57b5fc-591a-400c-92d3-db2f05ad1a3e</id>
+            <parentID>e34b61ca-2cce-425f-acb3-a94f6da9f7f2</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Date</valueType>
+            <value />
+            <method>
+                <ownerID>1412688d-44f3-48c7-ae1b-9222699313a8</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>3edb1e6f-e06d-4e54-acd0-a009f9fc85b1</id>
+                        <expressionID>535732ef-76c5-4650-a85e-a97b4b121f4a</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>4deed67a-233f-436c-9119-4ad340435e6b</id>
+                        <expressionID>ccf55722-03d3-472d-8ed5-451ccf384081</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1412688d-44f3-48c7-ae1b-9222699313a8</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>535732ef-76c5-4650-a85e-a97b4b121f4a</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>b26a9d9a-fe26-4793-976d-68818f907b6b</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b26a9d9a-fe26-4793-976d-68818f907b6b</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtFpEntry.getCell(rowIndex,"arInvoice")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ccf55722-03d3-472d-8ed5-451ccf384081</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>billDate</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>f29b58da-b38a-462a-bd6a-4621ce48fb44</id>
+            <parentID />
+            <source>entrys.FpEntry.invoiceCompany=entrys.FpEntry.arInvoice.company.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>134c2b9b-0bf9-4583-871d-717097ee16da</id>
+            <parentID>f29b58da-b38a-462a-bd6a-4621ce48fb44</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>0d01afd5-0d6a-456d-ab3b-81699291b78b</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0d01afd5-0d6a-456d-ab3b-81699291b78b</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtFpEntry.getCell(rowIndex,"invoiceCompany")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>c00f7dec-02e5-4da3-8982-31c121743f40</id>
+            <parentID>f29b58da-b38a-462a-bd6a-4621ce48fb44</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>061b591b-0e90-4ead-a190-50bbeaa75d90</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>8bc2461c-9adb-422a-aba2-fd1dd5ad431a</id>
+                        <expressionID>eb471187-0e59-49b2-a5dd-7b8cf48d9914</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>43272476-adaf-439b-a5bb-80ed492058b7</id>
+                        <expressionID>2fd197af-2eb5-45c8-86d2-f3875ff0bc87</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>061b591b-0e90-4ead-a190-50bbeaa75d90</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>eb471187-0e59-49b2-a5dd-7b8cf48d9914</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>1901fd20-358d-4a2d-96ef-45b0c9c7e747</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1901fd20-358d-4a2d-96ef-45b0c9c7e747</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtFpEntry.getCell(rowIndex,"arInvoice")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2fd197af-2eb5-45c8-86d2-f3875ff0bc87</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>company.name</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>08031cf0-a26e-4780-a89d-654632a5bd0f</id>
+            <parentID />
+            <source>entrys.FpEntry.invoiceAmount=entrys.FpEntry.arInvoice.totalAmount</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>40f80fea-78db-4c95-aa41-ec5f421dd42a</id>
+            <parentID>08031cf0-a26e-4780-a89d-654632a5bd0f</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>BigDecimal</valueType>
+            <value />
+            <property>
+                <ownerID>657be34c-bb6d-4120-ac64-76cd53f5d34a</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>657be34c-bb6d-4120-ac64-76cd53f5d34a</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtFpEntry.getCell(rowIndex,"invoiceAmount")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a3a8a1ca-8de3-4267-953f-01f24aff12ca</id>
+            <parentID>08031cf0-a26e-4780-a89d-654632a5bd0f</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>BigDecimal</valueType>
+            <value />
+            <method>
+                <ownerID>d6a2db06-9c12-49b4-b270-a40d5aaaa3c3</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>6c0c2d4f-d425-42e7-bdc5-299d5a1339b5</id>
+                        <expressionID>0b07cb52-ea28-4ea5-8c9f-cd83d79a33ef</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>10626006-c982-4d76-9520-da0cfc84a255</id>
+                        <expressionID>7cadf291-fdb0-474f-bc31-743e2799c13d</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d6a2db06-9c12-49b4-b270-a40d5aaaa3c3</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0b07cb52-ea28-4ea5-8c9f-cd83d79a33ef</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>12271d97-12d0-4f41-9460-bc211c92122f</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>12271d97-12d0-4f41-9460-bc211c92122f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtFpEntry.getCell(rowIndex,"arInvoice")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>7cadf291-fdb0-474f-bc31-743e2799c13d</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>totalAmount</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>37fc8ad1-f5ff-4267-a4ab-06a2b1b7e6a5</id>
+            <parentID />
+            <source>entrys.FpEntry.kpUnitID=entrys.FpEntry.arInvoice.asstActID</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>54383145-d618-479e-a5ab-0e4f1f63704e</id>
+            <parentID>37fc8ad1-f5ff-4267-a4ab-06a2b1b7e6a5</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>6ba6b0c0-ab85-4d7c-b0e2-7b627bbe3e81</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6ba6b0c0-ab85-4d7c-b0e2-7b627bbe3e81</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtFpEntry.getCell(rowIndex,"kpUnitID")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>20646736-b015-46a2-a8f9-63e2b6a61e47</id>
+            <parentID>37fc8ad1-f5ff-4267-a4ab-06a2b1b7e6a5</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>b9609bc7-52f9-4e59-8a4f-6f23e068b256</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>fb7fd54f-08e6-4257-b785-705d6e3b0c6f</id>
+                        <expressionID>01ce21d0-b994-4b3e-9171-1e2ad1abda00</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>787bb7de-4161-4b84-ac32-4106116ab562</id>
+                        <expressionID>277b2a3e-939e-4f6a-9328-bcb403556dbf</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b9609bc7-52f9-4e59-8a4f-6f23e068b256</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>01ce21d0-b994-4b3e-9171-1e2ad1abda00</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>781eda65-8473-443d-bf55-25f63ef88989</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>781eda65-8473-443d-bf55-25f63ef88989</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtFpEntry.getCell(rowIndex,"arInvoice")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>277b2a3e-939e-4f6a-9328-bcb403556dbf</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>asstActID</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>0f65daa7-e352-4860-9b15-cdd5b2b48306</id>
+            <parentID />
+            <source>entrys.FpEntry.kpUnitNumber=entrys.FpEntry.arInvoice.asstActNumber</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>f8c0ae92-f7ba-46fc-83c9-99962f31f6d8</id>
+            <parentID>0f65daa7-e352-4860-9b15-cdd5b2b48306</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>6c1d9aa5-dbb3-48ae-bf57-c45599ab6df6</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6c1d9aa5-dbb3-48ae-bf57-c45599ab6df6</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtFpEntry.getCell(rowIndex,"kpUnitNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>41ed03d6-2294-4396-a148-9e3802b7589c</id>
+            <parentID>0f65daa7-e352-4860-9b15-cdd5b2b48306</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>d4062da7-96fd-45ae-b489-84b06991237a</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>1406d2b7-abfe-43c5-aa20-324982164060</id>
+                        <expressionID>8028e84d-02a4-4bbe-bf34-135092032756</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>bf2116bc-3bd9-48f9-8fe8-ba610ab2a9fe</id>
+                        <expressionID>9ef0171f-7683-4d45-8c73-fc23065f2e59</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d4062da7-96fd-45ae-b489-84b06991237a</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8028e84d-02a4-4bbe-bf34-135092032756</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>bc12f742-a1f0-4098-91be-27a2fd9aef0e</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>bc12f742-a1f0-4098-91be-27a2fd9aef0e</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtFpEntry.getCell(rowIndex,"arInvoice")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9ef0171f-7683-4d45-8c73-fc23065f2e59</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>asstActNumber</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>10ca97f2-395c-4bc9-bd99-535fdd35a7c7</id>
+            <parentID />
+            <source>entrys.FpEntry.kpUnitName=entrys.FpEntry.arInvoice.asstActName</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>7e10cb11-8376-4f94-abb6-80ba0a8c7a10</id>
+            <parentID>10ca97f2-395c-4bc9-bd99-535fdd35a7c7</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>b3aa1fd9-8815-4eac-9cbd-b889fa7e51b2</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b3aa1fd9-8815-4eac-9cbd-b889fa7e51b2</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtFpEntry.getCell(rowIndex,"kpUnitName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a836c958-bb16-4b75-89d6-b05cc064bf06</id>
+            <parentID>10ca97f2-395c-4bc9-bd99-535fdd35a7c7</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>6bf35b2a-c856-4385-aa96-62a6e9364a6a</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>2e61c741-ed40-4a99-ace1-99e68a6f3131</id>
+                        <expressionID>0516295b-75c3-4140-aca6-4136c381940e</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>24f97b33-c9b2-42a7-81c9-4ef1c09329bf</id>
+                        <expressionID>208c97de-646d-40c9-b3e3-5a04fe1a7a31</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6bf35b2a-c856-4385-aa96-62a6e9364a6a</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0516295b-75c3-4140-aca6-4136c381940e</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>3172e66b-6e4e-454d-91af-12702f0786a4</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3172e66b-6e4e-454d-91af-12702f0786a4</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtFpEntry.getCell(rowIndex,"arInvoice")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>208c97de-646d-40c9-b3e3-5a04fe1a7a31</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>asstActName</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>9b84e337-e746-405e-a5f9-f87aa277c38a</id>
+            <parentID />
+            <source>entrys.FpEntry.kpUnitName=entrys.FpEntry.arInvoice.asstActName</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>533a17e6-b9cd-4e58-af37-f5950bc9e100</id>
+            <parentID>9b84e337-e746-405e-a5f9-f87aa277c38a</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>bb461d40-a4ef-414e-9d52-b984daf480cc</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>bb461d40-a4ef-414e-9d52-b984daf480cc</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtFpEntry.getCell(rowIndex,"kpUnitName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>f6baa1f3-3961-4e2d-bea8-7ab51fc3cb30</id>
+            <parentID>9b84e337-e746-405e-a5f9-f87aa277c38a</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>8ce8a047-afa4-49ac-9999-f53c55292d21</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>8bd03732-0a03-4b60-8f94-bd3f93b3ca66</id>
+                        <expressionID>edc8e5d3-600b-420c-9e56-39a57fdc9f84</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>54625d75-d8e8-466b-8f05-bf500faf921a</id>
+                        <expressionID>94dad0f5-3c40-4a62-b933-e66a1d6e402b</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8ce8a047-afa4-49ac-9999-f53c55292d21</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>edc8e5d3-600b-420c-9e56-39a57fdc9f84</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>6f03446c-a0da-4e03-bdc5-0fc463dec481</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>6f03446c-a0da-4e03-bdc5-0fc463dec481</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtFpEntry.getCell(rowIndex,"arInvoice")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>94dad0f5-3c40-4a62-b933-e66a1d6e402b</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>asstActName</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>a279ed4e-acc6-4add-a78a-7a493975bbc7</id>
+            <parentID />
+            <source>entrys.FpEntry.invoiceDate=entrys.FpEntry.arInvoice.bizDate</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>00cdd19f-9c6d-4594-bc03-642079f57801</id>
+            <parentID>a279ed4e-acc6-4add-a78a-7a493975bbc7</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Date</valueType>
+            <value />
+            <property>
+                <ownerID>0b8bc16c-d832-4824-9d38-a38f90d9ec6f</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0b8bc16c-d832-4824-9d38-a38f90d9ec6f</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtFpEntry.getCell(rowIndex,"invoiceDate")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ea73875e-8fac-4018-9bb4-8b122ed809d5</id>
+            <parentID>a279ed4e-acc6-4add-a78a-7a493975bbc7</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>Date</valueType>
+            <value />
+            <method>
+                <ownerID>797e6caa-1a3f-4d24-9887-4d9c33a50e81</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>2d876ad7-8e1b-4a0d-ac23-936d9e0d48f8</id>
+                        <expressionID>a03fda21-58f2-4f70-92e1-e390bb6ea69c</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>73f15585-fb26-49ed-99d2-e4dc4560db50</id>
+                        <expressionID>b512dff1-520e-4258-8448-3666fb5e4624</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>797e6caa-1a3f-4d24-9887-4d9c33a50e81</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a03fda21-58f2-4f70-92e1-e390bb6ea69c</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>666e388e-fff7-413a-9921-1369ea9b0cfd</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>666e388e-fff7-413a-9921-1369ea9b0cfd</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtFpEntry.getCell(rowIndex,"arInvoice")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b512dff1-520e-4258-8448-3666fb5e4624</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>bizDate</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>200b96e1-fb3b-4f39-9d00-5d14137c940f</id>
+            <parentID />
+            <source>FpEntry.kpUnit=FpEntry.fpNo.asstActName</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>8010eb6c-9c4b-405e-812d-7e754b22f6dd</id>
+            <parentID>200b96e1-fb3b-4f39-9d00-5d14137c940f</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>3f2a73c6-7619-41f7-aac2-557e34e4ce5a</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3f2a73c6-7619-41f7-aac2-557e34e4ce5a</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtFpEntry.getCell(rowIndex,"kpUnit")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d6d6d785-64b4-42b6-954c-313786e33775</id>
+            <parentID>200b96e1-fb3b-4f39-9d00-5d14137c940f</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>158887f3-e755-4c98-bec2-0e472619356e</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>95af549c-39eb-430e-a014-75ce5197f8d4</id>
+                        <expressionID>4c5d516b-17ca-4e4e-a796-c6ff8ceacbd1</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>211eba3f-65af-483b-948f-2a42284b7a1b</id>
+                        <expressionID>361c0be2-afa8-4e5a-965f-8d8e8ec32f99</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>158887f3-e755-4c98-bec2-0e472619356e</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>4c5d516b-17ca-4e4e-a796-c6ff8ceacbd1</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>7adc10f3-65cb-4916-b69d-3af1e1996c8c</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>7adc10f3-65cb-4916-b69d-3af1e1996c8c</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtFpEntry.getCell(rowIndex,"fpNo")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>361c0be2-afa8-4e5a-965f-8d8e8ec32f99</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>asstActName</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>0778c3da-259f-422d-adfa-8626787f1c74</id>
+            <parentID />
+            <source>FpEntry.yhxAmount=FpEntry.fpNo.verifyAmount</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>a4bf06f2-536e-4e01-b01a-6f3a128b352f</id>
+            <parentID>0778c3da-259f-422d-adfa-8626787f1c74</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>BigDecimal</valueType>
+            <value />
+            <property>
+                <ownerID>b0ee0a99-f11e-4b27-98b6-f2a54c8c7076</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b0ee0a99-f11e-4b27-98b6-f2a54c8c7076</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtFpEntry.getCell(rowIndex,"yhxAmount")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>8df8fd44-6f8b-4732-8c67-bfa22848e67f</id>
+            <parentID>0778c3da-259f-422d-adfa-8626787f1c74</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>BigDecimal</valueType>
+            <value />
+            <method>
+                <ownerID>28fbec75-4d63-40b3-a4ba-e3e63af9df8d</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>42f5f5db-8eed-4593-b306-cf01986d23af</id>
+                        <expressionID>042a85b2-8b65-4fce-aa8d-3f4b2045e1a2</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>17436377-c300-4b1a-adda-09c031e7bfc6</id>
+                        <expressionID>ac6e660a-d9a5-4e2a-9ca3-ff83e358af1a</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>28fbec75-4d63-40b3-a4ba-e3e63af9df8d</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>042a85b2-8b65-4fce-aa8d-3f4b2045e1a2</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>73f6a09d-1fe6-436a-a9b1-b828f61409bc</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>73f6a09d-1fe6-436a-a9b1-b828f61409bc</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtFpEntry.getCell(rowIndex,"fpNo")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ac6e660a-d9a5-4e2a-9ca3-ff83e358af1a</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>verifyAmount</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>72c270de-ce89-4a7e-b57c-638c86639492</id>
+            <parentID />
+            <source>FpEntry.whxAmount=FpEntry.fpNo.unVerifyAmount</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>3b49412b-f0b9-49eb-a837-5adf38d23431</id>
+            <parentID>72c270de-ce89-4a7e-b57c-638c86639492</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>BigDecimal</valueType>
+            <value />
+            <property>
+                <ownerID>d1889d2c-33be-4c93-9fc1-06c59aa3b266</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d1889d2c-33be-4c93-9fc1-06c59aa3b266</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtFpEntry.getCell(rowIndex,"whxAmount")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>b327c384-2c7b-4189-a270-2ab474562a8e</id>
+            <parentID>72c270de-ce89-4a7e-b57c-638c86639492</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>BigDecimal</valueType>
+            <value />
+            <method>
+                <ownerID>9ef9afff-117c-4770-ae82-e0976bb3bffe</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>90e20757-177e-4d13-9dd6-90535eb22f2a</id>
+                        <expressionID>a0d9bf68-bdc5-48c2-9c5b-5c99dd3a8d21</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>49baa4aa-5e63-4013-a41b-bc6a4152f100</id>
+                        <expressionID>0f8558cd-621f-4066-bdaa-36057696315b</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9ef9afff-117c-4770-ae82-e0976bb3bffe</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a0d9bf68-bdc5-48c2-9c5b-5c99dd3a8d21</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>d045109d-67ec-4b7d-81bf-c112fa6900fe</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d045109d-67ec-4b7d-81bf-c112fa6900fe</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtFpEntry.getCell(rowIndex,"fpNo")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0f8558cd-621f-4066-bdaa-36057696315b</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>unVerifyAmount</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>10116914-35ee-4b6d-8cc3-704d39d025b6</id>
+            <parentID />
+            <source>DjEntry.ldNo=DjEntry.djNo.ldNumber</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>6fb1f76b-8e66-4939-bfea-1cb77aeb6455</id>
+            <parentID>10116914-35ee-4b6d-8cc3-704d39d025b6</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>7f94636f-2f8e-47d7-8929-93b382f3f149</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>7f94636f-2f8e-47d7-8929-93b382f3f149</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtDjEntry.getCell(rowIndex,"ldNo")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>f351fc28-ee2e-4395-8466-2c6b73466ce5</id>
+            <parentID>10116914-35ee-4b6d-8cc3-704d39d025b6</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>95cb923c-a96f-4cf5-a75d-a46e5a80e1a1</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>7c583e5f-5ed0-46c3-912d-82ea96a9cea0</id>
+                        <expressionID>0e6aa49e-a9a3-411b-8299-1705a20e5d7b</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>811f73c4-4416-4c48-a262-a3c48e12a374</id>
+                        <expressionID>bf876c3b-59dd-45c4-952a-a111d0319430</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>95cb923c-a96f-4cf5-a75d-a46e5a80e1a1</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>0e6aa49e-a9a3-411b-8299-1705a20e5d7b</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>89478cca-4b77-4d02-9523-f7d2c4126a72</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>89478cca-4b77-4d02-9523-f7d2c4126a72</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtDjEntry.getCell(rowIndex,"djNo")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>bf876c3b-59dd-45c4-952a-a111d0319430</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>ldNumber</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>f8428e3d-8ed7-48f9-a44c-88de09f0fc20</id>
+            <parentID />
+            <source>DjEntry.jsAmount=DjEntry.djNo.amount</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>f6448a2a-b932-4ef1-9c7f-b1ae172bc03d</id>
+            <parentID>f8428e3d-8ed7-48f9-a44c-88de09f0fc20</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>fb84cfe9-2481-4e3d-a959-11e623c3478a</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>fb84cfe9-2481-4e3d-a959-11e623c3478a</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtDjEntry.getCell(rowIndex,"jsAmount")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>165550ab-1d7d-4f15-8811-fc50836675cf</id>
+            <parentID>f8428e3d-8ed7-48f9-a44c-88de09f0fc20</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>f0f3c47f-f372-4ada-ad65-3889d5c6cbb9</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>cc5eb39e-e62b-4089-95f1-48258c8fc72a</id>
+                        <expressionID>77389365-0702-450b-8a05-834cf4ce0e2e</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>bd86d30d-4358-4b58-beed-53a920d3f3fd</id>
+                        <expressionID>313e51d9-cae4-40a8-b1cf-406b52a95b3b</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>f0f3c47f-f372-4ada-ad65-3889d5c6cbb9</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>77389365-0702-450b-8a05-834cf4ce0e2e</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>3c4a90a4-aa71-4eaf-9b2c-66ffc0fa9a78</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>3c4a90a4-aa71-4eaf-9b2c-66ffc0fa9a78</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtDjEntry.getCell(rowIndex,"djNo")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>313e51d9-cae4-40a8-b1cf-406b52a95b3b</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>amount</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>ffae6c20-6bcc-4056-92c1-a8a41a63e969</id>
+            <name>FpEntry_invoiceType_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceType_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceType_ActionInfo].description</description>
+            <expressionID>9e84f8a0-ba49-4123-aab9-5726cb8b9fd1</expressionID>
+        </action>
+        <action>
+            <id>e3ed7508-75f5-49e1-b9c9-32f26b94c334</id>
+            <name>FpEntry_invoiceDate_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceDate_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceDate_ActionInfo].description</description>
+            <expressionID>e34b61ca-2cce-425f-acb3-a94f6da9f7f2</expressionID>
+        </action>
+        <action>
+            <id>51af26df-b916-4ec9-ad23-0812dadef649</id>
+            <name>FpEntry_invoiceCompany_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceCompany_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceCompany_ActionInfo].description</description>
+            <expressionID>f29b58da-b38a-462a-bd6a-4621ce48fb44</expressionID>
+        </action>
+        <action>
+            <id>c56ed09e-2af3-4a08-a007-f5fdf64f8030</id>
+            <name>FpEntry_invoiceAmount_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceAmount_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceAmount_ActionInfo].description</description>
+            <expressionID>08031cf0-a26e-4780-a89d-654632a5bd0f</expressionID>
+        </action>
+        <action>
+            <id>f825bf7a-0886-46ce-a427-dae8083ba512</id>
+            <name>FpEntry_kpUnitID_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitID_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitID_ActionInfo].description</description>
+            <expressionID>37fc8ad1-f5ff-4267-a4ab-06a2b1b7e6a5</expressionID>
+        </action>
+        <action>
+            <id>4dcd7b06-e95d-4453-ad4a-786ffb8a35ef</id>
+            <name>FpEntry_kpUnitNumber_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitNumber_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitNumber_ActionInfo].description</description>
+            <expressionID>0f65daa7-e352-4860-9b15-cdd5b2b48306</expressionID>
+        </action>
+        <action>
+            <id>6092b2d2-1cc3-413f-bd38-db67118c5e69</id>
+            <name>FpEntry_kpUnitName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitName_ActionInfo].description</description>
+            <expressionID>10ca97f2-395c-4bc9-bd99-535fdd35a7c7</expressionID>
+        </action>
+        <action>
+            <id>80bd21a1-296f-406c-8f7f-d9b0eddcb55c</id>
+            <name>FpEntry_kpUnitName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitName_ActionInfo].description</description>
+            <expressionID>9b84e337-e746-405e-a5f9-f87aa277c38a</expressionID>
+        </action>
+        <action>
+            <id>684c779f-2db8-4a53-9799-afe1be499cd8</id>
+            <name>FpEntry_invoiceDate_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceDate_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceDate_ActionInfo].description</description>
+            <expressionID>a279ed4e-acc6-4add-a78a-7a493975bbc7</expressionID>
+        </action>
+        <action>
+            <id>a8618719-4948-401f-9200-12b9f7a8dc39</id>
+            <name>FpEntry_kpUnit_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnit_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnit_ActionInfo].description</description>
+            <expressionID>200b96e1-fb3b-4f39-9d00-5d14137c940f</expressionID>
+        </action>
+        <action>
+            <id>bde045c1-a8b9-46c7-aacb-728bd8c9a349</id>
+            <name>FpEntry_yhxAmount_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_yhxAmount_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_yhxAmount_ActionInfo].description</description>
+            <expressionID>0778c3da-259f-422d-adfa-8626787f1c74</expressionID>
+        </action>
+        <action>
+            <id>75614339-c7c1-43f2-8f5a-d916f0768633</id>
+            <name>FpEntry_whxAmount_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_whxAmount_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_whxAmount_ActionInfo].description</description>
+            <expressionID>72c270de-ce89-4a7e-b57c-638c86639492</expressionID>
+        </action>
+        <action>
+            <id>95080bc1-4c49-48e3-89b0-305da08694bf</id>
+            <name>DjEntry_ldNo_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[DjEntry_ldNo_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[DjEntry_ldNo_ActionInfo].description</description>
+            <expressionID>10116914-35ee-4b6d-8cc3-704d39d025b6</expressionID>
+        </action>
+        <action>
+            <id>e2bbcc7f-9240-4f2c-a293-2455eadca75b</id>
+            <name>DjEntry_jsAmount_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[DjEntry_jsAmount_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[DjEntry_jsAmount_ActionInfo].description</description>
+            <expressionID>f8428e3d-8ed7-48f9-a44c-88de09f0fc20</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>FpEntry_kpUnit_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_kpUnit_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_kpUnit_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="a8618719-4948-401f-9200-12b9f7a8dc39" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>FpEntry_yhxAmount_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_yhxAmount_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_yhxAmount_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="bde045c1-a8b9-46c7-aacb-728bd8c9a349" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>FpEntry_whxAmount_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_whxAmount_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_whxAmount_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="75614339-c7c1-43f2-8f5a-d916f0768633" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>DjEntry_ldNo_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[DjEntry_ldNo_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[DjEntry_ldNo_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="95080bc1-4c49-48e3-89b0-305da08694bf" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>DjEntry_jsAmount_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[DjEntry_jsAmount_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[DjEntry_jsAmount_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="e2bbcc7f-9240-4f2c-a293-2455eadca75b" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[DjEntry_jsAmount_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_amount" />
+            <lang locale="zh_HK" value="攜帶字段屬性_amount" />
+            <lang locale="zh_TW" value="攜帶字段屬性_amount" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[DjEntry_jsAmount_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[DjEntry_ldNo_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_ldNumber" />
+            <lang locale="zh_HK" value="攜帶字段屬性_ldNumber" />
+            <lang locale="zh_TW" value="攜帶字段屬性_ldNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[DjEntry_ldNo_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceAmount_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_totalAmount" />
+            <lang locale="zh_HK" value="攜帶字段屬性_totalAmount" />
+            <lang locale="zh_TW" value="攜帶字段屬性_totalAmount" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceAmount_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceCompany_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_company" />
+            <lang locale="zh_HK" value="攜帶字段屬性_company" />
+            <lang locale="zh_TW" value="攜帶字段屬性_company" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceCompany_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceDate_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_bizDate" />
+            <lang locale="zh_HK" value="攜帶字段屬性_bizDate" />
+            <lang locale="zh_TW" value="攜帶字段屬性_bizDate" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceDate_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceType_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_type" />
+            <lang locale="zh_HK" value="攜帶字段屬性_type" />
+            <lang locale="zh_TW" value="攜帶字段屬性_type" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_invoiceType_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitID_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_asstActID" />
+            <lang locale="zh_HK" value="攜帶字段屬性_asstActID" />
+            <lang locale="zh_TW" value="攜帶字段屬性_asstActID" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitID_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_asstActName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_asstActName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_asstActName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitNumber_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_asstActNumber" />
+            <lang locale="zh_HK" value="攜帶字段屬性_asstActNumber" />
+            <lang locale="zh_TW" value="攜帶字段屬性_asstActNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnitNumber_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnit_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_asstActName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_asstActName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_asstActName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_kpUnit_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_whxAmount_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_unVerifyAmount" />
+            <lang locale="zh_HK" value="攜帶字段屬性_unVerifyAmount" />
+            <lang locale="zh_TW" value="攜帶字段屬性_unVerifyAmount" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_whxAmount_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_yhxAmount_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_verifyAmount" />
+            <lang locale="zh_HK" value="攜帶字段屬性_verifyAmount" />
+            <lang locale="zh_TW" value="攜帶字段屬性_verifyAmount" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].actions.action[FpEntry_yhxAmount_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[DjEntry_jsAmount_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_amount" />
+            <lang locale="zh_HK" value="攜帶字段屬性_amount" />
+            <lang locale="zh_TW" value="攜帶字段屬性_amount" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[DjEntry_jsAmount_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[DjEntry_jsAmount_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="djNo" />
+            <lang locale="zh_CN" value="djNo" />
+            <lang locale="zh_TW" value="djNo" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[DjEntry_jsAmount_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[DjEntry_ldNo_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_ldNumber" />
+            <lang locale="zh_HK" value="攜帶字段屬性_ldNumber" />
+            <lang locale="zh_TW" value="攜帶字段屬性_ldNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[DjEntry_ldNo_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[DjEntry_ldNo_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="djNo" />
+            <lang locale="zh_CN" value="djNo" />
+            <lang locale="zh_TW" value="djNo" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[DjEntry_ldNo_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_kpUnit_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_asstActName" />
+            <lang locale="zh_HK" value="攜帶字段屬性_asstActName" />
+            <lang locale="zh_TW" value="攜帶字段屬性_asstActName" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_kpUnit_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_kpUnit_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="fpNo" />
+            <lang locale="zh_CN" value="fpNo" />
+            <lang locale="zh_TW" value="fpNo" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_kpUnit_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_whxAmount_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_unVerifyAmount" />
+            <lang locale="zh_HK" value="攜帶字段屬性_unVerifyAmount" />
+            <lang locale="zh_TW" value="攜帶字段屬性_unVerifyAmount" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_whxAmount_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_whxAmount_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="fpNo" />
+            <lang locale="zh_CN" value="fpNo" />
+            <lang locale="zh_TW" value="fpNo" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_whxAmount_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_yhxAmount_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_verifyAmount" />
+            <lang locale="zh_HK" value="攜帶字段屬性_verifyAmount" />
+            <lang locale="zh_TW" value="攜帶字段屬性_verifyAmount" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_yhxAmount_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_yhxAmount_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="fpNo" />
+            <lang locale="zh_CN" value="fpNo" />
+            <lang locale="zh_TW" value="fpNo" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richinf.app.RichCompayWriteOffRuleSet].rules.conditionRule[FpEntry_yhxAmount_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

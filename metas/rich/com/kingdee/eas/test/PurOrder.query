@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.test</package>
+    <name>PurOrder</name>
+    <alias>joinQuery[com.kingdee.eas.test.PurOrder].alias</alias>
+    <description>joinQuery[com.kingdee.eas.test.PurOrder].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>PurOrder</name>
+            <alias>joinQuery[com.kingdee.eas.test.PurOrder].subObjects.subEntity[PurOrder].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.test" />
+                <key name="name" value="PurOrder" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.test" />
+                <key name="name" value="PurOrder" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>purPerson</name>
+            <alias>joinQuery[com.kingdee.eas.test.PurOrder].subObjects.subEntity[purPerson].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.test" />
+                <key name="name" value="PurOrder" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.person.app" />
+                <key name="name" value="Person" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>address</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.test.PurOrder].units.queryField[address].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f1587614-d29f-476b-b85a-0518b9515302</key>
+                    <parentUnit>
+                        <key name="name" value="address" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PurOrder" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="address" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.test" />
+                <key name="name" value="PurOrder" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>05ab4f2a-8c2f-4eec-ae7f-bae6df80f059</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.test.PurOrder].units.propertyUnit[05ab4f2a-8c2f-4eec-ae7f-bae6df80f059].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4582995f-cf4c-4cde-8e68-abc86f9f233c</key>
+                    <parentUnit>
+                        <key name="name" value="05ab4f2a-8c2f-4eec-ae7f-bae6df80f059" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PurOrder" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="purPerson" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.test" />
+                <key name="name" value="PurOrder" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>a476f1f9-c361-43d3-93b4-b5445d0a5e4a</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.test.PurOrder].units.propertyUnit[a476f1f9-c361-43d3-93b4-b5445d0a5e4a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ec667374-0c25-40f9-ae28-e8d70db3b310</key>
+                    <parentUnit>
+                        <key name="name" value="a476f1f9-c361-43d3-93b4-b5445d0a5e4a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="purPerson" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.test" />
+                <key name="name" value="PurOrder" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>purPerson.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.test.PurOrder].units.queryField[purPerson.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>cb6f9e9a-e4ed-4c93-982a-5d2e19cdb315</key>
+                    <parentUnit>
+                        <key name="name" value="purPerson.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="purPerson" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.test" />
+                <key name="name" value="PurOrder" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.test" />
+            <key name="name" value="PurOrder" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>address</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.test" />
+                <key name="name" value="PurOrder" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>75c15e71-18af-4acc-bebf-5f6a7a8f41f1</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="PurOrder" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="purPerson" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>8fbd2c92-50c0-4aa5-9650-514fc1488b91</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="05ab4f2a-8c2f-4eec-ae7f-bae6df80f059" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="a476f1f9-c361-43d3-93b4-b5445d0a5e4a" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="75c15e71-18af-4acc-bebf-5f6a7a8f41f1" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.test" />
+                <key name="name" value="PurOrder" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.test.PurOrder].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="采购订单" />
+            <lang locale="zh_HK" value="採購訂單" />
+            <lang locale="zh_TW" value="採購訂單" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.test.PurOrder].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.test.PurOrder].subObjects.subEntity[PurOrder].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.test.PurOrder].subObjects.subEntity[purPerson].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.test.PurOrder].units.propertyUnit[05ab4f2a-8c2f-4eec-ae7f-bae6df80f059].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.test.PurOrder].units.propertyUnit[a476f1f9-c361-43d3-93b4-b5445d0a5e4a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.test.PurOrder].units.queryField[address].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="地址" />
+            <lang locale="zh_HK" value="地址" />
+            <lang locale="zh_TW" value="地址" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.test.PurOrder].units.queryField[purPerson.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+    </resource>
+</joinQuery>
+
