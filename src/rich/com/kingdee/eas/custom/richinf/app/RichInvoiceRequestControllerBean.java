@@ -64,10 +64,11 @@ public class RichInvoiceRequestControllerBean extends AbstractRichInvoiceRequest
     	//累计到检金额  累计已申请开票金额   累计已开票金额
     	//取得在此之前的到检金额，然后加上本次的
     	StringBuffer sb = new StringBuffer();
+    	String ldNumber = info.getLdNumber();
     	sb.append("select DISTINCT rire.CFDjdID djdid,rire.CFYsAmount jsamount from ");
     	sb.append("CT_RIC_RichInvoiceRequestEntry rire left join CT_RIC_RichInvoiceRequest requ ");
     	sb.append("on rire.fparentid=requ.fid where requ.cfBillState<>'SAVE' and requ.CFLdNumber='");
-    	sb.append(info.getLdNumber()+"'");
+    	sb.append(ldNumber+"'");
     	IRowSet rs = DbUtil.executeQuery(ctx,sb.toString());
     	BigDecimal djTotal = BigDecimal.ZERO;
     	Set<String> befores = new HashSet<String>();
@@ -88,7 +89,7 @@ public class RichInvoiceRequestControllerBean extends AbstractRichInvoiceRequest
     	}
     	info.setDjAmount(djTotal);
     	//取得在此之前的申请开票金额，然后加上本次的
-    	String sql="select CFAmount from CT_RIC_RichInvoiceRequest where cfBillState<>'SAVE' and CFLdNumber='"+info.getLdNumber()+"'";
+    	String sql="select CFAmount from CT_RIC_RichInvoiceRequest where cfBillState<>'SAVE' and CFLdNumber='"+ldNumber+"'";
     	rs = DbUtil.executeQuery(ctx,sql);
     	BigDecimal requestTotal = BigDecimal.ZERO;
     	if(rs != null && rs.size() > 0) {
@@ -109,9 +110,22 @@ public class RichInvoiceRequestControllerBean extends AbstractRichInvoiceRequest
     			info.setReqSumAmount(requestTotal.add(oldValue.getAmount().subtract(info.getAmount())));
     		else
     			info.setReqSumAmount(requestTotal.add(info.getAmount().subtract(oldValue.getAmount())));
-    			
     	}
     	
+    	//取得在此之前的已开票金额
+    	sql = "select FAmount from T_AR_OtherBill where FBillStatus=2 and CFLdNo='"+ldNumber+"'";
+    	rs = DbUtil.executeQuery(ctx,sql);
+    	if(rs != null && rs.size() > 0) {
+    		BigDecimal fpTotal = BigDecimal.ZERO;
+    		try {
+				while(rs.next()){
+					fpTotal = fpTotal.add(rs.getBigDecimal("FAmount"));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			info.setInvoicedAmount(fpTotal);
+    	}
     	return super._submit(ctx, model);
     }
     

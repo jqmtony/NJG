@@ -69,7 +69,6 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
 //    	}
     }
     
-    private BigDecimal reqSumAmount = null;
     public void onLoad() throws Exception {
     	super.onLoad();
     	chkMenuItemSubmitAndAddNew.setVisible(false);
@@ -106,7 +105,7 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     					djTotal = djTotal.add(rs.getBigDecimal("jsamount"));
     				}
     			} catch (SQLException e) {
-    				e.printStackTrace();
+    				handUIException(e);
     			}
         	}
         	for(int i=kdtEntrys.getRowCount3()-1; i>=0; i--) {
@@ -114,6 +113,21 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
         			djTotal = djTotal.add((BigDecimal)kdtEntrys.getCell(i,"ysAmount").getValue());
         	}
         	txtdjAmount.setValue(djTotal);
+        	
+        	//初始化累计已开发票金额
+        	String sql = "select FAmount from T_AR_OtherBill where FBillStatus=2 and CFLdNo='"+ldNumber+"'";
+        	rs = iff.executeQuery(sql,null);
+        	if(rs != null && rs.size() > 0) {
+        		BigDecimal fpTotal = BigDecimal.ZERO;
+        		try {
+    				while(rs.next()){
+    					fpTotal = fpTotal.add(rs.getBigDecimal("FAmount"));
+    				}
+    			} catch (SQLException e) {
+    				handUIException(e);
+    			}
+    			txtinvoicedAmount.setValue(fpTotal);
+        	}
         	
     	}
     	//根据当前财务组织过滤销售员
