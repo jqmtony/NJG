@@ -81,10 +81,10 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 				String sklb = billHead.element("sklb").getText().trim();//收款类别
 				
 				CtrlUnitInfo ctrlUnitInfo = Utils.getCtrlUnitInfo(ctx,djjg);//根据到检机构-判断管理单元
-				ContextUtil.setCurrentCtrlUnit(ctx, ctrlUnitInfo);
 				if(ctrlUnitInfo == null) {
 					return new String[] {"N", ywdjbh, ",编码为"+djjg+" 管理单元不存在"};
 				}
+				ContextUtil.setCurrentCtrlUnit(ctx, ctrlUnitInfo);
 				CompanyOrgUnitInfo djjgInfo = Utils.getCompanyOrgUnit(ctx, djjg);//到检机构
 				if(djjgInfo == null) {
 					return new String[] {"N", ywdjbh, ",编码为"+djjg+"到检机构不存在"};
@@ -188,6 +188,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 		return strReturn;
 	}
 
+	//生成到检单
 	protected String[] _saveExamBill(Context ctx, Date date, String String) throws BOSException {
 		super._saveExamBill(ctx, date, String);
 		String d = DateUtil.format(date, "yyyy-MM-dd");
@@ -298,6 +299,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 				" group by cfdjr,CFDjtcbm" ;
 				IRowSet djrrs = DbUtil.executeQuery(ctx, sql);
 				while(djrrs.next()){
+					//到检单分录
 					RichExamedEntryInfo item = new RichExamedEntryInfo ();
 					String djr = djrrs.getString("djr");
 					String djtcbm = djrrs.getString("djtcbm");

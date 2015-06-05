@@ -82,6 +82,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contsaleAmount;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkhc;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contzjjg;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contyhxAmount;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker kDDateCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -112,6 +113,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtcardAmount;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtsaleAmount;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtzjjg;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtyhxAmount;
     protected com.kingdee.eas.custom.richinf.RichExamedInfo editData = null;
     /**
      * output class constructor
@@ -210,6 +212,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.contsaleAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.chkhc = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.contzjjg = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contyhxAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDDateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -240,6 +243,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.txtcardAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtsaleAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.prmtzjjg = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtyhxAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -274,6 +278,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.contsaleAmount.setName("contsaleAmount");
         this.chkhc.setName("chkhc");
         this.contzjjg.setName("contzjjg");
+        this.contyhxAmount.setName("contyhxAmount");
         this.prmtCreator.setName("prmtCreator");
         this.kDDateCreateTime.setName("kDDateCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -304,6 +309,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.txtcardAmount.setName("txtcardAmount");
         this.txtsaleAmount.setName("txtsaleAmount");
         this.prmtzjjg.setName("prmtzjjg");
+        this.txtyhxAmount.setName("txtyhxAmount");
         // CoreUI		
         this.btnAddLine.setVisible(false);		
         this.btnCopyLine.setVisible(false);		
@@ -361,7 +367,8 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         // contDescription		
         this.contDescription.setBoundLabelText(resHelper.getString("contDescription.boundLabelText"));		
         this.contDescription.setBoundLabelLength(100);		
-        this.contDescription.setBoundLabelUnderline(true);
+        this.contDescription.setBoundLabelUnderline(true);		
+        this.contDescription.setVisible(false);
         // contAuditor		
         this.contAuditor.setBoundLabelText(resHelper.getString("contAuditor.boundLabelText"));		
         this.contAuditor.setBoundLabelLength(100);		
@@ -449,7 +456,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.contywNumber.setBoundLabelText(resHelper.getString("contywNumber.boundLabelText"));		
         this.contywNumber.setBoundLabelLength(100);		
         this.contywNumber.setBoundLabelUnderline(true);		
-        this.contywNumber.setVisible(true);
+        this.contywNumber.setVisible(false);
         // contqyUnit		
         this.contqyUnit.setBoundLabelText(resHelper.getString("contqyUnit.boundLabelText"));		
         this.contqyUnit.setBoundLabelLength(100);		
@@ -643,6 +650,11 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.contzjjg.setBoundLabelLength(100);		
         this.contzjjg.setBoundLabelUnderline(true);		
         this.contzjjg.setVisible(true);
+        // contyhxAmount		
+        this.contyhxAmount.setBoundLabelText(resHelper.getString("contyhxAmount.boundLabelText"));		
+        this.contyhxAmount.setBoundLabelLength(100);		
+        this.contyhxAmount.setBoundLabelUnderline(true);		
+        this.contyhxAmount.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);
         // kDDateCreateTime		
@@ -775,7 +787,17 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.prmtzjjg.setEditFormat("$number$");		
         this.prmtzjjg.setCommitFormat("$number$");		
         this.prmtzjjg.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {kdtDjrentry,chkhc,prmtzjjg,txtcardNo,cardType,txtcardAmount,txtsaleAmount,txtldNumber,pkdjDate,txtywNumber,prmtqyUnit,prmtdjUnit,prmtkpUnit,prmtfkUnit,txtfpNumber,txtamount,prmtsales,prmttjType,bizState,txtbeizhu,prmtkpCompany,prmtdjCompany,chkdj,pkauditDate,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,kDDateCreateTime,prmtLastUpdateUser,kDDateLastUpdateTime,kdtEntrys}));
+        // txtyhxAmount		
+        this.txtyhxAmount.setVisible(true);		
+        this.txtyhxAmount.setHorizontalAlignment(2);		
+        this.txtyhxAmount.setDataType(1);		
+        this.txtyhxAmount.setSupportedEmpty(true);		
+        this.txtyhxAmount.setMinimumValue( new java.math.BigDecimal("-1.0E18"));		
+        this.txtyhxAmount.setMaximumValue( new java.math.BigDecimal("1.0E18"));		
+        this.txtyhxAmount.setPrecision(2);		
+        this.txtyhxAmount.setRequired(false);		
+        this.txtyhxAmount.setEnabled(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {kdtDjrentry,chkhc,prmtzjjg,txtcardNo,cardType,txtcardAmount,txtsaleAmount,txtldNumber,pkdjDate,txtywNumber,prmtqyUnit,prmtdjUnit,prmtkpUnit,prmtfkUnit,txtfpNumber,txtamount,prmtsales,prmttjType,bizState,txtbeizhu,prmtkpCompany,prmtdjCompany,chkdj,pkauditDate,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,kDDateCreateTime,prmtLastUpdateUser,kDDateLastUpdateTime,kdtEntrys,txtyhxAmount}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -826,7 +848,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.add(contldNumber, null);
         contdjDate.setBounds(new Rectangle(350, 49, 270, 19));
         this.add(contdjDate, null);
-        contywNumber.setBounds(new Rectangle(728, 49, 270, 19));
+        contywNumber.setBounds(new Rectangle(625, 12, 101, 19));
         this.add(contywNumber, null);
         contqyUnit.setBounds(new Rectangle(15, 49, 270, 19));
         this.add(contqyUnit, null);
@@ -873,6 +895,8 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.add(chkhc, null);
         contzjjg.setBounds(new Rectangle(728, 114, 270, 19));
         this.add(contzjjg, null);
+        contyhxAmount.setBounds(new Rectangle(728, 49, 270, 19));
+        this.add(contyhxAmount, null);
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -933,6 +957,8 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         contsaleAmount.setBoundEditor(txtsaleAmount);
         //contzjjg
         contzjjg.setBoundEditor(prmtzjjg);
+        //contyhxAmount
+        contyhxAmount.setBoundEditor(txtyhxAmount);
 
     }
 
@@ -1156,7 +1182,8 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
 		dataBinder.registerBinding("cardType", com.kingdee.eas.custom.richbase.CardType.class, this.cardType, "selectedItem");
 		dataBinder.registerBinding("cardAmount", java.math.BigDecimal.class, this.txtcardAmount, "value");
 		dataBinder.registerBinding("saleAmount", java.math.BigDecimal.class, this.txtsaleAmount, "value");
-		dataBinder.registerBinding("zjjg", com.kingdee.eas.basedata.master.cssp.CustomerInfo.class, this.prmtzjjg, "data");		
+		dataBinder.registerBinding("zjjg", com.kingdee.eas.basedata.master.cssp.CustomerInfo.class, this.prmtzjjg, "data");
+		dataBinder.registerBinding("yhxAmount", java.math.BigDecimal.class, this.txtyhxAmount, "value");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1343,7 +1370,8 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
 		getValidateHelper().registerBindProperty("cardType", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("cardAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("saleAmount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("zjjg", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("zjjg", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("yhxAmount", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1547,6 +1575,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         	sic.add(new SelectorItemInfo("zjjg.number"));
         	sic.add(new SelectorItemInfo("zjjg.name"));
 		}
+        sic.add(new SelectorItemInfo("yhxAmount"));
         return sic;
     }        
     	

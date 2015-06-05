@@ -14,12 +14,14 @@ import com.kingdee.eas.framework.app.CoreBillBaseController;
 import com.kingdee.eas.custom.richinf.RichCustomWriteOffInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.eas.framework.CoreBaseCollection;
+import com.kingdee.eas.fi.ar.OtherBillCollection;
 import com.kingdee.bos.util.*;
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.bos.framework.*;
 import com.kingdee.eas.custom.richinf.RichCustomWriteOffCollection;
+import com.kingdee.eas.custom.richinf.RichExamedCollection;
 
 import java.rmi.RemoteException;
 import com.kingdee.bos.framework.ejb.BizController;
@@ -32,4 +34,5 @@ public interface RichCustomWriteOffController extends CoreBillBaseController
     public RichCustomWriteOffInfo getRichCustomWriteOffInfo(Context ctx, IObjectPK pk) throws BOSException, EASBizException, RemoteException;
     public RichCustomWriteOffInfo getRichCustomWriteOffInfo(Context ctx, IObjectPK pk, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public RichCustomWriteOffInfo getRichCustomWriteOffInfo(Context ctx, String oql) throws BOSException, EASBizException, RemoteException;
+    public void aboutHxAndFanHx(Context ctx, OtherBillCollection fpColl, RichExamedCollection richExamColl, int hxType, RichCustomWriteOffInfo ov) throws BOSException, RemoteException;
 }

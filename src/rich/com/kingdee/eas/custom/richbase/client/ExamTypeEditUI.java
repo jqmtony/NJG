@@ -17,7 +17,7 @@ public class ExamTypeEditUI extends AbstractExamTypeEditUI
     private static final Logger logger = CoreUIObject.getLogger(ExamTypeEditUI.class);
     
     /**
-     * output class constructor
+     * output class construct
      */
     public ExamTypeEditUI() throws Exception
     {

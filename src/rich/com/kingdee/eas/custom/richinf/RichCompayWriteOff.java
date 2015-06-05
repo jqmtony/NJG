@@ -7,10 +7,11 @@ import com.kingdee.bos.framework.AbstractBizCtrl;
 import com.kingdee.bos.orm.template.ORMObject;
 
 import java.lang.String;
-import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.eas.fi.ar.OtherBillCollection;
 import com.kingdee.eas.framework.CoreBillBase;
 import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.bos.util.*;
@@ -120,6 +121,23 @@ public class RichCompayWriteOff extends CoreBillBase implements IRichCompayWrite
     {
         try {
             return getController().getRichCompayWriteOffInfo(getContext(), oql);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *核销和反核销-User defined method
+     *@param fpColl 发票数组
+     *@param richExamColl 到检单数组
+     *@param hxType 核销类型
+     *@param ov 核销单info
+     *@return
+     */
+    public boolean aboutHxAndFanHx(OtherBillCollection fpColl, RichExamedCollection richExamColl, int hxType, RichCompayWriteOffInfo ov) throws BOSException
+    {
+        try {
+            return getController().aboutHxAndFanHx(getContext(), fpColl, richExamColl, hxType, ov);
         }
         catch(RemoteException err) {
             throw new EJBRemoteException(err);

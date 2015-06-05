@@ -190,6 +190,46 @@ public abstract class AbstractRichInvoiceRequestControllerBean extends CoreBillB
         return super._getValue(ctx, oql);
     }
 
+    public void audit(Context ctx, RichInvoiceRequestInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("3fee65c5-2609-47b8-9529-a988cbed2a85"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _audit(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _audit(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
+    public void unAudit(Context ctx, RichInvoiceRequestInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("af0501ee-7552-4636-9685-91ee56c3ef49"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _unAudit(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _unAudit(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public CoreBillBaseCollection getCoreBillBaseCollection (Context ctx) throws BOSException
     {
     	return (CoreBillBaseCollection)(getRichInvoiceRequestCollection(ctx).cast(CoreBillBaseCollection.class));

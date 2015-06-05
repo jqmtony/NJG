@@ -125,7 +125,9 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdjrq;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtkh;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtzjjg;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnSyncRichExam;
     protected com.kingdee.eas.custom.richinf.RichExamTempTabInfo editData = null;
+    protected ActionSyncRichExamed actionSyncRichExamed = null;
     /**
      * output class constructor
      */
@@ -145,6 +147,14 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
     {
         this.resHelper = new ResourceBundleHelper(AbstractRichExamTempTabEditUI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
+        //actionSyncRichExamed
+        this.actionSyncRichExamed = new ActionSyncRichExamed(this);
+        getActionManager().registerAction("actionSyncRichExamed", actionSyncRichExamed);
+        this.actionSyncRichExamed.setExtendProperty("canForewarn", "true");
+        this.actionSyncRichExamed.setExtendProperty("userDefined", "true");
+        this.actionSyncRichExamed.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionSyncRichExamed.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionSyncRichExamed.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer3 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -224,6 +234,7 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.pkdjrq = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtkh = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtzjjg = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.btnSyncRichExam = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.kDLabelContainer1.setName("kDLabelContainer1");
         this.kDLabelContainer2.setName("kDLabelContainer2");
         this.kDLabelContainer3.setName("kDLabelContainer3");
@@ -303,6 +314,7 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.pkdjrq.setName("pkdjrq");
         this.txtkh.setName("txtkh");
         this.txtzjjg.setName("txtzjjg");
+        this.btnSyncRichExam.setName("btnSyncRichExam");
         // CoreUI		
         this.btnPrint.setVisible(false);		
         this.btnPrintPreview.setVisible(false);		
@@ -343,12 +355,12 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.contldh.setVisible(true);
         // contqydw		
         this.contqydw.setBoundLabelText(resHelper.getString("contqydw.boundLabelText"));		
-        this.contqydw.setBoundLabelLength(100);		
+        this.contqydw.setBoundLabelLength(120);		
         this.contqydw.setBoundLabelUnderline(true);		
         this.contqydw.setVisible(true);
         // contdjdw		
         this.contdjdw.setBoundLabelText(resHelper.getString("contdjdw.boundLabelText"));		
-        this.contdjdw.setBoundLabelLength(100);		
+        this.contdjdw.setBoundLabelLength(120);		
         this.contdjdw.setBoundLabelUnderline(true);		
         this.contdjdw.setVisible(true);
         // contkpdw		
@@ -682,6 +694,9 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.txtzjjg.setHorizontalAlignment(2);		
         this.txtzjjg.setMaxLength(100);		
         this.txtzjjg.setRequired(false);
+        // btnSyncRichExam
+        this.btnSyncRichExam.setAction((IItemAction)ActionProxyFactory.getProxy(actionSyncRichExamed, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnSyncRichExam.setText(resHelper.getString("btnSyncRichExam.text"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -718,13 +733,13 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.add(kDLabelContainer4, null);
         contywdjbh.setBounds(new Rectangle(12, 37, 259, 19));
         this.add(contywdjbh, null);
-        contbizdate.setBounds(new Rectangle(292, 38, 259, 19));
+        contbizdate.setBounds(new Rectangle(292, 50, 259, 19));
         this.add(contbizdate, null);
         contldh.setBounds(new Rectangle(14, 195, 259, 19));
         this.add(contldh, null);
-        contqydw.setBounds(new Rectangle(293, 222, 259, 19));
+        contqydw.setBounds(new Rectangle(580, 56, 280, 19));
         this.add(contqydw, null);
-        contdjdw.setBounds(new Rectangle(14, 222, 259, 19));
+        contdjdw.setBounds(new Rectangle(580, 93, 280, 19));
         this.add(contdjdw, null);
         contkpdw.setBounds(new Rectangle(578, 222, 259, 19));
         this.add(contkpdw, null);
@@ -746,7 +761,7 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.add(contxsy, null);
         conttjlb.setBounds(new Rectangle(292, 249, 259, 19));
         this.add(conttjlb, null);
-        contbizState.setBounds(new Rectangle(861, 38, 259, 19));
+        contbizState.setBounds(new Rectangle(870, 38, 259, 19));
         this.add(contbizState, null);
         contbeizhu.setBounds(new Rectangle(294, 276, 828, 19));
         this.add(contbeizhu, null);
@@ -774,7 +789,7 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.add(contjsje, null);
         contse.setBounds(new Rectangle(854, 384, 259, 19));
         this.add(contse, null);
-        contjshj.setBounds(new Rectangle(14, 414, 259, 19));
+        contjshj.setBounds(new Rectangle(302, 137, 259, 19));
         this.add(contjshj, null);
         contdjjg.setBounds(new Rectangle(13, 90, 259, 19));
         this.add(contdjjg, null);
@@ -786,7 +801,7 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.add(chkflag, null);
         contkh.setBounds(new Rectangle(14, 141, 259, 19));
         this.add(contkh, null);
-        contzjjg.setBounds(new Rectangle(578, 91, 257, 19));
+        contzjjg.setBounds(new Rectangle(580, 12, 257, 19));
         this.add(contzjjg, null);
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtNumber);
@@ -969,6 +984,7 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.toolBar.add(separatorFW3);
         this.toolBar.add(btnCancelCancel);
         this.toolBar.add(btnCancel);
+        this.toolBar.add(btnSyncRichExam);
 
 
     }
@@ -1273,6 +1289,56 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         sic.add(new SelectorItemInfo("zjjg"));
         return sic;
     }        
+    	
+
+    /**
+     * output actionSyncRichExamed_actionPerformed method
+     */
+    public void actionSyncRichExamed_actionPerformed(ActionEvent e) throws Exception
+    {
+        com.kingdee.eas.custom.richinf.RichExamTempTabFactory.getRemoteInstance().syncRichExamed(editData);
+    }
+	public RequestContext prepareActionSyncRichExamed(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionSyncRichExamed() {
+    	return false;
+    }
+
+    /**
+     * output ActionSyncRichExamed class
+     */     
+    protected class ActionSyncRichExamed extends ItemAction {     
+    
+        public ActionSyncRichExamed()
+        {
+            this(null);
+        }
+
+        public ActionSyncRichExamed(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionSyncRichExamed.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionSyncRichExamed.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionSyncRichExamed.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractRichExamTempTabEditUI.this, "ActionSyncRichExamed", "actionSyncRichExamed_actionPerformed", e);
+        }
+    }
 
     /**
      * output getMetaDataPK method

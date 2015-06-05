@@ -24,14 +24,16 @@ import java.lang.String;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.dao.IObjectPK;
-import com.kingdee.eas.framework.CoreBillBaseCollection;
-import com.kingdee.eas.framework.CoreBaseInfo;
-import com.kingdee.eas.framework.app.CoreBillBaseControllerBean;
-import com.kingdee.eas.custom.richinf.RichCustomWriteOffCollection;
-import com.kingdee.eas.framework.ObjectBaseCollection;
 import com.kingdee.eas.custom.richinf.RichCustomWriteOffInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.eas.fi.ar.OtherBillCollection;
 import com.kingdee.eas.framework.CoreBaseCollection;
+import com.kingdee.eas.framework.CoreBillBaseCollection;
+import com.kingdee.eas.framework.CoreBaseInfo;
+import com.kingdee.eas.custom.richinf.RichCustomWriteOffCollection;
+import com.kingdee.eas.framework.app.CoreBillBaseControllerBean;
+import com.kingdee.eas.framework.ObjectBaseCollection;
+import com.kingdee.eas.custom.richinf.RichExamedCollection;
 
 
 
@@ -188,6 +190,26 @@ public abstract class AbstractRichCustomWriteOffControllerBean extends CoreBillB
     protected IObjectValue _getValue(Context ctx, String oql) throws BOSException, EASBizException
     {
         return super._getValue(ctx, oql);
+    }
+
+    public void aboutHxAndFanHx(Context ctx, OtherBillCollection fpColl, RichExamedCollection richExamColl, int hxType, RichCustomWriteOffInfo ov) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("c344a310-21c3-47a1-bc92-6f299e32604e"), new Object[]{ctx, fpColl, richExamColl, new Integer(hxType), ov});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _aboutHxAndFanHx(ctx, fpColl, richExamColl, hxType, ov);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _aboutHxAndFanHx(Context ctx, IObjectCollection fpColl, IObjectCollection richExamColl, int hxType, IObjectValue ov) throws BOSException
+    {    	
+        return;
     }
 
     public CoreBillBaseCollection getCoreBillBaseCollection (Context ctx) throws BOSException

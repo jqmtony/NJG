@@ -34,4 +34,14 @@ public class RichExamTempTabControllerBean extends AbstractRichExamTempTabContro
 {
     private static Logger logger =
         Logger.getLogger("com.kingdee.eas.custom.richinf.app.RichExamTempTabControllerBean");
+    
+    protected void _syncRichExamed(Context ctx, IObjectValue model) throws BOSException {
+    	
+    	//super._syncRichExamed(ctx, model);
+    	//部分明细数据未成功生成到检单（找到）
+    	
+    	
+    	//生成到检单
+    	
+    }
 }

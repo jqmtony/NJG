@@ -125,4 +125,17 @@ public class RichExamTempTab extends DataBase implements IRichExamTempTab
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *同步到检单-User defined method
+     *@param model model
+     */
+    public void syncRichExamed(RichExamTempTabInfo model) throws BOSException
+    {
+        try {
+            getController().syncRichExamed(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

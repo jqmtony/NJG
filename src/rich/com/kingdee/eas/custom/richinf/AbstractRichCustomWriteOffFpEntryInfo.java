@@ -105,6 +105,17 @@ public class AbstractRichCustomWriteOffFpEntryInfo extends com.kingdee.eas.frame
     {
         setBigDecimal("whxAmount", item);
     }
+    /**
+     * Object:发票's 本次核销金额property 
+     */
+    public java.math.BigDecimal getBencihx()
+    {
+        return getBigDecimal("bencihx");
+    }
+    public void setBencihx(java.math.BigDecimal item)
+    {
+        setBigDecimal("bencihx", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("144F3E1D");

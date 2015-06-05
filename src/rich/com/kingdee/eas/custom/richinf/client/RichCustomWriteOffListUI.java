@@ -297,7 +297,7 @@ public class RichCustomWriteOffListUI extends AbstractRichCustomWriteOffListUI
         super.actionView_actionPerformed(e);
     }
     protected String getEditUIModal() {
-    	return UIFactoryName.FIXTAB;
+    	return UIFactoryName.NEWTAB;
     }
     /**
      * output actionEdit_actionPerformed

@@ -190,6 +190,26 @@ public abstract class AbstractRichExamTempTabControllerBean extends DataBaseCont
         return super._getCollection(ctx, svcCtx, oql);
     }
 
+    public void syncRichExamed(Context ctx, RichExamTempTabInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("fc7b7c56-59d0-4075-83d2-7a06e2ddc379"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _syncRichExamed(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _syncRichExamed(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public DataBaseCollection getDataBaseCollection (Context ctx) throws BOSException
     {
     	return (DataBaseCollection)(getRichExamTempTabCollection(ctx).cast(DataBaseCollection.class));

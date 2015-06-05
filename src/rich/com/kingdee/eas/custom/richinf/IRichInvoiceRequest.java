@@ -27,4 +27,6 @@ public interface IRichInvoiceRequest extends ICoreBillBase
     public RichInvoiceRequestInfo getRichInvoiceRequestInfo(IObjectPK pk) throws BOSException, EASBizException;
     public RichInvoiceRequestInfo getRichInvoiceRequestInfo(IObjectPK pk, SelectorItemCollection selector) throws BOSException, EASBizException;
     public RichInvoiceRequestInfo getRichInvoiceRequestInfo(String oql) throws BOSException, EASBizException;
+    public void audit(RichInvoiceRequestInfo model) throws BOSException;
+    public void unAudit(RichInvoiceRequestInfo model) throws BOSException;
 }

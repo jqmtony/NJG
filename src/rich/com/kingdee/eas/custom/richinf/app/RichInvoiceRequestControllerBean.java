@@ -1,38 +1,118 @@
 package com.kingdee.eas.custom.richinf.app;
 
-import org.apache.log4j.Logger;
-import javax.ejb.*;
-import java.rmi.RemoteException;
-import com.kingdee.bos.*;
-import com.kingdee.bos.util.BOSObjectType;
-import com.kingdee.bos.metadata.IMetaDataPK;
-import com.kingdee.bos.metadata.rule.RuleExecutor;
-import com.kingdee.bos.metadata.MetaDataPK;
-//import com.kingdee.bos.metadata.entity.EntityViewInfo;
-import com.kingdee.bos.framework.ejb.AbstractEntityControllerBean;
-import com.kingdee.bos.framework.ejb.AbstractBizControllerBean;
-//import com.kingdee.bos.dao.IObjectPK;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.bos.dao.IObjectCollection;
-import com.kingdee.bos.service.ServiceContext;
-import com.kingdee.bos.service.IServiceContext;
+import java.math.BigDecimal;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
-import java.lang.String;
-import com.kingdee.bos.metadata.entity.EntityViewInfo;
-import com.kingdee.eas.common.EASBizException;
+import org.apache.log4j.Logger;
+
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectPK;
+import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.base.permission.UserInfo;
+import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.SysContextConstant;
+import com.kingdee.eas.custom.richinf.BillState;
+import com.kingdee.eas.custom.richinf.RichInvoiceRequestEntryCollection;
 import com.kingdee.eas.custom.richinf.RichInvoiceRequestInfo;
-import com.kingdee.bos.metadata.entity.SelectorItemCollection;
-import com.kingdee.eas.framework.CoreBaseCollection;
-import com.kingdee.eas.framework.SystemEnum;
-import com.kingdee.eas.framework.CoreBillBaseCollection;
-import com.kingdee.eas.framework.CoreBaseInfo;
-import com.kingdee.eas.framework.app.CoreBillBaseControllerBean;
-import com.kingdee.eas.framework.ObjectBaseCollection;
-import com.kingdee.eas.custom.richinf.RichInvoiceRequestCollection;
+import com.kingdee.eas.util.app.DbUtil;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 public class RichInvoiceRequestControllerBean extends AbstractRichInvoiceRequestControllerBean
 {
     private static Logger logger =
         Logger.getLogger("com.kingdee.eas.custom.richinf.app.RichInvoiceRequestControllerBean");
+    
+    
+    @Override
+    protected void _audit(Context ctx, IObjectValue model) throws BOSException {
+    	RichInvoiceRequestInfo rrinfo = (RichInvoiceRequestInfo)model;
+    	rrinfo.setAuditDate(new Date());
+    	rrinfo.setAuditor((UserInfo)ctx.get(SysContextConstant.USERINFO));
+    	rrinfo.setBillState(BillState.AUDIT);
+    	try {
+			_update(ctx,new ObjectUuidPK(rrinfo.getId()),model);
+		} catch (EASBizException e) {
+			e.printStackTrace();
+		}
+    	//将开票机构反写回到检单的开票机构。
+    	if(rrinfo.getKpCompany() != null) {
+    		String companyID = rrinfo.getKpCompany().getId().toString();
+    		String reid = null;
+    		for(int i=rrinfo.getEntrys().size()-1; i>=0; i--){
+    			reid = rrinfo.getEntrys().get(i).getDjd().getId().toString();
+    			DbUtil.execute(ctx,"update CT_RIC_RichExamed set CFKpCompanyID=? where FID=?",new Object[]{companyID,reid});
+    		}
+    	}
+    }
+    
+    @Override
+    protected void _unAudit(Context ctx, IObjectValue model) throws BOSException {
+    	//
+    	//RichInvoiceRequestInfo rrinfo = (RichInvoiceRequestInfo)model;
+    }
+   
+    @Override
+    protected IObjectPK _submit(Context ctx, IObjectValue model)
+    		throws BOSException, EASBizException {
+    	RichInvoiceRequestInfo info = (RichInvoiceRequestInfo)model;
+    	
+    	//累计到检金额  累计已申请开票金额   累计已开票金额
+    	//取得在此之前的到检金额，然后加上本次的
+    	StringBuffer sb = new StringBuffer();
+    	sb.append("select DISTINCT rire.CFDjdID djdid,rire.CFYsAmount jsamount from ");
+    	sb.append("CT_RIC_RichInvoiceRequestEntry rire left join CT_RIC_RichInvoiceRequest requ ");
+    	sb.append("on rire.fparentid=requ.fid where requ.cfBillState<>'SAVE' and requ.CFLdNumber='");
+    	sb.append(info.getLdNumber()+"'");
+    	IRowSet rs = DbUtil.executeQuery(ctx,sb.toString());
+    	BigDecimal djTotal = BigDecimal.ZERO;
+    	Set<String> befores = new HashSet<String>();
+    	if(rs != null && rs.size() > 0) {
+    		try {
+				while(rs.next()){
+					befores.add(rs.getString("djdid"));
+					djTotal = djTotal.add(rs.getBigDecimal("jsamount"));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+    	}
+    	RichInvoiceRequestEntryCollection reColl = info.getEntrys();
+    	for(int i=reColl.size()-1; i>=0; i--) {
+    		if(!befores.contains(reColl.get(i).getDjd().getId().toString()))
+    			djTotal = djTotal.add(reColl.get(i).getYsAmount());
+    	}
+    	info.setDjAmount(djTotal);
+    	//取得在此之前的申请开票金额，然后加上本次的
+    	String sql="select CFAmount from CT_RIC_RichInvoiceRequest where cfBillState<>'SAVE' and CFLdNumber='"+info.getLdNumber()+"'";
+    	rs = DbUtil.executeQuery(ctx,sql);
+    	BigDecimal requestTotal = BigDecimal.ZERO;
+    	if(rs != null && rs.size() > 0) {
+    		try {
+				while(rs.next()){
+					requestTotal = requestTotal.add(rs.getBigDecimal("CFAmount"));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+    	}
+    	if(info.getBillState().equals(BillState.SAVE)) {
+    		info.setBillState(BillState.SUBMIT);
+    		info.setReqSumAmount(requestTotal.add(info.getAmount()));
+    	}else{
+    		RichInvoiceRequestInfo oldValue = (RichInvoiceRequestInfo)_getValue(ctx,new ObjectUuidPK(info.getId()));
+    		if(oldValue.getAmount().compareTo(info.getAmount()) > 0)
+    			info.setReqSumAmount(requestTotal.add(oldValue.getAmount().subtract(info.getAmount())));
+    		else
+    			info.setReqSumAmount(requestTotal.add(info.getAmount().subtract(oldValue.getAmount())));
+    			
+    	}
+    	
+    	return super._submit(ctx, model);
+    }
+    
 }

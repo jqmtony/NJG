@@ -4,12 +4,18 @@
 package com.kingdee.eas.custom.richinf.client;
 
 import java.awt.event.ActionEvent;
-import java.util.Date;
+import java.math.BigDecimal;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
+import com.kingdee.bos.dao.IObjectCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.eas.custom.richfacade.EASRichFacadeFactory;
+import com.kingdee.eas.custom.richinf.RichExamedCollection;
+import com.kingdee.eas.custom.richinf.RichExamedInfo;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
 
 /**
  * output class name
@@ -31,6 +37,10 @@ public class RichExamedListUI extends AbstractRichExamedListUI
     }
     
 
+    @Override
+    public void beforeTransform(IObjectCollection iobjectcollection, String s) {
+    }
+    
     /**
      * output actionRefresh_actionPerformed
      */
@@ -436,6 +446,22 @@ public class RichExamedListUI extends AbstractRichExamedListUI
      */
     public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception
     {
+    	KDTSelectBlock selectBlock = null;
+    	KDTSelectManager selectManger = tblMain.getSelectManager();
+    	for (int i = 0; i < selectManger.size(); i++) {
+    		selectBlock = selectManger.get(i);
+    		for (int j = selectBlock.getBeginRow(); j <=selectBlock.getEndRow(); j++) {
+    			BigDecimal yhx = (BigDecimal)tblMain.getCell(j,"yhxAmount").getValue();
+    			if(yhx != null){
+    				BigDecimal total = new BigDecimal((String)tblMain.getCell(j,"amount").getValue());
+    				if(yhx.compareTo(total) == 0){
+    					MsgBox.showInfo("第"+(j+1)+"行到检单已全部核销，不能进行开票申请！请重新选择！");
+    		    		SysUtil.abort();
+    				}
+    			}
+			}
+		}
+    	
         super.actionCreateTo_actionPerformed(e);
     }
 

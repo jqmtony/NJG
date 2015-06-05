@@ -170,6 +170,19 @@ public class AbstractRichInvoiceRequestInfo extends com.kingdee.eas.framework.Co
     {
         setBoolean("djkp", item);
     }
+    /**
+     * Object:开票申请单's 单据状态property 
+     */
+    public com.kingdee.eas.custom.richinf.BillState getBillState()
+    {
+        return com.kingdee.eas.custom.richinf.BillState.getEnum(getString("billState"));
+    }
+    public void setBillState(com.kingdee.eas.custom.richinf.BillState item)
+    {
+		if (item != null) {
+        setString("billState", item.getValue());
+		}
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("4140BC2C");

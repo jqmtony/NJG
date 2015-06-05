@@ -68,6 +68,7 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contamount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdjAmount;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkdjkp;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbillState;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker kDDateCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -88,6 +89,7 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtinvoicedAmount;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtamount;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtdjAmount;
+    protected com.kingdee.bos.ctrl.swing.KDComboBox billState;
     protected com.kingdee.eas.custom.richinf.RichInvoiceRequestInfo editData = null;
     /**
      * output class constructor
@@ -173,6 +175,7 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.contamount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contdjAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.chkdjkp = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.contbillState = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDDateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -193,6 +196,7 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.txtinvoicedAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtamount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtdjAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.billState = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -214,6 +218,7 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.contamount.setName("contamount");
         this.contdjAmount.setName("contdjAmount");
         this.chkdjkp.setName("chkdjkp");
+        this.contbillState.setName("contbillState");
         this.prmtCreator.setName("prmtCreator");
         this.kDDateCreateTime.setName("kDDateCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -234,6 +239,7 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.txtinvoicedAmount.setName("txtinvoicedAmount");
         this.txtamount.setName("txtamount");
         this.txtdjAmount.setName("txtdjAmount");
+        this.billState.setName("billState");
         // CoreUI		
         this.btnAddLine.setVisible(false);		
         this.btnCopyLine.setVisible(false);		
@@ -409,6 +415,11 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.chkdjkp.setText(resHelper.getString("chkdjkp.text"));		
         this.chkdjkp.setVisible(true);		
         this.chkdjkp.setHorizontalAlignment(2);
+        // contbillState		
+        this.contbillState.setBoundLabelText(resHelper.getString("contbillState.boundLabelText"));		
+        this.contbillState.setBoundLabelLength(100);		
+        this.contbillState.setBoundLabelUnderline(true);		
+        this.contbillState.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);
         // kDDateCreateTime		
@@ -425,7 +436,9 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.pkBizDate.setVisible(true);		
         this.pkBizDate.setEnabled(true);
         // txtDescription		
-        this.txtDescription.setMaxLength(80);
+        this.txtDescription.setMaxLength(80);		
+        this.txtDescription.setVisible(false);		
+        this.txtDescription.setEnabled(false);
         // prmtAuditor		
         this.prmtAuditor.setEnabled(false);
         // txtldNumber		
@@ -468,7 +481,8 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.prmtkpCompany.setRequired(false);
         // pkauditDate		
         this.pkauditDate.setVisible(true);		
-        this.pkauditDate.setRequired(false);
+        this.pkauditDate.setRequired(false);		
+        this.pkauditDate.setEnabled(false);
         // txtreqSumAmount		
         this.txtreqSumAmount.setVisible(true);		
         this.txtreqSumAmount.setHorizontalAlignment(2);		
@@ -505,7 +519,11 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.txtdjAmount.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
         this.txtdjAmount.setPrecision(2);		
         this.txtdjAmount.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {kDDateLastUpdateTime,prmtLastUpdateUser,kDDateCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkauditDate,prmtkpCompany,txtbeizhu,bizState,prmtsales,prmtkpUnit,txtldNumber,kdtEntrys}));
+        // billState		
+        this.billState.setVisible(true);		
+        this.billState.addItems(EnumUtils.getEnumList("com.kingdee.eas.custom.richinf.BillState").toArray());		
+        this.billState.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {kDDateLastUpdateTime,prmtLastUpdateUser,kDDateCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkauditDate,prmtkpCompany,txtbeizhu,bizState,prmtsales,prmtkpUnit,txtldNumber,kdtEntrys,billState}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -537,15 +555,15 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.add(contCreator, null);
         contCreateTime.setBounds(new Rectangle(730, 524, 270, 19));
         this.add(contCreateTime, null);
-        contLastUpdateUser.setBounds(new Rectangle(440, 555, 270, 19));
+        contLastUpdateUser.setBounds(new Rectangle(440, 600, 270, 19));
         this.add(contLastUpdateUser, null);
-        contLastUpdateTime.setBounds(new Rectangle(730, 555, 270, 19));
+        contLastUpdateTime.setBounds(new Rectangle(730, 600, 270, 19));
         this.add(contLastUpdateTime, null);
         contNumber.setBounds(new Rectangle(728, 17, 270, 19));
         this.add(contNumber, null);
         contBizDate.setBounds(new Rectangle(728, 41, 270, 19));
         this.add(contBizDate, null);
-        contDescription.setBounds(new Rectangle(14, 579, 984, 19));
+        contDescription.setBounds(new Rectangle(25, 603, 293, 19));
         this.add(contDescription, null);
         contAuditor.setBounds(new Rectangle(15, 528, 270, 19));
         this.add(contAuditor, null);
@@ -560,7 +578,7 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.add(contsales, null);
         contbizState.setBounds(new Rectangle(728, 88, 270, 19));
         this.add(contbizState, null);
-        contbeizhu.setBounds(new Rectangle(15, 107, 984, 109));
+        contbeizhu.setBounds(new Rectangle(15, 129, 984, 87));
         this.add(contbeizhu, null);
         contkpCompany.setBounds(new Rectangle(371, 17, 270, 19));
         this.add(contkpCompany, null);
@@ -574,8 +592,10 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.add(contamount, null);
         contdjAmount.setBounds(new Rectangle(15, 89, 270, 19));
         this.add(contdjAmount, null);
-        chkdjkp.setBounds(new Rectangle(372, 89, 270, 19));
+        chkdjkp.setBounds(new Rectangle(728, 112, 143, 19));
         this.add(chkdjkp, null);
+        contbillState.setBounds(new Rectangle(371, 90, 270, 19));
+        this.add(contbillState, null);
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -616,6 +636,8 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         contamount.setBoundEditor(txtamount);
         //contdjAmount
         contdjAmount.setBoundEditor(txtdjAmount);
+        //contbillState
+        contbillState.setBoundEditor(billState);
 
     }
 
@@ -812,7 +834,8 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
 		dataBinder.registerBinding("reqSumAmount", java.math.BigDecimal.class, this.txtreqSumAmount, "value");
 		dataBinder.registerBinding("invoicedAmount", java.math.BigDecimal.class, this.txtinvoicedAmount, "value");
 		dataBinder.registerBinding("amount", java.math.BigDecimal.class, this.txtamount, "value");
-		dataBinder.registerBinding("djAmount", java.math.BigDecimal.class, this.txtdjAmount, "value");		
+		dataBinder.registerBinding("djAmount", java.math.BigDecimal.class, this.txtdjAmount, "value");
+		dataBinder.registerBinding("billState", com.kingdee.eas.custom.richinf.BillState.class, this.billState, "selectedItem");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -972,7 +995,8 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
 		getValidateHelper().registerBindProperty("reqSumAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("invoicedAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("amount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("djAmount", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("djAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("billState", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1099,6 +1123,7 @@ kdtEntrys.getCell(rowIndex,"djjg").setValue(com.kingdee.bos.ui.face.UIRuleUtil.g
         sic.add(new SelectorItemInfo("invoicedAmount"));
         sic.add(new SelectorItemInfo("amount"));
         sic.add(new SelectorItemInfo("djAmount"));
+        sic.add(new SelectorItemInfo("billState"));
         return sic;
     }        
     	
@@ -1239,6 +1264,7 @@ kdtEntrys.getCell(rowIndex,"djjg").setValue(com.kingdee.bos.ui.face.UIRuleUtil.g
      */
     protected void applyDefaultValue(IObjectValue vo) {        
 		vo.put("bizState","30");
+vo.put("billState","SAVE");
         
     }        
 	protected void setFieldsNull(com.kingdee.bos.dao.AbstractObjectValue arg0) {

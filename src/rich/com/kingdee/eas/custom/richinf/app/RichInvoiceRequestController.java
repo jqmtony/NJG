@@ -32,4 +32,6 @@ public interface RichInvoiceRequestController extends CoreBillBaseController
     public RichInvoiceRequestInfo getRichInvoiceRequestInfo(Context ctx, IObjectPK pk) throws BOSException, EASBizException, RemoteException;
     public RichInvoiceRequestInfo getRichInvoiceRequestInfo(Context ctx, IObjectPK pk, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public RichInvoiceRequestInfo getRichInvoiceRequestInfo(Context ctx, String oql) throws BOSException, EASBizException, RemoteException;
+    public void audit(Context ctx, RichInvoiceRequestInfo model) throws BOSException, RemoteException;
+    public void unAudit(Context ctx, RichInvoiceRequestInfo model) throws BOSException, RemoteException;
 }

@@ -94,6 +94,28 @@ public class AbstractRichCustomWriteOffDjEntryInfo extends com.kingdee.eas.frame
     {
         setString("beizhu", item);
     }
+    /**
+     * Object:到检单's 已核销金额property 
+     */
+    public java.math.BigDecimal getDj_yhx()
+    {
+        return getBigDecimal("dj_yhx");
+    }
+    public void setDj_yhx(java.math.BigDecimal item)
+    {
+        setBigDecimal("dj_yhx", item);
+    }
+    /**
+     * Object:到检单's 本次核销金额property 
+     */
+    public java.math.BigDecimal getBencihx()
+    {
+        return getBigDecimal("bencihx");
+    }
+    public void setBencihx(java.math.BigDecimal item)
+    {
+        setBigDecimal("bencihx", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("A045B3E1");

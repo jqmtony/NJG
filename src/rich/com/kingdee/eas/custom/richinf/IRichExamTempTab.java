@@ -27,4 +27,5 @@ public interface IRichExamTempTab extends IDataBase
     public RichExamTempTabCollection getRichExamTempTabCollection() throws BOSException;
     public RichExamTempTabCollection getRichExamTempTabCollection(EntityViewInfo view) throws BOSException;
     public RichExamTempTabCollection getRichExamTempTabCollection(String oql) throws BOSException;
+    public void syncRichExamed(RichExamTempTabInfo model) throws BOSException;
 }

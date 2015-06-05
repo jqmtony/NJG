@@ -24,14 +24,16 @@ import java.lang.String;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.dao.IObjectPK;
+import com.kingdee.eas.custom.richinf.RichCompayWriteOffCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.eas.fi.ar.OtherBillCollection;
+import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.eas.framework.CoreBillBaseCollection;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.framework.app.CoreBillBaseControllerBean;
 import com.kingdee.eas.framework.ObjectBaseCollection;
-import com.kingdee.eas.custom.richinf.RichCompayWriteOffCollection;
 import com.kingdee.eas.custom.richinf.RichCompayWriteOffInfo;
-import com.kingdee.bos.metadata.entity.SelectorItemCollection;
-import com.kingdee.eas.framework.CoreBaseCollection;
+import com.kingdee.eas.custom.richinf.RichExamedCollection;
 
 
 
@@ -188,6 +190,28 @@ public abstract class AbstractRichCompayWriteOffControllerBean extends CoreBillB
     protected IObjectValue _getValue(Context ctx, String oql) throws BOSException, EASBizException
     {
         return super._getValue(ctx, oql);
+    }
+
+    public boolean aboutHxAndFanHx(Context ctx, OtherBillCollection fpColl, RichExamedCollection richExamColl, int hxType, RichCompayWriteOffInfo ov) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("d0c14a40-30b2-479a-aae4-5fbad4ffd0ac"), new Object[]{ctx, fpColl, richExamColl, new Integer(hxType), ov});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            boolean retValue = (boolean)_aboutHxAndFanHx(ctx, fpColl, richExamColl, hxType, ov);
+            svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
+            invokeServiceAfter(svcCtx);
+            return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected boolean _aboutHxAndFanHx(Context ctx, IObjectCollection fpColl, IObjectCollection richExamColl, int hxType, IObjectValue ov) throws BOSException
+    {    	
+        return false;
     }
 
     public CoreBillBaseCollection getCoreBillBaseCollection (Context ctx) throws BOSException

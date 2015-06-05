@@ -32,4 +32,5 @@ public interface RichExamTempTabController extends DataBaseController
     public RichExamTempTabCollection getRichExamTempTabCollection(Context ctx) throws BOSException, RemoteException;
     public RichExamTempTabCollection getRichExamTempTabCollection(Context ctx, EntityViewInfo view) throws BOSException, RemoteException;
     public RichExamTempTabCollection getRichExamTempTabCollection(Context ctx, String oql) throws BOSException, RemoteException;
+    public void syncRichExamed(Context ctx, RichExamTempTabInfo model) throws BOSException, RemoteException;
 }
