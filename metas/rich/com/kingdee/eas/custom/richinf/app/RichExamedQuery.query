@@ -2712,6 +2712,37 @@
                 <key name="name" value="RichExamedQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>yhxAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[yhxAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>66bde512-1fd0-4731-8038-064476bc4185</key>
+                    <parentUnit>
+                        <key name="name" value="yhxAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamed" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="yhxAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamedQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -4255,6 +4286,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[tjType.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[yhxAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已核销金额" />
+            <lang locale="zh_HK" value="已核銷金額" />
+            <lang locale="zh_TW" value="已核銷金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[yhxAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[yhxAmount].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

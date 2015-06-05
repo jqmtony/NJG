@@ -1722,6 +1722,37 @@
                 <key name="name" value="RichInvoiceRequestQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>billState</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[billState].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2d234d1b-90d2-40a5-abfd-e319911ac2c2</key>
+                    <parentUnit>
+                        <key name="name" value="billState" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="billState" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2319,6 +2350,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[beizhu].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[billState].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[billState].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[billState].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

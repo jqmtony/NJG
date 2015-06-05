@@ -147,6 +147,34 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFDj_yhx</name>
+            <alias>dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWODE].columns.column[CFDj_yhx].alias</alias>
+            <description>dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWODE].columns.column[CFDj_yhx].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFBencihx</name>
+            <alias>dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWODE].columns.column[CFBencihx].alias</alias>
+            <description>dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWODE].columns.column[CFBencihx].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_RIC_RichCWObqv</name>
@@ -182,7 +210,7 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_RIC_RICRCWODbq</name>
+            <name>CFK_RIC_RICRCWObqc</name>
             <userDefined>true</userDefined>
             <refTable>
                 <key name="package" value="com.kingdee.eas.basedata.org" />
@@ -201,7 +229,7 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_RIC_RICRCWODbq</name>
+            <name>CFK_RIC_RICRCWObqe</name>
             <userDefined>true</userDefined>
             <refTable>
                 <key name="package" value="com.kingdee.eas.custom.richinf.app" />
@@ -239,6 +267,18 @@
             <lang locale="zh_HK" value="備註" />
             <lang locale="zh_TW" value="備註" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWODE].columns.column[CFBencihx].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本次核销金额" />
+            <lang locale="zh_HK" value="本次核銷金額" />
+            <lang locale="zh_TW" value="本次核銷金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWODE].columns.column[CFBencihx].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本次核销金额" />
+            <lang locale="zh_HK" value="本次核銷金額" />
+            <lang locale="zh_TW" value="本次核銷金額" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWODE].columns.column[CFDjNoID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="到检编号" />
@@ -250,6 +290,18 @@
             <lang locale="zh_CN" value="到检编号" />
             <lang locale="zh_HK" value="到檢編號" />
             <lang locale="zh_TW" value="到檢編號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWODE].columns.column[CFDj_yhx].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已核销金额" />
+            <lang locale="zh_HK" value="已核銷金額" />
+            <lang locale="zh_TW" value="已核銷金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWODE].columns.column[CFDj_yhx].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已核销金额" />
+            <lang locale="zh_HK" value="已核銷金額" />
+            <lang locale="zh_TW" value="已核銷金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWODE].columns.column[CFDjjgID].alias">
             <lang locale="en_US" value="null" />

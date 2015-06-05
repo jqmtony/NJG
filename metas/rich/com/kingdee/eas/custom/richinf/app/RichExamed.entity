@@ -615,6 +615,26 @@
                 <key name="name" value="R_RichExamed_Customer_zjjg" />
             </relationship>
         </linkProperty>
+        <ownProperty>
+            <name>yhxAmount</name>
+            <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFYhxAmount" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -1486,9 +1506,9 @@
             <lang locale="zh_TW" value="name" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.linkProperty[kpUnit].extendedProperty.isForGrouping">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.linkProperty[kpUnit].extendedProperty.isForMapping">
             <lang locale="en_US" value="true" />
@@ -1590,9 +1610,9 @@
             <lang locale="zh_TW" value="name" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.linkProperty[sales].extendedProperty.isForGrouping">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.linkProperty[sales].extendedProperty.isForMapping">
             <lang locale="en_US" value="true" />
@@ -2497,8 +2517,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[ldNumber].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[ldNumber].description">
@@ -2523,9 +2542,9 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[ldNumber].extendedProperty.isForGrouping">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[ldNumber].extendedProperty.isForMapping">
             <lang locale="en_US" value="true" />
@@ -2611,6 +2630,69 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[saleAmount].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已核销金额" />
+            <lang locale="zh_HK" value="已核銷金額" />
+            <lang locale="zh_TW" value="已核銷金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已核销金额" />
+            <lang locale="zh_HK" value="已核銷金額" />
+            <lang locale="zh_TW" value="已核銷金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="AMOUNT" />
+            <lang locale="zh_CN" value="AMOUNT" />
+            <lang locale="zh_TW" value="AMOUNT" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[yhxAmount].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

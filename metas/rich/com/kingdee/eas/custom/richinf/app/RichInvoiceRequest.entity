@@ -166,6 +166,58 @@
             </parameters>
             <configured>false</configured>
         </method>
+        <method>
+            <name>audit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[audit].alias</alias>
+            <description>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[audit].description</description>
+            <innerID>3fee65c5-2609-47b8-9529-a988cbed2a85</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[audit].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[audit].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.custom.richinf.app.RichInvoiceRequest</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>unAudit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[unAudit].alias</alias>
+            <description>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[unAudit].description</description>
+            <innerID>af0501ee-7552-4636-9685-91ee56c3ef49</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[unAudit].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[unAudit].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.custom.richinf.app.RichInvoiceRequest</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.custom.richinf.RichInvoiceRequest</bizUnitPK>
@@ -431,6 +483,26 @@
                 <key name="name" value="CFDjkp" />
             </mappingField>
         </ownProperty>
+        <ownProperty>
+            <name>billState</name>
+            <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].alias</alias>
+            <description>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Enum</dataType>
+            <metadataRef>com.kingdee.eas.custom.richinf.BillState</metadataRef>
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFBillState" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -655,6 +727,90 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>auditEvent</name>
+            <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>3fee65c5-2609-47b8-9529-a988cbed2a85</name>
+                    <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].eventMethods.eventMethod[3fee65c5-2609-47b8-9529-a988cbed2a85].alias</alias>
+                    <description>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].eventMethods.eventMethod[3fee65c5-2609-47b8-9529-a988cbed2a85].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="audit" />
+                        <key name="innerID" value="3fee65c5-2609-47b8-9529-a988cbed2a85" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].eventMethods.eventMethod[3fee65c5-2609-47b8-9529-a988cbed2a85].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].eventMethods.eventMethod[3fee65c5-2609-47b8-9529-a988cbed2a85].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>8d03b2b9-08b3-499e-be67-bb12f64954ccevfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>8d03b2b9-08b3-499e-be67-bb12f64954ccevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.custom.richinf.app.RichInvoiceRequest</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>unAuditEvent</name>
+            <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>af0501ee-7552-4636-9685-91ee56c3ef49</name>
+                    <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].eventMethods.eventMethod[af0501ee-7552-4636-9685-91ee56c3ef49].alias</alias>
+                    <description>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].eventMethods.eventMethod[af0501ee-7552-4636-9685-91ee56c3ef49].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="unAudit" />
+                        <key name="innerID" value="af0501ee-7552-4636-9685-91ee56c3ef49" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].eventMethods.eventMethod[af0501ee-7552-4636-9685-91ee56c3ef49].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].eventMethods.eventMethod[af0501ee-7552-4636-9685-91ee56c3ef49].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>a8e7a352-4a3f-4430-8817-17eab25e2deaevfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>a8e7a352-4a3f-4430-8817-17eab25e2deaevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.custom.richinf.app.RichInvoiceRequest</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -698,6 +854,54 @@
             <lang locale="zh_CN" value="到检单" />
             <lang locale="zh_HK" value="到檢單" />
             <lang locale="zh_TW" value="到檢單" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核事件" />
+            <lang locale="zh_HK" value="審核事件" />
+            <lang locale="zh_TW" value="審核事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].eventMethods.eventMethod[3fee65c5-2609-47b8-9529-a988cbed2a85].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].eventMethods.eventMethod[3fee65c5-2609-47b8-9529-a988cbed2a85].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].eventMethods.eventMethod[3fee65c5-2609-47b8-9529-a988cbed2a85].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].eventMethods.eventMethod[3fee65c5-2609-47b8-9529-a988cbed2a85].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[auditEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[deleteEvent].alias">
             <lang locale="en_US" value="null" />
@@ -854,6 +1058,54 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核事件" />
+            <lang locale="zh_HK" value="反審核事件" />
+            <lang locale="zh_TW" value="反審核事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].eventMethods.eventMethod[af0501ee-7552-4636-9685-91ee56c3ef49].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].eventMethods.eventMethod[af0501ee-7552-4636-9685-91ee56c3ef49].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].eventMethods.eventMethod[af0501ee-7552-4636-9685-91ee56c3ef49].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].eventMethods.eventMethod[af0501ee-7552-4636-9685-91ee56c3ef49].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unAuditEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].events.event[unpassAuditEvent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="反审核事件" />
@@ -924,6 +1176,11 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.custom.richinf.app.RichInvoiceRequestControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.custom.richinf.app.RichInvoiceRequestControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.custom.richinf.app.RichInvoiceRequestControllerBeanEx" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].extendedProperty.defaultDisplayField">
             <lang locale="en_US" value="" />
             <lang locale="zh_CN" value="" />
@@ -966,6 +1223,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].logicalKey[id].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[audit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[audit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[audit].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[audit].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1050,6 +1331,30 @@
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[getValue].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[unAudit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[unAudit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[unAudit].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].methods.method[unAudit].parameters.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1141,9 +1446,9 @@
             <lang locale="zh_TW" value="name" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.linkProperty[kpUnit].extendedProperty.isForGrouping">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.linkProperty[kpUnit].extendedProperty.isForMapping">
             <lang locale="en_US" value="true" />
@@ -1193,9 +1498,9 @@
             <lang locale="zh_TW" value="name" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.linkProperty[sales].extendedProperty.isForGrouping">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.linkProperty[sales].extendedProperty.isForMapping">
             <lang locale="en_US" value="true" />
@@ -1293,8 +1598,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[amount].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[amount].description">
@@ -1474,6 +1778,74 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="SAVE" />
+            <lang locale="zh_HK" value="SAVE" />
+            <lang locale="zh_TW" value="SAVE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].extendedProperty.bizDataType">
+            <lang locale="en_US" value="ENUM" />
+            <lang locale="zh_CN" value="ENUM" />
+            <lang locale="zh_TW" value="ENUM" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].extendedProperty.defaultValue">
+            <lang locale="en_US" value="SAVE" />
+            <lang locale="zh_CN" value="SAVE" />
+            <lang locale="zh_TW" value="SAVE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[billState].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[bizState].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据状态" />
@@ -1550,8 +1922,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[djAmount].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[djAmount].description">
@@ -1676,8 +2047,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[invoicedAmount].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[invoicedAmount].description">
@@ -1739,8 +2109,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[ldNumber].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[ldNumber].description">
@@ -1765,9 +2134,9 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[ldNumber].extendedProperty.isForGrouping">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[ldNumber].extendedProperty.isForMapping">
             <lang locale="en_US" value="true" />
@@ -1802,8 +2171,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[reqSumAmount].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichInvoiceRequest].properties.ownProperty[reqSumAmount].description">

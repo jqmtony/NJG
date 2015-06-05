@@ -161,6 +161,20 @@
             <scale>10</scale>
             <precision>28</precision>
         </column>
+        <column>
+            <name>CFBencihx</name>
+            <alias>dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWOFE].columns.column[CFBencihx].alias</alias>
+            <description>dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWOFE].columns.column[CFBencihx].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_RIC_RichCWObqv</name>
@@ -196,7 +210,7 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_RIC_RICRCWOFbq</name>
+            <name>CFK_RIC_RICRCWObqc</name>
             <userDefined>true</userDefined>
             <refTable>
                 <key name="package" value="com.kingdee.eas.basedata.master.cssp.app" />
@@ -215,7 +229,7 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_RIC_RICRCWOFbq</name>
+            <name>CFK_RIC_RICRCWcbq</name>
             <userDefined>true</userDefined>
             <refTable>
                 <key name="package" value="com.kingdee.eas.basedata.org" />
@@ -252,6 +266,18 @@
             <lang locale="zh_CN" value="备注" />
             <lang locale="zh_HK" value="備註" />
             <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWOFE].columns.column[CFBencihx].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本次核销金额" />
+            <lang locale="zh_HK" value="本次核銷金額" />
+            <lang locale="zh_TW" value="本次核銷金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWOFE].columns.column[CFBencihx].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本次核销金额" />
+            <lang locale="zh_HK" value="本次核銷金額" />
+            <lang locale="zh_TW" value="本次核銷金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.custom.richinf.app.CT_RIC_RichCWOFE].columns.column[CFFpAmount].alias">
             <lang locale="en_US" value="null" />

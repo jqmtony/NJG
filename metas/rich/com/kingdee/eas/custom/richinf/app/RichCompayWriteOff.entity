@@ -166,6 +166,59 @@
             </parameters>
             <configured>false</configured>
         </method>
+        <method>
+            <name>aboutHxAndFanHx</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].alias</alias>
+            <description>entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].description</description>
+            <innerID>d0c14a40-30b2-479a-aae4-5fbad4ffd0ac</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>fpColl</name>
+                    <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[fpColl].alias</alias>
+                    <description>entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[fpColl].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectCollection</dataType>
+                    <metadataRef>com.kingdee.eas.fi.ar.app.OtherBill</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>richExamColl</name>
+                    <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[richExamColl].alias</alias>
+                    <description>entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[richExamColl].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectCollection</dataType>
+                    <metadataRef>com.kingdee.eas.custom.richinf.app.RichExamed</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>hxType</name>
+                    <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[hxType].alias</alias>
+                    <description>entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[hxType].description</description>
+                    <direction>in</direction>
+                    <dataType>Integer</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>ov</name>
+                    <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[ov].alias</alias>
+                    <description>entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[ov].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.custom.richinf.app.RichCompayWriteOff</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.custom.richinf.RichCompayWriteOff</bizUnitPK>
@@ -802,6 +855,62 @@
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="核销和反核销" />
+            <lang locale="zh_HK" value="核銷和反核銷" />
+            <lang locale="zh_TW" value="核銷和反核銷" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[fpColl].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="发票数组" />
+            <lang locale="zh_HK" value="發票數組" />
+            <lang locale="zh_TW" value="發票數組" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[fpColl].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[hxType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="核销类型" />
+            <lang locale="zh_HK" value="核銷類型" />
+            <lang locale="zh_TW" value="核銷類型" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[hxType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[ov].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="核销单info" />
+            <lang locale="zh_HK" value="核銷單info" />
+            <lang locale="zh_TW" value="核銷單info" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[ov].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[richExamColl].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="到检单数组" />
+            <lang locale="zh_HK" value="到檢單數組" />
+            <lang locale="zh_TW" value="到檢單數組" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[aboutHxAndFanHx].parameters.parameter[richExamColl].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichCompayWriteOff].methods.method[getCollection].alias">
