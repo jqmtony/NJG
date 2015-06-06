@@ -1,5 +1,6 @@
 package com.kingdee.eas.custom.richfacade;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Timestamp;
@@ -296,13 +297,13 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 				bill = (Element) iterator.next();
 				billHead = bill.element("billHead");
 				if(billHead.element("ywdjbh").getText()!=null)
-					ywdjbh = billHead.element("ywdjbh").getText().trim();//业务单据编号
+					ywdjbh = billHead.element("ywdjbh").getText().replace("", "");//业务单据编号
 				else
 					return new String[] {"N","" ,"业务单据编号"+ywdjbh+",不能为空！" };
 				if(billHead.element("bizdate").getText()!=null)
-					bizDate = billHead.element("bizdate").getText().trim();//业务日期
+					bizDate = billHead.element("bizdate").getText().replace("", "");//业务日期
 				if(billHead.element("djjg").getText()!=null){
-					djjg = billHead.element("djjg").getText().trim();//到检机构
+					djjg = billHead.element("djjg").getText().replace("", "");//到检机构
 					if("1".equals(isTemp)){
 						int index = djjg.indexOf("|");
 						if(index>0)
@@ -314,7 +315,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 					return new String[] {"N","" ,"业务单据编号"+ywdjbh+",到检机构不能为空！" };
 				}
 				if(billHead.element("kpjg").getText()!=null){
-					kpjg = billHead.element("kpjg").getText().trim();//开票机构
+					kpjg = billHead.element("kpjg").getText().replace("", "");//开票机构
 					if("1".equals(isTemp)){
 						int index = kpjg.indexOf("|");
 						if(index>0)
@@ -326,7 +327,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 					return new String[] {"N","" ,"业务单据编号"+ywdjbh+",开票机构不能为空！" };
 				}
 				if(billHead.element("qydw").getText()!=null){
-					qydw = billHead.element("qydw").getText().trim();//签约单位
+					qydw = billHead.element("qydw").getText().replace("", "");//签约单位
 					if("1".equals(isTemp)){
 						int index = qydw.indexOf("|");
 						if(index>0)
@@ -338,7 +339,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 					return new String[] {"N","" ,"业务单据编号"+ywdjbh+",签约单位不能为空！" };
 				}
 				if(billHead.element("djdw").getText()!=null){
-					djdw = billHead.element("djdw").getText().trim();//到检单位
+					djdw = billHead.element("djdw").getText().replace("", "");//到检单位
 					if("1".equals(isTemp)){
 						int index = djdw.indexOf("|");
 						if(index>0)
@@ -350,7 +351,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 					return new String[] {"N","" ,"业务单据编号"+ywdjbh+", 到检单位不能为空！" };
 				}
 				if(billHead.element("kpdw").getText()!=null){
-					kpdw = billHead.element("kpdw").getText().trim();//开票单位
+					kpdw = billHead.element("kpdw").getText().replace("", "");//开票单位
 					if("1".equals(isTemp)){
 						int index = kpdw.indexOf("|");
 						if(index>0)
@@ -362,7 +363,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 					return new String[] {"N","" ,"业务单据编号"+ywdjbh+",开票单位不能为空！" };
 				}
 				if(billHead.element("skdw").getText()!=null){
-					skdw = billHead.element("skdw").getText().trim();//付款单位
+					skdw = billHead.element("skdw").getText().replace("", "");//付款单位
 					if("1".equals(isTemp)){
 						int index = skdw.indexOf("|");
 						if(index>0)
@@ -374,7 +375,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 					return new String[] {"N","" ,"业务单据编号"+ywdjbh+",付款单位不能为空！" };
 				}
 				if(billHead.element("xsy").getText()!=null){
-					xsy = billHead.element("xsy").getText().trim();//销售员
+					xsy = billHead.element("xsy").getText().replace("", "");//销售员
 					if("1".equals(isTemp)){
 						int index = xsy.indexOf("|");
 						if(index>0)
@@ -386,7 +387,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 					return new String[] {"N","" ,"业务单据编号"+ywdjbh+",销售员不能为空！" };
 				}
 				if(billHead.element("tjlb").getText()!=null){
-					tjlb = billHead.element("tjlb").getText().trim();//体检类别
+					tjlb = billHead.element("tjlb").getText().replace("", "");//体检类别
 					if("1".equals(isTemp)){
 						int index = tjlb.indexOf("|");
 						if(index>0)
@@ -398,7 +399,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 					return new String[] {"N","" ,"业务单据编号"+ywdjbh+",体检类别不能为空！" };
 				}
 				if(billHead.element("xslb").getText()!=null){
-					xslb = billHead.element("xslb").getText().trim();//销售类别
+					xslb = billHead.element("xslb").getText().replace("", "");//销售类别
 					if("1".equals(isTemp)){
 						int index = xslb.indexOf("|");
 						if(index>0)
@@ -410,7 +411,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 					return new String[] {"N","" ,"业务单据编号"+ywdjbh+",销售类别不能为空！" };
 				}
 				if(billHead.element("sklb").getText()!=null){
-					sklb = billHead.element("sklb").getText().trim();//收款类别
+					sklb = billHead.element("sklb").getText().replace("", "");//收款类别
 					if("1".equals(isTemp)){
 						int index = sklb.indexOf("|");
 						if(index>0)
@@ -422,39 +423,39 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 					return new String[] {"N","" ,"业务单据编号"+ywdjbh+",收款类别不能为空！" };
 				}
 				if(billHead.element("ldh").getText()!=null)
-					ldh = billHead.element("ldh").getText().trim();//
+					ldh = billHead.element("ldh").getText().replace("", "");//
 				if(billHead.element("fph").getText()!=null)
-					fph = billHead.element("fph").getText().trim();//
+					fph = billHead.element("fph").getText().replace("", "");//
 				if(billHead.element("beizhu").getText()!=null)
-					beizhu = billHead.element("beizhu").getText().trim();//
+					beizhu = billHead.element("beizhu").getText().replace("", "");//
 				if(billHead.element("djr").getText()!=null)
-					djr = billHead.element("djr").getText().trim();//
+					djr = billHead.element("djr").getText().replace("", "");//
 				if(billHead.element("djtcbm").getText()!=null)
-					djtcbm = billHead.element("djtcbm").getText().trim();//
+					djtcbm = billHead.element("djtcbm").getText().replace("", "");//
 				if(billHead.element("djtcmc").getText()!=null)
-					djtcmc = billHead.element("djtcmc").getText().trim();//
+					djtcmc = billHead.element("djtcmc").getText().replace("", "");//
 				if(billHead.element("djxmbm").getText()!=null)
-					djxmbm = billHead.element("djxmbm").getText().trim();//
+					djxmbm = billHead.element("djxmbm").getText().replace("", "");//
 				if(billHead.element("djxmmc").getText()!=null)
-					djxmmc = billHead.element("djxmmc").getText().trim();//
+					djxmmc = billHead.element("djxmmc").getText().replace("", "");//
 				if(billHead.element("jxbs").getText()!=null)
-					jxbs = billHead.element("jxbs").getText().trim();//
+					jxbs = billHead.element("jxbs").getText().replace("", "");//
 				if(billHead.element("klj").getText()!=null)
-					klj = billHead.element("klj").getText().trim();//
+					klj = billHead.element("klj").getText().replace("", "");//
 				if(billHead.element("zkl").getText()!=null)
-					zkl = billHead.element("zkl").getText().trim();//
+					zkl = billHead.element("zkl").getText().replace("", "");//
 				if(billHead.element("jsje").getText()!=null)
-					jsje = billHead.element("jsje").getText().trim();//
+					jsje = billHead.element("jsje").getText().replace("", "");//
 				if(billHead.element("se").getText()!=null)
-					se = billHead.element("se").getText().trim();//
+					se = billHead.element("se").getText().replace("", "");//
 				if(billHead.element("jshj").getText()!=null)
-					jshj = billHead.element("jshj").getText().trim();//
+					jshj = billHead.element("jshj").getText().replace("", "");//
 				if(billHead.element("flag").getText()!=null)
-					flag = billHead.element("flag").getText().trim();//
+					flag = billHead.element("flag").getText().replace("", "");//
 				if(billHead.element("kh").getText()!=null)
-					kh = billHead.element("kh").getText().trim();//
+					kh = billHead.element("kh").getText().replace("", "");//
 				if(billHead.element("end").getText()!=null){
-					if("1".equals(billHead.element("end").getText().trim()))
+					if("1".equals(billHead.element("end").getText().replace("", "")))
 						isLast = "Y";
 				}
 			
@@ -576,9 +577,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 				Date bizDate = rs.getDate("bizDate");//业务日期
 				djjg = rs.getString("djjg");//到检机构
 				String kpjg = rs.getString("kpjg");//开票机构
-				
 				String zjjg = rs.getString("zjjg");//中介单位
-				
 				String qydw = rs.getString("qydw");//签约单位
 				String djdw = rs.getString("djdw");//到检单位
 				String kpdw = rs.getString("kpdw");//开票单位
@@ -587,55 +586,24 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 				String fph = rs.getString("fph");//
 				CtrlUnitInfo ctrlUnitInfo = getCtrlUnitInfo(ctx,"01");//根据到检机构-判断管理单元
 				ContextUtil.setCurrentCtrlUnit(ctx, ctrlUnitInfo);
-				if(ctrlUnitInfo == null) {
-					return new String[] {"N", ywdjbh, ",编码为01 管理单元不存在"};
-				}
 				CompanyOrgUnitInfo djjgInfo = getCompanyOrgUnit(ctx, djjg);//到检机构
-				if(djjgInfo == null) {
-					return new String[] {"N", ywdjbh, ",编码为"+djjg+"到检机构不存在"};
-				}
 				CompanyOrgUnitInfo kpjgInfo = getCompanyOrgUnit(ctx, kpjg);//开票机构
-				if(kpjgInfo == null) {
-					return new String[] {"N", ywdjbh, ",编码为"+kpjg+"开票机构不存在"};
-				}
-				CustomerInfo zjjgInfo = getCustomerInfo(ctx, zjjg);
-				if(zjjgInfo == null) {
-					return new String[] {"N", ywdjbh, ",编码为"+zjjg+"中介单位不存在"};
-				}
+//				CustomerInfo zjjgInfo = getCustomerInfo(ctx, zjjg);
 				
 				CustomerInfo qydwInfo = getCustomerInfo(ctx, qydw);
-				if(qydwInfo == null) {
-					return new String[] {"N", ywdjbh, ",编码为"+qydw+"签约单位不存在"};
-				}
 				CustomerInfo djdwInfo = getCustomerInfo(ctx, djdw);
-				if(djdwInfo == null) {
-					return new String[] {"N", ywdjbh, ",编码为"+qydw+"到检单位不存在"};
-				}
 				CustomerInfo kpdwInfo = getCustomerInfo(ctx, kpdw);
-				if(kpdwInfo == null) {
-					return new String[] {"N", ywdjbh, ",编码为"+kpdw+"开票单位不存在"};
-				}
 				CustomerInfo skdwInfo = getCustomerInfo(ctx, skdw);
-				if(skdwInfo == null) {
-					return new String[] {"N", ywdjbh, ",编码为"+skdw+"付款单位不存在"};
-				}
 				PersonInfo personInfo = getPersonInfo(ctx, xsy);
-				if(personInfo == null) {
-					return new String[] {"N", ywdjbh, ",编码为"+xsy+"销售员不存在"};
-				}
-				
 				ExamTypeInfo examTypeInfo = getExamTypeInfo(ctx, tjlb);
-				if(examTypeInfo == null) {
-					return new String[] {"N", ywdjbh, ",编码为"+tjlb+"体检类别不存在"};
-				}
 				
 				RichExamedInfo examInfo = new RichExamedInfo();
 				examInfo.setBizDate(bizDate);
-				examInfo.setDjDate(bizDate);
+				examInfo.setDjDate(new Date());
 				examInfo.setKpCompany(kpjgInfo);
 				examInfo.setDjCompany(djjgInfo);
 				examInfo.setKpUnit(kpdwInfo);
-				examInfo.setZjjg(zjjgInfo);
+//				examInfo.setZjjg(zjjgInfo);
 				examInfo.setQyUnit(qydwInfo);
 				examInfo.setDjUnit(djdwInfo);
 				examInfo.setFkUnit(skdwInfo);
@@ -644,6 +612,8 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 				examInfo.setSales(personInfo);
 				examInfo.setTjType(examTypeInfo);
 				examInfo.setFpNumber(fph);
+				
+				BigDecimal amount = new BigDecimal(0);//到检单总金额
 				sql = "select max(cfdjr) djr,max(cfdjtcbm) djtcbm,max(cfdjtcmc) djtcmc " +
 				" ,max(cfxslb) xslb" +
 				" ,max(cfsklb) sklb" +
@@ -668,16 +638,11 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 					item.setDjtcNumber(djtcbm);
 					item.setDjctName(djtcmc);
 					SaleTypeInfo saleTypeInfo = getSaleTypeInfo(ctx, xslb);
-					if(saleTypeInfo == null) {
-						return new String[] {"N", ywdjbh, ",编码为"+xslb+"销售类别不存在"};
-					}
 					ReceTypeInfo receTypeInfo = getReceTypeInfo(ctx, sklb);
-					if(receTypeInfo == null) {
-						return new String[] {"N", ywdjbh, ",编码为"+sklb+"收款类别不存在"};
-					}
 					item.setSkType(receTypeInfo);
 					item.setSlType(saleTypeInfo);
 					item.setJsAmount(UIRuleUtil.getBigDecimal(jshj));
+					amount = amount.add(UIRuleUtil.getBigDecimal(jshj));
 					RichExamTempTabCollection djrXMDetail = itemp.getRichExamTempTabCollection("where xsy='"+xsy+"' and bizdate='"+d+"' " +
 													" and ldh='"+ldh+"' and djjg='"+djjg+"' and djr='"+djr+"' and djtcbm='"+djtcbm+"' ");
 					for (int j = 0; j < djrXMDetail.size(); j++) {
@@ -687,17 +652,22 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 						detail.setDjxmbm(tempDetail.getDjxmbm());
 						detail.setDjxmmc(tempDetail.getDjxmmc());
 						detail.setJxbs("1".equals(tempDetail.getJxbs()));
-						detail.setKlj(UIRuleUtil.getBigDecimal(tempDetail.getKlj()));
-						detail.setZkl(UIRuleUtil.getBigDecimal(tempDetail.getZkl()));
-						detail.setJsje(UIRuleUtil.getBigDecimal(tempDetail.getJsje()));
-						detail.setSe(UIRuleUtil.getBigDecimal(tempDetail.getSe()));
-						detail.setJshj(UIRuleUtil.getBigDecimal(tempDetail.getJshj()));
+						if(tempDetail.getKlj()!=null && !"".equals(tempDetail.getKlj()))
+							detail.setKlj(UIRuleUtil.getBigDecimal(tempDetail.getKlj()));
+						if(tempDetail.getZkl()!=null && !"".equals(tempDetail.getZkl()))
+							detail.setZkl(UIRuleUtil.getBigDecimal(tempDetail.getZkl()));
+						if(tempDetail.getJsje()!=null && !"".equals(tempDetail.getJsje()))
+							detail.setJsje(UIRuleUtil.getBigDecimal(tempDetail.getJsje()));
+						if(tempDetail.getSe()!=null && !"".equals(tempDetail.getSe()))
+							detail.setSe(UIRuleUtil.getBigDecimal(tempDetail.getSe()));
+						if(tempDetail.getJshj()!=null && !"".equals(tempDetail.getJshj()))
+							detail.setJshj(UIRuleUtil.getBigDecimal(tempDetail.getJshj()));
 						detail.setBeizhu(tempDetail.getBeizhu());
 						
 						item.getDjrentry().add(detail);
 					}
 					examInfo.getEntrys().add(item);
-					
+					examInfo.setAmount(amount);
 					iRichExamed.save(examInfo);
 				}
 			}
@@ -720,11 +690,13 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 	 */
 	public  CustomerInfo getCustomerInfo(Context ctx, String number) throws BOSException, EASBizException {
 		CustomerInfo CustomerInfo = null;
-		int index = number.indexOf("|");
-		number = number.substring(0,index);
-		String oql = "select id where number='" + number + "'";
-		if(iCustomer.exists(oql))
-			CustomerInfo = iCustomer.getCustomerInfo(oql);
+		if(number!=null && number.indexOf("|")>0){
+			int index = number.indexOf("|");
+			number = number.substring(0,index);
+			String oql = "select id where number='" + number + "'";
+			if(iCustomer.exists(oql))
+				CustomerInfo = iCustomer.getCustomerInfo(oql);
+		}
 		return CustomerInfo;
 	}
 	/**
@@ -761,12 +733,14 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 	 */
 	public CompanyOrgUnitInfo getCompanyOrgUnit(Context ctx, String number) throws BOSException, EASBizException {
 		CompanyOrgUnitInfo CompanyOrgInfo = null;
-		int index = number.indexOf("|");
-		number = number.substring(0,index);
-		OrgUnitEntryInfo info = iOrgUnitEntry.getOrgUnitEntryInfo("select EASOrgNumber.id where ywNumber='"+number+"'");
-		String oql = "select id  where id='" + info.getEASOrgNumber().getId() + "'";
-		if(iCompanyOrgUnit.exists(oql))
-			CompanyOrgInfo = iCompanyOrgUnit.getCompanyOrgUnitInfo(oql);
+		if(number!=null && number.indexOf("|")>0){
+			int index = number.indexOf("|");
+			number = number.substring(0,index);
+			OrgUnitEntryInfo info = iOrgUnitEntry.getOrgUnitEntryInfo("select EASOrgNumber.id where ywNumber='"+number+"'");
+			String oql = "select id  where id='" + info.getEASOrgNumber().getId() + "'";
+			if(iCompanyOrgUnit.exists(oql))
+				CompanyOrgInfo = iCompanyOrgUnit.getCompanyOrgUnitInfo(oql);
+		}
 		return CompanyOrgInfo;
 	}
 	/**
@@ -802,12 +776,14 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 	 */
 	public FullOrgUnitInfo getOrgUnitInfo(Context ctx, String number) throws BOSException {
 		FullOrgUnitInfo orgUnitInfo = null;
-		int index = number.indexOf("|");
-		number = number.substring(0,index);
-		String oql = "select id where number='" + number + "'";
-		FullOrgUnitCollection fullOrgUnitCollection = iFullOrgUnit.getFullOrgUnitCollection(oql);
-		if(fullOrgUnitCollection != null)
-			orgUnitInfo = fullOrgUnitCollection.get(0);
+		if(number!=null && number.indexOf("|")>0){
+			int index = number.indexOf("|");
+			number = number.substring(0,index);
+			String oql = "select id where number='" + number + "'";
+			FullOrgUnitCollection fullOrgUnitCollection = iFullOrgUnit.getFullOrgUnitCollection(oql);
+			if(fullOrgUnitCollection != null)
+				orgUnitInfo = fullOrgUnitCollection.get(0);
+		}
 		return orgUnitInfo;
 	}
 	/**
@@ -827,10 +803,12 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 	 */
 	public PersonInfo getPersonInfo(Context ctx, String number) throws BOSException {
 		PersonInfo personInfo = null;
-		int index = number.indexOf("|");
-		number = number.substring(0,index);
-		String oql = "select id where number='" + number + "'";
-		personInfo = iPerson.getPersonCollection(oql).get(0);
+		if(number!=null && number.indexOf("|")>0){
+			int index = number.indexOf("|");
+			number = number.substring(0,index);
+			String oql = "select id where number='" + number + "'";
+			personInfo = iPerson.getPersonCollection(oql).get(0);
+		}
 		return personInfo;
 	}
 	
@@ -839,20 +817,22 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 	 * @throws BOSException 
 	 */
 	public  ExamTypeInfo getExamTypeInfo(Context ctx, String number) throws BOSException {
-		int index = number.indexOf("|");
-		String basenumber = number.substring(0,index);
-		String name = number.substring(index+1,number.length());
 		ExamTypeInfo examTypeInfo = null;
-		String oql = "where number='" + basenumber + "'";
-		examTypeInfo = iExamType.getExamTypeCollection(oql).get(0);
-		if(examTypeInfo==null){
-			examTypeInfo = new ExamTypeInfo();
-			examTypeInfo.setNumber(basenumber);
-			examTypeInfo.setName(name);
-			try {
-				iExamType.save(examTypeInfo);
-			} catch (EASBizException e) {
-				e.printStackTrace();
+		if(number!=null && number.indexOf("|")>0){
+			int index = number.indexOf("|");
+			String basenumber = number.substring(0,index);
+			String name = number.substring(index+1,number.length());
+			String oql = "where number='" + basenumber + "'";
+			examTypeInfo = iExamType.getExamTypeCollection(oql).get(0);
+			if(examTypeInfo==null){
+				examTypeInfo = new ExamTypeInfo();
+				examTypeInfo.setNumber(basenumber);
+				examTypeInfo.setName(name);
+				try {
+					iExamType.save(examTypeInfo);
+				} catch (EASBizException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		return examTypeInfo;
@@ -863,20 +843,22 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 	 * @throws BOSException 
 	 */
 	public  SaleTypeInfo getSaleTypeInfo(Context ctx, String number) throws BOSException {
-		int index = number.indexOf("|");
-		String basenumber = number.substring(0,index);
-		String name = number.substring(index+1,number.length());
 		SaleTypeInfo saleTypeInfo = null;
-		String oql = "where number='" + basenumber+ "'";
-		saleTypeInfo = iSaleType.getSaleTypeCollection(oql).get(0);
-		if(saleTypeInfo==null){
-			saleTypeInfo = new SaleTypeInfo();
-			saleTypeInfo.setNumber(basenumber);
-			saleTypeInfo.setName(name);
-			try {
-				iSaleType.save(saleTypeInfo);
-			} catch (EASBizException e) {
-				e.printStackTrace();
+		if(number!=null && number.indexOf("|")>0){
+			int index = number.indexOf("|");
+			String basenumber = number.substring(0,index);
+			String name = number.substring(index+1,number.length());
+			String oql = "where number='" + basenumber+ "'";
+			saleTypeInfo = iSaleType.getSaleTypeCollection(oql).get(0);
+			if(saleTypeInfo==null){
+				saleTypeInfo = new SaleTypeInfo();
+				saleTypeInfo.setNumber(basenumber);
+				saleTypeInfo.setName(name);
+				try {
+					iSaleType.save(saleTypeInfo);
+				} catch (EASBizException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		return saleTypeInfo;
@@ -887,20 +869,22 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 	 * @throws BOSException 
 	 */
 	public  ReceTypeInfo getReceTypeInfo(Context ctx, String number) throws BOSException {
-		int index = number.indexOf("|");
-		String basenumber = number.substring(0,index);
-		String name = number.substring(index+1,number.length());
 		ReceTypeInfo receTypeInfo = null;
-		String oql = "where number='" + basenumber+ "'";
-		receTypeInfo = iReceType.getReceTypeCollection(oql).get(0);
-		if(receTypeInfo==null){
-			receTypeInfo = new ReceTypeInfo();
-			receTypeInfo.setNumber(basenumber);
-			receTypeInfo.setName(name);
-			try {
-				iReceType.save(receTypeInfo);
-			} catch (EASBizException e) {
-				e.printStackTrace();
+		if(number!=null && number.indexOf("|")>0){
+			int index = number.indexOf("|");
+			String basenumber = number.substring(0,index);
+			String name = number.substring(index+1,number.length());
+			String oql = "where number='" + basenumber+ "'";
+			receTypeInfo = iReceType.getReceTypeCollection(oql).get(0);
+			if(receTypeInfo==null){
+				receTypeInfo = new ReceTypeInfo();
+				receTypeInfo.setNumber(basenumber);
+				receTypeInfo.setName(name);
+				try {
+					iReceType.save(receTypeInfo);
+				} catch (EASBizException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		return receTypeInfo;

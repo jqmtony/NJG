@@ -125,17 +125,6 @@ public class AbstractRichExamedInfo extends com.kingdee.eas.framework.CoreBillBa
         setString("fpNumber", item);
     }
     /**
-     * Object:到检单's 总金额property 
-     */
-    public String getAmount()
-    {
-        return getString("amount");
-    }
-    public void setAmount(String item)
-    {
-        setString("amount", item);
-    }
-    /**
      * Object: 到检单 's 销售员 property 
      */
     public com.kingdee.eas.basedata.person.PersonInfo getSales()
@@ -303,6 +292,17 @@ public class AbstractRichExamedInfo extends com.kingdee.eas.framework.CoreBillBa
     public void setYhxAmount(java.math.BigDecimal item)
     {
         setBigDecimal("yhxAmount", item);
+    }
+    /**
+     * Object:到检单's 总金额property 
+     */
+    public java.math.BigDecimal getAmount()
+    {
+        return getBigDecimal("amount");
+    }
+    public void setAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("amount", item);
     }
     public BOSObjectType getBOSType()
     {

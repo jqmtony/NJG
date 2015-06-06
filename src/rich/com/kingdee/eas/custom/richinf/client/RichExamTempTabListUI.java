@@ -152,7 +152,9 @@ public class RichExamTempTabListUI extends AbstractRichExamTempTabListUI
     public void actionPrint_actionPerformed(ActionEvent e) throws Exception
     {
 //        super.actionPrint_actionPerformed(e);
-    	EASRichFacadeFactory.getRemoteInstance().saveExamBill(new Date(), "");
+    	String[] str = new String[3];
+    	str = EASRichFacadeFactory.getRemoteInstance().saveExamBill(Utils.parseCustomDateString("2015-05-29", "yyyy-MM-dd"), "");
+    	MsgBox.showInfo(str[0]+str[1]+str[2]);
     }
 
     public void onLoad() throws Exception {

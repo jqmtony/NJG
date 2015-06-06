@@ -138,6 +138,17 @@ public class AbstractRichExamedEntryDjrentryInfo extends com.kingdee.eas.framewo
     {
         setString("ywdjbh", item);
     }
+    /**
+     * Object:到检人明细's 中间表IDproperty 
+     */
+    public String getTempID()
+    {
+        return getString("tempID");
+    }
+    public void setTempID(String item)
+    {
+        setString("tempID", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("F959E230");
