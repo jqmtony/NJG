@@ -663,12 +663,15 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 						if(tempDetail.getJshj()!=null && !"".equals(tempDetail.getJshj()))
 							detail.setJshj(UIRuleUtil.getBigDecimal(tempDetail.getJshj()));
 						detail.setBeizhu(tempDetail.getBeizhu());
-						
+						detail.setTempID(tempDetail.getId().toString());//÷–º‰±ÌID
 						item.getDjrentry().add(detail);
 					}
 					examInfo.getEntrys().add(item);
 					examInfo.setAmount(amount);
 					iRichExamed.save(examInfo);
+					
+					sql = "update CT_RIC_RichExamTempTab set cfdjd='1' where fid in (select CFTempID from CT_RIC_RichExamedDjrentry )";
+					DbUtil.execute(ctx, sql);
 				}
 			}
 		} catch (Exception e) {
