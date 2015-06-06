@@ -1566,37 +1566,6 @@
             </query>
         </queryField>
         <queryField>
-            <name>amount</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[amount].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>879ea2f1-4396-4133-96ab-84459cfb9c55</key>
-                    <parentUnit>
-                        <key name="name" value="amount" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="RichExamed" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="amount" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
-                <key name="name" value="RichExamedQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>sales.name</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
@@ -2735,6 +2704,37 @@
                     </subEntity>
                     <refProperty>
                         <key name="name" value="yhxAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamedQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>amount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[amount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c652febd-3110-4b45-949b-38bd0d61348c</key>
+                    <parentUnit>
+                        <key name="name" value="amount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamed" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="amount" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>

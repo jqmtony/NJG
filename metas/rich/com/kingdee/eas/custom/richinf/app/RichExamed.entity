@@ -345,26 +345,6 @@
                 <key name="name" value="CFFpNumber" />
             </mappingField>
         </ownProperty>
-        <ownProperty>
-            <name>amount</name>
-            <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[amount].alias</alias>
-            <description>entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[amount].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <dataType>String</dataType>
-            <metadataRef />
-            <isMultilingual>false</isMultilingual>
-            <isNullable>false</isNullable>
-            <formula />
-            <length>100</length>
-            <precision>0</precision>
-            <decimalDigits>0</decimalDigits>
-            <defaultValue>entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[amount].defaultValue</defaultValue>
-            <displayFormat />
-            <mappingField>
-                <key name="name" value="CFAmount" />
-            </mappingField>
-        </ownProperty>
         <linkProperty>
             <name>sales</name>
             <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.linkProperty[sales].alias</alias>
@@ -633,6 +613,26 @@
             <displayFormat />
             <mappingField>
                 <key name="name" value="CFYhxAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>amount</name>
+            <alias>entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[amount].alias</alias>
+            <description>entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[amount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[amount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFAmount" />
             </mappingField>
         </ownProperty>
     </properties>
@@ -1820,9 +1820,9 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[amount].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="文本" />
-            <lang locale="zh_HK" value="文本" />
-            <lang locale="zh_TW" value="文本" />
+            <lang locale="zh_CN" value="小数" />
+            <lang locale="zh_HK" value="小數" />
+            <lang locale="zh_TW" value="小數" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[amount].extendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />
@@ -1830,9 +1830,9 @@
             <lang locale="zh_TW" value="50" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[amount].extendedProperty.bizDataType">
-            <lang locale="en_US" value="STRING" />
-            <lang locale="zh_CN" value="STRING" />
-            <lang locale="zh_TW" value="STRING" />
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[amount].extendedProperty.enableFieldPermission">
             <lang locale="en_US" value="false" />
@@ -1855,9 +1855,9 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[amount].extendedProperty.isForWrittenBack">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.custom.richinf.app.RichExamed].properties.ownProperty[amount].extendedProperty.isInCode">
             <lang locale="en_US" value="false" />
