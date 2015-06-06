@@ -561,7 +561,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 				" ,max(cftjlb) tjlb" +
 				" ,max(cffph) fph" +
 				" from CT_RIC_RichExamTempTab " +
-				" where CFBizdate= '"+d+"'" +
+				" where CFBizdate= '"+d+"' " +
 				" group by CFXsy,CFLdh,CFDjjg,cfkpjg,cfqydw,cfdjdw,cfkpdw,cfskdw,cftjlb" ;
 		IRowSet rs = DbUtil.executeQuery(ctx, sql);
 		Map hcMap = new HashMap();
@@ -615,13 +615,13 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 				
 				BigDecimal amount = new BigDecimal(0);//到检单总金额
 				sql = "select max(cfdjr) djr,max(cfdjtcbm) djtcbm,max(cfdjtcmc) djtcmc " +
-				" ,max(cfxslb) xslb" +
-				" ,max(cfsklb) sklb" +
+				" ,cfxslb xslb" +
+				" ,cfsklb sklb" +
 				" ,sum(TO_NUMBER(cfjshj)) jshj" +
 				" from CT_RIC_RichExamTempTab " +
 				" where CFBizdate= '"+d+"' and CFXsy='"+xsy+"' and CFLdh='"+ldh+"' and CFDjjg='"+djjg+"' and cfkpjg='"+kpjg+"' " +
 						" and cfqydw='"+qydw+"' and cfdjdw='"+djdw+"' and cfkpdw='"+kpdw+"' and cfskdw='"+skdw+"' and cftjlb='"+tjlb+"'" +
-				" group by cfdjr,CFDjtcbm" ;
+				" group by cfdjr,CFDjtcbm,cfxslb,cfsklb" ;
 				IRowSet djrrs = DbUtil.executeQuery(ctx, sql);
 				while(djrrs.next()){
 					//到检单分录
@@ -644,7 +644,8 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 					item.setJsAmount(UIRuleUtil.getBigDecimal(jshj));
 					amount = amount.add(UIRuleUtil.getBigDecimal(jshj));
 					RichExamTempTabCollection djrXMDetail = itemp.getRichExamTempTabCollection("where xsy='"+xsy+"' and bizdate='"+d+"' " +
-													" and ldh='"+ldh+"' and djjg='"+djjg+"' and djr='"+djr+"' and djtcbm='"+djtcbm+"' ");
+													" and ldh='"+ldh+"' and djjg='"+djjg+"' and djr='"+djr+"' and djtcbm='"+djtcbm+"' " +
+													" and xslb='"+xslb+"' and sklb='"+sklb+"'");
 					for (int j = 0; j < djrXMDetail.size(); j++) {
 						RichExamTempTabInfo tempDetail = djrXMDetail.get(j);
 						RichExamedEntryDjrentryInfo detail = new RichExamedEntryDjrentryInfo();
@@ -670,7 +671,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 					examInfo.setAmount(amount);
 					iRichExamed.save(examInfo);
 					
-					sql = "update CT_RIC_RichExamTempTab set cfdjd='1' where fid in (select CFTempID from CT_RIC_RichExamedDjrentry )";
+					sql = "update CT_RIC_RichExamTempTab set cfdjd='1' where fid in (select CFTempID from CT_RIC_RichExamedDjrentry ) and cfdjd='0'";
 					DbUtil.execute(ctx, sql);
 				}
 			}
@@ -849,21 +850,11 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 		SaleTypeInfo saleTypeInfo = null;
 		if(number!=null && number.indexOf("|")>0){
 			int index = number.indexOf("|");
-			String basenumber = number.substring(0,index);
-			String name = number.substring(index+1,number.length());
-			String oql = "where number='" + basenumber+ "'";
-			saleTypeInfo = iSaleType.getSaleTypeCollection(oql).get(0);
-			if(saleTypeInfo==null){
-				saleTypeInfo = new SaleTypeInfo();
-				saleTypeInfo.setNumber(basenumber);
-				saleTypeInfo.setName(name);
-				try {
-					iSaleType.save(saleTypeInfo);
-				} catch (EASBizException e) {
-					e.printStackTrace();
-				}
-			}
+			number = number.substring(0,index);
 		}
+		String oql = "where number='" + number+ "'";
+		saleTypeInfo = iSaleType.getSaleTypeCollection(oql).get(0);
+		
 		return saleTypeInfo;
 	}
 	
@@ -875,21 +866,10 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 		ReceTypeInfo receTypeInfo = null;
 		if(number!=null && number.indexOf("|")>0){
 			int index = number.indexOf("|");
-			String basenumber = number.substring(0,index);
-			String name = number.substring(index+1,number.length());
-			String oql = "where number='" + basenumber+ "'";
-			receTypeInfo = iReceType.getReceTypeCollection(oql).get(0);
-			if(receTypeInfo==null){
-				receTypeInfo = new ReceTypeInfo();
-				receTypeInfo.setNumber(basenumber);
-				receTypeInfo.setName(name);
-				try {
-					iReceType.save(receTypeInfo);
-				} catch (EASBizException e) {
-					e.printStackTrace();
-				}
-			}
+			number = number.substring(0,index);
 		}
+		String oql = "where number='" + number+ "'";
+		receTypeInfo = iReceType.getReceTypeCollection(oql).get(0);
 		return receTypeInfo;
 	}
 	
