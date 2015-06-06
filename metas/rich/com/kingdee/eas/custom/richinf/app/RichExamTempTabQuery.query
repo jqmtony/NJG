@@ -1631,6 +1631,37 @@
                 <key name="name" value="RichExamTempTabQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>djd</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamTempTabQuery].units.queryField[djd].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d1126925-f75b-4be8-a7d8-1760dc09ffae</key>
+                    <parentUnit>
+                        <key name="name" value="djd" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamTempTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="djd" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamTempTabQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2036,6 +2067,22 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamTempTabQuery].units.queryField[description].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamTempTabQuery].units.queryField[djd].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="生成到检单" />
+            <lang locale="zh_HK" value="生成到檢單" />
+            <lang locale="zh_TW" value="生成到檢單" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamTempTabQuery].units.queryField[djd].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamTempTabQuery].units.queryField[djd].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
