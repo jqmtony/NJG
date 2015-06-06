@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.custom.richbase.app</package>
+    <name>OrgUnitRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>b6e5a744-6029-4cf0-b5ff-2e5e66c2bbea</id>
+            <parentID />
+            <source>Entry.EASOrgName=Entry.EASOrgNumber.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>4e7bd99c-6c62-4168-80a8-e8093b6b6c8c</id>
+            <parentID>b6e5a744-6029-4cf0-b5ff-2e5e66c2bbea</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>18988c74-f169-4f00-a7e6-43b33cefff21</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>18988c74-f169-4f00-a7e6-43b33cefff21</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"EASOrgName")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>2c055482-b0b4-4c40-97f2-d3132a5567d5</id>
+            <parentID>b6e5a744-6029-4cf0-b5ff-2e5e66c2bbea</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>771638bd-0a5f-46e8-9420-96a16f493f08</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>5278648a-ac29-4afb-866d-98a1c50a8e44</id>
+                        <expressionID>cb54809d-b49d-4064-b23f-d17088e5b3e4</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>23e2eef4-3347-4fc3-a572-2139c5108c20</id>
+                        <expressionID>1db8fe9a-11d6-4615-b45e-eb4d8baf2fbe</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>771638bd-0a5f-46e8-9420-96a16f493f08</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>cb54809d-b49d-4064-b23f-d17088e5b3e4</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>f2ab0003-ce79-4551-ae1c-da3cab74a96d</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>f2ab0003-ce79-4551-ae1c-da3cab74a96d</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"EASOrgNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>1db8fe9a-11d6-4615-b45e-eb4d8baf2fbe</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>name</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>c8475d40-f206-492b-9cb0-a59be1754722</id>
+            <name>Entry_EASOrgName_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].actions.action[Entry_EASOrgName_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].actions.action[Entry_EASOrgName_ActionInfo].description</description>
+            <expressionID>b6e5a744-6029-4cf0-b5ff-2e5e66c2bbea</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>Entry_EASOrgName_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].rules.conditionRule[Entry_EASOrgName_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].rules.conditionRule[Entry_EASOrgName_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="c8475d40-f206-492b-9cb0-a59be1754722" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].actions.action[Entry_EASOrgName_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].actions.action[Entry_EASOrgName_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].rules.conditionRule[Entry_EASOrgName_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_name" />
+            <lang locale="zh_HK" value="攜帶字段屬性_name" />
+            <lang locale="zh_TW" value="攜帶字段屬性_name" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].rules.conditionRule[Entry_EASOrgName_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].rules.conditionRule[Entry_EASOrgName_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="EASOrgNumber" />
+            <lang locale="zh_CN" value="EASOrgNumber" />
+            <lang locale="zh_TW" value="EASOrgNumber" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.custom.richbase.app.OrgUnitRuleSet].rules.conditionRule[Entry_EASOrgName_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

@@ -22,6 +22,11 @@
             <value>i18nResource[com.kingdee.eas.custom.richbase.client.RichbaseResource].resourceItems.resourceItem[ReceTypeQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>OrgUnitQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.custom.richbase.client.RichbaseResource].resourceItems.resourceItem[OrgUnitQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.custom.richbase.client.RichbaseResource].alias">
@@ -41,6 +46,12 @@
             <lang locale="zh_CN" value="体检类别" />
             <lang locale="zh_HK" value="體檢類別" />
             <lang locale="zh_TW" value="體檢類別" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.custom.richbase.client.RichbaseResource].resourceItems.resourceItem[OrgUnitQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="体检机构对应表" />
+            <lang locale="zh_HK" value="體檢機構對應表" />
+            <lang locale="zh_TW" value="體檢機構對應表" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.custom.richbase.client.RichbaseResource].resourceItems.resourceItem[ReceTypeQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
