@@ -297,6 +297,8 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 				billHead = bill.element("billHead");
 				if(billHead.element("ywdjbh").getText()!=null)
 					ywdjbh = billHead.element("ywdjbh").getText().trim();//业务单据编号
+				else
+					return new String[] {"N","" ,"业务单据编号"+ywdjbh+",不能为空！" };
 				if(billHead.element("bizdate").getText()!=null)
 					bizDate = billHead.element("bizdate").getText().trim();//业务日期
 				if(billHead.element("djjg").getText()!=null){
