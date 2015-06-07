@@ -3,6 +3,7 @@ package com.kingdee.eas.custom.richfacade;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
@@ -17,6 +18,7 @@ import org.dom4j.Element;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.db.TempTablePool;
 import com.kingdee.bos.framework.ejb.EJBFactory;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -534,6 +536,16 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 	//生成到检单
 	protected String[] _saveExamBill(Context ctx, Date date, String String) throws BOSException {
 		super._saveExamBill(ctx, date, String);
+		
+		//先生成红冲到检单
+		try {
+			createHCBill(ctx, DateUtil.format(date, "yyyy-MM-dd"));
+		} catch (EASBizException e1) {
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		
 		iCustomer = CustomerFactory.getLocalInstance(ctx);
 		iCurrency = CurrencyFactory.getLocalInstance(ctx);
 		iCssPGroup = CSSPGroupFactory.getLocalInstance(ctx);
@@ -584,7 +596,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 				String skdw = rs.getString("skdw");//收款单位
 				String tjlb = rs.getString("tjlb");//体检类别
 				String fph = rs.getString("fph");//
-				CtrlUnitInfo ctrlUnitInfo = getCtrlUnitInfo(ctx,"01");//根据到检机构-判断管理单元
+				CtrlUnitInfo ctrlUnitInfo = getCtrlUnitInfo(ctx,"000000");//根据到检机构-判断管理单元
 				ContextUtil.setCurrentCtrlUnit(ctx, ctrlUnitInfo);
 				CompanyOrgUnitInfo djjgInfo = getCompanyOrgUnit(ctx, djjg);//到检机构
 				CompanyOrgUnitInfo kpjgInfo = getCompanyOrgUnit(ctx, kpjg);//开票机构
@@ -681,12 +693,101 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 		return new String[] {"Y", "", ""};
 	}
     
-	/**生成红冲到检单（数据标示为1，并可根据业务单据编号找以前的到检单，那么复制以前的到检单后，将数据变为负数，为红冲）
+	/**生成红冲到检单（数据标示为1，并可根据业务单据编号找以前的到检单(落单号、到检单位)，那么复制以前的到检单后，将数据变为负数，为红冲）
 	 * @throws BOSException 
-	 * @throws EASBizException */
-	void createHCBill(Context ctx,String ywdjbh) throws EASBizException, BOSException{
-		RichExamedEntryInfo info = RichExamedEntryFactory.getLocalInstance(ctx).getRichExamedEntryInfo("where ywdjbh='"+ywdjbh+"'");
+	 * @throws EASBizException 
+	 * @throws SQLException */
+	void createHCBill(Context ctx,String ywdjbh) throws EASBizException, BOSException, SQLException{
+		//查询出销售员、到检单位变动的数据(过滤标记的数据)
+		StringBuffer sbsql = new StringBuffer();
+		sbsql.append(" select DISTINCT a.fparentid from CT_RIC_RichExamedentry a");
+		sbsql.append(" where a.CFYwdjbh in(");
+		sbsql.append(" select a.CFYwdjbh ");
+		sbsql.append("  from CT_RIC_RichExamTempTab a ");
+		sbsql.append(" left join ( ");
+		sbsql.append(" select c.fnumber xsy,b.fnumber djdw,a.fid from CT_RIC_RichExamed a ");
+		sbsql.append(" left join T_BD_Customer b on b.fid=a.CFDjUnitID ");
+		sbsql.append(" left join t_bd_person c on c.fid = a.CFSalesID ");
+		sbsql.append(" ) b on b.xsy = substring(a.CFXsy,0,charindex('|',a.CFXsy)-1) and b.djdw=substring(a.cfdjdw,0,charindex('|',a.cfdjdw)-1) ");
+		sbsql.append(" where 1=1 and b.fid is null and a.CFFlag='1' and a.cfdjd<>'1' and a.CFBizdate='"+ywdjbh+"'");
+		sbsql.append(" )");
+		
+		IRichExamed IRichExamed = RichExamedFactory.getLocalInstance(ctx);
+		//根据业务单据编号查询对应的到检单
+		IRowSet rowset = DbUtil.executeQuery(ctx,sbsql.toString());
+		while(rowset.next()){
+			String richExId = rowset.getString(1);
+			if(richExId==null)
+				continue;
+			
+			//生成红冲到检单
+			RichExamedInfo Info = IRichExamed.getRichExamedInfo(new ObjectUuidPK(richExId));
+			
+			RichExamedInfo cloneInfo = (RichExamedInfo) Info.clone();
+			cloneInfo.setHc(true);
+			cloneInfo.setId(null);
+			
+			cloneInfo.setAmount(multiply(cloneInfo.getAmount(), negative));
+			
+			for (int i = 0; i < cloneInfo.getEntrys().size(); i++) {
+				RichExamedEntryInfo entryInfo = cloneInfo.getEntrys().get(i);
+				entryInfo.setId(null);
+				entryInfo.setJsAmount(multiply(entryInfo.getJsAmount(), negative));
+				
+				for (int j = 0; j < entryInfo.getDjrentry().size(); j++) {
+					RichExamedEntryDjrentryInfo djEnrtryInfo = entryInfo.getDjrentry().get(j);
+					djEnrtryInfo.setId(null);
+					djEnrtryInfo.setJshj(multiply(djEnrtryInfo.getJshj(), negative));
+					djEnrtryInfo.setJsje(multiply(djEnrtryInfo.getJsje(), negative));
+				}
+			}
+			
+			IRichExamed.save(cloneInfo);
+		}
 	}
+	
+	private BigDecimal negative = new BigDecimal("-1");
+	
+	private BigDecimal multiply(Object dec1,Object dec2){
+		if(dec1==null&&dec2==null){
+			return null;
+		}else{
+			return toBigDecimal(dec1).multiply(toBigDecimal(dec2));
+		}
+	}
+	
+	private BigDecimal toBigDecimal(Object obj) {
+		if (obj == null)
+			return BigDecimal.ZERO;
+
+		if (obj instanceof BigDecimal) {
+			return (BigDecimal) obj;
+		} else if (obj instanceof Integer) {
+			return new BigDecimal(((Integer) obj).toString());
+		} else if (obj instanceof Long) {
+			return new BigDecimal(((Long) obj).toString());
+		} else if (obj instanceof Double) {
+			return new BigDecimal(((Double) obj).doubleValue());
+		} else if(obj.toString()==null){
+			return BigDecimal.ZERO;
+		}else{
+			String str = obj.toString().trim();
+			// 处理指数表示的数值如 1.00002213E15
+			if (str.toLowerCase().indexOf("e") > -1) {
+				try {
+					return new BigDecimal(str);
+				} catch (NumberFormatException e) {
+					return BigDecimal.ZERO;
+				}
+			}
+			if (str.matches("^[+-]?\\d+[\\.\\d]?\\d*+$")) {
+				return new BigDecimal(str);
+			}
+		}
+
+		return BigDecimal.ZERO;
+	}
+	
 	/**
 	 * 根据编码获取客户
 	 * @throws BOSException 
