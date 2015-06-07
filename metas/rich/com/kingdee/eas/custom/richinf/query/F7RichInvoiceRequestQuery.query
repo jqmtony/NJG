@@ -1,0 +1,1947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.custom.richinf.query</package>
+    <name>F7RichInvoiceRequestQuery</name>
+    <alias>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.custom.richinf.RichInvoiceRequest</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>RichInvoiceRequest</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[RichInvoiceRequest].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichInvoiceRequest" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>auditor</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[auditor].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>handler</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[handler].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>kpUnit</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[kpUnit].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.master.cssp.app" />
+                <key name="name" value="Customer" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>sales</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[sales].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.person.app" />
+                <key name="name" value="Person" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>kpCompany</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[kpCompany].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="CompanyOrgUnit" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>NewUnit0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditor" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit3</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit4</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit5</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit5].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit5" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bizDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[bizDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="bizDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bizDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>ldNumber</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[ldNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3514d85d-f7f3-4664-ac8d-a9506d183d8a</key>
+                    <parentUnit>
+                        <key name="name" value="ldNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="ldNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>kpUnit.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[kpUnit.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ae06c28d-a465-47d3-ba34-cae3b6964852</key>
+                    <parentUnit>
+                        <key name="name" value="kpUnit.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="kpUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>sales.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[sales.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>12d59fe5-3a7d-4782-8eb3-8dede7a7f0ef</key>
+                    <parentUnit>
+                        <key name="name" value="sales.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="sales" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bizState</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[bizState].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a863f79b-e733-491d-a491-0addf60bd70c</key>
+                    <parentUnit>
+                        <key name="name" value="bizState" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bizState" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>beizhu</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[beizhu].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d17c8000-ff3a-4ffc-827f-52f7ee6b016f</key>
+                    <parentUnit>
+                        <key name="name" value="beizhu" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="beizhu" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>kpCompany.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[kpCompany.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c64e38f0-cf3b-488f-8bc2-2b819bbe07af</key>
+                    <parentUnit>
+                        <key name="name" value="kpCompany.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="kpCompany" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[auditDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>dc482444-86f2-4659-b361-a7f58f60e367</key>
+                    <parentUnit>
+                        <key name="name" value="auditDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>reqSumAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[reqSumAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2be8f687-75b4-4606-9fcd-4756f3cd48ba</key>
+                    <parentUnit>
+                        <key name="name" value="reqSumAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="reqSumAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>invoicedAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[invoicedAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>38836425-7248-4f34-b952-2fd271aa3fb5</key>
+                    <parentUnit>
+                        <key name="name" value="invoicedAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="invoicedAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>amount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[amount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b0ee15f1-5099-4c9e-b594-c8e428ac16d0</key>
+                    <parentUnit>
+                        <key name="name" value="amount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="amount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>djAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[djAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e38b2f15-93a4-471e-9b50-cfe94d172178</key>
+                    <parentUnit>
+                        <key name="name" value="djAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="djAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>djkp</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[djkp].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2adcf02a-1442-46bd-9cd8-2661bd842330</key>
+                    <parentUnit>
+                        <key name="name" value="djkp" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="djkp" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>billState</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[billState].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2d234d1b-90d2-40a5-abfd-e319911ac2c2</key>
+                    <parentUnit>
+                        <key name="name" value="billState" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="billState" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>NewUnit9</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="handler" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit8</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit8].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit8" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="handler" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>Fivouchered</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[Fivouchered].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="Fivouchered" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="Fivouchered" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>d6e221f4-9e94-41e7-af8c-aa91f357777c</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[d6e221f4-9e94-41e7-af8c-aa91f357777c].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>004a1532-07f2-4d0a-93cd-937dc4e7e3e4</key>
+                    <parentUnit>
+                        <key name="name" value="d6e221f4-9e94-41e7-af8c-aa91f357777c" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="kpUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>3d512a02-9228-4cd8-83c3-0b34c58e7334</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[3d512a02-9228-4cd8-83c3-0b34c58e7334].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>b3cc98cb-e9e4-45ca-97a8-8f043e033a09</key>
+                    <parentUnit>
+                        <key name="name" value="3d512a02-9228-4cd8-83c3-0b34c58e7334" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="kpUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>d85d58e0-56ab-42a3-ad59-c25872930a68</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[d85d58e0-56ab-42a3-ad59-c25872930a68].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>93d76e22-f11f-4922-a9e4-dc9f6c69321f</key>
+                    <parentUnit>
+                        <key name="name" value="d85d58e0-56ab-42a3-ad59-c25872930a68" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="sales" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>87a8aa60-8e9f-4def-afcd-f35732406c72</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[87a8aa60-8e9f-4def-afcd-f35732406c72].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>967b6d39-97ca-4064-8372-490692e4f709</key>
+                    <parentUnit>
+                        <key name="name" value="87a8aa60-8e9f-4def-afcd-f35732406c72" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="sales" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>2afb9b44-610f-4fc0-98f1-f600cdf4ff9a</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[2afb9b44-610f-4fc0-98f1-f600cdf4ff9a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>4181e013-8407-44b8-8bdc-2a66a74e1186</key>
+                    <parentUnit>
+                        <key name="name" value="2afb9b44-610f-4fc0-98f1-f600cdf4ff9a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichInvoiceRequest" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="kpCompany" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>65da7b36-ad6d-4c09-9260-bbdf8ea4643e</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[65da7b36-ad6d-4c09-9260-bbdf8ea4643e].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>6fc334f8-0158-42e8-b191-2ee445a42723</key>
+                    <parentUnit>
+                        <key name="name" value="65da7b36-ad6d-4c09-9260-bbdf8ea4643e" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="kpCompany" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </propertyUnit>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+            <key name="name" value="F7RichInvoiceRequestQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>number</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>NewJoin0</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="RichInvoiceRequest" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="auditor" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit1" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin1</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="RichInvoiceRequest" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit3" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin1" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin2</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="RichInvoiceRequest" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit4" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit5" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin2" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin4</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="RichInvoiceRequest" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="handler" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit9" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit8" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin4" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </join>
+        <join>
+            <name>75f7bb4c-0bab-4efb-a04e-fa824198107b</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="RichInvoiceRequest" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="kpUnit" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>8ffc6453-6915-4b1f-a87b-3042c7d6ff8a</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="d6e221f4-9e94-41e7-af8c-aa91f357777c" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="3d512a02-9228-4cd8-83c3-0b34c58e7334" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="75f7bb4c-0bab-4efb-a04e-fa824198107b" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </join>
+        <join>
+            <name>83afc8d5-01aa-4ffc-b1ed-cd7e2f65cb77</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="RichInvoiceRequest" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="sales" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>a0670b72-5bea-4368-8778-b56715ef1f09</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="d85d58e0-56ab-42a3-ad59-c25872930a68" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="87a8aa60-8e9f-4def-afcd-f35732406c72" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="83afc8d5-01aa-4ffc-b1ed-cd7e2f65cb77" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </join>
+        <join>
+            <name>73392af1-a866-4cfe-9463-a3d2b099e791</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="RichInvoiceRequest" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="kpCompany" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>b322bc34-27c5-4f99-9854-c19758fb06fc</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="2afb9b44-610f-4fc0-98f1-f600cdf4ff9a" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="65da7b36-ad6d-4c09-9260-bbdf8ea4643e" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="73392af1-a866-4cfe-9463-a3d2b099e791" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.query" />
+                <key name="name" value="F7RichInvoiceRequestQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="开票申请单" />
+            <lang locale="zh_HK" value="開票申請單" />
+            <lang locale="zh_TW" value="開票申請單" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="多分录基础单据模板" />
+            <lang locale="zh_CN" value="多分录基础单据模板" />
+            <lang locale="zh_TW" value="多分录基础单据模板" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="多分录基础单据查询" />
+            <lang locale="zh_HK" value="多分錄基礎單據查詢" />
+            <lang locale="zh_TW" value="多分錄基礎單據查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.custom.richinf.client.RichinfResource.RichInvoiceRequestQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.custom.richinf.client.RichinfResource.RichInvoiceRequestQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.custom.richinf.client.RichinfResource.RichInvoiceRequestQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="开票申请单" />
+            <lang locale="zh_CN" value="开票申请单" />
+            <lang locale="zh_TW" value="开票申请单" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[RichInvoiceRequest].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[auditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[handler].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[kpCompany].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[kpUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].subObjects.subEntity[sales].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[2afb9b44-610f-4fc0-98f1-f600cdf4ff9a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[3d512a02-9228-4cd8-83c3-0b34c58e7334].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[65da7b36-ad6d-4c09-9260-bbdf8ea4643e].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[87a8aa60-8e9f-4def-afcd-f35732406c72].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit3].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit5].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit8].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[NewUnit9].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[d6e221f4-9e94-41e7-af8c-aa91f357777c].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.propertyUnit[d85d58e0-56ab-42a3-ad59-c25872930a68].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[Fivouchered].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否生成凭证" />
+            <lang locale="zh_HK" value="是否生成憑證" />
+            <lang locale="zh_TW" value="是否生成憑證" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[Fivouchered].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[Fivouchered].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[amount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本次申请开票金额" />
+            <lang locale="zh_HK" value="本次申請開票金額" />
+            <lang locale="zh_TW" value="本次申請開票金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[amount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[amount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[auditDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核日期" />
+            <lang locale="zh_HK" value="審核日期" />
+            <lang locale="zh_TW" value="審核日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[auditDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[auditDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[beizhu].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[beizhu].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[beizhu].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[billState].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[billState].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[billState].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[bizDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
+            <lang locale="zh_TW" value="業務日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[bizDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[bizDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[bizState].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[bizState].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[bizState].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="制单人" />
+            <lang locale="zh_HK" value="制單人" />
+            <lang locale="zh_TW" value="制單人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[djAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计到检金额" />
+            <lang locale="zh_HK" value="累計到檢金額" />
+            <lang locale="zh_TW" value="累計到檢金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[djAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[djAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[djkp].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="代检开票" />
+            <lang locale="zh_HK" value="代檢開票" />
+            <lang locale="zh_TW" value="代檢開票" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[djkp].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[djkp].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[invoicedAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计已开票金额" />
+            <lang locale="zh_HK" value="累計已開票金額" />
+            <lang locale="zh_TW" value="累計已開票金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[invoicedAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[invoicedAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[kpCompany.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="开票机构" />
+            <lang locale="zh_HK" value="開票機構" />
+            <lang locale="zh_TW" value="開票機構" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[kpCompany.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[kpCompany.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[kpCompany.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[kpUnit.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="开票单位" />
+            <lang locale="zh_HK" value="開票單位" />
+            <lang locale="zh_TW" value="開票單位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[kpUnit.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[kpUnit.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[kpUnit.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[lastUpdateTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[lastUpdateUser.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改人" />
+            <lang locale="zh_HK" value="最後修改人" />
+            <lang locale="zh_TW" value="最後修改人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[ldNumber].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="落单号" />
+            <lang locale="zh_HK" value="落單號" />
+            <lang locale="zh_TW" value="落單號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[ldNumber].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[ldNumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[reqSumAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计申请开票金额" />
+            <lang locale="zh_HK" value="累計申請開票金額" />
+            <lang locale="zh_TW" value="累計申請開票金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[reqSumAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[reqSumAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[sales.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="销售员" />
+            <lang locale="zh_HK" value="銷售員" />
+            <lang locale="zh_TW" value="銷售員" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[sales.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[sales.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.query.F7RichInvoiceRequestQuery].units.queryField[sales.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</joinQuery>
+
