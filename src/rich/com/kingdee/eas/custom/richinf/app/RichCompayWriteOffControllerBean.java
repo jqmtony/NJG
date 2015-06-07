@@ -85,7 +85,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 				rhInfo = collRE.get(j);
 				dj_cust = rhInfo.getKpUnit().getId().toString();
 				if(dj_cust.equals(customerId)){
-					djAmount = new BigDecimal(rhInfo.getAmount());
+					djAmount = rhInfo.getAmount();
 					yhxDJ = rhInfo.getYhxAmount();
 					djid = rhInfo.getId().toString();
 					if(yhxDJ == null){
@@ -250,7 +250,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 				rhInfo = collRE.get(j);
 				dj_cust = rhInfo.getKpUnit().getId().toString();
 				if(dj_cust.equals(customerId)){
-					djAmount = new BigDecimal(rhInfo.getAmount());
+					djAmount = rhInfo.getAmount();
 					yhxDJ = rhInfo.getYhxAmount();
 					if(yhxDJ == null){
     					yhxDJ = BigDecimal.ZERO;

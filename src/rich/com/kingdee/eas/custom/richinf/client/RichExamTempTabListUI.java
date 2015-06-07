@@ -113,7 +113,48 @@ public class RichExamTempTabListUI extends AbstractRichExamTempTabListUI
 					+"</billEntries>"
 				+"</TempTable>";
     		String str3 ="<TempTable><billHead><end>0</end><ywdjbh>001505203107</ywdjbh><bizdate>2015-05-24</bizdate><ldh>15004572</ldh><kh></kh><qydw>0001003|上海天服三悦服装有限公司</qydw><djdw>0001003|上海天服三悦服装有限公司</djdw><kpdw>0001003|上海天服三悦服装有限公司</kpdw><skdw>0001003|上海天服三悦服装有限公司</skdw><fph>0200044073</fph><xsy>020021|周瑾</xsy><tjlb>001|团检</tjlb><beizhu></beizhu><djr>江金凤</djr><djtcbm>1500457201</djtcbm><djtcmc>2015年天服三悦女已婚套餐</djtcmc><djxmbm>100018</djxmbm><djxmmc>血脂四项</djxmmc><xslb>003|非销售</xslb><sklb>001</sklb><jxbs>0</jxbs><klj>40.00</klj><zkl>0.4425</zkl><jsje>17.70</jsje><se></se><jshj>17.70</jshj><djjg>2|上海瑞慈门诊部</djjg><kpjg>2|上海瑞慈门诊部</kpjg><flag>0</flag></billHead><billEntries><entry></entry></billEntries></TempTable><TempTable><billHead><end>0</end><ywdjbh>001505203107</ywdjbh><bizdate>2015-05-24</bizdate><ldh>15004572</ldh><kh></kh><qydw>0001003|上海天服三悦服装有限公司</qydw><djdw>0001003|上海天服三悦服装有限公司</djdw><kpdw>0001003|上海天服三悦服装有限公司</kpdw><skdw>0001003|上海天服三悦服装有限公司</skdw><fph>0200044073</fph><xsy>020021|周瑾</xsy><tjlb>001|团检</tjlb><beizhu></beizhu><djr>江金凤</djr><djtcbm>1500457201</djtcbm><djtcmc>2015年天服三悦女已婚套餐</djtcmc><djxmbm>035001</djxmbm><djxmmc>胸片</djxmmc><xslb>003|非销售</xslb><sklb>001</sklb><jxbs>0</jxbs><klj>60.00</klj><zkl>0.4425</zkl><jsje>26.55</jsje><se></se><jshj>26.55</jshj><djjg>2|上海瑞慈门诊部</djjg><kpjg>2|上海瑞慈门诊部</kpjg><flag>0</flag></billHead><billEntries><entry></entry></billEntries></TempTable><TempTable><billHead><end>0</end><ywdjbh>001505203108</ywdjbh><bizdate>2015-05-24</bizdate><ldh>15004572</ldh><kh></kh><qydw>0001003|上海天服三悦服装有限公司</qydw><djdw>0001003|上海天服三悦服装有限公司</djdw><kpdw>0001003|上海天服三悦服装有限公司</kpdw><skdw>0001003|上海天服三悦服装有限公司</skdw><fph></fph><xsy>020021|周瑾</xsy><tjlb>001|团检</tjlb><beizhu></beizhu><djr>李钟奇</djr><djtcbm>1500457203</djtcbm><djtcmc>2015年天服三悦男性套餐</djtcmc><djxmbm>037001</djxmbm><djxmmc>静态心电图检查（ECG）</djxmmc><xslb>003|非销售</xslb><sklb>002</sklb><jxbs>0</jxbs><klj>30.00</klj><zkl>0.4894</zkl><jsje>14.68</jsje><se></se><jshj>14.68</jshj><djjg>2|上海瑞慈门诊部</djjg><kpjg>2|上海瑞慈门诊部</kpjg><flag>0</flag></billHead><billEntries><entry></entry></billEntries></TempTable><TempTable><billHead><end>0</end><ywdjbh>001505203109</ywdjbh><bizdate>2015-05-24</bizdate><ldh>15004572</ldh><kh></kh><qydw>0001003|上海天服三悦服装有限公司</qydw><djdw>0001003|上海天服三悦服装有限公司</djdw><kpdw>0001003|上海天服三悦服装有限公司</kpdw><skdw>0001003|上海天服三悦服装有限公司</skdw><fph></fph><xsy>020021|周瑾</xsy><tjlb>001|团检</tjlb><beizhu></beizhu><djr>黄平</djr><djtcbm>1500457203</djtcbm><djtcmc>2015年天服三悦男性套餐</djtcmc><djxmbm>011001</djxmbm><djxmmc>空腹血糖（GLU）</djxmmc><xslb>003|非销售</xslb><sklb>002</sklb><jxbs>0</jxbs><klj>10.00</klj><zkl>0.4894</zkl><jsje>4.89</jsje><se></se><jshj>4.89</jshj><djjg>2|上海瑞慈门诊部</djjg><kpjg>2|上海瑞慈门诊部</kpjg><flag>0</flag></billHead><billEntries><entry></entry></billEntries></TempTable><TempTable><billHead><end>0</end><ywdjbh>021505240005</ywdjbh><bizdate>2015-05-24</bizdate><ldh>15004572</ldh><kh></kh><qydw>0001003|上海天服三悦服装有限公司</qydw><djdw>0001003|上海天服三悦服装有限公司</djdw><kpdw>0001003|上海天服三悦服装有限公司</kpdw><skdw>0001003|上海天服三悦服装有限公司</skdw><fph>0200044075</fph><xsy>020021|周瑾</xsy><tjlb>001|团检</tjlb><beizhu></beizhu><djr>佟民凤</djr><djtcbm>1500457201</djtcbm><djtcmc>2015年天服三悦女已婚套餐</djtcmc><djxmbm>100008</djxmbm><djxmmc>眼科检查B</djxmmc><xslb>003|非销售</xslb><sklb>001</sklb><jxbs>0</jxbs><klj>15.00</klj><zkl>0.4425</zkl><jsje>6.64</jsje><se></se><jshj>6.64</jshj><djjg>2|上海瑞慈门诊部</djjg><kpjg>2|上海瑞慈门诊部</kpjg><flag>0</flag></billHead><billEntries><entry></entry></billEntries></TempTable><TempTable><billHead><end>0</end><ywdjbh>001505200151</ywdjbh><bizdate>2015-05-24</bizdate><ldh>15005998</ldh><kh></kh><qydw>0400427|上海招商银行（融信）</qydw><djdw>0400427|上海招商银行（融信）</djdw><kpdw>0400427|上海招商银行（融信）</kpdw><skdw>0400427|上海招商银行（融信）</skdw><fph></fph><xsy>020055|姚霞</xsy><tjlb>001|团检</tjlb><beizhu></beizhu><djr>马昉</djr><djtcbm>1500599804</djtcbm><djtcmc>2015年招行正式员工男基础+B1+B2</djtcmc><djxmbm>017013</djxmbm><djxmmc>血清γ-谷氨酰基转移酶（GGT）</djxmmc><xslb>003|非销售</xslb><sklb>002</sklb><jxbs>0</jxbs><klj>10.00</klj><zkl>0.5051</zkl><jsje>5.05</jsje><se></se><jshj>5.05</jshj><djjg>2|上海瑞慈门诊部</djjg><kpjg>2|上海瑞慈门诊部</kpjg><flag>0</flag></billHead><billEntries><entry></entry></billEntries></TempTable><TempTable><billHead><end>0</end><ywdjbh>001505201738</ywdjbh><bizdate>2015-05-24</bizdate><ldh>15005998</ldh><kh></kh><qydw>0400427|上海招商银行（融信）</qydw><djdw>0400427|上海招商银行（融信）</djdw><kpdw>0400427|上海招商银行（融信）</kpdw><skdw>0400427|上海招商银行（融信）</skdw><fph></fph><xsy>020055|姚霞</xsy><tjlb>001|团检</tjlb><beizhu></beizhu><djr>钟黎</djr><djtcbm>1500599816</djtcbm><djtcmc>2015年招行正式员工女已婚基础+A2+B1+B2</djtcmc><djxmbm>017006</djxmbm><djxmmc>血清天冬氨酸氨基转移酶（AST）</djxmmc><xslb>003|非销售</xslb><sklb>002</sklb><jxbs>0</jxbs><klj>10.00</klj><zkl>0.4924</zkl><jsje>4.92</jsje><se></se><jshj>4.92</jshj><djjg>2|上海瑞慈门诊部</djjg><kpjg>2|上海瑞慈门诊部</kpjg><flag>0</flag></billHead><billEntries><entry></entry></billEntries></TempTable><TempTable><billHead><end>0</end><ywdjbh>021505240001</ywdjbh><bizdate>2015-05-24</bizdate><ldh>15002936</ldh><kh></kh><qydw>0000153715|农业部东海区渔政局中国渔政东海总队</qydw><djdw>0000153715|农业部东海区渔政局中国渔政东海总队</djdw><kpdw>0000153715|农业部东海区渔政局中国渔政东海总队</kpdw><skdw>0000153715|农业部东海区渔政局中国渔政东海总队</skdw><fph></fph><xsy>030094|吕媛媛</xsy><tjlb>001|团检</tjlb><beizhu></beizhu><djr>陆强</djr><djtcbm>1500293601</djtcbm><djtcmc>2015年渔政东海总队男套餐</djtcmc><djxmbm>040005</djxmbm><djxmmc>甲状腺超声检查</djxmmc><xslb>003|非销售</xslb><sklb>002</sklb><jxbs>0</jxbs><klj>50.00</klj><zkl>0.9237</zkl><jsje>46.19</jsje><se></se><jshj>46.19</jshj><djjg>2|上海瑞慈门诊部</djjg><kpjg>2|上海瑞慈门诊部</kpjg><flag>0</flag></billHead><billEntries><entry></entry></billEntries></TempTable><TempTable><billHead><end>0</end><ywdjbh>021505240002</ywdjbh><bizdate>2015-05-24</bizdate><ldh>15002936</ldh><kh></kh><qydw>0000153715|农业部东海区渔政局中国渔政东海总队</qydw><djdw>0000153715|农业部东海区渔政局中国渔政东海总队</djdw><kpdw>0000153715|农业部东海区渔政局中国渔政东海总队</kpdw><skdw>0000153715|农业部东海区渔政局中国渔政东海总队</skdw><fph></fph><xsy>030094|吕媛媛</xsy><tjlb>001|团检</tjlb><beizhu></beizhu><djr>王祚龙</djr><djtcbm>1500293601</djtcbm><djtcmc>2015年渔政东海总队男套餐</djtcmc><djxmbm>100021</djxmbm><djxmmc>血粘度</djxmmc><xslb>003|非销售</xslb><sklb>002</sklb><jxbs>0</jxbs><klj>52.00</klj><zkl>0.9237</zkl><jsje>48.03</jsje><se></se><jshj>48.03</jshj><djjg>2|上海瑞慈门诊部</djjg><kpjg>2|上海瑞慈门诊部</kpjg><flag>0</flag></billHead><billEntries><entry></entry></billEntries></TempTable><TempTable><billHead><end>0</end><ywdjbh>021505240003</ywdjbh><bizdate>2015-05-24</bizdate><ldh>15002936</ldh><kh></kh><qydw>0000153715|农业部东海区渔政局中国渔政东海总队</qydw><djdw>0000153715|农业部东海区渔政局中国渔政东海总队</djdw><kpdw>0000153715|农业部东海区渔政局中国渔政东海总队</kpdw><skdw>0000153715|农业部东海区渔政局中国渔政东海总队</skdw><fph></fph><xsy>030094|吕媛媛</xsy><tjlb>001|团检</tjlb><beizhu></beizhu><djr>曲伟峰</djr><djtcbm>1500293601</djtcbm><djtcmc>2015年渔政东海总队男套餐</djtcmc><djxmbm>040003</djxmbm><djxmmc>双肾超声检查</djxmmc><xslb>003|非销售</xslb><sklb>002</sklb><jxbs>0</jxbs><klj>20.00</klj><zkl>0.9237</zkl><jsje>18.47</jsje><se></se><jshj>18.47</jshj><djjg>2|上海瑞慈门诊部</djjg><kpjg>2|上海瑞慈门诊部</kpjg><flag>0</flag></billHead><billEntries><entry></entry></billEntries></TempTable>";
-			sb.append(str3);
+			//sb.append(str3);
+			
+			//by shilei
+    		String newstr = "<TempTable>" +
+						"<billHead>"
+						+"<ywdjbh>0001</ywdjbh>"
+						+"<bizdate>2015-06-06</bizdate>"
+						+"<ldh>HT0002</ldh>"
+						+"<qydw>1.01.001|环球集团本部</qydw>"// K000000  0002500470//签约单位
+						+"<djdw>1.01.001|环球集团本部</djdw>"//到检单位
+						+"<kpdw>1.01.001|环球集团本部</kpdw>"//开票单位
+						+"<skdw>1.01.001|环球集团本部</skdw>"//付款单位
+						+"<zjjg>1.01.001|环球集团本部</zjjg>"//中介单位
+						+"<fph>1111</fph>"//发票号
+						+"<xsy>dlz|杜励智</xsy>"//    N000003  020034 //销售员
+						+"<tjlb>001|全身体检</tjlb>"//体检类别
+						+"<beizhu>111</beizhu>"// 备注
+						+"<djr>李四</djr>"//到检人
+						+"<djtcbm>TC0001</djtcbm>"//到检套餐编码
+						+"<djtcmc>A套餐</djtcmc>"//到检套餐名称
+						+"<djxmbm>XM0001</djxmbm>"//到检项目编码
+						+"<djxmmc>A项目</djxmmc>"//项目名称
+						+"<xslb>001|一次性销售</xslb>"//销售类别
+						+"<sklb>001|应收款</sklb>"//收款类别
+						+"<jxbs>0</jxbs>"//
+						+"<klj>1</klj>"//卡类别
+						+"<zkl>10</zkl>"//
+						+"<jsje>2000</jsje>"
+						+"<se>0</se>"
+						+"<jshj>2000</jshj>"
+						+"<djjg>010000|环球集团本部</djjg>"  // 01  NJP//到检机构
+						+"<kpjg>010000|环球集团本部</kpjg>"//开票机构
+						+"<kh>9999999</kh>"
+						+"<end>0</end>"
+						+"<flag>0</flag >"//是否修改数据//修改销售员、到检单位，则生成负数中间表，否则更新数据
+					+"</billHead>"
+					+"<billEntries>"
+					+"   <entry>"
+					+"   </entry>"
+					+"</billEntries>"
+				+"</TempTable>";
+    		sb.append(newstr);
 		}
     	
     	String str = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
@@ -153,7 +194,7 @@ public class RichExamTempTabListUI extends AbstractRichExamTempTabListUI
     {
 //        super.actionPrint_actionPerformed(e);
     	String[] str = new String[3];
-    	str = EASRichFacadeFactory.getRemoteInstance().saveExamBill(Utils.parseCustomDateString("2015-05-29", "yyyy-MM-dd"), "");
+    	str = EASRichFacadeFactory.getRemoteInstance().saveExamBill(Utils.parseCustomDateString("2015-06-06", "yyyy-MM-dd"), "");
     	MsgBox.showInfo(str[0]+str[1]+str[2]);
     }
 
