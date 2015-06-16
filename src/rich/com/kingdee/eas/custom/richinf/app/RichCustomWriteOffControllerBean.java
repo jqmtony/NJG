@@ -11,22 +11,15 @@ import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.rule.RuleExecutor;
 import com.kingdee.bos.metadata.MetaDataPK;
 //import com.kingdee.bos.metadata.entity.EntityViewInfo;
-import com.kingdee.bos.framework.ejb.AbstractEntityControllerBean;
-import com.kingdee.bos.framework.ejb.AbstractBizControllerBean;
 //import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.IObjectCollection;
-import com.kingdee.bos.service.ServiceContext;
-import com.kingdee.bos.service.IServiceContext;
 
 import java.lang.String;
 import java.math.BigDecimal;
 
-import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.eas.common.EASBizException;
-import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.eas.custom.richinf.IRichExamed;
-import com.kingdee.eas.custom.richinf.RichCompayWriteOffInfo;
 import com.kingdee.eas.custom.richinf.RichCustomWriteOffInfo;
 import com.kingdee.eas.custom.richinf.RichExamedCollection;
 import com.kingdee.eas.custom.richinf.RichExamedFactory;
@@ -36,13 +29,6 @@ import com.kingdee.eas.fi.ar.IOtherBill;
 import com.kingdee.eas.fi.ar.OtherBillCollection;
 import com.kingdee.eas.fi.ar.OtherBillFactory;
 import com.kingdee.eas.fi.ar.OtherBillInfo;
-import com.kingdee.eas.framework.CoreBaseCollection;
-import com.kingdee.eas.framework.SystemEnum;
-import com.kingdee.eas.framework.CoreBillBaseCollection;
-import com.kingdee.eas.framework.CoreBaseInfo;
-import com.kingdee.eas.custom.richinf.RichCustomWriteOffCollection;
-import com.kingdee.eas.framework.app.CoreBillBaseControllerBean;
-import com.kingdee.eas.framework.ObjectBaseCollection;
 import com.kingdee.eas.util.app.DbUtil;
 import com.kingdee.jdbc.rowset.IRowSet;
 
@@ -204,7 +190,7 @@ public class RichCustomWriteOffControllerBean extends AbstractRichCustomWriteOff
 						} catch (SQLException e1) {
 							e1.printStackTrace();
 						}
-    					Object[] ps = new Object[]{fpAmount.add(yhxDJ),whxamount.add(dj_benci),djid,richCompayid};
+    					Object[] ps = new Object[]{whxamount.add(yhxDJ),whxamount.add(dj_benci),djid,richCompayid};
     					DbUtil.execute(ctx,"update CT_RIC_RichCWODE set CFDj_yhx=?,cfbencihx=? where CFDjNoID=? and FParentID=?",ps);
     					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_RichCWOFE where CFFpNoID=? and FParentID=?",new Object[]{fpid,richCompayid});
     					try {
@@ -220,7 +206,7 @@ public class RichCustomWriteOffControllerBean extends AbstractRichCustomWriteOff
     					DbUtil.execute(ctx,"update CT_RIC_RichCWOFE set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					
     					//反写发票单据和到检单单据的已核销金额
-    					rhInfo.setYhxAmount(fpAmount.add(yhxDJ));
+    					rhInfo.setYhxAmount(whxamount.add(yhxDJ));
     					obInfo.setBigDecimal("yhxAmount",fpAmount);
     					try {
 							ire.updatePartial(rhInfo,sic);
@@ -301,6 +287,7 @@ public class RichCustomWriteOffControllerBean extends AbstractRichCustomWriteOff
 					}
 					if(fp_benci.compareTo(dj_benci) >= 0){
 						//反写分录发票和分录到检单的已核销金额
+						
     					Object[] ps = new Object[]{yhxDJ.subtract(dj_benci),zero,djid,richCompay};
     					DbUtil.execute(ctx,"update CT_RIC_RichCWODE set CFDj_yhx=?,cfbencihx=? where CFDjNoID=? and FParentID=?",ps);
     					yhxAmount = yhxAmount.subtract(dj_benci);

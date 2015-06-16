@@ -5,12 +5,17 @@ package com.kingdee.eas.custom.richinf.client;
 
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import com.google.gson.JsonObject;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.dao.IObjectCollection;
+import com.kingdee.bos.json.JSONException;
+import com.kingdee.bos.json.JSONObject;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.custom.richinf.RichExamedCollection;
 import com.kingdee.eas.custom.richinf.RichExamedInfo;
@@ -453,7 +458,7 @@ public class RichExamedListUI extends AbstractRichExamedListUI
     		for (int j = selectBlock.getBeginRow(); j <=selectBlock.getEndRow(); j++) {
     			BigDecimal yhx = (BigDecimal)tblMain.getCell(j,"yhxAmount").getValue();
     			if(yhx != null){
-    				BigDecimal total = new BigDecimal((String)tblMain.getCell(j,"amount").getValue());
+    				BigDecimal total = (BigDecimal)tblMain.getCell(j,"amount").getValue();
     				if(yhx.compareTo(total) == 0){
     					MsgBox.showInfo("第"+(j+1)+"行到检单已全部核销，不能进行开票申请！请重新选择！");
     		    		SysUtil.abort();

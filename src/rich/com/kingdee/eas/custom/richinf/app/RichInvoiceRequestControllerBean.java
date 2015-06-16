@@ -53,7 +53,13 @@ public class RichInvoiceRequestControllerBean extends AbstractRichInvoiceRequest
     @Override
     protected void _unAudit(Context ctx, IObjectValue model) throws BOSException {
     	//
-    	//RichInvoiceRequestInfo rrinfo = (RichInvoiceRequestInfo)model;
+    	RichInvoiceRequestInfo rrinfo = (RichInvoiceRequestInfo)model;
+    	rrinfo.setBillState(BillState.SUBMIT);
+    	try {
+			_update(ctx,new ObjectUuidPK(rrinfo.getId()),model);
+		} catch (EASBizException e) {
+			e.printStackTrace();
+		}
     }
    
     @Override

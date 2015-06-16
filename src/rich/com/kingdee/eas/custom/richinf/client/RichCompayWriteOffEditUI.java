@@ -92,7 +92,6 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
 //    			checkOutFP(customerids);
     			checkOutFPByOql(customerids);
     		}
-    		
     	}
 	}
 
@@ -116,9 +115,35 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
     		prmtsales.setEntityViewInfo(evi1);
     		
     	}
-    	
+    	if(getOprtState().equals(OprtState.EDIT) ){
+    		stateEnable();
+    	}
     }
 	
+	@Override
+	public void actionEdit_actionPerformed(ActionEvent e) throws Exception {
+		super.actionEdit_actionPerformed(e);
+		stateEnable();
+	}
+	
+	@Override
+	public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {
+		super.actionAddNew_actionPerformed(e);
+		prmtsales.setEnabled(true);
+		prmtkpCustomer.setEnabled(true);
+	}
+	
+	@Override
+	public void onShow() throws Exception {
+		super.onShow();
+	}
+	
+	void stateEnable(){
+		prmtsales.setEnabled(false);
+		prmtkpCustomer.setEnabled(false);
+		kdtFpEntry_detailPanel.getRemoveLinesButton().setEnabled(false);
+		kdtDjEntry_detailPanel.getRemoveLinesButton().setEnabled(false);
+	}
 	
     CompanyOrgUnitInfo couInfo = SysContext.getSysContext().getCurrentFIUnit();
     
@@ -218,7 +243,7 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
     private Set<String> checkOutRichExamedByOql(Object obj) {
     	StringBuffer sb = new StringBuffer();
     	sb.append("select id,name,number,ldNumber,amount,yhxamount,kpUnit.id,kpUnit.name,kpUnit.number,djCompany.id,djCompany.name,djCompany.number");
-    	sb.append(" where kpUnit.IsInternalCompany=1 and ");
+    	sb.append(" where amount>0 and kpUnit.IsInternalCompany=1 and ");
     	if(obj == null) {
     		sb.append("sales.id='");
     		sb.append(((PersonInfo)prmtsales.getValue()).getId().toString());
@@ -254,17 +279,25 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
 			IRow row = null;
 			RichExamedInfo info = null;
 			CustomerInfo customer = null;
+			BigDecimal amount = null;
+			BigDecimal yhxamount = null;
 			for(int i=reColl.size()-1; i>=0; i--){
+				//去掉已全部核销的记录
 				info = reColl.get(i);
-				row = kdtDjEntry.addRow();
-				customer = info.getKpUnit();
-				row.getCell("kpUnit").setValue(customer);
-				row.getCell("djjg").setValue(info.getDjCompany());
-				row.getCell("djNo").setValue(info);
-				row.getCell("ldNo").setValue(info.getLdNumber());
-				row.getCell("jsAmount").setValue(info.getAmount());
-				row.getCell("dj_yhx").setValue(info.getYhxAmount());
-				customerids.add(customer.getId().toString());
+				yhxamount = info.getYhxAmount();
+				amount = info.getAmount();
+				if(yhxamount == null || amount.compareTo(yhxamount) > 0) {
+					row = kdtDjEntry.addRow();
+					customer = info.getKpUnit();
+					row.getCell("kpUnit").setValue(customer);
+					row.getCell("djjg").setValue(info.getDjCompany());
+					row.getCell("djNo").setValue(info);
+					row.getCell("ldNo").setValue(info.getLdNumber());
+					row.getCell("jsAmount").setValue(amount);
+					row.getCell("dj_yhx").setValue(yhxamount);
+					customerids.add(customer.getId().toString());
+				}
+				
 			}
 			
 		} catch (BOSException e) {
@@ -278,7 +311,7 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
 		if(customerids.size() > 0){
 			StringBuffer sb = new StringBuffer();
 	    	sb.append("select id,name,number,ldNo,TotalAmount,yhxamount,asstactid,asstactname,asstactnumber,Company.id,Company.name,Company.number");
-	    	sb.append(" where asstactid in (");
+	    	sb.append(" where TotalAmount>0 and billstatus=3 and asstactid in (");
 	    	Object[] it = customerids.toArray();
 	    	for(int i=it.length-1; i>=0; i--){
 	    		sb.append("'");
@@ -302,18 +335,24 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
 				IRow irow = null;
 				OtherBillInfo obinfo = null;
 				CustomerInfo customer = null;
+				BigDecimal amount = null;
+				BigDecimal yhxamount = null;
 				for(int i=obColl.size()-1; i>=0; i--){
-					irow = kdtFpEntry.addRow();
 					obinfo = obColl.get(i);
-					customer = new CustomerInfo();
-					customer.setId(BOSUuid.read(obinfo.getAsstActID()));
-					customer.setName(obinfo.getAsstActName());
-					customer.setNumber(obinfo.getAsstActNumber());
-					irow.getCell("fpNo").setValue(obinfo);
-					irow.getCell("kpUnit").setValue(customer);
-					irow.getCell("kpCompany").setValue(obinfo.getCompany());
-					irow.getCell("fpAmount").setValue(obinfo.getTotalAmount());
-					irow.getCell("yhxAmount").setValue(obinfo.get("yhxAmount"));
+					amount = obinfo.getTotalAmount();
+					yhxamount = obinfo.getBigDecimal("yhxAmount");
+					if(yhxamount == null || amount.compareTo(yhxamount) > 0) {
+						irow = kdtFpEntry.addRow();
+						customer = new CustomerInfo();
+						customer.setId(BOSUuid.read(obinfo.getAsstActID()));
+						customer.setName(obinfo.getAsstActName());
+						customer.setNumber(obinfo.getAsstActNumber());
+						irow.getCell("fpNo").setValue(obinfo);
+						irow.getCell("kpUnit").setValue(customer);
+						irow.getCell("kpCompany").setValue(obinfo.getCompany());
+						irow.getCell("fpAmount").setValue(amount);
+						irow.getCell("yhxAmount").setValue(yhxamount);
+					}
 				}
 			} catch (BOSException e) {
 				handUIException(e);
@@ -410,6 +449,8 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
     	kdtFpEntry.getColumn("fpAmount").getStyleAttributes().setLocked(true);
     	kdtFpEntry.getColumn("bencihx").getStyleAttributes().setLocked(true);
     	
+    	actionSubmit.setVisible(false);
+    	actionCopy.setVisible(false);
 	}
 
     IRichCompayWriteOff ir = (IRichCompayWriteOff)getBizInterface();
@@ -441,7 +482,7 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
     		rowIndex = it.next();
     		amount = new BigDecimal((String)kdtDjEntry.getCell(rowIndex,"jsAmount").getValue());
     		yhx = (BigDecimal)kdtDjEntry.getCell(rowIndex,"dj_yhx").getValue();
-    		if(amount!=null && yhx!=null && amount.compareTo(yhx)==0){
+    		if(yhx!=null && amount.compareTo(yhx)==0){
     			MsgBox.showInfo("第"+(rowIndex+1)+"行到检单已全部核销，请重新选择！");
     			SysUtil.abort();
     		}
@@ -519,7 +560,7 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
 //    		yhx = (BigDecimal)kdtDjEntry.getCell(rowIndex,"dj_yhx").getValue();
     		yhx = (BigDecimal)kdtDjEntry.getCell(rowIndex,"bencihx").getValue();
     		if(yhx==null || yhx.compareTo(BigDecimal.ZERO)==0){
-    			MsgBox.showInfo("第"+(rowIndex+1)+"行到检单未进行核销，请重新选择！");
+    			MsgBox.showInfo("第"+(rowIndex+1)+"行到检单本次未进行核销操作，请重新选择！");
     			SysUtil.abort();
     		}
     		customer = ((CustomerInfo)kdtDjEntry.getCell(rowIndex,"kpUnit").getValue()).getId().toString();
@@ -545,7 +586,7 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
 //    		yhx = (BigDecimal)kdtFpEntry.getCell(rowIndex,"yhxAmount").getValue();
     		yhx = (BigDecimal)kdtFpEntry.getCell(rowIndex,"bencihx").getValue();
     		if(yhx==null || yhx.compareTo(BigDecimal.ZERO)==0){
-    			MsgBox.showInfo("第"+(rowIndex+1)+"行发票未进行核销，请重新选择！");
+    			MsgBox.showInfo("第"+(rowIndex+1)+"行发票本次未进行核销操作，请重新选择！");
     			SysUtil.abort();
     		}
     		customer = ((CustomerInfo)kdtFpEntry.getCell(rowIndex,"kpUnit").getValue()).getId().toString();
@@ -640,6 +681,12 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
     	}
 	}
    
+   @Override
+	public void actionSave_actionPerformed(ActionEvent e) throws Exception {
+		super.actionSave_actionPerformed(e);
+		stateEnable();
+	}
+   
    private void checkSaveState(){
 	   if(getOprtState().equals(OprtState.VIEW)){
 	   		SysUtil.abort();
@@ -650,6 +697,7 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
 			   actionSave.setDaemonRun(false);
                ActionEvent event = new ActionEvent(btnSave, 1001, btnSave.getActionCommand());
                actionSave.actionPerformed(event);
+               stateEnable();
                if(actionSave.isInvokeFailed())
                    SysUtil.abort();
 		   }
@@ -661,15 +709,12 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
    
    private void flashTable(){
 	   try {
-//		super.onLoad();
 		loadData();
-//		loadFields();
-//		onShow();
+		kdtFpEntry_detailPanel.getRemoveLinesButton().setEnabled(false);
+		kdtDjEntry_detailPanel.getRemoveLinesButton().setEnabled(false);
 	} catch (Exception e) {
 		handUIException(e);
 	}
-	   
-	   
    }
     
     /**

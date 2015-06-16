@@ -61,6 +61,8 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
     protected com.kingdee.bos.ctrl.swing.KDWorkButton butnInvoiteCreatToBill;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnCompanyOff;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnCustomerOff;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnSyncustomer;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewLog;
     protected EntityViewInfo queryF7RichInvoiceRequestQuery = null;
     protected IMetaDataPK queryF7RichInvoiceRequestQueryPK;
     protected EntityViewInfo queryF7RichCompayWriteOffQuery = null;
@@ -73,6 +75,8 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
     protected actionInvoiteCreatToBill actionInvoiteCreatToBill = null;
     protected actionCompnyOff actionCompnyOff = null;
     protected actionCustomerOff actionCustomerOff = null;
+    protected actionSyncustomer actionSyncustomer = null;
+    protected actionViewLog actionViewLog = null;
     public final static String STATUS_VIEW = "VIEW";
     /**
      * output class constructor
@@ -137,6 +141,14 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
         this.actionCustomerOff = new actionCustomerOff(this);
         getActionManager().registerAction("actionCustomerOff", actionCustomerOff);
          this.actionCustomerOff.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionSyncustomer
+        this.actionSyncustomer = new actionSyncustomer(this);
+        getActionManager().registerAction("actionSyncustomer", actionSyncustomer);
+         this.actionSyncustomer.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionViewLog
+        this.actionViewLog = new actionViewLog(this);
+        getActionManager().registerAction("actionViewLog", actionViewLog);
+         this.actionViewLog.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.kDSplitPane1 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
         this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
@@ -152,6 +164,8 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
         this.butnInvoiteCreatToBill = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnCompanyOff = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnCustomerOff = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnSyncustomer = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnViewLog = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.kDSplitPane1.setName("kDSplitPane1");
         this.kDContainer1.setName("kDContainer1");
         this.kDTabbedPane1.setName("kDTabbedPane1");
@@ -167,21 +181,16 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
         this.butnInvoiteCreatToBill.setName("butnInvoiteCreatToBill");
         this.btnCompanyOff.setName("btnCompanyOff");
         this.btnCustomerOff.setName("btnCustomerOff");
+        this.btnSyncustomer.setName("btnSyncustomer");
+        this.btnViewLog.setName("btnViewLog");
         // CoreUI
-		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"ywNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"djDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"yhxAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"dj\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"hc\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"zjjg.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"ldNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"qyUnit.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"djUnit.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"kpUnit.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"fkUnit.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"fpNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"sales.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"tjType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"kpCompany.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"djCompany.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{ywNumber}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{djDate}</t:Cell><t:Cell>$Resource{yhxAmount}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{dj}</t:Cell><t:Cell>$Resource{hc}</t:Cell><t:Cell>$Resource{zjjg.name}</t:Cell><t:Cell>$Resource{ldNumber}</t:Cell><t:Cell>$Resource{qyUnit.name}</t:Cell><t:Cell>$Resource{djUnit.name}</t:Cell><t:Cell>$Resource{kpUnit.name}</t:Cell><t:Cell>$Resource{fkUnit.name}</t:Cell><t:Cell>$Resource{fpNumber}</t:Cell><t:Cell>$Resource{sales.name}</t:Cell><t:Cell>$Resource{tjType.name}</t:Cell><t:Cell>$Resource{kpCompany.name}</t:Cell><t:Cell>$Resource{djCompany.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol17\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" t:styleID=\"sCol0\" /><t:Column t:key=\"ywNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" /><t:Column t:key=\"ldNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"sales.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"yhxAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"dj\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"hc\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"kpUnit.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" /><t:Column t:key=\"kpCompany.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"djCompany.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /><t:Column t:key=\"zjjg.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"qyUnit.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" /><t:Column t:key=\"djUnit.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" /><t:Column t:key=\"fkUnit.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" /><t:Column t:key=\"fpNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" /><t:Column t:key=\"tjType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" t:styleID=\"sCol17\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"18\" /><t:Column t:key=\"djDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"19\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{ywNumber}</t:Cell><t:Cell>$Resource{ldNumber}</t:Cell><t:Cell>$Resource{sales.name}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{yhxAmount}</t:Cell><t:Cell>$Resource{dj}</t:Cell><t:Cell>$Resource{hc}</t:Cell><t:Cell>$Resource{kpUnit.name}</t:Cell><t:Cell>$Resource{kpCompany.name}</t:Cell><t:Cell>$Resource{djCompany.name}</t:Cell><t:Cell>$Resource{zjjg.name}</t:Cell><t:Cell>$Resource{qyUnit.name}</t:Cell><t:Cell>$Resource{djUnit.name}</t:Cell><t:Cell>$Resource{fkUnit.name}</t:Cell><t:Cell>$Resource{fpNumber}</t:Cell><t:Cell>$Resource{tjType.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{djDate}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
-                this.tblMain.putBindContents("mainQuery",new String[] {"id","ywNumber","bizDate","djDate","yhxAmount","amount","dj","hc","zjjg.name","ldNumber","qyUnit.name","djUnit.name","kpUnit.name","fkUnit.name","fpNumber","sales.name","tjType.name","kpCompany.name","djCompany.name","createTime"});
+                this.tblMain.putBindContents("mainQuery",new String[] {"id","","ldNumber","sales.name","amount","yhxAmount","dj","hc","kpUnit.name","kpCompany.name","djCompany.name","zjjg.name","qyUnit.name","djUnit.name","fkUnit.name","fpNumber","tjType.name","createTime","bizDate","djDate"});
 
 		
-        this.separatorFW2.setVisible(true);		
-        this.btnCreateTo.setText(resHelper.getString("btnCreateTo.text"));		
-        this.btnAuditResult.setVisible(false);		
-        this.menuItemCopyTo.setVisible(false);		
-        this.kDSeparator4.setVisible(false);		
-        this.kDSeparator6.setVisible(false);		
-        this.menuItemViewDoProccess.setVisible(false);		
-        this.menuItemAuditResult.setVisible(false);
+        this.separatorFW2.setVisible(true);
         // kDSplitPane1		
         this.kDSplitPane1.setOrientation(0);		
         this.kDSplitPane1.setDividerLocation(280);
@@ -194,7 +203,7 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
         // kDPanel3
         // tbl
         // tblInvoiceRequest
-		String tblInvoiceRequestStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"ldNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"kpUnit.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"sales.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizState\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"kpCompany.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"reqSumAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"invoicedAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"djAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"djkp\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"billState\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Fivouchered\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{ldNumber}</t:Cell><t:Cell>$Resource{kpUnit.name}</t:Cell><t:Cell>$Resource{sales.name}</t:Cell><t:Cell>$Resource{bizState}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell><t:Cell>$Resource{kpCompany.name}</t:Cell><t:Cell>$Resource{auditDate}</t:Cell><t:Cell>$Resource{reqSumAmount}</t:Cell><t:Cell>$Resource{invoicedAmount}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{djAmount}</t:Cell><t:Cell>$Resource{djkp}</t:Cell><t:Cell>$Resource{billState}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{Fivouchered}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String tblInvoiceRequestStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol14\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol15\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol16\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol17\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol18\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"ldNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"kpUnit.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"sales.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"kpCompany.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"reqSumAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" /><t:Column t:key=\"invoicedAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"djAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /><t:Column t:key=\"djkp\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"billState\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" /><t:Column t:key=\"auditDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" t:styleID=\"sCol14\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" t:styleID=\"sCol15\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" t:styleID=\"sCol16\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" t:styleID=\"sCol17\" /><t:Column t:key=\"Fivouchered\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"18\" t:styleID=\"sCol18\" /><t:Column t:key=\"bizState\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"19\" /><t:Column t:key=\"beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"20\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{ldNumber}</t:Cell><t:Cell>$Resource{kpUnit.name}</t:Cell><t:Cell>$Resource{sales.name}</t:Cell><t:Cell>$Resource{kpCompany.name}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{reqSumAmount}</t:Cell><t:Cell>$Resource{invoicedAmount}</t:Cell><t:Cell>$Resource{djAmount}</t:Cell><t:Cell>$Resource{djkp}</t:Cell><t:Cell>$Resource{billState}</t:Cell><t:Cell>$Resource{auditDate}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{Fivouchered}</t:Cell><t:Cell>$Resource{bizState}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblInvoiceRequest.setFormatXml(resHelper.translateString("tblInvoiceRequest",tblInvoiceRequestStrXML));
         this.tblInvoiceRequest.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
@@ -207,7 +216,7 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
                 }
             }
         });
-                this.tblInvoiceRequest.putBindContents("queryF7RichInvoiceRequestQuery",new String[] {"id","number","bizDate","ldNumber","kpUnit.name","sales.name","bizState","beizhu","kpCompany.name","auditDate","reqSumAmount","invoicedAmount","amount","djAmount","djkp","billState","createTime","lastUpdateTime","creator.name","lastUpdateUser.name","Fivouchered"});
+                this.tblInvoiceRequest.putBindContents("queryF7RichInvoiceRequestQuery",new String[] {"id","number","bizDate","ldNumber","kpUnit.name","sales.name","kpCompany.name","amount","reqSumAmount","invoicedAmount","djAmount","djkp","billState","auditDate","createTime","lastUpdateTime","creator.name","lastUpdateUser.name","Fivouchered","bizState","beizhu"});
 
         this.tblInvoiceRequest.addRequestRowSetListener(new RequestRowSetListener() {
             public void doRequestRowSet(RequestRowSetEvent e) {
@@ -233,7 +242,7 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
         
 
         // tblCompanyoff
-		String tblCompanyoffStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"sales.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"kpCustomer.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Fivouchered\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{sales.name}</t:Cell><t:Cell>$Resource{kpCustomer.name}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{Fivouchered}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String tblCompanyoffStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol7\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol9\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"sales.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"kpCustomer.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"Fivouchered\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{sales.name}</t:Cell><t:Cell>$Resource{kpCustomer.name}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{Fivouchered}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblCompanyoff.setFormatXml(resHelper.translateString("tblCompanyoff",tblCompanyoffStrXML));
         this.tblCompanyoff.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
@@ -246,7 +255,7 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
                 }
             }
         });
-                this.tblCompanyoff.putBindContents("queryF7RichCompayWriteOffQuery",new String[] {"id","number","sales.name","kpCustomer.name","bizDate","createTime","creator.name","lastUpdateTime","lastUpdateUser.name","Fivouchered"});
+                this.tblCompanyoff.putBindContents("queryF7RichCompayWriteOffQuery",new String[] {"id","number","bizDate","sales.name","kpCustomer.name","creator.name","createTime","lastUpdateTime","lastUpdateUser.name","Fivouchered"});
 
         this.tblCompanyoff.addRequestRowSetListener(new RequestRowSetListener() {
             public void doRequestRowSet(RequestRowSetEvent e) {
@@ -255,7 +264,7 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
         });
 
         // tblCustomerOff
-		String tblCustomerOffStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"sales.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"kpCustomer.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Fivouchered\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{sales.name}</t:Cell><t:Cell>$Resource{kpCustomer.name}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{Fivouchered}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String tblCustomerOffStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol7\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol9\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"sales.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"kpCustomer.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"Fivouchered\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{sales.name}</t:Cell><t:Cell>$Resource{kpCustomer.name}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{Fivouchered}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblCustomerOff.setFormatXml(resHelper.translateString("tblCustomerOff",tblCustomerOffStrXML));
         this.tblCustomerOff.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
@@ -268,7 +277,7 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
                 }
             }
         });
-                this.tblCustomerOff.putBindContents("queryF7RichCustomWriteOffQuery",new String[] {"id","number","sales.name","kpCustomer.name","bizDate","createTime","creator.name","lastUpdateTime","lastUpdateUser.name","Fivouchered"});
+                this.tblCustomerOff.putBindContents("queryF7RichCustomWriteOffQuery",new String[] {"id","number","bizDate","sales.name","kpCustomer.name","creator.name","createTime","lastUpdateTime","lastUpdateUser.name","Fivouchered"});
 
         this.tblCustomerOff.addRequestRowSetListener(new RequestRowSetListener() {
             public void doRequestRowSet(RequestRowSetEvent e) {
@@ -292,6 +301,12 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
         this.btnCustomerOff.setAction((IItemAction)ActionProxyFactory.getProxy(actionCustomerOff, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnCustomerOff.setText(resHelper.getString("btnCustomerOff.text"));		
         this.btnCustomerOff.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_adduction"));
+        // btnSyncustomer
+        this.btnSyncustomer.setAction((IItemAction)ActionProxyFactory.getProxy(actionSyncustomer, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnSyncustomer.setText(resHelper.getString("btnSyncustomer.text"));
+        // btnViewLog
+        this.btnViewLog.setAction((IItemAction)ActionProxyFactory.getProxy(actionViewLog, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnViewLog.setText(resHelper.getString("btnViewLog.text"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -454,20 +469,20 @@ tbl.setLayout(new BorderLayout(0, 0));        tbl.add(tblCustomerOff, BorderLayo
         this.toolBar.add(separatorFW1);
         this.toolBar.add(btnAddNewInvoite);
         this.toolBar.add(butnInvoiteCreatToBill);
+        this.toolBar.add(btnCreateTo);
         this.toolBar.add(btnCompanyOff);
+        this.toolBar.add(btnCopyTo);
         this.toolBar.add(btnCustomerOff);
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnPrint);
-        this.toolBar.add(btnPrintPreview);
-        this.toolBar.add(separatorFW2);
-        this.toolBar.add(btnCreateTo);
-        this.toolBar.add(btnCopyTo);
-        this.toolBar.add(btnQueryScheme);
         this.toolBar.add(separatorFW3);
+        this.toolBar.add(btnPrintPreview);
         this.toolBar.add(btnTraceUp);
+        this.toolBar.add(separatorFW2);
         this.toolBar.add(btnTraceDown);
         this.toolBar.add(btnWorkFlowG);
         this.toolBar.add(btnWorkFlowList);
+        this.toolBar.add(btnQueryScheme);
         this.toolBar.add(btnSignature);
         this.toolBar.add(btnViewSignature);
         this.toolBar.add(separatorFW4);
@@ -477,9 +492,11 @@ tbl.setLayout(new BorderLayout(0, 0));        tbl.add(tblCustomerOff, BorderLayo
         this.toolBar.add(btnMultiapprove);
         this.toolBar.add(btnNextPerson);
         this.toolBar.add(btnAuditResult);
+        this.toolBar.add(btnWFViewdoProccess);
         this.toolBar.add(btnCancel);
         this.toolBar.add(btnCancelCancel);
-        this.toolBar.add(btnWFViewdoProccess);
+        this.toolBar.add(btnSyncustomer);
+        this.toolBar.add(btnViewLog);
 
 
     }
@@ -571,6 +588,14 @@ tbl.setLayout(new BorderLayout(0, 0));        tbl.add(tblCustomerOff, BorderLayo
     public void setOprtState(String oprtType)
     {
         super.setOprtState(oprtType);
+    }
+
+    /**
+     * output tblMain_tableSelectChanged method
+     */
+    protected void tblMain_tableSelectChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent e) throws Exception
+    {
+        //write your code here1
     }
 
     /**
@@ -683,7 +708,6 @@ tbl.setLayout(new BorderLayout(0, 0));        tbl.add(tblCustomerOff, BorderLayo
 			selectorAll = "true";
 		}
         sic.add(new SelectorItemInfo("id"));
-        sic.add(new SelectorItemInfo("ywNumber"));
         sic.add(new SelectorItemInfo("bizDate"));
         sic.add(new SelectorItemInfo("djDate"));
         sic.add(new SelectorItemInfo("yhxAmount"));
@@ -715,6 +739,20 @@ tbl.setLayout(new BorderLayout(0, 0));        tbl.add(tblCustomerOff, BorderLayo
     }
     	
 
+    /**
+     * output actionTDPrint_actionPerformed method
+     */
+    public void actionTDPrint_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
+    	
+
+    /**
+     * output actionTDPrintPreview_actionPerformed method
+     */
+    public void actionTDPrintPreview_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
     	
 
     /**
@@ -745,6 +783,22 @@ tbl.setLayout(new BorderLayout(0, 0));        tbl.add(tblCustomerOff, BorderLayo
      * output actionCustomerOff_actionPerformed method
      */
     public void actionCustomerOff_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
+    	
+
+    /**
+     * output actionSyncustomer_actionPerformed method
+     */
+    public void actionSyncustomer_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
+    	
+
+    /**
+     * output actionViewLog_actionPerformed method
+     */
+    public void actionViewLog_actionPerformed(ActionEvent e) throws Exception
     {
     }
 	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
@@ -822,6 +876,28 @@ tbl.setLayout(new BorderLayout(0, 0));        tbl.add(tblCustomerOff, BorderLayo
     }
 	
 	public boolean isPrepareactionCustomerOff() {
+    	return false;
+    }
+	public RequestContext prepareactionSyncustomer(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionSyncustomer() {
+    	return false;
+    }
+	public RequestContext prepareactionViewLog(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionViewLog() {
     	return false;
     }
 
@@ -1006,6 +1082,68 @@ tbl.setLayout(new BorderLayout(0, 0));        tbl.add(tblCustomerOff, BorderLayo
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractRichExamedManagerUI.this, "actionCustomerOff", "actionCustomerOff_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionSyncustomer class
+     */     
+    protected class actionSyncustomer extends ItemAction {     
+    
+        public actionSyncustomer()
+        {
+            this(null);
+        }
+
+        public actionSyncustomer(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionSyncustomer.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionSyncustomer.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionSyncustomer.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractRichExamedManagerUI.this, "actionSyncustomer", "actionSyncustomer_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionViewLog class
+     */     
+    protected class actionViewLog extends ItemAction {     
+    
+        public actionViewLog()
+        {
+            this(null);
+        }
+
+        public actionViewLog(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionViewLog.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionViewLog.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionViewLog.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractRichExamedManagerUI.this, "actionViewLog", "actionViewLog_actionPerformed", e);
         }
     }
 

@@ -3,20 +3,28 @@
  */
 package com.kingdee.eas.custom.richinf.client;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
+import java.math.BigDecimal;
 import java.sql.ResultSetMetaData;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDataRequestManager;
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTDataFillListener;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTDataRequestEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
+import com.kingdee.bos.ctrl.kdf.util.style.StyleAttributes;
 import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.bos.dao.query.QueryExecutorFactory;
+import com.kingdee.bos.json.JSONObject;
 import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.MetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -28,10 +36,25 @@ import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.eas.basedata.master.cssp.CustomerCollection;
+import com.kingdee.eas.basedata.master.cssp.CustomerFactory;
+import com.kingdee.eas.basedata.master.cssp.CustomerInfo;
+import com.kingdee.eas.basedata.person.PersonInfo;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.custom.richbase.CustomerSyncLogFactory;
+import com.kingdee.eas.custom.richbase.CustomerSyncLogInfo;
+import com.kingdee.eas.custom.richbase.ICustomerSyncLog;
+import com.kingdee.eas.custom.richtimer.client.ReserveServiceLocator;
+import com.kingdee.eas.custom.richtimer.client.ReserveServicePortType;
 import com.kingdee.eas.fi.ar.client.OtherBillEditUI;
+import com.kingdee.eas.fm.common.FMIsqlFacadeFactory;
+import com.kingdee.eas.fm.common.IFMIsqlFacade;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
@@ -49,7 +72,25 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
     
     private String CustomerOffQuery = "com.kingdee.eas.custom.richinf.query.F7RichCustomWriteOffQuery";
     
+    private final String sq_sql = "select FDestObjectID from T_BOT_Relation where FSrcObjectID=?";
     
+    private final String fp_sql = "select FDestObjectID from T_BOT_Relation where FSrcObjectID in (select FDestObjectID from T_BOT_Relation where FSrcObjectID=?)";
+    
+    private final String nb_sql = "select fparentid from CT_RIC_CompayWriteDj where CFDjNoID=?";
+    
+    private final String kh_sql = "select fparentid from CT_RIC_RichCWODE where CFDjNoID=?";
+    
+    private final Color blue = Color.BLUE;
+    
+    private final Color yellow = Color.YELLOW;
+    
+    private final Color green = Color.GREEN;
+    
+    private final Color red = Color.RED;
+    
+    public String getEntriesName() {
+    	return super.getEntriesName();
+    }
     /**
      * output class constructor
      */
@@ -74,8 +115,8 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
                 }
             }
         });
-    	super.onLoad();
     	
+		super.onLoad();
     	initButton();
     	
     	initDefault();
@@ -83,6 +124,8 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
     
     
     private void initButton(){
+    	actionSyncustomer.setEnabled(true);
+    	actionViewLog.setEnabled(true);
     	this.actionAddNew.setVisible(false);
     	this.actionEdit.setVisible(false);
     	this.actionRemove.setVisible(false);
@@ -92,31 +135,115 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
     	this.actionInvoiteCreatToBill.setEnabled(true);
     	this.actionCompnyOff.setEnabled(true);
     	this.actionCustomerOff.setEnabled(true);
+    	actionInvoiteCreatToBill.setVisible(false);
+    	actionAddNewInviton.setVisible(false);
+    	setUITitle("\u6211\u7684\u5de5\u4f5c\u53f0");
     }
     
     private void initDefault(){
-    	
+    	tblMain.getColumn("yhxAmount").getStyleAttributes().setNumberFormat("#,##0.00");
     }
     
     private void tblMain_afterDataFill(KDTDataRequestEvent e){
-		 for (int i = e.getFirstRow(); i <= e.getLastRow(); i++) {
+    	IFMIsqlFacade iff = null;
+    	try {
+    		iff = FMIsqlFacadeFactory.getRemoteInstance();
+		} catch (BOSException e1) {
+			handUIException(e1);
+		}
+		IRowSet rs = null;
+		BigDecimal yhx = null;
+		BigDecimal amount = null;
+		Object[] ps = new Object[1];
+		StyleAttributes sab = null;
+		for (int i = e.getFirstRow(); i <= e.getLastRow(); i++) {
+			ps[0] = (String)tblMain.getCell(i,"id").getValue();
+			//判断是否已进行开票申请
+			try {
+				rs = iff.executeQuery(sq_sql,ps);
+				if(rs.size() > 0) {
+					sab = tblMain.getRow(i).getStyleAttributes();
+					sab.setBackground(green);
+					rs = iff.executeQuery(fp_sql,ps);
+					if(rs.size() > 0) {
+						sab.setBackground(blue);
+						rs = iff.executeQuery(nb_sql,ps);
+						if(rs.size() > 0) {
+							yhx = (BigDecimal)tblMain.getCell(i,"yhxAmount").getValue();
+							amount = (BigDecimal)tblMain.getCell(i,"amount").getValue();
+							if(yhx != null && amount.compareTo(yhx) > 0) {
+								sab.setBackground(yellow);
+							}else {
+								sab.setBackground(red);
+							}
+						}else {
+							
+							rs = iff.executeQuery(kh_sql,ps);
+							if(rs.size() > 0) {
+								yhx = (BigDecimal)tblMain.getCell(i,"yhxAmount").getValue();
+								amount = (BigDecimal)tblMain.getCell(i,"amount").getValue();
+								if(yhx != null && amount.compareTo(yhx) > 0) {
+									sab.setBackground(yellow);
+								}else {
+									sab.setBackground(red);
+								}
+							}
+						}
+					}
+				}
+				
+			} catch (EASBizException e1) {
+				handUIException(e1);
+			} catch (BOSException e1) {
+				handUIException(e1);
+			} 
 		 }
 	}
     
     protected IQueryExecutor getQueryExecutor(IMetaDataPK queryPK,EntityViewInfo viewInfo) {
-    	return super.getQueryExecutor(queryPK, viewInfo);
+    	EntityViewInfo newviewInfo = (EntityViewInfo) viewInfo.clone();
+    	PersonInfo pinfo = SysContext.getSysContext().getCurrentUserInfo().getPerson();
+    	FilterInfo filter = new FilterInfo();
+    	if(pinfo != null) {
+    		filter.getFilterItems().add(new FilterItemInfo("sales.id",pinfo.getId().toString()));
+    	}
+    	if(newviewInfo.getFilter()!=null)
+    	{
+    		try {
+				newviewInfo.getFilter().mergeFilter(filter,"and");
+			} catch (BOSException e) {
+				handUIException(e);
+			}
+    	}else{
+    		newviewInfo.setFilter(filter);
+    	}
+    	
+    	return super.getQueryExecutor(queryPK, newviewInfo);
     }
     
-    public void actionAddNewInviton_actionPerformed(ActionEvent e)throws Exception {
-    	super.actionAddNewInviton_actionPerformed(e);
-        UIContext context = new UIContext(this);//UIFactoryName.MODEL
-        IUIWindow uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(RichInvoiceRequestEditUI.class.getName(), context, null, OprtState.ADDNEW);
-        uiWindow.show();
+    public void actionCreateTo_actionPerformed(ActionEvent e)throws Exception {
+    	KDTSelectBlock selectBlock = null;
+    	KDTSelectManager selectManger = tblMain.getSelectManager();
+    	for (int i = 0; i < selectManger.size(); i++) {
+    		selectBlock = selectManger.get(i);
+    		for (int j = selectBlock.getBeginRow(); j <=selectBlock.getEndRow(); j++) {
+    			BigDecimal yhx = (BigDecimal)tblMain.getCell(j,"yhxAmount").getValue();
+    			if(yhx != null){
+    				BigDecimal total = (BigDecimal)tblMain.getCell(j,"amount").getValue();
+    				if(yhx.compareTo(total) == 0){
+    					MsgBox.showInfo("第"+(j+1)+"行到检单已全部核销，不能进行开票申请！请重新选择！");
+    		    		SysUtil.abort();
+    				}
+    			}
+			}
+		}
+    	
+    	super.actionCreateTo_actionPerformed(e);
     }
     
     public void actionInvoiteCreatToBill_actionPerformed(ActionEvent e)
     		throws Exception {
-    	super.actionInvoiteCreatToBill_actionPerformed(e);
+//    	super.actionInvoiteCreatToBill_actionPerformed(e);
     }
     
     public void actionCompnyOff_actionPerformed(ActionEvent e) throws Exception {
@@ -184,7 +311,7 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
         try {
 			uiWindow = UIFactory.createUIFactory(UIFactoryName).create(uiClass, context, null, optype);
 		} catch (UIException e) {
-			e.printStackTrace();
+			handUIException(e);
 		}
         uiWindow.show();
     }
@@ -194,7 +321,8 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
     {
     	tblMain.setEnabled(false);
     	tblMain.getSelectManager().setSelectMode(KDTSelectManager.ROW_SELECT);
-    	IMetaDataPK queryPK = new MetaDataPK(queryName);
+    	IMetaDataPK queryPK = MetaDataPK.create(queryName);
+    	
     	IQueryExecutor exec = QueryExecutorFactory.getRemoteInstance(queryPK );
     	exec.option().isAutoIgnoreZero = true;
     	exec.option().isAutoTranslateBoolean = true;
@@ -239,25 +367,25 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
         String billId = this.getSelectedKeyValue()+"";
         if(billId==null)
         	billId = "";
-        
+        //发票申请单
         EntityViewInfo viewInfo = new EntityViewInfo();
         FilterInfo filInfo = new FilterInfo();
-        filInfo.getFilterItems().add(new FilterItemInfo("id","select fparentid from CT_RIC_RichInvoiceRequestEntry where CFDjdID='"+billId+"'",CompareType.INNER));
+        filInfo.getFilterItems().add(new FilterItemInfo("id","select FDestObjectID from T_BOT_Relation where FSrcObjectID='"+billId+"'",CompareType.INNER));
         viewInfo.setFilter(filInfo);
         showQueryDate(tblInvoiceRequest, InvoiceRequestQuery, viewInfo);
-        
+        //应收单
         viewInfo = new EntityViewInfo();
         filInfo = new FilterInfo();
-        filInfo.getFilterItems().add(new FilterItemInfo("sourceBillId",billId,CompareType.EQUALS));
+        filInfo.getFilterItems().add(new FilterItemInfo("id","select FDestObjectID from T_BOT_Relation where FSrcObjectID in (select FDestObjectID from T_BOT_Relation where FSrcObjectID='"+billId+"')",CompareType.INNER));
         viewInfo.setFilter(filInfo);
         showQueryDate(tblOtherBill, OtherBillQuery, viewInfo);
-        
+        //内部核销单
         viewInfo = new EntityViewInfo();
         filInfo = new FilterInfo();
-        filInfo.getFilterItems().add(new FilterItemInfo("id","select fparentid from CT_RIC_RichCWODE where CFDjNoID='"+billId+"'",CompareType.INNER));
+        filInfo.getFilterItems().add(new FilterItemInfo("id","select fparentid from CT_RIC_CompayWriteDj where CFDjNoID='"+billId+"'",CompareType.INNER));
         viewInfo.setFilter(filInfo);
         showQueryDate(tblCompanyoff, CompanyoffQuery, viewInfo);
-        
+        //客户核销单
         viewInfo = new EntityViewInfo();
         filInfo = new FilterInfo();
         filInfo.getFilterItems().add(new FilterItemInfo("id","select fparentid from CT_RIC_RichCWODE where CFDjNoID='"+billId+"'",CompareType.INNER));
@@ -265,6 +393,72 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
         showQueryDate(tblCustomerOff, CustomerOffQuery, viewInfo);
     }
 
+    public void actionSyncustomer_actionPerformed(ActionEvent e) throws Exception {
+    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    	String oql = "select fid from t_bd_customer where to_char(flastupdatetime,'yyyy-mm-dd')='"+sdf.format(SysUtil.getAppServerTime(null))+"'";
+    	CustomerCollection ccolls = CustomerFactory.getRemoteInstance().getCustomerCollection("where id in("+oql+") and usedStatus=1");
+    	if(ccolls.size() > 0) {
+    		ReserveServicePortType rspt = new ReserveServiceLocator().getreserveServiceHttpSoap11Endpoint();
+        	JSONObject params = null;
+        	CustomerInfo cinfo = null;
+        	String result = null;
+        	int corrects = 0;
+        	ICustomerSyncLog ics = CustomerSyncLogFactory.getRemoteInstance();
+        	CustomerSyncLogInfo logInfo = null;
+    		for(int i=ccolls.size()-1; i>=0; i--) {
+    			params = new JSONObject();
+    			cinfo = ccolls.get(i);
+    			//单位代码
+    			params.put("dwdm",cinfo.getNumber());
+    			//单位名称
+    			params.put("dwmc",cinfo.getName());
+    			//医疗机构
+    			params.put("yljg",cinfo.getCU().getName());
+    			//单位地址
+    			params.put("dwdz",cinfo.getAddress());
+    			//联系人
+    			//params.put("lxr",);
+    			//备注
+    			params.put("bz",cinfo.getDescription());
+    			//联系电话
+    			//params.put("lxdh","110");
+    			//地区名称
+    			//params.put("dqmc","长宁区");
+    			//申请人员
+    			//params.put("sqry",SysContext.getSysContext().getCurrentUserInfo().getName());
+    			//版本号
+    			params.put("version",cinfo.getVersion());
+    			result = rspt.saveCompanyInfo(params.toString());
+    			params = new JSONObject(result);
+    			boolean flag = params.optBoolean("result");
+    			if(flag) {
+    				corrects++;
+    			}
+    			logInfo = new CustomerSyncLogInfo();
+    			logInfo.setCustomerNum(cinfo.getNumber());
+    			logInfo.setCustomerName(cinfo.getName());
+    			logInfo.setSyncDate(new Date());
+    			logInfo.setIsSuccess(flag);
+    			logInfo.setTipsInfo(params.optString("info"));
+    			ics.addnew(logInfo);
+    		}
+    		MsgBox.showInfo("同步"+ccolls.size()+"条数据，其中成功数量："+corrects);
+    	}else {
+    		MsgBox.showInfo("没有符合条件的客户，不进行同步操作！");
+    	}
+    	
+    }
+    
+    public void actionViewLog_actionPerformed(ActionEvent e) throws Exception {
+    	// TODO Auto-generated method stub
+    	UIContext context = new UIContext(this);//UIFactoryName.MODEL
+        try {
+			UIFactory.createUIFactory(UIFactoryName.NEWWIN).create("com.kingdee.eas.custom.richbase.client.CustomerSyncLogListUI",context).show();
+		} catch (UIException e1) {
+			handUIException(e1);
+		}
+    }
+    
 
     /**
      * output getBizInterface method
@@ -283,5 +477,6 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
 		
         return objectValue;
     }
+    
 
 }

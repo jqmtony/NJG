@@ -12,21 +12,25 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
-import com.ibm.db2.jcc.am.v;
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.ctrl.swing.event.DataChangeListener;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.basedata.master.cssp.CustomerCollection;
+import com.kingdee.eas.basedata.master.cssp.CustomerFactory;
 import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.custom.richinf.BillState;
 import com.kingdee.eas.custom.richinf.IRichInvoiceRequest;
+import com.kingdee.eas.custom.richinf.RichExamedFactory;
 import com.kingdee.eas.custom.richinf.RichExamedInfo;
 import com.kingdee.eas.custom.richinf.RichInvoiceRequestCollection;
 import com.kingdee.eas.custom.richinf.RichInvoiceRequestFactory;
@@ -71,6 +75,11 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     
     public void onLoad() throws Exception {
     	super.onLoad();
+    	
+    	kdtEntrys.getSelectManager().setSelectMode(KDTSelectManager.MULTIPLE_ROW_SELECT);
+    	kdtEntrys.getColumn("ysAmount").getStyleAttributes().setLocked(true);
+    	kdtEntrys.getColumn("djd").getStyleAttributes().setLocked(true);
+    	
     	chkMenuItemSubmitAndAddNew.setVisible(false);
     	chkMenuItemSubmitAndAddNew.setEnabled(false);
     	if(getOprtState().equals(OprtState.ADDNEW) && getBOTPViewStatus()==1) {
@@ -109,8 +118,11 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     			}
         	}
         	for(int i=kdtEntrys.getRowCount3()-1; i>=0; i--) {
-        		if(!befores.contains(((RichExamedInfo)kdtEntrys.getCell(i,"djd").getValue()).getId().toString()))
-        			djTotal = djTotal.add((BigDecimal)kdtEntrys.getCell(i,"ysAmount").getValue());
+        		if(!befores.contains(((RichExamedInfo)kdtEntrys.getCell(i,"djd").getValue()).getId().toString())){
+        			if(kdtEntrys.getCell(i,"ysAmount").getValue() != null){
+        				djTotal = djTotal.add((BigDecimal)kdtEntrys.getCell(i,"ysAmount").getValue());
+        			}
+        		}
         	}
         	txtdjAmount.setValue(djTotal);
         	
@@ -129,6 +141,15 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     			txtinvoicedAmount.setValue(fpTotal);
         	}
         	
+        	if(editData.isDjkp() && editData.getSourceBillId()!=null){
+        		RichExamedInfo reInfo = RichExamedFactory.getRemoteInstance().getRichExamedInfo(new ObjectUuidPK(editData.getSourceBillId()));
+        		String kpid = reInfo.getKpCompany().getId().toString();
+        		CustomerCollection cc = CustomerFactory.getRemoteInstance().getCustomerCollection("where internalcompany='"+kpid+"'");
+        		if(cc.size() > 0) {
+        			prmtkpUnit.setValue(cc.get(0));
+        		}
+        	}
+        	
     	}
     	//根据当前财务组织过滤销售员
     	CompanyOrgUnitInfo couInfo = SysContext.getSysContext().getCurrentFIUnit();
@@ -143,6 +164,9 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     	
     	if(getOprtState().equals(OprtState.EDIT) && editData.getBillState().equals(BillState.SUBMIT)){
     		actionSave.setEnabled(false);
+    	}else if(getOprtState().equals(OprtState.VIEW) && editData.getBillState().equals(BillState.AUDIT)){
+    		actionEdit.setEnabled(false);
+    		actionRemove.setEnabled(false);
     	}
     }
     

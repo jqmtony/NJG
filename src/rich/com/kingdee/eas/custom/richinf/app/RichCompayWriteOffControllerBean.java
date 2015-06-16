@@ -98,7 +98,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 					//发票的未核销金额大于到检单的，到检单全部核销，发票核销金额=之前核销+此次核销
     				if(whxamount.compareTo(whxDJ) > 0){
     					//反写分录发票和分录到检单的已核销金额
-    					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_RichCWODE where CFDjNoID=? and FParentID=?",new Object[]{djid,richCompayid});
+    					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_CompayWriteDj where CFDjNoID=? and FParentID=?",new Object[]{djid,richCompayid});
     					try {
 							if(rs.next() && rs.getBigDecimal("cfbencihx")!=null){
 								dj_benci = rs.getBigDecimal("cfbencihx");
@@ -107,8 +107,8 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 							e1.printStackTrace();
 						}
     					Object[] ps = new Object[]{djAmount,whxDJ.add(dj_benci),djid,richCompayid};
-    					DbUtil.execute(ctx,"update CT_RIC_RichCWODE set CFDj_yhx=?,cfbencihx=? where CFDjNoID=? and FParentID=?",ps);
-    					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_RichCWOFE where CFFpNoID=? and FParentID=?",new Object[]{fpid,richCompayid});
+    					DbUtil.execute(ctx,"update CT_RIC_CompayWriteDj set CFDj_yhx=?,cfbencihx=? where CFDjNoID=? and FParentID=?",ps);
+    					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_CompayWriteFp where CFFpNoID=? and FParentID=?",new Object[]{fpid,richCompayid});
     					try {
 							if(rs.next() && rs.getBigDecimal("cfbencihx")!=null){
 								fp_benci = rs.getBigDecimal("cfbencihx");
@@ -119,7 +119,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     					ps[0] = yhxAmount.add(whxDJ);
     					ps[1] = whxDJ.add(fp_benci);
     					ps[2] = fpid;
-    					DbUtil.execute(ctx,"update CT_RIC_RichCWOFE set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
+    					DbUtil.execute(ctx,"update CT_RIC_CompayWriteFp set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					
     					//反写发票和到检单的已核销金额
     					rhInfo.setYhxAmount(djAmount);
@@ -136,7 +136,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     				}else if(whxamount.compareTo(whxDJ) == 0){
     					//发票的未核销金额等于到检单，全部核销，并逃出这层循环
     					//反写分录发票和分录到检单的已核销金额
-    					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_RichCWODE where CFDjNoID=? and FParentID=?",new Object[]{djid,richCompayid});
+    					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_CompayWriteDj where CFDjNoID=? and FParentID=?",new Object[]{djid,richCompayid});
     					try {
 							if(rs.next() && rs.getBigDecimal("cfbencihx")!=null){
 								dj_benci = rs.getBigDecimal("cfbencihx");
@@ -145,8 +145,8 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 							e1.printStackTrace();
 						}
     					Object[] ps = new Object[]{djAmount,whxamount.add(dj_benci),djid,richCompayid};
-    					DbUtil.execute(ctx,"update CT_RIC_RichCWODE set CFDj_yhx=?,cfbencihx=? where CFDjNoID=? and FParentID=?",ps);
-    					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_RichCWOFE where CFFpNoID=? and FParentID=?",new Object[]{fpid,richCompayid});
+    					DbUtil.execute(ctx,"update CT_RIC_CompayWriteDj set CFDj_yhx=?,cfbencihx=? where CFDjNoID=? and FParentID=?",ps);
+    					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_CompayWriteFp where CFFpNoID=? and FParentID=?",new Object[]{fpid,richCompayid});
     					try {
 							if(rs.next() && rs.getBigDecimal("cfbencihx")!=null){
 								fp_benci = rs.getBigDecimal("cfbencihx");
@@ -157,7 +157,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     					ps[0] = fpAmount;
     					ps[1] = whxamount.add(fp_benci);
     					ps[2] = fpid;
-    					DbUtil.execute(ctx,"update CT_RIC_RichCWOFE set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
+    					DbUtil.execute(ctx,"update CT_RIC_CompayWriteFp set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					
     					//反写发票和到检单的已核销金额
     					rhInfo.setYhxAmount(djAmount);
@@ -175,7 +175,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     				}else{
     					//发票的未核销金额小于到检单，发票全部核销，到检单=之前核销+此次，并逃出这层循环
     					//反写分录发票和分录到检单的已核销金额
-    					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_RichCWODE where CFDjNoID=? and FParentID=?",new Object[]{djid,richCompayid});
+    					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_CompayWriteDj where CFDjNoID=? and FParentID=?",new Object[]{djid,richCompayid});
     					try {
 							if(rs.next() && rs.getBigDecimal("cfbencihx")!=null){
 								dj_benci = rs.getBigDecimal("cfbencihx");
@@ -183,9 +183,9 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 						} catch (SQLException e1) {
 							e1.printStackTrace();
 						}
-    					Object[] ps = new Object[]{fpAmount.add(yhxDJ),whxamount.add(dj_benci),djid,richCompayid};
-    					DbUtil.execute(ctx,"update CT_RIC_RichCWODE set CFDj_yhx=?,cfbencihx=? where CFDjNoID=? and FParentID=?",ps);
-    					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_RichCWOFE where CFFpNoID=? and FParentID=?",new Object[]{fpid,richCompayid});
+    					Object[] ps = new Object[]{whxamount.add(yhxDJ),whxamount.add(dj_benci),djid,richCompayid};
+    					DbUtil.execute(ctx,"update CT_RIC_CompayWriteDj set CFDj_yhx=?,cfbencihx=? where CFDjNoID=? and FParentID=?",ps);
+    					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_CompayWriteFp where CFFpNoID=? and FParentID=?",new Object[]{fpid,richCompayid});
     					try {
 							if(rs.next() && rs.getBigDecimal("cfbencihx")!=null){
 								fp_benci = rs.getBigDecimal("cfbencihx");
@@ -196,10 +196,10 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     					ps[0] = fpAmount;
     					ps[1] = whxamount.add(fp_benci);
     					ps[2] = fpid;
-    					DbUtil.execute(ctx,"update CT_RIC_RichCWOFE set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
+    					DbUtil.execute(ctx,"update CT_RIC_CompayWriteFp set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					
     					//反写发票单据和到检单单据的已核销金额
-    					rhInfo.setYhxAmount(fpAmount.add(yhxDJ));
+    					rhInfo.setYhxAmount(whxamount.add(yhxDJ));
     					obInfo.setBigDecimal("yhxAmount",fpAmount);
     					try {
 							ire.updatePartial(rhInfo,sic);
@@ -347,7 +347,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 			customerId = obInfo.getAsstActID();
 			yhxAmount = obInfo.getBigDecimal("yhxAmount");
 			fpid = obInfo.getId().toString();
-			rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_RichCWOFE where CFFpNoID=? and FParentID=?",new Object[]{fpid,richCompay});
+			rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_CompayWriteFp where CFFpNoID=? and FParentID=?",new Object[]{fpid,richCompay});
 			try {
 				if(rs.next()){
 					fp_benci = rs.getBigDecimal("cfbencihx");
@@ -364,7 +364,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 				if(dj_cust.equals(customerId)){
 					yhxDJ = rhInfo.getYhxAmount();
 					djid = rhInfo.getId().toString();
-					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_RichCWODE where CFDjNoID=? and FParentID=?",new Object[]{djid,richCompay});
+					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_CompayWriteDj where CFDjNoID=? and FParentID=?",new Object[]{djid,richCompay});
 					try {
 						if(rs.next()){
 							dj_benci = rs.getBigDecimal("cfbencihx");
@@ -379,13 +379,13 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 					if(fp_benci.compareTo(dj_benci) >= 0){
 						//反写分录发票和分录到检单的已核销金额
     					Object[] ps = new Object[]{yhxDJ.subtract(dj_benci),zero,djid,richCompay};
-    					DbUtil.execute(ctx,"update CT_RIC_RichCWODE set CFDj_yhx=?,cfbencihx=? where CFDjNoID=? and FParentID=?",ps);
+    					DbUtil.execute(ctx,"update CT_RIC_CompayWriteDj set CFDj_yhx=?,cfbencihx=? where CFDjNoID=? and FParentID=?",ps);
     					yhxAmount = yhxAmount.subtract(dj_benci);
     					fp_benci = fp_benci.subtract(dj_benci);
     					ps[0] = yhxAmount;
     					ps[1] = fp_benci;
     					ps[2] = fpid;
-    					DbUtil.execute(ctx,"update CT_RIC_RichCWOFE set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
+    					DbUtil.execute(ctx,"update CT_RIC_CompayWriteFp set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					//反写发票和到检单的已核销金额
     					rhInfo.setYhxAmount(yhxDJ.subtract(dj_benci));
     					obInfo.setBigDecimal("yhxAmount",yhxAmount);
@@ -399,11 +399,11 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 					}else{
 						//反写分录发票和分录到检单的已核销金额
     					Object[] ps = new Object[]{yhxDJ.subtract(fp_benci),dj_benci.subtract(fp_benci),djid,richCompay};
-    					DbUtil.execute(ctx,"update CT_RIC_RichCWODE set CFDj_yhx=?,cfbencihx=? where CFDjNoID=? and FParentID=?",ps);
+    					DbUtil.execute(ctx,"update CT_RIC_CompayWriteDj set CFDj_yhx=?,cfbencihx=? where CFDjNoID=? and FParentID=?",ps);
     					ps[0] = yhxAmount.subtract(fp_benci);
     					ps[1] = zero;
     					ps[2] = fpid;
-    					DbUtil.execute(ctx,"update CT_RIC_RichCWOFE set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
+    					DbUtil.execute(ctx,"update CT_RIC_CompayWriteFp set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					//反写发票和到检单的已核销金额
     					rhInfo.setYhxAmount(yhxDJ.subtract(fp_benci));
     					obInfo.setBigDecimal("yhxAmount",yhxAmount.subtract(fp_benci));

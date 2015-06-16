@@ -44,4 +44,14 @@ public abstract class AbstractRichExamedManagerUIHandler extends com.kingdee.eas
 	}
 	protected void _handleactionCustomerOff(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleactionSyncustomer(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleactionSyncustomer(request,response,context);
+	}
+	protected void _handleactionSyncustomer(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
+	public void handleactionViewLog(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleactionViewLog(request,response,context);
+	}
+	protected void _handleactionViewLog(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

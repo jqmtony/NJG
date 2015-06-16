@@ -7,9 +7,12 @@ import java.awt.event.ActionEvent;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.custom.richinf.BillState;
+import com.kingdee.eas.custom.richinf.IRichInvoiceRequest;
 import com.kingdee.eas.custom.richinf.RichInvoiceRequestFactory;
 import com.kingdee.eas.custom.richinf.RichInvoiceRequestInfo;
 import com.kingdee.eas.util.SysUtil;
@@ -52,23 +55,49 @@ public class RichInvoiceRequestListUI extends AbstractRichInvoiceRequestListUI
     protected void tblMain_tableSelectChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent e) throws Exception
     {
         super.tblMain_tableSelectChanged(e);
+        String id = getSelectedKeyValue();
+        if(id != null){
+    		RichInvoiceRequestInfo info = null;
+    		info = RichInvoiceRequestFactory.getRemoteInstance().getRichInvoiceRequestInfo(new ObjectUuidPK(id));
+    		if(info.getBillState().equals(BillState.SAVE)) {
+//    			MsgBox.showInfo("提交状态下的单据才能进行审核操作！");
+//        		SysUtil.abort();
+    			actionEdit.setEnabled(true);
+    			actionRemove.setEnabled(true);
+    			actionAudit.setEnabled(false);
+    			actionUnAudit.setEnabled(false);
+    		}else if(info.getBillState().equals(BillState.SUBMIT)) {
+    			actionEdit.setEnabled(true);
+    			actionRemove.setEnabled(true);
+    			actionAudit.setEnabled(true);
+    			actionUnAudit.setEnabled(false);
+    		}else if(info.getBillState().equals(BillState.AUDIT)){
+    			actionEdit.setEnabled(false);
+    			actionRemove.setEnabled(false);
+    			actionAudit.setEnabled(false);
+    			actionUnAudit.setEnabled(true);
+    		}
+    		
+    	}
+        
     }
 
     @Override
     public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
-    	String id = getSelectedKeyValue();
-    	if(id != null){
-    		RichInvoiceRequestInfo info = null;
-    		info = RichInvoiceRequestFactory.getRemoteInstance().getRichInvoiceRequestInfo(new ObjectUuidPK(id));
-    		if(!info.getBillState().equals(BillState.SUBMIT)) {
-    			MsgBox.showInfo("提交状态下的单据才能进行审核操作！");
-        		SysUtil.abort();
-    		}
-    		
-    	}else {
-    		MsgBox.showInfo("请选择您要进行审核的记录！");
-    		SysUtil.abort();
-    	}
+//    	String id = getSelectedKeyValue();
+//    	if(id != null){
+//    		RichInvoiceRequestInfo info = null;
+//    		info = RichInvoiceRequestFactory.getRemoteInstance().getRichInvoiceRequestInfo(new ObjectUuidPK(id));
+//    		if(!info.getBillState().equals(BillState.SUBMIT)) {
+//    			MsgBox.showInfo("提交状态下的单据才能进行审核操作！");
+//        		SysUtil.abort();
+//    		}
+//    		
+//    	}else {
+//    		MsgBox.showInfo("请选择您要进行审核的记录！");
+//    		SysUtil.abort();
+//    	}
+    	checkSelected();
     	super.actionAudit_actionPerformed(e);
     	MsgBox.showInfo("审核成功！");
     	actionRefresh_actionPerformed(e);
@@ -76,8 +105,27 @@ public class RichInvoiceRequestListUI extends AbstractRichInvoiceRequestListUI
     
     @Override
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
+    	checkSelected();
     	super.actionUnAudit_actionPerformed(e);
     	MsgBox.showInfo("反审核成功！");
+    	actionRefresh_actionPerformed(e);
+    }
+    
+    public void actionRemove_actionPerformed(ActionEvent e) throws Exception {
+    	KDTSelectBlock selectBlock = null;
+    	KDTSelectManager selectManger = tblMain.getSelectManager();
+    	IRichInvoiceRequest irr = RichInvoiceRequestFactory.getRemoteInstance();
+    	for (int i = 0; i < selectManger.size(); i++) {
+    		selectBlock = selectManger.get(i);
+    		for (int j = selectBlock.getBeginRow(); j <=selectBlock.getEndRow(); j++) {
+    			if(BillState.AUDIT.equals(irr.getRichInvoiceRequestInfo(new ObjectUuidPK((String)tblMain.getCell(j,"id").getValue())).getBillState())){
+    				MsgBox.showInfo("已审核的单据不能删除！请重新选择！");
+    				SysUtil.abort();
+    			}
+    		}
+    	}
+    	
+    	super.actionRemove_actionPerformed(e);
     }
     
     /**

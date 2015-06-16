@@ -257,6 +257,10 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
     	evi.setFilter(filter);
     	filter.getFilterItems().add(new FilterItemInfo("IsInternalCompany","1",CompareType.NOTEQUALS));
     	prmtkpCustomer.setEntityViewInfo(evi);
+    	
+    	if(getOprtState().equals(OprtState.EDIT) ){
+    		stateEnable();
+    	}
     }
 	public void initEntry() {
 		kdtDjEntry_detailPanel.setTitle("到检单");
@@ -280,9 +284,17 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
     	kdtFpEntry.getColumn("kpCompany").getStyleAttributes().setLocked(true);
     	kdtFpEntry.getColumn("fpAmount").getStyleAttributes().setLocked(true);
     	kdtFpEntry.getColumn("bencihx").getStyleAttributes().setLocked(true);
-    	
+    	actionSubmit.setVisible(false);
+    	actionCopy.setVisible(false);
 	}
     
+	void stateEnable(){
+		prmtsales.setEnabled(false);
+		prmtkpCustomer.setEnabled(false);
+		kdtFpEntry_detailPanel.getRemoveLinesButton().setEnabled(false);
+		kdtDjEntry_detailPanel.getRemoveLinesButton().setEnabled(false);
+	}
+	
 	private void checkSaveState(){
 		if(getOprtState().equals(OprtState.VIEW)){
 	   		SysUtil.abort();
@@ -293,6 +305,7 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
 			   actionSave.setDaemonRun(false);
                ActionEvent event = new ActionEvent(btnSave, 1001, btnSave.getActionCommand());
                actionSave.actionPerformed(event);
+               stateEnable();
                if(actionSave.isInvokeFailed())
                    SysUtil.abort();
 		   }
@@ -374,10 +387,40 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
     	if(flag == MsgBox.OK) {
     		ir.aboutHxAndFanHx(obColl,reColl,1,editData);
 			MsgBox.showInfo("手工核销成功！");
-			loadData();
+			flashTable();
     	}
     }
+    
+    
 
+    @Override
+    public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionAddNew_actionPerformed(e);
+    	prmtsales.setEnabled(true);
+		prmtkpCustomer.setEnabled(true);
+    }
+    
+    @Override
+    public void actionSave_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionSave_actionPerformed(e);
+    	 stateEnable();
+    }
+    
+    @Override
+    public void actionEdit_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionEdit_actionPerformed(e);
+    	stateEnable();
+    }
+    
+    private void flashTable(){
+ 	   try {
+ 		loadData();
+ 		kdtFpEntry_detailPanel.getRemoveLinesButton().setEnabled(false);
+ 		kdtDjEntry_detailPanel.getRemoveLinesButton().setEnabled(false);
+ 	} catch (Exception e) {
+ 		handUIException(e);
+ 	}
+    }
     
     //反核销
     @Override
@@ -407,7 +450,7 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
     		rowIndex = it.next();
     		yhx = (BigDecimal)kdtDjEntry.getCell(rowIndex,"bencihx").getValue();
     		if(yhx==null || yhx.compareTo(BigDecimal.ZERO)==0){
-    			MsgBox.showInfo("第"+(rowIndex+1)+"行到检单未进行核销，请重新选择！");
+    			MsgBox.showInfo("第"+(rowIndex+1)+"行到检单本次未进行核销操作，请重新选择！");
     			SysUtil.abort();
     		}
     		customer = ((CustomerInfo)kdtDjEntry.getCell(rowIndex,"kpUnit").getValue()).getId().toString();
@@ -432,7 +475,7 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
     		rowIndex = it.next();
     		yhx = (BigDecimal)kdtFpEntry.getCell(rowIndex,"bencihx").getValue();
     		if(yhx==null || yhx.compareTo(BigDecimal.ZERO)==0){
-    			MsgBox.showInfo("第"+(rowIndex+1)+"行发票未进行核销，请重新选择！");
+    			MsgBox.showInfo("第"+(rowIndex+1)+"行发票本次未进行核销操作，请重新选择！");
     			SysUtil.abort();
     		}
     		customer = ((CustomerInfo)kdtFpEntry.getCell(rowIndex,"kpUnit").getValue()).getId().toString();
@@ -448,7 +491,7 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
     	if(flag == MsgBox.OK) {
     		ir.aboutHxAndFanHx(obColl,reColl,-1,editData);
     		MsgBox.showInfo("反核销成功！");
-    		loadData();
+    		flashTable();
     	}
     	
     }
@@ -520,7 +563,7 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
     	if(flag == MsgBox.OK) {
     		ir.aboutHxAndFanHx(obColl,reColl,0,editData);
     		MsgBox.showInfo("自动核销成功！");
-    		loadData();
+    		flashTable();
     	}
     	
     }
@@ -528,7 +571,7 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
     private Set<String> checkOutRichExamedByOql(Object obj) {
     	StringBuffer sb = new StringBuffer();
     	sb.append("select id,name,number,ldNumber,amount,yhxamount,kpUnit.id,kpUnit.name,kpUnit.number,djCompany.id,djCompany.name,djCompany.number");
-    	sb.append(" where kpUnit.IsInternalCompany<>1 and ");
+    	sb.append(" where amount>0 and kpUnit.IsInternalCompany<>1 and ");
     	if(obj == null) {
     		sb.append("sales.id='");
     		sb.append(((PersonInfo)prmtsales.getValue()).getId().toString());
@@ -564,17 +607,24 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
 			IRow row = null;
 			RichExamedInfo info = null;
 			CustomerInfo customer = null;
+			BigDecimal amount = null;
+			BigDecimal yhxamount = null;
 			for(int i=reColl.size()-1; i>=0; i--){
 				info = reColl.get(i);
-				row = kdtDjEntry.addRow();
-				customer = info.getKpUnit();
-				row.getCell("kpUnit").setValue(customer);
-				row.getCell("djjg").setValue(info.getDjCompany());
-				row.getCell("djNo").setValue(info);
-				row.getCell("ldNo").setValue(info.getLdNumber());
-				row.getCell("jsAmount").setValue(info.getAmount());
-				row.getCell("dj_yhx").setValue(info.getYhxAmount());
-				customerids.add(customer.getId().toString());
+				yhxamount = info.getYhxAmount();
+				amount = info.getAmount();
+				if(yhxamount == null || amount.compareTo(yhxamount) > 0) {
+					row = kdtDjEntry.addRow();
+					customer = info.getKpUnit();
+					row.getCell("kpUnit").setValue(customer);
+					row.getCell("djjg").setValue(info.getDjCompany());
+					row.getCell("djNo").setValue(info);
+					row.getCell("ldNo").setValue(info.getLdNumber());
+					row.getCell("jsAmount").setValue(info.getAmount());
+					row.getCell("dj_yhx").setValue(info.getYhxAmount());
+					customerids.add(customer.getId().toString());
+					
+				}
 			}
 			
 		} catch (BOSException e) {
@@ -588,7 +638,7 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
 		if(customerids.size() > 0){
 			StringBuffer sb = new StringBuffer();
 	    	sb.append("select id,name,number,ldNo,TotalAmount,yhxamount,asstactid,asstactname,asstactnumber,Company.id,Company.name,Company.number");
-	    	sb.append(" where asstactid in (");
+	    	sb.append(" where TotalAmount>0 and billstatus=3 and asstactid in (");
 	    	Object[] it = customerids.toArray();
 	    	for(int i=it.length-1; i>=0; i--){
 	    		sb.append("'");
@@ -612,18 +662,25 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
 				IRow irow = null;
 				OtherBillInfo obinfo = null;
 				CustomerInfo customer = null;
+				BigDecimal amount = null;
+				BigDecimal yhxamount = null;
 				for(int i=obColl.size()-1; i>=0; i--){
-					irow = kdtFpEntry.addRow();
 					obinfo = obColl.get(i);
-					customer = new CustomerInfo();
-					customer.setId(BOSUuid.read(obinfo.getAsstActID()));
-					customer.setName(obinfo.getAsstActName());
-					customer.setNumber(obinfo.getAsstActNumber());
-					irow.getCell("fpNo").setValue(obinfo);
-					irow.getCell("kpUnit").setValue(customer);
-					irow.getCell("kpCompany").setValue(obinfo.getCompany());
-					irow.getCell("fpAmount").setValue(obinfo.getTotalAmount());
-					irow.getCell("yhxAmount").setValue(obinfo.get("yhxAmount"));
+					amount = obinfo.getTotalAmount();
+					yhxamount = obinfo.getBigDecimal("yhxAmount");
+					if(yhxamount == null || amount.compareTo(yhxamount) > 0) {
+						irow = kdtFpEntry.addRow();
+						customer = new CustomerInfo();
+						customer.setId(BOSUuid.read(obinfo.getAsstActID()));
+						customer.setName(obinfo.getAsstActName());
+						customer.setNumber(obinfo.getAsstActNumber());
+						irow.getCell("fpNo").setValue(obinfo);
+						irow.getCell("kpUnit").setValue(customer);
+						irow.getCell("kpCompany").setValue(obinfo.getCompany());
+						irow.getCell("fpAmount").setValue(obinfo.getTotalAmount());
+						irow.getCell("yhxAmount").setValue(obinfo.get("yhxAmount"));
+						
+					}
 				}
 			} catch (BOSException e) {
 				handUIException(e);
