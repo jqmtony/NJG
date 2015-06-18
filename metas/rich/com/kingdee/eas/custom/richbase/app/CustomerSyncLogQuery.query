@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.custom.richbase.app</package>
+    <name>CustomerSyncLogQuery</name>
+    <alias>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.custom.richbase.CustomerSyncLog</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>CustomerSyncLog</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].subObjects.subEntity[CustomerSyncLog].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLog" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>NewUnit0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.propertyUnit[NewUnit0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CustomerSyncLog" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.propertyUnit[NewUnit1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.propertyUnit[NewUnit2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CustomerSyncLog" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit3</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.propertyUnit[NewUnit3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CustomerSyncLog" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CustomerSyncLog" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="creator.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>syncDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[syncDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5b855489-d8e5-49e2-9d4a-b93d7c24ec84</key>
+                    <parentUnit>
+                        <key name="name" value="syncDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CustomerSyncLog" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="syncDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isSuccess</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[isSuccess].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c8678786-0d36-43ff-ad1e-4f59cda2048b</key>
+                    <parentUnit>
+                        <key name="name" value="isSuccess" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CustomerSyncLog" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isSuccess" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>tipsInfo</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[tipsInfo].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2842769e-1218-47a7-8746-5f928c024b68</key>
+                    <parentUnit>
+                        <key name="name" value="tipsInfo" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CustomerSyncLog" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="tipsInfo" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>customerNum</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[customerNum].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>52d0553d-231a-4545-b45b-7be449dd5111</key>
+                    <parentUnit>
+                        <key name="name" value="customerNum" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CustomerSyncLog" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="customerNum" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>customerName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[customerName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6850ac3a-705a-4fa7-baf4-8b062d523c78</key>
+                    <parentUnit>
+                        <key name="name" value="customerName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CustomerSyncLog" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="customerName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+            <key name="name" value="CustomerSyncLogQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>syncDate</propertyName>
+            <sortType>DESC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>NewJoin0</name>
+            <formulaString>#0</formulaString>
+            <type>INNER JOIN</type>
+            <leftObject>
+                <key name="name" value="CustomerSyncLog" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit1" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin1</name>
+            <formulaString>#0</formulaString>
+            <type>INNER JOIN</type>
+            <leftObject>
+                <key name="name" value="CustomerSyncLog" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit3" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richbase.app" />
+                <key name="name" value="CustomerSyncLogQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="客户同步日志" />
+            <lang locale="zh_HK" value="客戶同步日誌" />
+            <lang locale="zh_TW" value="客戶同步日誌" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].defaultSorters.querySorterItemextendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].defaultSorters.querySorterItemextendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.custom.richbase.client.RichbaseResource.CustomerSyncLogQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.custom.richbase.client.RichbaseResource.CustomerSyncLogQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.custom.richbase.client.RichbaseResource.CustomerSyncLogQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="客户同步日志" />
+            <lang locale="zh_CN" value="客户同步日志" />
+            <lang locale="zh_TW" value="客户同步日志" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].defaultSorters.querySorterItemextendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].defaultSorters.querySorterItemextendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].defaultSorters.querySorterItemextendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].defaultSorters.querySorterItemextendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单级基础资料查询" />
+            <lang locale="zh_HK" value="單級基礎資料查詢" />
+            <lang locale="zh_TW" value="單級基礎資料查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.custom.richbase.client.RichbaseResource.CustomerSyncLogQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.custom.richbase.client.RichbaseResource.CustomerSyncLogQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.custom.richbase.client.RichbaseResource.CustomerSyncLogQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="客户同步日志" />
+            <lang locale="zh_CN" value="客户同步日志" />
+            <lang locale="zh_TW" value="客户同步日志" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].subObjects.subEntity[CustomerSyncLog].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.propertyUnit[NewUnit0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.propertyUnit[NewUnit1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.propertyUnit[NewUnit2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.propertyUnit[NewUnit3].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[createTime].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[createTime].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[createTime].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.name].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.name].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
+            <lang locale="zh_TW" value="用戶名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.number].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.number].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[creator.number].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[customerName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[customerName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[customerName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[customerNum].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="客户编码" />
+            <lang locale="zh_HK" value="客戶編碼" />
+            <lang locale="zh_TW" value="客戶編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[customerNum].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[customerNum].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[id].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[id].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[id].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[id].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[isSuccess].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否成功" />
+            <lang locale="zh_HK" value="是否成功" />
+            <lang locale="zh_TW" value="是否成功" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[isSuccess].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[isSuccess].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[syncDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="同步日期" />
+            <lang locale="zh_HK" value="同步日期" />
+            <lang locale="zh_TW" value="同步日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[syncDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[syncDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[tipsInfo].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="错误信息" />
+            <lang locale="zh_HK" value="錯誤信息" />
+            <lang locale="zh_TW" value="錯誤信息" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[tipsInfo].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richbase.app.CustomerSyncLogQuery].units.queryField[tipsInfo].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</joinQuery>
+

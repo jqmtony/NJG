@@ -173,37 +173,6 @@
             </query>
         </queryField>
         <queryField>
-            <name>ywNumber</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.F7RichExamedQuery].units.queryField[ywNumber].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>95706d0e-fd4e-4c38-826b-9779442880e4</key>
-                    <parentUnit>
-                        <key name="name" value="ywNumber" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="RichExamed" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="ywNumber" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
-                <key name="name" value="F7RichExamedQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>bizDate</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
@@ -1319,6 +1288,37 @@
                 <key name="name" value="F7RichExamedQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.F7RichExamedQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8162520a-701c-429e-9375-3f7d50693319</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamed" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="F7RichExamedQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2058,6 +2058,12 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.F7RichExamedQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.F7RichExamedQuery].units.queryField[qyUnit.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="签约单位" />
@@ -2133,22 +2139,6 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.F7RichExamedQuery].units.queryField[yhxAmount].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.F7RichExamedQuery].units.queryField[ywNumber].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="业务单据编号" />
-            <lang locale="zh_HK" value="業務單據編號" />
-            <lang locale="zh_TW" value="業務單據編號" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.F7RichExamedQuery].units.queryField[ywNumber].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.F7RichExamedQuery].units.queryField[ywNumber].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

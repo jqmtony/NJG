@@ -27,6 +27,11 @@
             <value>i18nResource[com.kingdee.eas.custom.richbase.client.RichbaseResource].resourceItems.resourceItem[OrgUnitQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>CustomerSyncLogQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.custom.richbase.client.RichbaseResource].resourceItems.resourceItem[CustomerSyncLogQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.custom.richbase.client.RichbaseResource].alias">
@@ -40,6 +45,12 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.custom.richbase.client.RichbaseResource].resourceItems.resourceItem[CustomerSyncLogQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="客户同步日志" />
+            <lang locale="zh_HK" value="客戶同步日誌" />
+            <lang locale="zh_TW" value="客戶同步日誌" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.custom.richbase.client.RichbaseResource].resourceItems.resourceItem[ExamTypeQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
