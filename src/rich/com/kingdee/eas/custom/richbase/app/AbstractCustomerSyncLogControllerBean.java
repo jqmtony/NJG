@@ -190,6 +190,29 @@ public abstract class AbstractCustomerSyncLogControllerBean extends DataBaseCont
         return super._getCollection(ctx, svcCtx, oql);
     }
 
+    public String syncCustomer(Context ctx) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("8ff65d44-21d8-413d-b104-06c78cb38d8d"), new Object[]{ctx});
+            invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
+            String retValue = (String)_syncCustomer(ctx);
+            svcCtx.setMethodReturnValue(retValue);
+            }
+            invokeServiceAfter(svcCtx);
+            return (String)svcCtx.getMethodReturnValue();
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected String _syncCustomer(Context ctx) throws BOSException
+    {    	
+        return null;
+    }
+
     public DataBaseCollection getDataBaseCollection (Context ctx) throws BOSException
     {
     	return (DataBaseCollection)(getCustomerSyncLogCollection(ctx).cast(DataBaseCollection.class));

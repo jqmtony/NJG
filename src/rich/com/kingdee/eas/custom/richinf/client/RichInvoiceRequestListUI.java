@@ -41,6 +41,24 @@ public class RichInvoiceRequestListUI extends AbstractRichInvoiceRequestListUI
         super.storeFields();
     }
 
+    @Override
+    public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception {
+    	KDTSelectBlock selectBlock = null;
+    	KDTSelectManager selectManger = tblMain.getSelectManager();
+    	IRichInvoiceRequest irr = RichInvoiceRequestFactory.getRemoteInstance();
+    	for (int i = 0; i < selectManger.size(); i++) {
+    		selectBlock = selectManger.get(i);
+    		for (int j = selectBlock.getBeginRow(); j <=selectBlock.getEndRow(); j++) {
+    			if(!BillState.AUDIT.equals(irr.getRichInvoiceRequestInfo(new ObjectUuidPK((String)tblMain.getCell(j,"id").getValue())).getBillState())){
+    				MsgBox.showInfo("单据不是已审核状态！请先审核！");
+    				SysUtil.abort();
+    			}
+    		}
+    	}
+    	
+    	super.actionCreateTo_actionPerformed(e);
+    }
+    
     /**
      * output tblMain_tableClicked method
      */
@@ -84,21 +102,21 @@ public class RichInvoiceRequestListUI extends AbstractRichInvoiceRequestListUI
 
     @Override
     public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
-//    	String id = getSelectedKeyValue();
-//    	if(id != null){
-//    		RichInvoiceRequestInfo info = null;
-//    		info = RichInvoiceRequestFactory.getRemoteInstance().getRichInvoiceRequestInfo(new ObjectUuidPK(id));
-//    		if(!info.getBillState().equals(BillState.SUBMIT)) {
-//    			MsgBox.showInfo("提交状态下的单据才能进行审核操作！");
-//        		SysUtil.abort();
-//    		}
-//    		
-//    	}else {
-//    		MsgBox.showInfo("请选择您要进行审核的记录！");
-//    		SysUtil.abort();
-//    	}
     	checkSelected();
-    	super.actionAudit_actionPerformed(e);
+    	KDTSelectBlock selectBlock = null;
+    	KDTSelectManager selectManger = tblMain.getSelectManager();
+    	IRichInvoiceRequest irr = RichInvoiceRequestFactory.getRemoteInstance();
+    	RichInvoiceRequestInfo rrinfo = null;
+    	for (int i = 0; i < selectManger.size(); i++) {
+    		selectBlock = selectManger.get(i);
+    		for (int j = selectBlock.getBeginRow(); j <=selectBlock.getEndRow(); j++) {
+    			rrinfo = irr.getRichInvoiceRequestInfo(new ObjectUuidPK((String)tblMain.getCell(j,"id").getValue()));
+    			if(BillState.SUBMIT.equals(rrinfo.getBillState())){
+    				irr.audit(rrinfo);
+    			}
+    		}
+    	}
+    	
     	MsgBox.showInfo("审核成功！");
     	actionRefresh_actionPerformed(e);
     }
@@ -106,7 +124,19 @@ public class RichInvoiceRequestListUI extends AbstractRichInvoiceRequestListUI
     @Override
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
     	checkSelected();
-    	super.actionUnAudit_actionPerformed(e);
+    	KDTSelectBlock selectBlock = null;
+    	KDTSelectManager selectManger = tblMain.getSelectManager();
+    	IRichInvoiceRequest irr = RichInvoiceRequestFactory.getRemoteInstance();
+    	RichInvoiceRequestInfo rrinfo = null;
+    	for (int i = 0; i < selectManger.size(); i++) {
+    		selectBlock = selectManger.get(i);
+    		for (int j = selectBlock.getBeginRow(); j <=selectBlock.getEndRow(); j++) {
+    			rrinfo = irr.getRichInvoiceRequestInfo(new ObjectUuidPK((String)tblMain.getCell(j,"id").getValue()));
+    			if(BillState.AUDIT.equals(rrinfo.getBillState())){
+    				irr.unAudit(rrinfo);
+    			}
+    		}
+    	}
     	MsgBox.showInfo("反审核成功！");
     	actionRefresh_actionPerformed(e);
     }

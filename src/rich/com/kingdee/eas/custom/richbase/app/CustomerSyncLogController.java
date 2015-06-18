@@ -32,4 +32,5 @@ public interface CustomerSyncLogController extends DataBaseController
     public CustomerSyncLogCollection getCustomerSyncLogCollection(Context ctx) throws BOSException, RemoteException;
     public CustomerSyncLogCollection getCustomerSyncLogCollection(Context ctx, EntityViewInfo view) throws BOSException, RemoteException;
     public CustomerSyncLogCollection getCustomerSyncLogCollection(Context ctx, String oql) throws BOSException, RemoteException;
+    public String syncCustomer(Context ctx) throws BOSException, RemoteException;
 }

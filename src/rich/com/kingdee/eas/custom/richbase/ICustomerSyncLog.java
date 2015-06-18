@@ -27,4 +27,5 @@ public interface ICustomerSyncLog extends IDataBase
     public CustomerSyncLogCollection getCustomerSyncLogCollection() throws BOSException;
     public CustomerSyncLogCollection getCustomerSyncLogCollection(EntityViewInfo view) throws BOSException;
     public CustomerSyncLogCollection getCustomerSyncLogCollection(String oql) throws BOSException;
+    public String syncCustomer() throws BOSException;
 }

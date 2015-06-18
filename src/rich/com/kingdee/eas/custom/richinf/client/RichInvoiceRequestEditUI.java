@@ -12,6 +12,7 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
@@ -777,6 +778,12 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
      */
     public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception
     {
+    	
+    	if(!BillState.AUDIT.equals(editData.getBillState())){
+			MsgBox.showInfo("单据不是已审核状态！请先审核！");
+			SysUtil.abort();
+		}
+    	
         super.actionCreateTo_actionPerformed(e);
     }
 

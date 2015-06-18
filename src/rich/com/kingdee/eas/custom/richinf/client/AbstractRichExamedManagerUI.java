@@ -47,6 +47,10 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractRichExamedManagerUI.class);
     protected com.kingdee.bos.ctrl.swing.KDSplitPane kDSplitPane1;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel1;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel2;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel3;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel4;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
@@ -150,6 +154,10 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
         getActionManager().registerAction("actionViewLog", actionViewLog);
          this.actionViewLog.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.kDSplitPane1 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
+        this.kDLabel1 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.kDLabel2 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.kDLabel3 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.kDLabel4 = new com.kingdee.bos.ctrl.swing.KDLabel();
         this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
         this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
@@ -167,6 +175,10 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
         this.btnSyncustomer = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnViewLog = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.kDSplitPane1.setName("kDSplitPane1");
+        this.kDLabel1.setName("kDLabel1");
+        this.kDLabel2.setName("kDLabel2");
+        this.kDLabel3.setName("kDLabel3");
+        this.kDLabel4.setName("kDLabel4");
         this.kDContainer1.setName("kDContainer1");
         this.kDTabbedPane1.setName("kDTabbedPane1");
         this.kDPanel1.setName("kDPanel1");
@@ -194,6 +206,15 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
         // kDSplitPane1		
         this.kDSplitPane1.setOrientation(0);		
         this.kDSplitPane1.setDividerLocation(280);
+        // kDLabel1		
+        this.kDLabel1.setText(resHelper.getString("kDLabel1.text"));		
+        this.kDLabel1.setBackground(new java.awt.Color(0,255,128));
+        // kDLabel2		
+        this.kDLabel2.setText(resHelper.getString("kDLabel2.text"));
+        // kDLabel3		
+        this.kDLabel3.setText(resHelper.getString("kDLabel3.text"));
+        // kDLabel4		
+        this.kDLabel4.setText(resHelper.getString("kDLabel4.text"));
         // kDContainer1		
         this.kDContainer1.setTitle(resHelper.getString("kDContainer1.title"));		
         this.kDContainer1.setEnableActive(false);
@@ -334,8 +355,16 @@ public abstract class AbstractRichExamedManagerUI extends com.kingdee.eas.framew
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        kDSplitPane1.setBounds(new Rectangle(4, 4, 1005, 622));
-        this.add(kDSplitPane1, new KDLayout.Constraints(4, 4, 1005, 622, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDSplitPane1.setBounds(new Rectangle(4, 23, 1005, 603));
+        this.add(kDSplitPane1, new KDLayout.Constraints(4, 23, 1005, 603, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDLabel1.setBounds(new Rectangle(7, 4, 80, 19));
+        this.add(kDLabel1, new KDLayout.Constraints(7, 4, 80, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel2.setBounds(new Rectangle(153, 4, 80, 19));
+        this.add(kDLabel2, new KDLayout.Constraints(153, 4, 80, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel3.setBounds(new Rectangle(299, 4, 80, 19));
+        this.add(kDLabel3, new KDLayout.Constraints(299, 4, 80, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel4.setBounds(new Rectangle(446, 4, 80, 19));
+        this.add(kDLabel4, new KDLayout.Constraints(446, 4, 80, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //kDSplitPane1
         kDSplitPane1.add(kDContainer1, "top");
         kDSplitPane1.add(kDTabbedPane1, "bottom");

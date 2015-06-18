@@ -23,6 +23,17 @@ public class CustomerSyncLogEditUI extends AbstractCustomerSyncLogEditUI
     {
         super();
     }
+    
+    @Override
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	actionAddNew.setVisible(false);
+    	actionEdit.setVisible(false);
+    	actionCopy.setVisible(false);
+    	actionSave.setVisible(false);
+    	actionSubmit.setVisible(false);
+    }
+    
     /**
      * output loadFields method
      */

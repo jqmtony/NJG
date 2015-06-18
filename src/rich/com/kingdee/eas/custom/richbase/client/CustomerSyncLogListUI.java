@@ -24,6 +24,13 @@ public class CustomerSyncLogListUI extends AbstractCustomerSyncLogListUI
         super();
     }
 
+    @Override
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	actionAddNew.setVisible(false);
+    	actionEdit.setVisible(false);
+    }
+    
     /**
      * output storeFields method
      */

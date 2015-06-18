@@ -125,4 +125,17 @@ public class CustomerSyncLog extends DataBase implements ICustomerSyncLog
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *同步客户信息-User defined method
+     *@return
+     */
+    public String syncCustomer() throws BOSException
+    {
+        try {
+            return getController().syncCustomer(getContext());
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

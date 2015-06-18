@@ -80,13 +80,13 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
     
     private final String kh_sql = "select fparentid from CT_RIC_RichCWODE where CFDjNoID=?";
     
-    private final Color blue = Color.BLUE;
+    private final Color blue = new Color(175,169,250);
     
-    private final Color yellow = Color.YELLOW;
+    private final Color yellow = new Color(222,218,137);
     
-    private final Color green = Color.GREEN;
+    private final Color green = new Color(140,251,149);
     
-    private final Color red = Color.RED;
+    private final Color red = new Color(241,115,88);
     
     public String getEntriesName() {
     	return super.getEntriesName();
@@ -142,6 +142,14 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
     
     private void initDefault(){
     	tblMain.getColumn("yhxAmount").getStyleAttributes().setNumberFormat("#,##0.00");
+    	kDLabel1.setOpaque(true);
+    	kDLabel2.setOpaque(true);
+    	kDLabel3.setOpaque(true);
+    	kDLabel4.setOpaque(true);
+    	kDLabel1.setBackground(green);
+    	kDLabel2.setBackground(blue);
+    	kDLabel3.setBackground(yellow);
+    	kDLabel4.setBackground(red);
     }
     
     private void tblMain_afterDataFill(KDTDataRequestEvent e){
@@ -161,37 +169,35 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
 			//判断是否已进行开票申请
 			try {
 				rs = iff.executeQuery(sq_sql,ps);
+				sab = tblMain.getRow(i).getStyleAttributes();
 				if(rs.size() > 0) {
-					sab = tblMain.getRow(i).getStyleAttributes();
 					sab.setBackground(green);
 					rs = iff.executeQuery(fp_sql,ps);
 					if(rs.size() > 0) {
 						sab.setBackground(blue);
-						rs = iff.executeQuery(nb_sql,ps);
-						if(rs.size() > 0) {
-							yhx = (BigDecimal)tblMain.getCell(i,"yhxAmount").getValue();
-							amount = (BigDecimal)tblMain.getCell(i,"amount").getValue();
-							if(yhx != null && amount.compareTo(yhx) > 0) {
-								sab.setBackground(yellow);
-							}else {
-								sab.setBackground(red);
-							}
+					}
+				}
+				rs = iff.executeQuery(nb_sql,ps);
+				if(rs.size() > 0) {
+					yhx = (BigDecimal)tblMain.getCell(i,"yhxAmount").getValue();
+					amount = (BigDecimal)tblMain.getCell(i,"amount").getValue();
+					if(amount!=null && yhx != null && amount.compareTo(yhx) == 0) {
+						sab.setBackground(red);
+					}else {
+						sab.setBackground(yellow);
+					}
+				}else {
+					rs = iff.executeQuery(kh_sql,ps);
+					if(rs.size() > 0) {
+						yhx = (BigDecimal)tblMain.getCell(i,"yhxAmount").getValue();
+						amount = (BigDecimal)tblMain.getCell(i,"amount").getValue();
+						if(amount!=null && yhx != null && amount.compareTo(yhx) == 0) {
+							sab.setBackground(red);
 						}else {
-							
-							rs = iff.executeQuery(kh_sql,ps);
-							if(rs.size() > 0) {
-								yhx = (BigDecimal)tblMain.getCell(i,"yhxAmount").getValue();
-								amount = (BigDecimal)tblMain.getCell(i,"amount").getValue();
-								if(yhx != null && amount.compareTo(yhx) > 0) {
-									sab.setBackground(yellow);
-								}else {
-									sab.setBackground(red);
-								}
-							}
+							sab.setBackground(yellow);
 						}
 					}
 				}
-				
 			} catch (EASBizException e1) {
 				handUIException(e1);
 			} catch (BOSException e1) {
@@ -365,8 +371,7 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
     {
         super.tblMain_tableSelectChanged(e);
         String billId = this.getSelectedKeyValue()+"";
-        if(billId==null)
-        	billId = "";
+       
         //发票申请单
         EntityViewInfo viewInfo = new EntityViewInfo();
         FilterInfo filInfo = new FilterInfo();
@@ -374,79 +379,21 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
         viewInfo.setFilter(filInfo);
         showQueryDate(tblInvoiceRequest, InvoiceRequestQuery, viewInfo);
         //应收单
-        viewInfo = new EntityViewInfo();
-        filInfo = new FilterInfo();
+        filInfo.getFilterItems().clear();
         filInfo.getFilterItems().add(new FilterItemInfo("id","select FDestObjectID from T_BOT_Relation where FSrcObjectID in (select FDestObjectID from T_BOT_Relation where FSrcObjectID='"+billId+"')",CompareType.INNER));
-        viewInfo.setFilter(filInfo);
         showQueryDate(tblOtherBill, OtherBillQuery, viewInfo);
         //内部核销单
-        viewInfo = new EntityViewInfo();
-        filInfo = new FilterInfo();
+        filInfo.getFilterItems().clear();
         filInfo.getFilterItems().add(new FilterItemInfo("id","select fparentid from CT_RIC_CompayWriteDj where CFDjNoID='"+billId+"'",CompareType.INNER));
-        viewInfo.setFilter(filInfo);
         showQueryDate(tblCompanyoff, CompanyoffQuery, viewInfo);
         //客户核销单
-        viewInfo = new EntityViewInfo();
-        filInfo = new FilterInfo();
+        filInfo.getFilterItems().clear();
         filInfo.getFilterItems().add(new FilterItemInfo("id","select fparentid from CT_RIC_RichCWODE where CFDjNoID='"+billId+"'",CompareType.INNER));
-        viewInfo.setFilter(filInfo);
         showQueryDate(tblCustomerOff, CustomerOffQuery, viewInfo);
     }
 
     public void actionSyncustomer_actionPerformed(ActionEvent e) throws Exception {
-    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    	String oql = "select fid from t_bd_customer where to_char(flastupdatetime,'yyyy-mm-dd')='"+sdf.format(SysUtil.getAppServerTime(null))+"'";
-    	CustomerCollection ccolls = CustomerFactory.getRemoteInstance().getCustomerCollection("where id in("+oql+") and usedStatus=1");
-    	if(ccolls.size() > 0) {
-    		ReserveServicePortType rspt = new ReserveServiceLocator().getreserveServiceHttpSoap11Endpoint();
-        	JSONObject params = null;
-        	CustomerInfo cinfo = null;
-        	String result = null;
-        	int corrects = 0;
-        	ICustomerSyncLog ics = CustomerSyncLogFactory.getRemoteInstance();
-        	CustomerSyncLogInfo logInfo = null;
-    		for(int i=ccolls.size()-1; i>=0; i--) {
-    			params = new JSONObject();
-    			cinfo = ccolls.get(i);
-    			//单位代码
-    			params.put("dwdm",cinfo.getNumber());
-    			//单位名称
-    			params.put("dwmc",cinfo.getName());
-    			//医疗机构
-    			params.put("yljg",cinfo.getCU().getName());
-    			//单位地址
-    			params.put("dwdz",cinfo.getAddress());
-    			//联系人
-    			//params.put("lxr",);
-    			//备注
-    			params.put("bz",cinfo.getDescription());
-    			//联系电话
-    			//params.put("lxdh","110");
-    			//地区名称
-    			//params.put("dqmc","长宁区");
-    			//申请人员
-    			//params.put("sqry",SysContext.getSysContext().getCurrentUserInfo().getName());
-    			//版本号
-    			params.put("version",cinfo.getVersion());
-    			result = rspt.saveCompanyInfo(params.toString());
-    			params = new JSONObject(result);
-    			boolean flag = params.optBoolean("result");
-    			if(flag) {
-    				corrects++;
-    			}
-    			logInfo = new CustomerSyncLogInfo();
-    			logInfo.setCustomerNum(cinfo.getNumber());
-    			logInfo.setCustomerName(cinfo.getName());
-    			logInfo.setSyncDate(new Date());
-    			logInfo.setIsSuccess(flag);
-    			logInfo.setTipsInfo(params.optString("info"));
-    			ics.addnew(logInfo);
-    		}
-    		MsgBox.showInfo("同步"+ccolls.size()+"条数据，其中成功数量："+corrects);
-    	}else {
-    		MsgBox.showInfo("没有符合条件的客户，不进行同步操作！");
-    	}
-    	
+    	MsgBox.showInfo(CustomerSyncLogFactory.getRemoteInstance().syncCustomer());
     }
     
     public void actionViewLog_actionPerformed(ActionEvent e) throws Exception {

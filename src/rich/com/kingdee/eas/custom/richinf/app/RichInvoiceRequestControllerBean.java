@@ -2,7 +2,6 @@ package com.kingdee.eas.custom.richinf.app;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,8 +16,11 @@ import com.kingdee.eas.base.permission.UserInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.SysContextConstant;
 import com.kingdee.eas.custom.richinf.BillState;
+import com.kingdee.eas.custom.richinf.IRichExamed;
+import com.kingdee.eas.custom.richinf.RichExamedFactory;
 import com.kingdee.eas.custom.richinf.RichInvoiceRequestEntryCollection;
 import com.kingdee.eas.custom.richinf.RichInvoiceRequestInfo;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.app.DbUtil;
 import com.kingdee.jdbc.rowset.IRowSet;
 
@@ -31,23 +33,27 @@ public class RichInvoiceRequestControllerBean extends AbstractRichInvoiceRequest
     @Override
     protected void _audit(Context ctx, IObjectValue model) throws BOSException {
     	RichInvoiceRequestInfo rrinfo = (RichInvoiceRequestInfo)model;
-    	rrinfo.setAuditDate(new Date());
-    	rrinfo.setAuditor((UserInfo)ctx.get(SysContextConstant.USERINFO));
-    	rrinfo.setBillState(BillState.AUDIT);
     	try {
+    		rrinfo.setAuditDate(SysUtil.getAppServerTime(ctx));
+    		rrinfo.setAuditor((UserInfo)ctx.get(SysContextConstant.USERINFO));
+    		rrinfo.setBillState(BillState.AUDIT);
 			_update(ctx,new ObjectUuidPK(rrinfo.getId()),model);
+			
+			//将开票机构反写回到检单的开票机构。
+			if(rrinfo.getKpCompany() != null) {
+				String companyID = rrinfo.getKpCompany().getId().toString();
+				String reid = null;
+				IRichExamed  ire = RichExamedFactory.getLocalInstance(ctx);
+				for(int i=rrinfo.getEntrys().size()-1; i>=0; i--){
+					reid = rrinfo.getEntrys().get(i).getDjd().getId().toString();
+					if(!companyID.equals(ire.getRichExamedInfo(new ObjectUuidPK(reid)).getKpCompany().getId().toString())){
+						DbUtil.execute(ctx,"update CT_RIC_RichExamed set CFKpCompanyID=? where FID=?",new Object[]{companyID,reid});
+					}
+				}
+			}
 		} catch (EASBizException e) {
 			e.printStackTrace();
 		}
-    	//将开票机构反写回到检单的开票机构。
-    	if(rrinfo.getKpCompany() != null) {
-    		String companyID = rrinfo.getKpCompany().getId().toString();
-    		String reid = null;
-    		for(int i=rrinfo.getEntrys().size()-1; i>=0; i--){
-    			reid = rrinfo.getEntrys().get(i).getDjd().getId().toString();
-    			DbUtil.execute(ctx,"update CT_RIC_RichExamed set CFKpCompanyID=? where FID=?",new Object[]{companyID,reid});
-    		}
-    	}
     }
     
     @Override
@@ -119,7 +125,7 @@ public class RichInvoiceRequestControllerBean extends AbstractRichInvoiceRequest
     	}
     	
     	//取得在此之前的已开票金额
-    	sql = "select FAmount from T_AR_OtherBill where FBillStatus=2 and CFLdNo='"+ldNumber+"'";
+    	sql = "select FAmount from T_AR_OtherBill where FBillStatus=3 and CFLdNo='"+ldNumber+"'";
     	rs = DbUtil.executeQuery(ctx,sql);
     	if(rs != null && rs.size() > 0) {
     		BigDecimal fpTotal = BigDecimal.ZERO;
