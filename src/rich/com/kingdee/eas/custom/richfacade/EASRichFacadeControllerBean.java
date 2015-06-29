@@ -183,30 +183,50 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
       StringBuffer sb = new StringBuffer();
       
       while (rowset.next()) {
-        if (rowset.getString("djjg") == null)
+    	  StringBuffer sb1 = new StringBuffer();
+        if (rowset.getString("djjg") == null){
           sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，到检机构【" + rowset.getString("cfdjjg") + "】不存在！" + "\n");
+          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，到检机构【" + rowset.getString("cfdjjg") + "】不存在！" + "\n");
+        }
         if (rowset.getString("kpjg") == null) {
           sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，开票机构【" + rowset.getString("cfkpjg") + "】不存在！" + "\n");
+          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，开票机构【" + rowset.getString("cfkpjg") + "】不存在！" + "\n");
         }
 
-        if (rowset.getString("qydw") == null)
+        if (rowset.getString("qydw") == null){
           sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，签约单位【" + rowset.getString("cfqydw") + "】不存在！" + "\n");
-        if (rowset.getString("djdw") == null)
+          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，签约单位【" + rowset.getString("cfqydw") + "】不存在！" + "\n");
+        }
+        if (rowset.getString("djdw") == null){
           sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，到检单位【" + rowset.getString("cfdjdw") + "】不存在！" + "\n");
-        if (rowset.getString("kpdw") == null)
+          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，到检单位【" + rowset.getString("cfdjdw") + "】不存在！" + "\n");
+        }
+        if (rowset.getString("kpdw") == null){
           sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，开票单位【" + rowset.getString("cfkpdw") + "】不存在！" + "\n");
-        if (rowset.getString("fkdw") == null)
+          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，开票单位【" + rowset.getString("cfkpdw") + "】不存在！" + "\n");
+        }
+        if (rowset.getString("fkdw") == null){
           sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，付款单位【" + rowset.getString("cfskdw") + "】不存在！" + "\n");
-        if (rowset.getString("xsy") == null)
+          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，付款单位【" + rowset.getString("cfskdw") + "】不存在！" + "\n");
+        }
+        if (rowset.getString("xsy") == null){
           sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，销售员【" + rowset.getString("cfxsy") + "】不存在！" + "\n");
-        if (rowset.getString("xslb") == null)
+          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，销售员【" + rowset.getString("cfxsy") + "】不存在！" + "\n");
+        }
+        if (rowset.getString("xslb") == null){
           sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，销售类别【" + rowset.getString("cfxslb") + "】不存在！" + "\n");
-        if (rowset.getString("tjlb") == null)
+          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，销售类别【" + rowset.getString("cfxslb") + "】不存在！" + "\n");
+        }
+        if (rowset.getString("tjlb") == null){
           sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，体检类别【" + rowset.getString("cftjlb") + "】不存在！" + "\n");
-        if (rowset.getString("sklb") == null)
+          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，体检类别【" + rowset.getString("cftjlb") + "】不存在！" + "\n");
+        }
+        if (rowset.getString("sklb") == null){
           sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，收款类别【" + rowset.getString("cfsklb") + "】不存在！" + "\n");
-        if (!"".equals(sb.toString())) {//将校验不通过数据的错误信息，反写到校验表
-           String updateSql = " update CT_RIC_RichExamCheckTab set cfcheckinfo='"+sb.toString()+"' where fid='"+rowset.getString("fid")+"' ";
+          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，收款类别【" + rowset.getString("cfsklb") + "】不存在！" + "\n");
+        }
+        if (!"".equals(sb1.toString())) {//将校验不通过数据的错误信息，反写到校验表
+           String updateSql = " update CT_RIC_RichExamCheckTab set cfcheckinfo='"+sb1.toString()+"' where fid='"+rowset.getString("fid")+"' ";
            DbUtil.execute(ctx, updateSql);
         }
       }
