@@ -32,7 +32,7 @@ public class RichCustomWriteOffListUI extends AbstractRichCustomWriteOffListUI
     }
     
     private void voucherStateChange() {
-		actionVoucher.setVisible(true);
+    	actionVoucher.setVisible(true);
     	actionDelVoucher.setVisible(true);
     	actionVoucher.setEnabled(true);
     	actionDelVoucher.setEnabled(true);

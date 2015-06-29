@@ -484,19 +484,23 @@ public class RichExamedListUI extends AbstractRichExamedListUI
     		for (int j = selectBlock.getBeginRow(); j <=selectBlock.getEndRow(); j++) {
     			info = ire.getRichExamedInfo(new ObjectUuidPK((String)tblMain.getCell(j,"id").getValue()));
     			amount = info.getAmount();
+    			if(amount == null){
+    				MsgBox.showInfo("第"+(j+1)+"行到检单数据异常，请重新选择！");
+    				SysUtil.abort();
+    			}
     			nbyhx = info.getNbyhxAmount();
     			khyhx = info.getYhxAmount();
     			if(info.isDj()) {
     				if(khyhx!=null && khyhx.compareTo(amount)==0 && (nbyhx==null || amount.compareTo(nbyhx)>0)){
-        				MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部核销，单据转换时请选择只对内部规则！");
-        			}else if(nbyhx!=null && nbyhx.compareTo(amount)==0 && (khyhx==null || amount.compareTo(khyhx)>0)){
-        				MsgBox.showInfo("第"+(j+1)+"行到检单内部金额已全部核销，单据转换时请选择默认规则！");
-        			}else if(nbyhx!=null && nbyhx.compareTo(amount)==0 && khyhx!=null && amount.compareTo(khyhx)==0){
-        				MsgBox.showInfo("第"+(j+1)+"行到检单客户和内部金额都已全部核销，请重新选择！");
-        			}
+    					MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部核销，单据转换时请选择只对内部规则！");
+    				}else if(nbyhx!=null && nbyhx.compareTo(amount)==0 && (khyhx==null || amount.compareTo(khyhx)>0)){
+    					MsgBox.showInfo("第"+(j+1)+"行到检单内部金额已全部核销，单据转换时请选择默认规则！");
+    				}else if(nbyhx!=null && nbyhx.compareTo(amount)==0 && khyhx!=null && amount.compareTo(khyhx)==0){
+    					MsgBox.showInfo("第"+(j+1)+"行到检单客户和内部金额都已全部核销，请重新选择！");
+    				}
     			}else if(khyhx != null && khyhx.compareTo(amount) == 0){
     				MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部核销，请重新选择！");
-    		    	SysUtil.abort();
+    				SysUtil.abort();
     			}
 			}
 		}
