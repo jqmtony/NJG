@@ -1,0 +1,2867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.custom.richinf.app</package>
+    <name>RichExamCheckTabQuery</name>
+    <alias>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.custom.richinf.RichExamCheckTab</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>RichExamCheckTab</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].subObjects.subEntity[RichExamCheckTab].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTab" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>NewUnit0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.propertyUnit[NewUnit0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.propertyUnit[NewUnit1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.propertyUnit[NewUnit2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit3</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.propertyUnit[NewUnit3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>simpleName</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[simpleName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="simpleName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="simpleName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>description</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[description].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="description" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="description" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="creator.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>ywdjbh</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[ywdjbh].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8453bce9-c9ea-48a5-bb29-8a9db0dd2f1a</key>
+                    <parentUnit>
+                        <key name="name" value="ywdjbh" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="ywdjbh" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bizdate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[bizdate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2fc63dc3-2b73-42ac-addc-b5130f02d3dd</key>
+                    <parentUnit>
+                        <key name="name" value="bizdate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bizdate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>ldh</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[ldh].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e0900cc2-7e4f-42ca-92bf-814fe31043f5</key>
+                    <parentUnit>
+                        <key name="name" value="ldh" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="ldh" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>qydw</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[qydw].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>13463801-2c75-4f52-a69c-7268410a3ff7</key>
+                    <parentUnit>
+                        <key name="name" value="qydw" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="qydw" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>djdw</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djdw].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>57380c62-a4f7-4e89-a808-b04e09adb8c0</key>
+                    <parentUnit>
+                        <key name="name" value="djdw" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="djdw" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>kpdw</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kpdw].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e7bc141b-df23-48a1-91ed-5b8fdbfdc184</key>
+                    <parentUnit>
+                        <key name="name" value="kpdw" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="kpdw" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>skdw</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[skdw].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b724548c-f93b-402b-95fa-a3d98bcae0c6</key>
+                    <parentUnit>
+                        <key name="name" value="skdw" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="skdw" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>djpzh</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djpzh].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f309b497-6127-4f86-99e3-df6b51843eab</key>
+                    <parentUnit>
+                        <key name="name" value="djpzh" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="djpzh" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>kppzh</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kppzh].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>17b8f3c0-1542-4f08-83ca-d4edd78b6db9</key>
+                    <parentUnit>
+                        <key name="name" value="kppzh" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="kppzh" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>skpzh</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[skpzh].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7f011ebc-2d96-4146-91ab-c7381c141ecb</key>
+                    <parentUnit>
+                        <key name="name" value="skpzh" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="skpzh" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>biznumber</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[biznumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>70af46b7-cf79-4a9f-8f96-5788cf90c8a9</key>
+                    <parentUnit>
+                        <key name="name" value="biznumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="biznumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>fph</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[fph].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ef49e6aa-6d1a-4c26-91e8-95e919449160</key>
+                    <parentUnit>
+                        <key name="name" value="fph" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="fph" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>zje</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[zje].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7735f9b0-ea6f-439c-a340-8673ca709304</key>
+                    <parentUnit>
+                        <key name="name" value="zje" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="zje" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>xsy</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[xsy].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>87038043-e079-4de5-86b4-3ffb913730b5</key>
+                    <parentUnit>
+                        <key name="name" value="xsy" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="xsy" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>tjlb</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[tjlb].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>51c55e2d-f6b2-4133-8f07-6d2e1e742370</key>
+                    <parentUnit>
+                        <key name="name" value="tjlb" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="tjlb" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bizState</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[bizState].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e01cb7d9-d621-444c-aa73-fbd7295b7671</key>
+                    <parentUnit>
+                        <key name="name" value="bizState" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bizState" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>beizhu</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[beizhu].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>585fa886-41b2-4b18-a3ed-3c09c82bdcf0</key>
+                    <parentUnit>
+                        <key name="name" value="beizhu" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="beizhu" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>djtcmc</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djtcmc].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>38e8ca8f-c8b4-4582-9408-0f6bef313173</key>
+                    <parentUnit>
+                        <key name="name" value="djtcmc" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="djtcmc" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>djr</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djr].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7584ed30-8915-46f0-8051-171000967fec</key>
+                    <parentUnit>
+                        <key name="name" value="djr" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="djr" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>djtcbm</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djtcbm].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>eb285946-290e-4fcf-8625-5cad3fdfe73d</key>
+                    <parentUnit>
+                        <key name="name" value="djtcbm" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="djtcbm" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>djxmbm</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djxmbm].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>18e64670-20f3-4336-a1f9-58b5b36cca63</key>
+                    <parentUnit>
+                        <key name="name" value="djxmbm" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="djxmbm" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>djxmmc</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djxmmc].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>12ed0742-6d4d-41f5-a24a-e017c9f6cf07</key>
+                    <parentUnit>
+                        <key name="name" value="djxmmc" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="djxmmc" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>xslb</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[xslb].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>da04af14-5cff-47be-9b6b-a22f0f118a0d</key>
+                    <parentUnit>
+                        <key name="name" value="xslb" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="xslb" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>sklb</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[sklb].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d9fdba59-7c2c-4800-aa2c-50a86949d15f</key>
+                    <parentUnit>
+                        <key name="name" value="sklb" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="sklb" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>jxbs</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[jxbs].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3543d5c1-a69d-4cba-94c4-7e653049dc1a</key>
+                    <parentUnit>
+                        <key name="name" value="jxbs" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="jxbs" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>klj</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[klj].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>bf252e7f-7155-4ff9-a098-65d8c203e9cf</key>
+                    <parentUnit>
+                        <key name="name" value="klj" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="klj" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>zkl</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[zkl].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>82389917-5af6-46d4-8080-496ca80688f9</key>
+                    <parentUnit>
+                        <key name="name" value="zkl" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="zkl" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>jsje</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[jsje].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9b5ece35-7341-4c77-9232-b89e7e50f725</key>
+                    <parentUnit>
+                        <key name="name" value="jsje" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="jsje" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>se</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[se].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>521ae816-c81d-4ef1-b666-1583d9607eea</key>
+                    <parentUnit>
+                        <key name="name" value="se" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="se" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>jshj</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[jshj].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5d6924f9-136f-4a75-ba2f-a9ee7dc42639</key>
+                    <parentUnit>
+                        <key name="name" value="jshj" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="jshj" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>djjg</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djjg].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c96e4c13-6fe7-42c8-b917-3c7ae223b6a8</key>
+                    <parentUnit>
+                        <key name="name" value="djjg" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="djjg" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>kpjg</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kpjg].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4c50da37-6442-478d-a6e7-5d92373ee164</key>
+                    <parentUnit>
+                        <key name="name" value="kpjg" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="kpjg" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>djrq</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djrq].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>083faa5f-865b-44cb-9d34-044246632710</key>
+                    <parentUnit>
+                        <key name="name" value="djrq" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="djrq" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>flag</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[flag].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>544116ee-09cc-40d0-adf2-8d2c935f47f2</key>
+                    <parentUnit>
+                        <key name="name" value="flag" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="flag" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>kh</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kh].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>14e22bbd-1822-4a5b-b290-a4a58f92241a</key>
+                    <parentUnit>
+                        <key name="name" value="kh" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="kh" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>zjjg</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[zjjg].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>06caa020-9e97-4f20-a9ea-4e0f08721f43</key>
+                    <parentUnit>
+                        <key name="name" value="zjjg" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="zjjg" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>djd</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djd].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d1126925-f75b-4be8-a7d8-1760dc09ffae</key>
+                    <parentUnit>
+                        <key name="name" value="djd" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="djd" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>checkInfo</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[checkInfo].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3ba3e48a-46f6-446d-b37c-c149ecd65fcc</key>
+                    <parentUnit>
+                        <key name="name" value="checkInfo" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamCheckTab" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="checkInfo" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+            <key name="name" value="RichExamCheckTabQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>number</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>NewJoin0</name>
+            <formulaString>#0</formulaString>
+            <type>INNER JOIN</type>
+            <leftObject>
+                <key name="name" value="RichExamCheckTab" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit1" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin1</name>
+            <formulaString>#0</formulaString>
+            <type>INNER JOIN</type>
+            <leftObject>
+                <key name="name" value="RichExamCheckTab" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit3" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamCheckTabQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="体检明细校验表" />
+            <lang locale="zh_HK" value="體檢明細校驗表" />
+            <lang locale="zh_TW" value="體檢明細校驗表" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].defaultSorters.querySorterItemextendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].defaultSorters.querySorterItemextendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].defaultSorters.querySorterItemextendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].defaultSorters.querySorterItemextendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].defaultSorters.querySorterItemextendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单级基础资料查询" />
+            <lang locale="zh_HK" value="單級基礎資料查詢" />
+            <lang locale="zh_TW" value="單級基礎資料查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.custom.richinf.client.RichinfResource.RichExamCheckTabQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.custom.richinf.client.RichinfResource.RichExamCheckTabQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.custom.richinf.client.RichinfResource.RichExamCheckTabQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="体检明细校验表" />
+            <lang locale="zh_CN" value="体检明细校验表" />
+            <lang locale="zh_TW" value="体检明细校验表" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].subObjects.subEntity[RichExamCheckTab].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.propertyUnit[NewUnit0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.propertyUnit[NewUnit1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.propertyUnit[NewUnit2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.propertyUnit[NewUnit3].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[beizhu].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[beizhu].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[beizhu].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[bizState].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[bizState].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[bizState].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[bizdate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
+            <lang locale="zh_TW" value="業務日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[bizdate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[bizdate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[biznumber].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="关联单据号" />
+            <lang locale="zh_HK" value="關聯單據號" />
+            <lang locale="zh_TW" value="關聯單據號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[biznumber].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[biznumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[checkInfo].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="校验信息" />
+            <lang locale="zh_HK" value="校驗信息" />
+            <lang locale="zh_TW" value="校驗信息" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[checkInfo].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[checkInfo].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[createTime].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[createTime].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[createTime].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.name].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.name].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
+            <lang locale="zh_TW" value="用戶名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.number].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.number].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[creator.number].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[description].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
+            <lang locale="zh_TW" value="描述" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[description].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[description].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[description].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[description].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[description].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djd].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="生成到检单" />
+            <lang locale="zh_HK" value="生成到檢單" />
+            <lang locale="zh_TW" value="生成到檢單" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djd].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djd].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djdw].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="到检单位（受检单位）" />
+            <lang locale="zh_HK" value="到檢單位（受檢單位）" />
+            <lang locale="zh_TW" value="到檢單位（受檢單位）" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djdw].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djdw].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djjg].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="到检机构" />
+            <lang locale="zh_HK" value="到檢機構" />
+            <lang locale="zh_TW" value="到檢機構" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djjg].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djjg].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djpzh].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="到检凭证号" />
+            <lang locale="zh_HK" value="到檢憑證號" />
+            <lang locale="zh_TW" value="到檢憑證號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djpzh].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djpzh].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djr].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="到检人" />
+            <lang locale="zh_HK" value="到檢人" />
+            <lang locale="zh_TW" value="到檢人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djr].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djr].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djrq].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据日期" />
+            <lang locale="zh_HK" value="單據日期" />
+            <lang locale="zh_TW" value="單據日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djrq].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djrq].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djtcbm].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="到检套餐编码" />
+            <lang locale="zh_HK" value="到檢套餐編碼" />
+            <lang locale="zh_TW" value="到檢套餐編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djtcbm].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djtcbm].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djtcmc].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="到检套餐名称" />
+            <lang locale="zh_HK" value="到檢套餐名稱" />
+            <lang locale="zh_TW" value="到檢套餐名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djtcmc].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djtcmc].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djxmbm].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="到检项目编码" />
+            <lang locale="zh_HK" value="到檢項目編碼" />
+            <lang locale="zh_TW" value="到檢項目編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djxmbm].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djxmbm].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djxmmc].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="到检项目名称" />
+            <lang locale="zh_HK" value="到檢項目名稱" />
+            <lang locale="zh_TW" value="到檢項目名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djxmmc].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[djxmmc].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[flag].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="标识" />
+            <lang locale="zh_HK" value="標識" />
+            <lang locale="zh_TW" value="標識" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[flag].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[flag].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[fph].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="发票号" />
+            <lang locale="zh_HK" value="發票號" />
+            <lang locale="zh_TW" value="發票號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[fph].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[fph].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[id].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[id].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[id].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[id].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[jshj].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="价税合计" />
+            <lang locale="zh_HK" value="價稅合計" />
+            <lang locale="zh_TW" value="價稅合計" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[jshj].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[jshj].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[jsje].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="结算金额" />
+            <lang locale="zh_HK" value="結算金額" />
+            <lang locale="zh_TW" value="結算金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[jsje].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[jsje].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[jxbs].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="加项标识" />
+            <lang locale="zh_HK" value="加項標識" />
+            <lang locale="zh_TW" value="加項標識" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[jxbs].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[jxbs].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kh].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="储值卡号" />
+            <lang locale="zh_HK" value="儲值卡號" />
+            <lang locale="zh_TW" value="儲值卡號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kh].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kh].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[klj].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="刊例价" />
+            <lang locale="zh_HK" value="刊例價" />
+            <lang locale="zh_TW" value="刊例價" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[klj].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[klj].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kpdw].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="开票单位" />
+            <lang locale="zh_HK" value="開票單位" />
+            <lang locale="zh_TW" value="開票單位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kpdw].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kpdw].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kpjg].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="开票机构" />
+            <lang locale="zh_HK" value="開票機構" />
+            <lang locale="zh_TW" value="開票機構" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kpjg].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kpjg].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kppzh].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="开票凭证号" />
+            <lang locale="zh_HK" value="開票憑證號" />
+            <lang locale="zh_TW" value="開票憑證號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kppzh].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[kppzh].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateTime].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateTime].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateTime].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.name].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.name].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
+            <lang locale="zh_TW" value="用戶名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.number].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.number].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[lastUpdateUser.number].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[ldh].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="落单号" />
+            <lang locale="zh_HK" value="落單號" />
+            <lang locale="zh_TW" value="落單號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[ldh].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[ldh].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[name].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[name].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[number].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[number].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[number].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[qydw].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="签约单位（合同单位）" />
+            <lang locale="zh_HK" value="簽約單位（合同單位）" />
+            <lang locale="zh_TW" value="簽約單位（合同單位）" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[qydw].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[qydw].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[se].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="税额" />
+            <lang locale="zh_HK" value="稅額" />
+            <lang locale="zh_TW" value="稅額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[se].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[se].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[simpleName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
+            <lang locale="zh_TW" value="簡稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[simpleName].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[simpleName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[simpleName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[simpleName].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[simpleName].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[skdw].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="收款单位" />
+            <lang locale="zh_HK" value="收款單位" />
+            <lang locale="zh_TW" value="收款單位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[skdw].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[skdw].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[sklb].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="收款类别" />
+            <lang locale="zh_HK" value="收款類別" />
+            <lang locale="zh_TW" value="收款類別" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[sklb].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[sklb].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[skpzh].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="收款凭证号" />
+            <lang locale="zh_HK" value="收款憑證號" />
+            <lang locale="zh_TW" value="收款憑證號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[skpzh].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[skpzh].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[tjlb].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="体检类别" />
+            <lang locale="zh_HK" value="體檢類別" />
+            <lang locale="zh_TW" value="體檢類別" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[tjlb].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[tjlb].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[xslb].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="销售类别" />
+            <lang locale="zh_HK" value="銷售類別" />
+            <lang locale="zh_TW" value="銷售類別" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[xslb].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[xslb].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[xsy].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="销售员" />
+            <lang locale="zh_HK" value="銷售員" />
+            <lang locale="zh_TW" value="銷售員" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[xsy].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[xsy].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[ywdjbh].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务单据编号" />
+            <lang locale="zh_HK" value="業務單據編號" />
+            <lang locale="zh_TW" value="業務單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[ywdjbh].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[ywdjbh].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[zje].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="总金额" />
+            <lang locale="zh_HK" value="總金額" />
+            <lang locale="zh_TW" value="總金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[zje].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[zje].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[zjjg].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="中介机构" />
+            <lang locale="zh_HK" value="仲介機構" />
+            <lang locale="zh_TW" value="仲介機構" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[zjjg].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[zjjg].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[zkl].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="折扣率" />
+            <lang locale="zh_HK" value="折扣率" />
+            <lang locale="zh_TW" value="折扣率" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[zkl].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamCheckTabQuery].units.queryField[zkl].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</joinQuery>
+

@@ -42,6 +42,11 @@
             <value>i18nResource[com.kingdee.eas.custom.richinf.client.RichinfResource].resourceItems.resourceItem[SaleCardQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>RichExamCheckTabQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.custom.richinf.client.RichinfResource].resourceItems.resourceItem[RichExamCheckTabQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.custom.richinf.client.RichinfResource].alias">
@@ -73,6 +78,12 @@
             <lang locale="zh_CN" value="到检单与客户发票核销单" />
             <lang locale="zh_HK" value="到檢單與客戶發票核銷單" />
             <lang locale="zh_TW" value="到檢單與客戶發票核銷單" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.custom.richinf.client.RichinfResource].resourceItems.resourceItem[RichExamCheckTabQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="体检明细校验表" />
+            <lang locale="zh_HK" value="體檢明細校驗表" />
+            <lang locale="zh_TW" value="體檢明細校驗表" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.custom.richinf.client.RichinfResource].resourceItems.resourceItem[RichExamTempTabQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
