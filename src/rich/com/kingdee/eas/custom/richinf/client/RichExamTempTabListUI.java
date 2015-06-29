@@ -78,7 +78,8 @@ public class RichExamTempTabListUI extends AbstractRichExamTempTabListUI
 						"<billHead>"
     					+"<end>1</end>"
 						+"<ywdjbh>0001</ywdjbh>"
-						+"<bizdate>2015-06-2</bizdate>"
+						+"<bizdate>2015-06-29</bizdate>"
+						+"<djrq>2015-06-28</djrq>"
 						+"<ldh>HT0002</ldh>"
 						+"<qydw>0002500470|江苏千年珠宝有限公司</qydw>"// K000000  0002500470
 						+"<djdw>0002500470|江苏千年珠宝有限公司</djdw>"
@@ -154,7 +155,7 @@ public class RichExamTempTabListUI extends AbstractRichExamTempTabListUI
 					+"   </entry>"
 					+"</billEntries>"
 				+"</TempTable>";
-    		sb.append(newstr);
+    		sb.append(str2);
 		}
     	
     	String str = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +

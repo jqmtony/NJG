@@ -24,4 +24,9 @@ public abstract class AbstractRichExamedListUIHandler extends com.kingdee.eas.fr
 	}
 	protected void _handleActionTDPrintPreview(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleActionDate(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionDate(request,response,context);
+	}
+	protected void _handleActionDate(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

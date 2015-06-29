@@ -3,79 +3,33 @@
  */
 package com.kingdee.eas.custom.richinf.client;
 
-import java.awt.event.ActionEvent;
-import java.math.BigDecimal;
-
+import java.awt.event.*;
 import org.apache.log4j.Logger;
-
-import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
-import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
-import com.kingdee.bos.dao.IObjectCollection;
-import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.ui.face.IUIWindow;
-import com.kingdee.bos.ui.face.UIFactory;
-import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
-import com.kingdee.eas.common.client.OprtState;
-import com.kingdee.eas.common.client.SysContext;
-import com.kingdee.eas.common.client.UIFactoryName;
-import com.kingdee.eas.custom.richinf.IRichExamed;
-import com.kingdee.eas.custom.richinf.RichExamedFactory;
-import com.kingdee.eas.custom.richinf.RichExamedInfo;
-import com.kingdee.eas.custom.richinf.RichInvoiceRequestFactory;
-import com.kingdee.eas.util.SysUtil;
-import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.framework.*;
 
 /**
  * output class name
  */
-public class RichExamedListUI extends AbstractRichExamedListUI
+public class RichExamCheckTabListUI extends AbstractRichExamCheckTabListUI
 {
-    private static final Logger logger = CoreUIObject.getLogger(RichExamedListUI.class);
+    private static final Logger logger = CoreUIObject.getLogger(RichExamCheckTabListUI.class);
     
     /**
      * output class constructor
      */
-    public RichExamedListUI() throws Exception
+    public RichExamCheckTabListUI() throws Exception
     {
         super();
     }
-    public void onLoad() throws Exception {
-    	super.onLoad();
-//    	actionAddNew.setVisible(false);
-//    	actionRemove.setVisible(false);
-    }
-    
-    public void actionDate_actionPerformed(ActionEvent e) throws Exception {
-        super.actionDate_actionPerformed(e);
 
-        CompanyOrgUnitInfo currentFIUnit = SysContext.getSysContext().getCurrentFIUnit();
-        IUIWindow myWindow = null;
-        myWindow = UIFactory.createUIFactory("com.kingdee.eas.base.uiframe.client.UIModelDialogFactory").create(DateUI.class.getName(), getUIContext(), null, OprtState.ADDNEW);
-        myWindow.show();
-      }
-    public void beforeTransform(IObjectCollection iobjectcollection, String s) {
-    }
-    
-    /**
-     * output actionRefresh_actionPerformed
-     */
-    public void actionRefresh_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionRefresh_actionPerformed(e);
-//        EASRichFacadeFactory.getRemoteInstance().saveExamBill(new Date(), "");
-    }
     /**
      * output storeFields method
      */
     public void storeFields()
     {
         super.storeFields();
-    }
-    
-    @Override
-    protected String getEditUIModal() {
-    	return UIFactoryName.NEWTAB;
     }
 
     /**
@@ -84,14 +38,6 @@ public class RichExamedListUI extends AbstractRichExamedListUI
     protected void tblMain_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
     {
         super.tblMain_tableClicked(e);
-    }
-
-    /**
-     * output tblMain_tableSelectChanged method
-     */
-    protected void tblMain_tableSelectChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent e) throws Exception
-    {
-        super.tblMain_tableSelectChanged(e);
     }
 
     /**
@@ -347,11 +293,6 @@ public class RichExamedListUI extends AbstractRichExamedListUI
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
-    	checkSelected();
-    	if(RichInvoiceRequestFactory.getRemoteInstance().getRichInvoiceRequestCollection("where sourceBillId='"+getSelectedKeyValue()+"'").size() > 0) {
-    		MsgBox.showInfo("此单据已关联生成开票申请单，不能进行此操作！");
-    		SysUtil.abort();
-    	}
         super.actionEdit_actionPerformed(e);
     }
 
@@ -361,6 +302,14 @@ public class RichExamedListUI extends AbstractRichExamedListUI
     public void actionRemove_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionRemove_actionPerformed(e);
+    }
+
+    /**
+     * output actionRefresh_actionPerformed
+     */
+    public void actionRefresh_actionPerformed(ActionEvent e) throws Exception
+    {
+        super.actionRefresh_actionPerformed(e);
     }
 
     /**
@@ -468,184 +417,11 @@ public class RichExamedListUI extends AbstractRichExamedListUI
     }
 
     /**
-     * output actionCreateTo_actionPerformed
-     */
-    public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception
-    {
-    	KDTSelectBlock selectBlock = null;
-    	KDTSelectManager selectManger = tblMain.getSelectManager();
-    	IRichExamed ire = RichExamedFactory.getRemoteInstance();
-    	RichExamedInfo info = null;
-    	BigDecimal khyhx = null;
-    	BigDecimal nbyhx = null;
-    	BigDecimal amount = null;
-    	for (int i = 0; i < selectManger.size(); i++) {
-    		selectBlock = selectManger.get(i);
-    		for (int j = selectBlock.getBeginRow(); j <=selectBlock.getEndRow(); j++) {
-    			info = ire.getRichExamedInfo(new ObjectUuidPK((String)tblMain.getCell(j,"id").getValue()));
-    			amount = info.getAmount();
-    			nbyhx = info.getNbyhxAmount();
-    			khyhx = info.getYhxAmount();
-    			if(info.isDj()) {
-    				if(khyhx!=null && khyhx.compareTo(amount)==0 && (nbyhx==null || amount.compareTo(nbyhx)>0)){
-        				MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部核销，单据转换时请选择只对内部规则！");
-        			}else if(nbyhx!=null && nbyhx.compareTo(amount)==0 && (khyhx==null || amount.compareTo(khyhx)>0)){
-        				MsgBox.showInfo("第"+(j+1)+"行到检单内部金额已全部核销，单据转换时请选择默认规则！");
-        			}else if(nbyhx!=null && nbyhx.compareTo(amount)==0 && khyhx!=null && amount.compareTo(khyhx)==0){
-        				MsgBox.showInfo("第"+(j+1)+"行到检单客户和内部金额都已全部核销，请重新选择！");
-        			}
-    			}else if(khyhx != null && khyhx.compareTo(amount) == 0){
-    				MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部核销，请重新选择！");
-    		    	SysUtil.abort();
-    			}
-			}
-		}
-    	
-        super.actionCreateTo_actionPerformed(e);
-    }
-
-    /**
-     * output actionCopyTo_actionPerformed
-     */
-    public void actionCopyTo_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCopyTo_actionPerformed(e);
-    }
-
-    /**
-     * output actionTraceUp_actionPerformed
-     */
-    public void actionTraceUp_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionTraceUp_actionPerformed(e);
-    }
-
-    /**
-     * output actionTraceDown_actionPerformed
-     */
-    public void actionTraceDown_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionTraceDown_actionPerformed(e);
-    }
-
-    /**
-     * output actionVoucher_actionPerformed
-     */
-    public void actionVoucher_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionVoucher_actionPerformed(e);
-    }
-
-    /**
-     * output actionDelVoucher_actionPerformed
-     */
-    public void actionDelVoucher_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionDelVoucher_actionPerformed(e);
-    }
-
-    /**
-     * output actionAuditResult_actionPerformed
-     */
-    public void actionAuditResult_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionAuditResult_actionPerformed(e);
-    }
-
-    /**
-     * output actionViewDoProccess_actionPerformed
-     */
-    public void actionViewDoProccess_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionViewDoProccess_actionPerformed(e);
-    }
-
-    /**
-     * output actionMultiapprove_actionPerformed
-     */
-    public void actionMultiapprove_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionMultiapprove_actionPerformed(e);
-    }
-
-    /**
-     * output actionNextPerson_actionPerformed
-     */
-    public void actionNextPerson_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionNextPerson_actionPerformed(e);
-    }
-
-    /**
-     * output actionWorkFlowG_actionPerformed
-     */
-    public void actionWorkFlowG_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionWorkFlowG_actionPerformed(e);
-    }
-
-    /**
-     * output actionSendSmsMessage_actionPerformed
-     */
-    public void actionSendSmsMessage_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSendSmsMessage_actionPerformed(e);
-    }
-
-    /**
-     * output actionSignature_actionPerformed
-     */
-    public void actionSignature_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSignature_actionPerformed(e);
-    }
-
-    /**
-     * output actionWorkflowList_actionPerformed
-     */
-    public void actionWorkflowList_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionWorkflowList_actionPerformed(e);
-    }
-
-    /**
-     * output actoinViewSignature_actionPerformed
-     */
-    public void actoinViewSignature_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actoinViewSignature_actionPerformed(e);
-    }
-
-    /**
-     * output actionNumberSign_actionPerformed
-     */
-    public void actionNumberSign_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionNumberSign_actionPerformed(e);
-    }
-
-    /**
-     * output actionTDPrint_actionPerformed
-     */
-    public void actionTDPrint_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionTDPrint_actionPerformed(e);
-    }
-
-    /**
-     * output actionTDPrintPreview_actionPerformed
-     */
-    public void actionTDPrintPreview_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionTDPrintPreview_actionPerformed(e);
-    }
-
-    /**
      * output getBizInterface method
      */
     protected com.kingdee.eas.framework.ICoreBase getBizInterface() throws Exception
     {
-        return com.kingdee.eas.custom.richinf.RichExamedFactory.getRemoteInstance();
+        return com.kingdee.eas.custom.richinf.RichExamCheckTabFactory.getRemoteInstance();
     }
 
     /**
@@ -653,7 +429,7 @@ public class RichExamedListUI extends AbstractRichExamedListUI
      */
     protected com.kingdee.bos.dao.IObjectValue createNewData()
     {
-        com.kingdee.eas.custom.richinf.RichExamedInfo objectValue = new com.kingdee.eas.custom.richinf.RichExamedInfo();
+        com.kingdee.eas.custom.richinf.RichExamCheckTabInfo objectValue = new com.kingdee.eas.custom.richinf.RichExamCheckTabInfo();
 		
         return objectValue;
     }
