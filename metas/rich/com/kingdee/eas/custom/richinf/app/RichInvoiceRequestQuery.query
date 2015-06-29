@@ -1753,6 +1753,99 @@
                 <key name="name" value="RichInvoiceRequestQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>entrys.khyhxAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.khyhxAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0c45b390-8bba-4e7a-addf-8cc85076723f</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.khyhxAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="khyhxAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.nbyhxAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.nbyhxAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>bf8dde25-2bf0-478b-bf18-202c70fbbae2</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.nbyhxAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="nbyhxAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.bencisq</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.bencisq].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a7da61d7-3452-4ebb-a9f8-2def24ff941f</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.bencisq" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bencisq" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichInvoiceRequestQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2494,6 +2587,22 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.bencisq].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本次申请开票金额" />
+            <lang locale="zh_HK" value="本次申請開票金額" />
+            <lang locale="zh_TW" value="本次申請開票金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.bencisq].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.bencisq].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.djd.number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="到检单号" />
@@ -2536,6 +2645,38 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.khyhxAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="客户已核销金额" />
+            <lang locale="zh_HK" value="客戶已核銷金額" />
+            <lang locale="zh_TW" value="客戶已核銷金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.khyhxAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.khyhxAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.nbyhxAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="内部已核销金额" />
+            <lang locale="zh_HK" value="內部已核銷金額" />
+            <lang locale="zh_TW" value="內部已核銷金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.nbyhxAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.nbyhxAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichInvoiceRequestQuery].units.queryField[entrys.seq].displayName">
             <lang locale="en_US" value="null" />

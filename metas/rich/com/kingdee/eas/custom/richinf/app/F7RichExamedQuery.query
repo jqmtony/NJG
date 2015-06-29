@@ -1319,6 +1319,37 @@
                 <key name="name" value="F7RichExamedQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>nbyhxAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.F7RichExamedQuery].units.queryField[nbyhxAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ef2f9439-5181-40fe-8e87-cfd00225c957</key>
+                    <parentUnit>
+                        <key name="name" value="nbyhxAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamed" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="nbyhxAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="F7RichExamedQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2057,6 +2088,12 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.F7RichExamedQuery].units.queryField[nbyhxAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="内部已核销金额" />
+            <lang locale="zh_HK" value="內部已核銷金額" />
+            <lang locale="zh_TW" value="內部已核銷金額" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.F7RichExamedQuery].units.queryField[number].displayName">
             <lang locale="en_US" value="null" />
