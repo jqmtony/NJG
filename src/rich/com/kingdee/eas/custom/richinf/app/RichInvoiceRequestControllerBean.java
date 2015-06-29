@@ -40,7 +40,7 @@ public class RichInvoiceRequestControllerBean extends AbstractRichInvoiceRequest
 			_update(ctx,new ObjectUuidPK(rrinfo.getId()),model);
 			
 			//将开票机构反写回到检单的开票机构。
-			if(rrinfo.getKpCompany() != null) {
+			if(rrinfo.getKpCompany() != null && !rrinfo.isDjkp()) {
 				String companyID = rrinfo.getKpCompany().getId().toString();
 				String reid = null;
 				IRichExamed  ire = RichExamedFactory.getLocalInstance(ctx);
@@ -113,13 +113,13 @@ public class RichInvoiceRequestControllerBean extends AbstractRichInvoiceRequest
 				e.printStackTrace();
 			}
     	}
-    	if(info.getBillState().equals(BillState.SAVE)) {
+    	if(BillState.SAVE.equals(info.getBillState())) {
     		info.setBillState(BillState.SUBMIT);
     		info.setReqSumAmount(requestTotal.add(info.getAmount()));
     	}else{
     		RichInvoiceRequestInfo oldValue = (RichInvoiceRequestInfo)_getValue(ctx,new ObjectUuidPK(info.getId()));
     		if(oldValue.getAmount().compareTo(info.getAmount()) > 0)
-    			info.setReqSumAmount(requestTotal.add(oldValue.getAmount().subtract(info.getAmount())));
+    			info.setReqSumAmount(requestTotal.subtract(oldValue.getAmount().subtract(info.getAmount())));
     		else
     			info.setReqSumAmount(requestTotal.add(info.getAmount().subtract(oldValue.getAmount())));
     	}

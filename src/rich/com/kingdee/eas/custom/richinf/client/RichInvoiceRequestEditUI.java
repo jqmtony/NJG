@@ -77,13 +77,16 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     public void onLoad() throws Exception {
     	super.onLoad();
     	
-    	kdtEntrys.getSelectManager().setSelectMode(KDTSelectManager.MULTIPLE_ROW_SELECT);
     	kdtEntrys.getColumn("ysAmount").getStyleAttributes().setLocked(true);
     	kdtEntrys.getColumn("djd").getStyleAttributes().setLocked(true);
+    	actionAudit.setEnabled(true);
+    	actionCreateFrom.setVisible(false);
     	
     	chkMenuItemSubmitAndAddNew.setVisible(false);
     	chkMenuItemSubmitAndAddNew.setEnabled(false);
-    	if(getOprtState().equals(OprtState.ADDNEW) && getBOTPViewStatus()==1) {
+    	if(getBOTPViewStatus()==1) {
+    		if(editData.getBillState() == null)
+    			billState.setSelectedItem(BillState.SAVE);
     		String ldNumber = editData.getLdNumber();
     		//初始化累计开票申请金额，根据落单号累加之前的申请开票金额
     		StringBuffer sb = new StringBuffer();
@@ -140,6 +143,7 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     				handUIException(e);
     			}
     			txtinvoicedAmount.setValue(fpTotal);
+    			
         	}
         	
         	if(editData.isDjkp() && editData.getSourceBillId()!=null){
@@ -152,6 +156,13 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
         	}
         	
     	}
+    	if(editData.isDjkp()){
+    		kdtEntrys.getColumn("khyhxAmount").getStyleAttributes().setHided(true);
+        	kdtEntrys.getColumn("nbyhxAmount").getStyleAttributes().setLocked(true);
+    	}else{
+    		kdtEntrys.getColumn("khyhxAmount").getStyleAttributes().setLocked(true);
+        	kdtEntrys.getColumn("nbyhxAmount").getStyleAttributes().setHided(true);
+    	}
     	//根据当前财务组织过滤销售员
     	CompanyOrgUnitInfo couInfo = SysContext.getSysContext().getCurrentFIUnit();
     	if(couInfo != null){
@@ -163,12 +174,43 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     		
     	}
     	
-    	if(getOprtState().equals(OprtState.EDIT) && editData.getBillState().equals(BillState.SUBMIT)){
+    	if(OprtState.EDIT.equals(getOprtState()) && BillState.SUBMIT.equals(editData.getBillState())){
     		actionSave.setEnabled(false);
-    	}else if(getOprtState().equals(OprtState.VIEW) && editData.getBillState().equals(BillState.AUDIT)){
+    	}else if(OprtState.VIEW.equals(getOprtState()) && BillState.AUDIT.equals(editData.getBillState())){
     		actionEdit.setEnabled(false);
     		actionRemove.setEnabled(false);
     	}
+    }
+    
+    
+    @Override
+    public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
+    	if(BillState.SUBMIT.equals(editData.getBillState())){
+    		RichInvoiceRequestFactory.getRemoteInstance().audit(editData);
+    		editData.setBillState(BillState.AUDIT);
+    		loadData();
+    		
+    		setOprtState(OprtState.VIEW);
+    		actionRemove.setEnabled(false);
+    		actionEdit.setEnabled(false);
+    		MsgBox.showInfo("审核成功！");
+    	}
+    	else
+    		MsgBox.showInfo("单据不是提交状态，不能进行此操作！");
+    }
+    
+    @Override
+    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
+    	if(BillState.AUDIT.equals(editData.getBillState())){
+    		RichInvoiceRequestFactory.getRemoteInstance().unAudit(editData);
+    		editData.setBillState(BillState.SUBMIT);
+    		loadData();
+    		actionEdit.setEnabled(true);
+    		actionRemove.setEnabled(true);
+    		MsgBox.showInfo("反审核成功！");
+    	}
+    	else
+    		MsgBox.showInfo("单据不是审核状态，不能进行此操作！");
     }
     
     
@@ -218,21 +260,48 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     		prmtsales.grabFocus();
     		SysUtil.abort();
     	}
-    	if(txtldNumber.getText()==null || "".equals(txtldNumber.getText())){
-    		MsgBox.showInfo("落单号不能为空！");
-    		txtldNumber.grabFocus();
-    		SysUtil.abort();
-    	}
-    	if(txtamount.getBigDecimalValue() == null){
-    		MsgBox.showInfo("本次申请开票金额不能为空！");
-    		txtamount.grabFocus();
-    		SysUtil.abort();
-    	}
+    	
     	if(prmtkpUnit.getValue()==null){
     		MsgBox.showInfo("开票抬头不能为空！");
     		prmtkpUnit.grabFocus();
     		SysUtil.abort();
     	}
+    	if(txtldNumber.getText()==null || "".equals(txtldNumber.getText())){
+    		MsgBox.showInfo("落单号不能为空！");
+    		txtldNumber.grabFocus();
+    		SysUtil.abort();
+    	}
+    	if(kdtEntrys.getRowCount3() > 0) {
+    		if(editData.isDjkp()){
+    			
+    		}
+    		BigDecimal amount = null;
+    		BigDecimal yhx = null;
+    		BigDecimal benci = null;
+    		for(int i=kdtEntrys.getRowCount3()-1; i>=0; i--) {
+    			benci = (BigDecimal)kdtEntrys.getCell(i,"bencisq").getValue();
+    			if(benci == null){
+    				MsgBox.showInfo("第"+(i+1)+"行的本次申请开票金额不能为空！");
+    				SysUtil.abort();
+    			}else{
+    				amount = (BigDecimal)kdtEntrys.getCell(i,"ysAmount").getValue();
+    				yhx = (BigDecimal)kdtEntrys.getCell(i,"khyhxAmount").getValue();
+    				if(yhx==null && amount.compareTo(benci)<0){
+    					MsgBox.showInfo("第"+(i+1)+"行的本次申请开票金额不能大于结算金额！");
+        				SysUtil.abort();
+    				} 
+    				if(yhx!=null && benci.compareTo(amount.subtract(yhx))>0){
+    					MsgBox.showInfo("第"+(i+1)+"行的本次申请开票金额不能超出未核销金额！");
+        				SysUtil.abort();
+    				}
+    			}
+    		}
+    	}
+//    	if(txtamount.getBigDecimalValue() == null){
+//    		MsgBox.showInfo("本次申请开票金额不能为空！");
+//    		txtamount.grabFocus();
+//    		SysUtil.abort();
+//    	}
     }
     
 
@@ -595,6 +664,16 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionEdit_actionPerformed(e);
+        if( editData.getBillState().equals(BillState.SUBMIT)){
+    		actionSave.setEnabled(false);
+    	}
+        contdjAmount.setEnabled(false);
+    	//累计申请开票金额
+    	contreqSumAmount.setEnabled(false);
+    	//累计已开票金额
+    	continvoicedAmount.setEnabled(false);
+    	contbizState.setEnabled(false);
+    	contbillState.setEnabled(false);
     }
 
     /**

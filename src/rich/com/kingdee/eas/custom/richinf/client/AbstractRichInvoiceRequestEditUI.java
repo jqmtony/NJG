@@ -90,7 +90,11 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtamount;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtdjAmount;
     protected com.kingdee.bos.ctrl.swing.KDComboBox billState;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAudit;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnAudit;
     protected com.kingdee.eas.custom.richinf.RichInvoiceRequestInfo editData = null;
+    protected ActionUnAudit actionUnAudit = null;
+    protected ActionAudit actionAudit = null;
     /**
      * output class constructor
      */
@@ -154,6 +158,14 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
          this.actionPrintPreview.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionPrintPreview.addService(new com.kingdee.eas.framework.client.service.NetFunctionService());
          this.actionPrintPreview.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
+        //actionUnAudit
+        this.actionUnAudit = new ActionUnAudit(this);
+        getActionManager().registerAction("actionUnAudit", actionUnAudit);
+         this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionAudit
+        this.actionAudit = new ActionAudit(this);
+        getActionManager().registerAction("actionAudit", actionAudit);
+         this.actionAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -197,6 +209,8 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.txtamount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtdjAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.billState = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.btnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnUnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -240,6 +254,8 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.txtamount.setName("txtamount");
         this.txtdjAmount.setName("txtdjAmount");
         this.billState.setName("billState");
+        this.btnAudit.setName("btnAudit");
+        this.btnUnAudit.setName("btnUnAudit");
         // CoreUI		
         this.btnAddLine.setVisible(false);		
         this.btnCopyLine.setVisible(false);		
@@ -303,7 +319,7 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.contAuditor.setBoundLabelLength(100);		
         this.contAuditor.setBoundLabelUnderline(true);
         // kdtEntrys
-		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"djd\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"djjg\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"ysAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"beizhu\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{djd}</t:Cell><t:Cell>$Resource{djjg}</t:Cell><t:Cell>$Resource{ysAmount}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"djd\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"djjg\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"ysAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"khyhxAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"nbyhxAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"bencisq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"beizhu\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{djd}</t:Cell><t:Cell>$Resource{djjg}</t:Cell><t:Cell>$Resource{ysAmount}</t:Cell><t:Cell>$Resource{khyhxAmount}</t:Cell><t:Cell>$Resource{nbyhxAmount}</t:Cell><t:Cell>$Resource{bencisq}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
         kdtEntrys.addKDTEditListener(new KDTEditAdapter() {
@@ -318,7 +334,7 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
 	});
 
 
-                this.kdtEntrys.putBindContents("editData",new String[] {"id","djd","djjg","ysAmount","beizhu"});
+                this.kdtEntrys.putBindContents("editData",new String[] {"id","djd","djjg","ysAmount","khyhxAmount","nbyhxAmount","bencisq","beizhu"});
 
 
         this.kdtEntrys.checkParsed();
@@ -350,6 +366,39 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         kdtEntrys_ysAmount_TextField.setPrecision(2);
         KDTDefaultCellEditor kdtEntrys_ysAmount_CellEditor = new KDTDefaultCellEditor(kdtEntrys_ysAmount_TextField);
         this.kdtEntrys.getColumn("ysAmount").setEditor(kdtEntrys_ysAmount_CellEditor);
+        KDFormattedTextField kdtEntrys_khyhxAmount_TextField = new KDFormattedTextField();
+        kdtEntrys_khyhxAmount_TextField.setName("kdtEntrys_khyhxAmount_TextField");
+        kdtEntrys_khyhxAmount_TextField.setVisible(true);
+        kdtEntrys_khyhxAmount_TextField.setEditable(true);
+        kdtEntrys_khyhxAmount_TextField.setHorizontalAlignment(2);
+        kdtEntrys_khyhxAmount_TextField.setDataType(1);
+        	kdtEntrys_khyhxAmount_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtEntrys_khyhxAmount_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtEntrys_khyhxAmount_TextField.setPrecision(2);
+        KDTDefaultCellEditor kdtEntrys_khyhxAmount_CellEditor = new KDTDefaultCellEditor(kdtEntrys_khyhxAmount_TextField);
+        this.kdtEntrys.getColumn("khyhxAmount").setEditor(kdtEntrys_khyhxAmount_CellEditor);
+        KDFormattedTextField kdtEntrys_nbyhxAmount_TextField = new KDFormattedTextField();
+        kdtEntrys_nbyhxAmount_TextField.setName("kdtEntrys_nbyhxAmount_TextField");
+        kdtEntrys_nbyhxAmount_TextField.setVisible(true);
+        kdtEntrys_nbyhxAmount_TextField.setEditable(true);
+        kdtEntrys_nbyhxAmount_TextField.setHorizontalAlignment(2);
+        kdtEntrys_nbyhxAmount_TextField.setDataType(1);
+        	kdtEntrys_nbyhxAmount_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtEntrys_nbyhxAmount_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtEntrys_nbyhxAmount_TextField.setPrecision(2);
+        KDTDefaultCellEditor kdtEntrys_nbyhxAmount_CellEditor = new KDTDefaultCellEditor(kdtEntrys_nbyhxAmount_TextField);
+        this.kdtEntrys.getColumn("nbyhxAmount").setEditor(kdtEntrys_nbyhxAmount_CellEditor);
+        KDFormattedTextField kdtEntrys_bencisq_TextField = new KDFormattedTextField();
+        kdtEntrys_bencisq_TextField.setName("kdtEntrys_bencisq_TextField");
+        kdtEntrys_bencisq_TextField.setVisible(true);
+        kdtEntrys_bencisq_TextField.setEditable(true);
+        kdtEntrys_bencisq_TextField.setHorizontalAlignment(2);
+        kdtEntrys_bencisq_TextField.setDataType(1);
+        	kdtEntrys_bencisq_TextField.setMinimumValue(new java.math.BigDecimal("-1.0E26"));
+        	kdtEntrys_bencisq_TextField.setMaximumValue(new java.math.BigDecimal("1.0E26"));
+        kdtEntrys_bencisq_TextField.setPrecision(2);
+        KDTDefaultCellEditor kdtEntrys_bencisq_CellEditor = new KDTDefaultCellEditor(kdtEntrys_bencisq_TextField);
+        this.kdtEntrys.getColumn("bencisq").setEditor(kdtEntrys_bencisq_CellEditor);
         KDTextArea kdtEntrys_beizhu_TextArea = new KDTextArea();
         kdtEntrys_beizhu_TextArea.setName("kdtEntrys_beizhu_TextArea");
         kdtEntrys_beizhu_TextArea.setMaxLength(255);
@@ -413,7 +462,6 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.contdjAmount.setVisible(true);
         // chkdjkp		
         this.chkdjkp.setText(resHelper.getString("chkdjkp.text"));		
-        this.chkdjkp.setVisible(true);		
         this.chkdjkp.setHorizontalAlignment(2);
         // contbillState		
         this.contbillState.setBoundLabelText(resHelper.getString("contbillState.boundLabelText"));		
@@ -433,7 +481,6 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         // txtNumber		
         this.txtNumber.setMaxLength(80);
         // pkBizDate		
-        this.pkBizDate.setVisible(true);		
         this.pkBizDate.setEnabled(true);
         // txtDescription		
         this.txtDescription.setMaxLength(80);		
@@ -442,13 +489,11 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         // prmtAuditor		
         this.prmtAuditor.setEnabled(false);
         // txtldNumber		
-        this.txtldNumber.setVisible(true);		
         this.txtldNumber.setHorizontalAlignment(2);		
         this.txtldNumber.setMaxLength(100);		
         this.txtldNumber.setRequired(false);
         // prmtkpUnit		
         this.prmtkpUnit.setQueryInfo("com.kingdee.eas.basedata.master.cssp.app.CustomerInfoQuery");		
-        this.prmtkpUnit.setVisible(true);		
         this.prmtkpUnit.setEditable(true);		
         this.prmtkpUnit.setDisplayFormat("$name$");		
         this.prmtkpUnit.setEditFormat("$number$");		
@@ -456,35 +501,29 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.prmtkpUnit.setRequired(false);
         // prmtsales		
         this.prmtsales.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");		
-        this.prmtsales.setVisible(true);		
         this.prmtsales.setEditable(true);		
         this.prmtsales.setDisplayFormat("$name$");		
         this.prmtsales.setEditFormat("$number$");		
         this.prmtsales.setCommitFormat("$number$");		
         this.prmtsales.setRequired(false);
         // bizState		
-        this.bizState.setVisible(true);		
         this.bizState.addItems(EnumUtils.getEnumList("com.kingdee.eas.custom.richbase.BizStateEnum").toArray());		
         this.bizState.setRequired(false);
         // scrollPanebeizhu
         // txtbeizhu		
-        this.txtbeizhu.setVisible(true);		
         this.txtbeizhu.setRequired(false);		
         this.txtbeizhu.setMaxLength(255);
         // prmtkpCompany		
         this.prmtkpCompany.setQueryInfo("com.kingdee.eas.basedata.org.app.CompanyOrgUnitQuery");		
-        this.prmtkpCompany.setVisible(true);		
         this.prmtkpCompany.setEditable(true);		
         this.prmtkpCompany.setDisplayFormat("$name$");		
         this.prmtkpCompany.setEditFormat("$number$");		
         this.prmtkpCompany.setCommitFormat("$number$");		
         this.prmtkpCompany.setRequired(false);
         // pkauditDate		
-        this.pkauditDate.setVisible(true);		
         this.pkauditDate.setRequired(false);		
         this.pkauditDate.setEnabled(false);
         // txtreqSumAmount		
-        this.txtreqSumAmount.setVisible(true);		
         this.txtreqSumAmount.setHorizontalAlignment(2);		
         this.txtreqSumAmount.setDataType(1);		
         this.txtreqSumAmount.setSupportedEmpty(true);		
@@ -493,7 +532,6 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.txtreqSumAmount.setPrecision(2);		
         this.txtreqSumAmount.setRequired(false);
         // txtinvoicedAmount		
-        this.txtinvoicedAmount.setVisible(true);		
         this.txtinvoicedAmount.setHorizontalAlignment(2);		
         this.txtinvoicedAmount.setDataType(1);		
         this.txtinvoicedAmount.setSupportedEmpty(true);		
@@ -502,7 +540,6 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.txtinvoicedAmount.setPrecision(2);		
         this.txtinvoicedAmount.setRequired(false);
         // txtamount		
-        this.txtamount.setVisible(true);		
         this.txtamount.setHorizontalAlignment(2);		
         this.txtamount.setDataType(1);		
         this.txtamount.setSupportedEmpty(true);		
@@ -511,7 +548,6 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.txtamount.setPrecision(2);		
         this.txtamount.setRequired(false);
         // txtdjAmount		
-        this.txtdjAmount.setVisible(true);		
         this.txtdjAmount.setHorizontalAlignment(2);		
         this.txtdjAmount.setDataType(1);		
         this.txtdjAmount.setSupportedEmpty(true);		
@@ -520,10 +556,17 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.txtdjAmount.setPrecision(2);		
         this.txtdjAmount.setRequired(false);
         // billState		
-        this.billState.setVisible(true);		
         this.billState.addItems(EnumUtils.getEnumList("com.kingdee.eas.custom.richinf.BillState").toArray());		
         this.billState.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {kDDateLastUpdateTime,prmtLastUpdateUser,kDDateCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkauditDate,prmtkpCompany,txtbeizhu,bizState,prmtsales,prmtkpUnit,txtldNumber,kdtEntrys,billState}));
+        // btnAudit
+        this.btnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionAudit, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnAudit.setText(resHelper.getString("btnAudit.text"));		
+        this.btnAudit.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_audit"));
+        // btnUnAudit
+        this.btnUnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionUnAudit, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnUnAudit.setText(resHelper.getString("btnUnAudit.text"));		
+        this.btnUnAudit.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_unaudit"));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtreqSumAmount,txtinvoicedAmount,txtamount,txtdjAmount,chkdjkp,kDDateLastUpdateTime,prmtLastUpdateUser,kDDateCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,pkauditDate,prmtkpCompany,txtbeizhu,bizState,prmtsales,prmtkpUnit,txtldNumber,billState,kdtEntrys}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -550,52 +593,53 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
     public void initUIContentLayout()
     {
         this.setBounds(new Rectangle(0, 0, 1049, 629));
-        this.setLayout(null);
-        contCreator.setBounds(new Rectangle(440, 524, 270, 19));
-        this.add(contCreator, null);
-        contCreateTime.setBounds(new Rectangle(730, 524, 270, 19));
-        this.add(contCreateTime, null);
-        contLastUpdateUser.setBounds(new Rectangle(440, 600, 270, 19));
-        this.add(contLastUpdateUser, null);
-        contLastUpdateTime.setBounds(new Rectangle(730, 600, 270, 19));
-        this.add(contLastUpdateTime, null);
+        this.setLayout(new KDLayout());
+        this.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1049, 629));
+        contCreator.setBounds(new Rectangle(376, 529, 270, 19));
+        this.add(contCreator, new KDLayout.Constraints(376, 529, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreateTime.setBounds(new Rectangle(734, 531, 270, 19));
+        this.add(contCreateTime, new KDLayout.Constraints(734, 531, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contLastUpdateUser.setBounds(new Rectangle(376, 570, 270, 19));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(376, 570, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateTime.setBounds(new Rectangle(734, 568, 270, 19));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(734, 568, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contNumber.setBounds(new Rectangle(728, 17, 270, 19));
-        this.add(contNumber, null);
+        this.add(contNumber, new KDLayout.Constraints(728, 17, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contBizDate.setBounds(new Rectangle(728, 41, 270, 19));
-        this.add(contBizDate, null);
+        this.add(contBizDate, new KDLayout.Constraints(728, 41, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contDescription.setBounds(new Rectangle(25, 603, 293, 19));
-        this.add(contDescription, null);
-        contAuditor.setBounds(new Rectangle(15, 528, 270, 19));
-        this.add(contAuditor, null);
+        this.add(contDescription, new KDLayout.Constraints(25, 603, 293, 19, 0));
+        contAuditor.setBounds(new Rectangle(15, 529, 270, 19));
+        this.add(contAuditor, new KDLayout.Constraints(15, 529, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kdtEntrys.setBounds(new Rectangle(13, 220, 991, 301));
         kdtEntrys_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntrys,new com.kingdee.eas.custom.richinf.RichInvoiceRequestEntryInfo(),null,false);
-        this.add(kdtEntrys_detailPanel, null);
+        this.add(kdtEntrys_detailPanel, new KDLayout.Constraints(13, 220, 991, 301, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contldNumber.setBounds(new Rectangle(15, 41, 270, 19));
-        this.add(contldNumber, null);
+        this.add(contldNumber, new KDLayout.Constraints(15, 41, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contkpUnit.setBounds(new Rectangle(371, 41, 270, 19));
-        this.add(contkpUnit, null);
+        this.add(contkpUnit, new KDLayout.Constraints(371, 41, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contsales.setBounds(new Rectangle(15, 17, 270, 19));
-        this.add(contsales, null);
+        this.add(contsales, new KDLayout.Constraints(15, 17, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contbizState.setBounds(new Rectangle(728, 88, 270, 19));
-        this.add(contbizState, null);
+        this.add(contbizState, new KDLayout.Constraints(728, 88, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contbeizhu.setBounds(new Rectangle(15, 129, 984, 87));
-        this.add(contbeizhu, null);
+        this.add(contbeizhu, new KDLayout.Constraints(15, 129, 984, 87, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contkpCompany.setBounds(new Rectangle(371, 17, 270, 19));
-        this.add(contkpCompany, null);
-        contauditDate.setBounds(new Rectangle(15, 555, 270, 19));
-        this.add(contauditDate, null);
+        this.add(contkpCompany, new KDLayout.Constraints(371, 17, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contauditDate.setBounds(new Rectangle(15, 574, 270, 19));
+        this.add(contauditDate, new KDLayout.Constraints(15, 574, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contreqSumAmount.setBounds(new Rectangle(371, 65, 270, 19));
-        this.add(contreqSumAmount, null);
+        this.add(contreqSumAmount, new KDLayout.Constraints(371, 65, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         continvoicedAmount.setBounds(new Rectangle(728, 65, 270, 19));
-        this.add(continvoicedAmount, null);
+        this.add(continvoicedAmount, new KDLayout.Constraints(728, 65, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contamount.setBounds(new Rectangle(15, 65, 270, 19));
-        this.add(contamount, null);
+        this.add(contamount, new KDLayout.Constraints(15, 65, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contdjAmount.setBounds(new Rectangle(15, 89, 270, 19));
-        this.add(contdjAmount, null);
+        this.add(contdjAmount, new KDLayout.Constraints(15, 89, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         chkdjkp.setBounds(new Rectangle(728, 112, 143, 19));
-        this.add(chkdjkp, null);
+        this.add(chkdjkp, new KDLayout.Constraints(728, 112, 143, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contbillState.setBounds(new Rectangle(371, 90, 270, 19));
-        this.add(contbillState, null);
+        this.add(contbillState, new KDLayout.Constraints(371, 90, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -803,6 +847,8 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
         this.toolBar.add(btnWFViewdoProccess);
         this.toolBar.add(btnWFViewSubmitProccess);
         this.toolBar.add(btnNextPerson);
+        this.toolBar.add(btnAudit);
+        this.toolBar.add(btnUnAudit);
 
 
     }
@@ -815,6 +861,9 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
 		dataBinder.registerBinding("entrys.djjg", String.class, this.kdtEntrys, "djjg.text");
 		dataBinder.registerBinding("entrys.ysAmount", java.math.BigDecimal.class, this.kdtEntrys, "ysAmount.text");
 		dataBinder.registerBinding("entrys.beizhu", String.class, this.kdtEntrys, "beizhu.text");
+		dataBinder.registerBinding("entrys.khyhxAmount", java.math.BigDecimal.class, this.kdtEntrys, "khyhxAmount.text");
+		dataBinder.registerBinding("entrys.nbyhxAmount", java.math.BigDecimal.class, this.kdtEntrys, "nbyhxAmount.text");
+		dataBinder.registerBinding("entrys.bencisq", java.math.BigDecimal.class, this.kdtEntrys, "bencisq.text");
 		dataBinder.registerBinding("djkp", boolean.class, this.chkdjkp, "selected");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.kDDateCreateTime, "value");
@@ -867,7 +916,7 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
     public void onShow() throws Exception
     {
         super.onShow();
-        this.kDDateLastUpdateTime.requestFocusInWindow();
+        this.txtreqSumAmount.requestFocusInWindow();
     }
 
 	
@@ -976,6 +1025,9 @@ public abstract class AbstractRichInvoiceRequestEditUI extends com.kingdee.eas.f
 		getValidateHelper().registerBindProperty("entrys.djjg", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.ysAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.beizhu", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.khyhxAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.nbyhxAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.bencisq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("djkp", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
@@ -1055,6 +1107,9 @@ kdtEntrys.getCell(rowIndex,"djjg").setValue(com.kingdee.bos.ui.face.UIRuleUtil.g
     	sic.add(new SelectorItemInfo("entrys.djjg"));
     	sic.add(new SelectorItemInfo("entrys.ysAmount"));
     	sic.add(new SelectorItemInfo("entrys.beizhu"));
+    	sic.add(new SelectorItemInfo("entrys.khyhxAmount"));
+    	sic.add(new SelectorItemInfo("entrys.nbyhxAmount"));
+    	sic.add(new SelectorItemInfo("entrys.bencisq"));
         sic.add(new SelectorItemInfo("djkp"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -1169,6 +1224,22 @@ kdtEntrys.getCell(rowIndex,"djjg").setValue(com.kingdee.bos.ui.face.UIRuleUtil.g
         com.kingdee.bos.ctrl.report.forapp.kdnote.client.KDNoteHelper appHlp = new com.kingdee.bos.ctrl.report.forapp.kdnote.client.KDNoteHelper();
         appHlp.printPreview(getTDFileName(), data, javax.swing.SwingUtilities.getWindowAncestor(this));
     }
+    	
+
+    /**
+     * output actionUnAudit_actionPerformed method
+     */
+    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
+    	
+
+    /**
+     * output actionAudit_actionPerformed method
+     */
+    public void actionAudit_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1201,6 +1272,89 @@ kdtEntrys.getCell(rowIndex,"djjg").setValue(com.kingdee.bos.ui.face.UIRuleUtil.g
 	
 	public boolean isPrepareActionPrintPreview() {
     	return false;
+    }
+	public RequestContext prepareActionUnAudit(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionUnAudit() {
+    	return false;
+    }
+	public RequestContext prepareActionAudit(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionAudit() {
+    	return false;
+    }
+
+    /**
+     * output ActionUnAudit class
+     */     
+    protected class ActionUnAudit extends ItemAction {     
+    
+        public ActionUnAudit()
+        {
+            this(null);
+        }
+
+        public ActionUnAudit(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionUnAudit.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnAudit.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnAudit.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractRichInvoiceRequestEditUI.this, "ActionUnAudit", "actionUnAudit_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionAudit class
+     */     
+    protected class ActionAudit extends ItemAction {     
+    
+        public ActionAudit()
+        {
+            this(null);
+        }
+
+        public ActionAudit(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("ActionAudit.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionAudit.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionAudit.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractRichInvoiceRequestEditUI.this, "ActionAudit", "actionAudit_actionPerformed", e);
+        }
     }
 
     /**

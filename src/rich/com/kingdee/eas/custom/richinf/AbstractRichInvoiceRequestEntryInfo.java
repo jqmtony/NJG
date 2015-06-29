@@ -72,6 +72,39 @@ public class AbstractRichInvoiceRequestEntryInfo extends com.kingdee.eas.framewo
     {
         setString("beizhu", item);
     }
+    /**
+     * Object:分录's 客户已核销金额property 
+     */
+    public java.math.BigDecimal getKhyhxAmount()
+    {
+        return getBigDecimal("khyhxAmount");
+    }
+    public void setKhyhxAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("khyhxAmount", item);
+    }
+    /**
+     * Object:分录's 内部已核销金额property 
+     */
+    public java.math.BigDecimal getNbyhxAmount()
+    {
+        return getBigDecimal("nbyhxAmount");
+    }
+    public void setNbyhxAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("nbyhxAmount", item);
+    }
+    /**
+     * Object:分录's 本次申请开票金额property 
+     */
+    public java.math.BigDecimal getBencisq()
+    {
+        return getBigDecimal("bencisq");
+    }
+    public void setBencisq(java.math.BigDecimal item)
+    {
+        setBigDecimal("bencisq", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("A4EA17A6");

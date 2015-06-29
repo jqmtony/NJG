@@ -33,7 +33,10 @@ import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.eas.basedata.master.cssp.CustomerCollection;
+import com.kingdee.eas.basedata.master.cssp.CustomerFactory;
 import com.kingdee.eas.basedata.master.cssp.CustomerInfo;
+import com.kingdee.eas.basedata.master.cssp.ICustomer;
 import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
 import com.kingdee.eas.basedata.org.CtrlUnitInfo;
 import com.kingdee.eas.basedata.person.PersonInfo;
@@ -80,16 +83,13 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
     	if(prmtsales.getValue() != null ){
     		if(dce.getNewValue() == null){
     			kdtDjEntry.removeRows();
-//    			Set<String> customerids = checkOutRichExamed(null);
-    			Set<String> customerids = checkOutRichExamedByOql(null);
+    			Set<String> customerids = nbRichExamedByOql(null);
     			kdtFpEntry.removeRows();
     			checkOutFPByOql(customerids);
     		}else if(!dce.getNewValue().equals(dce.getOldValue())){
     			kdtDjEntry.removeRows();
-//    			Set<String> customerids = checkOutRichExamed(dce.getNewValue());
-    			Set<String> customerids = checkOutRichExamedByOql(dce.getNewValue());
+    			Set<String> customerids = nbRichExamedByOql(dce.getNewValue());
     			kdtFpEntry.removeRows();
-//    			checkOutFP(customerids);
     			checkOutFPByOql(customerids);
     		}
     	}
@@ -98,6 +98,10 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
 	@Override
     public void onLoad() throws Exception {
     	super.onLoad();
+//    	btnVoucher.setVisible(true);
+//    	btnDelVoucher.setVisible(true);
+    	actionVoucher.setVisible(true);
+    	actionDelVoucher.setVisible(true);
     	initEntry();
     	//内部的核销单需要过滤外部客户
     	EntityViewInfo evi = new EntityViewInfo();
@@ -154,7 +158,7 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
     	}else if(!dce.getNewValue().equals(dce.getOldValue())){
     		//根据销售员自动带出到检单和发票
 			kdtDjEntry.removeRows();
-			Set<String> customerids = checkOutRichExamedByOql(dce.getNewValue());
+			Set<String> customerids = nbRichExamedByOql(dce.getNewValue());
 			kdtFpEntry.removeRows();
 //			checkOutFP(customerids);
 			checkOutFPByOql(customerids);
@@ -240,6 +244,75 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
 			}
 		}
     }
+    
+    private Set<String> nbRichExamedByOql(Object obj) {
+    	StringBuffer sb = new StringBuffer();
+    	sb.append("select id,name,number,ldNumber,amount,nbyhxAmount,kpCompany.id,kpCompany.name,kpCompany.number,djCompany.id,djCompany.name,djCompany.number");
+    	sb.append(" where amount>0 and dj=1 and ");
+    	if(obj == null) {
+    		sb.append("sales.id='");
+    		sb.append(((PersonInfo)prmtsales.getValue()).getId().toString());
+    		sb.append("'");
+    	}else if(obj instanceof PersonInfo){
+    		sb.append("sales.id='");
+    		sb.append(((PersonInfo)obj).getId().toString());
+    		sb.append("'");
+    		if(prmtkpCustomer.getValue() != null){
+    			sb.append(" and kpCompany.id='");
+        		sb.append(((CustomerInfo)prmtkpCustomer.getValue()).getInternalCompany().getId().toString());
+        		sb.append("'");
+			}
+    	}else if(obj instanceof CustomerInfo){
+    		sb.append("sales.id='");
+    		sb.append(((PersonInfo)prmtsales.getValue()).getId().toString());
+    		sb.append("' and kpCompany.id='");
+    		sb.append(((CustomerInfo)prmtkpCustomer.getValue()).getInternalCompany().getId().toString());
+    		sb.append("'");
+		}
+    	
+    	if(couInfo != null){
+    		sb.append(" and djCompany.id='");
+    		sb.append(couInfo.getId().toString());
+    		sb.append("' order by kpCompany.name");
+		}else{
+			sb.append(" order by kpCompany.name");
+		}
+    	
+    	Set<String> customerids = new HashSet<String>();
+		try {
+			RichExamedCollection reColl = RichExamedFactory.getRemoteInstance().getRichExamedCollection(sb.toString());
+			IRow row = null;
+			RichExamedInfo info = null;
+			CustomerCollection customers = null;
+			BigDecimal amount = null;
+			BigDecimal yhxamount = null;
+			ICustomer icu = CustomerFactory.getRemoteInstance();
+			for(int i=reColl.size()-1; i>=0; i--){
+				//去掉已全部核销的记录
+				info = reColl.get(i);
+				yhxamount = info.getNbyhxAmount();
+				amount = info.getAmount();
+				if(yhxamount == null || amount.compareTo(yhxamount) > 0) {
+					customers = icu.getCustomerCollection("where internalCompany.id='"+info.getKpCompany().getId().toString()+"'");
+					if(customers.size() > 0) {
+						row = kdtDjEntry.addRow();
+						row.getCell("kpUnit").setValue(customers.get(0));
+						row.getCell("djjg").setValue(info.getDjCompany());
+						row.getCell("djNo").setValue(info);
+						row.getCell("ldNo").setValue(info.getLdNumber());
+						row.getCell("jsAmount").setValue(amount);
+						row.getCell("dj_yhx").setValue(yhxamount);
+						customerids.add(customers.get(0).getId().toString());
+					}
+				}
+			}
+			
+		} catch (BOSException e) {
+			handUIException(e);
+		}
+		return customerids;
+    }
+    
     private Set<String> checkOutRichExamedByOql(Object obj) {
     	StringBuffer sb = new StringBuffer();
     	sb.append("select id,name,number,ldNumber,amount,yhxamount,kpUnit.id,kpUnit.name,kpUnit.number,djCompany.id,djCompany.name,djCompany.number");
@@ -297,7 +370,6 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
 					row.getCell("dj_yhx").setValue(yhxamount);
 					customerids.add(customer.getId().toString());
 				}
-				
 			}
 			
 		} catch (BOSException e) {
@@ -442,6 +514,7 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
     	kdtDjEntry.getColumn("djNo").getStyleAttributes().setLocked(true);
     	kdtDjEntry.getColumn("dj_yhx").getStyleAttributes().setLocked(true);
     	kdtDjEntry.getColumn("bencihx").getStyleAttributes().setLocked(true);
+    	kdtDjEntry.getHeadRow(0).getCell("kpUnit").setValue("开票机构");
     	//设置发票锁定
     	kdtFpEntry.getColumn("fpNo").getStyleAttributes().setLocked(true);
     	kdtFpEntry.getColumn("kpUnit").getStyleAttributes().setLocked(true);
@@ -756,6 +829,15 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
     {
 		
         return null;
+    }
+    
+    @Override
+    public void actionVoucher_actionPerformed(ActionEvent e) throws Exception {
+    	if(OprtState.ADDNEW.equals(getOprtState())) {
+    		MsgBox.showInfo("请先保存单据！");
+    		SysUtil.abort();
+    	}
+    	super.actionVoucher_actionPerformed(e);
     }
 
     /**

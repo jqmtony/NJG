@@ -123,14 +123,15 @@ public class RichCustomWriteOffControllerBean extends AbstractRichCustomWriteOff
 						} catch (SQLException e1) {
 							e1.printStackTrace();
 						}
-    					ps[0] = yhxAmount.add(whxDJ);
+						yhxAmount = yhxAmount.add(whxDJ);
+    					ps[0] = yhxAmount;
     					ps[1] = whxDJ.add(fp_benci);
     					ps[2] = fpid;
     					DbUtil.execute(ctx,"update CT_RIC_RichCWOFE set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					
     					//反写发票和到检单的已核销金额
     					rhInfo.setYhxAmount(djAmount);
-    					obInfo.setBigDecimal("yhxAmount",yhxAmount.add(whxDJ));
+    					obInfo.setBigDecimal("yhxAmount",yhxAmount);
     					try {
     						ire.updatePartial(rhInfo,sic);
 							iob.updatePartial(obInfo,sic);
@@ -139,6 +140,7 @@ public class RichCustomWriteOffControllerBean extends AbstractRichCustomWriteOff
 						}
 						fp_benci = zero;
 						dj_benci = zero;
+						whxamount = fpAmount.subtract(yhxAmount);
 						collRE.remove(rhInfo);
     				}else if(whxamount.compareTo(whxDJ) == 0){
     					//发票的未核销金额等于到检单，全部核销，并逃出这层循环

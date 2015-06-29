@@ -29,7 +29,7 @@ public class CustomerSyncLogControllerBean extends AbstractCustomerSyncLogContro
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			String oql = "select fid from t_bd_customer where to_char(flastupdatetime,'yyyy-mm-dd')='"+sdf.format(SysUtil.getAppServerTime(ctx))+"'";
-			CustomerCollection ccolls = CustomerFactory.getLocalInstance(ctx).getCustomerCollection("where id in("+oql+") and usedStatus=1");
+			CustomerCollection ccolls = CustomerFactory.getLocalInstance(ctx).getCustomerCollection("select id,number,name,address,cu.id,cu.name,address,version where id in("+oql+") and usedStatus=1");
 	    	if(ccolls.size() > 0) {
 	    		ReserveServicePortType rspt = new ReserveServiceLocator().getreserveServiceHttpSoap11Endpoint();
 	        	JSONObject params = null;
@@ -48,12 +48,16 @@ public class CustomerSyncLogControllerBean extends AbstractCustomerSyncLogContro
 	    			//医疗机构
 	    			params.put("yljg",cinfo.getCU().getName());
 	    			//单位地址
-	    			params.put("dwdz",cinfo.getAddress());
-	    			//params.put("lxr",);
-	    			params.put("bz",cinfo.getDescription());
-	    			//params.put("lxdh","110");
-	    			//params.put("dqmc","长宁区");
-	    			//params.put("sqry",SysContext.getSysContext().getCurrentUserInfo().getName());
+	    			if(cinfo.getAddress() != null) {
+	    				params.put("dwdz",cinfo.getAddress());
+	    			}else {
+	    				params.put("dwdz","");
+	    			}
+	    			params.put("lxr","");
+	    			params.put("bz","");
+	    			params.put("lxdh","");
+	    			params.put("dqmc","");
+	    			params.put("sqry","");
 	    			params.put("version",cinfo.getVersion());
 	    			result = rspt.saveCompanyInfo(params.toString());
 	    			params = new JSONObject(result);

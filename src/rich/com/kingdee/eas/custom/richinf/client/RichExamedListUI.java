@@ -5,20 +5,19 @@ package com.kingdee.eas.custom.richinf.client;
 
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.google.gson.JsonObject;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.dao.IObjectCollection;
-import com.kingdee.bos.json.JSONException;
-import com.kingdee.bos.json.JSONObject;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.eas.custom.richinf.RichExamedCollection;
+import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.custom.richinf.IRichExamed;
+import com.kingdee.eas.custom.richinf.RichExamedFactory;
 import com.kingdee.eas.custom.richinf.RichExamedInfo;
+import com.kingdee.eas.custom.richinf.RichInvoiceRequestFactory;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 
@@ -38,7 +37,8 @@ public class RichExamedListUI extends AbstractRichExamedListUI
     }
     public void onLoad() throws Exception {
     	super.onLoad();
-    	
+//    	actionAddNew.setVisible(false);
+//    	actionRemove.setVisible(false);
     }
     
 
@@ -60,6 +60,11 @@ public class RichExamedListUI extends AbstractRichExamedListUI
     public void storeFields()
     {
         super.storeFields();
+    }
+    
+    @Override
+    protected String getEditUIModal() {
+    	return UIFactoryName.NEWTAB;
     }
 
     /**
@@ -331,6 +336,11 @@ public class RichExamedListUI extends AbstractRichExamedListUI
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
+    	checkSelected();
+    	if(RichInvoiceRequestFactory.getRemoteInstance().getRichInvoiceRequestCollection("where sourceBillId='"+getSelectedKeyValue()+"'").size() > 0) {
+    		MsgBox.showInfo("此单据已关联生成开票申请单，不能进行此操作！");
+    		SysUtil.abort();
+    	}
         super.actionEdit_actionPerformed(e);
     }
 
@@ -453,16 +463,29 @@ public class RichExamedListUI extends AbstractRichExamedListUI
     {
     	KDTSelectBlock selectBlock = null;
     	KDTSelectManager selectManger = tblMain.getSelectManager();
+    	IRichExamed ire = RichExamedFactory.getRemoteInstance();
+    	RichExamedInfo info = null;
+    	BigDecimal khyhx = null;
+    	BigDecimal nbyhx = null;
+    	BigDecimal amount = null;
     	for (int i = 0; i < selectManger.size(); i++) {
     		selectBlock = selectManger.get(i);
     		for (int j = selectBlock.getBeginRow(); j <=selectBlock.getEndRow(); j++) {
-    			BigDecimal yhx = (BigDecimal)tblMain.getCell(j,"yhxAmount").getValue();
-    			if(yhx != null){
-    				BigDecimal total = (BigDecimal)tblMain.getCell(j,"amount").getValue();
-    				if(yhx.compareTo(total) == 0){
-    					MsgBox.showInfo("第"+(j+1)+"行到检单已全部核销，不能进行开票申请！请重新选择！");
-    		    		SysUtil.abort();
-    				}
+    			info = ire.getRichExamedInfo(new ObjectUuidPK((String)tblMain.getCell(j,"id").getValue()));
+    			amount = info.getAmount();
+    			nbyhx = info.getNbyhxAmount();
+    			khyhx = info.getYhxAmount();
+    			if(info.isDj()) {
+    				if(khyhx!=null && khyhx.compareTo(amount)==0 && (nbyhx==null || amount.compareTo(nbyhx)>0)){
+        				MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部核销，单据转换时请选择只对内部规则！");
+        			}else if(nbyhx!=null && nbyhx.compareTo(amount)==0 && (khyhx==null || amount.compareTo(khyhx)>0)){
+        				MsgBox.showInfo("第"+(j+1)+"行到检单内部金额已全部核销，单据转换时请选择默认规则！");
+        			}else if(nbyhx!=null && nbyhx.compareTo(amount)==0 && khyhx!=null && amount.compareTo(khyhx)==0){
+        				MsgBox.showInfo("第"+(j+1)+"行到检单客户和内部金额都已全部核销，请重新选择！");
+        			}
+    			}else if(khyhx != null && khyhx.compareTo(amount) == 0){
+    				MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部核销，请重新选择！");
+    		    	SysUtil.abort();
     			}
 			}
 		}

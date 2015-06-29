@@ -10,6 +10,9 @@ import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectCollection;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.eas.basedata.master.cssp.CustomerCollection;
+import com.kingdee.eas.basedata.master.cssp.CustomerFactory;
+import com.kingdee.eas.basedata.master.cssp.ICustomer;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.custom.richinf.IRichExamed;
 import com.kingdee.eas.custom.richinf.RichCompayWriteOffInfo;
@@ -44,8 +47,10 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     }
     
     private void doHandHX(Context ctx, IObjectCollection fpColl,IObjectCollection richExamColl, IObjectValue ov) throws BOSException{
-    	SelectorItemCollection sic = new SelectorItemCollection();
-    	sic.add("yhxAmount");
+    	SelectorItemCollection nb_sic = new SelectorItemCollection();
+    	nb_sic.add("nbyhxAmount");
+    	SelectorItemCollection fp_sic = new SelectorItemCollection();
+    	fp_sic.add("yhxAmount");
     	//初始化本地接口
     	IOtherBill  iob = OtherBillFactory.getLocalInstance(ctx);
     	IRichExamed ire = RichExamedFactory.getLocalInstance(ctx);
@@ -58,7 +63,6 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 		BigDecimal fpAmount = null;
 		BigDecimal yhxAmount = null;
 		OtherBillInfo obInfo = null;
-		String dj_cust = null;
 		BigDecimal whxDJ = null;
 		BigDecimal djAmount = null;
 		BigDecimal yhxDJ = null;
@@ -69,6 +73,8 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 		IRowSet rs = null;
 		String djid = null;
 		String fpid = null;
+		ICustomer icu = CustomerFactory.getLocalInstance(ctx);
+		CustomerCollection ccs = null;
 		for(int i=collFP.size()-1; i>=0; i--){
 			obInfo = collFP.get(i);
 			customerId = obInfo.getAsstActID();
@@ -83,10 +89,10 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 			fpid = obInfo.getId().toString();
 			for(int j=collRE.size()-1; j>=0; j--){
 				rhInfo = collRE.get(j);
-				dj_cust = rhInfo.getKpUnit().getId().toString();
-				if(dj_cust.equals(customerId)){
+				ccs = icu.getCustomerCollection("where internalCompany.id='"+rhInfo.getKpCompany().getId().toString()+"'");
+				if(ccs.size() > 0 && ccs.get(0).getId().toString().equals(customerId)){
 					djAmount = rhInfo.getAmount();
-					yhxDJ = rhInfo.getYhxAmount();
+					yhxDJ = rhInfo.getNbyhxAmount();
 					djid = rhInfo.getId().toString();
 					if(yhxDJ == null){
     					yhxDJ = zero;
@@ -116,22 +122,24 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 						} catch (SQLException e1) {
 							e1.printStackTrace();
 						}
-    					ps[0] = yhxAmount.add(whxDJ);
+						yhxAmount = yhxAmount.add(whxDJ);
+    					ps[0] = yhxAmount;
     					ps[1] = whxDJ.add(fp_benci);
     					ps[2] = fpid;
     					DbUtil.execute(ctx,"update CT_RIC_CompayWriteFp set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					
     					//反写发票和到检单的已核销金额
-    					rhInfo.setYhxAmount(djAmount);
-    					obInfo.setBigDecimal("yhxAmount",yhxAmount.add(whxDJ));
+    					rhInfo.setNbyhxAmount(djAmount);
+    					obInfo.setBigDecimal("yhxAmount",yhxAmount);
     					try {
-    						ire.updatePartial(rhInfo,sic);
-							iob.updatePartial(obInfo,sic);
+    						ire.updatePartial(rhInfo,nb_sic);
+							iob.updatePartial(obInfo,fp_sic);
 						} catch (EASBizException e) {
 							e.printStackTrace();
 						}
 						fp_benci = zero;
 						dj_benci = zero;
+						whxamount = fpAmount.subtract(yhxAmount);
 						collRE.remove(rhInfo);
     				}else if(whxamount.compareTo(whxDJ) == 0){
     					//发票的未核销金额等于到检单，全部核销，并逃出这层循环
@@ -160,11 +168,11 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     					DbUtil.execute(ctx,"update CT_RIC_CompayWriteFp set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					
     					//反写发票和到检单的已核销金额
-    					rhInfo.setYhxAmount(djAmount);
+    					rhInfo.setNbyhxAmount(djAmount);
     					obInfo.setBigDecimal("yhxAmount",fpAmount);
     					try {
-    						ire.updatePartial(rhInfo,sic);
-							iob.updatePartial(obInfo,sic);
+    						ire.updatePartial(rhInfo,nb_sic);
+							iob.updatePartial(obInfo,fp_sic);
 						} catch (EASBizException e) {
 							e.printStackTrace();
 						}
@@ -199,11 +207,11 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     					DbUtil.execute(ctx,"update CT_RIC_CompayWriteFp set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					
     					//反写发票单据和到检单单据的已核销金额
-    					rhInfo.setYhxAmount(whxamount.add(yhxDJ));
+    					rhInfo.setNbyhxAmount(whxamount.add(yhxDJ));
     					obInfo.setBigDecimal("yhxAmount",fpAmount);
     					try {
-							ire.updatePartial(rhInfo,sic);
-							iob.updatePartial(obInfo,sic);
+							ire.updatePartial(rhInfo,nb_sic);
+							iob.updatePartial(obInfo,fp_sic);
 						} catch (EASBizException e) {
 							e.printStackTrace();
 						}
@@ -321,8 +329,10 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 		}
     }
     private void doFanHX(Context ctx, IObjectCollection fpColl,IObjectCollection richExamColl, IObjectValue ov) throws BOSException{
-    	SelectorItemCollection sic = new SelectorItemCollection();
-    	sic.add("yhxAmount");
+    	SelectorItemCollection fp_sic = new SelectorItemCollection();
+    	fp_sic.add("yhxAmount");
+    	SelectorItemCollection nb_sic = new SelectorItemCollection();
+    	nb_sic.add("nbyhxAmount");
     	//初始化本地接口
     	IOtherBill  iob = OtherBillFactory.getLocalInstance(ctx);
     	IRichExamed ire = RichExamedFactory.getLocalInstance(ctx);
@@ -335,13 +345,14 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 		String djid = null;
 		BigDecimal yhxAmount = null;
 		OtherBillInfo obInfo = null;
-		String dj_cust = null;
 		BigDecimal zero = BigDecimal.ZERO;
 		BigDecimal dj_benci = null;
 		BigDecimal fp_benci = null;
 		IRowSet rs = null;
 		BigDecimal yhxDJ = null;
 		RichExamedInfo rhInfo = null;
+		ICustomer icu = CustomerFactory.getLocalInstance(ctx);
+		CustomerCollection ccs = null;
 		for(int i=collFP.size()-1; i>=0; i--){
 			obInfo = collFP.get(i);
 			customerId = obInfo.getAsstActID();
@@ -355,14 +366,11 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
-//			if(fp_benci.compareTo(zero) == 0){
-//				continue;
-//			}
 			for(int j=collRE.size()-1; j>=0; j--){
 				rhInfo = collRE.get(j);
-				dj_cust = rhInfo.getKpUnit().getId().toString();
-				if(dj_cust.equals(customerId)){
-					yhxDJ = rhInfo.getYhxAmount();
+				ccs = icu.getCustomerCollection("where internalCompany.id='"+rhInfo.getKpCompany().getId().toString()+"'");
+				if(ccs.size() > 0 && ccs.get(0).getId().toString().equals(customerId)){
+					yhxDJ = rhInfo.getNbyhxAmount();
 					djid = rhInfo.getId().toString();
 					rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_CompayWriteDj where CFDjNoID=? and FParentID=?",new Object[]{djid,richCompay});
 					try {
@@ -387,11 +395,11 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     					ps[2] = fpid;
     					DbUtil.execute(ctx,"update CT_RIC_CompayWriteFp set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					//反写发票和到检单的已核销金额
-    					rhInfo.setYhxAmount(yhxDJ.subtract(dj_benci));
+    					rhInfo.setNbyhxAmount(yhxDJ.subtract(dj_benci));
     					obInfo.setBigDecimal("yhxAmount",yhxAmount);
     					try {
-    						ire.updatePartial(rhInfo,sic);
-							iob.updatePartial(obInfo,sic);
+    						ire.updatePartial(rhInfo,nb_sic);
+							iob.updatePartial(obInfo,fp_sic);
 						} catch (EASBizException e) {
 							e.printStackTrace();
 						}
@@ -405,11 +413,11 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     					ps[2] = fpid;
     					DbUtil.execute(ctx,"update CT_RIC_CompayWriteFp set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					//反写发票和到检单的已核销金额
-    					rhInfo.setYhxAmount(yhxDJ.subtract(fp_benci));
+    					rhInfo.setNbyhxAmount(yhxDJ.subtract(fp_benci));
     					obInfo.setBigDecimal("yhxAmount",yhxAmount.subtract(fp_benci));
     					try {
-    						ire.updatePartial(rhInfo,sic);
-							iob.updatePartial(obInfo,sic);
+    						ire.updatePartial(rhInfo,nb_sic);
+							iob.updatePartial(obInfo,fp_sic);
 						} catch (EASBizException e) {
 							e.printStackTrace();
 						}

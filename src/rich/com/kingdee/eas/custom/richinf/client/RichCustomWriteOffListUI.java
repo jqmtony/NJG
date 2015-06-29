@@ -25,6 +25,20 @@ public class RichCustomWriteOffListUI extends AbstractRichCustomWriteOffListUI
         super();
     }
 
+    @Override
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	voucherStateChange();
+    }
+    
+    private void voucherStateChange() {
+		actionVoucher.setVisible(true);
+    	actionDelVoucher.setVisible(true);
+    	actionVoucher.setEnabled(true);
+    	actionDelVoucher.setEnabled(true);
+	}
+    
+    
     /**
      * output storeFields method
      */
@@ -296,6 +310,7 @@ public class RichCustomWriteOffListUI extends AbstractRichCustomWriteOffListUI
     {
         super.actionView_actionPerformed(e);
     }
+    
     protected String getEditUIModal() {
     	return UIFactoryName.NEWTAB;
     }
@@ -321,6 +336,7 @@ public class RichCustomWriteOffListUI extends AbstractRichCustomWriteOffListUI
     public void actionRefresh_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionRefresh_actionPerformed(e);
+        voucherStateChange();
     }
 
     /**
@@ -353,6 +369,7 @@ public class RichCustomWriteOffListUI extends AbstractRichCustomWriteOffListUI
     public void actionQuery_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionQuery_actionPerformed(e);
+        voucherStateChange();
     }
 
     /**

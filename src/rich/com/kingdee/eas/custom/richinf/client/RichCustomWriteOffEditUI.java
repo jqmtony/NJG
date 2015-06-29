@@ -240,6 +240,10 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
     @Override
     public void onLoad() throws Exception {
     	super.onLoad();
+//    	btnVoucher.setVisible(true);
+//    	btnDelVoucher.setVisible(true);
+    	actionVoucher.setVisible(true);
+    	actionDelVoucher.setVisible(true);
     	initEntry();
     	
     	//根据当前组织过滤员工
@@ -571,7 +575,8 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
     private Set<String> checkOutRichExamedByOql(Object obj) {
     	StringBuffer sb = new StringBuffer();
     	sb.append("select id,name,number,ldNumber,amount,yhxamount,kpUnit.id,kpUnit.name,kpUnit.number,djCompany.id,djCompany.name,djCompany.number");
-    	sb.append(" where amount>0 and kpUnit.IsInternalCompany<>1 and ");
+    	sb.append(" where amount>0 and kpUnit.IsInternalCompany<>1 and id in(select distinct ctre.FParentID from CT_RIC_RichExamedEntry ctre ");
+    	sb.append("left join CT_RIC_ReceType ctrt on ctre.CFSkTypeID=ctrt.fid where ctrt.fname_l2='非现收') and ");
     	if(obj == null) {
     		sb.append("sales.id='");
     		sb.append(((PersonInfo)prmtsales.getValue()).getId().toString());
@@ -712,6 +717,15 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
     {
 		
         return null;
+    }
+    
+    @Override
+    public void actionVoucher_actionPerformed(ActionEvent e) throws Exception {
+    	if(OprtState.ADDNEW.equals(getOprtState())) {
+    		MsgBox.showInfo("请先保存单据！");
+    		SysUtil.abort();
+    	}
+    	super.actionVoucher_actionPerformed(e);
     }
 
     /**

@@ -6,7 +6,7 @@ package com.kingdee.eas.custom.richinf.client;
 import java.awt.event.*;
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.framework.*;
 
 /**
@@ -24,6 +24,16 @@ public class RichCompayWriteOffListUI extends AbstractRichCompayWriteOffListUI
         super();
     }
 
+    @Override
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	voucherStateChange();
+    }
+    
+    protected String getEditUIModal() {
+    	return UIFactoryName.NEWTAB;
+    }
+    
     /**
      * output storeFields method
      */
@@ -318,6 +328,7 @@ public class RichCompayWriteOffListUI extends AbstractRichCompayWriteOffListUI
     public void actionRefresh_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionRefresh_actionPerformed(e);
+        voucherStateChange();
     }
 
     /**
@@ -350,7 +361,15 @@ public class RichCompayWriteOffListUI extends AbstractRichCompayWriteOffListUI
     public void actionQuery_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionQuery_actionPerformed(e);
+        voucherStateChange();
     }
+
+	private void voucherStateChange() {
+		actionVoucher.setVisible(true);
+    	actionDelVoucher.setVisible(true);
+    	actionVoucher.setEnabled(true);
+    	actionDelVoucher.setEnabled(true);
+	}
 
     /**
      * output actionImportData_actionPerformed

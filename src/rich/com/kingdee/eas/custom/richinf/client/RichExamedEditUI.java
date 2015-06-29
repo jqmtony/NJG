@@ -7,7 +7,10 @@ import java.awt.event.*;
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.custom.richinf.RichInvoiceRequestFactory;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 
 /**
@@ -24,6 +27,15 @@ public class RichExamedEditUI extends AbstractRichExamedEditUI
     {
         super();
     }
+    
+    @Override
+    public void onLoad() throws Exception {
+    	super.onLoad();
+//    	actionAddNew.setVisible(false);
+//    	actionCopy.setVisible(false);
+//    	actionRemove.setVisible(false);
+    }
+    
     /**
      * output loadFields method
      */
@@ -381,6 +393,10 @@ public class RichExamedEditUI extends AbstractRichExamedEditUI
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
+    	if(RichInvoiceRequestFactory.getRemoteInstance().getRichInvoiceRequestCollection("where sourceBillId='"+editData.getId().toString()+"'").size() > 0) {
+    		MsgBox.showInfo("此单据已关联生成开票申请单，不能进行此操作！");
+    		SysUtil.abort();
+    	}
         super.actionEdit_actionPerformed(e);
     }
 

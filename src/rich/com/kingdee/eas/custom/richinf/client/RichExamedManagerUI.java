@@ -22,6 +22,7 @@ import com.kingdee.bos.ctrl.kdf.table.event.KDTDataFillListener;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTDataRequestEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.util.style.StyleAttributes;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.bos.dao.query.QueryExecutorFactory;
 import com.kingdee.bos.json.JSONObject;
@@ -48,6 +49,9 @@ import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.custom.richbase.CustomerSyncLogFactory;
 import com.kingdee.eas.custom.richbase.CustomerSyncLogInfo;
 import com.kingdee.eas.custom.richbase.ICustomerSyncLog;
+import com.kingdee.eas.custom.richinf.IRichExamed;
+import com.kingdee.eas.custom.richinf.RichExamedFactory;
+import com.kingdee.eas.custom.richinf.RichExamedInfo;
 import com.kingdee.eas.custom.richtimer.client.ReserveServiceLocator;
 import com.kingdee.eas.custom.richtimer.client.ReserveServicePortType;
 import com.kingdee.eas.fi.ar.client.OtherBillEditUI;
@@ -147,9 +151,11 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
     	kDLabel3.setOpaque(true);
     	kDLabel4.setOpaque(true);
     	kDLabel1.setBackground(green);
+    	kDLabel1.setText("未关联单据");
     	kDLabel2.setBackground(blue);
     	kDLabel3.setBackground(yellow);
     	kDLabel4.setBackground(red);
+    	kDLabel4.setText("关联开票申请");
     }
     
     private void tblMain_afterDataFill(KDTDataRequestEvent e){
@@ -164,14 +170,16 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
 		BigDecimal amount = null;
 		Object[] ps = new Object[1];
 		StyleAttributes sab = null;
+		boolean nbflag = false;
 		for (int i = e.getFirstRow(); i <= e.getLastRow(); i++) {
 			ps[0] = (String)tblMain.getCell(i,"id").getValue();
 			//判断是否已进行开票申请
 			try {
 				rs = iff.executeQuery(sq_sql,ps);
 				sab = tblMain.getRow(i).getStyleAttributes();
+				sab.setBackground(green);
 				if(rs.size() > 0) {
-					sab.setBackground(green);
+					sab.setBackground(red);
 					rs = iff.executeQuery(fp_sql,ps);
 					if(rs.size() > 0) {
 						sab.setBackground(blue);
@@ -179,25 +187,26 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
 				}
 				rs = iff.executeQuery(nb_sql,ps);
 				if(rs.size() > 0) {
-					yhx = (BigDecimal)tblMain.getCell(i,"yhxAmount").getValue();
+					yhx = (BigDecimal)tblMain.getCell(i,"nbyhxAmount").getValue();
 					amount = (BigDecimal)tblMain.getCell(i,"amount").getValue();
 					if(amount!=null && yhx != null && amount.compareTo(yhx) == 0) {
-						sab.setBackground(red);
+						sab.setBackground(Color.WHITE);
+					}else {
+						sab.setBackground(yellow);
+						nbflag = true;
+					}
+				}
+				rs = iff.executeQuery(kh_sql,ps);
+				if(rs.size() > 0) {
+					yhx = (BigDecimal)tblMain.getCell(i,"yhxAmount").getValue();
+					amount = (BigDecimal)tblMain.getCell(i,"amount").getValue();
+					if(amount!=null && yhx != null && amount.compareTo(yhx) == 0 && !nbflag) {
+						sab.setBackground(Color.WHITE);
 					}else {
 						sab.setBackground(yellow);
 					}
-				}else {
-					rs = iff.executeQuery(kh_sql,ps);
-					if(rs.size() > 0) {
-						yhx = (BigDecimal)tblMain.getCell(i,"yhxAmount").getValue();
-						amount = (BigDecimal)tblMain.getCell(i,"amount").getValue();
-						if(amount!=null && yhx != null && amount.compareTo(yhx) == 0) {
-							sab.setBackground(red);
-						}else {
-							sab.setBackground(yellow);
-						}
-					}
 				}
+				nbflag = false;
 			} catch (EASBizException e1) {
 				handUIException(e1);
 			} catch (BOSException e1) {
@@ -230,16 +239,29 @@ public class RichExamedManagerUI extends AbstractRichExamedManagerUI
     public void actionCreateTo_actionPerformed(ActionEvent e)throws Exception {
     	KDTSelectBlock selectBlock = null;
     	KDTSelectManager selectManger = tblMain.getSelectManager();
+    	IRichExamed ire = RichExamedFactory.getRemoteInstance();
+    	RichExamedInfo info = null;
+    	BigDecimal khyhx = null;
+    	BigDecimal nbyhx = null;
+    	BigDecimal amount = null;
     	for (int i = 0; i < selectManger.size(); i++) {
     		selectBlock = selectManger.get(i);
     		for (int j = selectBlock.getBeginRow(); j <=selectBlock.getEndRow(); j++) {
-    			BigDecimal yhx = (BigDecimal)tblMain.getCell(j,"yhxAmount").getValue();
-    			if(yhx != null){
-    				BigDecimal total = (BigDecimal)tblMain.getCell(j,"amount").getValue();
-    				if(yhx.compareTo(total) == 0){
-    					MsgBox.showInfo("第"+(j+1)+"行到检单已全部核销，不能进行开票申请！请重新选择！");
-    		    		SysUtil.abort();
-    				}
+    			info = ire.getRichExamedInfo(new ObjectUuidPK((String)tblMain.getCell(j,"id").getValue()));
+    			amount = info.getAmount();
+    			nbyhx = info.getNbyhxAmount();
+    			khyhx = info.getYhxAmount();
+    			if(info.isDj()) {
+    				if(khyhx!=null && khyhx.compareTo(amount)==0 && (nbyhx==null || amount.compareTo(nbyhx)>0)){
+        				MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部核销，单据转换时请选择只对内部规则！");
+        			}else if(nbyhx!=null && nbyhx.compareTo(amount)==0 && (khyhx==null || amount.compareTo(khyhx)>0)){
+        				MsgBox.showInfo("第"+(j+1)+"行到检单内部金额已全部核销，单据转换时请选择默认规则！");
+        			}else if(nbyhx!=null && nbyhx.compareTo(amount)==0 && khyhx!=null && amount.compareTo(khyhx)==0){
+        				MsgBox.showInfo("第"+(j+1)+"行到检单客户和内部金额都已全部核销，请重新选择！");
+        			}
+    			}else if(khyhx != null && khyhx.compareTo(amount) == 0){
+    				MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部核销，请重新选择！");
+    		    	SysUtil.abort();
     			}
 			}
 		}

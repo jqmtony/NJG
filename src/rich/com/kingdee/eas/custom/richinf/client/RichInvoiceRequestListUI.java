@@ -11,6 +11,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.custom.richinf.BillState;
 import com.kingdee.eas.custom.richinf.IRichInvoiceRequest;
 import com.kingdee.eas.custom.richinf.RichInvoiceRequestFactory;
@@ -32,6 +33,11 @@ public class RichInvoiceRequestListUI extends AbstractRichInvoiceRequestListUI
     {
         super();
     }
+    
+    protected String getEditUIModal() {
+    	return UIFactoryName.NEWTAB;
+    }
+    
 
     /**
      * output storeFields method
@@ -77,19 +83,19 @@ public class RichInvoiceRequestListUI extends AbstractRichInvoiceRequestListUI
         if(id != null){
     		RichInvoiceRequestInfo info = null;
     		info = RichInvoiceRequestFactory.getRemoteInstance().getRichInvoiceRequestInfo(new ObjectUuidPK(id));
-    		if(info.getBillState().equals(BillState.SAVE)) {
+    		if(BillState.SAVE.equals(info.getBillState())) {
 //    			MsgBox.showInfo("提交状态下的单据才能进行审核操作！");
 //        		SysUtil.abort();
     			actionEdit.setEnabled(true);
     			actionRemove.setEnabled(true);
     			actionAudit.setEnabled(false);
     			actionUnAudit.setEnabled(false);
-    		}else if(info.getBillState().equals(BillState.SUBMIT)) {
+    		}else if(BillState.SUBMIT.equals(info.getBillState())) {
     			actionEdit.setEnabled(true);
     			actionRemove.setEnabled(true);
     			actionAudit.setEnabled(true);
     			actionUnAudit.setEnabled(false);
-    		}else if(info.getBillState().equals(BillState.AUDIT)){
+    		}else if(BillState.AUDIT.equals(info.getBillState())){
     			actionEdit.setEnabled(false);
     			actionRemove.setEnabled(false);
     			actionAudit.setEnabled(false);
