@@ -4,20 +4,27 @@
 package com.kingdee.eas.custom.richinf.client;
 
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.bot.BOTRelationFactory;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.custom.richinf.BillState;
 import com.kingdee.eas.custom.richinf.IRichInvoiceRequest;
 import com.kingdee.eas.custom.richinf.RichInvoiceRequestFactory;
 import com.kingdee.eas.custom.richinf.RichInvoiceRequestInfo;
+import com.kingdee.eas.fm.common.FMIsqlFacadeFactory;
+import com.kingdee.eas.fm.common.IFMIsqlFacade;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
  * output class name
@@ -38,6 +45,11 @@ public class RichInvoiceRequestListUI extends AbstractRichInvoiceRequestListUI
     	return UIFactoryName.NEWTAB;
     }
     
+    @Override
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	setUITitle("开票申请单序时簿");
+    }
 
     /**
      * output storeFields method
@@ -126,7 +138,24 @@ public class RichInvoiceRequestListUI extends AbstractRichInvoiceRequestListUI
     	MsgBox.showInfo("审核成功！");
     	actionRefresh_actionPerformed(e);
     }
-    
+    IFMIsqlFacade iff = FMIsqlFacadeFactory.getRemoteInstance();
+    private String getDestBySrc(String srcid){
+    	StringBuffer sb = new StringBuffer();
+    	sb.append("select FDestObjectID from T_BOT_Relation where FSrcObjectID=?");
+    	try {
+    		IRowSet rs = iff.executeQuery(sb.toString(),new Object[]{srcid});
+    		if(rs.next()){
+    			return rs.getString("FDestObjectID");
+    		}
+		} catch (EASBizException e) {
+			handUIException(e);
+		} catch (BOSException e) {
+			handUIException(e);
+		} catch (SQLException e) {
+			handUIException(e);
+		}
+    	return null;
+    }
     @Override
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
     	checkSelected();
@@ -134,10 +163,16 @@ public class RichInvoiceRequestListUI extends AbstractRichInvoiceRequestListUI
     	KDTSelectManager selectManger = tblMain.getSelectManager();
     	IRichInvoiceRequest irr = RichInvoiceRequestFactory.getRemoteInstance();
     	RichInvoiceRequestInfo rrinfo = null;
+    	String reqid = null;
     	for (int i = 0; i < selectManger.size(); i++) {
     		selectBlock = selectManger.get(i);
     		for (int j = selectBlock.getBeginRow(); j <=selectBlock.getEndRow(); j++) {
-    			rrinfo = irr.getRichInvoiceRequestInfo(new ObjectUuidPK((String)tblMain.getCell(j,"id").getValue()));
+    			reqid = (String)tblMain.getCell(j,"id").getValue();
+    			rrinfo = irr.getRichInvoiceRequestInfo(new ObjectUuidPK(reqid));
+    			if(getDestBySrc(reqid) != null) {
+    				MsgBox.showInfo("第"+(j+1)+"行的开票申请关联应收单，不能反审核！");
+    				SysUtil.abort();
+    			}
     			if(BillState.AUDIT.equals(rrinfo.getBillState())){
     				irr.unAudit(rrinfo);
     			}

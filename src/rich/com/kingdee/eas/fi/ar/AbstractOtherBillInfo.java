@@ -147,6 +147,28 @@ public class AbstractOtherBillInfo extends com.kingdee.eas.fi.ar.ArApBillBaseInf
     {
         setString("SYNBillEntryID", item);
     }
+    /**
+     * Object:应收单's 已核销金额property 
+     */
+    public java.math.BigDecimal getYhxAmount()
+    {
+        return getBigDecimal("yhxAmount");
+    }
+    public void setYhxAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("yhxAmount", item);
+    }
+    /**
+     * Object:应收单's 落单号property 
+     */
+    public String getLdNo()
+    {
+        return getString("ldNo");
+    }
+    public void setLdNo(String item)
+    {
+        setString("ldNo", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("FC910EF3");

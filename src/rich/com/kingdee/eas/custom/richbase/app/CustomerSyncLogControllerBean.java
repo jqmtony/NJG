@@ -29,7 +29,7 @@ public class CustomerSyncLogControllerBean extends AbstractCustomerSyncLogContro
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			String oql = "select fid from t_bd_customer where to_char(flastupdatetime,'yyyy-mm-dd')='"+sdf.format(SysUtil.getAppServerTime(ctx))+"'";
-			CustomerCollection ccolls = CustomerFactory.getLocalInstance(ctx).getCustomerCollection("select id,number,name,address,cu.id,cu.name,address,version where id in("+oql+") and usedStatus=1");
+			CustomerCollection ccolls = CustomerFactory.getLocalInstance(ctx).getCustomerCollection("select id,number,name,address,version where id in("+oql+") and usedStatus=1");
 	    	if(ccolls.size() > 0) {
 	    		ReserveServicePortType rspt = new ReserveServiceLocator().getreserveServiceHttpSoap11Endpoint();
 	        	JSONObject params = null;
@@ -46,7 +46,7 @@ public class CustomerSyncLogControllerBean extends AbstractCustomerSyncLogContro
 	    			//单位名称
 	    			params.put("dwmc",cinfo.getName());
 	    			//医疗机构
-	    			params.put("yljg",cinfo.getCU().getName());
+	    			params.put("yljg","0");
 	    			//单位地址
 	    			if(cinfo.getAddress() != null) {
 	    				params.put("dwdz",cinfo.getAddress());

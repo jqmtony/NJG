@@ -79,7 +79,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 			obInfo = collFP.get(i);
 			customerId = obInfo.getAsstActID();
 			fpAmount = obInfo.getTotalAmount();
-			yhxAmount = obInfo.getBigDecimal("yhxAmount");
+			yhxAmount = obInfo.getYhxAmount();
 			if(yhxAmount == null){
 				whxamount = fpAmount;
 				yhxAmount = zero;
@@ -130,7 +130,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     					
     					//反写发票和到检单的已核销金额
     					rhInfo.setNbyhxAmount(djAmount);
-    					obInfo.setBigDecimal("yhxAmount",yhxAmount);
+    					obInfo.setYhxAmount(yhxAmount);
     					try {
     						ire.updatePartial(rhInfo,nb_sic);
 							iob.updatePartial(obInfo,fp_sic);
@@ -169,7 +169,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     					
     					//反写发票和到检单的已核销金额
     					rhInfo.setNbyhxAmount(djAmount);
-    					obInfo.setBigDecimal("yhxAmount",fpAmount);
+    					obInfo.setYhxAmount(fpAmount);
     					try {
     						ire.updatePartial(rhInfo,nb_sic);
 							iob.updatePartial(obInfo,fp_sic);
@@ -208,7 +208,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     					
     					//反写发票单据和到检单单据的已核销金额
     					rhInfo.setNbyhxAmount(whxamount.add(yhxDJ));
-    					obInfo.setBigDecimal("yhxAmount",fpAmount);
+    					obInfo.setYhxAmount(fpAmount);
     					try {
 							ire.updatePartial(rhInfo,nb_sic);
 							iob.updatePartial(obInfo,fp_sic);
@@ -356,7 +356,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
 		for(int i=collFP.size()-1; i>=0; i--){
 			obInfo = collFP.get(i);
 			customerId = obInfo.getAsstActID();
-			yhxAmount = obInfo.getBigDecimal("yhxAmount");
+			yhxAmount = obInfo.getYhxAmount();
 			fpid = obInfo.getId().toString();
 			rs = DbUtil.executeQuery(ctx,"select cfbencihx from CT_RIC_CompayWriteFp where CFFpNoID=? and FParentID=?",new Object[]{fpid,richCompay});
 			try {
@@ -396,7 +396,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     					DbUtil.execute(ctx,"update CT_RIC_CompayWriteFp set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					//反写发票和到检单的已核销金额
     					rhInfo.setNbyhxAmount(yhxDJ.subtract(dj_benci));
-    					obInfo.setBigDecimal("yhxAmount",yhxAmount);
+    					obInfo.setYhxAmount(yhxAmount);
     					try {
     						ire.updatePartial(rhInfo,nb_sic);
 							iob.updatePartial(obInfo,fp_sic);
@@ -414,7 +414,7 @@ public class RichCompayWriteOffControllerBean extends AbstractRichCompayWriteOff
     					DbUtil.execute(ctx,"update CT_RIC_CompayWriteFp set CFYhxAmount=?,cfbencihx=? where CFFpNoID=? and FParentID=?",ps);
     					//反写发票和到检单的已核销金额
     					rhInfo.setNbyhxAmount(yhxDJ.subtract(fp_benci));
-    					obInfo.setBigDecimal("yhxAmount",yhxAmount.subtract(fp_benci));
+    					obInfo.setYhxAmount(yhxAmount.subtract(fp_benci));
     					try {
     						ire.updatePartial(rhInfo,nb_sic);
 							iob.updatePartial(obInfo,fp_sic);

@@ -249,6 +249,7 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
     	StringBuffer sb = new StringBuffer();
     	sb.append("select id,name,number,ldNumber,amount,nbyhxAmount,kpCompany.id,kpCompany.name,kpCompany.number,djCompany.id,djCompany.name,djCompany.number");
     	sb.append(" where amount>0 and dj=1 and ");
+    	sb.append("id not in(select distinct CFDjdID from CT_RIC_RichInvoiceRequestEntry) and ");
     	if(obj == null) {
     		sb.append("sales.id='");
     		sb.append(((PersonInfo)prmtsales.getValue()).getId().toString());
@@ -412,7 +413,7 @@ public class RichCompayWriteOffEditUI extends AbstractRichCompayWriteOffEditUI
 				for(int i=obColl.size()-1; i>=0; i--){
 					obinfo = obColl.get(i);
 					amount = obinfo.getTotalAmount();
-					yhxamount = obinfo.getBigDecimal("yhxAmount");
+					yhxamount = obinfo.getYhxAmount();
 					if(yhxamount == null || amount.compareTo(yhxamount) > 0) {
 						irow = kdtFpEntry.addRow();
 						customer = new CustomerInfo();

@@ -577,6 +577,7 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
     	sb.append("select id,name,number,ldNumber,amount,yhxamount,kpUnit.id,kpUnit.name,kpUnit.number,djCompany.id,djCompany.name,djCompany.number");
     	sb.append(" where amount>0 and kpUnit.IsInternalCompany<>1 and id in(select distinct ctre.FParentID from CT_RIC_RichExamedEntry ctre ");
     	sb.append("left join CT_RIC_ReceType ctrt on ctre.CFSkTypeID=ctrt.fid where ctrt.fname_l2='·ÇÏÖÊÕ') and ");
+    	sb.append("id not in(select distinct CFDjdID from CT_RIC_RichInvoiceRequestEntry) and ");
     	if(obj == null) {
     		sb.append("sales.id='");
     		sb.append(((PersonInfo)prmtsales.getValue()).getId().toString());
@@ -625,8 +626,8 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
 					row.getCell("djjg").setValue(info.getDjCompany());
 					row.getCell("djNo").setValue(info);
 					row.getCell("ldNo").setValue(info.getLdNumber());
-					row.getCell("jsAmount").setValue(info.getAmount());
-					row.getCell("dj_yhx").setValue(info.getYhxAmount());
+					row.getCell("jsAmount").setValue(amount);
+					row.getCell("dj_yhx").setValue(yhxamount);
 					customerids.add(customer.getId().toString());
 					
 				}
@@ -672,7 +673,7 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
 				for(int i=obColl.size()-1; i>=0; i--){
 					obinfo = obColl.get(i);
 					amount = obinfo.getTotalAmount();
-					yhxamount = obinfo.getBigDecimal("yhxAmount");
+					yhxamount = obinfo.getYhxAmount();
 					if(yhxamount == null || amount.compareTo(yhxamount) > 0) {
 						irow = kdtFpEntry.addRow();
 						customer = new CustomerInfo();
@@ -682,8 +683,8 @@ public class RichCustomWriteOffEditUI extends AbstractRichCustomWriteOffEditUI
 						irow.getCell("fpNo").setValue(obinfo);
 						irow.getCell("kpUnit").setValue(customer);
 						irow.getCell("kpCompany").setValue(obinfo.getCompany());
-						irow.getCell("fpAmount").setValue(obinfo.getTotalAmount());
-						irow.getCell("yhxAmount").setValue(obinfo.get("yhxAmount"));
+						irow.getCell("fpAmount").setValue(amount);
+						irow.getCell("yhxAmount").setValue(yhxamount);
 						
 					}
 				}

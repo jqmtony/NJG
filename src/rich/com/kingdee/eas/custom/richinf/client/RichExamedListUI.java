@@ -5,9 +5,11 @@ package com.kingdee.eas.custom.richinf.client;
 
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.dao.IObjectCollection;
@@ -16,15 +18,25 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.custom.richinf.IRichCompayWriteOffDjEntry;
+import com.kingdee.eas.custom.richinf.IRichCustomWriteOffDjEntry;
 import com.kingdee.eas.custom.richinf.IRichExamed;
+import com.kingdee.eas.custom.richinf.IRichInvoiceRequestEntry;
+import com.kingdee.eas.custom.richinf.RichCompayWriteOffDjEntryFactory;
+import com.kingdee.eas.custom.richinf.RichCustomWriteOffDjEntryFactory;
 import com.kingdee.eas.custom.richinf.RichExamedFactory;
 import com.kingdee.eas.custom.richinf.RichExamedInfo;
+import com.kingdee.eas.custom.richinf.RichInvoiceRequestEntryFactory;
 import com.kingdee.eas.custom.richinf.RichInvoiceRequestFactory;
+import com.kingdee.eas.fm.common.FMIsqlFacadeFactory;
+import com.kingdee.eas.fm.common.IFMIsqlFacade;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
  * output class name
@@ -43,7 +55,7 @@ public class RichExamedListUI extends AbstractRichExamedListUI
     public void onLoad() throws Exception {
     	super.onLoad();
 //    	actionAddNew.setVisible(false);
-//    	actionRemove.setVisible(false);
+    	actionRemove.setVisible(false);
     }
     
     public void actionDate_actionPerformed(ActionEvent e) throws Exception {
@@ -466,42 +478,112 @@ public class RichExamedListUI extends AbstractRichExamedListUI
     {
         super.actionQueryScheme_actionPerformed(e);
     }
-
+    
+    IFMIsqlFacade iff = FMIsqlFacadeFactory.getRemoteInstance();
+    
+    public BigDecimal getYsqAmount(String djid,boolean djkp){
+    	BigDecimal result = BigDecimal.ZERO;
+    	StringBuffer buffer = new StringBuffer();
+    	buffer.append("select rrentry.fid,rrentry.CFBencisq from CT_RIC_RichInvoiceRequestEntry rrentry left join ");
+    	buffer.append("CT_RIC_RichInvoiceRequest rreq on rreq.fid=rrentry.fparentid where rrentry.CFDjdID='");
+    	buffer.append(djid);
+    	buffer.append("' ");
+    	if(djkp){
+    		buffer.append("and rreq.CFDjkp=1");
+    	}else{
+    		buffer.append("and rreq.CFDjkp<>1");
+    	}
+    	try {
+    		IRowSet rs = iff.executeQuery(buffer.toString(),null);
+    		while(rs.next()) {
+    			if(rs.getBigDecimal("CFBencisq") != null){
+    				result = result.add(rs.getBigDecimal("CFBencisq"));
+    			}
+    		}
+		} catch (EASBizException e) {
+			handUIException(e);
+		} catch (BOSException e) {
+			handUIException(e);
+		} catch (SQLException e) {
+			handUIException(e);
+		}
+    	return result;
+    }
+    
     /**
      * output actionCreateTo_actionPerformed
      */
-    public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception
-    {
+    IRichExamed ire = RichExamedFactory.getRemoteInstance();
+    IRichInvoiceRequestEntry  ireq = RichInvoiceRequestEntryFactory.getRemoteInstance();
+    IRichCompayWriteOffDjEntry icompay = RichCompayWriteOffDjEntryFactory.getRemoteInstance();
+    IRichCustomWriteOffDjEntry icustom = RichCustomWriteOffDjEntryFactory.getRemoteInstance();
+    
+    public void actionCreateTo_actionPerformed(ActionEvent e) throws Exception{
     	KDTSelectBlock selectBlock = null;
     	KDTSelectManager selectManger = tblMain.getSelectManager();
-    	IRichExamed ire = RichExamedFactory.getRemoteInstance();
     	RichExamedInfo info = null;
-    	BigDecimal khyhx = null;
-    	BigDecimal nbyhx = null;
+//    	BigDecimal khyhx = null;
+//    	BigDecimal nbyhx = null;
     	BigDecimal amount = null;
+    	String djid = null;
     	for (int i = 0; i < selectManger.size(); i++) {
     		selectBlock = selectManger.get(i);
     		for (int j = selectBlock.getBeginRow(); j <=selectBlock.getEndRow(); j++) {
-    			info = ire.getRichExamedInfo(new ObjectUuidPK((String)tblMain.getCell(j,"id").getValue()));
+    			djid = (String)tblMain.getCell(j,"id").getValue();
+    			info = ire.getRichExamedInfo(new ObjectUuidPK(djid));
     			amount = info.getAmount();
     			if(amount == null){
     				MsgBox.showInfo("第"+(j+1)+"行到检单数据异常，请重新选择！");
     				SysUtil.abort();
     			}
-    			nbyhx = info.getNbyhxAmount();
-    			khyhx = info.getYhxAmount();
-    			if(info.isDj()) {
-    				if(khyhx!=null && khyhx.compareTo(amount)==0 && (nbyhx==null || amount.compareTo(nbyhx)>0)){
-    					MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部核销，单据转换时请选择只对内部规则！");
-    				}else if(nbyhx!=null && nbyhx.compareTo(amount)==0 && (khyhx==null || amount.compareTo(khyhx)>0)){
-    					MsgBox.showInfo("第"+(j+1)+"行到检单内部金额已全部核销，单据转换时请选择默认规则！");
-    				}else if(nbyhx!=null && nbyhx.compareTo(amount)==0 && khyhx!=null && amount.compareTo(khyhx)==0){
-    					MsgBox.showInfo("第"+(j+1)+"行到检单客户和内部金额都已全部核销，请重新选择！");
+    			if(ireq.getRichInvoiceRequestEntryCollection("select id where djd.id='"+djid+"'").size()==0){
+    				if(icompay.getRichCompayWriteOffDjEntryCollection("select id where djNo.id='"+djid+"'").size()>0){
+    					MsgBox.showInfo("第"+(j+1)+"行到检单已在内部核销单中，不能下推开票申请！");
+        				SysUtil.abort();
     				}
-    			}else if(khyhx != null && khyhx.compareTo(amount) == 0){
-    				MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部核销，请重新选择！");
-    				SysUtil.abort();
+    				if(icustom.getRichCustomWriteOffDjEntryCollection("select id where djNo.id='"+djid+"'").size()>0){
+    					MsgBox.showInfo("第"+(j+1)+"行到检单已在客户核销单中，不能下推开票申请！");
+        				SysUtil.abort();
+    				}
     			}
+//    			nbyhx = info.getNbyhxAmount();
+//    			khyhx = info.getYhxAmount();
+    			if(info.isDj()) {
+    				boolean flag1 = getYsqAmount(djid,true).compareTo(amount)==0;
+    				boolean flag2 = getYsqAmount(djid,false).compareTo(amount)==0;
+    				if(flag1 && flag2){
+    					MsgBox.showInfo("第"+(j+1)+"行到检单客户和内部金额都已全部申请，请重新选择！");
+    					SysUtil.abort();
+    				}
+    				if(flag1){
+    					MsgBox.showInfo("第"+(j+1)+"行到检单内部金额已全部申请，单据转换时请选择默认规则！");
+    				}
+    				if(flag2){
+    					MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部申请，单据转换时请选择只对内部规则！");
+    				}
+    				
+//    				if(nbyhx!=null && nbyhx.compareTo(amount)==0 && khyhx!=null && amount.compareTo(khyhx)==0){
+//    					MsgBox.showInfo("第"+(j+1)+"行到检单客户和内部金额都已全部核销，请重新选择！");
+//    					SysUtil.abort();
+//    				}
+//    				if(khyhx!=null && khyhx.compareTo(amount)==0 && (nbyhx==null || amount.compareTo(nbyhx)>0)){
+//    					MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部核销，单据转换时请选择只对内部规则！");
+//    				}
+//    				if(nbyhx!=null && nbyhx.compareTo(amount)==0 && (khyhx==null || amount.compareTo(khyhx)>0)){
+//    					MsgBox.showInfo("第"+(j+1)+"行到检单内部金额已全部核销，单据转换时请选择默认规则！");
+//    				} 
+    			}else {
+//    				if(khyhx != null && khyhx.compareTo(amount) == 0){
+//    					MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部核销，请重新选择！");
+//    					SysUtil.abort();
+//    				}
+    				if(getYsqAmount(djid,false).compareTo(amount)==0){
+    					MsgBox.showInfo("第"+(j+1)+"行到检单客户金额已全部申请，请重新选择！");
+    					SysUtil.abort();
+    				}
+    				
+    			}
+    			
 			}
 		}
     	

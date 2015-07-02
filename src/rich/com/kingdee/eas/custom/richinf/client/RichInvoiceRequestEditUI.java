@@ -12,6 +12,7 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
@@ -27,6 +28,7 @@ import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.basedata.master.cssp.CustomerCollection;
 import com.kingdee.eas.basedata.master.cssp.CustomerFactory;
 import com.kingdee.eas.basedata.org.CompanyOrgUnitInfo;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.custom.richinf.BillState;
@@ -80,8 +82,14 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     	
     	kdtEntrys.getColumn("ysAmount").getStyleAttributes().setLocked(true);
     	kdtEntrys.getColumn("djd").getStyleAttributes().setLocked(true);
+    	kdtEntrys.getHeadRow(0).getCell("khyhxAmount").setValue("客户已申请金额");
+    	kdtEntrys.getHeadRow(0).getCell("nbyhxAmount").setValue("内部已申请金额");
     	actionAudit.setEnabled(true);
     	actionCreateFrom.setVisible(false);
+    	actionTraceUp.setVisible(true);
+    	actionTraceDown.setVisible(true);
+    	actionTraceUp.setEnabled(true);
+    	actionTraceDown.setEnabled(true);
     	
     	chkMenuItemSubmitAndAddNew.setVisible(false);
     	chkMenuItemSubmitAndAddNew.setEnabled(false);
@@ -159,9 +167,19 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     	if(editData.isDjkp()){
     		kdtEntrys.getColumn("khyhxAmount").getStyleAttributes().setHided(true);
         	kdtEntrys.getColumn("nbyhxAmount").getStyleAttributes().setLocked(true);
+        	String djid = null;
+        	for(int i=kdtEntrys.getRowCount3()-1; i>=0; i--) {
+        		djid = ((RichExamedInfo)kdtEntrys.getCell(i,"djd").getValue()).getId().toString();
+        		kdtEntrys.getCell(i,"nbyhxAmount").setValue(getYsqAmount(djid,true));
+        	}
     	}else{
     		kdtEntrys.getColumn("khyhxAmount").getStyleAttributes().setLocked(true);
         	kdtEntrys.getColumn("nbyhxAmount").getStyleAttributes().setHided(true);
+        	String djid = null;
+        	for(int i=kdtEntrys.getRowCount3()-1; i>=0; i--) {
+        		djid = ((RichExamedInfo)kdtEntrys.getCell(i,"djd").getValue()).getId().toString();
+        		kdtEntrys.getCell(i,"khyhxAmount").setValue(getYsqAmount(djid,false));
+        	}
     	}
     	//根据当前财务组织过滤销售员
     	CompanyOrgUnitInfo couInfo = SysContext.getSysContext().getCurrentFIUnit();
@@ -229,15 +247,38 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     		setOprtState(OprtState.VIEW);
     		actionRemove.setEnabled(false);
     		actionEdit.setEnabled(false);
+    		actionCopy.setEnabled(false);
     		MsgBox.showInfo("审核成功！");
     	}
     	else
     		MsgBox.showInfo("单据不是提交状态，不能进行此操作！");
     }
     
+    private String getDestBySrc(String srcid){
+    	StringBuffer sb = new StringBuffer();
+    	sb.append("select FDestObjectID from T_BOT_Relation where FSrcObjectID=?");
+    	try {
+    		IRowSet rs = iff.executeQuery(sb.toString(),new Object[]{srcid});
+    		if(rs.next()){
+    			return rs.getString("FDestObjectID");
+    		}
+		} catch (EASBizException e) {
+			handUIException(e);
+		} catch (BOSException e) {
+			handUIException(e);
+		} catch (SQLException e) {
+			handUIException(e);
+		}
+    	return null;
+    }
+    
     @Override
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
     	if(BillState.AUDIT.equals(editData.getBillState())){
+    		if(getDestBySrc(editData.getId().toString()) != null){
+    			MsgBox.showInfo("开票申请单关联应收单，不能反审核！");
+				SysUtil.abort();
+    		}
     		RichInvoiceRequestFactory.getRemoteInstance().unAudit(editData);
     		editData.setBillState(BillState.SUBMIT);
     		loadData();
@@ -300,13 +341,51 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
     		SysUtil.abort();
     	}
     }
+    
+    IFMIsqlFacade iff = FMIsqlFacadeFactory.getRemoteInstance();
+    
+    public BigDecimal getYsqAmount(String djid,boolean djkp){
+    	BigDecimal result = BigDecimal.ZERO;
+    	StringBuffer buffer = new StringBuffer();
+    	buffer.append("select rrentry.fid,rrentry.CFBencisq from CT_RIC_RichInvoiceRequestEntry rrentry left join ");
+    	buffer.append("CT_RIC_RichInvoiceRequest rreq on rreq.fid=rrentry.fparentid where rrentry.CFDjdID='");
+    	buffer.append(djid);
+    	buffer.append("' ");
+    	if(djkp){
+    		buffer.append("and rreq.CFDjkp=1 ");
+    	}else{
+    		buffer.append("and rreq.CFDjkp<>1 ");
+    	}
+    	if(editData.getId() != null) {
+    		buffer.append("and rreq.fid<>'");
+    		buffer.append(editData.getId().toString());
+        	buffer.append("' ");
+    	}
+    	try {
+    		IRowSet rs = iff.executeQuery(buffer.toString(),null);
+    		while(rs.next()) {
+    			if(rs.getBigDecimal("CFBencisq") != null){
+    				result = result.add(rs.getBigDecimal("CFBencisq"));
+    			}
+    		}
+		} catch (EASBizException e) {
+			handUIException(e);
+		} catch (BOSException e) {
+			handUIException(e);
+		} catch (SQLException e) {
+			handUIException(e);
+		}
+    	return result;
+    }
 
 	private void checkEntrys(String colName) {
 		BigDecimal amount = null;
-		BigDecimal yhx = null;
+		BigDecimal ysq = null;
 		BigDecimal benci = null;
+		String djid = null;
 		for(int i=kdtEntrys.getRowCount3()-1; i>=0; i--) {
 			benci = (BigDecimal)kdtEntrys.getCell(i,"bencisq").getValue();
+			djid = ((RichExamedInfo)kdtEntrys.getCell(i,"djd").getValue()).getId().toString();
 			if(benci == null){
 				MsgBox.showInfo("第"+(i+1)+"行的本次申请开票金额不能为空！");
 				SysUtil.abort();
@@ -316,13 +395,14 @@ public class RichInvoiceRequestEditUI extends AbstractRichInvoiceRequestEditUI
 					SysUtil.abort();
 				}
 				amount = (BigDecimal)kdtEntrys.getCell(i,"ysAmount").getValue();
-				yhx = (BigDecimal)kdtEntrys.getCell(i,colName).getValue();
-				if(yhx==null && amount.compareTo(benci)<0){
-					MsgBox.showInfo("第"+(i+1)+"行的本次申请开票金额不能大于结算金额！");
-					SysUtil.abort();
-				} 
-				if(yhx!=null && benci.compareTo(amount.subtract(yhx))>0){
-					MsgBox.showInfo("第"+(i+1)+"行的本次申请开票金额不能超出未核销金额！");
+				if("nbyhxAmount".equals(colName)){
+					ysq = getYsqAmount(djid,true);
+				}else{
+					ysq = getYsqAmount(djid,false);
+				}
+				 
+				if(benci.compareTo(amount.subtract(ysq))>0){
+					MsgBox.showInfo("第"+(i+1)+"行的本次申请金额不能超出未申请金额："+amount.subtract(ysq));
 					SysUtil.abort();
 				}
 			}
