@@ -1,0 +1,2257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fi.ar.app</package>
+    <name>T_AR_OtherBill</name>
+    <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].alias</alias>
+    <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].description</description>
+    <userDefined>false</userDefined>
+    <bizUnitPK>com.kingdee.eas.fi.ar.OtherBill</bizUnitPK>
+    <columns>
+        <column>
+            <name>FSaleOrgID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSaleOrgID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSaleOrgID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FTotalBadAmount</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalBadAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalBadAmount].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>4</scale>
+            <precision>17</precision>
+        </column>
+        <column>
+            <name>FTotalBadAmountLocal</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalBadAmountLocal].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalBadAmountLocal].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>4</scale>
+            <precision>17</precision>
+        </column>
+        <column>
+            <name>FBillType</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillType].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillType].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>1</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSaleGroupID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSaleGroupID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSaleGroupID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FBillDate</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillDate].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>FAsstActTypeID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActTypeID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FAsstActID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FAsstActNumber</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActNumber].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>80</precision>
+        </column>
+        <column>
+            <name>FAsstActName</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActName].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActName].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>true</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FBillStatus</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillStatus].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillStatus].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>1</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FCurrencyID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCurrencyID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCurrencyID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FAdminOrgUnitID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAdminOrgUnitID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAdminOrgUnitID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FPersonId</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPersonId].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPersonId].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FExchangeRate</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FExchangeRate].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FExchangeRate].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>16</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FSettleTypeID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSettleTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSettleTypeID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FAmount</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAmount].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>4</scale>
+            <precision>17</precision>
+        </column>
+        <column>
+            <name>FAmountLocal</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAmountLocal].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAmountLocal].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>4</scale>
+            <precision>17</precision>
+        </column>
+        <column>
+            <name>FAbstractName</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAbstractName].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAbstractName].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FVerifyAmount</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVerifyAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVerifyAmount].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>4</scale>
+            <precision>17</precision>
+        </column>
+        <column>
+            <name>FVerifyAmountLocal</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVerifyAmountLocal].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVerifyAmountLocal].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>4</scale>
+            <precision>17</precision>
+        </column>
+        <column>
+            <name>FUnVerifyAmount</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FUnVerifyAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FUnVerifyAmount].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>4</scale>
+            <precision>17</precision>
+        </column>
+        <column>
+            <name>FUnVerifyAmountLocal</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FUnVerifyAmountLocal].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FUnVerifyAmountLocal].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>4</scale>
+            <precision>17</precision>
+        </column>
+        <column>
+            <name>FAuditDate</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAuditDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAuditDate].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>FFiVouchered</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FFiVouchered].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FFiVouchered].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FVoucherID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVoucherID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVoucherID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FVoucherNumber</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVoucherNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVoucherNumber].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>80</precision>
+        </column>
+        <column>
+            <name>FSourceBillType</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSourceBillType].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSourceBillType].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FCashDiscountID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCashDiscountID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCashDiscountID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsReversed</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsReversed].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsReversed].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsReverseBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsReverseBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsReverseBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FAccountantID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAccountantID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAccountantID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsTransBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsTransBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsTransBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsAllowanceBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsAllowanceBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsAllowanceBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsImportBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsImportBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsImportBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FBizTypeID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBizTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBizTypeID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FPaymentTypeID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPaymentTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPaymentTypeID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FPayConditionId</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPayConditionId].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPayConditionId].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FLastExhangeRate</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FLastExhangeRate].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FLastExhangeRate].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>16</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FTotalAmount</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalAmount].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>4</scale>
+            <precision>17</precision>
+        </column>
+        <column>
+            <name>FTotalTax</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalTax].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalTax].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>4</scale>
+            <precision>17</precision>
+        </column>
+        <column>
+            <name>FTotalTaxAmount</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalTaxAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalTaxAmount].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>4</scale>
+            <precision>17</precision>
+        </column>
+        <column>
+            <name>FIsExchanged</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsExchanged].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsExchanged].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsInitializeBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsInitializeBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsInitializeBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FVoucherTypeID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVoucherTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVoucherTypeID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FRedBlueType</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FRedBlueType].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FRedBlueType].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FYear</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FYear].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FYear].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FPeriod</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPeriod].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPeriod].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsSCMBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsSCMBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsSCMBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsInTax</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsInTax].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsInTax].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsPriceWithoutTax</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsPriceWithoutTax].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsPriceWithoutTax].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsNeedVoucher</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsNeedVoucher].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsNeedVoucher].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>1</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsAppointVoucher</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsAppointVoucher].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsAppointVoucher].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FPriceSource</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPriceSource].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPriceSource].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>101</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsImpFromGL</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsImpFromGL].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsImpFromGL].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FAdminOrgUnitId_SourceBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAdminOrgUnitId_SourceBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAdminOrgUnitId_SourceBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FPersonID_SourceBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPersonID_SourceBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPersonID_SourceBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FAsstActID_SourceBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActID_SourceBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActID_SourceBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FBillDate_SourceBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillDate_SourceBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillDate_SourceBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>FAsstActTypeID_SourceBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActTypeID_SourceBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActTypeID_SourceBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsSplitBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsSplitBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsSplitBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsCoopBuild</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsCoopBuild].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsCoopBuild].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsGenCoopBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsGenCoopBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsGenCoopBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FCompanyID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCompanyID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCompanyID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FNumber</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FNumber].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>80</precision>
+        </column>
+        <column>
+            <name>FBizDate</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBizDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBizDate].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>FHandlerID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FHandlerID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FHandlerID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FDescription</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FDescription].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FDescription].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>200</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FHasEffected</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FHasEffected].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FHasEffected].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FAuditorID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAuditorID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAuditorID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSourceBillID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSourceBillID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSourceBillID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSourceFunction</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSourceFunction].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSourceFunction].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>80</precision>
+        </column>
+        <column>
+            <name>FCreatorID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCreatorID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCreatorID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FCreateTime</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCreateTime].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCreateTime].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>FLastUpdateUserID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FLastUpdateUserID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FLastUpdateUserID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FLastUpdateTime</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FLastUpdateTime].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FLastUpdateTime].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>FControlUnitID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FControlUnitID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FControlUnitID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>FContractNumber</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FContractNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FContractNumber].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FBillType_SourceBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillType_SourceBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillType_SourceBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsBizBill</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsBizBill].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsBizBill].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSYNbillType</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNbillType].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNbillType].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSYNbillNumber</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNbillNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNbillNumber].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSYNBillID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNBillID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNBillID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSYNBillEntryID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNBillEntryID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNBillEntryID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FCostCenterID</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCostCenterID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCostCenterID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FBillRelationOption</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillRelationOption].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillRelationOption].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFyhxAmount</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[CFyhxAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[CFyhxAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFldNo</name>
+            <alias>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[CFldNo].alias</alias>
+            <description>dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[CFldNo].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>80</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>PK_AR_OtherBill</name>
+        <userDefined>false</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[CFldNo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="落单号" />
+            <lang locale="zh_HK" value="落單號" />
+            <lang locale="zh_TW" value="落單號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[CFldNo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[CFyhxAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已核销金额" />
+            <lang locale="zh_HK" value="已核銷金額" />
+            <lang locale="zh_TW" value="已核銷金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[CFyhxAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAbstractName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAbstractName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAccountantID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAccountantID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAdminOrgUnitID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAdminOrgUnitID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAdminOrgUnitId_SourceBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAdminOrgUnitId_SourceBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAmountLocal].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAmountLocal].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActID_SourceBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActID_SourceBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActTypeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActTypeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActTypeID_SourceBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAsstActTypeID_SourceBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAuditDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAuditDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAuditorID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FAuditorID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillDate_SourceBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillDate_SourceBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillRelationOption].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="整单关联算法" />
+            <lang locale="zh_HK" value="整單關聯演算法" />
+            <lang locale="zh_TW" value="整單關聯演算法" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillRelationOption].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="整单关联算法" />
+            <lang locale="zh_HK" value="整單關聯演算法" />
+            <lang locale="zh_TW" value="整單關聯演算法" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillStatus].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillStatus].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillType_SourceBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="来源单单据类型" />
+            <lang locale="zh_HK" value="來源單單據類型" />
+            <lang locale="zh_TW" value="來源單單據類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBillType_SourceBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="来源单单据类型" />
+            <lang locale="zh_HK" value="來源單單據類型" />
+            <lang locale="zh_TW" value="來源單單據類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBizDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBizDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBizTypeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FBizTypeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCashDiscountID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCashDiscountID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCompanyID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCompanyID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FContractNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FContractNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FControlUnitID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FControlUnitID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCostCenterID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCostCenterID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCreateTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCreateTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCreatorID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCreatorID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCurrencyID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FCurrencyID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FDescription].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FDescription].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FExchangeRate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FExchangeRate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FFiVouchered].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FFiVouchered].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FHandlerID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FHandlerID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FHasEffected].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FHasEffected].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsAllowanceBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsAllowanceBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsAppointVoucher].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsAppointVoucher].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsBizBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否业务应收" />
+            <lang locale="zh_HK" value="是否業務應收" />
+            <lang locale="zh_TW" value="是否業務應收" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsBizBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否业务应收" />
+            <lang locale="zh_HK" value="是否業務應收" />
+            <lang locale="zh_TW" value="是否業務應收" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsCoopBuild].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsCoopBuild].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsExchanged].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsExchanged].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsGenCoopBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsGenCoopBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsImpFromGL].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsImpFromGL].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsImportBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsImportBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsInTax].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsInTax].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsInitializeBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsInitializeBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsNeedVoucher].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsNeedVoucher].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsPriceWithoutTax].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsPriceWithoutTax].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsReverseBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsReverseBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsReversed].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsReversed].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsSCMBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsSCMBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsSplitBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsSplitBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsTransBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FIsTransBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FLastExhangeRate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后调汇汇率" />
+            <lang locale="zh_HK" value="最後調彙匯率" />
+            <lang locale="zh_TW" value="最後調彙匯率" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FLastExhangeRate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后调汇汇率" />
+            <lang locale="zh_HK" value="最後調彙匯率" />
+            <lang locale="zh_TW" value="最後調彙匯率" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FLastUpdateTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FLastUpdateTime].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FLastUpdateUserID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FLastUpdateUserID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPayConditionId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPayConditionId].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPaymentTypeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPaymentTypeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPeriod].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPeriod].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPersonID_SourceBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPersonID_SourceBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPersonId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPersonId].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPriceSource].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FPriceSource].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FRedBlueType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FRedBlueType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNBillEntryID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="FSYNBillEntryID" />
+            <lang locale="zh_HK" value="FSYNBillEntryID" />
+            <lang locale="zh_TW" value="FSYNBillEntryID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNBillEntryID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="协同单据分录ID" />
+            <lang locale="zh_HK" value="協同單據分錄ID" />
+            <lang locale="zh_TW" value="協同單據分錄ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNBillID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="FSYNBillID" />
+            <lang locale="zh_HK" value="FSYNBillID" />
+            <lang locale="zh_TW" value="FSYNBillID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNBillID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="协同单据ID" />
+            <lang locale="zh_HK" value="協同單據ID" />
+            <lang locale="zh_TW" value="協同單據ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNbillNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="FSYNbillNumber" />
+            <lang locale="zh_HK" value="FSYNbillNumber" />
+            <lang locale="zh_TW" value="FSYNbillNumber" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNbillNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="协同单据编号" />
+            <lang locale="zh_HK" value="協同單據編號" />
+            <lang locale="zh_TW" value="協同單據編號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNbillType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="FSYNbillType" />
+            <lang locale="zh_HK" value="FSYNbillType" />
+            <lang locale="zh_TW" value="FSYNbillType" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSYNbillType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="协同单据类型" />
+            <lang locale="zh_HK" value="協同單據類型" />
+            <lang locale="zh_TW" value="協同單據類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSaleGroupID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="销售组" />
+            <lang locale="zh_HK" value="銷售組" />
+            <lang locale="zh_TW" value="銷售組" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSaleGroupID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="销售组" />
+            <lang locale="zh_HK" value="銷售組" />
+            <lang locale="zh_TW" value="銷售組" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSaleOrgID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSaleOrgID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSettleTypeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSettleTypeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSourceBillID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSourceBillID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSourceBillType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSourceBillType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSourceFunction].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FSourceFunction].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalBadAmountLocal].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalBadAmountLocal].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalBadAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalBadAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalTaxAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalTaxAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalTax].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FTotalTax].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FUnVerifyAmountLocal].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FUnVerifyAmountLocal].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FUnVerifyAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FUnVerifyAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVerifyAmountLocal].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVerifyAmountLocal].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVerifyAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVerifyAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVoucherID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVoucherID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVoucherNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVoucherNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVoucherTypeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FVoucherTypeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FYear].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].columns.column[FYear].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fi.ar.app.T_AR_OtherBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</dataTable>
+

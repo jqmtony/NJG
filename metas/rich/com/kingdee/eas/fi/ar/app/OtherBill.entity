@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <entityObject xmlns="com.kingdee.bos.metadata">
     <package>com.kingdee.eas.fi.ar.app</package>
     <name>OtherBill</name>
@@ -962,6 +962,46 @@
                 <key name="name" value="FSYNBillEntryID" />
             </mappingField>
         </ownProperty>
+        <ownProperty>
+            <name>yhxAmount</name>
+            <alias>entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[yhxAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[yhxAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[yhxAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFyhxAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>ldNo</name>
+            <alias>entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[ldNo].alias</alias>
+            <description>entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[ldNo].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[ldNo].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFldNo" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -1270,13 +1310,6 @@
             <lang locale="zh_HK" value="應收單" />
             <lang locale="zh_TW" value="應收單" />
         </rs>
-	
-	<rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].extendedProperty.controllerBeanEx">
-            <lang locale="zh_CN" value="com.kingdee.eas.fi.ar.app.OtherBillControllerBeanEx" />
-            <lang locale="zh_TW" value="com.kingdee.eas.fi.ar.app.OtherBillControllerBeanEx" />
-            <lang locale="en_US" value="com.kingdee.eas.fi.ar.app.OtherBillControllerBeanEx" />
-        </rs>	
-
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].defaultViewalias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1697,6 +1730,11 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.fi.ar.app.OtherBillControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fi.ar.app.OtherBillControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fi.ar.app.OtherBillControllerBeanEx" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].extendedProperty.defaultF7Query">
             <lang locale="en_US" value="com.kingdee.eas.fi.ar.app.OtherBill" />
@@ -2339,8 +2377,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[SYNBillEntryID].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[SYNBillEntryID].description">
@@ -2357,8 +2394,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[SYNBillID].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[SYNBillID].description">
@@ -2375,8 +2411,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[SYNbillNumber].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[SYNbillNumber].description">
@@ -2393,8 +2428,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[SYNbillType].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[SYNbillType].description">
@@ -2453,6 +2487,32 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[ldNo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="落单号" />
+            <lang locale="zh_HK" value="落單號" />
+            <lang locale="zh_TW" value="落單號" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[ldNo].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[ldNo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[ldNo].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[ldNo].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[totalBadAmountLocal].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="坏账金额本位币" />
@@ -2461,8 +2521,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[totalBadAmountLocal].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="0" />
-            <lang locale="zh_HK" value="0" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="0" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[totalBadAmountLocal].description">
@@ -2493,8 +2552,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[totalBadAmount].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="0" />
-            <lang locale="zh_HK" value="0" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="0" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[totalBadAmount].description">
@@ -2516,6 +2574,23 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[yhxAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已核销金额" />
+            <lang locale="zh_HK" value="已核銷金額" />
+            <lang locale="zh_TW" value="已核銷金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[yhxAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fi.ar.app.OtherBill].properties.ownProperty[yhxAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已核销金额" />
+            <lang locale="zh_HK" value="已核銷金額" />
+            <lang locale="zh_TW" value="已核銷金額" />
         </rs>
     </resource>
 </entityObject>
