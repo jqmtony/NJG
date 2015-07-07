@@ -22,7 +22,7 @@ public class ReserveServiceLocator extends org.apache.axis.client.Service implem
     }
 
     // Use to get a proxy class for reserveServiceHttpSoap12Endpoint
-    private java.lang.String reserveServiceHttpSoap12Endpoint_address = "http://172.3.1.88:8188/richTimer/services/reserveService.reserveServiceHttpSoap12Endpoint/";
+    private java.lang.String reserveServiceHttpSoap12Endpoint_address = "http://172.3.1.203:8188/richTimer/services/reserveService.reserveServiceHttpSoap12Endpoint/";
 
     public java.lang.String getreserveServiceHttpSoap12EndpointAddress() {
         return reserveServiceHttpSoap12Endpoint_address;
@@ -67,7 +67,7 @@ public class ReserveServiceLocator extends org.apache.axis.client.Service implem
 
 
     // Use to get a proxy class for reserveServiceHttpSoap11Endpoint
-    private java.lang.String reserveServiceHttpSoap11Endpoint_address = "http://172.3.1.88:8188/richTimer/services/reserveService.reserveServiceHttpSoap11Endpoint/";
+    private java.lang.String reserveServiceHttpSoap11Endpoint_address = "http://172.3.1.203:8188/richTimer/services/reserveService.reserveServiceHttpSoap11Endpoint/";
 
     public java.lang.String getreserveServiceHttpSoap11EndpointAddress() {
         return reserveServiceHttpSoap11Endpoint_address;
