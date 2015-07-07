@@ -246,40 +246,6 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 
   String[] saveData(Context ctx, Iterator iterator, String SQL, String isTemp)
   {
-    String end = null;
-    String ywdjbh = null;
-    String bizDate = null;
-    String djjg = null;
-    String kpjg = null;
-    String djrq = null;
-
-    String zjjg = null;
-    String qydw = null;
-    String djdw = null;
-    String kpdw = null;
-    String skdw = null;
-    String xsy = null;
-    String tjlb = null;
-    String xslb = null;
-    String sklb = null;
-    String ldh = null;
-    String fph = null;
-    String beizhu = null;
-    String djr = null;
-    String djtcbm = null;
-    String djtcmc = null;
-    String djxmbm = null;
-    String djxmmc = null;
-    String jxbs = null;
-    String klj = null;
-    String zkl = null;
-    String jsje = null;
-    String se = null;
-    String jshj = null;
-    String flag = null;
-    String kh = null;
-    String isLast = "";//是否最后一批数据
-
     String createUserID = ContextUtil.getCurrentUserInfo(ctx).getId().toString();
 
     Timestamp createTime = new Timestamp(new Date().getTime());
@@ -304,22 +270,70 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 
     Connection conn = null;
     PreparedStatement ps = null;
+    String isLast = "";//是否最后一批数据
     try {
       conn = EJBFactory.getConnection(ctx);
       ps = conn.prepareStatement(SQL);
-
       while (iterator.hasNext())
       {
+    	String end = null;
+	    String ywdjbh = null;
+	    String bizDate = null;
+	    String djjg = null;
+	    String kpjg = null;
+	    String djrq = null;
+
+	    String zjjg = null;
+	    String qydw = null;
+	    String djdw = null;
+	    String kpdw = null;
+	    String skdw = null;
+	    String xsy = null;
+	    String tjlb = null;
+	    String xslb = null;
+	    String sklb = null;
+	    String ldh = null;
+	    String fph = null;
+	    String beizhu = null;
+	    String djr = null;
+	    String djtcbm = null;
+	    String djtcmc = null;
+	    String djxmbm = null;
+	    String djxmmc = null;
+	    String jxbs = null;
+	    String klj = null;
+	    String zkl = null;
+	    String jsje = null;
+	    String se = null;
+	    String jshj = null;
+	    String flag = null;
+	    String kh = null;
+	    
         bill = (Element)iterator.next();
         billHead = bill.element("billHead");
         if (billHead.element("ywdjbh").getText() != null)
           ywdjbh = billHead.element("ywdjbh").getText().replace("", "");
         else
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ",不能为空！" };
+        if("021507010001".equals(ywdjbh)){
+        	ywdjbh = billHead.element("ywdjbh").getText().replace("", "");
+        }
         if (billHead.element("bizdate").getText() != null)
           bizDate = billHead.element("bizdate").getText().replace("", "");
         if (billHead.element("djrq")!=null && billHead.element("djrq").getText() != null)
         	djrq = billHead.element("djrq").getText().replace("", "");
+        if (billHead.element("tjlb").getText() != null) {
+            tjlb = billHead.element("tjlb").getText().replace("", "");
+            if ("1".equals(isTemp)) {
+              int index = tjlb.indexOf("|");
+              if (index > 0)
+                tjlb = tjlb.substring(0, index);
+              else
+                return new String[] { "N", "", "业务单据编号" + ywdjbh + ", 体检类别格式不符【编码 | 名称】！" };
+            }
+          } else {
+            return new String[] { "N", "", "业务单据编号" + ywdjbh + ",体检类别不能为空！" };
+          }
         if (billHead.element("djjg").getText() != null) {
           djjg = billHead.element("djjg").getText().replace("", "");
           if ("1".equals(isTemp)) {
@@ -329,7 +343,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
             else
               return new String[] { "N", "", "业务单据编号" + ywdjbh + ", 到检机构格式不符【编码 | 名称】！" };
           }
-        } else {
+        } else  {
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ",到检机构不能为空！" };
         }
         if (billHead.element("kpjg").getText() != null) {
@@ -341,10 +355,10 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
             else
               return new String[] { "N", "", "业务单据编号" + ywdjbh + ", 开票机构格式不符【编码 | 名称】！" };
           }
-        } else {
+        } else  if( "001".equals(tjlb)){//团检
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ",开票机构不能为空！" };
         }
-        if (billHead.element("qydw").getText() != null) {
+        if (billHead.element("qydw").getText() != null && !"".equals(billHead.element("qydw").getText())) {
           qydw = billHead.element("qydw").getText().replace("", "");
           if ("1".equals(isTemp)) {
             int index = qydw.indexOf("|");
@@ -353,10 +367,10 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
             else
               return new String[] { "N", "", "业务单据编号" + ywdjbh + ", 签约单位格式不符【编码 | 名称】！" };
           }
-        } else {
+        } else if( "001".equals(tjlb)){//团检
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ",签约单位不能为空！" };
         }
-        if (billHead.element("djdw").getText() != null) {
+        if (billHead.element("djdw").getText() != null && !"".equals(billHead.element("djdw").getText())) {
           djdw = billHead.element("djdw").getText().replace("", "");
           if ("1".equals(isTemp)) {
             int index = djdw.indexOf("|");
@@ -365,10 +379,10 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
             else
               return new String[] { "N", "", "业务单据编号" + ywdjbh + ", 到检单位格式不符【编码 | 名称】！" };
           }
-        } else {
+        } else if( "001".equals(tjlb)){//团检
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ", 到检单位不能为空！" };
         }
-        if (billHead.element("kpdw").getText() != null) {
+        if (billHead.element("kpdw").getText() != null && !"".equals(billHead.element("kpdw").getText())) {
           kpdw = billHead.element("kpdw").getText().replace("", "");
           if ("1".equals(isTemp)) {
             int index = kpdw.indexOf("|");
@@ -377,10 +391,10 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
             else
               return new String[] { "N", "", "业务单据编号" + ywdjbh + ", 开票单位格式不符【编码 | 名称】！" };
           }
-        } else {
+        } else if( "001".equals(tjlb)){//团检
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ",开票单位不能为空！" };
         }
-        if (billHead.element("skdw").getText() != null) {
+        if (billHead.element("skdw").getText() != null && !"".equals(billHead.element("skdw").getText())) {
           skdw = billHead.element("skdw").getText().replace("", "");
           if ("1".equals(isTemp)) {
             int index = skdw.indexOf("|");
@@ -389,7 +403,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
             else
               return new String[] { "N", "", "业务单据编号" + ywdjbh + ", 付款单位格式不符【编码 | 名称】！" };
           }
-        } else {
+        } else if( "001".equals(tjlb)){//团检
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ",付款单位不能为空！" };
         }
         if (billHead.element("xsy").getText() != null) {
@@ -404,18 +418,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
         } else {
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ",销售员不能为空！" };
         }
-        if (billHead.element("tjlb").getText() != null) {
-          tjlb = billHead.element("tjlb").getText().replace("", "");
-          if ("1".equals(isTemp)) {
-            int index = tjlb.indexOf("|");
-            if (index > 0)
-              tjlb = tjlb.substring(0, index);
-            else
-              return new String[] { "N", "", "业务单据编号" + ywdjbh + ", 体检类别格式不符【编码 | 名称】！" };
-          }
-        } else {
-          return new String[] { "N", "", "业务单据编号" + ywdjbh + ",体检类别不能为空！" };
-        }
+        
         if (billHead.element("xslb").getText() != null) {
           xslb = billHead.element("xslb").getText().replace("", "");
           if ("1".equals(isTemp)) {
@@ -521,9 +524,12 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
         ps.setString(38, jshj);
         ps.setString(39, djjg);
         ps.setString(40, kpjg);
-        if (Utils.parseCustomDateString(djrq, "yyyy-MM-dd") == null)
-            return new String[] { "N", "", "业务单据编号" + ywdjbh + ", " + djrq + "日期格式有误，无法转换成yyyy-MM-dd" };
-        ps.setTimestamp(41, new Timestamp(Utils.parseCustomDateString(djrq, "yyyy-MM-dd").getTime()));
+        if(djrq!=null){
+	        if (Utils.parseCustomDateString(djrq, "yyyy-MM-dd") == null)
+	            return new String[] { "N", "", "业务单据编号" + ywdjbh + ", " + djrq + "日期格式有误，无法转换成yyyy-MM-dd" };
+	        ps.setTimestamp(41, new Timestamp(Utils.parseCustomDateString(djrq, "yyyy-MM-dd").getTime()));
+        }else
+        	ps.setTimestamp(41, new Timestamp(Utils.parseCustomDateString(bizDate, "yyyy-MM-dd").getTime()));
         ps.setString(42, "");
         ps.setString(43, "");
         ps.setString(44, "");
