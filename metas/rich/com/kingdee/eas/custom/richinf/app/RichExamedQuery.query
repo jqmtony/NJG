@@ -2805,6 +2805,99 @@
                 <key name="name" value="RichExamedQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>entrys.fph</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[entrys.fph].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a221b54b-4511-4837-afac-c5c802f85453</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.fph" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="fph" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamedQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bj</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[bj].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1e6aaa27-035c-4bda-8907-bdae25efabfc</key>
+                    <parentUnit>
+                        <key name="name" value="bj" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamed" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bj" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamedQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>ydjbh</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[ydjbh].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>28b9f1a5-d93c-4168-81d6-3307ed904922</key>
+                    <parentUnit>
+                        <key name="name" value="ydjbh" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="RichExamed" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="ydjbh" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.custom.richinf.app" />
+                <key name="name" value="RichExamedQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -3774,6 +3867,22 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[bj].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="补检" />
+            <lang locale="zh_HK" value="補檢" />
+            <lang locale="zh_TW" value="補檢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[bj].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[bj].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[cardAmount].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="面值" />
@@ -4000,6 +4109,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[entrys.djtcNumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[entrys.fph].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="发票号" />
+            <lang locale="zh_HK" value="發票號" />
+            <lang locale="zh_TW" value="發票號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[entrys.fph].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[entrys.fph].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
@@ -4380,6 +4505,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[tjType.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[ydjbh].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="原到检编号" />
+            <lang locale="zh_HK" value="原到檢編號" />
+            <lang locale="zh_TW" value="原到檢編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[ydjbh].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.custom.richinf.app.RichExamedQuery].units.queryField[ydjbh].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
