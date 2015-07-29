@@ -3,12 +3,27 @@
  */
 package com.kingdee.eas.test;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.util.List;
+
 import org.apache.log4j.Logger;
-import com.kingdee.bos.ui.face.CoreUIObject;
+
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.Context;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.eas.framework.*;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.function.WfEventListenerStateManager;
+import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.base.netctrl.IMutexServiceControl;
+import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.framework.client.FrameWorkClientUtils;
+import com.kingdee.eas.util.client.KDTableUtil;
 
 /**
  * output class name
@@ -23,6 +38,7 @@ public class PurOrderEditUI extends AbstractPurOrderEditUI
     public PurOrderEditUI() throws Exception
     {
         super();
+        KDTableUtil.getSelectedRow(kdtEntry);
     }
 
     /**
@@ -31,8 +47,57 @@ public class PurOrderEditUI extends AbstractPurOrderEditUI
     public void storeFields()
     {
         super.storeFields();
+        FilterInfo filter = new FilterInfo();
+        filter.getFilterItems().add(new FilterItemInfo("F7query要过滤的属性", "过滤值",CompareType.EQUALS));
+        EntityViewInfo evi = new EntityViewInfo();
+        evi.setFilter(filter);
+        prmtPurPerson.setEntityViewInfo(evi);
+        
+        
     }
+    protected void _autoRunWF4PaymentOrder(Context ctx) throws BOSException,EASBizException {  
+        //因为服务端Context默认为administrator,必须设置为职员，这里设置caller为职员,测试暂时为kingdee  
+        ctx.setCaller(new ObjectUuidPK("xtxdwAh2SciaxSDLs/7zZhO33n8="));  
+//        IPaymentOrder iPaymentOrder = PaymentOrderFactory.getLocalInstance(ctx);  
+//        PaymentOrderCollection col = iPaymentOrder.getPaymentOrderCollection("where state='"+PO_Enum.DRAFT_VALUE+"'");  
+//        if(col!=null && col.size()>0){  
+//        try{  
+//            WfEventListenerStateManager.getInstance().enableEventListener();  
+//            for(int i=0;i<col.size();i++){  
+//	            PaymentOrderInfo info = col.get(i);  
+//	            iPaymentOrder.submit(info);  
+//            }   
+//        }catch(EASBizException e){  
+//        	e.printStackTrace();  
+//        }finally{  
+//        	WfEventListenerStateManager.getInstance().disableEventListener();  
+//        }  
+//        }  
+	}
+    public static void requestPureMutex(List idList)
+    throws EASBizException
+  {
+    IMutexServiceControl mutexServiceControl = FrameWorkClientUtils.createMutexServiceControl();
 
+     String userName = SysContext.getSysContext().getUserName();
+    String dcName = SysContext.getSysContext().getDcName();
+ 
+     boolean flag = true;
+
+     int i = 0; for (int n = idList.size(); i < n; ++i) {
+     if (idList.get(i) != null) {
+        flag = mutexServiceControl.requestObjIDForUpdate(idList.get(i).toString(), userName, dcName);
+      }
+    }
+   }
+
+  public static void releasePureMutex(List idList)
+  {
+    IMutexServiceControl mutexServiceControl = FrameWorkClientUtils.createMutexServiceControl();
+    int i = 0; for (int n = idList.size(); i < n; ++i)
+      if (idList.get(i) != null)
+         mutexServiceControl.releaseObjIDForUpdate(idList.get(i).toString());
+   }
     /**
      * output btnAddLine_actionPerformed method
      */

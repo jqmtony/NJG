@@ -85,6 +85,8 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contamount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contnbhxAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contnbyhxAmount;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkbj;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contydjbh;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker kDDateCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -118,6 +120,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtamount;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtnbhxAmount;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtnbyhxAmount;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtydjbh;
     protected com.kingdee.eas.custom.richinf.RichExamedInfo editData = null;
     /**
      * output class constructor
@@ -219,6 +222,8 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.contamount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contnbhxAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contnbyhxAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.chkbj = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.contydjbh = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDDateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -252,6 +257,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.txtamount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtnbhxAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtnbyhxAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtydjbh = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -289,6 +295,8 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.contamount.setName("contamount");
         this.contnbhxAmount.setName("contnbhxAmount");
         this.contnbyhxAmount.setName("contnbyhxAmount");
+        this.chkbj.setName("chkbj");
+        this.contydjbh.setName("contydjbh");
         this.prmtCreator.setName("prmtCreator");
         this.kDDateCreateTime.setName("kDDateCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -322,6 +330,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.txtamount.setName("txtamount");
         this.txtnbhxAmount.setName("txtnbhxAmount");
         this.txtnbyhxAmount.setName("txtnbyhxAmount");
+        this.txtydjbh.setName("txtydjbh");
         // CoreUI		
         this.btnAddLine.setVisible(false);		
         this.btnCopyLine.setVisible(false);		
@@ -386,11 +395,11 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.contAuditor.setBoundLabelLength(100);		
         this.contAuditor.setBoundLabelUnderline(true);
         // kdtEntrys
-		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"ywdjbh\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"djr\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"djtcNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"djctName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"slType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"skType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"jsAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{ywdjbh}</t:Cell><t:Cell>$Resource{djr}</t:Cell><t:Cell>$Resource{djtcNumber}</t:Cell><t:Cell>$Resource{djctName}</t:Cell><t:Cell>$Resource{slType}</t:Cell><t:Cell>$Resource{skType}</t:Cell><t:Cell>$Resource{jsAmount}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"ywdjbh\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"djr\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"djtcNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"djctName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"slType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"skType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"jsAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"fph\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beizhu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{ywdjbh}</t:Cell><t:Cell>$Resource{djr}</t:Cell><t:Cell>$Resource{djtcNumber}</t:Cell><t:Cell>$Resource{djctName}</t:Cell><t:Cell>$Resource{slType}</t:Cell><t:Cell>$Resource{skType}</t:Cell><t:Cell>$Resource{jsAmount}</t:Cell><t:Cell>$Resource{fph}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
 
-                this.kdtEntrys.putBindContents("editData",new String[] {"id","ywdjbh","djr","djtcNumber","djctName","slType","skType","jsAmount","beizhu"});
+                this.kdtEntrys.putBindContents("editData",new String[] {"id","ywdjbh","djr","djtcNumber","djctName","slType","skType","jsAmount","fph","beizhu"});
 
 
         this.kdtEntrys.checkParsed();
@@ -449,6 +458,11 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         kdtEntrys_jsAmount_TextField.setPrecision(2);
         KDTDefaultCellEditor kdtEntrys_jsAmount_CellEditor = new KDTDefaultCellEditor(kdtEntrys_jsAmount_TextField);
         this.kdtEntrys.getColumn("jsAmount").setEditor(kdtEntrys_jsAmount_CellEditor);
+        KDTextField kdtEntrys_fph_TextField = new KDTextField();
+        kdtEntrys_fph_TextField.setName("kdtEntrys_fph_TextField");
+        kdtEntrys_fph_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtEntrys_fph_CellEditor = new KDTDefaultCellEditor(kdtEntrys_fph_TextField);
+        this.kdtEntrys.getColumn("fph").setEditor(kdtEntrys_fph_CellEditor);
         KDTextArea kdtEntrys_beizhu_TextArea = new KDTextArea();
         kdtEntrys_beizhu_TextArea.setName("kdtEntrys_beizhu_TextArea");
         kdtEntrys_beizhu_TextArea.setMaxLength(255);
@@ -541,6 +555,14 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
 
 
         this.kdtDjrentry.checkParsed();
+        KDFormattedTextField kdtDjrentry_seq_TextField = new KDFormattedTextField();
+        kdtDjrentry_seq_TextField.setName("kdtDjrentry_seq_TextField");
+        kdtDjrentry_seq_TextField.setVisible(true);
+        kdtDjrentry_seq_TextField.setEditable(true);
+        kdtDjrentry_seq_TextField.setHorizontalAlignment(2);
+        kdtDjrentry_seq_TextField.setDataType(0);
+        KDTDefaultCellEditor kdtDjrentry_seq_CellEditor = new KDTDefaultCellEditor(kdtDjrentry_seq_TextField);
+        this.kdtDjrentry.getColumn("seq").setEditor(kdtDjrentry_seq_CellEditor);
         KDTextField kdtDjrentry_djxmbm_TextField = new KDTextField();
         kdtDjrentry_djxmbm_TextField.setName("kdtDjrentry_djxmbm_TextField");
         kdtDjrentry_djxmbm_TextField.setMaxLength(100);
@@ -674,6 +696,15 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.contnbyhxAmount.setBoundLabelLength(100);		
         this.contnbyhxAmount.setBoundLabelUnderline(true);		
         this.contnbyhxAmount.setVisible(true);
+        // chkbj		
+        this.chkbj.setText(resHelper.getString("chkbj.text"));		
+        this.chkbj.setVisible(true);		
+        this.chkbj.setHorizontalAlignment(2);
+        // contydjbh		
+        this.contydjbh.setBoundLabelText(resHelper.getString("contydjbh.boundLabelText"));		
+        this.contydjbh.setBoundLabelLength(100);		
+        this.contydjbh.setBoundLabelUnderline(true);		
+        this.contydjbh.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);
         // kDDateCreateTime		
@@ -803,7 +834,6 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.prmtzjjg.setCommitFormat("$number$");		
         this.prmtzjjg.setRequired(false);
         // txtyhxAmount		
-        this.txtyhxAmount.setVisible(true);		
         this.txtyhxAmount.setHorizontalAlignment(2);		
         this.txtyhxAmount.setDataType(1);		
         this.txtyhxAmount.setSupportedEmpty(true);		
@@ -813,7 +843,6 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.txtyhxAmount.setRequired(false);		
         this.txtyhxAmount.setEnabled(false);
         // txtamount		
-        this.txtamount.setVisible(true);		
         this.txtamount.setHorizontalAlignment(2);		
         this.txtamount.setDataType(1);		
         this.txtamount.setSupportedEmpty(true);		
@@ -831,7 +860,6 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.txtnbhxAmount.setPrecision(2);		
         this.txtnbhxAmount.setRequired(false);
         // txtnbyhxAmount		
-        this.txtnbyhxAmount.setVisible(true);		
         this.txtnbyhxAmount.setHorizontalAlignment(2);		
         this.txtnbyhxAmount.setDataType(1);		
         this.txtnbyhxAmount.setSupportedEmpty(true);		
@@ -840,7 +868,12 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.txtnbyhxAmount.setPrecision(2);		
         this.txtnbyhxAmount.setRequired(false);		
         this.txtnbyhxAmount.setEnabled(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {kdtDjrentry,chkhc,prmtzjjg,txtcardNo,cardType,txtcardAmount,txtsaleAmount,txtldNumber,pkdjDate,txtywNumber,prmtqyUnit,prmtdjUnit,prmtkpUnit,prmtfkUnit,txtfpNumber,prmtsales,prmttjType,bizState,txtbeizhu,prmtkpCompany,prmtdjCompany,chkdj,pkauditDate,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,kDDateCreateTime,prmtLastUpdateUser,kDDateLastUpdateTime,kdtEntrys,txtyhxAmount,txtnbhxAmount,txtnbyhxAmount}));
+        // txtydjbh		
+        this.txtydjbh.setVisible(true);		
+        this.txtydjbh.setHorizontalAlignment(2);		
+        this.txtydjbh.setMaxLength(100);		
+        this.txtydjbh.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {kdtDjrentry,txtamount,chkhc,prmtzjjg,txtcardNo,cardType,txtcardAmount,txtsaleAmount,txtldNumber,pkdjDate,txtywNumber,prmtqyUnit,prmtdjUnit,prmtkpUnit,prmtfkUnit,txtfpNumber,prmtsales,prmttjType,bizState,txtbeizhu,prmtkpCompany,prmtdjCompany,chkdj,pkauditDate,txtNumber,pkBizDate,txtDescription,prmtAuditor,prmtCreator,kDDateCreateTime,prmtLastUpdateUser,kDDateLastUpdateTime,txtyhxAmount,txtnbhxAmount,txtnbyhxAmount,kdtEntrys}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -933,8 +966,8 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.add(contcardAmount, new KDLayout.Constraints(15, 164, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contsaleAmount.setBounds(new Rectangle(350, 164, 270, 19));
         this.add(contsaleAmount, new KDLayout.Constraints(350, 164, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        chkhc.setBounds(new Rectangle(828, 7, 107, 19));
-        this.add(chkhc, new KDLayout.Constraints(828, 7, 107, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        chkhc.setBounds(new Rectangle(828, 7, 68, 19));
+        this.add(chkhc, new KDLayout.Constraints(828, 7, 68, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contzjjg.setBounds(new Rectangle(728, 114, 270, 19));
         this.add(contzjjg, new KDLayout.Constraints(728, 114, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contyhxAmount.setBounds(new Rectangle(728, 49, 270, 19));
@@ -945,6 +978,10 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         this.add(contnbhxAmount, new KDLayout.Constraints(15, 188, 270, 19, 0));
         contnbyhxAmount.setBounds(new Rectangle(350, 187, 270, 19));
         this.add(contnbyhxAmount, new KDLayout.Constraints(350, 187, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        chkbj.setBounds(new Rectangle(919, 7, 75, 19));
+        this.add(chkbj, new KDLayout.Constraints(919, 7, 75, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contydjbh.setBounds(new Rectangle(722, 187, 270, 19));
+        this.add(contydjbh, new KDLayout.Constraints(722, 187, 270, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1011,6 +1048,8 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         contnbhxAmount.setBoundEditor(txtnbhxAmount);
         //contnbyhxAmount
         contnbyhxAmount.setBoundEditor(txtnbyhxAmount);
+        //contydjbh
+        contydjbh.setBoundEditor(txtydjbh);
 
     }
 
@@ -1192,6 +1231,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
 		dataBinder.registerBinding("entrys.djr", String.class, this.kdtEntrys, "djr.text");
 		dataBinder.registerBinding("entrys.jsAmount", java.math.BigDecimal.class, this.kdtEntrys, "jsAmount.text");
 		dataBinder.registerBinding("entrys.ywdjbh", String.class, this.kdtEntrys, "ywdjbh.text");
+		dataBinder.registerBinding("entrys.fph", String.class, this.kdtEntrys, "fph.text");
 		dataBinder.registerBinding("dj", boolean.class, this.chkdj, "selected");
 		dataBinder.registerBinding("entrys.Djrentry.seq", int.class, this.kdtDjrentry, "seq.text");
 		dataBinder.registerBinding("entrys.Djrentry", com.kingdee.eas.custom.richinf.RichExamedEntryDjrentryInfo.class, this.kdtDjrentry, "userObject");
@@ -1207,6 +1247,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
 		dataBinder.registerBinding("entrys.Djrentry.ywdjbh", String.class, this.kdtDjrentry, "ywdjbh.text");
 		dataBinder.registerBinding("entrys.Djrentry.tempID", String.class, this.kdtDjrentry, "tempID.text");
 		dataBinder.registerBinding("hc", boolean.class, this.chkhc, "selected");
+		dataBinder.registerBinding("bj", boolean.class, this.chkbj, "selected");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.kDDateCreateTime, "value");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
@@ -1238,7 +1279,8 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
 		dataBinder.registerBinding("yhxAmount", java.math.BigDecimal.class, this.txtyhxAmount, "value");
 		dataBinder.registerBinding("amount", java.math.BigDecimal.class, this.txtamount, "value");
 		dataBinder.registerBinding("nbhxAmount", java.math.BigDecimal.class, this.txtnbhxAmount, "value");
-		dataBinder.registerBinding("nbyhxAmount", java.math.BigDecimal.class, this.txtnbyhxAmount, "value");		
+		dataBinder.registerBinding("nbyhxAmount", java.math.BigDecimal.class, this.txtnbyhxAmount, "value");
+		dataBinder.registerBinding("ydjbh", String.class, this.txtydjbh, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1383,6 +1425,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
 		getValidateHelper().registerBindProperty("entrys.djr", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.jsAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.ywdjbh", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.fph", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("dj", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.Djrentry.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.Djrentry", ValidateHelper.ON_SAVE);    
@@ -1398,6 +1441,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
 		getValidateHelper().registerBindProperty("entrys.Djrentry.ywdjbh", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.Djrentry.tempID", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("hc", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("bj", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
@@ -1429,7 +1473,8 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
 		getValidateHelper().registerBindProperty("yhxAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("amount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("nbhxAmount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("nbyhxAmount", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("nbyhxAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("ydjbh", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1488,6 +1533,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
     	sic.add(new SelectorItemInfo("entrys.djr"));
     	sic.add(new SelectorItemInfo("entrys.jsAmount"));
     	sic.add(new SelectorItemInfo("entrys.ywdjbh"));
+    	sic.add(new SelectorItemInfo("entrys.fph"));
         sic.add(new SelectorItemInfo("dj"));
     	sic.add(new SelectorItemInfo("entrys.Djrentry.seq"));
 		if(selectorAll.equalsIgnoreCase("true"))
@@ -1509,6 +1555,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
     	sic.add(new SelectorItemInfo("entrys.Djrentry.ywdjbh"));
     	sic.add(new SelectorItemInfo("entrys.Djrentry.tempID"));
         sic.add(new SelectorItemInfo("hc"));
+        sic.add(new SelectorItemInfo("bj"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));
@@ -1637,6 +1684,7 @@ public abstract class AbstractRichExamedEditUI extends com.kingdee.eas.framework
         sic.add(new SelectorItemInfo("amount"));
         sic.add(new SelectorItemInfo("nbhxAmount"));
         sic.add(new SelectorItemInfo("nbyhxAmount"));
+        sic.add(new SelectorItemInfo("ydjbh"));
         return sic;
     }        
     	

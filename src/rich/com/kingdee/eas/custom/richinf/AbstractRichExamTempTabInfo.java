@@ -424,6 +424,17 @@ public class AbstractRichExamTempTabInfo extends com.kingdee.eas.framework.DataB
     {
         setBoolean("djd", item);
     }
+    /**
+     * Object:体检明细临时表's 原到检编号property 
+     */
+    public String getYdjbh()
+    {
+        return getString("ydjbh");
+    }
+    public void setYdjbh(String item)
+    {
+        setString("ydjbh", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("90615CB8");

@@ -326,6 +326,28 @@ public class AbstractRichExamedInfo extends com.kingdee.eas.framework.CoreBillBa
     {
         setBigDecimal("nbyhxAmount", item);
     }
+    /**
+     * Object:到检单's 补检property 
+     */
+    public boolean isBj()
+    {
+        return getBoolean("bj");
+    }
+    public void setBj(boolean item)
+    {
+        setBoolean("bj", item);
+    }
+    /**
+     * Object:到检单's 原到检编号property 
+     */
+    public String getYdjbh()
+    {
+        return getString("ydjbh");
+    }
+    public void setYdjbh(String item)
+    {
+        setString("ydjbh", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("7E855488");

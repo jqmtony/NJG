@@ -4,8 +4,12 @@
 package com.kingdee.eas.custom.richinf.client;
 
 import java.awt.event.ActionEvent;
-import java.net.URL;
-import java.util.Date;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 
 import org.apache.log4j.Logger;
 
@@ -13,10 +17,6 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.custom.richfacade.EASRichFacadeFactory;
 import com.kingdee.eas.custom.richfacade.IEASRichFacade;
 import com.kingdee.eas.custom.richfacade.serviceclient.EASLoginProxy;
-import com.kingdee.eas.custom.richfacade.serviceclient.EASLoginProxyServiceLocator;
-import com.kingdee.eas.custom.richfacade.serviceclient.WSContext;
-import com.kingdee.eas.custom.richfacade.serviceclient.WSEASRichFacadeSrvProxy;
-import com.kingdee.eas.custom.richfacade.serviceclient.WSEASRichFacadeSrvProxyServiceLocator;
 import com.kingdee.eas.util.client.MsgBox;
 
 /**
@@ -39,15 +39,15 @@ public class RichExamTempTabListUI extends AbstractRichExamTempTabListUI
     		String str = "<TempTable>" +
 							"<billHead>"
 							+"<ywdjbh>0001</ywdjbh>"
-							+"<bizdate>2015-05-13</bizdate>"
-							+"<ldh>HT0002</ldh>"
-							+"<qydw>K000000</qydw>"// K000000  0002500470
-							+"<djdw>K000000</djdw>"
-							+"<kpdw>K000000</kpdw>"
-							+"<skdw>K000000</skdw>"
-							+"<zjjg>K000000</zjjg>"
+							+"<bizdate>2015-07-15</bizdate>"
+							+"<ldh>HT0003</ldh>"
+							+"<qydw>K000000|环球集团本部</qydw>"// K000000  0002500470
+							+"<djdw>K000000|环球集团本部</djdw>"
+							+"<kpdw>K000000|环球集团本部</kpdw>"
+							+"<skdw>K000000|环球集团本部</skdw>"
+							+"<zjjg>K000000|环球集团本部</zjjg>"
 							+"<fph>1111</fph>"
-							+"<xsy>N000003</xsy>"//    N000003  020034
+							+"<xsy>N000003|环球集团本部</xsy>"//    N000003  020034
 							+"<tjlb>001|团检</tjlb>"
 							+"<beizhu>111</beizhu>"
 							+"<djr>李四</djr>"
@@ -63,10 +63,12 @@ public class RichExamTempTabListUI extends AbstractRichExamTempTabListUI
 							+"<jsje>2000</jsje>"
 							+"<se>0</se>"
 							+"<jshj>2000</jshj>"
-							+"<djjg>NJP</djjg>"  // 01  NJP
-							+"<kpjg>NJP</kpjg>"
+							+"<djjg>NJP|环球集团本部</djjg>"  // 01  NJP
+							+"<kpjg>NJP|环球集团本部</kpjg>"
 							+"<kh>9999999</kh>"
-							+"<flag>0</flag >"
+							+"<ydjbh></ydjbh>"
+							+"<flag>0</flag>"
+							+"<end>1</end>"
 						+"</billHead>"
 						+"<billEntries>"
 						+"   <entry>"
@@ -106,6 +108,7 @@ public class RichExamTempTabListUI extends AbstractRichExamTempTabListUI
 						+"<djjg>3|上海瑞慈瑞宁门诊部有限公司</djjg>"  // 01  NJP
 						+"<kpjg>3|上海瑞慈瑞宁门诊部有限公司</kpjg>"
 						+"<kh>9999999</kh>"
+						+"<ydjbh>18888</ydjbh>"
 						+"<flag>0</flag >"
 					+"</billHead>"
 					+"<billEntries>"
@@ -155,13 +158,29 @@ public class RichExamTempTabListUI extends AbstractRichExamTempTabListUI
 					+"   </entry>"
 					+"</billEntries>"
 				+"</TempTable>";
-    		sb.append(str3);
+    		sb.append(str);
 		}
     	
     	String str = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
     			"<TempTables>" +
     				sb.toString()
 			+"</TempTables>";
+    	
+		File xmlFile = new File("D:/20150709.txt");
+		
+		BufferedReader br;
+		try {
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(xmlFile), "gbk"));
+			String line = ""; 
+			str = "";
+			while ((line = br.readLine()) != null)
+				str += line;
+			br.close();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     	return str;
     }
     /**

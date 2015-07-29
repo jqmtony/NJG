@@ -124,6 +124,17 @@ public class AbstractRichExamedEntryInfo extends com.kingdee.eas.framework.CoreB
     {
         setString("ywdjbh", item);
     }
+    /**
+     * Object:·ÖÂ¼'s ·¢Æ±ºÅproperty 
+     */
+    public String getFph()
+    {
+        return getString("fph");
+    }
+    public void setFph(String item)
+    {
+        setString("fph", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("0FC258CA");

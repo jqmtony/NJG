@@ -435,6 +435,17 @@ public class AbstractRichExamCheckTabInfo extends com.kingdee.eas.framework.Data
     {
         setString("checkInfo", item);
     }
+    /**
+     * Object:体检明细校验表's 原到检编号property 
+     */
+    public String getYdjbh()
+    {
+        return getString("ydjbh");
+    }
+    public void setYdjbh(String item)
+    {
+        setString("ydjbh", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("26353EB6");

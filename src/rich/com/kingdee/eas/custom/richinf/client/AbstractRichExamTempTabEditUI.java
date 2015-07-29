@@ -87,6 +87,7 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contkh;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contzjjg;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkdjd;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contydjbh;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtSimpleName;
@@ -126,6 +127,7 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkdjrq;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtkh;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtzjjg;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtydjbh;
     protected com.kingdee.eas.custom.richinf.RichExamTempTabInfo editData = null;
     /**
      * output class constructor
@@ -187,6 +189,7 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.contkh = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contzjjg = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.chkdjd = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.contydjbh = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
         this.txtSimpleName = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -226,6 +229,7 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.pkdjrq = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtkh = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtzjjg = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtydjbh = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDLabelContainer1.setName("kDLabelContainer1");
         this.kDLabelContainer2.setName("kDLabelContainer2");
         this.kDLabelContainer3.setName("kDLabelContainer3");
@@ -267,6 +271,7 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.contkh.setName("contkh");
         this.contzjjg.setName("contzjjg");
         this.chkdjd.setName("chkdjd");
+        this.contydjbh.setName("contydjbh");
         this.txtNumber.setName("txtNumber");
         this.txtName.setName("txtName");
         this.txtSimpleName.setName("txtSimpleName");
@@ -306,6 +311,7 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.pkdjrq.setName("pkdjrq");
         this.txtkh.setName("txtkh");
         this.txtzjjg.setName("txtzjjg");
+        this.txtydjbh.setName("txtydjbh");
         // CoreUI		
         this.btnPrint.setVisible(false);		
         this.btnPrintPreview.setVisible(false);		
@@ -512,6 +518,11 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.chkdjd.setText(resHelper.getString("chkdjd.text"));		
         this.chkdjd.setVisible(true);		
         this.chkdjd.setHorizontalAlignment(2);
+        // contydjbh		
+        this.contydjbh.setBoundLabelText(resHelper.getString("contydjbh.boundLabelText"));		
+        this.contydjbh.setBoundLabelLength(100);		
+        this.contydjbh.setBoundLabelUnderline(true);		
+        this.contydjbh.setVisible(true);
         // txtNumber		
         this.txtNumber.setMaxLength(80);
         // txtName
@@ -689,6 +700,11 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.txtzjjg.setHorizontalAlignment(2);		
         this.txtzjjg.setMaxLength(100);		
         this.txtzjjg.setRequired(false);
+        // txtydjbh		
+        this.txtydjbh.setVisible(true);		
+        this.txtydjbh.setHorizontalAlignment(2);		
+        this.txtydjbh.setMaxLength(100);		
+        this.txtydjbh.setRequired(false);
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -789,14 +805,16 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         this.add(contkpjg, null);
         contdjrq.setBounds(new Rectangle(291, 13, 259, 19));
         this.add(contdjrq, null);
-        chkflag.setBounds(new Rectangle(861, 15, 259, 19));
+        chkflag.setBounds(new Rectangle(855, 13, 63, 19));
         this.add(chkflag, null);
         contkh.setBounds(new Rectangle(14, 141, 259, 19));
         this.add(contkh, null);
         contzjjg.setBounds(new Rectangle(578, 91, 257, 19));
         this.add(contzjjg, null);
-        chkdjd.setBounds(new Rectangle(932, 15, 90, 19));
+        chkdjd.setBounds(new Rectangle(988, 13, 90, 19));
         this.add(chkdjd, null);
+        contydjbh.setBounds(new Rectangle(296, 141, 270, 19));
+        this.add(contydjbh, null);
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtNumber);
         //kDLabelContainer2
@@ -875,6 +893,8 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         contkh.setBoundEditor(txtkh);
         //contzjjg
         contzjjg.setBoundEditor(txtzjjg);
+        //contydjbh
+        contydjbh.setBoundEditor(txtydjbh);
 
     }
 
@@ -1024,7 +1044,8 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
 		dataBinder.registerBinding("kpjg", String.class, this.txtkpjg, "text");
 		dataBinder.registerBinding("djrq", java.util.Date.class, this.pkdjrq, "value");
 		dataBinder.registerBinding("kh", String.class, this.txtkh, "text");
-		dataBinder.registerBinding("zjjg", String.class, this.txtzjjg, "text");		
+		dataBinder.registerBinding("zjjg", String.class, this.txtzjjg, "text");
+		dataBinder.registerBinding("ydjbh", String.class, this.txtydjbh, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){
@@ -1203,7 +1224,8 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
 		getValidateHelper().registerBindProperty("kpjg", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("djrq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("kh", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("zjjg", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("zjjg", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("ydjbh", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1283,6 +1305,7 @@ public abstract class AbstractRichExamTempTabEditUI extends com.kingdee.eas.fram
         sic.add(new SelectorItemInfo("djrq"));
         sic.add(new SelectorItemInfo("kh"));
         sic.add(new SelectorItemInfo("zjjg"));
+        sic.add(new SelectorItemInfo("ydjbh"));
         return sic;
     }        
 

@@ -91,6 +91,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
 import org.dom4j.Document;
+import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
@@ -132,24 +133,30 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
     this.iExamType = ExamTypeFactory.getLocalInstance(ctx);
     this.iOrgUnitEntry = OrgUnitEntryFactory.getLocalInstance(ctx);
     String[] strReturn = { "", "", "" };
-    try
-    {
-      Document document = DocumentHelper.parseText(xmlString);
-      Element root = document.getRootElement();
-      List bills = root.elements("TempTable");
-      if (bills.size() < 1) {
-        logger.info("体检明细xml字符串不包含数据或者xml字符串标签不正确");
-        return new String[] { "N", "002", "体检明细xml字符串不包含数据或者xml字符串标签不正确" };
-      }
-
+    Document document = null;
+    Element root = null;
+    List bills = null;
+	try {
+		document = DocumentHelper.parseText(xmlString);
+		root = document.getRootElement();
+        bills = root.elements("TempTable");
+       if (bills.size() < 1) {
+         logger.info("体检明细xml字符串不包含数据或者xml字符串标签不正确");
+         return new String[] { "N", "002", "体检明细xml字符串不包含数据或者xml字符串标签不正确" };
+       }
+	} catch (DocumentException e) {
+		 return new String[] { "N", "002", "读取xml异常" +e.getMessage()};
+	}
       Iterator iterator = bills.iterator();
       Iterator iterator2 = bills.iterator();
       IRichExamTempTab itemp = RichExamTempTabFactory.getLocalInstance(ctx);
       StringBuilder repeat = new StringBuilder("");
 
-      StringBuffer SQL = new StringBuffer(" insert into CT_RIC_RichExamTempTab (FNUMBER, FSIMPLENAME, FID, FCREATORID, FCREATETIME, FLASTUPDATEUSERID, FLASTUPDATETIME, FCONTROLUNITID, CFYWDJBH, CFBIZDATE, CFLDH, CFQYDW, CFDJDW, CFKPDW, CFSKDW, CFDJPZH, CFKPPZH, CFSKPZH, CFBIZNUMBER, CFFPH, CFZJE, CFXSY, CFTJLB, CFBIZSTATE, CFBEIZHU, CFDJTCMC, CFDJR, CFDJTCBM, CFDJXMBM, CFDJXMMC, CFXSLB, CFSKLB, CFJXBS, CFKLJ, CFZKL, CFJSJE, CFSE, CFJSHJ, CFDJJG, CFKPJG, CFDJRQ, FNAME_L1, FNAME_L2, FNAME_L3, FDESCRIPTION_L1, FDESCRIPTION_L2, FDESCRIPTION_L3, CFFLAG, CFKH, CFZJJG) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+      StringBuffer SQL = new StringBuffer(" insert into CT_RIC_RichExamTempTab (FNUMBER, FSIMPLENAME, FID, FCREATORID, FCREATETIME, FLASTUPDATEUSERID, FLASTUPDATETIME, FCONTROLUNITID, CFYWDJBH, CFBIZDATE, CFLDH, CFQYDW, CFDJDW, CFKPDW, CFSKDW, CFDJPZH, CFKPPZH, CFSKPZH, CFBIZNUMBER, CFFPH, CFZJE, CFXSY, CFTJLB, CFBIZSTATE, CFBEIZHU, CFDJTCMC, CFDJR, CFDJTCBM, CFDJXMBM, CFDJXMMC, CFXSLB, CFSKLB, CFJXBS, CFKLJ, CFZKL, CFJSJE, CFSE, CFJSHJ, CFDJJG, CFKPJG, CFDJRQ, FNAME_L1, FNAME_L2, FNAME_L3, FDESCRIPTION_L1, FDESCRIPTION_L2, FDESCRIPTION_L3, CFFLAG, CFKH, CFZJJG,cfydjbh) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
       String tableName = " CT_RIC_RichExamCheckTab ";
+      String deleteSql = " delete CT_RIC_RichExamCheckTab ";
+      DbUtil.execute(ctx, deleteSql);
 //      StringBuffer createTableSql = new StringBuffer();
 //      createTableSql.append(" Create Table CT_RIC_RichExamCheckTab ( FName_l1 NVARCHAR(255),FName_l2 NVARCHAR(255),FName_l3 NVARCHAR(255),FNumber NVARCHAR(80),FDescription_l1 NVARCHAR(255),FDescription_l2 NVARCHAR(255),FDescription_l3 NVARCHAR(255),FSimpleName NVARCHAR(80),FID VARCHAR(44) DEFAULT '' NOT NULL ,FCreatorID VARCHAR(44),FCreateTime DateTime,FLastUpdateUserID VARCHAR(44),FLastUpdateTime DateTime,FControlUnitID VARCHAR(44) DEFAULT '11111111-1111-1111-1111-111111111111CCE7AED4',CFYwdjbh NVARCHAR(100),CFBizdate DateTime,CFLdh NVARCHAR(100),CFQydw NVARCHAR(100),CFDjdw NVARCHAR(100),CFKpdw NVARCHAR(100),CFSkdw NVARCHAR(100),CFDjpzh NVARCHAR(100),CFKppzh NVARCHAR(100),CFSkpzh NVARCHAR(100),CFBiznumber NVARCHAR(100),CFFph NVARCHAR(100),CFZje NVARCHAR(100),CFXsy NVARCHAR(100),CFTjlb NVARCHAR(100),CFBizState NVARCHAR(100),CFBeizhu NVARCHAR(100),CFDjtcmc NVARCHAR(100),CFDjr NVARCHAR(100),CFDjtcbm NVARCHAR(100),CFDjxmbm NVARCHAR(100),CFDjxmmc NVARCHAR(100),CFXslb NVARCHAR(100),CFSklb NVARCHAR(100),CFJxbs NVARCHAR(100),CFKlj NVARCHAR(100),CFZkl NVARCHAR(100),CFJsje NVARCHAR(100),CFSe NVARCHAR(100),CFJshj NVARCHAR(100),CFDjjg NVARCHAR(100),CFKpjg NVARCHAR(100),CFDjrq DateTime,CFFlag INT,CFKh NVARCHAR(100),CFZjjg NVARCHAR(100))");
 //      TempTablePool pool = TempTablePool.getInstance(ctx);
@@ -160,10 +167,13 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 //      }
 
       StringBuffer SQL2 = new StringBuffer(" insert into "+tableName+" (" + 
-        "FNUMBER, FSIMPLENAME, FID, FCREATORID, FCREATETIME, FLASTUPDATEUSERID, FLASTUPDATETIME, FCONTROLUNITID, CFYWDJBH, CFBIZDATE, CFLDH, CFQYDW, CFDJDW, CFKPDW, CFSKDW, CFDJPZH, CFKPPZH, CFSKPZH, CFBIZNUMBER, CFFPH, CFZJE, CFXSY, CFTJLB, CFBIZSTATE, CFBEIZHU, CFDJTCMC, CFDJR, CFDJTCBM, CFDJXMBM, CFDJXMMC, CFXSLB, CFSKLB, CFJXBS, CFKLJ, CFZKL, CFJSJE, CFSE, CFJSHJ, CFDJJG, CFKPJG, CFDJRQ, FNAME_L1, FNAME_L2, FNAME_L3, FDESCRIPTION_L1, FDESCRIPTION_L2, FDESCRIPTION_L3, CFFLAG, CFKH, CFZJJG) " + 
-        "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
-      strReturn = saveData(ctx, iterator, SQL2.toString(), "1");
+        "FNUMBER, FSIMPLENAME, FID, FCREATORID, FCREATETIME, FLASTUPDATEUSERID, FLASTUPDATETIME, FCONTROLUNITID, CFYWDJBH, CFBIZDATE, CFLDH, CFQYDW, CFDJDW, CFKPDW, CFSKDW, CFDJPZH, CFKPPZH, CFSKPZH, CFBIZNUMBER, CFFPH, CFZJE, CFXSY, CFTJLB, CFBIZSTATE, CFBEIZHU, CFDJTCMC, CFDJR, CFDJTCBM, CFDJXMBM, CFDJXMMC, CFXSLB, CFSKLB, CFJXBS, CFKLJ, CFZKL, CFJSJE, CFSE, CFJSHJ, CFDJJG, CFKPJG, CFDJRQ, FNAME_L1, FNAME_L2, FNAME_L3, FDESCRIPTION_L1, FDESCRIPTION_L2, FDESCRIPTION_L3, CFFLAG, CFKH, CFZJJG,Cfydjbh) " + 
+        "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+      try {
+    	  strReturn = saveData(ctx, iterator, SQL2.toString(), "1");
+      } catch (Exception e) {
+ 		 return new String[] { "N", "002", "校验表数据插入时出错："+e.getMessage() };
+      }
       if (strReturn[0].equals("N"))
         return strReturn;
       String sql = "select t.fid, t.CFYWDJBH ,t.cfdjjg cfdjjg,djjg.CFYwNumber djjg,t.cfkpjg cfkpjg,kpjg.CFYwNumber kpjg,t.cfzjjg cfzjjg,zjdw.fnumber zjdw,t.cfqydw cfqydw,qydw.fnumber qydw,t.cfdjdw cfdjdw,djdw.fnumber djdw,t.cfkpdw cfkpdw,kpdw.fnumber kpdw,t.cfskdw cfskdw,fkdw.fnumber fkdw,t.cfxsy cfxsy,xsy.fnumber xsy,t.cfxslb cfxslb,xslb.fnumber xslb,t.cftjlb cftjlb,tjlb.fnumber tjlb,t.cfsklb cfsklb,sklb.fnumber sklb from " + 
@@ -182,65 +192,119 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
       IRowSet rowset = DbUtil.executeQuery(ctx, sql);
       StringBuffer sb = new StringBuffer();
       
-      while (rowset.next()) {
-    	  StringBuffer sb1 = new StringBuffer();
-        if (rowset.getString("djjg") == null){
-          sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，到检机构【" + rowset.getString("cfdjjg") + "】不存在！" + "\n");
-          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，到检机构【" + rowset.getString("cfdjjg") + "】不存在！" + "\n");
-        }
-        if (rowset.getString("kpjg") == null) {
-          sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，开票机构【" + rowset.getString("cfkpjg") + "】不存在！" + "\n");
-          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，开票机构【" + rowset.getString("cfkpjg") + "】不存在！" + "\n");
-        }
-
-        if (rowset.getString("qydw") == null){
-          sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，签约单位【" + rowset.getString("cfqydw") + "】不存在！" + "\n");
-          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，签约单位【" + rowset.getString("cfqydw") + "】不存在！" + "\n");
-        }
-        if (rowset.getString("djdw") == null){
-          sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，到检单位【" + rowset.getString("cfdjdw") + "】不存在！" + "\n");
-          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，到检单位【" + rowset.getString("cfdjdw") + "】不存在！" + "\n");
-        }
-        if (rowset.getString("kpdw") == null){
-          sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，开票单位【" + rowset.getString("cfkpdw") + "】不存在！" + "\n");
-          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，开票单位【" + rowset.getString("cfkpdw") + "】不存在！" + "\n");
-        }
-        if (rowset.getString("fkdw") == null){
-          sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，付款单位【" + rowset.getString("cfskdw") + "】不存在！" + "\n");
-          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，付款单位【" + rowset.getString("cfskdw") + "】不存在！" + "\n");
-        }
-        if (rowset.getString("xsy") == null){
-          sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，销售员【" + rowset.getString("cfxsy") + "】不存在！" + "\n");
-          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，销售员【" + rowset.getString("cfxsy") + "】不存在！" + "\n");
-        }
-        if (rowset.getString("xslb") == null){
-          sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，销售类别【" + rowset.getString("cfxslb") + "】不存在！" + "\n");
-          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，销售类别【" + rowset.getString("cfxslb") + "】不存在！" + "\n");
-        }
-        if (rowset.getString("tjlb") == null){
-          sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，体检类别【" + rowset.getString("cftjlb") + "】不存在！" + "\n");
-          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，体检类别【" + rowset.getString("cftjlb") + "】不存在！" + "\n");
-        }
-        if (rowset.getString("sklb") == null){
-          sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，收款类别【" + rowset.getString("cfsklb") + "】不存在！" + "\n");
-          sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，收款类别【" + rowset.getString("cfsklb") + "】不存在！" + "\n");
-        }
-        if (!"".equals(sb1.toString())) {//将校验不通过数据的错误信息，反写到校验表
-           String updateSql = " update CT_RIC_RichExamCheckTab set cfcheckinfo='"+sb1.toString()+"' where fid='"+rowset.getString("fid")+"' ";
-           DbUtil.execute(ctx, updateSql);
-        }
-      }
-//      pool.releaseTable(tableName);
+	      try {
+			while (rowset.next()) {
+				  StringBuffer sb1 = new StringBuffer();
+			    if (rowset.getString("djjg") == null){
+			      sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，到检机构【" + rowset.getString("cfdjjg") + "】不存在！" + "\n");
+			      sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，到检机构【" + rowset.getString("cfdjjg") + "】不存在！" + "\n");
+			    }
+			    if (rowset.getString("kpjg") == null) {
+			      sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，开票机构【" + rowset.getString("cfkpjg") + "】不存在！" + "\n");
+			      sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，开票机构【" + rowset.getString("cfkpjg") + "】不存在！" + "\n");
+			    }
+	
+			    if (rowset.getString("qydw") == null){
+//			    	String checksql = "select fnumber from t_bd_customer where fnumber='"+rowset.getString("cfqydw")+"'  ";
+//			    	IRowSet checkrs = DbUtil.executeQuery(ctx, checksql);
+//			    	if(checkrs.size()>0){
+//			    	}else{
+//				    	String cusql = "select fnumber from t_bd_customer where fnumber!='"+rowset.getString("cfqydw")+"'  and fusedstatus!='3' and fname_l1 is null ";
+//				    	IRowSet rs = DbUtil.executeQuery(ctx, cusql);
+//				    	while(rs.next()){
+//				    		String updateSql = " update t_bd_customer set fnumber='"+rowset.getString("cfqydw")+"',fname_l1='1' where fnumber='"+rs.getString("fnumber")+"' ";
+//						    DbUtil.execute(ctx, updateSql);
+//						    break;
+//				    	}
+//			    	}
+			    	 
+			      sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，签约单位【" + rowset.getString("cfqydw") + "】不存在！" + "\n");
+			      sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，签约单位【" + rowset.getString("cfqydw") + "】不存在！" + "\n");
+			    }
+			    if (rowset.getString("djdw") == null){
+//			    	String checksql = "select fnumber from t_bd_customer where fnumber='"+rowset.getString("cfdjdw")+"'  ";
+//			    	IRowSet checkrs = DbUtil.executeQuery(ctx, checksql);
+//			    	if(checkrs.size()>0){
+//			    	}else{
+//				    	String cusql = "select fnumber from t_bd_customer where fnumber!='"+rowset.getString("cfdjdw")+"'  and fusedstatus!='3' and fname_l1 is null ";
+//				    	IRowSet rs = DbUtil.executeQuery(ctx, cusql);
+//				    	while(rs.next()){
+//				    		String updateSql = " update t_bd_customer set fnumber='"+rowset.getString("cfdjdw")+"',fname_l1='1' where fnumber='"+rs.getString("fnumber")+"' ";
+//						    DbUtil.execute(ctx, updateSql);
+//						    break;
+//				    	}
+//			    	}
+			      sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，到检单位【" + rowset.getString("cfdjdw") + "】不存在！" + "\n");
+			      sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，到检单位【" + rowset.getString("cfdjdw") + "】不存在！" + "\n");
+			    }
+			    if (rowset.getString("kpdw") == null){
+//			    	String checksql = "select fnumber from t_bd_customer where fnumber='"+rowset.getString("cfkpdw")+"'  ";
+//			    	IRowSet checkrs = DbUtil.executeQuery(ctx, checksql);
+//			    	if(checkrs.size()>0){
+//			    	}else{
+//				    	String cusql = "select fnumber from t_bd_customer where fnumber!='"+rowset.getString("cfkpdw")+"'  and fusedstatus!='3' and fname_l1 is null ";
+//				    	IRowSet rs = DbUtil.executeQuery(ctx, cusql);
+//				    	while(rs.next()){
+//				    		String updateSql = " update t_bd_customer set fnumber='"+rowset.getString("cfkpdw")+"',fname_l1='1' where fnumber='"+rs.getString("fnumber")+"' ";
+//						    DbUtil.execute(ctx, updateSql);
+//						    break;
+//				    	}
+//			    	}
+			      sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，开票单位【" + rowset.getString("cfkpdw") + "】不存在！" + "\n");
+			      sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，开票单位【" + rowset.getString("cfkpdw") + "】不存在！" + "\n");
+			    }
+			    if (rowset.getString("fkdw") == null){
+			      sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，付款单位【" + rowset.getString("cfskdw") + "】不存在！" + "\n");
+			      sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，付款单位【" + rowset.getString("cfskdw") + "】不存在！" + "\n");
+			    }
+			    if (rowset.getString("xsy") == null){
+//			    	String checksql = "select fnumber from t_bd_person where fnumber='"+rowset.getString("cfxsy")+"'  ";
+//			    	IRowSet checkrs = DbUtil.executeQuery(ctx, checksql);
+//			    	if(checkrs.size()>0){
+//			    	}else{
+//				    	String cusql = "select fnumber from t_bd_person where fnumber!='"+rowset.getString("cfxsy")+"'   and fname_l1 is null ";
+//				    	IRowSet rs = DbUtil.executeQuery(ctx, cusql);
+//				    	while(rs.next()){
+//				    		String updateSql = " update t_bd_person set fnumber='"+rowset.getString("cfxsy")+"',fname_l1='1' where fnumber='"+rs.getString("fnumber")+"' ";
+//						    DbUtil.execute(ctx, updateSql);
+//						    break;
+//				    	}
+//			    	}
+			    	
+			      sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，销售员【" + rowset.getString("cfxsy") + "】不存在！" + "\n");
+			      sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，销售员【" + rowset.getString("cfxsy") + "】不存在！" + "\n");
+			    }
+			    if (rowset.getString("xslb") == null){
+			      sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，销售类别【" + rowset.getString("cfxslb") + "】不存在！" + "\n");
+			      sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，销售类别【" + rowset.getString("cfxslb") + "】不存在！" + "\n");
+			    }
+			    if (rowset.getString("tjlb") == null){
+			      sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，体检类别【" + rowset.getString("cftjlb") + "】不存在！" + "\n");
+			      sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，体检类别【" + rowset.getString("cftjlb") + "】不存在！" + "\n");
+			    }
+			    if (rowset.getString("sklb") == null){
+			      sb.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，收款类别【" + rowset.getString("cfsklb") + "】不存在！" + "\n");
+			      sb1.append("业务单据编号【" + rowset.getString("CFYWDJBH") + "】，收款类别【" + rowset.getString("cfsklb") + "】不存在！" + "\n");
+			    }
+			    if (!"".equals(sb1.toString())) {//将校验不通过数据的错误信息，反写到校验表
+			       String updateSql = " update CT_RIC_RichExamCheckTab set cfcheckinfo='"+sb1.toString()+"' where fid='"+rowset.getString("fid")+"' ";
+			       DbUtil.execute(ctx, updateSql);
+			    }
+			  }
+		} catch (SQLException e) {
+			return new String[] { "N", "", "校验sql出错: "+e.getMessage() };
+		}
       if (!"".equals(sb.toString())) {
         return new String[] { "N", "", sb.toString() };
       }
-      strReturn = saveData(ctx, iterator2, SQL.toString(), "0");
+      try{
+      	strReturn = saveData(ctx, iterator2, SQL.toString(), "0");
+	  } catch (Exception e) {
+			 return new String[] { "N", "002", "中间表数据插入时出错："+e.getMessage() };
+	   }
       if (strReturn[0].equals("N"))
         return strReturn;
-    } catch (Exception e) {
-      return new String[] { "N", "", "校验出错！" };
-    }
-    Document document;
+    
     return strReturn;
   }
 
@@ -308,6 +372,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
 	    String jshj = null;
 	    String flag = null;
 	    String kh = null;
+	    String ydjbh = null;
 	    
         bill = (Element)iterator.next();
         billHead = bill.element("billHead");
@@ -315,14 +380,15 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
           ywdjbh = billHead.element("ywdjbh").getText().replace("", "");
         else
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ",不能为空！" };
-        if("021507010001".equals(ywdjbh)){
+        if("021507010003".equals(ywdjbh)){
         	ywdjbh = billHead.element("ywdjbh").getText().replace("", "");
-        }
+        }//			
+
         if (billHead.element("bizdate").getText() != null)
           bizDate = billHead.element("bizdate").getText().replace("", "");
         if (billHead.element("djrq")!=null && billHead.element("djrq").getText() != null)
         	djrq = billHead.element("djrq").getText().replace("", "");
-        if (billHead.element("tjlb").getText() != null) {
+        if (billHead.element("tjlb").getText() != null   && !"".equals(billHead.element("tjlb").getText())) {
             tjlb = billHead.element("tjlb").getText().replace("", "");
             if ("1".equals(isTemp)) {
               int index = tjlb.indexOf("|");
@@ -334,7 +400,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
           } else {
             return new String[] { "N", "", "业务单据编号" + ywdjbh + ",体检类别不能为空！" };
           }
-        if (billHead.element("djjg").getText() != null) {
+        if (billHead.element("djjg").getText() != null  && !"".equals(billHead.element("djjg").getText())) {
           djjg = billHead.element("djjg").getText().replace("", "");
           if ("1".equals(isTemp)) {
             int index = djjg.indexOf("|");
@@ -346,7 +412,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
         } else  {
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ",到检机构不能为空！" };
         }
-        if (billHead.element("kpjg").getText() != null) {
+        if (billHead.element("kpjg").getText() != null  && !"".equals(billHead.element("kpjg").getText())) {
           kpjg = billHead.element("kpjg").getText().replace("", "");
           if ("1".equals(isTemp)) {
             int index = kpjg.indexOf("|");
@@ -406,7 +472,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
         } else if( "001".equals(tjlb)){//团检
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ",付款单位不能为空！" };
         }
-        if (billHead.element("xsy").getText() != null) {
+        if (billHead.element("xsy").getText() != null && !"".equals(billHead.element("xsy").getText())) {
           xsy = billHead.element("xsy").getText().replace("", "");
           if ("1".equals(isTemp)) {
             int index = xsy.indexOf("|");
@@ -419,7 +485,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ",销售员不能为空！" };
         }
         
-        if (billHead.element("xslb").getText() != null) {
+        if (billHead.element("xslb").getText() != null && !"".equals(billHead.element("xslb").getText())) {
           xslb = billHead.element("xslb").getText().replace("", "");
           if ("1".equals(isTemp)) {
             int index = xslb.indexOf("|");
@@ -431,7 +497,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
         } else {
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ",销售类别不能为空！" };
         }
-        if (billHead.element("sklb").getText() != null) {
+        if (billHead.element("sklb").getText() != null && !"".equals(billHead.element("sklb").getText())) {
           sklb = billHead.element("sklb").getText().replace("", "");
           if ("1".equals(isTemp)) {
             int index = sklb.indexOf("|");
@@ -443,10 +509,12 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
         } else {
           return new String[] { "N", "", "业务单据编号" + ywdjbh + ",收款类别不能为空！" };
         }
-        if (billHead.element("ldh").getText() != null)
+        if (billHead.element("ldh").getText() != null && !"".equals(billHead.element("ldh").getText()) )// && !"".equals(billHead.element("ldh").getText())
           ldh = billHead.element("ldh").getText().replace("", "");
-        else
-          return new String[] { "N", "", "业务单据编号" + ywdjbh + ",落单号不能为空！" };
+        if (billHead.element("ydjbh")!=null &&billHead.element("ydjbh").getText() != null && !"".equals(billHead.element("ydjbh").getText()))// && !"".equals(billHead.element("ldh").getText())
+            ydjbh = billHead.element("ydjbh").getText();
+//        else
+//          return new String[] { "N", "", "业务单据编号" + ywdjbh + ",落单号不能为空！" };
         if (billHead.element("fph").getText() != null)
           fph = billHead.element("fph").getText().replace("", "");
         if (billHead.element("beizhu").getText() != null)
@@ -539,7 +607,8 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
         ps.setString(48, flag);
         ps.setString(49, kh);
         ps.setString(50, zjjg);
-
+        ps.setString(51, ydjbh);
+        
         ps.addBatch();
         iCount++;
         if (iCount == 100) {
@@ -552,7 +621,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
     }
     catch (Exception e)
     {
-      return new String[] { "N", "", "执行数据插入时报错" };
+      return new String[] { "N", "", "执行数据插入时报错:"+e.getMessage() };
     } finally {
       SQLUtils.cleanup(ps, conn); } SQLUtils.cleanup(ps, conn);
 
@@ -563,8 +632,12 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
     throws BOSException
   {
     super._saveExamBill(ctx, date, str);
-    String sql1 = "update CT_RIC_RichExamTempTab set cfdjd='' where fid not in (select CFTempID from CT_RIC_RichExamedDjrentry) and (cfdjd='1' )";
+    String sql1 = "update CT_RIC_RichExamTempTab set cfdjd='0' where fid not in (select CFTempID from CT_RIC_RichExamedDjrentry) and (cfdjd='1' )";
     DbUtil.execute(ctx, sql1);
+    
+    sql1 = "update CT_RIC_RichExamTempTab set CFSklb='002|非现收' where CFJsje='0' and (cfdjd='0' )";
+    DbUtil.execute(ctx, sql1);
+
     try
     {
       createHCBill(ctx, DateUtil.format(date, "yyyy-MM-dd"));
@@ -573,7 +646,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
     } catch (SQLException e1) {
       e1.printStackTrace();
     }
-
+    
     this.iCustomer = CustomerFactory.getLocalInstance(ctx);
     this.iCurrency = CurrencyFactory.getLocalInstance(ctx);
     this.iCssPGroup = CSSPGroupFactory.getLocalInstance(ctx);
@@ -588,14 +661,16 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
     this.iExamType = ExamTypeFactory.getLocalInstance(ctx);
     this.iOrgUnitEntry = OrgUnitEntryFactory.getLocalInstance(ctx);
     String d = DateUtil.format(date, "yyyy-MM-dd");
-    String sql = "select max(CFXsy) xsy,max(CFLdh) ldh,max(CFDjjg) djjg  ,max(cfywdjbh) ywdjbh ,max(cfbizDate) bizDate,max(cfdjrq) djrq ,max(cfdjjg) djjg ,max(cfzjjg) zjjg ,max(cfkpjg) kpjg ,max(cfqydw) qydw ,max(cfdjdw) djdw ,max(cfkpdw) kpdw ,max(cfskdw) skdw ,max(cftjlb) tjlb ,max(cffph) fph from CT_RIC_RichExamTempTab  where CFBizdate= '" + 
-      d + "' and (cfdjd='0' or cfdjd is null)" + 
-      " group by CFXsy,CFLdh,CFDjjg,cfkpjg,cfqydw,cfdjdw,cfkpdw,cfskdw,cftjlb";
+    String sql = "select CFXsy xsy,CFLdh ldh,CFDjjg djjg  ,max(cfywdjbh) ywdjbh ,max(cfbizDate) bizDate,max(cfdjrq) djrq ,cfdjjg djjg " +
+    		" ,max(cfzjjg) zjjg ,cfkpjg kpjg ,cfqydw qydw ,cfdjdw djdw ,cfkpdw kpdw " +
+    		" ,cfskdw skdw ,cftjlb tjlb,cfsklb sklb ,max(cffph) fph,cfydjbh ydjbh " +
+    		" from CT_RIC_RichExamTempTab  where CFBizdate={ts '" +  d + "'} and (cfdjd='0' or cfdjd is null)" + 
+      " group by CFXsy,CFLdh,CFDjjg,cfkpjg,cfqydw,cfdjdw,cfkpdw,cfskdw,cftjlb,cfsklb,cfydjbh";
     IRowSet rs = DbUtil.executeQuery(ctx, sql);
     Map hcMap = new HashMap();
     CtrlUnitInfo ctrlUnitInfo = null;
     try {
-      ctrlUnitInfo = getCtrlUnitInfo(ctx, "01");
+      ctrlUnitInfo = getCtrlUnitInfo(ctx, "01");//01 -- NJP
     } catch (EASBizException e1) {
       e1.printStackTrace();
     }
@@ -621,7 +696,9 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
         String kpdw = rs.getString("kpdw");
         String skdw = rs.getString("skdw");
         String tjlb = rs.getString("tjlb");
+        String sklb = rs.getString("sklb");
         String fph = rs.getString("fph");
+        String ydjbh = rs.getString("ydjbh");
 
         CompanyOrgUnitInfo djjgInfo = getCompanyOrgUnit(ctx, djjg);
         CompanyOrgUnitInfo kpjgInfo = getCompanyOrgUnit(ctx, kpjg);
@@ -648,14 +725,29 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
         examInfo.setSales(personInfo);
         examInfo.setTjType(examTypeInfo);
         examInfo.setFpNumber(fph);
+        examInfo.setYdjbh(ydjbh);
+        if(ydjbh!=null && !"".equals(ydjbh)){
+        	examInfo.setBj(true);
+        	ydjbh = "='"+ydjbh+"'";
+        }
+        else
+        	ydjbh = " is null";
+        if(ldh!=null && !"".equals(ldh)){
+        	ldh = "='"+ldh+"'";
+        }
+        else
+        	ldh = " is null";
 
         if (!djjgInfo.getId().equals(kpjgInfo.getId())) {
           examInfo.setDj(true);
         }
         BigDecimal amount = new BigDecimal(0);
-        sql = "select max(cfdjr) djr,max(cfdjtcbm) djtcbm,max(cfdjtcmc) djtcmc  ,cfxslb xslb ,cfsklb sklb ,sum(TO_NUMBER(cfjshj)) jshj from CT_RIC_RichExamTempTab  where CFBizdate= '" + 
-          d + "' and CFXsy='" + xsy + "' and CFLdh='" + ldh + "' and CFDjjg='" + djjg + "' and cfkpjg='" + kpjg + "' " + 
-          " and cfqydw='" + qydw + "' and cfdjdw='" + djdw + "' and cfkpdw='" + kpdw + "' and cfskdw='" + skdw + "' and cftjlb='" + tjlb + "'" + 
+        sql = "select max(cfdjr) djr,max(cfdjtcbm) djtcbm,max(cfdjtcmc) djtcmc ,max(cffph) fph  ,cfxslb xslb ,cfsklb sklb " +
+        		",sum(TO_NUMBER(cfjshj)) jshj " +
+        		" from CT_RIC_RichExamTempTab  where CFBizdate={ts '" +  d + "'}" +
+        		" and CFXsy='" + xsy + "' and CFLdh " + ldh + " and CFDjjg='" + djjg + "' and cfkpjg='" + kpjg + "' " + 
+          		" and cfqydw='" + qydw + "' and cfdjdw='" + djdw + "' and cfkpdw='" + kpdw + "' and cfskdw='" + skdw + "' " +
+          		" and cftjlb='" + tjlb + "' and cfsklb='" + sklb + "' and cfydjbh "+ydjbh+"" + 
           " group by cfdjr,CFDjtcbm,cfxslb,cfsklb";
         djrrs = DbUtil.executeQuery(ctx, sql);
         while(djrrs.next()){
@@ -664,22 +756,23 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
             String djtcbm = djrrs.getString("djtcbm");
             String djtcmc = djrrs.getString("djtcmc");
             String xslb = djrrs.getString("xslb");
-            String sklb = djrrs.getString("sklb");
             String jshj = djrrs.getString("jshj");
+            String cfph = djrrs.getString("fph");
 
             item.setDjr(djr);
             item.setYwdjbh(ywdjbh);
             item.setDjtcNumber(djtcbm);
             item.setDjctName(djtcmc);
+            item.setFph(cfph);
             SaleTypeInfo saleTypeInfo = getSaleTypeInfo(ctx, xslb);
             ReceTypeInfo receTypeInfo = getReceTypeInfo(ctx, sklb);
             item.setSkType(receTypeInfo);
             item.setSlType(saleTypeInfo);
             item.setJsAmount(UIRuleUtil.getBigDecimal(jshj));
             amount = amount.add(UIRuleUtil.getBigDecimal(jshj));
-            RichExamTempTabCollection djrXMDetail = itemp.getRichExamTempTabCollection("where xsy='" + xsy + "' and bizdate='" + d + "' " + 
-              " and ldh='" + ldh + "' and djjg='" + djjg + "' and djr='" + djr + "' and djtcbm='" + djtcbm + "' " + 
-              " and xslb='" + xslb + "' and sklb='" + sklb + "'");
+            RichExamTempTabCollection djrXMDetail = itemp.getRichExamTempTabCollection("where xsy='" + xsy + "' and bizdate={ts '" + d + "'} " + 
+              " and ldh " + ldh + " and djjg='" + djjg + "' and djr='" + djr + "' and djtcbm='" + djtcbm + "' " + 
+              " and xslb='" + xslb + "' and sklb='" + sklb + "' and ydjbh"+ydjbh+"");
             for (int j = 0; j < djrXMDetail.size(); j++) {
               RichExamTempTabInfo tempDetail = djrXMDetail.get(j);
               RichExamedEntryDjrentryInfo detail = new RichExamedEntryDjrentryInfo();
@@ -715,7 +808,7 @@ public class EASRichFacadeControllerBean extends AbstractEASRichFacadeController
     	  return new String[] { "N", "", "当日没有查询符合条件的数据！" };
     }
     catch (Exception e) {
-    	return new String[] { "N", "", "生成到检单时报错，请检查中间表数据完整性！" };
+    	return new String[] { "N", "", "生成到检单时报错，请检查中间表数据完整性！"+e.getMessage() };
     }
     return new String[] { "Y", "", "" };
   }

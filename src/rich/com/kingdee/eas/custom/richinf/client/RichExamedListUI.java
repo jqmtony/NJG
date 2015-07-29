@@ -47,6 +47,10 @@ public class RichExamedListUI extends AbstractRichExamedListUI
     
     /**
      * output class constructor
+     * 
+     * delete from CT_RIC_RichExamed
+     * delete from CT_RIC_RichExamedEntry
+     * delete from CT_RIC_RichExamedDjrentry
      */
     public RichExamedListUI() throws Exception
     {
@@ -55,7 +59,8 @@ public class RichExamedListUI extends AbstractRichExamedListUI
     public void onLoad() throws Exception {
     	super.onLoad();
 //    	actionAddNew.setVisible(false);
-    	actionRemove.setVisible(false);
+    	if(!SysContext.getSysContext().getUserName().equals("user"))
+    		actionRemove.setVisible(false);
     }
     
     public void actionDate_actionPerformed(ActionEvent e) throws Exception {
