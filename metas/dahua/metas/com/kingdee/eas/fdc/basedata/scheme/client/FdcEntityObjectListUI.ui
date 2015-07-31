@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.scheme.client</package>
+    <name>FdcEntityObjectListUI</name>
+    <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].alias</alias>
+    <description>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].description</description>
+    <userDefined>false</userDefined>
+    <releasePackage>com.kingdee.eas.fdc.basedata.scheme.client</releasePackage>
+    <releaseClass>FdcEntityObjectListUI</releaseClass>
+    <title>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].title</title>
+    <uitype />
+    <defaultbutton />
+    <bizUnitPK />
+    <parent>
+        <key name="package" value="com.kingdee.eas.fdc.basedata.client" />
+        <key name="name" value="FdcTree2ListUI" />
+    </parent>
+    <components>
+        <component>
+            <name>tblMain</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[tblMain].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>formatXml</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[tblMain].properties.property[formatXml].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>id.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>id</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>name.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>name</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>fullName.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>fullName</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>alias.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>alias</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>bosTypeStr.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>bosTypeStr</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>dataTable.name.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>dataTable.name</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>dataTable.id.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>dataTable.id</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>dataTable.isExist.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>dataTable.isExist</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>fullBosTypeStr.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>fullBosTypeStr</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType />
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>kdtEntries</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[kdtEntries].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>formatXml</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[kdtEntries].properties.property[formatXml].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnAddNew</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnAddNew].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnView</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnView].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>2</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnXunTong</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnXunTong].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnEdit</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnEdit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>4</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>kDSeparatorCloud</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[kDSeparatorCloud].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSeparator</classType>
+            <isContainer>false</isContainer>
+            <constraints>5</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnRemove</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnRemove].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>6</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnRefresh</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnRefresh].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnQuery</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnQuery].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>8</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnLocate</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnLocate].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>9</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnAttachment</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnAttachment].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>10</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnMoveTree</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnMoveTree].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>11</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>separatorFW1</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[separatorFW1].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>javax.swing.JToolBar.Separator</classType>
+            <isContainer>false</isContainer>
+            <constraints>12</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnPageSetup</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnPageSetup].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>13</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnPrint</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnPrint].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>14</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnPrintPreview</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnPrintPreview].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>15</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>separatorFW2</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[separatorFW2].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>javax.swing.JToolBar.Separator</classType>
+            <isContainer>false</isContainer>
+            <constraints>16</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnCancelCancel</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnCancelCancel].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>17</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnCancel</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnCancel].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>18</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnQueryScheme</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnQueryScheme].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnConfig</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnConfig].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>20</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnSegment</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSegment].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>21</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnSynchronizeMD</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeMD].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>22</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeMD].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeMD].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>icon</name>
+                    <type>javax.swing.Icon</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeMD].properties.property[icon].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnSynchronizeEasMD</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeEasMD].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>23</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeEasMD].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeEasMD].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>icon</name>
+                    <type>javax.swing.Icon</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeEasMD].properties.property[icon].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnSynchronizeBaseMD</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeBaseMD].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>24</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeBaseMD].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeBaseMD].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>icon</name>
+                    <type>javax.swing.Icon</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeBaseMD].properties.property[icon].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnSynchronizeFdcMD</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeFdcMD].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>25</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeFdcMD].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeFdcMD].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>icon</name>
+                    <type>javax.swing.Icon</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeFdcMD].properties.property[icon].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
+        </component>
+    </components>
+    <dataObjects>
+        <dataObject>
+            <name>mainQuery</name>
+            <type>com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectQuery</type>
+            <objectType>jqye</objectType>
+            <herited>true</herited>
+            <userDefined>false</userDefined>
+        </dataObject>
+    </dataObjects>
+    <actions>
+        <action>
+            <instanceName>actionSynchronizeMD</instanceName>
+            <className>ActionSynchronizeMD</className>
+            <name>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeMD].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeMD].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeMD].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeMD].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionSynchronizeEasMD</instanceName>
+            <className>ActionSynchronizeEasMD</className>
+            <name>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeEasMD].name</name>
+            <enabled>true</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeEasMD].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeEasMD].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeEasMD].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionSynchronizeBaseMD</instanceName>
+            <className>ActionSynchronizeBaseMD</className>
+            <name>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeBaseMD].name</name>
+            <enabled>true</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeBaseMD].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeBaseMD].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeBaseMD].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionSynchronizeFdcMD</instanceName>
+            <className>ActionSynchronizeFdcMD</className>
+            <name>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeFdcMD].name</name>
+            <enabled>true</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeFdcMD].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeFdcMD].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeFdcMD].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+    </actions>
+    <resource>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeBaseMD].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeBaseMD].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeBaseMD].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeBaseMD].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeEasMD].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeEasMD].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeEasMD].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeEasMD].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeFdcMD].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeFdcMD].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeFdcMD].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeFdcMD].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeMD].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeMD].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeMD].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].actions.action[actionSynchronizeMD].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="房地产实体字典" />
+            <lang locale="zh_HK" value="房地產實體字典" />
+            <lang locale="zh_TW" value="房地產實體字典" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnAddNew].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnAttachment].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnCancelCancel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnCancel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnConfig].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnEdit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnLocate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnMoveTree].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnPageSetup].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnPrintPreview].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnPrint].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnQueryScheme].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnRefresh].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnRemove].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSegment].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeBaseMD].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeBaseMD].properties.property[action].value">
+            <lang locale="en_US" value="actionSynchronizeBaseMD" />
+            <lang locale="zh_CN" value="actionSynchronizeBaseMD" />
+            <lang locale="zh_HK" value="actionSynchronizeBaseMD" />
+            <lang locale="zh_TW" value="actionSynchronizeBaseMD" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeBaseMD].properties.property[icon].value">
+            <lang locale="en_US" value="imgTbtn_synchronization" />
+            <lang locale="zh_CN" value="imgTbtn_synchronization" />
+            <lang locale="zh_HK" value="imgTbtn_synchronization" />
+            <lang locale="zh_TW" value="imgTbtn_synchronization" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeBaseMD].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="同步基础字典" />
+            <lang locale="zh_HK" value="同步基礎字典" />
+            <lang locale="zh_TW" value="同步基礎字典" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeEasMD].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeEasMD].properties.property[action].value">
+            <lang locale="en_US" value="actionSynchronizeEasMD" />
+            <lang locale="zh_CN" value="actionSynchronizeEasMD" />
+            <lang locale="zh_HK" value="actionSynchronizeEasMD" />
+            <lang locale="zh_TW" value="actionSynchronizeEasMD" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeEasMD].properties.property[icon].value">
+            <lang locale="en_US" value="imgTbtn_synchronization" />
+            <lang locale="zh_CN" value="imgTbtn_synchronization" />
+            <lang locale="zh_HK" value="imgTbtn_synchronization" />
+            <lang locale="zh_TW" value="imgTbtn_synchronization" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeEasMD].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="同步EAS字典" />
+            <lang locale="zh_HK" value="同步EAS字典" />
+            <lang locale="zh_TW" value="同步EAS字典" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeFdcMD].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeFdcMD].properties.property[action].value">
+            <lang locale="en_US" value="actionSynchronizeFdcMD" />
+            <lang locale="zh_CN" value="actionSynchronizeFdcMD" />
+            <lang locale="zh_HK" value="actionSynchronizeFdcMD" />
+            <lang locale="zh_TW" value="actionSynchronizeFdcMD" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeFdcMD].properties.property[icon].value">
+            <lang locale="en_US" value="imgTbtn_synchronization" />
+            <lang locale="zh_CN" value="imgTbtn_synchronization" />
+            <lang locale="zh_HK" value="imgTbtn_synchronization" />
+            <lang locale="zh_TW" value="imgTbtn_synchronization" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeFdcMD].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="同步房地产字典" />
+            <lang locale="zh_HK" value="同步房地產字典" />
+            <lang locale="zh_TW" value="同步房地產字典" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeMD].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeMD].properties.property[action].value">
+            <lang locale="en_US" value="actionSynchronizeMD" />
+            <lang locale="zh_CN" value="actionSynchronizeMD" />
+            <lang locale="zh_HK" value="actionSynchronizeMD" />
+            <lang locale="zh_TW" value="actionSynchronizeMD" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeMD].properties.property[icon].value">
+            <lang locale="en_US" value="imgTbtn_synchronization" />
+            <lang locale="zh_CN" value="imgTbtn_synchronization" />
+            <lang locale="zh_HK" value="imgTbtn_synchronization" />
+            <lang locale="zh_TW" value="imgTbtn_synchronization" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnSynchronizeMD].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="同步字典" />
+            <lang locale="zh_HK" value="同步字典" />
+            <lang locale="zh_TW" value="同步字典" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnView].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[btnXunTong].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[kDSeparatorCloud].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[kdtEntries].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[kdtEntries].properties.property[formatXml].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol3&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol13&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol17&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol18&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;property.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;property.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;property.alias&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol3&quot; /&gt;&lt;t:Column t:key=&quot;column.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.sqlType&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.length&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.scale&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.precision&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.isNullable&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.defaultValue&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.isMultilingual&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.isExist&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;12&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;13&quot; t:styleID=&quot;sCol13&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.fullName&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;14&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.name&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;15&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.alias&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;16&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.bosTypeStr&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;17&quot; t:styleID=&quot;sCol17&quot; /&gt;&lt;t:Column t:key=&quot;property.relationshipUrlName&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;18&quot; t:styleID=&quot;sCol18&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header1&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;属性ID&lt;/t:Cell&gt;&lt;t:Cell&gt;属性名称&lt;/t:Cell&gt;&lt;t:Cell&gt;属性别名&lt;/t:Cell&gt;&lt;t:Cell&gt;字段ID&lt;/t:Cell&gt;&lt;t:Cell&gt;字段名称&lt;/t:Cell&gt;&lt;t:Cell&gt;字段SQL类型&lt;/t:Cell&gt;&lt;t:Cell&gt;字段长度&lt;/t:Cell&gt;&lt;t:Cell&gt;字段精度&lt;/t:Cell&gt;&lt;t:Cell&gt;字段小数位数&lt;/t:Cell&gt;&lt;t:Cell&gt;字段是否可以为空&lt;/t:Cell&gt;&lt;t:Cell&gt;字段默认值&lt;/t:Cell&gt;&lt;t:Cell&gt;字段是否多语言&lt;/t:Cell&gt;&lt;t:Cell&gt;字段是否存在&lt;/t:Cell&gt;&lt;t:Cell&gt;连接实体ID&lt;/t:Cell&gt;&lt;t:Cell&gt;连接实体完整名称&lt;/t:Cell&gt;&lt;t:Cell&gt;连接实体名称&lt;/t:Cell&gt;&lt;t:Cell&gt;连接实体别名&lt;/t:Cell&gt;&lt;t:Cell&gt;连接实体BOS类型&lt;/t:Cell&gt;&lt;t:Cell&gt;实体关系完整名称&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
+            <lang locale="zh_HK" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol3&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol13&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol17&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol18&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;property.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;property.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;property.alias&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol3&quot; /&gt;&lt;t:Column t:key=&quot;column.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.sqlType&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.length&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.scale&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.precision&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.isNullable&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.defaultValue&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.isMultilingual&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.isExist&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;12&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;13&quot; t:styleID=&quot;sCol13&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.fullName&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;14&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.name&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;15&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.alias&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;16&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.bosTypeStr&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;17&quot; t:styleID=&quot;sCol17&quot; /&gt;&lt;t:Column t:key=&quot;property.relationshipUrlName&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;18&quot; t:styleID=&quot;sCol18&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header1&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;屬性ID&lt;/t:Cell&gt;&lt;t:Cell&gt;屬性名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;屬性別名&lt;/t:Cell&gt;&lt;t:Cell&gt;字段ID&lt;/t:Cell&gt;&lt;t:Cell&gt;字段名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;字段SQL類型&lt;/t:Cell&gt;&lt;t:Cell&gt;字段長度&lt;/t:Cell&gt;&lt;t:Cell&gt;字段精度&lt;/t:Cell&gt;&lt;t:Cell&gt;字段小數位數&lt;/t:Cell&gt;&lt;t:Cell&gt;字段是否可以為空&lt;/t:Cell&gt;&lt;t:Cell&gt;字段默認值&lt;/t:Cell&gt;&lt;t:Cell&gt;字段是否多語言&lt;/t:Cell&gt;&lt;t:Cell&gt;字段是否存在&lt;/t:Cell&gt;&lt;t:Cell&gt;連接實體ID&lt;/t:Cell&gt;&lt;t:Cell&gt;連接實體完整名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;連接實體名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;連接實體別名&lt;/t:Cell&gt;&lt;t:Cell&gt;連接實體BOS類型&lt;/t:Cell&gt;&lt;t:Cell&gt;實體關係完整名稱&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
+            <lang locale="zh_TW" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol3&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol13&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol17&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol18&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;property.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;property.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;property.alias&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol3&quot; /&gt;&lt;t:Column t:key=&quot;column.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.sqlType&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.length&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.scale&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.precision&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.isNullable&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.defaultValue&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.isMultilingual&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;column.isExist&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;12&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;13&quot; t:styleID=&quot;sCol13&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.fullName&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;14&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.name&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;15&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.alias&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;16&quot; /&gt;&lt;t:Column t:key=&quot;linkProperty.bosTypeStr&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;17&quot; t:styleID=&quot;sCol17&quot; /&gt;&lt;t:Column t:key=&quot;property.relationshipUrlName&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;18&quot; t:styleID=&quot;sCol18&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header1&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;屬性ID&lt;/t:Cell&gt;&lt;t:Cell&gt;屬性名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;屬性別名&lt;/t:Cell&gt;&lt;t:Cell&gt;字段ID&lt;/t:Cell&gt;&lt;t:Cell&gt;字段名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;字段SQL類型&lt;/t:Cell&gt;&lt;t:Cell&gt;字段長度&lt;/t:Cell&gt;&lt;t:Cell&gt;字段精度&lt;/t:Cell&gt;&lt;t:Cell&gt;字段小數位數&lt;/t:Cell&gt;&lt;t:Cell&gt;字段是否可以為空&lt;/t:Cell&gt;&lt;t:Cell&gt;字段默認值&lt;/t:Cell&gt;&lt;t:Cell&gt;字段是否多語言&lt;/t:Cell&gt;&lt;t:Cell&gt;字段是否存在&lt;/t:Cell&gt;&lt;t:Cell&gt;連接實體ID&lt;/t:Cell&gt;&lt;t:Cell&gt;連接實體完整名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;連接實體名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;連接實體別名&lt;/t:Cell&gt;&lt;t:Cell&gt;連接實體BOS類型&lt;/t:Cell&gt;&lt;t:Cell&gt;實體關係完整名稱&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[separatorFW1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[separatorFW2].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[tblMain].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].components.component[tblMain].properties.property[formatXml].value">
+            <lang locale="en_US" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles /&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;fullName&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;alias&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;bosTypeStr&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;dataTable.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;id&lt;/t:Cell&gt;&lt;t:Cell&gt;name&lt;/t:Cell&gt;&lt;t:Cell&gt;fullName&lt;/t:Cell&gt;&lt;t:Cell&gt;alias&lt;/t:Cell&gt;&lt;t:Cell&gt;bosTypeStr&lt;/t:Cell&gt;&lt;t:Cell&gt;dataTable.name&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
+            <lang locale="zh_CN" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol6&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;fullName&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;1&quot; /&gt;&lt;t:Column t:key=&quot;name&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;2&quot; /&gt;&lt;t:Column t:key=&quot;alias&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;fullBosTypeStr&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;4&quot; /&gt;&lt;t:Column t:key=&quot;bosTypeStr&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;5&quot; /&gt;&lt;t:Column t:key=&quot;dataTable.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;6&quot; t:styleID=&quot;sCol6&quot; /&gt;&lt;t:Column t:key=&quot;dataTable.name&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;7&quot; /&gt;&lt;t:Column t:key=&quot;dataTable.isExist&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;8&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;ID&lt;/t:Cell&gt;&lt;t:Cell&gt;完整名称&lt;/t:Cell&gt;&lt;t:Cell&gt;名称&lt;/t:Cell&gt;&lt;t:Cell&gt;别名&lt;/t:Cell&gt;&lt;t:Cell&gt;完整BOS类型&lt;/t:Cell&gt;&lt;t:Cell&gt;BOS类型&lt;/t:Cell&gt;&lt;t:Cell&gt;数据表ID&lt;/t:Cell&gt;&lt;t:Cell&gt;数据表名称&lt;/t:Cell&gt;&lt;t:Cell&gt;数据表是否存在&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
+            <lang locale="zh_HK" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol6&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;fullName&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;1&quot; /&gt;&lt;t:Column t:key=&quot;name&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;2&quot; /&gt;&lt;t:Column t:key=&quot;alias&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;fullBosTypeStr&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;4&quot; /&gt;&lt;t:Column t:key=&quot;bosTypeStr&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;5&quot; /&gt;&lt;t:Column t:key=&quot;dataTable.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;6&quot; t:styleID=&quot;sCol6&quot; /&gt;&lt;t:Column t:key=&quot;dataTable.name&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;7&quot; /&gt;&lt;t:Column t:key=&quot;dataTable.isExist&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;8&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;ID&lt;/t:Cell&gt;&lt;t:Cell&gt;完整名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;別名&lt;/t:Cell&gt;&lt;t:Cell&gt;完整BOS類型&lt;/t:Cell&gt;&lt;t:Cell&gt;BOS類型&lt;/t:Cell&gt;&lt;t:Cell&gt;數據表ID&lt;/t:Cell&gt;&lt;t:Cell&gt;數據表名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;數據表是否存在&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
+            <lang locale="zh_TW" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol6&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;fullName&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;1&quot; /&gt;&lt;t:Column t:key=&quot;name&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;2&quot; /&gt;&lt;t:Column t:key=&quot;alias&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;fullBosTypeStr&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;4&quot; /&gt;&lt;t:Column t:key=&quot;bosTypeStr&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;5&quot; /&gt;&lt;t:Column t:key=&quot;dataTable.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;6&quot; t:styleID=&quot;sCol6&quot; /&gt;&lt;t:Column t:key=&quot;dataTable.name&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;7&quot; /&gt;&lt;t:Column t:key=&quot;dataTable.isExist&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;8&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;ID&lt;/t:Cell&gt;&lt;t:Cell&gt;完整名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;別名&lt;/t:Cell&gt;&lt;t:Cell&gt;完整BOS類型&lt;/t:Cell&gt;&lt;t:Cell&gt;BOS類型&lt;/t:Cell&gt;&lt;t:Cell&gt;數據表ID&lt;/t:Cell&gt;&lt;t:Cell&gt;數據表名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;數據表是否存在&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="房地产实体对象" />
+            <lang locale="zh_HK" value="房地產實體對象" />
+            <lang locale="zh_TW" value="房地產實體對象" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.FdcEntityObjectListUI].title">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="房地产实体字典" />
+            <lang locale="zh_HK" value="房地產實體字典" />
+            <lang locale="zh_TW" value="房地產實體字典" />
+        </rs>
+    </resource>
+</uiObject>
+

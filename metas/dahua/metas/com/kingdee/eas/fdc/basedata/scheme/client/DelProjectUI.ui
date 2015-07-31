@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.scheme.client</package>
+    <name>DelProjectUI</name>
+    <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].alias</alias>
+    <description>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].description</description>
+    <userDefined>false</userDefined>
+    <releasePackage>com.kingdee.eas.fdc.basedata.scheme.client</releasePackage>
+    <releaseClass>DelProjectUI</releaseClass>
+    <title>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].title</title>
+    <uitype />
+    <defaultbutton />
+    <bizUnitPK />
+    <parent>
+        <key name="package" value="com.kingdee.eas.framework.client" />
+        <key name="name" value="CoreUI" />
+    </parent>
+    <components>
+        <component>
+            <name>CoreUI</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[CoreUI].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,10,400,300</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>CoreUI_toolbar</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[CoreUI_toolbar].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDToolBar</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,10,400,30</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>CoreUI_menubar</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[CoreUI_menubar].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDMenuBar</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,10,400,28</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>kDLabelContainer1</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDLabelContainer1].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>15,20,228,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDLabelContainer1].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDLabelContainer1].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDLabelContainer1].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>kDBizPromptBox1</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDBizPromptBox1].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDLabelContainer1" />
+            </parent>
+        </component>
+        <component>
+            <name>btnDelProject</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[btnDelProject].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>265,20,116,21</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[btnDelProject].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[btnDelProject].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>kDTextArea1</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDTextArea1].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextArea</classType>
+            <isContainer>false</isContainer>
+            <constraints>16,52,362,229</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>editable</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDTextArea1].properties.property[editable].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>enabled</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDTextArea1].properties.property[enabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+    </components>
+    <actions>
+        <action>
+            <instanceName>actionDelProject</instanceName>
+            <className>ActionDelProject</className>
+            <name>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].actions.action[actionDelProject].name</name>
+            <enabled>true</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].actions.action[actionDelProject].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].actions.action[actionDelProject].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].actions.action[actionDelProject].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;
+</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+        </action>
+    </actions>
+    <resource>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].actions.action[actionDelProject].longDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].actions.action[actionDelProject].name">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].actions.action[actionDelProject].shortDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].actions.action[actionDelProject].smallIcon">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].alias">
+            <lang locale="zh_CN" value="删除工程项目" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="刪除工程項目" />
+            <lang locale="zh_TW" value="刪除工程項目" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[CoreUI].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[CoreUI_menubar].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[CoreUI_toolbar].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[btnDelProject].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[btnDelProject].properties.property[action].value">
+            <lang locale="zh_CN" value="actionDelProject" />
+            <lang locale="en_US" value="actionDelProject" />
+            <lang locale="zh_HK" value="actionDelProject" />
+            <lang locale="zh_TW" value="actionDelProject" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[btnDelProject].properties.property[text].value">
+            <lang locale="zh_CN" value="删除项目数据" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="刪除項目數據" />
+            <lang locale="zh_TW" value="刪除項目數據" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDBizPromptBox1].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDLabelContainer1].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDLabelContainer1].properties.property[boundLabelLength].value">
+            <lang locale="zh_CN" value="100" />
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDLabelContainer1].properties.property[boundLabelText].value">
+            <lang locale="zh_CN" value="项目部" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="項目部" />
+            <lang locale="zh_TW" value="項目部" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDLabelContainer1].properties.property[boundLabelUnderline].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDTextArea1].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDTextArea1].properties.property[editable].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].components.component[kDTextArea1].properties.property[enabled].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.scheme.client.DelProjectUI].title">
+            <lang locale="zh_CN" value="删除工程项目" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="刪除工程項目" />
+            <lang locale="zh_TW" value="刪除工程項目" />
+        </rs>
+    </resource>
+</uiObject>
+

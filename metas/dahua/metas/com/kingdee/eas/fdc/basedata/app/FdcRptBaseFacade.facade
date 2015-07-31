@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facade xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.app</package>
+    <name>FdcRptBaseFacade</name>
+    <alias>facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].alias</alias>
+    <description>facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].description</description>
+    <userDefined>false</userDefined>
+    <bosType>3500A0EE</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.fdc.basedata.FdcRptBaseFacade</businessImplName>
+    <businessControllerName>com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacadeController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>getPeriodRange</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].methods.method[getPeriodRange].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].methods.method[getPeriodRange].description</description>
+            <innerID>42c91d65-7ee9-4fb6-a077-3d2f171d8edf</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>java.util.Map</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>costCenterId</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].methods.method[getPeriodRange].parameters.parameter[costCenterId].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].methods.method[getPeriodRange].parameters.parameter[costCenterId].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>isProcess</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].methods.method[getPeriodRange].parameters.parameter[isProcess].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].methods.method[getPeriodRange].parameters.parameter[isProcess].description</description>
+                    <direction>in</direction>
+                    <dataType>Boolean</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+    </methods>
+    <baseFacade>
+        <key name="package" value="com.kingdee.eas.framework.report.app" />
+        <key name="name" value="CommRptBase" />
+    </baseFacade>
+    <resource>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="房地产报表Facade基类" />
+            <lang locale="zh_HK" value="房地產報表Facade基類" />
+            <lang locale="zh_TW" value="房地產報表Facade基類" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="房地产报表Facade基类" />
+            <lang locale="zh_HK" value="房地產報表Facade基類" />
+            <lang locale="zh_TW" value="房地產報表Facade基類" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].methods.method[getPeriodRange].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="获取期间设置" />
+            <lang locale="zh_HK" value="獲取期間設置" />
+            <lang locale="zh_TW" value="獲取期間設置" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].methods.method[getPeriodRange].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="获取期间设置" />
+            <lang locale="zh_HK" value="獲取期間設置" />
+            <lang locale="zh_TW" value="獲取期間設置" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].methods.method[getPeriodRange].parameters.parameter[costCenterId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本中心" />
+            <lang locale="zh_HK" value="成本中心" />
+            <lang locale="zh_TW" value="成本中心" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].methods.method[getPeriodRange].parameters.parameter[costCenterId].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].methods.method[getPeriodRange].parameters.parameter[isProcess].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="系统是否是进度" />
+            <lang locale="zh_HK" value="系統是否是進度" />
+            <lang locale="zh_TW" value="系統是否是進度" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.FdcRptBaseFacade].methods.method[getPeriodRange].parameters.parameter[isProcess].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</facade>
+

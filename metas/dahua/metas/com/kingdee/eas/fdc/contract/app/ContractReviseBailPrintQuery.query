@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.contract.app</package>
+    <name>ContractReviseBailPrintQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].description</description>
+    <userDefined>false</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>ContractReviseBail</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].subObjects.subEntity[ContractReviseBail].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBail" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>entry</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].subObjects.subEntity[entry].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailEntry" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>amount</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[amount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7ad333d4-5efc-422e-9e91-d0f0438f3ce3</key>
+                    <parentUnit>
+                        <key name="name" value="amount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ContractReviseBail" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="amount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>prop</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[prop].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>376c3b0c-30cc-42c0-8f28-889d48d850dd</key>
+                    <parentUnit>
+                        <key name="name" value="prop" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ContractReviseBail" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="prop" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>66056211-d1fa-450e-9d4d-272406c7a2e7</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ContractReviseBail" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>cb3f1f20-eb5f-41c8-b866-8506b255ea56</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.propertyUnit[cb3f1f20-eb5f-41c8-b866-8506b255ea56].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>bdf0551a-7c30-4850-9178-8575ae35d866</key>
+                    <parentUnit>
+                        <key name="name" value="cb3f1f20-eb5f-41c8-b866-8506b255ea56" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ContractReviseBail" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>9a86af7e-d8b0-4d26-8b4b-458b6d377e05</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.propertyUnit[9a86af7e-d8b0-4d26-8b4b-458b6d377e05].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>46fb39db-e429-49d4-913a-d06759a78f14</key>
+                    <parentUnit>
+                        <key name="name" value="9a86af7e-d8b0-4d26-8b4b-458b6d377e05" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>entry.bailDate</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.bailDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a6d629a3-655d-4f08-80c4-8d366bd147b8</key>
+                    <parentUnit>
+                        <key name="name" value="entry.bailDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bailDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entry.bailConditon</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.bailConditon].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b4b74d2a-7c1b-4447-90bc-2bc851bcfaf8</key>
+                    <parentUnit>
+                        <key name="name" value="entry.bailConditon" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bailConditon" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entry.prop</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.prop].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>af0deebd-83ff-4515-afd6-77550b7c634e</key>
+                    <parentUnit>
+                        <key name="name" value="entry.prop" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="prop" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entry.amount</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.amount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>887af619-cb17-4188-90eb-63d881951616</key>
+                    <parentUnit>
+                        <key name="name" value="entry.amount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="amount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entry.desc</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.desc].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1befc542-5a38-45d5-8d3f-2cd6cb4bd2ec</key>
+                    <parentUnit>
+                        <key name="name" value="entry.desc" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="desc" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entry.seq</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.seq].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4f90f8ec-d771-45e0-a621-970d0ee1314e</key>
+                    <parentUnit>
+                        <key name="name" value="entry.seq" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="seq" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entry.id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a47dec44-4d80-4b33-91a3-0b3bdd780d4c</key>
+                    <parentUnit>
+                        <key name="name" value="entry.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+            <key name="name" value="ContractReviseBailPrintQuery" />
+        </query>
+    </defaultFilter>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>ba3c99eb-eb28-48c4-b813-61e59c456284</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ContractReviseBail" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="entry" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>2aafb88f-a367-42f0-96f4-13dcf38b711f</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="cb3f1f20-eb5f-41c8-b866-8506b255ea56" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="9a86af7e-d8b0-4d26-8b4b-458b6d377e05" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="ba3c99eb-eb28-48c4-b813-61e59c456284" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractReviseBailPrintQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同修订履约保证金及返还套打查询" />
+            <lang locale="zh_TW" value="合同修訂履約保證金及返還套打查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同修订履约保证金及返还套打查询" />
+            <lang locale="zh_TW" value="合同修訂履約保證金及返還套打查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].subObjects.subEntity[ContractReviseBail].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].subObjects.subEntity[entry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.propertyUnit[9a86af7e-d8b0-4d26-8b4b-458b6d377e05].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.propertyUnit[cb3f1f20-eb5f-41c8-b866-8506b255ea56].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[amount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="履约保证金金额（原币）" />
+            <lang locale="zh_TW" value="履約保證金金額（原幣）" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.amount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="返还金额原币" />
+            <lang locale="zh_TW" value="返還金額原幣" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.bailConditon].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="返还条件" />
+            <lang locale="zh_TW" value="返還條件" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.bailDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="履约保证金日期" />
+            <lang locale="zh_TW" value="履約保證金日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.desc].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.prop].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="返还比例" />
+            <lang locale="zh_TW" value="返還比例" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[entry.seq].displayName">
+            <lang locale="en_US" value="sequence" />
+            <lang locale="zh_CN" value="履约保证金序列号" />
+            <lang locale="zh_TW" value="履約保證金序列號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractReviseBailPrintQuery].units.queryField[prop].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="履约保证金比例" />
+            <lang locale="zh_TW" value="履約保證金比例" />
+        </rs>
+    </resource>
+</joinQuery>
+

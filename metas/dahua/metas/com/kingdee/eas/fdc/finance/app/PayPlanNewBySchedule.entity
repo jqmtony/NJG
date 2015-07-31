@@ -1,0 +1,1628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entityObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.finance.app</package>
+    <name>PayPlanNewBySchedule</name>
+    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].alias</alias>
+    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].description</description>
+    <userDefined>false</userDefined>
+    <bosType>DE24E4EC</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.fdc.finance.PayPlanNewBySchedule</businessImplName>
+    <businessControllerName>com.kingdee.eas.fdc.finance.app.PayPlanNewByScheduleController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].description</description>
+            <innerID>eac7db1b-ce6b-4986-a82d-d4933379e1ef</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].description</description>
+            <innerID>5714dc6e-9dbd-4ef7-825e-299c1ba3602b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].description</description>
+            <innerID>d734affd-3dc2-456d-ac5a-f8152c36cc51</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].description</description>
+            <innerID>72cb2422-79c0-44f8-b5dc-293a6218acce</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].description</description>
+            <innerID>acdcb47f-dcc1-410e-9656-1d4f3109c61e</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].description</description>
+            <innerID>e7e2d568-9dd2-424c-a18c-17f95efc7e5d</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].description</description>
+            <innerID>a458af97-f40e-4051-929b-f3d310a4e148</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].description</description>
+            <innerID>82e4f502-b905-4bec-811b-9f4cc7415bfd</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>update</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[update].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[update].description</description>
+            <innerID>13c65aee-fe31-402c-8046-f23a8a766eed</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[update].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[update].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[update].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[update].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>updatePartial</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updatePartial].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updatePartial].description</description>
+            <innerID>69d0812a-aad0-4cdc-b634-912bb4ec80c5</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updatePartial].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updatePartial].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updatePartial].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updatePartial].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>updateBigObject</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updateBigObject].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updateBigObject].description</description>
+            <innerID>d69f55c2-9886-4de4-b539-7fa63173b081</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updateBigObject].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updateBigObject].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updateBigObject].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updateBigObject].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].description</description>
+            <innerID>3e918cf0-7983-4a94-8a61-5978306d1e94</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].description</description>
+            <innerID>df97b895-8980-49fe-abef-b70bd63515c0</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].description</description>
+            <innerID>59587935-a61f-46b4-a4a2-4d87d4cb5a27</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].description</description>
+            <innerID>43bcfd88-8fd2-4728-b328-4fc342b7c1e3</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>sorter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].parameters.parameter[sorter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].parameters.parameter[sorter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SorterItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].description</description>
+            <innerID>b2d3620e-9e34-4b28-bf60-6433400dec88</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].description</description>
+            <innerID>8fcc7631-9721-425f-8633-336a599e4728</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>view</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].parameters.parameter[view].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].parameters.parameter[view].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.EntityViewInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].description</description>
+            <innerID>858e3b1d-9097-4bec-a5a5-6010104eb513</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].description</description>
+            <innerID>22f5298e-7d09-479c-b7ea-6c55ec06701c</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].description</description>
+            <innerID>85ed373c-3db5-47a9-821a-841422d379c0</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].description</description>
+            <innerID>e0b057eb-4224-46e8-b35d-7f950d894fd6</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>arrayPK</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[arrayPK].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[arrayPK].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK[]</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+        </method>
+    </methods>
+    <isAbstract>false</isAbstract>
+    <bizUnitPK>com.kingdee.eas.fdc.finance.PayPlanNew</bizUnitPK>
+    <baseEntity>
+        <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+        <key name="name" value="PayPlanByScheduleBase" />
+    </baseEntity>
+    <table>
+        <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+        <key name="name" value="T_FDC_PayPlanNewBySchedule" />
+    </table>
+    <properties>
+        <linkProperty>
+            <name>parent1</name>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[parent1].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[parent1].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="FParentID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="R_PayPlanNew_PayPlanNewBySchedule" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>taskMeasureAmount</name>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FTaskMeasureAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>beginDate</name>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>Date</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>8</length>
+            <precision>8</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FBeginDate" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>endDate</name>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>Date</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>8</length>
+            <precision>8</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FEndDate" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>planPayDate</name>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>Date</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>8</length>
+            <precision>8</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FPlanPayDate" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>planPayAmount</name>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FPlanPayAmount" />
+            </mappingField>
+        </ownProperty>
+        <linkProperty>
+            <name>templateEntry</name>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[templateEntry].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[templateEntry].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="FTemplateEntryID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="R_PayPlanNewBySchedule_PayPlanTemplate_templateEntry" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>Dataz</name>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[Dataz].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[Dataz].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="R_PayPlanNewBySchedule_PayPlanNewByScheduleDataz" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>Task</name>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[Task].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[Task].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="R_PayPlanNewBySchedule_PayPlanNewByScheduleTask" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>TaskName</name>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[TaskName].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[TaskName].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="R_PayPlanNewBySchedule_PayPlanNewByScheduleTaskName" />
+            </relationship>
+        </linkProperty>
+    </properties>
+    <logicalKey>
+        <name>id</name>
+        <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].logicalKey[id].alias</alias>
+        <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].logicalKey[id].description</description>
+        <keyClass>com.kingdee.bos.dao.IObjectPK</keyClass>
+        <userDefined>false</userDefined>
+        <keyProperties>
+            <baseProperty>
+                <key name="name" value="id" />
+            </baseProperty>
+        </keyProperties>
+    </logicalKey>
+    <defaultView>
+        <name />
+        <alias>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].defaultViewalias</alias>
+        <description>entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].defaultViewdescription</description>
+    </defaultView>
+    <resource>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].alias">
+            <lang locale="zh_CN" value="按节点支付" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="按節點支付" />
+            <lang locale="zh_TW" value="按節點支付" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].defaultViewalias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].defaultViewdescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].description">
+            <lang locale="zh_CN" value="按节点支付" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="按節點支付" />
+            <lang locale="zh_TW" value="按節點支付" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].logicalKey[id].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].logicalKey[id].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].parameters.parameter[model].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].parameters.parameter[model].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[addnew].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[arrayPK].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[arrayPK].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[filter].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[filter].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].parameters.parameter[filter].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].parameters.parameter[filter].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[exists].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].parameters.parameter[view].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getCollection].parameters.parameter[view].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].parameters.parameter[filter].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].parameters.parameter[filter].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].parameters.parameter[sorter].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getPKList].parameters.parameter[sorter].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[selector].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[getValue].parameters.parameter[selector].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updateBigObject].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updateBigObject].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updateBigObject].parameters.parameter[model].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updateBigObject].parameters.parameter[model].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updateBigObject].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updateBigObject].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updatePartial].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updatePartial].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updatePartial].parameters.parameter[model].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updatePartial].parameters.parameter[model].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updatePartial].parameters.parameter[selector].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[updatePartial].parameters.parameter[selector].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[update].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[update].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[update].parameters.parameter[model].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[update].parameters.parameter[model].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[update].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].methods.method[update].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[Dataz].alias">
+            <lang locale="zh_CN" value="节点支付数据" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="節點支付數據" />
+            <lang locale="zh_TW" value="節點支付數據" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[Dataz].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[TaskName].alias">
+            <lang locale="zh_CN" value="节点名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="節點名稱" />
+            <lang locale="zh_TW" value="節點名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[TaskName].description">
+            <lang locale="zh_CN" value="节点名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="節點名稱" />
+            <lang locale="zh_TW" value="節點名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[Task].alias">
+            <lang locale="zh_CN" value="任务节点" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="任務節點" />
+            <lang locale="zh_TW" value="任務節點" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[Task].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[parent1].alias">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[parent1].description">
+            <lang locale="zh_CN" value=" " />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value=" " />
+            <lang locale="zh_TW" value=" " />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[templateEntry].alias">
+            <lang locale="zh_CN" value="来源模板分录" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="來源範本分錄" />
+            <lang locale="zh_TW" value="來源範本分錄" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[templateEntry].description">
+            <lang locale="zh_CN" value="来源模板分录" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="來源範本分錄" />
+            <lang locale="zh_TW" value="來源範本分錄" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[templateEntry].extendedProperty.ColWidthInKDTable">
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+            <lang locale="en_US" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[templateEntry].extendedProperty.dataField">
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+            <lang locale="en_US" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[templateEntry].extendedProperty.isAsstAcctType">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[templateEntry].extendedProperty.isForGrouping">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[templateEntry].extendedProperty.isForMapping">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[templateEntry].extendedProperty.isForMatching">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[templateEntry].extendedProperty.isForWrittenBack">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[templateEntry].extendedProperty.isInCode">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.linkProperty[templateEntry].extendedProperty.isVisibleForKDTable">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].alias">
+            <lang locale="zh_CN" value="开始日期" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="開始日期" />
+            <lang locale="zh_TW" value="開始日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].defaultValue">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].description">
+            <lang locale="zh_CN" value="开始日期" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="開始日期" />
+            <lang locale="zh_TW" value="開始日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].extendedProperty.ColWidthInKDTable">
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+            <lang locale="en_US" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].extendedProperty.bizDataType">
+            <lang locale="zh_CN" value="DATE" />
+            <lang locale="zh_TW" value="DATE" />
+            <lang locale="en_US" value="DATE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].extendedProperty.enableFieldPermission">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].extendedProperty.isAsstAcctType">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].extendedProperty.isForGrouping">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].extendedProperty.isForMapping">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].extendedProperty.isForMatching">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].extendedProperty.isForWrittenBack">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].extendedProperty.isInCode">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[beginDate].extendedProperty.isVisibleForKDTable">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].alias">
+            <lang locale="zh_CN" value="结束日期" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="結束日期" />
+            <lang locale="zh_TW" value="結束日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].defaultValue">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].description">
+            <lang locale="zh_CN" value="结束日期" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="結束日期" />
+            <lang locale="zh_TW" value="結束日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].extendedProperty.ColWidthInKDTable">
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+            <lang locale="en_US" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].extendedProperty.bizDataType">
+            <lang locale="zh_CN" value="DATE" />
+            <lang locale="zh_TW" value="DATE" />
+            <lang locale="en_US" value="DATE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].extendedProperty.enableFieldPermission">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].extendedProperty.isAsstAcctType">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].extendedProperty.isForGrouping">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].extendedProperty.isForMapping">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].extendedProperty.isForMatching">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].extendedProperty.isForWrittenBack">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].extendedProperty.isInCode">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[endDate].extendedProperty.isVisibleForKDTable">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].alias">
+            <lang locale="zh_CN" value="计划支付金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="計畫支付金額" />
+            <lang locale="zh_TW" value="計畫支付金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].defaultValue">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].description">
+            <lang locale="zh_CN" value="计划支付金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="計畫支付金額" />
+            <lang locale="zh_TW" value="計畫支付金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+            <lang locale="en_US" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].extendedProperty.bizDataType">
+            <lang locale="zh_CN" value="AMOUNT" />
+            <lang locale="zh_TW" value="AMOUNT" />
+            <lang locale="en_US" value="AMOUNT" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].extendedProperty.enableFieldPermission">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].extendedProperty.isAsstAcctType">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].extendedProperty.isForGrouping">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].extendedProperty.isForMapping">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].extendedProperty.isForMatching">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].extendedProperty.isForWrittenBack">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].extendedProperty.isInCode">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayAmount].extendedProperty.isVisibleForKDTable">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].alias">
+            <lang locale="zh_CN" value="计划支付日期" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="計畫支付日期" />
+            <lang locale="zh_TW" value="計畫支付日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].defaultValue">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].description">
+            <lang locale="zh_CN" value="计划支付日期" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="計畫支付日期" />
+            <lang locale="zh_TW" value="計畫支付日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].extendedProperty.ColWidthInKDTable">
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+            <lang locale="en_US" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].extendedProperty.bizDataType">
+            <lang locale="zh_CN" value="DATE" />
+            <lang locale="zh_TW" value="DATE" />
+            <lang locale="en_US" value="DATE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].extendedProperty.enableFieldPermission">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].extendedProperty.isAsstAcctType">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].extendedProperty.isForGrouping">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].extendedProperty.isForMapping">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].extendedProperty.isForMatching">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].extendedProperty.isForWrittenBack">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].extendedProperty.isInCode">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[planPayDate].extendedProperty.isVisibleForKDTable">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].alias">
+            <lang locale="zh_CN" value="节点成本测算金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="節點成本測算金額" />
+            <lang locale="zh_TW" value="節點成本測算金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].defaultValue">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].description">
+            <lang locale="zh_CN" value="节点成本测算金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="節點成本測算金額" />
+            <lang locale="zh_TW" value="節點成本測算金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+            <lang locale="en_US" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].extendedProperty.bizDataType">
+            <lang locale="zh_CN" value="AMOUNT" />
+            <lang locale="zh_TW" value="AMOUNT" />
+            <lang locale="en_US" value="AMOUNT" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].extendedProperty.enableFieldPermission">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].extendedProperty.isAsstAcctType">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].extendedProperty.isForGrouping">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].extendedProperty.isForMapping">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].extendedProperty.isForMatching">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].extendedProperty.isForWrittenBack">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].extendedProperty.isInCode">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.PayPlanNewBySchedule].properties.ownProperty[taskMeasureAmount].extendedProperty.isVisibleForKDTable">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+    </resource>
+</entityObject>
+

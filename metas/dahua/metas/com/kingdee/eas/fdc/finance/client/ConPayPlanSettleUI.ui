@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.finance.client</package>
+    <name>ConPayPlanSettleUI</name>
+    <alias>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].alias</alias>
+    <description>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].description</description>
+    <userDefined>false</userDefined>
+    <releasePackage>com.kingdee.eas.fdc.finance.client</releasePackage>
+    <releaseClass>ConPayPlanSettleUI</releaseClass>
+    <title>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].title</title>
+    <uitype />
+    <defaultbutton />
+    <bizUnitPK />
+    <parent>
+        <key name="package" value="com.kingdee.eas.framework.client" />
+        <key name="name" value="CoreUI" />
+    </parent>
+    <components>
+        <component>
+            <name>CoreUI</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[CoreUI].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,10,300,120</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>contSettleMonth</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[contSettleMonth].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>12,27,270,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[contSettleMonth].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[contSettleMonth].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[contSettleMonth].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>btnComfirm</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[btnComfirm].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>70,82,73,21</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[btnComfirm].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[btnComfirm].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>actionPerformed</name>
+                    <eventType>java.awt.event.ActionEvent</eventType>
+                    <scene />
+                    <listenerType>java.awt.event.ActionListener</listenerType>
+                    <listenerAdapter>java.awt.event.ActionListener</listenerAdapter>
+                    <methodName>btnComfirm_actionPerformed</methodName>
+                    <code>//write your code here</code>
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
+            <name>btnCancel</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[btnCancel].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>205,81,73,21</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[btnCancel].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>actionPerformed</name>
+                    <eventType>java.awt.event.ActionEvent</eventType>
+                    <scene />
+                    <listenerType>java.awt.event.ActionListener</listenerType>
+                    <listenerAdapter>java.awt.event.ActionListener</listenerAdapter>
+                    <methodName>btnCancel_actionPerformed</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
+            <name>kDSeparator2</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[kDSeparator2].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSeparator</classType>
+            <isContainer>false</isContainer>
+            <constraints>5,66,295,10</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>dpSettleMonth</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[dpSettleMonth].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDDatePicker</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="contSettleMonth" />
+            </parent>
+        </component>
+    </components>
+    <actions>
+        <action>
+            <instanceName>actionConfirm</instanceName>
+            <className>ActionConfirm</className>
+            <name>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].actions.action[actionConfirm].name</name>
+            <enabled>true</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].actions.action[actionConfirm].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].actions.action[actionConfirm].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].actions.action[actionConfirm].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+    </actions>
+    <resource>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].actions.action[actionConfirm].longDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].actions.action[actionConfirm].name">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].actions.action[actionConfirm].shortDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].actions.action[actionConfirm].smallIcon">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].alias">
+            <lang locale="zh_CN" value="合同付款计划月结" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合同付款計畫月結" />
+            <lang locale="zh_TW" value="合同付款計畫月結" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[CoreUI].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[btnCancel].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[btnCancel].properties.property[text].value">
+            <lang locale="zh_CN" value="取消" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="取消" />
+            <lang locale="zh_TW" value="取消" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[btnComfirm].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[btnComfirm].properties.property[action].value">
+            <lang locale="zh_CN" value="actionConfirm" />
+            <lang locale="en_US" value="actionConfirm" />
+            <lang locale="zh_HK" value="actionConfirm" />
+            <lang locale="zh_TW" value="actionConfirm" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[btnComfirm].properties.property[text].value">
+            <lang locale="zh_CN" value="确定" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="確定" />
+            <lang locale="zh_TW" value="確定" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[contSettleMonth].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[contSettleMonth].properties.property[boundLabelLength].value">
+            <lang locale="zh_CN" value="100" />
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[contSettleMonth].properties.property[boundLabelText].value">
+            <lang locale="zh_CN" value="月份" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="月份" />
+            <lang locale="zh_TW" value="月份" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[contSettleMonth].properties.property[boundLabelUnderline].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[dpSettleMonth].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].components.component[kDSeparator2].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ConPayPlanSettleUI].title">
+            <lang locale="zh_CN" value="合同付款计划月结" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合同付款計畫月結" />
+            <lang locale="zh_TW" value="合同付款計畫月結" />
+        </rs>
+    </resource>
+</uiObject>
+

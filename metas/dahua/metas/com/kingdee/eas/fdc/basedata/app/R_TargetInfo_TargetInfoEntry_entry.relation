@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.app</package>
+    <name>R_TargetInfo_TargetInfoEntry_entry</name>
+    <alias>relationship[com.kingdee.eas.fdc.basedata.app.R_TargetInfo_TargetInfoEntry_entry].alias</alias>
+    <description>relationship[com.kingdee.eas.fdc.basedata.app.R_TargetInfo_TargetInfoEntry_entry].description</description>
+    <userDefined>false</userDefined>
+    <type>Composition</type>
+    <clientCardinality>1</clientCardinality>
+    <supplierCardinality>0..*</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+        <key name="name" value="TargetInfo" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+        <key name="name" value="TargetInfoEntry" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.fdc.basedata.app.R_TargetInfo_TargetInfoEntry_entry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标录入与指标录入分录的关系" />
+            <lang locale="zh_TW" value="指標錄入與指標錄入分錄的關係" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.fdc.basedata.app.R_TargetInfo_TargetInfoEntry_entry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标录入与指标录入分录的关系" />
+            <lang locale="zh_TW" value="指標錄入與指標錄入分錄的關係" />
+        </rs>
+    </resource>
+</relationship>
+

@@ -1,0 +1,1455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.finance.app</package>
+    <name>FDCProDepConPayPlanPrintQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].description</description>
+    <userDefined>false</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>FDCProDepConPayPlan</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].subObjects.subEntity[FDCProDepConPayPlan].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlan" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>curProject</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].subObjects.subEntity[curProject].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProject" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>fullOrgUnit</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].subObjects.subEntity[fullOrgUnit].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="FullOrgUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>payPlanCycle</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].subObjects.subEntity[payPlanCycle].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="PayPlanCycle" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e8e7d139-ac82-4eff-abd1-3beafb57d955</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0b6c8a96-3785-4065-92f2-1f9c3ce674b0</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1c7a6441-1101-43e3-bcb3-4abb0f422ff1</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>editMonth</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[editMonth].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>612c26fb-d396-4cd3-b57b-cd3042156ca6</key>
+                    <parentUnit>
+                        <key name="name" value="editMonth" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="editMonth" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>year</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[year].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6fe76bc5-0c0f-4411-8e52-430ba2e15a74</key>
+                    <parentUnit>
+                        <key name="name" value="year" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="year" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>month</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[month].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>db9e639e-34f4-46c9-ad66-3f07c0a6e813</key>
+                    <parentUnit>
+                        <key name="name" value="month" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="month" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>version</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[version].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ecf95f3f-8c48-489e-b549-6036d0d9b918</key>
+                    <parentUnit>
+                        <key name="name" value="version" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="version" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>description</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[description].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c8c5f5da-e6ca-4a78-948f-7ac3fae93778</key>
+                    <parentUnit>
+                        <key name="name" value="description" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="description" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>08077958-1df3-42d4-b07c-f31819d310a0</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[08077958-1df3-42d4-b07c-f31819d310a0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4b6120b0-9aad-4e4d-92be-6dcb56f0bc94</key>
+                    <parentUnit>
+                        <key name="name" value="08077958-1df3-42d4-b07c-f31819d310a0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="curProject" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>11f5d2bf-0e86-4e8d-9c80-ddd428b755cc</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[11f5d2bf-0e86-4e8d-9c80-ddd428b755cc].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ff05ebb8-e6a3-4088-8423-daee7a03a27a</key>
+                    <parentUnit>
+                        <key name="name" value="11f5d2bf-0e86-4e8d-9c80-ddd428b755cc" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>d779239e-dc21-4247-bf9b-136c57dce521</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[d779239e-dc21-4247-bf9b-136c57dce521].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>aceaa23d-64b2-4500-9c86-19fe6a6bb4d9</key>
+                    <parentUnit>
+                        <key name="name" value="d779239e-dc21-4247-bf9b-136c57dce521" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="fullOrgUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>38928c39-b343-46d3-9491-787fa3a2965e</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[38928c39-b343-46d3-9491-787fa3a2965e].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>97a5960b-551e-47aa-8055-aae991e43a4c</key>
+                    <parentUnit>
+                        <key name="name" value="38928c39-b343-46d3-9491-787fa3a2965e" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="fullOrgUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>fullOrgUnit.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[fullOrgUnit.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>922da2b9-87d5-4ec2-ad7c-716b0e0b70f7</key>
+                    <parentUnit>
+                        <key name="name" value="fullOrgUnit.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="fullOrgUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>curProject.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[curProject.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9de3d8d5-ff99-4534-8397-8d68d7ebc735</key>
+                    <parentUnit>
+                        <key name="name" value="curProject.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>payPlanCycle.cycle</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.cycle].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>40c23a2d-6956-48e5-b349-baac84f682eb</key>
+                    <parentUnit>
+                        <key name="name" value="payPlanCycle.cycle" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="payPlanCycle" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="cycle" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>payPlanCycle.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>544abe43-866c-41c1-915f-37f77b148e30</key>
+                    <parentUnit>
+                        <key name="name" value="payPlanCycle.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="payPlanCycle" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>payPlanCycle.description</name>
+            <userDefined>false</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.description].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>cb6d919f-c7d5-40cf-b994-4d262b0ded4c</key>
+                    <parentUnit>
+                        <key name="name" value="payPlanCycle.description" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="payPlanCycle" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="description" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>payPlanCycle.simpleName</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.simpleName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a3cfc2bb-ead2-4231-a3f8-001c7dfba167</key>
+                    <parentUnit>
+                        <key name="name" value="payPlanCycle.simpleName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="payPlanCycle" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="simpleName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>payPlanCycle.number</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>94c57dae-945d-4587-a186-c7a3bf0aa6bb</key>
+                    <parentUnit>
+                        <key name="name" value="payPlanCycle.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="payPlanCycle" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>payPlanCycle.lastUpdateTime</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>19d06d55-fc50-46cb-83c1-56ab3b6cf538</key>
+                    <parentUnit>
+                        <key name="name" value="payPlanCycle.lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="payPlanCycle" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>payPlanCycle.createTime</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d76ca8fa-60c3-43d8-901f-5f3fafe19db8</key>
+                    <parentUnit>
+                        <key name="name" value="payPlanCycle.createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="payPlanCycle" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>3e8a0950-1d44-45ed-a80b-0c5c8d7eb023</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[3e8a0950-1d44-45ed-a80b-0c5c8d7eb023].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5e0c2f46-e2ec-44c9-af3b-b93de7132460</key>
+                    <parentUnit>
+                        <key name="name" value="3e8a0950-1d44-45ed-a80b-0c5c8d7eb023" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="payPlanCycle" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>3716b8b1-1c27-4f81-8225-82b299845841</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[3716b8b1-1c27-4f81-8225-82b299845841].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>48cdff07-c511-4bdf-a649-74dd7a140cbe</key>
+                    <parentUnit>
+                        <key name="name" value="3716b8b1-1c27-4f81-8225-82b299845841" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="payPlanCycle" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>aa681474-889f-4476-b7eb-6abdb31791c0</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[aa681474-889f-4476-b7eb-6abdb31791c0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>d5df9e72-9e02-4e39-bc46-40eb42f49843</key>
+                    <parentUnit>
+                        <key name="name" value="aa681474-889f-4476-b7eb-6abdb31791c0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>8371bdb2-0f06-4169-89bd-463f4d45e2ad</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[8371bdb2-0f06-4169-89bd-463f4d45e2ad].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>4fc189f4-0f36-4a1a-b247-6c91e7ba9df8</key>
+                    <parentUnit>
+                        <key name="name" value="8371bdb2-0f06-4169-89bd-463f4d45e2ad" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f3ef2dac-7b62-44f9-94dd-0a3fe92bc5f3</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[f3ef2dac-7b62-44f9-94dd-0a3fe92bc5f3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>a789f697-fab2-4475-9e9a-468392cadc7a</key>
+                    <parentUnit>
+                        <key name="name" value="f3ef2dac-7b62-44f9-94dd-0a3fe92bc5f3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>e504732c-3ede-400f-a4bd-747afa616f2a</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[e504732c-3ede-400f-a4bd-747afa616f2a].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>b515ec78-ffb4-4d39-99c0-7febb90d0a59</key>
+                    <parentUnit>
+                        <key name="name" value="e504732c-3ede-400f-a4bd-747afa616f2a" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d1dfca75-df56-460b-ae66-5d99e1a2448e</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6c145bb5-d375-473e-a1e8-b5f8f49514f7</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3639d8af-b16e-41e5-998a-0c40f5801238</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bookedDate</name>
+            <userDefined>false</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[bookedDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5be942e7-2147-4ab4-bf9f-4e93a5f25faa</key>
+                    <parentUnit>
+                        <key name="name" value="bookedDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FDCProDepConPayPlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bookedDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entryImage</name>
+            <userDefined>false</userDefined>
+            <formulaString>null</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[entryImage].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+            <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+        </query>
+    </defaultFilter>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>009330a1-ba2c-4420-9387-9990c4dd3962</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="FDCProDepConPayPlan" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="curProject" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>094eec54-1dd8-45ac-9d32-5fcad53088c6</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="08077958-1df3-42d4-b07c-f31819d310a0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="11f5d2bf-0e86-4e8d-9c80-ddd428b755cc" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="009330a1-ba2c-4420-9387-9990c4dd3962" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </join>
+        <join>
+            <name>b3a91610-1fb6-43c0-b467-d951f621b3de</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="curProject" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="fullOrgUnit" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>48654783-33e2-43c1-b862-bfa9ba0887c3</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="d779239e-dc21-4247-bf9b-136c57dce521" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="38928c39-b343-46d3-9491-787fa3a2965e" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="b3a91610-1fb6-43c0-b467-d951f621b3de" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </join>
+        <join>
+            <name>a14f9b9e-b1ee-40ce-bf12-0e7c3b340c13</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="FDCProDepConPayPlan" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="payPlanCycle" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>52f10ab7-3262-4146-b8b7-c5ab5edc083e</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="3e8a0950-1d44-45ed-a80b-0c5c8d7eb023" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="3716b8b1-1c27-4f81-8225-82b299845841" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="a14f9b9e-b1ee-40ce-bf12-0e7c3b340c13" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </join>
+        <join>
+            <name>412f1a97-e425-4b0a-9821-7df641acd351</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="FDCProDepConPayPlan" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>3421a08d-efb7-44b8-8181-0e85f051890c</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="aa681474-889f-4476-b7eb-6abdb31791c0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="8371bdb2-0f06-4169-89bd-463f4d45e2ad" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="412f1a97-e425-4b0a-9821-7df641acd351" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </join>
+        <join>
+            <name>198751b8-ae7f-4e3a-b5c9-e4a755693373</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="FDCProDepConPayPlan" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>c6e66d78-a4d1-4df1-9d6a-6eaaa63fd6c2</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="f3ef2dac-7b62-44f9-94dd-0a3fe92bc5f3" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="e504732c-3ede-400f-a4bd-747afa616f2a" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="198751b8-ae7f-4e3a-b5c9-e4a755693373" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="FDCProDepConPayPlanPrintQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目月度付款计划套打query" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目月度付款计划套打query" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].subObjects.subEntity[FDCProDepConPayPlan].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].subObjects.subEntity[curProject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].subObjects.subEntity[fullOrgUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].subObjects.subEntity[payPlanCycle].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[08077958-1df3-42d4-b07c-f31819d310a0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[11f5d2bf-0e86-4e8d-9c80-ddd428b755cc].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[3716b8b1-1c27-4f81-8225-82b299845841].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[38928c39-b343-46d3-9491-787fa3a2965e].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[3e8a0950-1d44-45ed-a80b-0c5c8d7eb023].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[8371bdb2-0f06-4169-89bd-463f4d45e2ad].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[aa681474-889f-4476-b7eb-6abdb31791c0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[d779239e-dc21-4247-bf9b-136c57dce521].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[e504732c-3ede-400f-a4bd-747afa616f2a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.propertyUnit[f3ef2dac-7b62-44f9-94dd-0a3fe92bc5f3].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[bookedDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编制日期" />
+            <lang locale="zh_TW" value="業務記錄日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="编制人" />
+            <lang locale="zh_TW" value="用戶實名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[curProject.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[description].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编制说明" />
+            <lang locale="zh_TW" value="參考信息" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[editMonth].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编制月份" />
+            <lang locale="zh_TW" value="編制月份" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[entryImage].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分录图片" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[fullOrgUnit.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目公司" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[lastUpdateTime].displayName">
+            <lang locale="en_US" value="lastUpdateTime" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[lastUpdateUser.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="最后修改人" />
+            <lang locale="zh_TW" value="用戶實名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[month].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="月份" />
+            <lang locale="zh_TW" value="月份" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.createTime].displayName">
+            <lang locale="en_US" value="createTime" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.cycle].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="付款计划周期" />
+            <lang locale="zh_TW" value="付款計畫週期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.description].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_TW" value="描述" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.lastUpdateTime].displayName">
+            <lang locale="en_US" value="lastUpdateTime" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_TW" value="編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[payPlanCycle.simpleName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_TW" value="簡稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[version].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="版本" />
+            <lang locale="zh_TW" value="版本" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.FDCProDepConPayPlanPrintQuery].units.queryField[year].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="年份" />
+            <lang locale="zh_TW" value="年份" />
+        </rs>
+    </resource>
+</joinQuery>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.aimcost.app</package>
+    <name>R_DynamicCostMonitor_DynamicCostMonitorCAEntries_costAccountEntries</name>
+    <alias>relationship[com.kingdee.eas.fdc.aimcost.app.R_DynamicCostMonitor_DynamicCostMonitorCAEntries_costAccountEntries].alias</alias>
+    <description>relationship[com.kingdee.eas.fdc.aimcost.app.R_DynamicCostMonitor_DynamicCostMonitorCAEntries_costAccountEntries].description</description>
+    <userDefined>false</userDefined>
+    <type>Composition</type>
+    <clientCardinality>1</clientCardinality>
+    <supplierCardinality>0..*</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+        <key name="name" value="DynamicCostMonitor" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+        <key name="name" value="DynamicCostMonitorCAEntries" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.fdc.aimcost.app.R_DynamicCostMonitor_DynamicCostMonitorCAEntries_costAccountEntries].alias">
+            <lang locale="zh_CN" value="动态成本监控与成本科目分录的关系" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="動態成本監控與成本科目分錄的關係" />
+            <lang locale="zh_TW" value="動態成本監控與成本科目分錄的關係" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.fdc.aimcost.app.R_DynamicCostMonitor_DynamicCostMonitorCAEntries_costAccountEntries].description">
+            <lang locale="zh_CN" value="动态成本监控与成本科目分录的关系 " />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="動態成本監控與成本科目分錄的關係 " />
+            <lang locale="zh_TW" value="動態成本監控與成本科目分錄的關係 " />
+        </rs>
+    </resource>
+</relationship>
+

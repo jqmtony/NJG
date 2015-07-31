@@ -1,0 +1,1133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facade xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.app</package>
+    <name>CostAccountFacade</name>
+    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].alias</alias>
+    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].description</description>
+    <userDefined>false</userDefined>
+    <bosType>2ACED1A8</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.fdc.basedata.CostAccountFacade</businessImplName>
+    <businessControllerName>com.kingdee.eas.fdc.basedata.app.CostAccountFacadeController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>assignOrgsCostAccount</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgsCostAccount].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgsCostAccount].description</description>
+            <innerID>b06823ef-010d-1000-e000-0001c0a813bb</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>orgPK</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgsCostAccount].parameters.parameter[orgPK].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgsCostAccount].parameters.parameter[orgPK].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>disAssignOrgsCostAccount</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgsCostAccount].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgsCostAccount].description</description>
+            <innerID>b06823ef-010d-1000-e000-0003c0a813bb</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>orgPK</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgsCostAccount].parameters.parameter[orgPK].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgsCostAccount].parameters.parameter[orgPK].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>disAssignSelectOrgsCostAccount</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgsCostAccount].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgsCostAccount].description</description>
+            <innerID>e2865ad7-010d-1000-e000-0039c0a813bb</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>costAccounts</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgsCostAccount].parameters.parameter[costAccounts].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgsCostAccount].parameters.parameter[costAccounts].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectCollection</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.basedata.app.CostAccount</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>assignProjsCostAccount</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignProjsCostAccount].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignProjsCostAccount].description</description>
+            <innerID>b06823ef-010d-1000-e000-0002c0a813bb</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>java.util.List</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>projectPK</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignProjsCostAccount].parameters.parameter[projectPK].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignProjsCostAccount].parameters.parameter[projectPK].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>disAssignProjsCostAccount</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignProjsCostAccount].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignProjsCostAccount].description</description>
+            <innerID>b06823ef-010d-1000-e000-000cc0a813bb</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>projectPK</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignProjsCostAccount].parameters.parameter[projectPK].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignProjsCostAccount].parameters.parameter[projectPK].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>disAssignSelectProjsCostAccount</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectProjsCostAccount].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectProjsCostAccount].description</description>
+            <innerID>e2865ad7-010d-1000-e000-003ac0a813bb</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>costAccounts</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectProjsCostAccount].parameters.parameter[costAccounts].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectProjsCostAccount].parameters.parameter[costAccounts].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectCollection</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.basedata.app.CostAccount</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>assignOrgProject</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgProject].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgProject].description</description>
+            <innerID>c39e134f-010d-1000-e000-0005c0a813bb</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>java.util.List</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>orgPK</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgProject].parameters.parameter[orgPK].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgProject].parameters.parameter[orgPK].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>disAssignOrgProject</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgProject].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgProject].description</description>
+            <innerID>c39e134f-010d-1000-e000-0006c0a813bb</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>orgPK</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgProject].parameters.parameter[orgPK].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgProject].parameters.parameter[orgPK].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>disAssignSelectOrgProject</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgProject].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgProject].description</description>
+            <innerID>e2865ad7-010d-1000-e000-003bc0a813bb</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>java.util.ArrayList</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>costAccounts</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgProject].parameters.parameter[costAccounts].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgProject].parameters.parameter[costAccounts].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectCollection</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.basedata.app.CostAccount</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>handleEnterDB</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[handleEnterDB].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[handleEnterDB].description</description>
+            <innerID>8c8f80ee-0115-1000-e000-0004c0a81296</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[handleEnterDB].parameters.parameter[model].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[handleEnterDB].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.basedata.app.CostAccount</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>isEnterDB</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[handleEnterDB].parameters.parameter[isEnterDB].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[handleEnterDB].parameters.parameter[isEnterDB].description</description>
+                    <direction>in</direction>
+                    <dataType>Boolean</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>assignToNextLevel</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].description</description>
+            <innerID>7c81eee0-0118-1000-e000-0001c0a812a7</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>java.util.List</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>orgPK</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].parameters.parameter[orgPK].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].parameters.parameter[orgPK].description</description>
+                    <direction>in</direction>
+                    <dataType>IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>nodeIds</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].parameters.parameter[nodeIds].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].parameters.parameter[nodeIds].description</description>
+                    <direction>in</direction>
+                    <dataType>java.util.Set</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>isProjectSet</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].parameters.parameter[isProjectSet].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].parameters.parameter[isProjectSet].description</description>
+                    <direction>in</direction>
+                    <dataType>Boolean</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updateStageData</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateStageData].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateStageData].description</description>
+            <innerID>1e45cd57-b57d-4279-b4c1-35efa4baf436</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>idSet</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateStageData].parameters.parameter[idSet].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateStageData].parameters.parameter[idSet].description</description>
+                    <direction>in</direction>
+                    <dataType>java.util.Set</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>isChecked</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateStageData].parameters.parameter[isChecked].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateStageData].parameters.parameter[isChecked].description</description>
+                    <direction>in</direction>
+                    <dataType>Boolean</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>checkCurrentCostAccountIsDetailsNode</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[checkCurrentCostAccountIsDetailsNode].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[checkCurrentCostAccountIsDetailsNode].description</description>
+            <innerID>3ebe9079-c875-4daa-9d41-a541be1434b1</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>id</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[checkCurrentCostAccountIsDetailsNode].parameters.parameter[id].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[checkCurrentCostAccountIsDetailsNode].parameters.parameter[id].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>orgId</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[checkCurrentCostAccountIsDetailsNode].parameters.parameter[orgId].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[checkCurrentCostAccountIsDetailsNode].parameters.parameter[orgId].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updateToLeafNode</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateToLeafNode].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateToLeafNode].description</description>
+            <innerID>1ff002ec-3046-4f09-89a9-dedbbbb8c654</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>idSet</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateToLeafNode].parameters.parameter[idSet].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateToLeafNode].parameters.parameter[idSet].description</description>
+                    <direction>in</direction>
+                    <dataType>java.util.Set</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>assignCostAccountBatch</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].description</description>
+            <innerID>ccefbb26-cf77-43e6-9864-d16810dffdca</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>java.util.List</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>orgSet</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[orgSet].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[orgSet].description</description>
+                    <direction>in</direction>
+                    <dataType>java.util.Set</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>projectSet</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[projectSet].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[projectSet].description</description>
+                    <direction>in</direction>
+                    <dataType>java.util.Set</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>costAccountList</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[costAccountList].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[costAccountList].description</description>
+                    <direction>in</direction>
+                    <dataType>java.util.Set</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>isAddMap</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[isAddMap].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[isAddMap].description</description>
+                    <direction>in</direction>
+                    <dataType>java.util.Map</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>disAssignAccountBatch</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].description</description>
+            <innerID>5d408879-8f09-45c5-bc58-55ce22b9af71</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>java.util.List</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>orgSet</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].parameters.parameter[orgSet].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].parameters.parameter[orgSet].description</description>
+                    <direction>in</direction>
+                    <dataType>java.util.Set</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>projectSet</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].parameters.parameter[projectSet].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].parameters.parameter[projectSet].description</description>
+                    <direction>in</direction>
+                    <dataType>java.util.Set</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>costAccountList</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].parameters.parameter[costAccountList].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].parameters.parameter[costAccountList].description</description>
+                    <direction>in</direction>
+                    <dataType>java.util.Map</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updateAccountStage</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateAccountStage].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateAccountStage].description</description>
+            <innerID>db6b7bca-8465-4068-b8db-86b61ee37875</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.eas.fdc.basedata.RetValue</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>paramValue</name>
+                    <alias>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateAccountStage].parameters.parameter[paramValue].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateAccountStage].parameters.parameter[paramValue].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.eas.fdc.basedata.ParamValue</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+    </methods>
+    <resource>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].alias">
+            <lang locale="zh_CN" value="成本科目管理" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="成本科目管理" />
+            <lang locale="zh_TW" value="成本科目管理" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].description">
+            <lang locale="zh_CN" value="成本科目管理" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="成本科目管理" />
+            <lang locale="zh_TW" value="成本科目管理" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[costAccountList].alias">
+            <lang locale="zh_CN" value="costAccountList" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="costAccountList" />
+            <lang locale="zh_TW" value="costAccountList" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[costAccountList].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[isAddMap].alias">
+            <lang locale="zh_CN" value="isAddMap" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="isAddMap" />
+            <lang locale="zh_TW" value="isAddMap" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[isAddMap].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[orgSet].alias">
+            <lang locale="zh_CN" value="orgSet" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="orgSet" />
+            <lang locale="zh_TW" value="orgSet" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[orgSet].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[projectSet].alias">
+            <lang locale="zh_CN" value="projectSet" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="projectSet" />
+            <lang locale="zh_TW" value="projectSet" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignCostAccountBatch].parameters.parameter[projectSet].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgProject].alias">
+            <lang locale="zh_CN" value="分配(从组织到工程项目)" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="分配(從組織到工程項目)" />
+            <lang locale="zh_TW" value="分配(從組織到工程項目)" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgProject].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgProject].parameters.parameter[orgPK].alias">
+            <lang locale="zh_CN" value="orgPK" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="orgPK" />
+            <lang locale="zh_TW" value="orgPK" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgProject].parameters.parameter[orgPK].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgsCostAccount].alias">
+            <lang locale="zh_CN" value="分配组织节点下的成本科目" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="分配組織節點下的成本科目" />
+            <lang locale="zh_TW" value="分配組織節點下的成本科目" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgsCostAccount].description">
+            <lang locale="zh_CN" value="分配组织节点下的成本科目" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="分配組織節點下的成本科目" />
+            <lang locale="zh_TW" value="分配組織節點下的成本科目" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgsCostAccount].parameters.parameter[orgPK].alias">
+            <lang locale="zh_CN" value="组织pk" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="組織pk" />
+            <lang locale="zh_TW" value="組織pk" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignOrgsCostAccount].parameters.parameter[orgPK].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignProjsCostAccount].alias">
+            <lang locale="zh_CN" value="分配工程项目节点下的成本科目" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="分配工程項目節點下的成本科目" />
+            <lang locale="zh_TW" value="分配工程項目節點下的成本科目" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignProjsCostAccount].description">
+            <lang locale="zh_CN" value="分配工程项目节点下的成本科目" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="分配工程項目節點下的成本科目" />
+            <lang locale="zh_TW" value="分配工程項目節點下的成本科目" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignProjsCostAccount].parameters.parameter[projectPK].alias">
+            <lang locale="zh_CN" value="工程项目pk" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="工程項目pk" />
+            <lang locale="zh_TW" value="工程項目pk" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignProjsCostAccount].parameters.parameter[projectPK].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].alias">
+            <lang locale="zh_CN" value="分配到下一级" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="分配到下一級" />
+            <lang locale="zh_TW" value="分配到下一級" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].parameters.parameter[isProjectSet].alias">
+            <lang locale="zh_CN" value="isProjectSet" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="isProjectSet" />
+            <lang locale="zh_TW" value="isProjectSet" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].parameters.parameter[isProjectSet].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].parameters.parameter[nodeIds].alias">
+            <lang locale="zh_CN" value="nodeIds" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="nodeIds" />
+            <lang locale="zh_TW" value="nodeIds" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].parameters.parameter[nodeIds].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].parameters.parameter[orgPK].alias">
+            <lang locale="zh_CN" value="orgPK" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="orgPK" />
+            <lang locale="zh_TW" value="orgPK" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[assignToNextLevel].parameters.parameter[orgPK].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[checkCurrentCostAccountIsDetailsNode].alias">
+            <lang locale="zh_CN" value="判断明细节点" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="判斷明細節點" />
+            <lang locale="zh_TW" value="判斷明細節點" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[checkCurrentCostAccountIsDetailsNode].description">
+            <lang locale="zh_CN" value="判断明细节点" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="判斷明細節點" />
+            <lang locale="zh_TW" value="判斷明細節點" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[checkCurrentCostAccountIsDetailsNode].parameters.parameter[id].alias">
+            <lang locale="zh_CN" value="id" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="id" />
+            <lang locale="zh_TW" value="id" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[checkCurrentCostAccountIsDetailsNode].parameters.parameter[id].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[checkCurrentCostAccountIsDetailsNode].parameters.parameter[orgId].alias">
+            <lang locale="zh_CN" value="orgId" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="orgId" />
+            <lang locale="zh_TW" value="orgId" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[checkCurrentCostAccountIsDetailsNode].parameters.parameter[orgId].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].parameters.parameter[costAccountList].alias">
+            <lang locale="zh_CN" value="costAccountList" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="costAccountList" />
+            <lang locale="zh_TW" value="costAccountList" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].parameters.parameter[costAccountList].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].parameters.parameter[orgSet].alias">
+            <lang locale="zh_CN" value="orgSet" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="orgSet" />
+            <lang locale="zh_TW" value="orgSet" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].parameters.parameter[orgSet].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].parameters.parameter[projectSet].alias">
+            <lang locale="zh_CN" value="projectSet" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="projectSet" />
+            <lang locale="zh_TW" value="projectSet" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignAccountBatch].parameters.parameter[projectSet].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgProject].alias">
+            <lang locale="zh_CN" value="反分配(从组织收回工程项目相关的成本科目)" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反分配(從組織收回工程項目相關的成本科目)" />
+            <lang locale="zh_TW" value="反分配(從組織收回工程項目相關的成本科目)" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgProject].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgProject].parameters.parameter[orgPK].alias">
+            <lang locale="zh_CN" value="orgPK" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="orgPK" />
+            <lang locale="zh_TW" value="orgPK" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgProject].parameters.parameter[orgPK].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgsCostAccount].alias">
+            <lang locale="zh_CN" value="反分配" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反分配" />
+            <lang locale="zh_TW" value="反分配" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgsCostAccount].description">
+            <lang locale="zh_CN" value="反分配" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反分配" />
+            <lang locale="zh_TW" value="反分配" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgsCostAccount].parameters.parameter[orgPK].alias">
+            <lang locale="zh_CN" value="orgPK" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="orgPK" />
+            <lang locale="zh_TW" value="orgPK" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignOrgsCostAccount].parameters.parameter[orgPK].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignProjsCostAccount].alias">
+            <lang locale="zh_CN" value="反分配" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反分配" />
+            <lang locale="zh_TW" value="反分配" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignProjsCostAccount].description">
+            <lang locale="zh_CN" value="反分配" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反分配" />
+            <lang locale="zh_TW" value="反分配" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignProjsCostAccount].parameters.parameter[projectPK].alias">
+            <lang locale="zh_CN" value="projectPK" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="projectPK" />
+            <lang locale="zh_TW" value="projectPK" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignProjsCostAccount].parameters.parameter[projectPK].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgProject].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgProject].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgProject].parameters.parameter[costAccounts].alias">
+            <lang locale="zh_CN" value="costAccounts" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="costAccounts" />
+            <lang locale="zh_TW" value="costAccounts" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgProject].parameters.parameter[costAccounts].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgsCostAccount].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgsCostAccount].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgsCostAccount].parameters.parameter[costAccounts].alias">
+            <lang locale="zh_CN" value="costAccounts" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="costAccounts" />
+            <lang locale="zh_TW" value="costAccounts" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectOrgsCostAccount].parameters.parameter[costAccounts].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectProjsCostAccount].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectProjsCostAccount].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectProjsCostAccount].parameters.parameter[costAccounts].alias">
+            <lang locale="zh_CN" value="costAccounts" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="costAccounts" />
+            <lang locale="zh_TW" value="costAccounts" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[disAssignSelectProjsCostAccount].parameters.parameter[costAccounts].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[handleEnterDB].alias">
+            <lang locale="zh_CN" value="处理是否进入成本数据库" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="處理是否進入成本數據庫" />
+            <lang locale="zh_TW" value="處理是否進入成本數據庫" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[handleEnterDB].description">
+            <lang locale="zh_CN" value="处理是否进入成本数据库" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="處理是否進入成本數據庫" />
+            <lang locale="zh_TW" value="處理是否進入成本數據庫" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[handleEnterDB].parameters.parameter[isEnterDB].alias">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[handleEnterDB].parameters.parameter[isEnterDB].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[handleEnterDB].parameters.parameter[model].alias">
+            <lang locale="zh_CN" value="成本科目" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="成本科目" />
+            <lang locale="zh_TW" value="成本科目" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[handleEnterDB].parameters.parameter[model].description">
+            <lang locale="zh_CN" value="成本科目" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="成本科目" />
+            <lang locale="zh_TW" value="成本科目" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateAccountStage].alias">
+            <lang locale="zh_CN" value="更新科目测算阶段值" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="更新科目測算階段值" />
+            <lang locale="zh_TW" value="更新科目測算階段值" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateAccountStage].description">
+            <lang locale="zh_CN" value="更新科目测算阶段值" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="更新科目測算階段值" />
+            <lang locale="zh_TW" value="更新科目測算階段值" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateAccountStage].parameters.parameter[paramValue].alias">
+            <lang locale="zh_CN" value="参数" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="參數" />
+            <lang locale="zh_TW" value="參數" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateAccountStage].parameters.parameter[paramValue].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateStageData].alias">
+            <lang locale="zh_CN" value="批量更新测算阶段数据" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="批量更新測算階段數據" />
+            <lang locale="zh_TW" value="批量更新測算階段數據" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateStageData].description">
+            <lang locale="zh_CN" value="批量更新测算阶段数据" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="批量更新測算階段數據" />
+            <lang locale="zh_TW" value="批量更新測算階段數據" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateStageData].parameters.parameter[idSet].alias">
+            <lang locale="zh_CN" value="idSet" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="idSet" />
+            <lang locale="zh_TW" value="idSet" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateStageData].parameters.parameter[idSet].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateStageData].parameters.parameter[isChecked].alias">
+            <lang locale="zh_CN" value="isChecked" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="isChecked" />
+            <lang locale="zh_TW" value="isChecked" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateStageData].parameters.parameter[isChecked].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateToLeafNode].alias">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateToLeafNode].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateToLeafNode].parameters.parameter[idSet].alias">
+            <lang locale="zh_CN" value="idSet" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="idSet" />
+            <lang locale="zh_TW" value="idSet" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.basedata.app.CostAccountFacade].methods.method[updateToLeafNode].parameters.parameter[idSet].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+    </resource>
+</facade>
+

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.finance.app</package>
+    <name>T_FNC_ProjectDynaticFPPE</name>
+    <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].alias</alias>
+    <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].description</description>
+    <userDefined>false</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FParentID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>FProgrammingID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FProgrammingID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FProgrammingID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FProgAmount</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FProgAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FProgAmount].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FSignState</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FSignState].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FSignState].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>100</precision>
+        </column>
+        <column>
+            <name>FTotalAmount</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FTotalAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FTotalAmount].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FSeq</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FSeq].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>PK_FNC_ProjtDFPPE</name>
+        <userDefined>false</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <foreignKeys>
+        <foreignKey>
+            <name>FK_FNC_PrjctDFPPP</name>
+            <userDefined>false</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="T_FNC_ProjectDynaticFPP" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FParentID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>FK_FNC_PrjctDFPPPg</name>
+            <userDefined>false</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="T_CON_ProgrammingContract" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FProgrammingID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].alias">
+            <lang locale="zh_CN" value="项目动态资金付款计划分录" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="項目動態資金付款計畫分錄" />
+            <lang locale="zh_TW" value="項目動態資金付款計畫分錄" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FID].alias">
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FID].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FParentID].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FParentID].description">
+            <lang locale="zh_CN" value="单头" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="單頭" />
+            <lang locale="zh_TW" value="單頭" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FProgAmount].alias">
+            <lang locale="zh_CN" value="规划金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="規劃金額" />
+            <lang locale="zh_TW" value="規劃金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FProgAmount].description">
+            <lang locale="zh_CN" value="规划金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="規劃金額" />
+            <lang locale="zh_TW" value="規劃金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FProgrammingID].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FProgrammingID].description">
+            <lang locale="zh_CN" value="合约规划" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合約規劃" />
+            <lang locale="zh_TW" value="合約規劃" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FSeq].alias">
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FSeq].description">
+            <lang locale="zh_CN" value="单据分录序列号（定义为序列属性即使用{seq}）" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+            <lang locale="zh_TW" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FSignState].alias">
+            <lang locale="zh_CN" value="签订情况" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="簽訂情況" />
+            <lang locale="zh_TW" value="簽訂情況" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FSignState].description">
+            <lang locale="zh_CN" value="签订情况" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="簽訂情況" />
+            <lang locale="zh_TW" value="簽訂情況" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FTotalAmount].alias">
+            <lang locale="zh_CN" value="总金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="總金額" />
+            <lang locale="zh_TW" value="總金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].columns.column[FTotalAmount].description">
+            <lang locale="zh_CN" value="总金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="總金額" />
+            <lang locale="zh_TW" value="總金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectDynaticFPPE].description">
+            <lang locale="zh_CN" value="项目动态资金付款计划分录 " />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="項目動態資金付款計畫分錄 " />
+            <lang locale="zh_TW" value="項目動態資金付款計畫分錄 " />
+        </rs>
+    </resource>
+</dataTable>
+

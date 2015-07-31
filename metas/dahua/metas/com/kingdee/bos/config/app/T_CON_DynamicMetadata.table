@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.bos.config.app</package>
+    <name>T_CON_DynamicMetadata</name>
+    <alias>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].alias</alias>
+    <description>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].description</description>
+    <userDefined>false</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>FMetaDataPK</name>
+            <alias>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FMetaDataPK].alias</alias>
+            <description>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FMetaDataPK].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>N''</defaultValue>
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>80</precision>
+        </column>
+        <column>
+            <name>FBosType</name>
+            <alias>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FBosType].alias</alias>
+            <description>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FBosType].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+        <column>
+            <name>FSegment</name>
+            <alias>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FSegment].alias</alias>
+            <description>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FSegment].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>BLOB</sqlType>
+            <length>2048000</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FProjectID</name>
+            <alias>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FProjectID].alias</alias>
+            <description>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FProjectID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>N''</defaultValue>
+            <sqlType>NVARCHAR</sqlType>
+            <length>40</length>
+            <scale>0</scale>
+            <precision>40</precision>
+        </column>
+        <column>
+            <name>FIsAffectMdbview</name>
+            <alias>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FIsAffectMdbview].alias</alias>
+            <description>dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FIsAffectMdbview].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>PK_DynamicMetadata</name>
+        <userDefined>false</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <resource>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="T_CON_DynamicMetadata" />
+            <lang locale="zh_HK" value="T_CON_DynamicMetadata" />
+            <lang locale="zh_TW" value="T_CON_DynamicMetadata" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FBosType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="元数据类型" />
+            <lang locale="zh_HK" value="元數據類型" />
+            <lang locale="zh_TW" value="元數據類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FBosType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="元数据类型" />
+            <lang locale="zh_HK" value="元數據類型" />
+            <lang locale="zh_TW" value="元數據類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FIsAffectMdbview].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否影响子系统树" />
+            <lang locale="zh_HK" value="是否影響子系統樹" />
+            <lang locale="zh_TW" value="是否影響子系統樹" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FIsAffectMdbview].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否影响子系统树" />
+            <lang locale="zh_HK" value="是否影響子系統樹" />
+            <lang locale="zh_TW" value="是否影響子系統樹" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FMetaDataPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="元数据pk" />
+            <lang locale="zh_HK" value="元數據pk" />
+            <lang locale="zh_TW" value="元數據pk" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FMetaDataPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="元数据pk" />
+            <lang locale="zh_HK" value="元數據pk" />
+            <lang locale="zh_TW" value="元數據pk" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FProjectID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="方案ID" />
+            <lang locale="zh_HK" value="方案ID" />
+            <lang locale="zh_TW" value="方案ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FProjectID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FSegment].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="元数据片段" />
+            <lang locale="zh_HK" value="元數據片段" />
+            <lang locale="zh_TW" value="元數據片段" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].columns.column[FSegment].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="元数据片段" />
+            <lang locale="zh_HK" value="元數據片段" />
+            <lang locale="zh_TW" value="元數據片段" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_DynamicMetadata].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="动态元数据 " />
+            <lang locale="zh_HK" value="動態元數據 " />
+            <lang locale="zh_TW" value="動態元數據 " />
+        </rs>
+    </resource>
+</dataTable>
+

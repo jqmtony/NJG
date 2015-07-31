@@ -1,0 +1,1384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entityObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.scheme.app</package>
+    <name>FdcDataTable</name>
+    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].alias</alias>
+    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].description</description>
+    <userDefined>false</userDefined>
+    <bosType>1234DF90</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.fdc.basedata.scheme.FdcDataTable</businessImplName>
+    <businessControllerName>com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTableController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].description</description>
+            <innerID>7d82e7ec-b11d-469c-bf68-24640c7b4529</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].description</description>
+            <innerID>c09c58b3-05fa-4bce-8e8a-c52951afcaf2</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].description</description>
+            <innerID>1270a061-15fc-446e-ba3a-6395a4b1448b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].description</description>
+            <innerID>563e10e8-3788-4ad4-83ea-d36bfd0cce17</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].description</description>
+            <innerID>411a5133-f3e6-4acb-83f0-78eb7d924c48</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].description</description>
+            <innerID>44105aa5-0b9a-4772-acda-ff456c003382</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].description</description>
+            <innerID>0a7ae97a-5f25-4b2e-9fc3-d6b591d3e867</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].description</description>
+            <innerID>5bf2354a-fa60-48e5-ab7b-4fa7feafb888</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>update</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[update].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[update].description</description>
+            <innerID>e8c52b84-0a51-46d2-a743-5199f267ff63</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[update].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[update].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[update].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[update].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updatePartial</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updatePartial].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updatePartial].description</description>
+            <innerID>fb0d0f8a-df43-4be0-9fca-6d94b7eee986</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updatePartial].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updatePartial].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updatePartial].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updatePartial].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updateBigObject</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updateBigObject].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updateBigObject].description</description>
+            <innerID>157881db-ab67-494f-b5f9-2c78f80dfcde</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updateBigObject].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updateBigObject].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updateBigObject].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updateBigObject].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].description</description>
+            <innerID>1c6f94d1-5453-4dde-8b28-86dc28adc655</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].description</description>
+            <innerID>157d9bc9-9522-46c8-a320-95b62c76d9cb</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].description</description>
+            <innerID>c36f9ba8-1338-441e-9295-6be1c0561f9b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].description</description>
+            <innerID>d2efd5e5-cc87-4fdc-ac21-c509125c37db</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>sorter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].parameters.parameter[sorter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].parameters.parameter[sorter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SorterItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].description</description>
+            <innerID>499537e0-3da2-4854-ab0f-41f9c9d164b3</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].description</description>
+            <innerID>d888bcca-3064-46b7-ac4e-05154876700b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>view</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].parameters.parameter[view].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].parameters.parameter[view].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.EntityViewInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].description</description>
+            <innerID>05acbcf3-efcf-4730-8a56-ac2b663369ba</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].description</description>
+            <innerID>caa91580-42ce-492a-abcf-ea990afafdb0</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].description</description>
+            <innerID>41cab1c0-2627-4f63-b91c-1dcecf395970</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].description</description>
+            <innerID>3c5eb59d-c7fa-4766-87a2-d05bcd0f56f9</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>arrayPK</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[arrayPK].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[arrayPK].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK[]</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+    </methods>
+    <isAbstract>false</isAbstract>
+    <bizUnitPK />
+    <baseEntity>
+        <key name="package" value="com.kingdee.eas.framework.app" />
+        <key name="name" value="CoreBase" />
+    </baseEntity>
+    <table>
+        <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+        <key name="name" value="T_FDC_FdcDataTable" />
+    </table>
+    <properties>
+        <linkProperty>
+            <name>entries</name>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.linkProperty[entries].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.linkProperty[entries].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="R_FdcDataTable_FdcColumn_entries" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>entityObjects</name>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.linkProperty[entityObjects].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.linkProperty[entityObjects].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="R_FdcDataTable_FdcEntityObject_entityObjects" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>packageName</name>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[packageName].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[packageName].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>500</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[packageName].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FPackageName" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>name</name>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[name].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[name].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[name].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FName" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>fullName</name>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[fullName].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[fullName].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>500</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[fullName].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FFullName" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>alias</name>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[alias].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[alias].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>true</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>255</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[alias].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FAlias" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>description</name>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[description].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[description].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>true</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>255</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[description].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FDescription" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>userDefined</name>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[userDefined].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[userDefined].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>Boolean</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>0</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[userDefined].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FUserDefined" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>primaryKey</name>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[primaryKey].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[primaryKey].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>20</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[primaryKey].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FPrimaryKey" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>isExist</name>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[isExist].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[isExist].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>Boolean</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>0</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[isExist].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FIsExist" />
+            </mappingField>
+        </ownProperty>
+    </properties>
+    <logicalKey>
+        <name>id</name>
+        <alias>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].logicalKey[id].alias</alias>
+        <description>entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].logicalKey[id].description</description>
+        <keyClass>com.kingdee.bos.dao.IObjectPK</keyClass>
+        <userDefined>false</userDefined>
+        <keyProperties>
+            <baseProperty>
+                <key name="name" value="id" />
+            </baseProperty>
+        </keyProperties>
+    </logicalKey>
+    <resource>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="房地产数据表" />
+            <lang locale="zh_HK" value="房地產數據表" />
+            <lang locale="zh_TW" value="房地產數據表" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="房地产数据表" />
+            <lang locale="zh_HK" value="房地產數據表" />
+            <lang locale="zh_TW" value="房地產數據表" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].extendedProperty.genBusinessImplCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].logicalKey[id].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].logicalKey[id].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[addnew].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[arrayPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[arrayPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[exists].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].parameters.parameter[view].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getCollection].parameters.parameter[view].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].parameters.parameter[sorter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getPKList].parameters.parameter[sorter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[selector].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[getValue].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updateBigObject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updateBigObject].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updateBigObject].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updateBigObject].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updateBigObject].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updateBigObject].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updatePartial].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updatePartial].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updatePartial].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updatePartial].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updatePartial].parameters.parameter[selector].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[updatePartial].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[update].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[update].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[update].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[update].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[update].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].methods.method[update].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.linkProperty[entityObjects].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实体对象" />
+            <lang locale="zh_HK" value="實體對象" />
+            <lang locale="zh_TW" value="實體對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.linkProperty[entityObjects].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实体对象" />
+            <lang locale="zh_HK" value="實體對象" />
+            <lang locale="zh_TW" value="實體對象" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.linkProperty[entries].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分录" />
+            <lang locale="zh_HK" value="分錄" />
+            <lang locale="zh_TW" value="分錄" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.linkProperty[entries].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分录" />
+            <lang locale="zh_HK" value="分錄" />
+            <lang locale="zh_TW" value="分錄" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[alias].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[alias].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[alias].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[description].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
+            <lang locale="zh_TW" value="描述" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[description].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[description].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
+            <lang locale="zh_TW" value="描述" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[fullName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="完整名称" />
+            <lang locale="zh_HK" value="完整名稱" />
+            <lang locale="zh_TW" value="完整名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[fullName].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[fullName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="完整名称" />
+            <lang locale="zh_HK" value="完整名稱" />
+            <lang locale="zh_TW" value="完整名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[isExist].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否存在" />
+            <lang locale="zh_HK" value="是否存在" />
+            <lang locale="zh_TW" value="是否存在" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[isExist].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[isExist].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否存在，标志字段(存在于数据库中)" />
+            <lang locale="zh_HK" value="是否存在，標誌字段(存在於資料庫中)" />
+            <lang locale="zh_TW" value="是否存在，標誌字段(存在於資料庫中)" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[name].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[name].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[name].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[packageName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="包名" />
+            <lang locale="zh_HK" value="包名" />
+            <lang locale="zh_TW" value="包名" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[packageName].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[packageName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="包名" />
+            <lang locale="zh_HK" value="包名" />
+            <lang locale="zh_TW" value="包名" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[primaryKey].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[primaryKey].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[primaryKey].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[userDefined].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否用户定义" />
+            <lang locale="zh_HK" value="是否用戶定義" />
+            <lang locale="zh_TW" value="是否用戶定義" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[userDefined].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.scheme.app.FdcDataTable].properties.ownProperty[userDefined].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否用户定义" />
+            <lang locale="zh_HK" value="是否用戶定義" />
+            <lang locale="zh_TW" value="是否用戶定義" />
+        </rs>
+    </resource>
+</entityObject>
+

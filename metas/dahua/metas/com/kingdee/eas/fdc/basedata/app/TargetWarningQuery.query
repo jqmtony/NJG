@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.app</package>
+    <name>TargetWarningQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].description</description>
+    <userDefined>false</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>TargetWarning</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].subObjects.subEntity[TargetWarning].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarning" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>CU</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].subObjects.subEntity[CU].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="CtrlUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>adc3d78d-10ad-43f8-8f30-d675c7118b56</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.propertyUnit[adc3d78d-10ad-43f8-8f30-d675c7118b56].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>6ad111d5-5df4-42ba-9e63-6bf786e7e1a0</key>
+                    <parentUnit>
+                        <key name="name" value="adc3d78d-10ad-43f8-8f30-d675c7118b56" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TargetWarning" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="CU" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>3c9c9945-4d2d-4c88-a696-7722390a4ea6</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.propertyUnit[3c9c9945-4d2d-4c88-a696-7722390a4ea6].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>2e031d52-c0f5-4c2b-a8fc-d63407ebebe1</key>
+                    <parentUnit>
+                        <key name="name" value="3c9c9945-4d2d-4c88-a696-7722390a4ea6" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>fa4eab89-4e6b-4167-8ba3-4ac373b31b1b</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.propertyUnit[fa4eab89-4e6b-4167-8ba3-4ac373b31b1b].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>4f51564d-cb67-4ca5-b4ba-e24d57b99107</key>
+                    <parentUnit>
+                        <key name="name" value="fa4eab89-4e6b-4167-8ba3-4ac373b31b1b" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TargetWarning" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>1e491ca2-3d9a-4c47-9be3-683ebbfb2958</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.propertyUnit[1e491ca2-3d9a-4c47-9be3-683ebbfb2958].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>4d349de8-d9f0-4550-a2f3-b6a91ab6b949</key>
+                    <parentUnit>
+                        <key name="name" value="1e491ca2-3d9a-4c47-9be3-683ebbfb2958" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>isEnabled</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.queryField[isEnabled].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3f936855-b9ec-4fa8-8f0b-c023e2d2d027</key>
+                    <parentUnit>
+                        <key name="name" value="isEnabled" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TargetWarning" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isEnabled" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c7ac6c5f-0722-4f95-a61b-e03549038506</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TargetWarning" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f6151ec8-eb18-41cc-b3f3-3ea0f0798ae4</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TargetWarning" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>CU.id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.queryField[CU.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1eb5b35f-3cf1-4b50-840d-412e504affb7</key>
+                    <parentUnit>
+                        <key name="name" value="CU.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CU" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>be330071-1005-42c2-ba9b-3a0a71a6dea5</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fa45f9a9-6196-4d7d-99cc-a9547226c2ef</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TargetWarning" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+            <key name="name" value="TargetWarningQuery" />
+        </query>
+    </defaultFilter>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>fc04c7a9-464a-402f-9a7b-c2d6c1756eaa</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="TargetWarning" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="CU" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>a050082b-24cf-405a-aaf0-51a7ab174a2b</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="adc3d78d-10ad-43f8-8f30-d675c7118b56" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="3c9c9945-4d2d-4c88-a696-7722390a4ea6" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="fc04c7a9-464a-402f-9a7b-c2d6c1756eaa" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+        </join>
+        <join>
+            <name>9d388498-f205-4a16-b472-e9cafe78bf0b</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="TargetWarning" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>8d03181c-b57b-4216-ad48-42e62de9fd11</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="fa4eab89-4e6b-4167-8ba3-4ac373b31b1b" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="1e491ca2-3d9a-4c47-9be3-683ebbfb2958" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="9d388498-f205-4a16-b472-e9cafe78bf0b" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="TargetWarningQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目运营预警查询" />
+            <lang locale="zh_HK" value="項目運營預警查詢" />
+            <lang locale="zh_TW" value="項目運營預警查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目运营预警查询" />
+            <lang locale="zh_HK" value="項目運營預警查詢" />
+            <lang locale="zh_TW" value="項目運營預警查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].subObjects.subEntity[CU].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].subObjects.subEntity[TargetWarning].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.propertyUnit[1e491ca2-3d9a-4c47-9be3-683ebbfb2958].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.propertyUnit[3c9c9945-4d2d-4c88-a696-7722390a4ea6].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.propertyUnit[adc3d78d-10ad-43f8-8f30-d675c7118b56].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.propertyUnit[fa4eab89-4e6b-4167-8ba3-4ac373b31b1b].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.queryField[CU.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="用户实名" />
+            <lang locale="zh_HK" value="用戶實名" />
+            <lang locale="zh_TW" value="用戶實名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.queryField[isEnabled].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="启用" />
+            <lang locale="zh_HK" value="啟用" />
+            <lang locale="zh_TW" value="啟用" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.TargetWarningQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
+        </rs>
+    </resource>
+</joinQuery>
+

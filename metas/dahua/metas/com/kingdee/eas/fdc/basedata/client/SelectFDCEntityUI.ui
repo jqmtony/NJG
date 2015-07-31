@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.client</package>
+    <name>SelectFDCEntityUI</name>
+    <alias>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].alias</alias>
+    <description>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].description</description>
+    <userDefined>false</userDefined>
+    <releasePackage>com.kingdee.eas.fdc.basedata.client</releasePackage>
+    <releaseClass>SelectFDCEntityUI</releaseClass>
+    <title>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].title</title>
+    <uitype />
+    <defaultbutton />
+    <bizUnitPK />
+    <parent>
+        <key name="package" value="com.kingdee.eas.framework.client" />
+        <key name="name" value="CoreUI" />
+    </parent>
+    <components>
+        <component>
+            <name>CoreUI</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[CoreUI].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,10,250,350</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>kDTreeView</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[kDTreeView].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTreeView</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,10,229,271</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>TreeViewLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>btnConfirm</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[btnConfirm].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>76,320,73,21</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[btnConfirm].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[btnConfirm].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>btnCancel</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[btnCancel].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>164,320,73,21</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[btnCancel].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[btnCancel].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>entityFullName</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[entityFullName].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>10,292,229,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>editable</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[entityFullName].properties.property[editable].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>fdcEntityTree</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[fdcEntityTree].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTree</classType>
+            <isContainer>false</isContainer>
+            <constraints>2</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDTreeView" />
+            </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>valueChanged</name>
+                    <eventType>javax.swing.event.TreeSelectionEvent</eventType>
+                    <scene />
+                    <listenerType>javax.swing.event.TreeSelectionListener</listenerType>
+                    <listenerAdapter>javax.swing.event.TreeSelectionListener</listenerAdapter>
+                    <methodName>fdcEntityTree_valueChanged</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
+    </components>
+    <actions>
+        <action>
+            <instanceName>actionBtnConfrim</instanceName>
+            <className>ActionBtnConfrim</className>
+            <name>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnConfrim].name</name>
+            <enabled>true</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnConfrim].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnConfrim].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnConfrim].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionBtnCancel</instanceName>
+            <className>ActionBtnCancel</className>
+            <name>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnCancel].name</name>
+            <enabled>true</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnCancel].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnCancel].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnCancel].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+    </actions>
+    <resource>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnCancel].longDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnCancel].name">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnCancel].shortDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnCancel].smallIcon">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnConfrim].longDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnConfrim].name">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnConfrim].shortDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].actions.action[actionBtnConfrim].smallIcon">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].alias">
+            <lang locale="zh_CN" value="选择房地产实体单据对象" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="選擇房地產實體單據對象" />
+            <lang locale="zh_TW" value="選擇房地產實體單據對象" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[CoreUI].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[btnCancel].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[btnCancel].properties.property[action].value">
+            <lang locale="zh_CN" value="actionBtnCancel" />
+            <lang locale="en_US" value="actionBtnCancel" />
+            <lang locale="zh_HK" value="actionBtnCancel" />
+            <lang locale="zh_TW" value="actionBtnCancel" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[btnCancel].properties.property[text].value">
+            <lang locale="zh_CN" value="取消" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="取消" />
+            <lang locale="zh_TW" value="取消" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[btnConfirm].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[btnConfirm].properties.property[action].value">
+            <lang locale="zh_CN" value="actionBtnConfrim" />
+            <lang locale="en_US" value="actionBtnConfrim" />
+            <lang locale="zh_HK" value="actionBtnConfrim" />
+            <lang locale="zh_TW" value="actionBtnConfrim" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[btnConfirm].properties.property[text].value">
+            <lang locale="zh_CN" value="确认" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="確認" />
+            <lang locale="zh_TW" value="確認" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[entityFullName].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[entityFullName].properties.property[editable].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[fdcEntityTree].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].components.component[kDTreeView].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].description">
+            <lang locale="zh_CN" value="选择房地产实体单据对象" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="選擇房地產實體單據對象" />
+            <lang locale="zh_TW" value="選擇房地產實體單據對象" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.SelectFDCEntityUI].title">
+            <lang locale="zh_CN" value="选择房地产实体单据对象" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="選擇房地產實體單據對象" />
+            <lang locale="zh_TW" value="選擇房地產實體單據對象" />
+        </rs>
+    </resource>
+</uiObject>
+

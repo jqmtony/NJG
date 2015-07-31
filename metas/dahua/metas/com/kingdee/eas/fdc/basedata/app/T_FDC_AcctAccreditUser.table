@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.app</package>
+    <name>T_FDC_AcctAccreditUser</name>
+    <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].alias</alias>
+    <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].description</description>
+    <userDefined>false</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FUserID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FUserID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FUserID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FFullOrgUnitID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FFullOrgUnitID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FFullOrgUnitID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FCurProjectID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FCurProjectID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FCurProjectID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSchemeID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FSchemeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FSchemeID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FRoleID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FRoleID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FRoleID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>PK_AcctAccreditUse</name>
+        <userDefined>false</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <foreignKeys>
+        <foreignKey>
+            <name>FK_BD_AcctAUSer</name>
+            <userDefined>false</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="T_PM_User" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FUserID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>FK_BD_AcctAUUllOU</name>
+            <userDefined>false</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.org" />
+                <key name="name" value="T_ORG_BaseUnit" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FFullOrgUnitID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>FK_BD_AcctAUUrP</name>
+            <userDefined>false</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="T_FDC_CurProject" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FCurProjectID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>FK_BD_AcctAUCheme</name>
+            <userDefined>false</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="T_FDC_AcctAccreditScheme" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FSchemeID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>FK_BD_AcctAUOle</name>
+            <userDefined>false</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="T_PM_Role" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FRoleID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FCurProjectID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FCurProjectID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FFullOrgUnitID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FFullOrgUnitID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="关联组织，实体财务组织，或其上级" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FRoleID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="角色" />
+            <lang locale="zh_TW" value="角色" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FRoleID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="角色" />
+            <lang locale="zh_TW" value="角色" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FSchemeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FSchemeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="关联方案" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FUserID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].columns.column[FUserID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用户" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_AcctAccreditUser].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本科目授权用户" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</dataTable>
+

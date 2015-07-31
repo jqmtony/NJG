@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.app</package>
+    <name>T_BD_TargetDescEntry</name>
+    <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].alias</alias>
+    <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].description</description>
+    <userDefined>false</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FHeadId</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FHeadId].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FHeadId].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FTargetId</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FTargetId].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FTargetId].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>100</precision>
+        </column>
+        <column>
+            <name>FDesc</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FDesc].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FDesc].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FIsHighLight</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FIsHighLight].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FIsHighLight].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>1</precision>
+        </column>
+        <column>
+            <name>FTargetName</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FTargetName].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FTargetName].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>FTargetGroup</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FTargetGroup].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FTargetGroup].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>PK_TargetDescEntry</name>
+        <userDefined>false</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="移动运营-指标描述信息分录" />
+            <lang locale="zh_HK" value="移動運營-指標描述信息分錄" />
+            <lang locale="zh_TW" value="移動運營-指標描述信息分錄" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FDesc].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="原因详细说明" />
+            <lang locale="zh_HK" value="原因詳細說明" />
+            <lang locale="zh_TW" value="原因詳細說明" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FDesc].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="原因详细说明" />
+            <lang locale="zh_HK" value="原因詳細說明" />
+            <lang locale="zh_TW" value="原因詳細說明" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FHeadId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FHeadId].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标录入头" />
+            <lang locale="zh_HK" value="指標錄入頭" />
+            <lang locale="zh_TW" value="指標錄入頭" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FIsHighLight].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否亮显" />
+            <lang locale="zh_HK" value="是否亮顯" />
+            <lang locale="zh_TW" value="是否亮顯" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FIsHighLight].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否亮显" />
+            <lang locale="zh_HK" value="是否亮顯" />
+            <lang locale="zh_TW" value="是否亮顯" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FTargetGroup].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分组" />
+            <lang locale="zh_HK" value="分組" />
+            <lang locale="zh_TW" value="分組" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FTargetGroup].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分组" />
+            <lang locale="zh_HK" value="分組" />
+            <lang locale="zh_TW" value="分組" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FTargetId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标Id" />
+            <lang locale="zh_HK" value="指標Id" />
+            <lang locale="zh_TW" value="指標Id" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FTargetId].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标Id" />
+            <lang locale="zh_HK" value="指標Id" />
+            <lang locale="zh_TW" value="指標Id" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FTargetName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标名称" />
+            <lang locale="zh_HK" value="指標名稱" />
+            <lang locale="zh_TW" value="指標名稱" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].columns.column[FTargetName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标名称" />
+            <lang locale="zh_HK" value="指標名稱" />
+            <lang locale="zh_TW" value="指標名稱" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_BD_TargetDescEntry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="移动运营-指标描述信息分录" />
+            <lang locale="zh_HK" value="移動運營-指標描述信息分錄" />
+            <lang locale="zh_TW" value="移動運營-指標描述信息分錄" />
+        </rs>
+    </resource>
+</dataTable>
+

@@ -1,0 +1,1083 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.finance.client</package>
+    <name>ContractPayPlanExecUI</name>
+    <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].alias</alias>
+    <description>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].description</description>
+    <userDefined>false</userDefined>
+    <releasePackage>com.kingdee.eas.fdc.finance.client</releasePackage>
+    <releaseClass>ContractPayPlanExecUI</releaseClass>
+    <title>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].title</title>
+    <uitype />
+    <defaultbutton />
+    <bizUnitPK />
+    <parent>
+        <key name="package" value="com.kingdee.eas.fdc.basedata.client" />
+        <key name="name" value="ProjectTreeListBaseUI" />
+    </parent>
+    <components>
+        <component>
+            <name>treeProject</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[treeProject].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTree</classType>
+            <isContainer>false</isContainer>
+            <constraints>left</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>toolTipText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[treeProject].properties.property[toolTipText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>kDSplitPane2</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[kDSplitPane2].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSplitPane</classType>
+            <isContainer>true</isContainer>
+            <constraints>right</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>SplitLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>orientation</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[kDSplitPane2].properties.property[orientation].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>dividerLocation</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[kDSplitPane2].properties.property[dividerLocation].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDSplitPane1" />
+            </parent>
+        </component>
+        <component>
+            <name>tblMain</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[tblMain].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
+            <isContainer>false</isContainer>
+            <constraints>bottom</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="kDSplitPane2" />
+            </parent>
+        </component>
+        <component>
+            <name>kDPanel1</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[kDPanel1].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
+            <isContainer>true</isContainer>
+            <constraints>top</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>kDLayout2</name>
+                <type>KDLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDSplitPane2" />
+            </parent>
+        </component>
+        <component>
+            <name>contStartMonth</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartMonth].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>194,10,106,19,5</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartMonth].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartMonth].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartMonth].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel1" />
+            </parent>
+        </component>
+        <component>
+            <name>contStartYear</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartYear].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,10,166,19,5</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartYear].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartYear].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartYear].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel1" />
+            </parent>
+        </component>
+        <component>
+            <name>contEndYear</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndYear].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>329,10,166,19,5</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndYear].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndYear].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndYear].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel1" />
+            </parent>
+        </component>
+        <component>
+            <name>contEndMonth</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndMonth].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>506,10,106,19,5</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndMonth].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndMonth].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndMonth].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel1" />
+            </parent>
+        </component>
+        <component>
+            <name>btnSearch</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnSearch].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>648,10,77,19,5</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnSearch].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnSearch].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel1" />
+            </parent>
+        </component>
+        <component>
+            <name>spStartMonth</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[spStartMonth].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSpinner</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="contStartMonth" />
+            </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>stateChanged</name>
+                    <eventType>javax.swing.event.ChangeEvent</eventType>
+                    <scene />
+                    <listenerType>javax.swing.event.ChangeListener</listenerType>
+                    <listenerAdapter>javax.swing.event.ChangeListener</listenerAdapter>
+                    <methodName>spStartMonth_stateChanged</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
+            <name>spStartYear</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[spStartYear].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSpinner</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="contStartYear" />
+            </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>stateChanged</name>
+                    <eventType>javax.swing.event.ChangeEvent</eventType>
+                    <scene />
+                    <listenerType>javax.swing.event.ChangeListener</listenerType>
+                    <listenerAdapter>javax.swing.event.ChangeListener</listenerAdapter>
+                    <methodName>spStartYear_stateChanged</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
+            <name>spEndYear</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[spEndYear].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSpinner</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="contEndYear" />
+            </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>stateChanged</name>
+                    <eventType>javax.swing.event.ChangeEvent</eventType>
+                    <scene />
+                    <listenerType>javax.swing.event.ChangeListener</listenerType>
+                    <listenerAdapter>javax.swing.event.ChangeListener</listenerAdapter>
+                    <methodName>spEndYear_stateChanged</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
+            <name>spEndMonth</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[spEndMonth].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSpinner</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="contEndMonth" />
+            </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>stateChanged</name>
+                    <eventType>javax.swing.event.ChangeEvent</eventType>
+                    <scene />
+                    <listenerType>javax.swing.event.ChangeListener</listenerType>
+                    <listenerAdapter>javax.swing.event.ChangeListener</listenerAdapter>
+                    <methodName>spEndMonth_stateChanged</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
+            <name>btnAddNew</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnAddNew].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnAddNew].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnView</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnView].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnView].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnEdit</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnEdit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnEdit].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnRemove</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnRemove].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnRemove].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnRefresh</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnRefresh].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnRefresh].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnLocate</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnLocate].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnLocate].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnAttachment</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnAttachment].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnAttachment].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnQuery</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnQuery].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnQuery].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnQueryScheme</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnQueryScheme].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnQueryScheme].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnWorkFlowG</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnWorkFlowG].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnWorkFlowG].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnAudit</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnAudit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnAudit].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnUnAudit</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnUnAudit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnUnAudit].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+    </components>
+    <actions>
+        <action>
+            <instanceName>actionSearch</instanceName>
+            <className>ActionSearch</className>
+            <name>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].actions.action[actionSearch].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].actions.action[actionSearch].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].actions.action[actionSearch].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].actions.action[actionSearch].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+    </actions>
+    <resource>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].actions.action[actionSearch].longDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].actions.action[actionSearch].name">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].actions.action[actionSearch].shortDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].actions.action[actionSearch].smallIcon">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].alias">
+            <lang locale="zh_CN" value="合同付款计划执行表" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合同付款計畫執行表" />
+            <lang locale="zh_TW" value="合同付款計畫執行表" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnAddNew].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnAddNew].properties.property[visible].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnAttachment].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnAttachment].properties.property[visible].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnAudit].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnAudit].properties.property[visible].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnEdit].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnEdit].properties.property[visible].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnLocate].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnLocate].properties.property[visible].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnQueryScheme].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnQueryScheme].properties.property[visible].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnQuery].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnQuery].properties.property[visible].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnRefresh].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnRefresh].properties.property[visible].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnRemove].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnRemove].properties.property[visible].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnSearch].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnSearch].properties.property[action].value">
+            <lang locale="zh_CN" value="actionSearch" />
+            <lang locale="en_US" value="actionSearch" />
+            <lang locale="zh_HK" value="actionSearch" />
+            <lang locale="zh_TW" value="actionSearch" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnSearch].properties.property[text].value">
+            <lang locale="zh_CN" value="查询" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="查詢" />
+            <lang locale="zh_TW" value="查詢" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnUnAudit].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnUnAudit].properties.property[visible].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnView].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnView].properties.property[visible].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnWorkFlowG].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[btnWorkFlowG].properties.property[visible].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndMonth].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndMonth].properties.property[boundLabelLength].value">
+            <lang locale="zh_CN" value="30" />
+            <lang locale="en_US" value="30" />
+            <lang locale="zh_HK" value="30" />
+            <lang locale="zh_TW" value="30" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndMonth].properties.property[boundLabelText].value">
+            <lang locale="zh_CN" value="月" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="月" />
+            <lang locale="zh_TW" value="月" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndMonth].properties.property[boundLabelUnderline].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndYear].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndYear].properties.property[boundLabelLength].value">
+            <lang locale="zh_CN" value="100" />
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndYear].properties.property[boundLabelText].value">
+            <lang locale="zh_CN" value="计划截至年" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="計畫截至年" />
+            <lang locale="zh_TW" value="計畫截至年" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contEndYear].properties.property[boundLabelUnderline].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartMonth].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartMonth].properties.property[boundLabelLength].value">
+            <lang locale="zh_CN" value="30" />
+            <lang locale="en_US" value="30" />
+            <lang locale="zh_HK" value="30" />
+            <lang locale="zh_TW" value="30" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartMonth].properties.property[boundLabelText].value">
+            <lang locale="zh_CN" value="月" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="月" />
+            <lang locale="zh_TW" value="月" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartMonth].properties.property[boundLabelUnderline].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartYear].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartYear].properties.property[boundLabelLength].value">
+            <lang locale="zh_CN" value="100" />
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartYear].properties.property[boundLabelText].value">
+            <lang locale="zh_CN" value="计划起始年" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="計畫起始年" />
+            <lang locale="zh_TW" value="計畫起始年" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[contStartYear].properties.property[boundLabelUnderline].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[kDPanel1].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[kDSplitPane2].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[kDSplitPane2].properties.property[dividerLocation].value">
+            <lang locale="zh_CN" value="35" />
+            <lang locale="en_US" value="35" />
+            <lang locale="zh_HK" value="35" />
+            <lang locale="zh_TW" value="35" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[kDSplitPane2].properties.property[orientation].value">
+            <lang locale="zh_CN" value="0" />
+            <lang locale="en_US" value="0" />
+            <lang locale="zh_HK" value="0" />
+            <lang locale="zh_TW" value="0" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[spEndMonth].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[spEndYear].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[spStartMonth].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[spStartYear].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[tblMain].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[treeProject].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].components.component[treeProject].properties.property[toolTipText].value">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="行政組織" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].description">
+            <lang locale="zh_CN" value="合同付款计划执行表" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合同付款計畫執行表" />
+            <lang locale="zh_TW" value="合同付款計畫執行表" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ContractPayPlanExecUI].title">
+            <lang locale="zh_CN" value="合同付款计划执行表" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合同付款計畫執行表" />
+            <lang locale="zh_TW" value="合同付款計畫執行表" />
+        </rs>
+    </resource>
+</uiObject>
+

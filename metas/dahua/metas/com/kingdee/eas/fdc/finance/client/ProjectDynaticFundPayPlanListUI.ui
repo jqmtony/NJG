@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.finance.client</package>
+    <name>ProjectDynaticFundPayPlanListUI</name>
+    <alias>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].alias</alias>
+    <description>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].description</description>
+    <userDefined>false</userDefined>
+    <releasePackage>com.kingdee.eas.fdc.finance.client</releasePackage>
+    <releaseClass>ProjectDynaticFundPayPlanListUI</releaseClass>
+    <title>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].title</title>
+    <uitype />
+    <defaultbutton />
+    <bizUnitPK />
+    <parent>
+        <key name="package" value="com.kingdee.eas.fdc.basedata.client" />
+        <key name="name" value="ProjectTreeListBaseUI" />
+    </parent>
+    <components>
+        <component>
+            <name>tblMain</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[tblMain].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>formatXml</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[tblMain].properties.property[formatXml].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>id.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>id</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>curProject.id.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>curProject.id</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>curProject.number.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>curProject.number</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>curProject.name.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>mainQuery</bindingObject>
+                    <bindingField>curProject.name</bindingField>
+                    <fieldType>java.lang.String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>btnSyn</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnSyn].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>10,10,30,30</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnSyn].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnSyn].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnUnit</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnUnit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>10,10,30,30</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnUnit].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnUnit].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnMonthPayDistributePic</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnMonthPayDistributePic].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>10,10,30,30</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnMonthPayDistributePic].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnMonthPayDistributePic].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnPayProgressPic</name>
+            <alias>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnPayProgressPic].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>10,10,30,30</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnPayProgressPic].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnPayProgressPic].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
+        </component>
+    </components>
+    <dataObjects>
+        <dataObject>
+            <name>mainQuery</name>
+            <type>com.kingdee.eas.fdc.finance.app.ProjectDynaticFundPayPlanQuery</type>
+            <objectType>jqye</objectType>
+            <herited>true</herited>
+            <userDefined>false</userDefined>
+        </dataObject>
+    </dataObjects>
+    <actions>
+        <action>
+            <instanceName>actionSyn</instanceName>
+            <className>ActionSyn</className>
+            <name>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionSyn].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionSyn].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionSyn].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionSyn].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionUnit</instanceName>
+            <className>ActionUnit</className>
+            <name>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionUnit].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionUnit].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionUnit].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionUnit].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionMonthPayDistributePic</instanceName>
+            <className>ActionMonthPayDistributePic</className>
+            <name>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionMonthPayDistributePic].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionMonthPayDistributePic].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionMonthPayDistributePic].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionMonthPayDistributePic].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionPayProgressPic</instanceName>
+            <className>ActionPayProgressPic</className>
+            <name>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionPayProgressPic].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionPayProgressPic].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionPayProgressPic].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionPayProgressPic].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+    </actions>
+    <resource>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionMonthPayDistributePic].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionMonthPayDistributePic].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionMonthPayDistributePic].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionMonthPayDistributePic].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionPayProgressPic].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionPayProgressPic].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionPayProgressPic].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionPayProgressPic].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionSyn].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionSyn].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionSyn].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionSyn].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionUnit].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionUnit].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionUnit].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].actions.action[actionUnit].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目动态资金付款计划" />
+            <lang locale="zh_TW" value="項目動態資金付款計畫" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnMonthPayDistributePic].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnMonthPayDistributePic].properties.property[action].value">
+            <lang locale="en_US" value="actionMonthPayDistributePic" />
+            <lang locale="zh_CN" value="actionMonthPayDistributePic" />
+            <lang locale="zh_TW" value="actionMonthPayDistributePic" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnMonthPayDistributePic].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="月度支付分布图" />
+            <lang locale="zh_TW" value="月度支付分佈圖" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnPayProgressPic].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnPayProgressPic].properties.property[action].value">
+            <lang locale="en_US" value="actionPayProgressPic" />
+            <lang locale="zh_CN" value="actionPayProgressPic" />
+            <lang locale="zh_TW" value="actionPayProgressPic" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnPayProgressPic].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="支付进度图" />
+            <lang locale="zh_TW" value="支付進度圖" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnSyn].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnSyn].properties.property[action].value">
+            <lang locale="en_US" value="actionSyn" />
+            <lang locale="zh_CN" value="actionSyn" />
+            <lang locale="zh_TW" value="actionSyn" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnSyn].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="同步" />
+            <lang locale="zh_TW" value="同步" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnUnit].properties.property[action].value">
+            <lang locale="en_US" value="actionUnit" />
+            <lang locale="zh_CN" value="actionUnit" />
+            <lang locale="zh_TW" value="actionUnit" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[btnUnit].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单位" />
+            <lang locale="zh_TW" value="單位" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[tblMain].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].components.component[tblMain].properties.property[formatXml].value">
+            <lang locale="en_US" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles /&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;curProject.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;curProject.number&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;curProject.name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;id&lt;/t:Cell&gt;&lt;t:Cell&gt;curProject.id&lt;/t:Cell&gt;&lt;t:Cell&gt;curProject.number&lt;/t:Cell&gt;&lt;t:Cell&gt;curProject.name&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
+            <lang locale="zh_CN" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol1&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol2&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;curProject.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol1&quot; /&gt;&lt;t:Column t:key=&quot;curProject.number&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol2&quot; /&gt;&lt;t:Column t:key=&quot;curProject.name&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;programming.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;4&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;programmingName&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;5&quot; /&gt;&lt;t:Column t:key=&quot;programmingAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;6&quot; /&gt;&lt;t:Column t:key=&quot;signState&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;7&quot; /&gt;&lt;t:Column t:key=&quot;totalAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;8&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;ID&lt;/t:Cell&gt;&lt;t:Cell&gt;ID&lt;/t:Cell&gt;&lt;t:Cell&gt;工程项目编码&lt;/t:Cell&gt;&lt;t:Cell&gt;工程项目&lt;/t:Cell&gt;&lt;t:Cell&gt;合约规划id&lt;/t:Cell&gt;&lt;t:Cell&gt;合约规划名称&lt;/t:Cell&gt;&lt;t:Cell&gt;规划金额&lt;/t:Cell&gt;&lt;t:Cell&gt;签约情况&lt;/t:Cell&gt;&lt;t:Cell&gt;总金额&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
+            <lang locale="zh_TW" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol1&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol2&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;curProject.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol1&quot; /&gt;&lt;t:Column t:key=&quot;curProject.number&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol2&quot; /&gt;&lt;t:Column t:key=&quot;curProject.name&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;programming.id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;4&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;programmingName&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;5&quot; /&gt;&lt;t:Column t:key=&quot;programmingAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;6&quot; /&gt;&lt;t:Column t:key=&quot;signState&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;7&quot; /&gt;&lt;t:Column t:key=&quot;totalAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;8&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;ID&lt;/t:Cell&gt;&lt;t:Cell&gt;ID&lt;/t:Cell&gt;&lt;t:Cell&gt;工程項目編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;工程項目&lt;/t:Cell&gt;&lt;t:Cell&gt;合約規劃id&lt;/t:Cell&gt;&lt;t:Cell&gt;合約規劃名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;規劃金額&lt;/t:Cell&gt;&lt;t:Cell&gt;簽約情況&lt;/t:Cell&gt;&lt;t:Cell&gt;總金額&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目动态资金付款计划" />
+            <lang locale="zh_TW" value="項目動態資金付款計畫" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.finance.client.ProjectDynaticFundPayPlanListUI].title">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目动态资金付款计划" />
+            <lang locale="zh_TW" value="項目動態資金付款計畫" />
+        </rs>
+    </resource>
+</uiObject>
+

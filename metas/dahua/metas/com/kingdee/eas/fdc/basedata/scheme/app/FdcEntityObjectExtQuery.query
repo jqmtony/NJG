@@ -1,0 +1,1820 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.scheme.app</package>
+    <name>FdcEntityObjectExtQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].description</description>
+    <userDefined>false</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>FdcEntityObject</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].subObjects.subEntity[FdcEntityObject].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObject" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>dataTable</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].subObjects.subEntity[dataTable].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcDataTable" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>entries</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].subObjects.subEntity[entries].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcProperty" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>linkProperty</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].subObjects.subEntity[linkProperty].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObject" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>mappingField</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].subObjects.subEntity[mappingField].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcColumn" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>0abeebe0-e151-4172-87ce-d7b34d940745</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[0abeebe0-e151-4172-87ce-d7b34d940745].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>3cbe96f4-2e1e-4f33-b3fb-d9f5405ef13c</key>
+                    <parentUnit>
+                        <key name="name" value="0abeebe0-e151-4172-87ce-d7b34d940745" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FdcEntityObject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="dataTable" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>0250a20e-9173-44a3-83a5-9dad2efd7359</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[0250a20e-9173-44a3-83a5-9dad2efd7359].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>6ffa3621-cf59-404e-9666-06519c4ad4f9</key>
+                    <parentUnit>
+                        <key name="name" value="0250a20e-9173-44a3-83a5-9dad2efd7359" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="dataTable" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>29ccb4bc-3415-426c-9de7-09006e4b8d14</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FdcEntityObject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>fullName</name>
+            <userDefined>false</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[fullName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>dd2af677-b9c0-4060-9bef-ab2289379288</key>
+                    <parentUnit>
+                        <key name="name" value="fullName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FdcEntityObject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="fullName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>01e24995-8ad0-438a-9476-e015335f0a36</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FdcEntityObject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>alias</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[alias].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>92ff429c-d5a6-4a9e-94ac-675d2282673b</key>
+                    <parentUnit>
+                        <key name="name" value="alias" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FdcEntityObject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="alias" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>fullBosTypeStr</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[fullBosTypeStr].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>13372848-196e-4f48-ade0-80a25a0e4050</key>
+                    <parentUnit>
+                        <key name="name" value="fullBosTypeStr" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FdcEntityObject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="fullBosTypeStr" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bosTypeStr</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[bosTypeStr].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1c7868ba-ae91-4c8d-8650-f3a7dea7d676</key>
+                    <parentUnit>
+                        <key name="name" value="bosTypeStr" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FdcEntityObject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bosTypeStr" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>dataTable.id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[dataTable.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>760c3a7a-12c3-4ba5-9af2-accde50d0f38</key>
+                    <parentUnit>
+                        <key name="name" value="dataTable.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="dataTable" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>dataTable.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[dataTable.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>566cb622-872e-42e7-a50a-d15bc220f4e1</key>
+                    <parentUnit>
+                        <key name="name" value="dataTable.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="dataTable" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>dataTable.isExist</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[dataTable.isExist].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>89cc4489-e55d-42ed-b86f-854668114551</key>
+                    <parentUnit>
+                        <key name="name" value="dataTable.isExist" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="dataTable" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isExist" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>5ae6c2bb-657b-4679-9c1b-93ab66ab2c6f</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[5ae6c2bb-657b-4679-9c1b-93ab66ab2c6f].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>9ea0437d-afa8-4b54-bf3f-693a19bb7fec</key>
+                    <parentUnit>
+                        <key name="name" value="5ae6c2bb-657b-4679-9c1b-93ab66ab2c6f" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="FdcEntityObject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>454c9719-a7fb-424a-8ff2-b6fbf1c40a8b</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[454c9719-a7fb-424a-8ff2-b6fbf1c40a8b].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>a79d3342-ddbe-4ff8-b4d2-a689a64a0963</key>
+                    <parentUnit>
+                        <key name="name" value="454c9719-a7fb-424a-8ff2-b6fbf1c40a8b" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entries" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bill" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>14a9f6e2-26a4-4945-8ae1-6d830e37a558</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[14a9f6e2-26a4-4945-8ae1-6d830e37a558].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>df0df67f-f428-4405-b3ee-8de7385dd8fc</key>
+                    <parentUnit>
+                        <key name="name" value="14a9f6e2-26a4-4945-8ae1-6d830e37a558" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entries" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="linkProperty" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>486f6eec-d7e0-492a-b225-dabc7f28526b</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[486f6eec-d7e0-492a-b225-dabc7f28526b].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>2a1adb3c-3131-4662-b95a-7902ced89fa0</key>
+                    <parentUnit>
+                        <key name="name" value="486f6eec-d7e0-492a-b225-dabc7f28526b" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="linkProperty" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>d3882ae6-0d1c-4780-af33-577dfded1dba</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[d3882ae6-0d1c-4780-af33-577dfded1dba].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>60908ed2-4656-4506-b450-f6b451e693fe</key>
+                    <parentUnit>
+                        <key name="name" value="d3882ae6-0d1c-4780-af33-577dfded1dba" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entries" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="mappingField" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>7339b8aa-530d-48eb-8fdf-1cde6815e1e8</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[7339b8aa-530d-48eb-8fdf-1cde6815e1e8].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>5a165bf9-3442-42dd-bd6e-2b37a77299a2</key>
+                    <parentUnit>
+                        <key name="name" value="7339b8aa-530d-48eb-8fdf-1cde6815e1e8" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="mappingField" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>entries.id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[entries.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5f69b709-f47d-4a11-b70f-f4b6e03691b1</key>
+                    <parentUnit>
+                        <key name="name" value="entries.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entries" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entries.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[entries.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2b626784-6d2e-4599-b292-6948c71d420a</key>
+                    <parentUnit>
+                        <key name="name" value="entries.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entries" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entries.alias</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[entries.alias].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>db26a5d9-16ef-4026-ad27-40069a2f6829</key>
+                    <parentUnit>
+                        <key name="name" value="entries.alias" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entries" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="alias" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>mappingField.id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6e130c99-939a-44b2-8053-46161a5bf8f7</key>
+                    <parentUnit>
+                        <key name="name" value="mappingField.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="mappingField" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>mappingField.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d057edc7-73da-418c-ac49-9bccd037f297</key>
+                    <parentUnit>
+                        <key name="name" value="mappingField.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="mappingField" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>mappingField.sqlType</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.sqlType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c5744a54-1c4e-4792-886a-b507d1ad225e</key>
+                    <parentUnit>
+                        <key name="name" value="mappingField.sqlType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="mappingField" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="sqlType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>mappingField.length</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.length].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>99cff28e-e8e1-4373-80ef-6c863261e8a6</key>
+                    <parentUnit>
+                        <key name="name" value="mappingField.length" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="mappingField" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="length" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>mappingField.scale</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.scale].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>34e30874-1d88-473c-9838-af1654f5dabc</key>
+                    <parentUnit>
+                        <key name="name" value="mappingField.scale" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="mappingField" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="scale" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>mappingField.precision</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.precision].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e9ed7d6c-fe70-41ba-a057-ef42f02bc27d</key>
+                    <parentUnit>
+                        <key name="name" value="mappingField.precision" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="mappingField" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="precision" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>mappingField.isNullable</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.isNullable].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0a34de0f-91f4-49fe-9973-18a07e64d0b5</key>
+                    <parentUnit>
+                        <key name="name" value="mappingField.isNullable" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="mappingField" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isNullable" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>mappingField.defaultValue</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.defaultValue].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>83340545-cc97-445b-8654-0c171c5c6e06</key>
+                    <parentUnit>
+                        <key name="name" value="mappingField.defaultValue" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="mappingField" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="defaultValue" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>mappingField.isMultilingual</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.isMultilingual].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3171afa5-d8a8-42a6-a400-387ed7b254f1</key>
+                    <parentUnit>
+                        <key name="name" value="mappingField.isMultilingual" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="mappingField" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isMultilingual" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>mappingField.isExist</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.isExist].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4beeb591-5cbe-4f43-9000-3eea7e825ec5</key>
+                    <parentUnit>
+                        <key name="name" value="mappingField.isExist" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="mappingField" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isExist" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>linkProperty.id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a20aed1e-12b4-435b-8818-709454f91ad1</key>
+                    <parentUnit>
+                        <key name="name" value="linkProperty.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="linkProperty" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>linkProperty.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ba9e66f9-c5e8-4e44-a72e-7bc618db2d48</key>
+                    <parentUnit>
+                        <key name="name" value="linkProperty.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="linkProperty" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>linkProperty.fullName</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.fullName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>70ea2c62-3476-4267-91d8-80ebe945bed6</key>
+                    <parentUnit>
+                        <key name="name" value="linkProperty.fullName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="linkProperty" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="fullName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>linkProperty.alias</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.alias].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5da57d87-b9de-4da9-be88-e1e0e6fc19ca</key>
+                    <parentUnit>
+                        <key name="name" value="linkProperty.alias" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="linkProperty" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="alias" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>linkProperty.bosTypeStr</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.bosTypeStr].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>07d47fd6-eaa0-493a-a555-d8f91072d9af</key>
+                    <parentUnit>
+                        <key name="name" value="linkProperty.bosTypeStr" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="linkProperty" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bosTypeStr" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entries.relationshipUrlName</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[entries.relationshipUrlName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a7f18727-638b-4676-baa1-0d40b231ec11</key>
+                    <parentUnit>
+                        <key name="name" value="entries.relationshipUrlName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entries" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="relationshipUrlName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+            <key name="name" value="FdcEntityObjectExtQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>fullName</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>9b1b3b7e-bf5a-4c7c-bafc-fb1990f066c7</name>
+            <formulaString>#0</formulaString>
+            <type>INNER JOIN</type>
+            <leftObject>
+                <key name="name" value="FdcEntityObject" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="dataTable" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>fe231781-9812-4875-9d0b-38f0dc332139</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="0abeebe0-e151-4172-87ce-d7b34d940745" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="0250a20e-9173-44a3-83a5-9dad2efd7359" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="9b1b3b7e-bf5a-4c7c-bafc-fb1990f066c7" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </join>
+        <join>
+            <name>cd52325d-2852-4cce-9add-728065043f60</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="FdcEntityObject" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="entries" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>7c706bac-88e0-496b-ba81-93473db1e8fe</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="5ae6c2bb-657b-4679-9c1b-93ab66ab2c6f" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="454c9719-a7fb-424a-8ff2-b6fbf1c40a8b" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="cd52325d-2852-4cce-9add-728065043f60" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </join>
+        <join>
+            <name>22d5b21a-9872-4da6-909e-72e9ff9a2198</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="entries" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="linkProperty" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>57505d97-4ff4-4a95-ba16-4c2543220844</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="14a9f6e2-26a4-4945-8ae1-6d830e37a558" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="486f6eec-d7e0-492a-b225-dabc7f28526b" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="22d5b21a-9872-4da6-909e-72e9ff9a2198" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </join>
+        <join>
+            <name>dde9e29f-b429-4022-918f-59ff22a48885</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="entries" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="mappingField" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>9992f61b-51a9-42b5-934a-c42f91f93476</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="d3882ae6-0d1c-4780-af33-577dfded1dba" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="7339b8aa-530d-48eb-8fdf-1cde6815e1e8" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="dde9e29f-b429-4022-918f-59ff22a48885" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.scheme.app" />
+                <key name="name" value="FdcEntityObjectExtQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].alias">
+            <lang locale="zh_CN" value="房地产实体对象拓展查询" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="房地產實體對象拓展查詢" />
+            <lang locale="zh_TW" value="房地產實體對象拓展查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].description">
+            <lang locale="zh_CN" value="房地产实体对象拓展查询" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="房地產實體對象拓展查詢" />
+            <lang locale="zh_TW" value="房地產實體對象拓展查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].subObjects.subEntity[FdcEntityObject].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].subObjects.subEntity[dataTable].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].subObjects.subEntity[entries].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].subObjects.subEntity[linkProperty].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].subObjects.subEntity[mappingField].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[0250a20e-9173-44a3-83a5-9dad2efd7359].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[0abeebe0-e151-4172-87ce-d7b34d940745].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[14a9f6e2-26a4-4945-8ae1-6d830e37a558].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[454c9719-a7fb-424a-8ff2-b6fbf1c40a8b].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[486f6eec-d7e0-492a-b225-dabc7f28526b].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[5ae6c2bb-657b-4679-9c1b-93ab66ab2c6f].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[7339b8aa-530d-48eb-8fdf-1cde6815e1e8].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.propertyUnit[d3882ae6-0d1c-4780-af33-577dfded1dba].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[alias].displayName">
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[alias].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[alias].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[bosTypeStr].displayName">
+            <lang locale="zh_CN" value="BOS类型" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="BOS類型" />
+            <lang locale="zh_TW" value="BOS類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[bosTypeStr].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[bosTypeStr].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[dataTable.id].displayName">
+            <lang locale="zh_CN" value="数据表ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="數據表ID" />
+            <lang locale="zh_TW" value="數據表ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[dataTable.isExist].displayName">
+            <lang locale="zh_CN" value="数据表是否存在" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="數據表是否存在" />
+            <lang locale="zh_TW" value="數據表是否存在" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[dataTable.isExist].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[dataTable.isExist].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[dataTable.name].displayName">
+            <lang locale="zh_CN" value="数据表名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="數據表名稱" />
+            <lang locale="zh_TW" value="數據表名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[dataTable.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[dataTable.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[entries.alias].displayName">
+            <lang locale="zh_CN" value="属性别名" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="屬性別名" />
+            <lang locale="zh_TW" value="屬性別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[entries.alias].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[entries.alias].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[entries.id].displayName">
+            <lang locale="zh_CN" value="属性ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="屬性ID" />
+            <lang locale="zh_TW" value="屬性ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[entries.name].displayName">
+            <lang locale="zh_CN" value="属性名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="屬性名稱" />
+            <lang locale="zh_TW" value="屬性名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[entries.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[entries.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[entries.relationshipUrlName].displayName">
+            <lang locale="zh_CN" value="关系Url名称(冗余字段)" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="關係Url名稱(冗餘字段)" />
+            <lang locale="zh_TW" value="關係Url名稱(冗餘字段)" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[fullBosTypeStr].displayName">
+            <lang locale="zh_CN" value="完整BOS类型" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="完整BOS類型" />
+            <lang locale="zh_TW" value="完整BOS類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[fullBosTypeStr].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[fullBosTypeStr].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[fullName].displayName">
+            <lang locale="zh_CN" value="完整名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="完整名稱" />
+            <lang locale="zh_TW" value="完整名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[fullName].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[fullName].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[id].displayName">
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.alias].displayName">
+            <lang locale="zh_CN" value="连接实体别名" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="連接實體別名" />
+            <lang locale="zh_TW" value="連接實體別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.alias].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.alias].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.bosTypeStr].displayName">
+            <lang locale="zh_CN" value="连接实体BOS类型" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="連接實體BOS類型" />
+            <lang locale="zh_TW" value="連接實體BOS類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.bosTypeStr].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.bosTypeStr].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.fullName].displayName">
+            <lang locale="zh_CN" value="连接实体完整名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="連接實體完整名稱" />
+            <lang locale="zh_TW" value="連接實體完整名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.fullName].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.fullName].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.id].displayName">
+            <lang locale="zh_CN" value="连接实体ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="連接實體ID" />
+            <lang locale="zh_TW" value="連接實體ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.name].displayName">
+            <lang locale="zh_CN" value="连接实体名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="連接實體名稱" />
+            <lang locale="zh_TW" value="連接實體名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[linkProperty.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.defaultValue].displayName">
+            <lang locale="zh_CN" value="字段默认值" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="字段默認值" />
+            <lang locale="zh_TW" value="字段默認值" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.defaultValue].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.defaultValue].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.id].displayName">
+            <lang locale="zh_CN" value="字段ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="字段ID" />
+            <lang locale="zh_TW" value="字段ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.isExist].displayName">
+            <lang locale="zh_CN" value="字段是否存在" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="字段是否存在" />
+            <lang locale="zh_TW" value="字段是否存在" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.isExist].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.isExist].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.isMultilingual].displayName">
+            <lang locale="zh_CN" value="字段是否多语言" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="字段是否多語言" />
+            <lang locale="zh_TW" value="字段是否多語言" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.isMultilingual].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.isMultilingual].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.isNullable].displayName">
+            <lang locale="zh_CN" value="字段是否允许为空" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="字段是否允許為空" />
+            <lang locale="zh_TW" value="字段是否允許為空" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.isNullable].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.isNullable].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.length].displayName">
+            <lang locale="zh_CN" value="字段长度" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="字段長度" />
+            <lang locale="zh_TW" value="字段長度" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.length].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.length].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.name].displayName">
+            <lang locale="zh_CN" value="字段名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="字段名稱" />
+            <lang locale="zh_TW" value="字段名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.precision].displayName">
+            <lang locale="zh_CN" value="字段小数位数" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="字段小數位數" />
+            <lang locale="zh_TW" value="字段小數位數" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.precision].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.precision].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.scale].displayName">
+            <lang locale="zh_CN" value="字段精度" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="字段精度" />
+            <lang locale="zh_TW" value="字段精度" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.scale].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.scale].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.sqlType].displayName">
+            <lang locale="zh_CN" value="字段SQL数据类型" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="字段SQL數據類型" />
+            <lang locale="zh_TW" value="字段SQL數據類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.sqlType].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[mappingField.sqlType].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[name].displayName">
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.scheme.app.FdcEntityObjectExtQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
+        </rs>
+    </resource>
+</joinQuery>
+

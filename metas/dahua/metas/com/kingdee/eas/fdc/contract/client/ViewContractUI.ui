@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.contract.client</package>
+    <name>ViewContractUI</name>
+    <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].alias</alias>
+    <description>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].description</description>
+    <userDefined>false</userDefined>
+    <releasePackage>com.kingdee.eas.fdc.contract.client</releasePackage>
+    <releaseClass>ViewContractUI</releaseClass>
+    <title>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].title</title>
+    <uitype />
+    <defaultbutton />
+    <bizUnitPK />
+    <parent>
+        <key name="package" value="com.kingdee.eas.framework.client" />
+        <key name="name" value="CoreUI" />
+    </parent>
+    <components>
+        <component>
+            <name>CoreUI</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[CoreUI].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,10,640,135</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>txtNameCon</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtNameCon].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,10,620,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtNameCon].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtNameCon].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>txtAmountCon</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtAmountCon].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,40,270,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtAmountCon].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtAmountCon].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>txtBalanceCon</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtBalanceCon].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>360,40,270,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtBalanceCon].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtBalanceCon].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>txtExRateCon</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtExRateCon].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,70,270,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtExRateCon].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtExRateCon].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>txtChangeCon</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtChangeCon].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>360,70,270,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtChangeCon].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtChangeCon].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>desCon</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[desCon].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,100,270,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[desCon].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[desCon].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>enabled</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[desCon].properties.property[enabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>txtName</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtName].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>enabled</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtName].properties.property[enabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="txtNameCon" />
+            </parent>
+        </component>
+        <component>
+            <name>txtAmount</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtAmount].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDFormattedTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>enabled</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtAmount].properties.property[enabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>precision</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtAmount].properties.property[precision].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="txtAmountCon" />
+            </parent>
+        </component>
+        <component>
+            <name>txtBalance</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtBalance].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDFormattedTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>enabled</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtBalance].properties.property[enabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>precision</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtBalance].properties.property[precision].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="txtBalanceCon" />
+            </parent>
+        </component>
+        <component>
+            <name>txtExRate</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtExRate].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDFormattedTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>enabled</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtExRate].properties.property[enabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>precision</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtExRate].properties.property[precision].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="txtExRateCon" />
+            </parent>
+        </component>
+        <component>
+            <name>txtChange</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtChange].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDFormattedTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>enabled</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtChange].properties.property[enabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>precision</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtChange].properties.property[precision].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="txtChangeCon" />
+            </parent>
+        </component>
+        <component>
+            <name>btnPageSetup</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnPageSetup].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnPageSetup].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnExit</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnExit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>1</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnExit].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>maximumSize</name>
+                    <type>java.awt.Dimension</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnExit].properties.property[maximumSize].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>minimumSize</name>
+                    <type>java.awt.Dimension</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnExit].properties.property[minimumSize].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>preferredSize</name>
+                    <type>java.awt.Dimension</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnExit].properties.property[preferredSize].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
+        </component>
+    </components>
+    <actions>
+        <action>
+            <instanceName>ationExit</instanceName>
+            <className>ActionExit</className>
+            <name>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].actions.action[ationExit].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].actions.action[ationExit].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].actions.action[ationExit].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].actions.action[ationExit].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+    </actions>
+    <resource>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].actions.action[ationExit].longDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].actions.action[ationExit].name">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].actions.action[ationExit].shortDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].actions.action[ationExit].smallIcon">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].alias">
+            <lang locale="zh_CN" value="框架合约" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="框架合約" />
+            <lang locale="zh_TW" value="框架合約" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[CoreUI].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnExit].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnExit].properties.property[action].value">
+            <lang locale="zh_CN" value="ationExit" />
+            <lang locale="en_US" value="ationExit" />
+            <lang locale="zh_HK" value="ationExit" />
+            <lang locale="zh_TW" value="ationExit" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnExit].properties.property[maximumSize].value">
+            <lang locale="zh_CN" value="1,18" />
+            <lang locale="en_US" value="1,18" />
+            <lang locale="zh_HK" value="1,18" />
+            <lang locale="zh_TW" value="1,18" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnExit].properties.property[minimumSize].value">
+            <lang locale="zh_CN" value="1,18" />
+            <lang locale="en_US" value="1,18" />
+            <lang locale="zh_HK" value="1,18" />
+            <lang locale="zh_TW" value="1,18" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnExit].properties.property[preferredSize].value">
+            <lang locale="zh_CN" value="1,18" />
+            <lang locale="en_US" value="1,18" />
+            <lang locale="zh_HK" value="1,18" />
+            <lang locale="zh_TW" value="1,18" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnPageSetup].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[btnPageSetup].properties.property[visible].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[desCon].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[desCon].properties.property[boundLabelText].value">
+            <lang locale="zh_CN" value="说明：规划余额=规划金额-签约金额-累计变更金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="說明：規劃餘額=規劃金額-簽約金額-累計變更金額" />
+            <lang locale="zh_TW" value="說明：規劃餘額=規劃金額-簽約金額-累計變更金額" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[desCon].properties.property[boundLabelUnderline].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[desCon].properties.property[enabled].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtAmountCon].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtAmountCon].properties.property[boundLabelText].value">
+            <lang locale="zh_CN" value="规划金额            " />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="規劃金額            " />
+            <lang locale="zh_TW" value="規劃金額            " />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtAmountCon].properties.property[boundLabelUnderline].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtAmount].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtAmount].properties.property[enabled].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtAmount].properties.property[precision].value">
+            <lang locale="zh_CN" value="2" />
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtBalanceCon].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtBalanceCon].properties.property[boundLabelText].value">
+            <lang locale="zh_CN" value="规划余额            " />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="規劃餘額            " />
+            <lang locale="zh_TW" value="規劃餘額            " />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtBalanceCon].properties.property[boundLabelUnderline].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtBalance].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtBalance].properties.property[enabled].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtBalance].properties.property[precision].value">
+            <lang locale="zh_CN" value="2" />
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtChangeCon].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtChangeCon].properties.property[boundLabelText].value">
+            <lang locale="zh_CN" value="累计变更金额    " />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="累計變更金額    " />
+            <lang locale="zh_TW" value="累計變更金額    " />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtChangeCon].properties.property[boundLabelUnderline].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtChange].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtChange].properties.property[enabled].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtChange].properties.property[precision].value">
+            <lang locale="zh_CN" value="2" />
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtExRateCon].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtExRateCon].properties.property[boundLabelText].value">
+            <lang locale="zh_CN" value="签约金额            " />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="簽約金額            " />
+            <lang locale="zh_TW" value="簽約金額            " />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtExRateCon].properties.property[boundLabelUnderline].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtExRate].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtExRate].properties.property[enabled].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtExRate].properties.property[precision].value">
+            <lang locale="zh_CN" value="2" />
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtNameCon].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtNameCon].properties.property[boundLabelText].value">
+            <lang locale="zh_CN" value="框架合约名称    " />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="框架合約名稱    " />
+            <lang locale="zh_TW" value="框架合約名稱    " />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtNameCon].properties.property[boundLabelUnderline].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtName].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].components.component[txtName].properties.property[enabled].value">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].description">
+            <lang locale="zh_CN" value="框架合约" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="框架合約" />
+            <lang locale="zh_TW" value="框架合約" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ViewContractUI].title">
+            <lang locale="zh_CN" value="框架合约" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="框架合約" />
+            <lang locale="zh_TW" value="框架合約" />
+        </rs>
+    </resource>
+</uiObject>
+

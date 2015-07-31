@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functionObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.contract.app</package>
+    <name>SettlementCostSplitListUIFunction</name>
+    <alias>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].alias</alias>
+    <description>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].description</description>
+    <userDefined>true</userDefined>
+    <isBindSingleBizObject>false</isBindSingleBizObject>
+    <operations>
+        <operation>
+            <name>delete</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[delete].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[delete].description</description>
+            <reverseOperation />
+            <eventMethod>a94a3987-00fb-1000-e000-000ac0a813e6</eventMethod>
+            <event>deleteEvent</event>
+            <userDefined>false</userDefined>
+            <uiActionRef>
+                <id>8fa33f8a-0102-1000-e000-008ac0a813aduiaf</id>
+                <uiStatus>VIEW</uiStatus>
+                <webUIStatus />
+                <userDefined>false</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.contract.client" />
+                    <key name="name" value="SettlementCostSplitListUI" />
+                </uiObjectRef>
+                <actionRefName>ActionRemove</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[delete].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[delete].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>false</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="SettlementCostSplit" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>audit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[audit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[audit].description</description>
+            <reverseOperation />
+            <eventMethod>9cf78130-010e-1000-e000-0067c0a80eb7</eventMethod>
+            <event>auditEvent</event>
+            <userDefined>false</userDefined>
+            <uiActionRef>
+                <id>9c17e45b-772b-48e0-998e-8adf4bf3f558uiaf</id>
+                <uiStatus>VIEW</uiStatus>
+                <webUIStatus />
+                <userDefined>false</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.contract.client" />
+                    <key name="name" value="SettlementCostSplitListUI" />
+                </uiObjectRef>
+                <actionRefName>ActionAudit</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billId</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billId].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billId].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>false</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="SettlementCostSplit" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>setAuditing</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[setAuditing].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[setAuditing].description</description>
+            <reverseOperation />
+            <eventMethod>3f3803ee-010e-1000-e000-00b3c0a813bc</eventMethod>
+            <event>setAudittingStatusEvent</event>
+            <userDefined>false</userDefined>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="SettlementCostSplit" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>unAudit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[unAudit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[unAudit].description</description>
+            <reverseOperation />
+            <eventMethod>9cf78130-010e-1000-e000-0068c0a80eb7</eventMethod>
+            <event>unAuditEvent</event>
+            <userDefined>false</userDefined>
+            <uiActionRef>
+                <id>65d6efe3-a3c4-4a23-a3c1-be0d21e5f7dbuiaf</id>
+                <uiStatus>VIEW</uiStatus>
+                <webUIStatus />
+                <userDefined>false</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.contract.client" />
+                    <key name="name" value="SettlementCostSplitListUI" />
+                </uiObjectRef>
+                <actionRefName>ActionUnAudit</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billId</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[unAudit].uiActionRef.parameters.parameter[billId].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[unAudit].uiActionRef.parameters.parameter[billId].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>false</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="SettlementCostSplit" />
+            </entityObjectRef>
+        </operation>
+    </operations>
+    <resource>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].alias">
+            <lang locale="zh_CN" value="结算成本拆分列表功能" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="結算成本拆分列表功能" />
+            <lang locale="zh_TW" value="結算成本拆分列表功能" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].description">
+            <lang locale="zh_CN" value="单据列表功能" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="單據列表功能" />
+            <lang locale="zh_TW" value="單據列表功能" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[audit].alias">
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[audit].description">
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billId].alias">
+            <lang locale="zh_CN" value="billId" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="billId" />
+            <lang locale="zh_TW" value="billId" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billId].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[delete].alias">
+            <lang locale="zh_CN" value="删除" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="刪除" />
+            <lang locale="zh_TW" value="刪除" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[delete].description">
+            <lang locale="zh_CN" value="删除" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="刪除" />
+            <lang locale="zh_TW" value="刪除" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[delete].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[delete].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[setAuditing].alias">
+            <lang locale="zh_CN" value="设置审批中" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="設置審批中" />
+            <lang locale="zh_TW" value="設置審批中" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[setAuditing].description">
+            <lang locale="zh_CN" value="设置审批中" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="設置審批中" />
+            <lang locale="zh_TW" value="設置審批中" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[unAudit].alias">
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[unAudit].description">
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[unAudit].uiActionRef.parameters.parameter[billId].alias">
+            <lang locale="zh_CN" value="billId" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="billId" />
+            <lang locale="zh_TW" value="billId" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.SettlementCostSplitListUIFunction].operations.operation[unAudit].uiActionRef.parameters.parameter[billId].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+    </resource>
+</functionObject>
+

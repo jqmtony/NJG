@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.contract.programming.client</package>
+    <name>ScheduleTaskF7UI</name>
+    <alias>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].alias</alias>
+    <description>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].description</description>
+    <userDefined>false</userDefined>
+    <releasePackage>com.kingdee.eas.fdc.contract.programming.client</releasePackage>
+    <releaseClass>ScheduleTaskF7UI</releaseClass>
+    <title>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].title</title>
+    <uitype />
+    <defaultbutton />
+    <bizUnitPK />
+    <parent>
+        <key name="package" value="com.kingdee.eas.framework.client" />
+        <key name="name" value="CoreUI" />
+    </parent>
+    <components>
+        <component>
+            <name>CoreUI</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[CoreUI].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,10,600,500</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>CoreUI_toolbar</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[CoreUI_toolbar].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDToolBar</classType>
+            <isContainer>true</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>maximumSize</name>
+                    <type>java.awt.Dimension</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[CoreUI_toolbar].properties.property[maximumSize].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>minimumSize</name>
+                    <type>java.awt.Dimension</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[CoreUI_toolbar].properties.property[minimumSize].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnOk</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnOk].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>389,470,70,23</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnOk].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnOk].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>btnCancel</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnCancel].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>503,470,70,23</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnCancel].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnCancel].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>kDContainerTitle</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[kDContainerTitle].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>11,44,580,417</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>borderLayout1</name>
+                <type>BorderLayout</type>
+                <value>0,0</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>title</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[kDContainerTitle].properties.property[title].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>chkIsLike</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[chkIsLike].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDCheckBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>501,19,78,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[chkIsLike].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>selected</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[chkIsLike].properties.property[selected].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>btnFilter</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnFilter].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>388,19,90,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnFilter].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>icon</name>
+                    <type>javax.swing.Icon</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnFilter].properties.property[icon].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnFilter].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>txtValue</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[txtValue].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>145,19,199,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>cmbFilterField</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[cmbFilterField].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDComboBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>15,19,99,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>items</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[cmbFilterField].properties.property[items].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>tblMain</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[tblMain].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
+            <isContainer>false</isContainer>
+            <constraints>Center</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>formatXml</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[tblMain].properties.property[formatXml].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDContainerTitle" />
+            </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>tableClicked</name>
+                    <eventType>com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent</eventType>
+                    <scene />
+                    <listenerType>com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener</listenerType>
+                    <listenerAdapter>com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener</listenerAdapter>
+                    <methodName>tblMain_tableClicked</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
+            <name>btnRefresh</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnRefresh].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnRefresh].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnRefresh].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>actionPerformed</name>
+                    <eventType>java.awt.event.ActionEvent</eventType>
+                    <scene />
+                    <listenerType>java.awt.event.ActionListener</listenerType>
+                    <listenerAdapter>java.awt.event.ActionListener</listenerAdapter>
+                    <methodName>btnRefresh_actionPerformed</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>false</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
+            <name>btnPageSetup</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnPageSetup].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>1</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+    </components>
+    <actions>
+        <action>
+            <instanceName>actionBtnOk</instanceName>
+            <className>ActionBtnOk</className>
+            <name>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnOk].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnOk].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnOk].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnOk].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionBtnCancel</instanceName>
+            <className>ActionBtnCancel</className>
+            <name>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnCancel].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnCancel].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnCancel].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnCancel].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionBtnFilter</instanceName>
+            <className>ActionBtnFilter</className>
+            <name>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnFilter].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnFilter].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnFilter].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnFilter].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionBtnRefresh</instanceName>
+            <className>ActionRefresh</className>
+            <name>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnRefresh].name</name>
+            <enabled>true</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnRefresh].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnRefresh].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnRefresh].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+    </actions>
+    <resource>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnCancel].longDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnCancel].name">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnCancel].shortDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnCancel].smallIcon">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnFilter].longDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnFilter].name">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnFilter].shortDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnFilter].smallIcon">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnOk].longDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnOk].name">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnOk].shortDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnOk].smallIcon">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnRefresh].longDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnRefresh].name">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnRefresh].shortDescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].actions.action[actionBtnRefresh].smallIcon">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].alias">
+            <lang locale="zh_CN" value="F7相关任务项" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="F7相關任務項" />
+            <lang locale="zh_TW" value="F7相關任務項" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[CoreUI].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[CoreUI_toolbar].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[CoreUI_toolbar].properties.property[maximumSize].value">
+            <lang locale="zh_CN" value="4,18" />
+            <lang locale="en_US" value="4,18" />
+            <lang locale="zh_HK" value="4,18" />
+            <lang locale="zh_TW" value="4,18" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[CoreUI_toolbar].properties.property[minimumSize].value">
+            <lang locale="zh_CN" value="4,18" />
+            <lang locale="en_US" value="4,18" />
+            <lang locale="zh_HK" value="4,18" />
+            <lang locale="zh_TW" value="4,18" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnCancel].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnCancel].properties.property[action].value">
+            <lang locale="zh_CN" value="actionBtnCancel" />
+            <lang locale="en_US" value="actionBtnCancel" />
+            <lang locale="zh_HK" value="actionBtnCancel" />
+            <lang locale="zh_TW" value="actionBtnCancel" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnCancel].properties.property[text].value">
+            <lang locale="zh_CN" value="取消" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="取消" />
+            <lang locale="zh_TW" value="取消" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnFilter].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnFilter].properties.property[action].value">
+            <lang locale="zh_CN" value="actionBtnFilter" />
+            <lang locale="en_US" value="actionBtnFilter" />
+            <lang locale="zh_HK" value="actionBtnFilter" />
+            <lang locale="zh_TW" value="actionBtnFilter" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnFilter].properties.property[icon].value">
+            <lang locale="zh_CN" value="imgTbtn_find" />
+            <lang locale="en_US" value="imgTbtn_find" />
+            <lang locale="zh_HK" value="imgTbtn_find" />
+            <lang locale="zh_TW" value="imgTbtn_find" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnFilter].properties.property[text].value">
+            <lang locale="zh_CN" value="查询" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="查詢" />
+            <lang locale="zh_TW" value="查詢" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnOk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnOk].properties.property[action].value">
+            <lang locale="zh_CN" value="actionBtnOk" />
+            <lang locale="en_US" value="actionBtnOk" />
+            <lang locale="zh_HK" value="actionBtnOk" />
+            <lang locale="zh_TW" value="actionBtnOk" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnOk].properties.property[text].value">
+            <lang locale="zh_CN" value="确定" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="確定" />
+            <lang locale="zh_TW" value="確定" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnPageSetup].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnRefresh].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnRefresh].properties.property[action].value">
+            <lang locale="zh_CN" value="actionBtnRefresh" />
+            <lang locale="en_US" value="actionBtnRefresh" />
+            <lang locale="zh_HK" value="actionBtnRefresh" />
+            <lang locale="zh_TW" value="actionBtnRefresh" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[btnRefresh].properties.property[text].value">
+            <lang locale="zh_CN" value="刷新" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="刷新" />
+            <lang locale="zh_TW" value="刷新" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[chkIsLike].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[chkIsLike].properties.property[selected].value">
+            <lang locale="zh_CN" value="true" />
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[chkIsLike].properties.property[text].value">
+            <lang locale="zh_CN" value="模糊查询" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="模糊查詢" />
+            <lang locale="zh_TW" value="模糊查詢" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[cmbFilterField].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[cmbFilterField].properties.property[items].value">
+            <lang locale="zh_CN" value="[Enum]com.kingdee.eas.fdc.schedule.ScheduleTaskFiledEnum" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="[Enum]com.kingdee.eas.fdc.schedule.ScheduleTaskFiledEnum" />
+            <lang locale="zh_TW" value="[Enum]com.kingdee.eas.fdc.schedule.ScheduleTaskFiledEnum" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[kDContainerTitle].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[kDContainerTitle].properties.property[title].value">
+            <lang locale="zh_CN" value="主项任务计划列表" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="主項任務計畫列表" />
+            <lang locale="zh_TW" value="主項任務計畫列表" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[tblMain].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[tblMain].properties.property[formatXml].value">
+            <lang locale="zh_CN" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol1&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol2&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:Protection locked=&quot;true&quot; hidden=&quot;true&quot; /&gt;&lt;c:NumberFormat&gt;#,###%&lt;/c:NumberFormat&gt;&lt;c:Alignment horizontal=&quot;right&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol5&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;c:NumberFormat&gt;#,###&lt;/c:NumberFormat&gt;&lt;c:Alignment horizontal=&quot;right&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol8&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol9&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol10&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol11&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol12&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol13&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol14&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;project&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;0&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;wbs&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;1&quot; t:styleID=&quot;sCol1&quot; /&gt;&lt;t:Column t:key=&quot;tasknumber&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;2&quot; t:styleID=&quot;sCol2&quot; /&gt;&lt;t:Column t:key=&quot;taskname&quot; t:width=&quot;240&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;3&quot; /&gt;&lt;t:Column t:key=&quot;complete&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;4&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;effecttime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;5&quot; t:styleID=&quot;sCol5&quot; /&gt;&lt;t:Column t:key=&quot;start&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;6&quot; /&gt;&lt;t:Column t:key=&quot;end&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;7&quot; /&gt;&lt;t:Column t:key=&quot;adminDept&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;8&quot; t:styleID=&quot;sCol8&quot; /&gt;&lt;t:Column t:key=&quot;adminPerson&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;9&quot; t:styleID=&quot;sCol9&quot; /&gt;&lt;t:Column t:key=&quot;isleaf&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;10&quot; t:styleID=&quot;sCol10&quot; /&gt;&lt;t:Column t:key=&quot;iskeytask&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;11&quot; t:styleID=&quot;sCol11&quot; /&gt;&lt;t:Column t:key=&quot;level&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;12&quot; t:styleID=&quot;sCol12&quot; /&gt;&lt;t:Column t:key=&quot;islastver&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;13&quot; t:styleID=&quot;sCol13&quot; /&gt;&lt;t:Column t:key=&quot;taskexestate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;14&quot; t:styleID=&quot;sCol14&quot; /&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header1&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;工程项目&lt;/t:Cell&gt;&lt;t:Cell&gt;WBS编码&lt;/t:Cell&gt;&lt;t:Cell&gt;任务编码&lt;/t:Cell&gt;&lt;t:Cell&gt;任务名称&lt;/t:Cell&gt;&lt;t:Cell&gt;累计完工百分比&lt;/t:Cell&gt;&lt;t:Cell&gt;有效工期(天)&lt;/t:Cell&gt;&lt;t:Cell&gt;计划开始日期&lt;/t:Cell&gt;&lt;t:Cell&gt;计划完成日期&lt;/t:Cell&gt;&lt;t:Cell&gt;责任部门&lt;/t:Cell&gt;&lt;t:Cell&gt;责任人&lt;/t:Cell&gt;&lt;t:Cell&gt;是否叶子节点&lt;/t:Cell&gt;&lt;t:Cell&gt;是否关键任务&lt;/t:Cell&gt;&lt;t:Cell&gt;级次&lt;/t:Cell&gt;&lt;t:Cell&gt;最新版本&lt;/t:Cell&gt;&lt;t:Cell&gt;计划执行状态&lt;/t:Cell&gt;&lt;t:Cell&gt;id&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol1&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol2&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:Protection locked=&quot;true&quot; hidden=&quot;true&quot; /&gt;&lt;c:NumberFormat&gt;#,###%&lt;/c:NumberFormat&gt;&lt;c:Alignment horizontal=&quot;right&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol5&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;c:NumberFormat&gt;#,###&lt;/c:NumberFormat&gt;&lt;c:Alignment horizontal=&quot;right&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol8&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol9&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol10&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol11&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol12&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol13&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol14&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;project&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;0&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;wbs&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;1&quot; t:styleID=&quot;sCol1&quot; /&gt;&lt;t:Column t:key=&quot;tasknumber&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;2&quot; t:styleID=&quot;sCol2&quot; /&gt;&lt;t:Column t:key=&quot;taskname&quot; t:width=&quot;240&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;3&quot; /&gt;&lt;t:Column t:key=&quot;complete&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;4&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;effecttime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;5&quot; t:styleID=&quot;sCol5&quot; /&gt;&lt;t:Column t:key=&quot;start&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;6&quot; /&gt;&lt;t:Column t:key=&quot;end&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;7&quot; /&gt;&lt;t:Column t:key=&quot;adminDept&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;8&quot; t:styleID=&quot;sCol8&quot; /&gt;&lt;t:Column t:key=&quot;adminPerson&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;9&quot; t:styleID=&quot;sCol9&quot; /&gt;&lt;t:Column t:key=&quot;isleaf&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;10&quot; t:styleID=&quot;sCol10&quot; /&gt;&lt;t:Column t:key=&quot;iskeytask&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;11&quot; t:styleID=&quot;sCol11&quot; /&gt;&lt;t:Column t:key=&quot;level&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;12&quot; t:styleID=&quot;sCol12&quot; /&gt;&lt;t:Column t:key=&quot;islastver&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;13&quot; t:styleID=&quot;sCol13&quot; /&gt;&lt;t:Column t:key=&quot;taskexestate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;14&quot; t:styleID=&quot;sCol14&quot; /&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header1&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;工程項目&lt;/t:Cell&gt;&lt;t:Cell&gt;WBS編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;任務編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;任務名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;累計完工百分比&lt;/t:Cell&gt;&lt;t:Cell&gt;有效工期(天)&lt;/t:Cell&gt;&lt;t:Cell&gt;計畫開始日期&lt;/t:Cell&gt;&lt;t:Cell&gt;計畫完成日期&lt;/t:Cell&gt;&lt;t:Cell&gt;責任部門&lt;/t:Cell&gt;&lt;t:Cell&gt;責任人&lt;/t:Cell&gt;&lt;t:Cell&gt;是否葉子節點&lt;/t:Cell&gt;&lt;t:Cell&gt;是否關鍵任務&lt;/t:Cell&gt;&lt;t:Cell&gt;級次&lt;/t:Cell&gt;&lt;t:Cell&gt;最新版本&lt;/t:Cell&gt;&lt;t:Cell&gt;計畫執行狀態&lt;/t:Cell&gt;&lt;t:Cell&gt;id&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
+            <lang locale="zh_TW" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol1&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol2&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:Protection locked=&quot;true&quot; hidden=&quot;true&quot; /&gt;&lt;c:NumberFormat&gt;#,###%&lt;/c:NumberFormat&gt;&lt;c:Alignment horizontal=&quot;right&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol5&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;c:NumberFormat&gt;#,###&lt;/c:NumberFormat&gt;&lt;c:Alignment horizontal=&quot;right&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol8&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol9&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol10&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol11&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol12&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol13&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol14&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;project&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;0&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;wbs&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;1&quot; t:styleID=&quot;sCol1&quot; /&gt;&lt;t:Column t:key=&quot;tasknumber&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;2&quot; t:styleID=&quot;sCol2&quot; /&gt;&lt;t:Column t:key=&quot;taskname&quot; t:width=&quot;240&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;3&quot; /&gt;&lt;t:Column t:key=&quot;complete&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;4&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;effecttime&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;5&quot; t:styleID=&quot;sCol5&quot; /&gt;&lt;t:Column t:key=&quot;start&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;6&quot; /&gt;&lt;t:Column t:key=&quot;end&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;7&quot; /&gt;&lt;t:Column t:key=&quot;adminDept&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;8&quot; t:styleID=&quot;sCol8&quot; /&gt;&lt;t:Column t:key=&quot;adminPerson&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;9&quot; t:styleID=&quot;sCol9&quot; /&gt;&lt;t:Column t:key=&quot;isleaf&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;10&quot; t:styleID=&quot;sCol10&quot; /&gt;&lt;t:Column t:key=&quot;iskeytask&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;11&quot; t:styleID=&quot;sCol11&quot; /&gt;&lt;t:Column t:key=&quot;level&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;12&quot; t:styleID=&quot;sCol12&quot; /&gt;&lt;t:Column t:key=&quot;islastver&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;13&quot; t:styleID=&quot;sCol13&quot; /&gt;&lt;t:Column t:key=&quot;taskexestate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;14&quot; t:styleID=&quot;sCol14&quot; /&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header1&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;工程項目&lt;/t:Cell&gt;&lt;t:Cell&gt;WBS編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;任務編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;任務名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;累計完工百分比&lt;/t:Cell&gt;&lt;t:Cell&gt;有效工期(天)&lt;/t:Cell&gt;&lt;t:Cell&gt;計畫開始日期&lt;/t:Cell&gt;&lt;t:Cell&gt;計畫完成日期&lt;/t:Cell&gt;&lt;t:Cell&gt;責任部門&lt;/t:Cell&gt;&lt;t:Cell&gt;責任人&lt;/t:Cell&gt;&lt;t:Cell&gt;是否葉子節點&lt;/t:Cell&gt;&lt;t:Cell&gt;是否關鍵任務&lt;/t:Cell&gt;&lt;t:Cell&gt;級次&lt;/t:Cell&gt;&lt;t:Cell&gt;最新版本&lt;/t:Cell&gt;&lt;t:Cell&gt;計畫執行狀態&lt;/t:Cell&gt;&lt;t:Cell&gt;id&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].components.component[txtValue].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].description">
+            <lang locale="zh_CN" value="任务相关项F7" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="任務相關項F7" />
+            <lang locale="zh_TW" value="任務相關項F7" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.programming.client.ScheduleTaskF7UI].title">
+            <lang locale="zh_CN" value="F7相关任务项" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="F7相關任務項" />
+            <lang locale="zh_TW" value="F7相關任務項" />
+        </rs>
+    </resource>
+</uiObject>
+

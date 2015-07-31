@@ -1,0 +1,1373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.aimcost.app</package>
+    <name>AimMeasureCostPrintQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].description</description>
+    <userDefined>false</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>MeasureCost</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].subObjects.subEntity[MeasureCost].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="MeasureCost" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>project</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].subObjects.subEntity[project].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProject" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>measureStage</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].subObjects.subEntity[measureStage].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="MeasureStage" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>projectType</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].subObjects.subEntity[projectType].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="ProjectType" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>measureStage.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[measureStage.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2a4ea24a-bf64-4e88-afe3-9a58b803fc7e</key>
+                    <parentUnit>
+                        <key name="name" value="measureStage.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="measureStage" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>versionNumber</name>
+            <userDefined>false</userDefined>
+            <formulaString>REPLACE ( #0 , '!' , '.' )</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[versionNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5a106c96-1852-4247-b8dc-f54499c753b5</key>
+                    <parentUnit>
+                        <key name="name" value="versionNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="versionNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>versionName</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[versionName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1df51c66-b6d5-4acf-ad37-c66c937dc830</key>
+                    <parentUnit>
+                        <key name="name" value="versionName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="versionName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>projectType.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[projectType.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3b1526c9-dbc0-4915-9a39-7284ced60c43</key>
+                    <parentUnit>
+                        <key name="name" value="projectType.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="projectType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>project.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[project.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>72f6814d-658d-4670-884d-d42188831f35</key>
+                    <parentUnit>
+                        <key name="name" value="project.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c1928e3d-28cc-450a-ba5d-46eb4d23efa0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>391216d9-0703-4efd-9d6f-7c05339143b4</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.propertyUnit[391216d9-0703-4efd-9d6f-7c05339143b4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>076a2087-c778-48ad-ad06-a1e681ac0073</key>
+                    <parentUnit>
+                        <key name="name" value="391216d9-0703-4efd-9d6f-7c05339143b4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="project" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f6957794-0fa0-48db-a97c-7634c4700a6d</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.propertyUnit[f6957794-0fa0-48db-a97c-7634c4700a6d].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3dad3a11-5ccb-41ed-b9ef-d7dc9d2c8d21</key>
+                    <parentUnit>
+                        <key name="name" value="f6957794-0fa0-48db-a97c-7634c4700a6d" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>050f3e90-4dae-483b-a195-24cd5a08b721</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.propertyUnit[050f3e90-4dae-483b-a195-24cd5a08b721].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>298a780a-2fe9-4629-9493-02f17eba7189</key>
+                    <parentUnit>
+                        <key name="name" value="050f3e90-4dae-483b-a195-24cd5a08b721" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="measureStage" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>67bca87f-8960-4434-b2f7-534c937da5da</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.propertyUnit[67bca87f-8960-4434-b2f7-534c937da5da].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>921f9fcb-4b17-4bd3-a01f-7a7396b5c48b</key>
+                    <parentUnit>
+                        <key name="name" value="67bca87f-8960-4434-b2f7-534c937da5da" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="measureStage" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>72d04b79-fe1e-41ea-af04-5dc319923a88</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.propertyUnit[72d04b79-fe1e-41ea-af04-5dc319923a88].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3c22858d-4ba2-4238-9195-1233aeec7cd9</key>
+                    <parentUnit>
+                        <key name="name" value="72d04b79-fe1e-41ea-af04-5dc319923a88" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>6d6141d3-16f4-44e9-b014-fdb66d013aab</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.propertyUnit[6d6141d3-16f4-44e9-b014-fdb66d013aab].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>92a0cc05-1739-4230-98e2-a3c88abe643d</key>
+                    <parentUnit>
+                        <key name="name" value="6d6141d3-16f4-44e9-b014-fdb66d013aab" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="projectType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>recenseDate</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[recenseDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ee588610-18d1-494d-b4ec-5453214191a9</key>
+                    <parentUnit>
+                        <key name="name" value="recenseDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="recenseDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isLastVersion</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[isLastVersion].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>bf283b31-3461-4418-8e91-6492459ae570</key>
+                    <parentUnit>
+                        <key name="name" value="isLastVersion" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isLastVersion" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isAimMeasure</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[isAimMeasure].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d9f7afde-262a-4683-b375-423febc76d07</key>
+                    <parentUnit>
+                        <key name="name" value="isAimMeasure" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isAimMeasure" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>mainVerNo</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[mainVerNo].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e8a6ebb3-dd5c-456f-ae1f-ba994095a2ea</key>
+                    <parentUnit>
+                        <key name="name" value="mainVerNo" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="mainVerNo" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>subVerNo</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[subVerNo].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9d38335a-1650-4f94-a38f-ad598eb59c82</key>
+                    <parentUnit>
+                        <key name="name" value="subVerNo" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="subVerNo" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>srcMeasureCostId</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[srcMeasureCostId].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>37ef5a26-1536-44d8-b058-9d028451039f</key>
+                    <parentUnit>
+                        <key name="name" value="srcMeasureCostId" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="srcMeasureCostId" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>state</name>
+            <userDefined>false</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[state].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>86a8012a-b044-495b-97c1-299fe5e6d0ec</key>
+                    <parentUnit>
+                        <key name="name" value="state" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="state" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ef3d37da-8780-47ce-8a6c-b0ab28208684</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>originalAmount</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[originalAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f0ff805f-87d0-4479-8cbb-e47a5fa2fe30</key>
+                    <parentUnit>
+                        <key name="name" value="originalAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="originalAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>amount</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[amount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>12f9ff2a-e672-425e-8906-909cf35b0cff</key>
+                    <parentUnit>
+                        <key name="name" value="amount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="amount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditTime</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[auditTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7f3d9958-570e-4341-a281-00df2a00b2bd</key>
+                    <parentUnit>
+                        <key name="name" value="auditTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bookedDate</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[bookedDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f1da23e3-a934-41a5-b19c-c9b7ec05fc05</key>
+                    <parentUnit>
+                        <key name="name" value="bookedDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bookedDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isRespite</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[isRespite].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>dadcd23c-048c-4de6-8351-fb5e2bfade0e</key>
+                    <parentUnit>
+                        <key name="name" value="isRespite" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isRespite" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bizDate</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[bizDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>041b41cc-14ff-4c71-942c-7a47f240fd43</key>
+                    <parentUnit>
+                        <key name="name" value="bizDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bizDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>description</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[description].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7a5addd4-c694-4fe3-a005-bdefa959014f</key>
+                    <parentUnit>
+                        <key name="name" value="description" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="description" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>hasEffected</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[hasEffected].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5785074a-d1d7-4e38-83bb-e51119f3e6ed</key>
+                    <parentUnit>
+                        <key name="name" value="hasEffected" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="hasEffected" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>sourceBillId</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[sourceBillId].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c1e3705d-8a2a-4a41-9d84-aa6e2b74730a</key>
+                    <parentUnit>
+                        <key name="name" value="sourceBillId" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="sourceBillId" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a8893f30-10c4-4053-a5c9-041f17ecdf58</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3fdee6d6-2fd1-4d8c-8672-e863d92b7ab0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>436a3a72-ba0c-4dbe-8606-aea42637886a</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MeasureCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+            <key name="name" value="AimMeasureCostPrintQuery" />
+        </query>
+    </defaultFilter>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>ec39d809-92f0-40f4-8f9a-4fad43df5bbe</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="MeasureCost" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="project" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>170d6e4d-25bf-48f6-8893-2490cf31312f</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="391216d9-0703-4efd-9d6f-7c05339143b4" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="f6957794-0fa0-48db-a97c-7634c4700a6d" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="ec39d809-92f0-40f4-8f9a-4fad43df5bbe" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </join>
+        <join>
+            <name>e21965e1-ea47-4b7d-9466-f587ada79553</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="MeasureCost" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="measureStage" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>9a3d1088-c562-4fab-986f-1db2e13b6a77</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="050f3e90-4dae-483b-a195-24cd5a08b721" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="67bca87f-8960-4434-b2f7-534c937da5da" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="e21965e1-ea47-4b7d-9466-f587ada79553" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </join>
+        <join>
+            <name>fcd1efc6-cd7c-4c4c-ae8d-5f5c0ab96dbd</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="MeasureCost" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="projectType" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0f79d649-36df-4893-9e28-678a7bca24f6</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="72d04b79-fe1e-41ea-af04-5dc319923a88" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="6d6141d3-16f4-44e9-b014-fdb66d013aab" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="fcd1efc6-cd7c-4c4c-ae8d-5f5c0ab96dbd" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimMeasureCostPrintQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="目标成本测算套打Query" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="目标成本测算套打Query" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].subObjects.subEntity[MeasureCost].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].subObjects.subEntity[measureStage].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].subObjects.subEntity[projectType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].subObjects.subEntity[project].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.propertyUnit[050f3e90-4dae-483b-a195-24cd5a08b721].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.propertyUnit[391216d9-0703-4efd-9d6f-7c05339143b4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.propertyUnit[67bca87f-8960-4434-b2f7-534c937da5da].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.propertyUnit[6d6141d3-16f4-44e9-b014-fdb66d013aab].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.propertyUnit[72d04b79-fe1e-41ea-af04-5dc319923a88].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.propertyUnit[f6957794-0fa0-48db-a97c-7634c4700a6d].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[amount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本位币金额" />
+            <lang locale="zh_TW" value="本位幣金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[auditTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批时间" />
+            <lang locale="zh_TW" value="審批時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[bizDate].displayName">
+            <lang locale="en_US" value="" />
+            <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_TW" value="業務日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[bookedDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务记录日期" />
+            <lang locale="zh_TW" value="業務記錄日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="createTime" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[description].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="参考信息" />
+            <lang locale="zh_TW" value="參考信息" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[hasEffected].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否曾经生效" />
+            <lang locale="zh_TW" value="是否曾經生效" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[isAimMeasure].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否目标测算" />
+            <lang locale="zh_TW" value="是否目標測算" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[isLastVersion].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否最终版本" />
+            <lang locale="zh_TW" value="是否最終版本" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[isRespite].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否暂缓" />
+            <lang locale="zh_TW" value="是否暫緩" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[lastUpdateTime].displayName">
+            <lang locale="en_US" value="lastUpdateTime" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[mainVerNo].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主版本号" />
+            <lang locale="zh_TW" value="主版本號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[measureStage.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="测算阶段" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[originalAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="原币金额" />
+            <lang locale="zh_TW" value="原幣金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[project.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目名称" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[projectType.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目系列" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[recenseDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="修订日期" />
+            <lang locale="zh_TW" value="修訂日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[sourceBillId].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="原始单据ID" />
+            <lang locale="zh_TW" value="原始單據ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[srcMeasureCostId].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="被修订测算ID" />
+            <lang locale="zh_TW" value="被修訂測算ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[state].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="状态" />
+            <lang locale="zh_TW" value="狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[subVerNo].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="子版本号" />
+            <lang locale="zh_TW" value="子版本號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[versionName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="版本名称" />
+            <lang locale="zh_TW" value="版本名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimMeasureCostPrintQuery].units.queryField[versionNumber].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="版本号" />
+            <lang locale="zh_TW" value="版本號" />
+        </rs>
+    </resource>
+</joinQuery>
+

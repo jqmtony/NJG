@@ -1,0 +1,1374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entityObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.aimcost.app</package>
+    <name>DynamicCostMonitor</name>
+    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].alias</alias>
+    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].description</description>
+    <userDefined>false</userDefined>
+    <bosType>272DF0A5</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.fdc.aimcost.DynamicCostMonitor</businessImplName>
+    <businessControllerName>com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitorController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].description</description>
+            <innerID>139f5c7d-d93a-4c4b-b656-7c62afe7fdbc</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].description</description>
+            <innerID>d94997fe-f0ae-4bb5-9cfb-2463ecea0926</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].description</description>
+            <innerID>402ec4db-9ba0-46c3-b812-c1171978ee90</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].description</description>
+            <innerID>b00c8766-d44d-48d0-8fad-9899b700760f</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].description</description>
+            <innerID>78f0c9c4-20fb-4cfc-b50d-240468fed593</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].description</description>
+            <innerID>f450b101-28ff-4bf1-9ed1-1d19ec718440</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].description</description>
+            <innerID>7a67e83e-1d31-4195-905f-b8fc9c40f8e2</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].description</description>
+            <innerID>c254734a-7ff9-439f-ba51-1c60c216c5d5</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>update</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[update].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[update].description</description>
+            <innerID>543a4e2a-5df7-4524-83d0-09c16ac1155a</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[update].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[update].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[update].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[update].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updatePartial</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updatePartial].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updatePartial].description</description>
+            <innerID>46395609-3edb-4b9d-9c2f-a65b181390d1</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updatePartial].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updatePartial].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updatePartial].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updatePartial].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updateBigObject</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updateBigObject].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updateBigObject].description</description>
+            <innerID>f4005ecd-9aaa-47c7-8a68-10e4e3036dbf</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updateBigObject].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updateBigObject].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updateBigObject].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updateBigObject].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].description</description>
+            <innerID>7e97c43a-b0e0-40fa-8fcd-4c307616a3f2</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].description</description>
+            <innerID>70ccc23d-3773-4317-95ec-92e311224aff</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].description</description>
+            <innerID>380cd00e-e962-4801-b087-a7dad634a547</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].description</description>
+            <innerID>cbd18b3b-b9a3-4269-9ee9-3a517dd39c77</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>sorter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].parameters.parameter[sorter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].parameters.parameter[sorter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SorterItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].description</description>
+            <innerID>e85ecd48-e63a-426e-858b-8cf655d67a2c</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].description</description>
+            <innerID>c86ea41d-0e3d-42d9-9cb9-2e9996fdc9a4</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>view</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].parameters.parameter[view].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].parameters.parameter[view].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.EntityViewInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].description</description>
+            <innerID>603d4787-9670-43a5-8b86-0cfe372764e2</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].description</description>
+            <innerID>26b694b4-1634-44bc-b172-1e023ccccf53</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].description</description>
+            <innerID>0bace79e-ae2b-4b63-b2f5-ac392944eb3d</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].description</description>
+            <innerID>bfdd5ba2-543a-4ac5-aad3-331dfb9d3bf6</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>arrayPK</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[arrayPK].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[arrayPK].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK[]</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getLatestProgrammingByPrjId</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getLatestProgrammingByPrjId].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getLatestProgrammingByPrjId].description</description>
+            <innerID>64d688fe-1b0c-4101-b846-b8f97b863de3</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.contract.programming.app.Programming</metadataRef>
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>prjID</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getLatestProgrammingByPrjId].parameters.parameter[prjID].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getLatestProgrammingByPrjId].parameters.parameter[prjID].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+    </methods>
+    <isAbstract>false</isAbstract>
+    <bizUnitPK>com.kingdee.eas.fdc.aimcost.DynamicCostMonitor</bizUnitPK>
+    <baseEntity>
+        <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+        <key name="name" value="FDCBill" />
+    </baseEntity>
+    <table>
+        <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+        <key name="name" value="T_AIM_DynamicCostMonitor" />
+    </table>
+    <properties>
+        <linkProperty>
+            <name>curProject</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[curProject].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[curProject].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="FCurProjectID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="R_DynamicCostMonitor_CurProject_curProject" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>programming</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[programming].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[programming].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="FProgrammingID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="R_DynamicCostMonitor_Programming_programming" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>contractEntries</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[contractEntries].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[contractEntries].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="R_DynamicCostMonitor_DynaicCostMonitorContractEntry_entries" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>costAccountEntries</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[costAccountEntries].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[costAccountEntries].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="R_DynamicCostMonitor_DynamicCostMonitorCAEntries_costAccountEntries" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>conEntryTblContent</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.ownProperty[conEntryTblContent].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.ownProperty[conEntryTblContent].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>ByteArray</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>0</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.ownProperty[conEntryTblContent].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FConEntryTblContent" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>caEntryTblContent</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.ownProperty[caEntryTblContent].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.ownProperty[caEntryTblContent].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>ByteArray</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>0</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.ownProperty[caEntryTblContent].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FCaEntryTblContent" />
+            </mappingField>
+        </ownProperty>
+    </properties>
+    <logicalKey>
+        <name>id</name>
+        <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].logicalKey[id].alias</alias>
+        <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].logicalKey[id].description</description>
+        <keyClass>com.kingdee.bos.dao.IObjectPK</keyClass>
+        <userDefined>false</userDefined>
+        <keyProperties>
+            <baseProperty>
+                <key name="name" value="id" />
+            </baseProperty>
+        </keyProperties>
+    </logicalKey>
+    <defaultView>
+        <name />
+        <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultViewalias</alias>
+        <description>entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultViewdescription</description>
+        <filter>
+            <maskString />
+        </filter>
+    </defaultView>
+    <resource>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].alias">
+            <lang locale="zh_CN" value="动态成本监控" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="動態成本監控" />
+            <lang locale="zh_TW" value="動態成本監控" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultView.filterextendedProperty.BizStatusFieldName">
+            <lang locale="zh_CN" value="state" />
+            <lang locale="zh_TW" value="state" />
+            <lang locale="en_US" value="state" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultView.filterextendedProperty.OrgType">
+            <lang locale="zh_CN" value="COSTCENTER" />
+            <lang locale="zh_TW" value="COSTCENTER" />
+            <lang locale="en_US" value="COSTCENTER" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultView.filterextendedProperty.editUI">
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorEditUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorEditUI" />
+            <lang locale="en_US" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorEditUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultView.filterextendedProperty.enableFieldPermission">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultView.filterextendedProperty.isUseCodeRule">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultView.filterextendedProperty.listUI">
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorListUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorListUI" />
+            <lang locale="en_US" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorListUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultViewalias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultViewdescription">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultViewextendedProperty.BizStatusFieldName">
+            <lang locale="zh_CN" value="state" />
+            <lang locale="zh_TW" value="state" />
+            <lang locale="en_US" value="state" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultViewextendedProperty.OrgType">
+            <lang locale="zh_CN" value="COSTCENTER" />
+            <lang locale="zh_TW" value="COSTCENTER" />
+            <lang locale="en_US" value="COSTCENTER" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultViewextendedProperty.editUI">
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorEditUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorEditUI" />
+            <lang locale="en_US" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorEditUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultViewextendedProperty.enableFieldPermission">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultViewextendedProperty.isUseCodeRule">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].defaultViewextendedProperty.listUI">
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorListUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorListUI" />
+            <lang locale="en_US" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorListUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].description">
+            <lang locale="zh_CN" value="动态成本监控，资金计划专项时添加" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="動態成本監控，資金計畫專項時添加" />
+            <lang locale="zh_TW" value="動態成本監控，資金計畫專項時添加" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].extendedProperty.BizStatusFieldName">
+            <lang locale="zh_CN" value="state" />
+            <lang locale="zh_TW" value="state" />
+            <lang locale="en_US" value="state" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].extendedProperty.OrgType">
+            <lang locale="zh_CN" value="COSTCENTER" />
+            <lang locale="zh_TW" value="COSTCENTER" />
+            <lang locale="en_US" value="COSTCENTER" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].extendedProperty.editUI">
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorEditUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorEditUI" />
+            <lang locale="en_US" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorEditUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].extendedProperty.enableFieldPermission">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].extendedProperty.isUseCodeRule">
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].extendedProperty.listUI">
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorListUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorListUI" />
+            <lang locale="en_US" value="com.kingdee.eas.fdc.aimcost.client.DynamicCostMonitorListUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].logicalKey[id].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].logicalKey[id].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].parameters.parameter[model].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].parameters.parameter[model].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[addnew].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[arrayPK].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[arrayPK].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[filter].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[filter].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].parameters.parameter[filter].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].parameters.parameter[filter].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[exists].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].parameters.parameter[view].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getCollection].parameters.parameter[view].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getLatestProgrammingByPrjId].alias">
+            <lang locale="zh_CN" value="通过工程项目ID获取最新的合同框架" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="通過工程項目ID獲取最新的合同框架" />
+            <lang locale="zh_TW" value="通過工程項目ID獲取最新的合同框架" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getLatestProgrammingByPrjId].description">
+            <lang locale="zh_CN" value="通过工程项目ID获取最新的合同框架" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="通過工程項目ID獲取最新的合同框架" />
+            <lang locale="zh_TW" value="通過工程項目ID獲取最新的合同框架" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getLatestProgrammingByPrjId].parameters.parameter[prjID].alias">
+            <lang locale="zh_CN" value="工程项目ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="工程項目ID" />
+            <lang locale="zh_TW" value="工程項目ID" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getLatestProgrammingByPrjId].parameters.parameter[prjID].description">
+            <lang locale="zh_CN" value="工程项目ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="工程項目ID" />
+            <lang locale="zh_TW" value="工程項目ID" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].parameters.parameter[filter].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].parameters.parameter[filter].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].parameters.parameter[sorter].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getPKList].parameters.parameter[sorter].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[oql].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[oql].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[selector].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[getValue].parameters.parameter[selector].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updateBigObject].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updateBigObject].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updateBigObject].parameters.parameter[model].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updateBigObject].parameters.parameter[model].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updateBigObject].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updateBigObject].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updatePartial].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updatePartial].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updatePartial].parameters.parameter[model].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updatePartial].parameters.parameter[model].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updatePartial].parameters.parameter[selector].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[updatePartial].parameters.parameter[selector].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[update].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[update].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[update].parameters.parameter[model].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[update].parameters.parameter[model].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[update].parameters.parameter[pk].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].methods.method[update].parameters.parameter[pk].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[contractEntries].alias">
+            <lang locale="zh_CN" value="合同分录" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合同分錄" />
+            <lang locale="zh_TW" value="合同分錄" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[contractEntries].description">
+            <lang locale="zh_CN" value="合同分录" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合同分錄" />
+            <lang locale="zh_TW" value="合同分錄" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[costAccountEntries].alias">
+            <lang locale="zh_CN" value="成本科目分录" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="成本科目分錄" />
+            <lang locale="zh_TW" value="成本科目分錄" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[costAccountEntries].description">
+            <lang locale="zh_CN" value="成本科目分录" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="成本科目分錄" />
+            <lang locale="zh_TW" value="成本科目分錄" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[curProject].alias">
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[curProject].description">
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[curProject].extendedProperty.dataField">
+            <lang locale="zh_CN" value="isEnabled" />
+            <lang locale="zh_TW" value="isEnabled" />
+            <lang locale="en_US" value="isEnabled" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[programming].alias">
+            <lang locale="zh_CN" value="合约框架" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合約框架" />
+            <lang locale="zh_TW" value="合約框架" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.linkProperty[programming].description">
+            <lang locale="zh_CN" value="关联的合约框架" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="關聯的合約框架" />
+            <lang locale="zh_TW" value="關聯的合約框架" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.ownProperty[caEntryTblContent].alias">
+            <lang locale="zh_CN" value="成本科目分录表格内容" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="成本科目分錄表格內容" />
+            <lang locale="zh_TW" value="成本科目分錄表格內容" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.ownProperty[caEntryTblContent].defaultValue">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.ownProperty[caEntryTblContent].description">
+            <lang locale="zh_CN" value="成本科目分录表格内容" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="成本科目分錄表格內容" />
+            <lang locale="zh_TW" value="成本科目分錄表格內容" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.ownProperty[conEntryTblContent].alias">
+            <lang locale="zh_CN" value="合同成本分录表格内容" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合同成本分錄表格內容" />
+            <lang locale="zh_TW" value="合同成本分錄表格內容" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.ownProperty[conEntryTblContent].defaultValue">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.DynamicCostMonitor].properties.ownProperty[conEntryTblContent].description">
+            <lang locale="zh_CN" value="合同成本分录表格内容" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合同成本分錄表格內容" />
+            <lang locale="zh_TW" value="合同成本分錄表格內容" />
+        </rs>
+    </resource>
+</entityObject>
+

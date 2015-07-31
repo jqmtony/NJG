@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functionObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.contract.programming.app</package>
+    <name>ProgrammingFunction</name>
+    <alias>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].alias</alias>
+    <description>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].description</description>
+    <userDefined>false</userDefined>
+    <isBindSingleBizObject>false</isBindSingleBizObject>
+    <operations>
+        <operation>
+            <name>ActionSubmit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionSubmit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionSubmit].description</description>
+            <reverseOperation />
+            <eventMethod>dfd2c083-00fa-1000-e000-001fc0a813e6</eventMethod>
+            <event>submitEvent</event>
+            <userDefined>false</userDefined>
+            <uiActionRef>
+                <id>1b44819d-3a3f-4848-a528-f4f298e68cf3uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <userDefined>false</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.contract.programming.client" />
+                    <key name="name" value="ProgrammingUI" />
+                </uiObjectRef>
+                <actionRefName>ActionSubmit</actionRefName>
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionSubmit].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionSubmit].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>false</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="Programming" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>ActionDelete</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionDelete].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionDelete].description</description>
+            <reverseOperation />
+            <eventMethod>a94a3987-00fb-1000-e000-000ac0a813e6</eventMethod>
+            <event>deleteEvent</event>
+            <userDefined>false</userDefined>
+            <uiActionRef>
+                <id>8ce83e68-ba15-4835-b876-7ec8e6be4874uiaf</id>
+                <uiStatus>VIEW</uiStatus>
+                <userDefined>false</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.contract.programming.client" />
+                    <key name="name" value="ProgrammingUI" />
+                </uiObjectRef>
+                <actionRefName>ActionRemove</actionRefName>
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionDelete].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionDelete].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>false</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="Programming" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>ActionAudit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionAudit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionAudit].description</description>
+            <reverseOperation />
+            <eventMethod>3f3803ee-010e-1000-e000-00b0c0a813bc</eventMethod>
+            <event>auditEvent</event>
+            <userDefined>false</userDefined>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="Programming" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>ActionSetAudittingStatus</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionSetAudittingStatus].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionSetAudittingStatus].description</description>
+            <reverseOperation />
+            <eventMethod>3f3803ee-010e-1000-e000-00b3c0a813bc</eventMethod>
+            <event>setAudittingEvent</event>
+            <userDefined>false</userDefined>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="Programming" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>ActionUnAudit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionUnAudit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionUnAudit].description</description>
+            <reverseOperation />
+            <eventMethod>3f3803ee-010e-1000-e000-00b2c0a813bc</eventMethod>
+            <event>unAuditEvent</event>
+            <userDefined>false</userDefined>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="Programming" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>actionSetSubmit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[actionSetSubmit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[actionSetSubmit].description</description>
+            <reverseOperation />
+            <eventMethod>3064ac8b-c07b-4629-86be-ba760eeac842</eventMethod>
+            <event>setSubmitEvent</event>
+            <userDefined>false</userDefined>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="Programming" />
+            </entityObjectRef>
+        </operation>
+    </operations>
+    <resource>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].alias">
+            <lang locale="zh_CN" value="合约规划" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合約規劃" />
+            <lang locale="zh_TW" value="合約規劃" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].description">
+            <lang locale="zh_CN" value="合约规划" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合約規劃" />
+            <lang locale="zh_TW" value="合約規劃" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionAudit].alias">
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionAudit].description">
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionDelete].alias">
+            <lang locale="zh_CN" value="删除" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="刪除" />
+            <lang locale="zh_TW" value="刪除" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionDelete].description">
+            <lang locale="zh_CN" value="删除" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="刪除" />
+            <lang locale="zh_TW" value="刪除" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionDelete].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="zh_CN" value="billID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="billID" />
+            <lang locale="zh_TW" value="billID" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionDelete].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="zh_CN" value="单据ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="單據ID" />
+            <lang locale="zh_TW" value="單據ID" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionSetAudittingStatus].alias">
+            <lang locale="zh_CN" value="设置审批中" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="設置審批中" />
+            <lang locale="zh_TW" value="設置審批中" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionSetAudittingStatus].description">
+            <lang locale="zh_CN" value="设置审批中" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="設置審批中" />
+            <lang locale="zh_TW" value="設置審批中" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionSubmit].alias">
+            <lang locale="zh_CN" value="提交" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="提交" />
+            <lang locale="zh_TW" value="提交" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionSubmit].description">
+            <lang locale="zh_CN" value="提交" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="提交" />
+            <lang locale="zh_TW" value="提交" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionSubmit].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="zh_CN" value="billID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="billID" />
+            <lang locale="zh_TW" value="billID" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionSubmit].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="zh_CN" value="单据ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="單據ID" />
+            <lang locale="zh_TW" value="單據ID" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionUnAudit].alias">
+            <lang locale="zh_CN" value="反审批" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反審批" />
+            <lang locale="zh_TW" value="反審批" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[ActionUnAudit].description">
+            <lang locale="zh_CN" value="反审批" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反審批" />
+            <lang locale="zh_TW" value="反審批" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[actionSetSubmit].alias">
+            <lang locale="zh_CN" value="设置提交" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="設置提交" />
+            <lang locale="zh_TW" value="設置提交" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingFunction].operations.operation[actionSetSubmit].description">
+            <lang locale="zh_CN" value="设置提交" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="設置提交" />
+            <lang locale="zh_TW" value="設置提交" />
+        </rs>
+    </resource>
+</functionObject>
+

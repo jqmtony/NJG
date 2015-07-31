@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entityObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.contract.app</package>
+    <name>ConSpecialtyType</name>
+    <alias>entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].alias</alias>
+    <description>entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].description</description>
+    <userDefined>false</userDefined>
+    <bosType>8563B731</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.fdc.contract.ConSpecialtyType</businessImplName>
+    <businessControllerName>com.kingdee.eas.fdc.contract.app.ConSpecialtyTypeController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <isAbstract>false</isAbstract>
+    <bizUnitPK />
+    <baseEntity>
+        <key name="package" value="com.kingdee.eas.framework.app" />
+        <key name="name" value="CoreBillEntryBase" />
+    </baseEntity>
+    <table>
+        <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+        <key name="name" value="T_CON_ConSpecialtyType" />
+    </table>
+    <properties>
+        <linkProperty>
+            <name>parent</name>
+            <alias>entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].properties.linkProperty[parent].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].properties.linkProperty[parent].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="FParentID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="R_ContractChangeBill_SpecialtyTypeEntry_Entry" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>specialtyType</name>
+            <alias>entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].properties.linkProperty[specialtyType].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].properties.linkProperty[specialtyType].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="FSpecialtyTypeID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="R_ConSpecialtyType_SpecialtyType_Relation" />
+            </relationship>
+        </linkProperty>
+    </properties>
+    <logicalKey>
+        <name>id</name>
+        <alias>entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].logicalKey[id].alias</alias>
+        <description>entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].logicalKey[id].description</description>
+        <keyClass>com.kingdee.bos.dao.IObjectPK</keyClass>
+        <userDefined>false</userDefined>
+        <keyProperties>
+            <baseProperty>
+                <key name="name" value="id" />
+            </baseProperty>
+        </keyProperties>
+    </logicalKey>
+    <resource>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="专业类型" />
+            <lang locale="zh_TW" value="專業類型" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].logicalKey[id].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].logicalKey[id].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].properties.linkProperty[parent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更签证确认分录" />
+            <lang locale="zh_TW" value="變更簽證確認分錄" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].properties.linkProperty[parent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].properties.linkProperty[specialtyType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="专业类型" />
+            <lang locale="zh_TW" value="專業類型" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ConSpecialtyType].properties.linkProperty[specialtyType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</entityObject>
+

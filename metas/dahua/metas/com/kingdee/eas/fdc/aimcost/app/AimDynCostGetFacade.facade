@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facade xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.aimcost.app</package>
+    <name>AimDynCostGetFacade</name>
+    <alias>facade[com.kingdee.eas.fdc.aimcost.app.AimDynCostGetFacade].alias</alias>
+    <description>facade[com.kingdee.eas.fdc.aimcost.app.AimDynCostGetFacade].description</description>
+    <userDefined>false</userDefined>
+    <bosType>08BDF4F8</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.fdc.aimcost.AimDynCostGetFacade</businessImplName>
+    <businessControllerName>com.kingdee.eas.fdc.aimcost.app.AimDynCostGetFacadeController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>getAimDynCost</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.aimcost.app.AimDynCostGetFacade].methods.method[getAimDynCost].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.aimcost.app.AimDynCostGetFacade].methods.method[getAimDynCost].description</description>
+            <innerID>5932d243-d12e-4d5e-ae0c-92a219bbf857</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>java.util.Map</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>proId</name>
+                    <alias>facade[com.kingdee.eas.fdc.aimcost.app.AimDynCostGetFacade].methods.method[getAimDynCost].parameters.parameter[proId].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.aimcost.app.AimDynCostGetFacade].methods.method[getAimDynCost].parameters.parameter[proId].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
+    </methods>
+    <resource>
+        <rs key="facade[com.kingdee.eas.fdc.aimcost.app.AimDynCostGetFacade].alias">
+            <lang locale="zh_CN" value="项目动态成本分析表获取目标成本，动态成本" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="項目動態成本分析表獲取目標成本，動態成本" />
+            <lang locale="zh_TW" value="項目動態成本分析表獲取目標成本，動態成本" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.aimcost.app.AimDynCostGetFacade].description">
+            <lang locale="zh_CN" value="项目动态成本分析表获取目标成本，动态成本" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="項目動態成本分析表獲取目標成本，動態成本" />
+            <lang locale="zh_TW" value="項目動態成本分析表獲取目標成本，動態成本" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.aimcost.app.AimDynCostGetFacade].methods.method[getAimDynCost].alias">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.aimcost.app.AimDynCostGetFacade].methods.method[getAimDynCost].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.aimcost.app.AimDynCostGetFacade].methods.method[getAimDynCost].parameters.parameter[proId].alias">
+            <lang locale="zh_CN" value="项目id" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="項目id" />
+            <lang locale="zh_TW" value="項目id" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.aimcost.app.AimDynCostGetFacade].methods.method[getAimDynCost].parameters.parameter[proId].description">
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+            <lang locale="en_US" value="null" />
+        </rs>
+    </resource>
+</facade>
+

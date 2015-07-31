@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.app</package>
+    <name>FDCApproveInfoForPrintQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].description</description>
+    <userDefined>false</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>MultiApprove</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].subObjects.subEntity[MultiApprove].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="FDCApproveInfoForPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.multiapprove.app" />
+                <key name="name" value="MultiApprove" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>isPass</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[isPass].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4a766ed6-433d-4582-a39c-3097da4deadd</key>
+                    <parentUnit>
+                        <key name="name" value="isPass" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MultiApprove" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isPass" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="FDCApproveInfoForPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>opinion</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[opinion].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a380e2ea-434f-44fa-8649-71adfbdf9721</key>
+                    <parentUnit>
+                        <key name="name" value="opinion" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MultiApprove" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="opinion" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="FDCApproveInfoForPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>billId</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[billId].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>99b6e820-8dde-4eb6-965d-dc0f9b2062b7</key>
+                    <parentUnit>
+                        <key name="name" value="billId" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MultiApprove" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="billId" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="FDCApproveInfoForPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>handlerContent</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[handlerContent].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1c4f05da-7684-4547-b1a7-cd9f2b7c23f2</key>
+                    <parentUnit>
+                        <key name="name" value="handlerContent" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MultiApprove" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="handlerContent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="FDCApproveInfoForPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>multiHandleOpinion</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[multiHandleOpinion].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b7db9ebe-268b-4a11-af69-f61cb9b3b2f0</key>
+                    <parentUnit>
+                        <key name="name" value="multiHandleOpinion" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MultiApprove" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="multiHandleOpinion" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="FDCApproveInfoForPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>type</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[type].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>95b5bfba-c47e-45df-89f1-c3494a32b6c4</key>
+                    <parentUnit>
+                        <key name="name" value="type" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MultiApprove" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="type" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="FDCApproveInfoForPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>eae63fcd-59db-48fa-b30f-64461dff68b7</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MultiApprove" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="FDCApproveInfoForPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5cb66d6a-faed-4bab-b55b-f24c4b5bfbf2</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="MultiApprove" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="FDCApproveInfoForPrintQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+            <key name="name" value="FDCApproveInfoForPrintQuery" />
+        </query>
+    </defaultFilter>
+    <isDistinct>false</isDistinct>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].alias">
+            <lang locale="zh_CN" value="房地产审批信息套打查询" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="房地產審批信息套打查詢" />
+            <lang locale="zh_TW" value="房地產審批信息套打查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].description">
+            <lang locale="zh_CN" value="房地产审批信息套打查询" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="房地產審批信息套打查詢" />
+            <lang locale="zh_TW" value="房地產審批信息套打查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].subObjects.subEntity[MultiApprove].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[billId].displayName">
+            <lang locale="zh_CN" value="审批单据内码" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審批單據內碼" />
+            <lang locale="zh_TW" value="審批單據內碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[handlerContent].displayName">
+            <lang locale="zh_CN" value="具体决策项内容" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="具體決策項內容" />
+            <lang locale="zh_TW" value="具體決策項內容" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[id].displayName">
+            <lang locale="zh_CN" value="审批流程单据ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審批流程單據ID" />
+            <lang locale="zh_TW" value="審批流程單據ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[isPass].displayName">
+            <lang locale="zh_CN" value="审批结果" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審批結果" />
+            <lang locale="zh_TW" value="審批結果" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[multiHandleOpinion].displayName">
+            <lang locale="zh_CN" value="决策项选择,多选" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="決策項選擇,多選" />
+            <lang locale="zh_TW" value="決策項選擇,多選" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[number].displayName">
+            <lang locale="zh_CN" value="审批编码" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審批編碼" />
+            <lang locale="zh_TW" value="審批編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[opinion].displayName">
+            <lang locale="zh_CN" value="审批意见" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審批意見" />
+            <lang locale="zh_TW" value="審批意見" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.FDCApproveInfoForPrintQuery].units.queryField[type].displayName">
+            <lang locale="zh_CN" value="审批类型" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審批類型" />
+            <lang locale="zh_TW" value="審批類型" />
+        </rs>
+    </resource>
+</joinQuery>
+

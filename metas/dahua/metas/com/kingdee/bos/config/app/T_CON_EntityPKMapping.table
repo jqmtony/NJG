@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.bos.config.app</package>
+    <name>T_CON_EntityPKMapping</name>
+    <alias>dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].alias</alias>
+    <description>dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].description</description>
+    <userDefined>false</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].columns.column[FID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>FMetaDataPK</name>
+            <alias>dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].columns.column[FMetaDataPK].alias</alias>
+            <description>dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].columns.column[FMetaDataPK].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>80</precision>
+        </column>
+        <column>
+            <name>FBosType</name>
+            <alias>dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].columns.column[FBosType].alias</alias>
+            <description>dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].columns.column[FBosType].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>8</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>PK_EntityPKMapping</name>
+        <userDefined>false</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <resource>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="T_CON_EntityPKMapping" />
+            <lang locale="zh_HK" value="T_CON_EntityPKMapping" />
+            <lang locale="zh_TW" value="T_CON_EntityPKMapping" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].columns.column[FBosType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="bosType" />
+            <lang locale="zh_HK" value="bosType" />
+            <lang locale="zh_TW" value="bosType" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].columns.column[FBosType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].columns.column[FMetaDataPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="元数据pk" />
+            <lang locale="zh_HK" value="元數據pk" />
+            <lang locale="zh_TW" value="元數據pk" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].columns.column[FMetaDataPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="元数据pk" />
+            <lang locale="zh_HK" value="元數據pk" />
+            <lang locale="zh_TW" value="元數據pk" />
+        </rs>
+        <rs key="dataTable[com.kingdee.bos.config.app.T_CON_EntityPKMapping].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="记录实体的pk与bosType的映射 " />
+            <lang locale="zh_HK" value="記錄實體的pk與bosType的映射 " />
+            <lang locale="zh_TW" value="記錄實體的pk與bosType的映射 " />
+        </rs>
+    </resource>
+</dataTable>
+

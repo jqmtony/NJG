@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.finance.app</package>
+    <name>T_FNC_ProjectInvestPlanEntry</name>
+    <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].alias</alias>
+    <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].description</description>
+    <userDefined>false</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FAccountID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FAccountID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FAccountID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FParentID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FTaskID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FTaskID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FTaskID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSeq</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FSeq].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FID].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>PK_ProjectInvestPl</name>
+        <userDefined>false</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <foreignKeys>
+        <foreignKey>
+            <name>FK_FNC_PrjctIPECcn</name>
+            <userDefined>false</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="T_FDC_CostAccount" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FAccountID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>FK_FNC_ProjectIPEA</name>
+            <userDefined>false</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="T_FNC_ProjectInvestPlan" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FParentID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>FK_FNC_ProjectIPE2</name>
+            <userDefined>false</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.schedule.app" />
+                <key name="name" value="T_SCH_FDCScheduleTask" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FTaskID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FAccountID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FAccountID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号（定义为序列属性即使用{seq}）" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FTaskID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].columns.column[FTaskID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="支付节点名称" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectInvestPlanEntry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目全生命周期资金投入计划分录" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</dataTable>
+

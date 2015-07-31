@@ -1,0 +1,2485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.finance.app</package>
+    <name>PaymentNoCostSplitEntryPrintQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].description</description>
+    <userDefined>false</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>PaymentNoCostSplitEntry</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].subObjects.subEntity[PaymentNoCostSplitEntry].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntry" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>accountView</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].subObjects.subEntity[accountView].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.master.account.app" />
+                <key name="name" value="AccountView" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>product</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].subObjects.subEntity[product].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="ProductType" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>apportionType</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].subObjects.subEntity[apportionType].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="ApportionType" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>parent</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].subObjects.subEntity[parent].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>curProject</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].subObjects.subEntity[curProject].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProject" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>1b96d91e-b4c3-497c-ae7f-20a781572191</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[1b96d91e-b4c3-497c-ae7f-20a781572191].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>57769a22-37db-45d4-b48b-a9af3699599e</key>
+                    <parentUnit>
+                        <key name="name" value="1b96d91e-b4c3-497c-ae7f-20a781572191" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="accountView" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>19df45e1-d61e-43ea-a9c4-f3efcc0e6719</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[19df45e1-d61e-43ea-a9c4-f3efcc0e6719].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>b39694b4-2353-4b8c-a286-37a64e170f45</key>
+                    <parentUnit>
+                        <key name="name" value="19df45e1-d61e-43ea-a9c4-f3efcc0e6719" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="accountView" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>c603c928-96eb-4c69-ad01-2aba961d51f9</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[c603c928-96eb-4c69-ad01-2aba961d51f9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>b2548858-baa5-4b8c-b82a-f013c3d5a8c4</key>
+                    <parentUnit>
+                        <key name="name" value="c603c928-96eb-4c69-ad01-2aba961d51f9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="product" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>2184d3d3-4d98-427a-8fd6-1d80b175f2c3</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[2184d3d3-4d98-427a-8fd6-1d80b175f2c3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>306b20eb-c39a-48f4-aef6-bac8ace2f24b</key>
+                    <parentUnit>
+                        <key name="name" value="2184d3d3-4d98-427a-8fd6-1d80b175f2c3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="product" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>894eaba9-9465-4073-aff5-08336ec27500</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[894eaba9-9465-4073-aff5-08336ec27500].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>b10630c2-863e-41cb-bf0e-17861670abff</key>
+                    <parentUnit>
+                        <key name="name" value="894eaba9-9465-4073-aff5-08336ec27500" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="apportionType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>4254b6e2-573f-471f-9a70-672cd612af07</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[4254b6e2-573f-471f-9a70-672cd612af07].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>be510fd5-ba1c-4a17-93f5-8e35bed02688</key>
+                    <parentUnit>
+                        <key name="name" value="4254b6e2-573f-471f-9a70-672cd612af07" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="apportionType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>3b39d6d8-67e2-41d7-bc42-cbf5287607bf</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[3b39d6d8-67e2-41d7-bc42-cbf5287607bf].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>3f5ddfb1-62ac-4b09-8dab-49c481006fca</key>
+                    <parentUnit>
+                        <key name="name" value="3b39d6d8-67e2-41d7-bc42-cbf5287607bf" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="curProject" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>ba8e78f6-2d00-43f4-8693-cb0ec0a0ff99</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[ba8e78f6-2d00-43f4-8693-cb0ec0a0ff99].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>14172f6e-7eb9-4b78-8dc4-507b2d77baee</key>
+                    <parentUnit>
+                        <key name="name" value="ba8e78f6-2d00-43f4-8693-cb0ec0a0ff99" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>contractAmt</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[contractAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>641d92ad-c217-4e9e-a332-f96193f43b11</key>
+                    <parentUnit>
+                        <key name="name" value="contractAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="contractAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>changeAmt</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[changeAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b6ae63eb-3884-4029-851c-a49f8973e71d</key>
+                    <parentUnit>
+                        <key name="name" value="changeAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="changeAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>costAmt</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[costAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b47f99c6-8de1-4f07-a08d-876fcacdbe37</key>
+                    <parentUnit>
+                        <key name="name" value="costAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="costAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>splitedCostAmt</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[splitedCostAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>47f93f84-4ee0-42f4-987f-f563702f723b</key>
+                    <parentUnit>
+                        <key name="name" value="splitedCostAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="splitedCostAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>directAmt</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[directAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>22986c7b-e906-46e5-8d1b-50ede1eb331d</key>
+                    <parentUnit>
+                        <key name="name" value="directAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="directAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>payedAmt</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[payedAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fc8f4e52-deae-4b11-9c8f-59e0f5cc660b</key>
+                    <parentUnit>
+                        <key name="name" value="payedAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="payedAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>qualityAmount</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[qualityAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2f252345-524a-405e-bb91-89ef421679d4</key>
+                    <parentUnit>
+                        <key name="name" value="qualityAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="qualityAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>splitedPayedAmt</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[splitedPayedAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>785bc897-d5db-4b61-829b-221b3970454e</key>
+                    <parentUnit>
+                        <key name="name" value="splitedPayedAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="splitedPayedAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>shouldPayAmt</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[shouldPayAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e0a2bbf0-39a2-4a09-af36-85a6278c6072</key>
+                    <parentUnit>
+                        <key name="name" value="shouldPayAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="shouldPayAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>splitQualityAmt</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[splitQualityAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c16a20aa-f09d-431e-91d4-2de9ea086d7f</key>
+                    <parentUnit>
+                        <key name="name" value="splitQualityAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="splitQualityAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>invoiceAmt</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[invoiceAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>467fe55c-35cd-4d72-99f7-cfd2a7962a8e</key>
+                    <parentUnit>
+                        <key name="name" value="invoiceAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="invoiceAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>directInvoiceAmt</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[directInvoiceAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>00bd0cfa-2eb8-4a17-ba4d-9d67e64bcda1</key>
+                    <parentUnit>
+                        <key name="name" value="directInvoiceAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="directInvoiceAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>splitedInvoiceAmt</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[splitedInvoiceAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>282bd4a9-2b5f-4cf0-b8be-ac3e907e9ba0</key>
+                    <parentUnit>
+                        <key name="name" value="splitedInvoiceAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="splitedInvoiceAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>directPayedAmt</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[directPayedAmt].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>192c9f1e-515a-4662-9851-2635455aab24</key>
+                    <parentUnit>
+                        <key name="name" value="directPayedAmt" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="directPayedAmt" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>amount</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[amount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a277800b-e0bc-4827-bfb6-c9fd3883c656</key>
+                    <parentUnit>
+                        <key name="name" value="amount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="amount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>splitType</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[splitType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>676d892f-88f1-4009-8652-c70a2fcfaf86</key>
+                    <parentUnit>
+                        <key name="name" value="splitType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="splitType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>level</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[level].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9fc0ea92-7666-42a3-ae02-1241e1fc5395</key>
+                    <parentUnit>
+                        <key name="name" value="level" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="level" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isLeaf</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[isLeaf].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>bd48c3c7-5480-4931-886b-0159577a641e</key>
+                    <parentUnit>
+                        <key name="name" value="isLeaf" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isLeaf" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>apportionValue</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[apportionValue].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2fa1e431-d6bd-4486-a4bd-352d4961b403</key>
+                    <parentUnit>
+                        <key name="name" value="apportionValue" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="apportionValue" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>apportionValueTotal</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[apportionValueTotal].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>33d98740-e73c-41cd-8f23-72ddeae5547e</key>
+                    <parentUnit>
+                        <key name="name" value="apportionValueTotal" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="apportionValueTotal" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>otherRatio</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[otherRatio].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8342f52c-b1d9-4040-8cf5-49ad6e1fe7b6</key>
+                    <parentUnit>
+                        <key name="name" value="otherRatio" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="otherRatio" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>otherRatioTotal</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[otherRatioTotal].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>35604d68-34e2-4ec8-bd65-070a4fcd8c28</key>
+                    <parentUnit>
+                        <key name="name" value="otherRatioTotal" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="otherRatioTotal" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>directAmount</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[directAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>46ef4f29-5b2e-47cf-81e1-33de884b8353</key>
+                    <parentUnit>
+                        <key name="name" value="directAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="directAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>directAmountTotal</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[directAmountTotal].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c055067d-d968-443e-862e-3e43219dced7</key>
+                    <parentUnit>
+                        <key name="name" value="directAmountTotal" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="directAmountTotal" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isApportion</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[isApportion].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0a6faf9d-950c-4697-be8a-bc987335f814</key>
+                    <parentUnit>
+                        <key name="name" value="isApportion" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isApportion" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isAddlAccount</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[isAddlAccount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d44f540d-7fd8-45b2-b572-bbc6e1cef36a</key>
+                    <parentUnit>
+                        <key name="name" value="isAddlAccount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isAddlAccount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>costBillId</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[costBillId].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ee990a9d-a52a-4650-9917-a80eeca78814</key>
+                    <parentUnit>
+                        <key name="name" value="costBillId" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="costBillId" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>index</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[index].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a7f9d105-4675-4f5f-80eb-db29b2976eae</key>
+                    <parentUnit>
+                        <key name="name" value="index" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="index" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>splitBillId</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[splitBillId].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1122fadf-ac08-4935-b39c-6e4cabcf0042</key>
+                    <parentUnit>
+                        <key name="name" value="splitBillId" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="splitBillId" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>seq</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[seq].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>cbf94bc5-7481-4fb6-93eb-debee6aa7c87</key>
+                    <parentUnit>
+                        <key name="name" value="seq" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="seq" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>729ded51-7a8f-4c07-9005-43edd7a1141e</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>accountView.longName</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[accountView.longName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a620b1ef-89e3-4936-b108-741c7cbad3a2</key>
+                    <parentUnit>
+                        <key name="name" value="accountView.longName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="accountView" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="longName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>accountView.longNumber</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[accountView.longNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>32810b5b-0d07-4946-95ba-c8a191751dc5</key>
+                    <parentUnit>
+                        <key name="name" value="accountView.longNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="accountView" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="longNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>accountView.displayName</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[accountView.displayName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8610559c-5398-4b82-9f1e-1da10dc4343f</key>
+                    <parentUnit>
+                        <key name="name" value="accountView.displayName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="accountView" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="displayName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>accountView.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[accountView.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>101b6b21-0b47-4ff4-bf74-5d0f298f2e26</key>
+                    <parentUnit>
+                        <key name="name" value="accountView.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="accountView" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>accountView.number</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[accountView.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9b39f7a3-f6a4-40a6-a2fd-796ac71483d4</key>
+                    <parentUnit>
+                        <key name="name" value="accountView.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="accountView" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>accountView.level</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[accountView.level].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5685fda0-3bdc-46e7-b260-b654bc9bca74</key>
+                    <parentUnit>
+                        <key name="name" value="accountView.level" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="accountView" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="level" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>product.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[product.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fcedf545-a854-49d7-b29e-3b39a73bb8ae</key>
+                    <parentUnit>
+                        <key name="name" value="product.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="product" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>product.number</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[product.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>dcb2783e-04dc-49ba-978a-ff96a8a76051</key>
+                    <parentUnit>
+                        <key name="name" value="product.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="product" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>apportionType.forCostApportion</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[apportionType.forCostApportion].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fb303736-e5bd-44e1-8552-d2fefbbcf841</key>
+                    <parentUnit>
+                        <key name="name" value="apportionType.forCostApportion" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="apportionType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="forCostApportion" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>apportionType.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[apportionType.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d5179edf-dd60-4b3c-af46-07696854a314</key>
+                    <parentUnit>
+                        <key name="name" value="apportionType.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="apportionType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>apportionType.number</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[apportionType.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>04dda569-555b-4f3f-a3ea-9e75b8924543</key>
+                    <parentUnit>
+                        <key name="name" value="apportionType.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="apportionType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>apportionType.forGather</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[apportionType.forGather].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>aa70e79b-e791-42c0-8e52-4cee417b4669</key>
+                    <parentUnit>
+                        <key name="name" value="apportionType.forGather" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="apportionType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="forGather" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>curProject.longNumber</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[curProject.longNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0378a793-7e45-4cc3-bc49-0bbff875e94d</key>
+                    <parentUnit>
+                        <key name="name" value="curProject.longNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="longNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>curProject.displayName</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[curProject.displayName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6e5ce62a-7086-4da2-a4e5-bfe625753a75</key>
+                    <parentUnit>
+                        <key name="name" value="curProject.displayName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="displayName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>curProject.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[curProject.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>774c5423-eed9-4fcf-aa5e-c99f2444fed5</key>
+                    <parentUnit>
+                        <key name="name" value="curProject.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>curProject.number</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[curProject.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>58e7b8cb-6e97-4adf-af13-eb575117b11c</key>
+                    <parentUnit>
+                        <key name="name" value="curProject.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>parent.id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[parent.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>76248d93-ec12-41dd-b743-f9a0f8353051</key>
+                    <parentUnit>
+                        <key name="name" value="parent.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="parent" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>1f937b98-5855-4a74-ba09-51050ca23f0e</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[1f937b98-5855-4a74-ba09-51050ca23f0e].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8f2018b1-5686-4916-829f-84e20bde519b</key>
+                    <parentUnit>
+                        <key name="name" value="1f937b98-5855-4a74-ba09-51050ca23f0e" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PaymentNoCostSplitEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>06b62634-c653-4490-ac0a-751f7852b485</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[06b62634-c653-4490-ac0a-751f7852b485].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6032ee24-fc4e-483b-baa2-98f36218d84f</key>
+                    <parentUnit>
+                        <key name="name" value="06b62634-c653-4490-ac0a-751f7852b485" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="parent" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </propertyUnit>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+            <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>seq</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>5d4c4c56-b2d1-4914-af0e-6c85ed7e2e50</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="PaymentNoCostSplitEntry" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="accountView" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>31a08fcf-a69a-42f8-93b3-2a43e36266b7</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="1b96d91e-b4c3-497c-ae7f-20a781572191" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="19df45e1-d61e-43ea-a9c4-f3efcc0e6719" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="5d4c4c56-b2d1-4914-af0e-6c85ed7e2e50" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </join>
+        <join>
+            <name>fce367b2-66f5-49fc-a1dc-0324be258053</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="PaymentNoCostSplitEntry" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="product" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>be65edf8-89d6-4a94-ac46-ec62679b0f55</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="c603c928-96eb-4c69-ad01-2aba961d51f9" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="2184d3d3-4d98-427a-8fd6-1d80b175f2c3" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="fce367b2-66f5-49fc-a1dc-0324be258053" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </join>
+        <join>
+            <name>f55ddc23-ecee-4984-bac5-60af39eb9896</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="PaymentNoCostSplitEntry" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="apportionType" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>670e5219-7f63-4d90-a6cf-464e40d607e7</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="894eaba9-9465-4073-aff5-08336ec27500" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="4254b6e2-573f-471f-9a70-672cd612af07" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="f55ddc23-ecee-4984-bac5-60af39eb9896" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </join>
+        <join>
+            <name>d64a2c00-349a-437e-a344-8a7e02020fba</name>
+            <formulaString>#0</formulaString>
+            <type>INNER JOIN</type>
+            <leftObject>
+                <key name="name" value="PaymentNoCostSplitEntry" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="parent" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>fc6a0779-bc9d-44c0-81a9-d2129ebcacd6</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="1f937b98-5855-4a74-ba09-51050ca23f0e" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="06b62634-c653-4490-ac0a-751f7852b485" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="d64a2c00-349a-437e-a344-8a7e02020fba" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </join>
+        <join>
+            <name>a9f77910-1db0-41fc-8e3c-67e29e8e4d34</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="PaymentNoCostSplitEntry" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="curProject" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>2a7c8964-d04e-465b-a280-661f04ed6568</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="3b39d6d8-67e2-41d7-bc42-cbf5287607bf" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="ba8e78f6-2d00-43f4-8693-cb0ec0a0ff99" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="a9f77910-1db0-41fc-8e3c-67e29e8e4d34" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+                <key name="name" value="PaymentNoCostSplitEntryPrintQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].alias">
+            <lang locale="zh_CN" value="付款非成本科目拆分分录打印查询" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="付款非成本科目拆分分錄列印查詢" />
+            <lang locale="zh_TW" value="付款非成本科目拆分分錄列印查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].description">
+            <lang locale="zh_CN" value="付款非成本科目拆分分录打印查询" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="付款非成本科目拆分分錄列印查詢" />
+            <lang locale="zh_TW" value="付款非成本科目拆分分錄列印查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].queryPK[QueryPK].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].queryPK[QueryPK].description">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].subObjects.subEntity[PaymentNoCostSplitEntry].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].subObjects.subEntity[accountView].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].subObjects.subEntity[apportionType].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].subObjects.subEntity[curProject].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].subObjects.subEntity[parent].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].subObjects.subEntity[product].alias">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[06b62634-c653-4490-ac0a-751f7852b485].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[19df45e1-d61e-43ea-a9c4-f3efcc0e6719].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[1b96d91e-b4c3-497c-ae7f-20a781572191].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[1f937b98-5855-4a74-ba09-51050ca23f0e].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[2184d3d3-4d98-427a-8fd6-1d80b175f2c3].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[3b39d6d8-67e2-41d7-bc42-cbf5287607bf].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[4254b6e2-573f-471f-9a70-672cd612af07].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[894eaba9-9465-4073-aff5-08336ec27500].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[ba8e78f6-2d00-43f4-8693-cb0ec0a0ff99].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.propertyUnit[c603c928-96eb-4c69-ad01-2aba961d51f9].displayName">
+            <lang locale="zh_CN" value="null" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[accountView.displayName].displayName">
+            <lang locale="zh_CN" value="会计科目显示名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="會計科目顯示名稱" />
+            <lang locale="zh_TW" value="會計科目顯示名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[accountView.level].displayName">
+            <lang locale="zh_CN" value="会计科目级次" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="會計科目級次" />
+            <lang locale="zh_TW" value="會計科目級次" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[accountView.longName].displayName">
+            <lang locale="zh_CN" value="会计科目长名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="會計科目長名稱" />
+            <lang locale="zh_TW" value="會計科目長名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[accountView.longNumber].displayName">
+            <lang locale="zh_CN" value="会计科目长编码" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="會計科目長編碼" />
+            <lang locale="zh_TW" value="會計科目長編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[accountView.name].displayName">
+            <lang locale="zh_CN" value="会计科目名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="會計科目名稱" />
+            <lang locale="zh_TW" value="會計科目名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[accountView.number].displayName">
+            <lang locale="zh_CN" value="会计科目编码" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="會計科目編碼" />
+            <lang locale="zh_TW" value="會計科目編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[amount].displayName">
+            <lang locale="zh_CN" value="归属金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="歸屬金額" />
+            <lang locale="zh_TW" value="歸屬金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[apportionType.forCostApportion].displayName">
+            <lang locale="zh_CN" value="成本分摊时使用" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="成本分攤時使用" />
+            <lang locale="zh_TW" value="成本分攤時使用" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[apportionType.forGather].displayName">
+            <lang locale="zh_CN" value="分摊类型可汇总" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="分攤類型可匯總" />
+            <lang locale="zh_TW" value="分攤類型可匯總" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[apportionType.name].displayName">
+            <lang locale="zh_CN" value="分摊类型名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="分攤類型名稱" />
+            <lang locale="zh_TW" value="分攤類型名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[apportionType.number].displayName">
+            <lang locale="zh_CN" value="分摊类型编码" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="分攤類型編碼" />
+            <lang locale="zh_TW" value="分攤類型編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[apportionValueTotal].displayName">
+            <lang locale="zh_CN" value="分摊比值汇总" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="分攤比值匯總" />
+            <lang locale="zh_TW" value="分攤比值匯總" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[apportionValue].displayName">
+            <lang locale="zh_CN" value="分摊比值" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="分攤比值" />
+            <lang locale="zh_TW" value="分攤比值" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[changeAmt].displayName">
+            <lang locale="zh_CN" value="合同变更金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合同變更金額" />
+            <lang locale="zh_TW" value="合同變更金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[contractAmt].displayName">
+            <lang locale="zh_CN" value="合同签约金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="合同簽約金額" />
+            <lang locale="zh_TW" value="合同簽約金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[costAmt].displayName">
+            <lang locale="zh_CN" value="成本拆分金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="成本拆分金額" />
+            <lang locale="zh_TW" value="成本拆分金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[costBillId].displayName">
+            <lang locale="zh_CN" value="成本来源单据" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="成本來源單據" />
+            <lang locale="zh_TW" value="成本來源單據" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[curProject.displayName].displayName">
+            <lang locale="zh_CN" value="工程项目显示名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="工程項目顯示名稱" />
+            <lang locale="zh_TW" value="工程項目顯示名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[curProject.longNumber].displayName">
+            <lang locale="zh_CN" value="工程项目长编码" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="工程項目長編碼" />
+            <lang locale="zh_TW" value="工程項目長編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[curProject.name].displayName">
+            <lang locale="zh_CN" value="工程项目名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="工程項目名稱" />
+            <lang locale="zh_TW" value="工程項目名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[curProject.number].displayName">
+            <lang locale="zh_CN" value="工程项目编码" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="工程項目編碼" />
+            <lang locale="zh_TW" value="工程項目編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[directAmountTotal].displayName">
+            <lang locale="zh_CN" value="直接费用汇总" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="直接費用匯總" />
+            <lang locale="zh_TW" value="直接費用匯總" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[directAmount].displayName">
+            <lang locale="zh_CN" value="直接费用" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="直接費用" />
+            <lang locale="zh_TW" value="直接費用" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[directAmt].displayName">
+            <lang locale="zh_CN" value="直接金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="直接金額" />
+            <lang locale="zh_TW" value="直接金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[directInvoiceAmt].displayName">
+            <lang locale="zh_CN" value="直接发票金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="直接發票金額" />
+            <lang locale="zh_TW" value="直接發票金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[directPayedAmt].displayName">
+            <lang locale="zh_CN" value="直接付款金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="直接付款金額" />
+            <lang locale="zh_TW" value="直接付款金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[id].displayName">
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[index].displayName">
+            <lang locale="zh_CN" value="序号" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="序號" />
+            <lang locale="zh_TW" value="序號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[invoiceAmt].displayName">
+            <lang locale="zh_CN" value="归属发票金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="歸屬發票金額" />
+            <lang locale="zh_TW" value="歸屬發票金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[isAddlAccount].displayName">
+            <lang locale="zh_CN" value="是否附加科目" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="是否附加科目" />
+            <lang locale="zh_TW" value="是否附加科目" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[isApportion].displayName">
+            <lang locale="zh_CN" value="是否参与分摊" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="是否參與分攤" />
+            <lang locale="zh_TW" value="是否參與分攤" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[isLeaf].displayName">
+            <lang locale="zh_CN" value="是否叶子节点" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="是否葉子節點" />
+            <lang locale="zh_TW" value="是否葉子節點" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[level].displayName">
+            <lang locale="zh_CN" value="级次" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="級次" />
+            <lang locale="zh_TW" value="級次" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[otherRatioTotal].displayName">
+            <lang locale="zh_CN" value="其他比值汇总" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="其他比值匯總" />
+            <lang locale="zh_TW" value="其他比值匯總" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[otherRatio].displayName">
+            <lang locale="zh_CN" value="其他比值" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="其他比值" />
+            <lang locale="zh_TW" value="其他比值" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[parent.id].displayName">
+            <lang locale="zh_CN" value="付款非成本科目拆分ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="付款非成本科目拆分ID" />
+            <lang locale="zh_TW" value="付款非成本科目拆分ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[payedAmt].displayName">
+            <lang locale="zh_CN" value="归属付款金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="歸屬付款金額" />
+            <lang locale="zh_TW" value="歸屬付款金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[product.name].displayName">
+            <lang locale="zh_CN" value="产品名称" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="產品名稱" />
+            <lang locale="zh_TW" value="產品名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[product.number].displayName">
+            <lang locale="zh_CN" value="产品编码" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="產品編碼" />
+            <lang locale="zh_TW" value="產品編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[qualityAmount].displayName">
+            <lang locale="zh_CN" value="保修金" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="保修金" />
+            <lang locale="zh_TW" value="保修金" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[seq].displayName">
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="en_US" value="sequence" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[shouldPayAmt].displayName">
+            <lang locale="zh_CN" value="应付进度款" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="應付進度款" />
+            <lang locale="zh_TW" value="應付進度款" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[splitBillId].displayName">
+            <lang locale="zh_CN" value="拆分单据ID" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="拆分單據ID" />
+            <lang locale="zh_TW" value="拆分單據ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[splitQualityAmt].displayName">
+            <lang locale="zh_CN" value="已拆分保修金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="已拆分保修金額" />
+            <lang locale="zh_TW" value="已拆分保修金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[splitType].displayName">
+            <lang locale="zh_CN" value="拆分类型" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="拆分類型" />
+            <lang locale="zh_TW" value="拆分類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[splitedCostAmt].displayName">
+            <lang locale="zh_CN" value="已拆分成本金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="已拆分成本金額" />
+            <lang locale="zh_TW" value="已拆分成本金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[splitedInvoiceAmt].displayName">
+            <lang locale="zh_CN" value="已拆分发票金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="已拆分發票金額" />
+            <lang locale="zh_TW" value="已拆分發票金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.finance.app.PaymentNoCostSplitEntryPrintQuery].units.queryField[splitedPayedAmt].displayName">
+            <lang locale="zh_CN" value="已拆分付款金额" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="已拆分付款金額" />
+            <lang locale="zh_TW" value="已拆分付款金額" />
+        </rs>
+    </resource>
+</joinQuery>
+

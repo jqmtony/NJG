@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.app</package>
+    <name>R_TargetInfo_CostCenterOrgUnit_costCenter</name>
+    <alias>relationship[com.kingdee.eas.fdc.basedata.app.R_TargetInfo_CostCenterOrgUnit_costCenter].alias</alias>
+    <description>relationship[com.kingdee.eas.fdc.basedata.app.R_TargetInfo_CostCenterOrgUnit_costCenter].description</description>
+    <userDefined>false</userDefined>
+    <type>Association</type>
+    <clientCardinality>0..*</clientCardinality>
+    <supplierCardinality>1</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+        <key name="name" value="TargetInfo" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.basedata.ncm.app" />
+        <key name="name" value="CostCenterOrgUnitGroup" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.fdc.basedata.app.R_TargetInfo_CostCenterOrgUnit_costCenter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="手工录入指标与成本中心的关系" />
+            <lang locale="zh_HK" value="手工錄入指標與成本中心的關係" />
+            <lang locale="zh_TW" value="手工錄入指標與成本中心的關係" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.fdc.basedata.app.R_TargetInfo_CostCenterOrgUnit_costCenter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="手工录入指标与成本中心的关系" />
+            <lang locale="zh_HK" value="手工錄入指標與成本中心的關係" />
+            <lang locale="zh_TW" value="手工錄入指標與成本中心的關係" />
+        </rs>
+    </resource>
+</relationship>
+

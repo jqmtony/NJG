@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.app</package>
+    <name>BITargetQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].description</description>
+    <userDefined>false</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>BITarget</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].subObjects.subEntity[BITarget].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITarget" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>seq</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[seq].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c52db8a8-7a43-4c22-b073-b95352a0d920</key>
+                    <parentUnit>
+                        <key name="name" value="seq" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="seq" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>targetName</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[targetName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2fae29b3-9136-4f68-8363-9166da411bcc</key>
+                    <parentUnit>
+                        <key name="name" value="targetName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="targetName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>targetGroup</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[targetGroup].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>081dbb8a-4a4d-4175-96ac-b35c57f457e9</key>
+                    <parentUnit>
+                        <key name="name" value="targetGroup" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="targetGroup" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>expandType</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[expandType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5e13c327-a906-4be5-bbc9-9018a83e764a</key>
+                    <parentUnit>
+                        <key name="name" value="expandType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="expandType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isDirect</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isDirect].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3a1e501c-38f2-4107-9235-99236eb8bc30</key>
+                    <parentUnit>
+                        <key name="name" value="isDirect" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isDirect" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isThreshold</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isThreshold].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>18a5a434-c5b6-44de-955a-880b91313879</key>
+                    <parentUnit>
+                        <key name="name" value="isThreshold" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isThreshold" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>compareType</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[compareType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>db10dc9e-659a-4449-a9f0-2b0195461f01</key>
+                    <parentUnit>
+                        <key name="name" value="compareType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="compareType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>width</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[width].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d916da13-de21-4fe8-85b6-0a2d8bc3511d</key>
+                    <parentUnit>
+                        <key name="name" value="width" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="width" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isExpand</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isExpand].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8c7f1a93-95c8-4422-97ef-853af7218f1c</key>
+                    <parentUnit>
+                        <key name="name" value="isExpand" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isExpand" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isShow</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isShow].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>652aca26-03bc-4024-b5ae-55f844cbc2df</key>
+                    <parentUnit>
+                        <key name="name" value="isShow" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isShow" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>dataType</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[dataType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>00805e4d-56b4-4242-8e38-2ec335e71087</key>
+                    <parentUnit>
+                        <key name="name" value="dataType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="dataType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>desc</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[desc].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7347554e-184b-47f3-a912-9ae290507aff</key>
+                    <parentUnit>
+                        <key name="name" value="desc" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="desc" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1ad1f7c1-6116-4c8a-afa6-a699c1a68487</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>targetId</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[targetId].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>122dbb20-15e9-44ed-b68c-4ad64bb8eca8</key>
+                    <parentUnit>
+                        <key name="name" value="targetId" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BITarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="targetId" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+            <key name="name" value="BITargetQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>targetGroup</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+        <querySorterItem>
+            <propertyName>seq</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+        <querySorterItem>
+            <propertyName>targetName</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="BITargetQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标库查询" />
+            <lang locale="zh_HK" value="指標庫查詢" />
+            <lang locale="zh_TW" value="指標庫查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].subObjects.subEntity[BITarget].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[compareType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="比较方式" />
+            <lang locale="zh_HK" value="比較方式" />
+            <lang locale="zh_TW" value="比較方式" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[compareType].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[compareType].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[dataType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数据类型" />
+            <lang locale="zh_HK" value="數據類型" />
+            <lang locale="zh_TW" value="數據類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[dataType].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[dataType].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[desc].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[expandType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="展开方式" />
+            <lang locale="zh_HK" value="展開方式" />
+            <lang locale="zh_TW" value="展開方式" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[expandType].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[expandType].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isDirect].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否直接展开" />
+            <lang locale="zh_HK" value="是否直接展開" />
+            <lang locale="zh_TW" value="是否直接展開" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isDirect].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isDirect].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isExpand].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否展开" />
+            <lang locale="zh_HK" value="是否展開" />
+            <lang locale="zh_TW" value="是否展開" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isExpand].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isExpand].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isShow].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否可见" />
+            <lang locale="zh_HK" value="是否可見" />
+            <lang locale="zh_TW" value="是否可見" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isShow].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isShow].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isThreshold].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否与阀值比较" />
+            <lang locale="zh_HK" value="是否與閥值比較" />
+            <lang locale="zh_TW" value="是否與閥值比較" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isThreshold].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[isThreshold].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[seq].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="排序" />
+            <lang locale="zh_HK" value="排序" />
+            <lang locale="zh_TW" value="排序" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[targetGroup].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分组" />
+            <lang locale="zh_HK" value="分組" />
+            <lang locale="zh_TW" value="分組" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[targetGroup].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[targetGroup].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[targetId].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标Id" />
+            <lang locale="zh_HK" value="指標Id" />
+            <lang locale="zh_TW" value="指標Id" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[targetName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[targetName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[targetName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.BITargetQuery].units.queryField[width].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标数据显示宽度" />
+            <lang locale="zh_HK" value="指標數據顯示寬度" />
+            <lang locale="zh_TW" value="指標數據顯示寬度" />
+        </rs>
+    </resource>
+</joinQuery>
+

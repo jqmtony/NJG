@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.app</package>
+    <name>R_TargetInfoEntry_BITarget_target</name>
+    <alias>relationship[com.kingdee.eas.fdc.basedata.app.R_TargetInfoEntry_BITarget_target].alias</alias>
+    <description>relationship[com.kingdee.eas.fdc.basedata.app.R_TargetInfoEntry_BITarget_target].description</description>
+    <userDefined>false</userDefined>
+    <type>Association</type>
+    <clientCardinality>0..*</clientCardinality>
+    <supplierCardinality>1</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+        <key name="name" value="TargetInfoEntry" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+        <key name="name" value="BITarget" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.fdc.basedata.app.R_TargetInfoEntry_BITarget_target].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="手工录入指标与指标库的关系" />
+            <lang locale="zh_TW" value="手工錄入指標與指標庫的關係" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.fdc.basedata.app.R_TargetInfoEntry_BITarget_target].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="手工录入指标与指标库的关系" />
+            <lang locale="zh_TW" value="手工錄入指標與指標庫的關係" />
+        </rs>
+    </resource>
+</relationship>
+

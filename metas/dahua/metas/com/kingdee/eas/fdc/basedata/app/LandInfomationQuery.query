@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.basedata.app</package>
+    <name>LandInfomationQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].description</description>
+    <userDefined>false</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.fdc.basedata.LandInfomation</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>LandInfomation</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].subObjects.subEntity[LandInfomation].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomation" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>company</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].subObjects.subEntity[company].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="CompanyOrgUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>city</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].subObjects.subEntity[city].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="City" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>6bed814a-02cb-4f1a-bf9c-2f1cea0a8dc0</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.propertyUnit[6bed814a-02cb-4f1a-bf9c-2f1cea0a8dc0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>643b5d78-4c9d-4d04-8886-c5022a6fb441</key>
+                    <parentUnit>
+                        <key name="name" value="6bed814a-02cb-4f1a-bf9c-2f1cea0a8dc0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="LandInfomation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="company" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>296a246a-ee35-43c3-a461-074056719c47</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.propertyUnit[296a246a-ee35-43c3-a461-074056719c47].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>f821e614-1889-4380-8ad1-1e26ba3f6edd</key>
+                    <parentUnit>
+                        <key name="name" value="296a246a-ee35-43c3-a461-074056719c47" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="company" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>3307c6af-07b9-480a-b537-f6a7e91efd6c</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.propertyUnit[3307c6af-07b9-480a-b537-f6a7e91efd6c].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>33c729bd-fdb6-4e1c-965c-f7ee96ac5988</key>
+                    <parentUnit>
+                        <key name="name" value="3307c6af-07b9-480a-b537-f6a7e91efd6c" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="LandInfomation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="city" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>6e8d476c-e47d-45c7-8c19-66d1d6096d37</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.propertyUnit[6e8d476c-e47d-45c7-8c19-66d1d6096d37].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>691932c3-cc5f-4b22-aa48-4de3db867afe</key>
+                    <parentUnit>
+                        <key name="name" value="6e8d476c-e47d-45c7-8c19-66d1d6096d37" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="city" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>3216ca53-3034-4ce5-b97d-84ca782230fb</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.propertyUnit[3216ca53-3034-4ce5-b97d-84ca782230fb].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>76ce37db-6508-4f37-91ec-b28478b944f4</key>
+                    <parentUnit>
+                        <key name="name" value="3216ca53-3034-4ce5-b97d-84ca782230fb" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="LandInfomation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>79a44fb7-b7af-4edf-84ad-c7c647479970</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.propertyUnit[79a44fb7-b7af-4edf-84ad-c7c647479970].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>13e944ad-5a63-4a26-a28b-74cf4b27b4a8</key>
+                    <parentUnit>
+                        <key name="name" value="79a44fb7-b7af-4edf-84ad-c7c647479970" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>number</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d8c92e87-6a9c-460c-8041-3ff9b859287b</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="LandInfomation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>32110699-9a56-442a-b9d1-9b80e56e1087</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="LandInfomation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>obtainDate</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[obtainDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c2ee11da-93bb-44fa-8d60-da3b2bf57ba4</key>
+                    <parentUnit>
+                        <key name="name" value="obtainDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="LandInfomation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="obtainDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>obtainType</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[obtainType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>63cb4e36-641d-4def-bd19-828682c2d14d</key>
+                    <parentUnit>
+                        <key name="name" value="obtainType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="LandInfomation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="obtainType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>totalLandPrice</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[totalLandPrice].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4da9cd65-9cb9-43aa-b987-a43703bd579b</key>
+                    <parentUnit>
+                        <key name="name" value="totalLandPrice" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="LandInfomation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="totalLandPrice" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>plotRatio</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[plotRatio].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6093e3a6-f457-41c5-99bc-e424f876b19b</key>
+                    <parentUnit>
+                        <key name="name" value="plotRatio" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="LandInfomation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="plotRatio" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>unitPrice</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[unitPrice].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d853f824-3d95-4d73-b883-2bb9f1c407b4</key>
+                    <parentUnit>
+                        <key name="name" value="unitPrice" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="LandInfomation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="unitPrice" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>company.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[company.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7a7e757f-2cee-4026-96d8-c3c88cb4beaf</key>
+                    <parentUnit>
+                        <key name="name" value="company.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="company" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>city.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[city.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>29f17aa2-b486-4170-bea7-8b023b282c82</key>
+                    <parentUnit>
+                        <key name="name" value="city.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="city" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.number</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[creator.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>37eafb9d-4652-4302-b5ac-c0101e9f2f4a</key>
+                    <parentUnit>
+                        <key name="name" value="creator.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6c11d71e-2474-4e8d-a8a6-e134ad52299d</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="LandInfomation" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+            <key name="name" value="LandInfomationQuery" />
+        </query>
+    </defaultFilter>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>75e93f9e-34bf-43b0-beb2-8c2d83b113be</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="LandInfomation" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="company" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>e455b491-9f26-4228-ab76-b633e0b7333d</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="6bed814a-02cb-4f1a-bf9c-2f1cea0a8dc0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="296a246a-ee35-43c3-a461-074056719c47" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="75e93f9e-34bf-43b0-beb2-8c2d83b113be" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </join>
+        <join>
+            <name>e925fc97-791e-4d72-8966-4e4fe2c0291a</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="LandInfomation" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="city" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>1b746b24-d804-4d70-9aae-e2fcd7055214</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="3307c6af-07b9-480a-b537-f6a7e91efd6c" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="6e8d476c-e47d-45c7-8c19-66d1d6096d37" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="e925fc97-791e-4d72-8966-4e4fe2c0291a" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </join>
+        <join>
+            <name>03ed5990-ef09-418c-81fe-4eddcea33a53</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="LandInfomation" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>f15c41a5-6cac-4f5c-abc7-b1ac95f6b95f</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="3216ca53-3034-4ce5-b97d-84ca782230fb" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="79a44fb7-b7af-4edf-84ad-c7c647479970" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="03ed5990-ef09-418c-81fe-4eddcea33a53" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="LandInfomationQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="土地信息" />
+            <lang locale="zh_HK" value="土地信息" />
+            <lang locale="zh_TW" value="土地信息" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="土地信息查询" />
+            <lang locale="zh_HK" value="土地信息查詢" />
+            <lang locale="zh_TW" value="土地信息查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.basedata.client.BasedataResource.LandInfomationQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.basedata.client.BasedataResource.LandInfomationQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.basedata.client.BasedataResource.LandInfomationQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="土地信息" />
+            <lang locale="zh_CN" value="土地信息" />
+            <lang locale="zh_TW" value="土地信息" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].subObjects.subEntity[LandInfomation].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].subObjects.subEntity[city].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].subObjects.subEntity[company].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.propertyUnit[296a246a-ee35-43c3-a461-074056719c47].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.propertyUnit[3216ca53-3034-4ce5-b97d-84ca782230fb].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.propertyUnit[3307c6af-07b9-480a-b537-f6a7e91efd6c].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.propertyUnit[6bed814a-02cb-4f1a-bf9c-2f1cea0a8dc0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.propertyUnit[6e8d476c-e47d-45c7-8c19-66d1d6096d37].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.propertyUnit[79a44fb7-b7af-4edf-84ad-c7c647479970].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[city.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="城市" />
+            <lang locale="zh_HK" value="城市" />
+            <lang locale="zh_TW" value="城市" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[city.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[city.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[company.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="所属公司名称" />
+            <lang locale="zh_HK" value="所屬公司名稱" />
+            <lang locale="zh_TW" value="所屬公司名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[creator.number].displayName">
+            <lang locale="en_US" value="用户名称" />
+            <lang locale="zh_CN" value="制单人" />
+            <lang locale="zh_HK" value="制單人" />
+            <lang locale="zh_TW" value="制單人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="土地名称" />
+            <lang locale="zh_HK" value="土地名稱" />
+            <lang locale="zh_TW" value="土地名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="土地编码" />
+            <lang locale="zh_HK" value="土地編碼" />
+            <lang locale="zh_TW" value="土地編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[obtainDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="获取日期" />
+            <lang locale="zh_HK" value="獲取日期" />
+            <lang locale="zh_TW" value="獲取日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[obtainDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[obtainDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[obtainType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="获取方式" />
+            <lang locale="zh_HK" value="獲取方式" />
+            <lang locale="zh_TW" value="獲取方式" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[obtainType].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[obtainType].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[plotRatio].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="容积率" />
+            <lang locale="zh_HK" value="容積率" />
+            <lang locale="zh_TW" value="容積率" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[totalLandPrice].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="总地价" />
+            <lang locale="zh_HK" value="總地價" />
+            <lang locale="zh_TW" value="總地價" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.LandInfomationQuery].units.queryField[unitPrice].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="可售楼面单方地价" />
+            <lang locale="zh_HK" value="可售樓面單方地價" />
+            <lang locale="zh_TW" value="可售樓面單方地價" />
+        </rs>
+    </resource>
+</joinQuery>
+
