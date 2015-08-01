@@ -1,0 +1,138 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page errorPage="/common/include/errorPrehandle.jsp" %>
+<%@ include file="/html/common/init.jsp"%>
+<%@ page import="java.util.ArrayList,
+		          com.kingdee.bos.Context,
+		          com.kingdee.eas.cp.common.web.util.WebContextUtil,
+				  com.kingdee.bos.dao.ormapping.ObjectUuidPK,
+				  com.kingdee.eas.base.attachment.BoAttchAssoFactory,
+				  com.kingdee.eas.base.attachment.IBoAttchAsso,
+				  com.kingdee.eas.base.attachment.AttachmentFactory,
+				  com.kingdee.eas.base.attachment.IAttachment,
+				  com.kingdee.eas.base.attachment.AttachmentInfo,
+				  com.kingdee.jdbc.rowset.IRowSet,
+				  com.kingdee.eas.cp.eip.mc.web.WorkFlowUtil,
+				  java.text.SimpleDateFormat,
+				  com.kingdee.eas.mykingdee.hrservice.hqvacation.*"
+%>
+<html>
+<script language="JavaScript" type="text/javascript">
+<!-- 
+//name:展开/闭合区段的图标id；name+"Tbl"为对应div/table的id。
+function expandIt(name, displayName){ 
+	var imgID=eval(name);
+	var tblID=eval(displayName);
+	if(tblID.style.display == 'block'){
+ 		tblID.style.display='none';
+		imgID.src = "images/dot_arrow_close.gif";
+		imgID.width="9";
+		imgID.height="9";
+	}
+	else {
+ 		tblID.style.display='block';
+		imgID.src = "images/dot_arrow_open.gif";
+		imgID.width="9";
+		imgID.height="9";		
+	}
+}
+// -->
+</script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>机构请销假申请审批单</title>
+<link href="css/index.css" rel="stylesheet" type="text/css">
+<%
+	String billID = request.getParameter("billID");
+	Context ctx = WebContextUtil.getEasContext(request);
+	IHQVacation iHQVacation = HQVacationFactory.getLocalInstance(ctx);
+	StringBuffer sb = new StringBuffer();
+	sb.append("select * , proposerDep.* ");
+	sb.append(" where id= '");
+	sb.append(billID.trim());
+	sb.append("'");
+	HQVacationInfo info = (HQVacationInfo)iHQVacation.getValue(sb.toString());
+	
+	IRowSet rowSet_a = WorkFlowUtil.getHostoryData(billID,ctx);
+	IRowSet rowSet_a1 = rowSet_a.createCopy();
+	SimpleDateFormat bartDateFormat = new SimpleDateFormat("yyyy 年 MM 月 dd 日");
+%>
+</head>
+<body>
+<br>
+<div align="center" style="FONT-SIZE:18px; FONT-FAMILY:  "Arial"; color: 000000;"><strong>机构请销假申请审批单</strong></div>
+<table >
+  <tr>
+	<td height="1px"></td>
+  </tr>
+</table>
+<table width="96%" border="0" align="center" >
+  <tr>
+	<td><div align="left"  >编号： 1142008013000144</div></td><td><div align="right"  >申请日期：2008-12-01</div></td>
+  </tr>
+</table>
+<table width="96%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:2px;">
+  <tr>
+    <td bgcolor="BDD2EC"><img name="" src="" width="1" height="1" alt=""></td>
+  </tr>
+  <tr>
+    <td bgcolor="E8EEF6">
+	 <table width="100%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="CBD9EB">
+        <tr bgcolor="#FFFFFF"> 
+          <td width="14%">申请人：</td>
+          <td width="20%"> 陈宏俊&nbsp; </td>
+          <td>申请部门：</td>
+          <td> 东莞财务部</td>
+          <td width="13%" >区域机构：</td>
+          <td width="23%" > 东莞分公司</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width="14%">请假类别：</td>
+          <td width="20%"> 年休假</td>
+          <td width="13%">请/补假：</td>
+          <td width="23%"> 请假 </td>
+          <td width="13%">联系电话：</td>
+          <td width="23%"> 13800138000 </td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width="14%">请假开始时间：</td>
+          <td width="20%"> 2008-01-01 </td>
+          <td width="13%">请假结束时间：</td>
+          <td width="23%"> 2008-01-03</td>
+          <td width="13%">请假总天数：</td>
+          <td width="23%"> 2 </td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width="14%">请假事由：</td>
+          <td colspan="5" > 年休假 </td>
+        </tr>
+        <% if( info.getCancelDate() != null ){ %>
+        <tr bgcolor="#FFFFFF"> 
+          <td width="14%">销假时间：</td>
+          <td colspan="5"> 2008-02-04 </td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width="14%">销假原因：</td>
+          <td colspan="5"> 休假完毕 </td>
+        </tr>
+        <% } %>
+      </table>
+    </td>
+  </tr>
+</table>
+<br>
+<table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td width="15" nowrap style="BORDER-bottom: #D8DEEA 1px solid;">&nbsp;</td>
+    <td nowrap style="BORDER-bottom: #D8DEEA 1px solid;"><span class="content" style="cursor:hand;"onClick="expandIt('handOption','moreOption')"><img src="images/dot_arrow_close.gif" width="9" height="9" id="handOption"  align="absmiddle"> 
+      <strong>已审批人：</strong> <span title="谢赫华：不同意【2008-01-14 17:14】不同意" align="left">谢赫华</span>&nbsp;&nbsp;&nbsp;<span title="谢赫华：不同意【2008-01-14 17:14】不同意" >易薇</span></span></td>
+  </tr>
+</table>
+<table width="96%" border="0" align="center" cellpadding="3" cellspacing="0"  id="moreOption" style="display:none">
+  <tr> 
+    <td width="15">&nbsp;</td>
+    <td>谢赫华：不同意【2008-01-14 17:14】不同意<br>
+      易薇：同意【2008-01-08 14:54】同意 </td>
+  </tr>
+</table>
+</body>
+</html>
