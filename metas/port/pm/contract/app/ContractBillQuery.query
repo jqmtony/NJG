@@ -3542,6 +3542,37 @@
                 <key name="name" value="ContractBillQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>fkfs</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.contract.app.ContractBillQuery].units.queryField[fkfs].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0dca22a4-0813-42b1-88a5-1ae27259b2fa</key>
+                    <parentUnit>
+                        <key name="name" value="fkfs" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ContractBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="fkfs" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
+                <key name="name" value="ContractBillQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -5296,6 +5327,22 @@
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.contract.app.ContractBillQuery].units.queryField[fkfs].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="付款方式" />
+            <lang locale="zh_HK" value="付款方式" />
+            <lang locale="zh_TW" value="付款方式" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.contract.app.ContractBillQuery].units.queryField[fkfs].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.contract.app.ContractBillQuery].units.queryField[fkfs].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.contract.app.ContractBillQuery].units.queryField[grtRate].displayName">
             <lang locale="en_US" value="null" />

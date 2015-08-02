@@ -770,6 +770,40 @@
                 <key name="name" value="CFDiffAmount" />
             </mappingField>
         </ownProperty>
+        <ownProperty>
+            <name>sectBudget</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFSectBudget" />
+            </mappingField>
+        </ownProperty>
+        <linkProperty>
+            <name>Project</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.linkProperty[Project].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.linkProperty[Project].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFProjectID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="R_WinInviteReportBudgetEntry_Project_Project" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -817,6 +851,11 @@
             <lang locale="zh_CN" value="中标预算" />
             <lang locale="zh_HK" value="中標預算" />
             <lang locale="zh_TW" value="中標預算" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].extendedProperty.genBusinessImplCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].extendedProperty.genImplementCode">
             <lang locale="en_US" value="true" />
@@ -1218,6 +1257,58 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.linkProperty[Project].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目" />
+            <lang locale="zh_HK" value="項目" />
+            <lang locale="zh_TW" value="項目" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.linkProperty[Project].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目" />
+            <lang locale="zh_HK" value="項目" />
+            <lang locale="zh_TW" value="項目" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.linkProperty[Project].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.linkProperty[Project].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.linkProperty[Project].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.linkProperty[Project].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.linkProperty[Project].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.linkProperty[Project].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.linkProperty[Project].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.linkProperty[Project].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.linkProperty[budgetNumber].alias">
             <lang locale="en_US" value="null" />
@@ -1730,6 +1821,69 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[lastAmount].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本标段预算" />
+            <lang locale="zh_HK" value="本標段預算" />
+            <lang locale="zh_TW" value="本標段預算" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本标段预算" />
+            <lang locale="zh_HK" value="本標段預算" />
+            <lang locale="zh_TW" value="本標段預算" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].extendedProperty.bizDataType">
+            <lang locale="en_US" value="AMOUNT" />
+            <lang locale="zh_CN" value="AMOUNT" />
+            <lang locale="zh_TW" value="AMOUNT" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.WinInviteReportBudgetEntry].properties.ownProperty[sectBudget].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

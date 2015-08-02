@@ -1692,7 +1692,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>8,121,997,113,12</constraints>
+            <constraints>8,121,997,66,12</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -2056,7 +2056,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDTabbedPane</classType>
             <isContainer>true</isContainer>
-            <constraints>8,236,997,301,14</constraints>
+            <constraints>8,189,997,348,14</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3226,7 +3226,7 @@
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
             <constraints>Center</constraints>
-            <tabIndex>49</tabIndex>
+            <tabIndex>50</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
             <layoutInfo>
@@ -3357,6 +3357,17 @@
                     <herited>false</herited>
                     <userDefined>true</userDefined>
                 </propertyBinding>
+                <propertyBinding>
+                    <propertyName>entryProject.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Entry4.entryProject</bindingField>
+                    <fieldType>java.lang.Object</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
             </propertyBindings>
             <rules>
                 <baseRule>
@@ -3406,7 +3417,7 @@
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
             <constraints>Center</constraints>
-            <tabIndex>46</tabIndex>
+            <tabIndex>47</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
             <layoutInfo>
@@ -3587,7 +3598,7 @@
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
             <constraints>Center</constraints>
-            <tabIndex>45</tabIndex>
+            <tabIndex>46</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
             <layoutInfo>
@@ -3688,7 +3699,7 @@
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
             <constraints>Center</constraints>
-            <tabIndex>48</tabIndex>
+            <tabIndex>49</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
             <layoutInfo>
@@ -4927,7 +4938,7 @@
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
             <constraints>Center</constraints>
-            <tabIndex>51</tabIndex>
+            <tabIndex>52</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
             <layoutInfo>
@@ -5072,7 +5083,7 @@
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
             <constraints>0,0,600,170,0</constraints>
-            <tabIndex>50</tabIndex>
+            <tabIndex>51</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
             <layoutInfo>
@@ -5259,7 +5270,7 @@
             <classType>com.kingdee.bos.ctrl.swing.KDTextArea</classType>
             <isContainer>false</isContainer>
             <constraints>0,0,1,1</constraints>
-            <tabIndex>52</tabIndex>
+            <tabIndex>45</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
             <layoutInfo>
@@ -5268,13 +5279,6 @@
                 <value />
             </layoutInfo>
             <properties>
-                <property>
-                    <name>visible</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtevaluaMethod].properties.property[visible].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
                 <property>
                     <name>required</name>
                     <type>boolean</type>
@@ -5590,7 +5594,7 @@
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
             <constraints>Center</constraints>
-            <tabIndex>47</tabIndex>
+            <tabIndex>48</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
             <layoutInfo>
@@ -5678,6 +5682,37 @@
             <batchMethodName />
         </action>
         <action>
+            <instanceName>actionAudit</instanceName>
+            <className>ActionAudit</className>
+            <name>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].actions.action[actionAudit].name</name>
+            <enabled>true</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].actions.action[actionAudit].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].actions.action[actionAudit].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].actions.action[actionAudit].longDescription</longDescription>
+            <isBindWorkFlow>true</isBindWorkFlow>
+            <herited>true</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ExtendProperty&gt;&lt;item key="userDefined" value="true" /&gt;&lt;item key="isObjectUpdateLock" value="false" /&gt;&lt;/ExtendProperty&gt;</actionExtendProperty>
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;service class="com.kingdee.eas.framework.client.service.WorkFlowService" /&gt;&lt;/root&gt;</services>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
             <instanceName>actionUnAudit</instanceName>
             <className>ActionUnAudit</className>
             <name>uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].actions.action[actionUnAudit].name</name>
@@ -5709,6 +5744,30 @@
         </action>
     </actions>
     <resource>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].actions.action[actionAudit].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].actions.action[actionAudit].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].actions.action[actionAudit].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="注意EJB事务" />
+            <lang locale="zh_HK" value="注意EJB事務" />
+            <lang locale="zh_TW" value="注意EJB事務" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].actions.action[actionAudit].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].actions.action[actionSubmit].longDescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="提交" />
@@ -7031,9 +7090,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[kDButton1].properties.property[text].value">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="查看项目" />
-            <lang locale="zh_HK" value="查看項目" />
-            <lang locale="zh_TW" value="查看項目" />
+            <lang locale="zh_CN" value="查看项目启动" />
+            <lang locale="zh_HK" value="查看項目啟動" />
+            <lang locale="zh_TW" value="查看項目啟動" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[kDContainer1].alias">
             <lang locale="en_US" value="null" />
@@ -7331,9 +7390,9 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[kdtEntry4].properties.property[formatXml].value">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol2&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol3&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol5&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol7&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;seq&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;budgetNumber&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;budgetName&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol2&quot; /&gt;&lt;t:Column t:key=&quot;budgetAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol3&quot; /&gt;&lt;t:Column t:key=&quot;balance&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;amount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol5&quot; /&gt;&lt;t:Column t:key=&quot;content&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol7&quot; /&gt;&lt;t:Column t:key=&quot;beizhu&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;单据分录序列号&lt;/t:Cell&gt;&lt;t:Cell&gt;费用编码&lt;/t:Cell&gt;&lt;t:Cell&gt;费用名称&lt;/t:Cell&gt;&lt;t:Cell&gt;费用预算&lt;/t:Cell&gt;&lt;t:Cell&gt;可用预算&lt;/t:Cell&gt;&lt;t:Cell&gt;本次申报预算&lt;/t:Cell&gt;&lt;t:Cell&gt;标段内容&lt;/t:Cell&gt;&lt;t:Cell&gt;剩余预算&lt;/t:Cell&gt;&lt;t:Cell&gt;备注&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
-            <lang locale="zh_HK" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol2&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol3&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol5&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol7&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;seq&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;budgetNumber&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;budgetName&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol2&quot; /&gt;&lt;t:Column t:key=&quot;budgetAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol3&quot; /&gt;&lt;t:Column t:key=&quot;balance&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;amount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol5&quot; /&gt;&lt;t:Column t:key=&quot;content&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol7&quot; /&gt;&lt;t:Column t:key=&quot;beizhu&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;單據分錄序列號&lt;/t:Cell&gt;&lt;t:Cell&gt;費用編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;費用名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;費用預算&lt;/t:Cell&gt;&lt;t:Cell&gt;可用預算&lt;/t:Cell&gt;&lt;t:Cell&gt;本次申報預算&lt;/t:Cell&gt;&lt;t:Cell&gt;標段內容&lt;/t:Cell&gt;&lt;t:Cell&gt;剩餘預算&lt;/t:Cell&gt;&lt;t:Cell&gt;備註&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
-            <lang locale="zh_TW" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol2&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol3&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol5&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol7&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;seq&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;budgetNumber&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;budgetName&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol2&quot; /&gt;&lt;t:Column t:key=&quot;budgetAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol3&quot; /&gt;&lt;t:Column t:key=&quot;balance&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;amount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol5&quot; /&gt;&lt;t:Column t:key=&quot;content&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol7&quot; /&gt;&lt;t:Column t:key=&quot;beizhu&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;單據分錄序列號&lt;/t:Cell&gt;&lt;t:Cell&gt;費用編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;費用名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;費用預算&lt;/t:Cell&gt;&lt;t:Cell&gt;可用預算&lt;/t:Cell&gt;&lt;t:Cell&gt;本次申報預算&lt;/t:Cell&gt;&lt;t:Cell&gt;標段內容&lt;/t:Cell&gt;&lt;t:Cell&gt;剩餘預算&lt;/t:Cell&gt;&lt;t:Cell&gt;備註&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
+            <lang locale="zh_CN" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol3&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol5&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol6&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol8&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;seq&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;entryProject&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;budgetNumber&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;budgetName&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol3&quot; /&gt;&lt;t:Column t:key=&quot;budgetAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;balance&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol5&quot; /&gt;&lt;t:Column t:key=&quot;amount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol6&quot; /&gt;&lt;t:Column t:key=&quot;content&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol8&quot; /&gt;&lt;t:Column t:key=&quot;beizhu&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;单据分录序列号&lt;/t:Cell&gt;&lt;t:Cell&gt;项目&lt;/t:Cell&gt;&lt;t:Cell&gt;费用编码&lt;/t:Cell&gt;&lt;t:Cell&gt;费用名称&lt;/t:Cell&gt;&lt;t:Cell&gt;费用预算&lt;/t:Cell&gt;&lt;t:Cell&gt;可用预算&lt;/t:Cell&gt;&lt;t:Cell&gt;本次申报预算&lt;/t:Cell&gt;&lt;t:Cell&gt;标段内容&lt;/t:Cell&gt;&lt;t:Cell&gt;剩余预算&lt;/t:Cell&gt;&lt;t:Cell&gt;备注&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
+            <lang locale="zh_HK" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol3&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol5&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol6&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol8&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;seq&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;entryProject&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;budgetNumber&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;budgetName&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol3&quot; /&gt;&lt;t:Column t:key=&quot;budgetAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;balance&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol5&quot; /&gt;&lt;t:Column t:key=&quot;amount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol6&quot; /&gt;&lt;t:Column t:key=&quot;content&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol8&quot; /&gt;&lt;t:Column t:key=&quot;beizhu&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;單據分錄序列號&lt;/t:Cell&gt;&lt;t:Cell&gt;項目&lt;/t:Cell&gt;&lt;t:Cell&gt;費用編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;費用名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;費用預算&lt;/t:Cell&gt;&lt;t:Cell&gt;可用預算&lt;/t:Cell&gt;&lt;t:Cell&gt;本次申報預算&lt;/t:Cell&gt;&lt;t:Cell&gt;標段內容&lt;/t:Cell&gt;&lt;t:Cell&gt;剩餘預算&lt;/t:Cell&gt;&lt;t:Cell&gt;備註&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
+            <lang locale="zh_TW" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;int&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol3&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol5&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol6&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol8&quot;&gt;&lt;c:NumberFormat&gt;&amp;amp;double&lt;/c:NumberFormat&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;seq&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;entryProject&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;budgetNumber&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;budgetName&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol3&quot; /&gt;&lt;t:Column t:key=&quot;budgetAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;balance&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol5&quot; /&gt;&lt;t:Column t:key=&quot;amount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol6&quot; /&gt;&lt;t:Column t:key=&quot;content&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;lastAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol8&quot; /&gt;&lt;t:Column t:key=&quot;beizhu&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;單據分錄序列號&lt;/t:Cell&gt;&lt;t:Cell&gt;項目&lt;/t:Cell&gt;&lt;t:Cell&gt;費用編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;費用名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;費用預算&lt;/t:Cell&gt;&lt;t:Cell&gt;可用預算&lt;/t:Cell&gt;&lt;t:Cell&gt;本次申報預算&lt;/t:Cell&gt;&lt;t:Cell&gt;標段內容&lt;/t:Cell&gt;&lt;t:Cell&gt;剩餘預算&lt;/t:Cell&gt;&lt;t:Cell&gt;備註&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[kdtEntry5].alias">
             <lang locale="en_US" value="null" />
@@ -8097,12 +8156,6 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtevaluaMethod].properties.property[visible].value">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_HK" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.invite.client.InviteReportEditUI].components.component[txtinviteBudget].alias">
             <lang locale="en_US" value="null" />

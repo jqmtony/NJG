@@ -1399,6 +1399,68 @@
                 <key name="name" value="InvitePlanQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>evaMethod</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[evaMethod].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>bbd536f6-8e49-4445-bd0c-303bccfc317e</key>
+                    <parentUnit>
+                        <key name="name" value="evaMethod" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InvitePlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="evaMethod" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bidAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[bidAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4e09a5ba-35e6-4ce5-8a83-798e67c76464</key>
+                    <parentUnit>
+                        <key name="name" value="bidAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InvitePlan" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bidAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InvitePlanQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1938,6 +2000,22 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[bidAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="标段金额" />
+            <lang locale="zh_HK" value="標段金額" />
+            <lang locale="zh_TW" value="標段金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[bidAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[bidAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[bizDate].displayName">
             <lang locale="en_US" value="" />
             <lang locale="zh_CN" value="业务日期" />
@@ -2029,6 +2107,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[endDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[evaMethod].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评标办法" />
+            <lang locale="zh_HK" value="評標辦法" />
+            <lang locale="zh_TW" value="評標辦法" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[evaMethod].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InvitePlanQuery].units.queryField[evaMethod].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

@@ -439,6 +439,254 @@
             </query>
         </queryField>
         <queryField>
+            <name>unitName.supplierName</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[unitName.supplierName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8e024ce7-c714-477e-adc7-6fb7d87d78b2</key>
+                    <parentUnit>
+                        <key name="name" value="unitName.supplierName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="unitName" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="supplierName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Unit.quality</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.quality].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e0b7ea9b-6119-44c4-9344-eb8112944a4d</key>
+                    <parentUnit>
+                        <key name="name" value="Unit.quality" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Unit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="quality" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Unit.inviteAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.inviteAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>319a5c22-24f7-4da4-9990-e509edd4c982</key>
+                    <parentUnit>
+                        <key name="name" value="Unit.inviteAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Unit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="inviteAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Unit.win</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.win].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3c7d9ef0-0581-48d4-abdc-22ae66b39cb1</key>
+                    <parentUnit>
+                        <key name="name" value="Unit.win" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Unit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="win" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Unit.beizhu</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.beizhu].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c83e5d9f-fa08-4d28-81d9-213b7dc2148f</key>
+                    <parentUnit>
+                        <key name="name" value="Unit.beizhu" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Unit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="beizhu" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>invitedAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[invitedAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d2e9c0ee-5c32-47fb-9650-56e700a93482</key>
+                    <parentUnit>
+                        <key name="name" value="invitedAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="WinInviteReport" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="invitedAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>winInviteUnit.supplierName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[winInviteUnit.supplierName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1327057d-d013-4fc6-81d5-901f014a3476</key>
+                    <parentUnit>
+                        <key name="name" value="winInviteUnit.supplierName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="winInviteUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="supplierName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>Unit.ranking</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.ranking].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>134eae04-a778-426a-8052-fcdd01c13377</key>
+                    <parentUnit>
+                        <key name="name" value="Unit.ranking" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Unit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="ranking" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="WinInviteReportQuery" />
+            </query>
+        </queryField>
+        <queryField>
             <name>creator.name</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -1058,223 +1306,6 @@
                 <key name="name" value="WinInviteReportQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>unitName.supplierName</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[unitName.supplierName].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>8e024ce7-c714-477e-adc7-6fb7d87d78b2</key>
-                    <parentUnit>
-                        <key name="name" value="unitName.supplierName" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="unitName" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="supplierName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="WinInviteReportQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Unit.quality</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.quality].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>e0b7ea9b-6119-44c4-9344-eb8112944a4d</key>
-                    <parentUnit>
-                        <key name="name" value="Unit.quality" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Unit" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="quality" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="WinInviteReportQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Unit.inviteAmount</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.inviteAmount].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Number</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>319a5c22-24f7-4da4-9990-e509edd4c982</key>
-                    <parentUnit>
-                        <key name="name" value="Unit.inviteAmount" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Unit" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="inviteAmount" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="WinInviteReportQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Unit.win</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.win].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Boolean</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>3c7d9ef0-0581-48d4-abdc-22ae66b39cb1</key>
-                    <parentUnit>
-                        <key name="name" value="Unit.win" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Unit" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="win" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="WinInviteReportQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>Unit.beizhu</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.beizhu].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>c83e5d9f-fa08-4d28-81d9-213b7dc2148f</key>
-                    <parentUnit>
-                        <key name="name" value="Unit.beizhu" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Unit" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="beizhu" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="WinInviteReportQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>invitedAmount</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[invitedAmount].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Number</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>d2e9c0ee-5c32-47fb-9650-56e700a93482</key>
-                    <parentUnit>
-                        <key name="name" value="invitedAmount" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="WinInviteReport" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="invitedAmount" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="WinInviteReportQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>winInviteUnit.supplierName</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[winInviteUnit.supplierName].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>1327057d-d013-4fc6-81d5-901f014a3476</key>
-                    <parentUnit>
-                        <key name="name" value="winInviteUnit.supplierName" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="winInviteUnit" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="supplierName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
-                <key name="name" value="WinInviteReportQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
             <name>c0ee2d65-b82a-4cbe-b6c9-60e90f1a74c8</name>
             <userDefined>true</userDefined>
@@ -1823,6 +1854,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.quality].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.ranking].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="排名" />
+            <lang locale="zh_HK" value="排名" />
+            <lang locale="zh_TW" value="排名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.ranking].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.WinInviteReportQuery].units.queryField[Unit.ranking].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

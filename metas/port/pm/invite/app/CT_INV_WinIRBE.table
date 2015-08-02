@@ -175,6 +175,34 @@
             <scale>2</scale>
             <precision>28</precision>
         </column>
+        <column>
+            <name>CFSectBudget</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinIRBE].columns.column[CFSectBudget].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinIRBE].columns.column[CFSectBudget].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFProjectID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinIRBE].columns.column[CFProjectID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinIRBE].columns.column[CFProjectID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_INV_WinIRBEfrb</name>
@@ -205,6 +233,25 @@
                     </refColumn>
                     <fkColumn>
                         <key name="name" value="CFBudgetNumberID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_INV_INVWIRBE8i</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.assistant" />
+                <key name="name" value="T_BD_Project" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFProjectID" />
                     </fkColumn>
                 </fkColumnPair>
             </fkColumnPairs>
@@ -312,6 +359,30 @@
             <lang locale="zh_CN" value="预算余额" />
             <lang locale="zh_HK" value="預算餘額" />
             <lang locale="zh_TW" value="預算餘額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinIRBE].columns.column[CFProjectID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目" />
+            <lang locale="zh_HK" value="項目" />
+            <lang locale="zh_TW" value="項目" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinIRBE].columns.column[CFProjectID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目" />
+            <lang locale="zh_HK" value="項目" />
+            <lang locale="zh_TW" value="項目" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinIRBE].columns.column[CFSectBudget].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本标段预算" />
+            <lang locale="zh_HK" value="本標段預算" />
+            <lang locale="zh_TW" value="本標段預算" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinIRBE].columns.column[CFSectBudget].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本标段预算" />
+            <lang locale="zh_HK" value="本標段預算" />
+            <lang locale="zh_TW" value="本標段預算" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_WinIRBE].columns.column[CFSeq].alias">
             <lang locale="en_US" value="null" />

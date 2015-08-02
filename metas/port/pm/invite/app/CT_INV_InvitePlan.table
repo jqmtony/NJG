@@ -441,6 +441,34 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFEvaMethod</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFEvaMethod].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFEvaMethod].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBidAmount</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFBidAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFBidAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_InvitePlan</name>
@@ -647,6 +675,18 @@
             <lang locale="zh_HK" value="備註" />
             <lang locale="zh_TW" value="備註" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFBidAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="标段金额" />
+            <lang locale="zh_HK" value="標段金額" />
+            <lang locale="zh_TW" value="標段金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFBidAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="标段金额" />
+            <lang locale="zh_HK" value="標段金額" />
+            <lang locale="zh_TW" value="標段金額" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFBusinessFinish].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="商务标完成" />
@@ -682,6 +722,18 @@
             <lang locale="zh_CN" value="计划结束日期" />
             <lang locale="zh_HK" value="計畫結束日期" />
             <lang locale="zh_TW" value="計畫結束日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFEvaMethod].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评标办法" />
+            <lang locale="zh_HK" value="評標辦法" />
+            <lang locale="zh_TW" value="評標辦法" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFEvaMethod].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评标办法" />
+            <lang locale="zh_HK" value="評標辦法" />
+            <lang locale="zh_TW" value="評標辦法" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InvitePlan].columns.column[CFInDate].alias">
             <lang locale="en_US" value="null" />

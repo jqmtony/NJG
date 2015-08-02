@@ -338,6 +338,37 @@
             </query>
         </propertyUnit>
         <queryField>
+            <name>personName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.queryField[personName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fa1351e0-b11a-4a29-b0d4-b9b3186c9a56</key>
+                    <parentUnit>
+                        <key name="name" value="personName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Judges" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="personName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="JudgesQuery" />
+            </query>
+        </queryField>
+        <queryField>
             <name>judgeType.name</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -357,37 +388,6 @@
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="judgeType" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="JudgesQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>juName.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.queryField[juName.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>989fb906-00b8-4eb9-b99a-eac58678d3bd</key>
-                    <parentUnit>
-                        <key name="name" value="juName.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="juName" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="name" />
@@ -834,37 +834,6 @@
             </query>
         </queryField>
         <queryField>
-            <name>personName</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.queryField[personName].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>fa1351e0-b11a-4a29-b0d4-b9b3186c9a56</key>
-                    <parentUnit>
-                        <key name="name" value="personName" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="Judges" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="personName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
-                <key name="name" value="JudgesQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>isOuter</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
@@ -915,6 +884,37 @@
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="ssAddmin" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.base.app" />
+                <key name="name" value="JudgesQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>juName.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.base.app.JudgesQuery].units.queryField[juName.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>989fb906-00b8-4eb9-b99a-eac58678d3bd</key>
+                    <parentUnit>
+                        <key name="name" value="juName.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="juName" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="name" />

@@ -975,6 +975,46 @@
                 <key name="name" value="CFScalingTime" />
             </mappingField>
         </ownProperty>
+        <ownProperty>
+            <name>evaMethod</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Enum</dataType>
+            <metadataRef>com.kingdee.eas.port.pm.invite.judgeSolution</metadataRef>
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFEvaMethod" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>bidAmount</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFBidAmount" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -2604,6 +2644,69 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="标段金额" />
+            <lang locale="zh_HK" value="標段金額" />
+            <lang locale="zh_TW" value="標段金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="标段金额" />
+            <lang locale="zh_HK" value="標段金額" />
+            <lang locale="zh_TW" value="標段金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="AMOUNT" />
+            <lang locale="zh_CN" value="AMOUNT" />
+            <lang locale="zh_TW" value="AMOUNT" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[bidAmount].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[endDate].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="计划结束日期" />
@@ -2663,6 +2766,74 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[endDate].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评标办法" />
+            <lang locale="zh_HK" value="評標辦法" />
+            <lang locale="zh_TW" value="評標辦法" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="integrate" />
+            <lang locale="zh_HK" value="integrate" />
+            <lang locale="zh_TW" value="integrate" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="评标办法" />
+            <lang locale="zh_HK" value="評標辦法" />
+            <lang locale="zh_TW" value="評標辦法" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].extendedProperty.bizDataType">
+            <lang locale="en_US" value="ENUM" />
+            <lang locale="zh_CN" value="ENUM" />
+            <lang locale="zh_TW" value="ENUM" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].extendedProperty.defaultValue">
+            <lang locale="en_US" value="integrate" />
+            <lang locale="zh_CN" value="integrate" />
+            <lang locale="zh_TW" value="integrate" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invite.app.InvitePlan].properties.ownProperty[evaMethod].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

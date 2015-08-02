@@ -763,20 +763,6 @@
     </actions>
     <rules>
         <conditionRule>
-            <name>InviteReport_projectNumber_RuleInfo</name>
-            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[InviteReport_projectNumber_RuleInfo].alias</alias>
-            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[InviteReport_projectNumber_RuleInfo].description</description>
-            <ruleType>withproperty</ruleType>
-            <eventObjectName />
-            <eventType>CHANGE</eventType>
-            <eventName>CHANGE</eventName>
-            <actions>
-                <action>
-                    <key name="id" value="c7c18ce7-5965-4783-af9b-e6ef7c955dea" />
-                </action>
-            </actions>
-        </conditionRule>
-        <conditionRule>
             <name>Entry3_department_RuleInfo</name>
             <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[Entry3_department_RuleInfo].alias</alias>
             <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[Entry3_department_RuleInfo].description</description>
@@ -801,6 +787,20 @@
             <actions>
                 <action>
                     <key name="id" value="173f30fb-7338-4dc0-ace0-c210bab8d3b1" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>InviteReport_projectNumber_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[InviteReport_projectNumber_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.port.pm.invite.app.InviteReportRuleSet].rules.conditionRule[InviteReport_projectNumber_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="c7c18ce7-5965-4783-af9b-e6ef7c955dea" />
                 </action>
             </actions>
         </conditionRule>

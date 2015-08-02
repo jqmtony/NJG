@@ -1837,11 +1837,11 @@
             </query>
         </queryField>
         <queryField>
-            <name>id</name>
+            <name>billid</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[id].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[billid].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -1852,7 +1852,7 @@
                 <propertyRef>
                     <key>21252636-7873-4b63-bc08-1d60f96d5bf5</key>
                     <parentUnit>
-                        <key name="name" value="id" />
+                        <key name="name" value="billid" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="CompleteAccept" />
@@ -1960,6 +1960,37 @@
                 <key name="name" value="CompleteAcceptQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>cd4dbf6c-dc08-4299-bc57-b46491548cff</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="E1" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.acceptance.app" />
+                <key name="name" value="CompleteAcceptQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1981,6 +2012,16 @@
             <configured>false</configured>
         </querySorterItem>
     </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
     <isDistinct>false</isDistinct>
     <joins>
         <join>
@@ -2401,6 +2442,18 @@
             <lang locale="en_US" value="竣工验收单" />
             <lang locale="zh_CN" value="竣工验收单" />
             <lang locale="zh_TW" value="竣工验收单" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].subObjects.subEntity[CU].alias">
             <lang locale="en_US" value="null" />
@@ -2976,6 +3029,12 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[billid].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="billid" />
+            <lang locale="zh_HK" value="billid" />
+            <lang locale="zh_TW" value="billid" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.acceptance.app.CompleteAcceptQuery].units.queryField[bizDate].displayName">
             <lang locale="en_US" value="" />

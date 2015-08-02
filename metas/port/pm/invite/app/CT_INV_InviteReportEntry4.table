@@ -175,6 +175,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFEntryProjectID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InviteReportEntry4].columns.column[CFEntryProjectID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InviteReportEntry4].columns.column[CFEntryProjectID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_INV_InvtRE4v63</name>
@@ -205,6 +219,25 @@
                     </refColumn>
                     <fkColumn>
                         <key name="name" value="CFBudgetNumberID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_INV_INVIRE4Nsf</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.assistant" />
+                <key name="name" value="T_BD_Project" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFEntryProjectID" />
                     </fkColumn>
                 </fkColumnPair>
             </fkColumnPairs>
@@ -300,6 +333,18 @@
             <lang locale="zh_CN" value="标段内容" />
             <lang locale="zh_HK" value="標段內容" />
             <lang locale="zh_TW" value="標段內容" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InviteReportEntry4].columns.column[CFEntryProjectID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目" />
+            <lang locale="zh_HK" value="項目" />
+            <lang locale="zh_TW" value="項目" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InviteReportEntry4].columns.column[CFEntryProjectID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目" />
+            <lang locale="zh_HK" value="項目" />
+            <lang locale="zh_TW" value="項目" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.invite.app.CT_INV_InviteReportEntry4].columns.column[CFLastAmount].alias">
             <lang locale="en_US" value="null" />

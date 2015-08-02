@@ -614,7 +614,7 @@
             <isNullable>false</isNullable>
             <formula />
             <length>255</length>
-            <precision>0</precision>
+            <precision>255</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[numer].defaultValue</defaultValue>
             <displayFormat />
@@ -634,7 +634,7 @@
             <isNullable>false</isNullable>
             <formula />
             <length>255</length>
-            <precision>0</precision>
+            <precision>255</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[changeContent].defaultValue</defaultValue>
             <displayFormat />
@@ -694,7 +694,7 @@
             <isNullable>false</isNullable>
             <formula />
             <length>100</length>
-            <precision>0</precision>
+            <precision>100</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[unit].defaultValue</defaultValue>
             <displayFormat />
@@ -748,7 +748,7 @@
             <isNullable>false</isNullable>
             <formula />
             <length>255</length>
-            <precision>0</precision>
+            <precision>255</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[remark].defaultValue</defaultValue>
             <displayFormat />
@@ -1208,6 +1208,21 @@
             <lang locale="zh_HK" value="單價   " />
             <lang locale="zh_TW" value="單價   " />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[amount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[amount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[amount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[changeContent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="变动项目内容" />
@@ -1225,6 +1240,21 @@
             <lang locale="zh_CN" value="变动项目内容" />
             <lang locale="zh_HK" value="變動項目內容" />
             <lang locale="zh_TW" value="變動項目內容" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[changeContent].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[changeContent].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[changeContent].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[numer].alias">
             <lang locale="en_US" value="null" />
@@ -1244,6 +1274,21 @@
             <lang locale="zh_HK" value="清單編碼" />
             <lang locale="zh_TW" value="清單編碼" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[numer].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[numer].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[numer].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[proNumber].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="工程量" />
@@ -1261,6 +1306,21 @@
             <lang locale="zh_CN" value="工程量" />
             <lang locale="zh_HK" value="工程量" />
             <lang locale="zh_TW" value="工程量" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[proNumber].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[proNumber].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[proNumber].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[remark].alias">
             <lang locale="en_US" value="null" />
@@ -1280,6 +1340,21 @@
             <lang locale="zh_HK" value="備註信息" />
             <lang locale="zh_TW" value="備註信息" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[remark].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[remark].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[remark].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[totalAmount].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="合计金额" />
@@ -1298,6 +1373,21 @@
             <lang locale="zh_HK" value="合計金額" />
             <lang locale="zh_TW" value="合計金額" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[totalAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[totalAmount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[totalAmount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[unit].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单位" />
@@ -1315,6 +1405,21 @@
             <lang locale="zh_CN" value="单位" />
             <lang locale="zh_HK" value="單位" />
             <lang locale="zh_TW" value="單位" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[unit].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[unit].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.contract.app.ContractChangeSettleBillEntry].properties.ownProperty[unit].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
     </resource>
 </entityObject>

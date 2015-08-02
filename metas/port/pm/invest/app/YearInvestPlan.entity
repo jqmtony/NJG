@@ -707,6 +707,38 @@
             <userDefinedLogic />
             <configured>false</configured>
         </method>
+        <method>
+            <name>creatProjectBase</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].methods.method[creatProjectBase].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].methods.method[creatProjectBase].description</description>
+            <innerID>a52c4b6a-ff81-49cf-958d-0c4cff96837a</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].methods.method[creatProjectBase].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].methods.method[creatProjectBase].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <exceptions>
+                <bizException>
+                    <key name="package" value="com.kingdee.eas.common" />
+                    <key name="name" value="EASBizException" />
+                </bizException>
+            </exceptions>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.port.pm.invest.YearInvestPlan</bizUnitPK>
@@ -1372,6 +1404,48 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>creatProjectBase</name>
+            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].alias</alias>
+            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>a52c4b6a-ff81-49cf-958d-0c4cff96837a</name>
+                    <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].eventMethods.eventMethod[a52c4b6a-ff81-49cf-958d-0c4cff96837a].alias</alias>
+                    <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].eventMethods.eventMethod[a52c4b6a-ff81-49cf-958d-0c4cff96837a].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="creatProjectBase" />
+                        <key name="innerID" value="a52c4b6a-ff81-49cf-958d-0c4cff96837a" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].eventMethods.eventMethod[a52c4b6a-ff81-49cf-958d-0c4cff96837a].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].eventMethods.eventMethod[a52c4b6a-ff81-49cf-958d-0c4cff96837a].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID />
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>62d820d2-66e0-48ec-9be6-e4c7a18abd39evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.port.pm.invest.app.YearInvestPlan</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -1495,6 +1569,54 @@
             <lang locale="zh_TW" value="值對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[auditEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="自动生成项目信息" />
+            <lang locale="zh_HK" value="自動生成項目信息" />
+            <lang locale="zh_TW" value="自動生成項目信息" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].eventMethods.eventMethod[a52c4b6a-ff81-49cf-958d-0c4cff96837a].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].eventMethods.eventMethod[a52c4b6a-ff81-49cf-958d-0c4cff96837a].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].eventMethods.eventMethod[a52c4b6a-ff81-49cf-958d-0c4cff96837a].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].eventMethods.eventMethod[a52c4b6a-ff81-49cf-958d-0c4cff96837a].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].events.event[creatProjectBase].formalParameters.formalParameter.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1778,6 +1900,29 @@
             <lang locale="zh_TW" value="主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].methods.method[audit].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].methods.method[creatProjectBase].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="生成项目" />
+            <lang locale="zh_HK" value="生成項目" />
+            <lang locale="zh_TW" value="生成項目" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].methods.method[creatProjectBase].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].methods.method[creatProjectBase].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
+            <lang locale="zh_TW" value="主鍵" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.port.pm.invest.app.YearInvestPlan].methods.method[creatProjectBase].parameters.parameter[pk].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="主键" />
             <lang locale="zh_HK" value="主鍵" />
