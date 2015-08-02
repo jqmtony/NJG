@@ -1,0 +1,3725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webUIObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.qa.web</package>
+    <name>ProjectOAEditUI</name>
+    <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].alias</alias>
+    <description>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].description</description>
+    <userDefined>true</userDefined>
+    <releasePackage>com.kingdee.eas.port.pm.qa.web</releasePackage>
+    <releaseClass>ProjectOAEditUI</releaseClass>
+    <title>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].title</title>
+    <uitype />
+    <defaultbutton />
+    <bizUnitPK>com.kingdee.eas.port.pm.qa.ProjectOA</bizUnitPK>
+    <parent>
+        <key name="package" value="com.kingdee.eas.framework.web" />
+        <key name="name" value="BillEditUI" />
+    </parent>
+    <components>
+        <component>
+            <name>innerWindowUserTag</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[innerWindowUserTag].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.UserTag</classType>
+            <isContainer>true</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>attributes</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[innerWindowUserTag].properties.property[attributes].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>kdtE2</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE2].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditDataGrid</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=0;y=0;width=600;height=170;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>webLayout2</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>var</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE2].properties.property[var].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>value</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE2].properties.property[value].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>binding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE2].properties.property[binding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>showRowNumber</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE2].properties.property[showRowNumber].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>sync</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE2].properties.property[sync].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>rootToolBar</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[rootToolBar].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.ToolBar</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=5;y=4;width=997;height=30;autoSize=12</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>webToolBarLayout1</name>
+                <type>WebToolBarLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contCreator</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCreator].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=10;y=599;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCreator].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCreator].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contCreateTime</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCreateTime].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=10;y=623;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo1</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCreateTime].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCreateTime].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contLastUpdateUser</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contLastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=370;y=599;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo2</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contLastUpdateUser].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contLastUpdateUser].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contLastUpdateTime</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contLastUpdateTime].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=370;y=623;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo3</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contLastUpdateTime].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contLastUpdateTime].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contCU</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCU].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=370;y=38;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo4</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>disabled</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCU].properties.property[disabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCU].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCU].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contNumber</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contNumber].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=10;y=38;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo5</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contNumber].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contNumber].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contBizDate</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizDate].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=370;y=107;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo6</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizDate].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizDate].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contDescription</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contDescription].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=13;y=649;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo7</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contDescription].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contDescription].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contAuditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contAuditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=731;y=599;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo8</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contAuditor].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contAuditor].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contStatus</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contStatus].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=731;y=38;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo9</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>disabled</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contStatus].properties.property[disabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contStatus].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contStatus].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contBizStatus</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizStatus].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=345;y=650;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo10</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>disabled</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizStatus].properties.property[disabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizStatus].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizStatus].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contAuditTime</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contAuditTime].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=731;y=623;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo11</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contAuditTime].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contAuditTime].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contprojectName</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contprojectName].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=10;y=61;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo12</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contprojectName].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contprojectName].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contprojectName].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contpersonMake</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contpersonMake].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=10;y=84;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo13</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contpersonMake].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contpersonMake].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contpersonMake].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contquestionDescription</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionDescription].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=10;y=134;width=488;height=105;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo18</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionDescription].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionDescription].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionDescription].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contreasonAnalysis</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contreasonAnalysis].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=10;y=249;width=488;height=121;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo20</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contreasonAnalysis].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contreasonAnalysis].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contreasonAnalysis].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>kdtE1</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditDataGrid</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=7;y=404;width=991;height=187;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>webLayout</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>var</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE1].properties.property[var].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>value</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE1].properties.property[value].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>binding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE1].properties.property[binding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>showRowNumber</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE1].properties.property[showRowNumber].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>sync</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE1].properties.property[sync].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>kDCheckBox1</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kDCheckBox1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.CheckBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>x=324;y=378;width=140;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>boxLabel</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kDCheckBox1].properties.property[boxLabel].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contquestionName</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionName].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=370;y=61;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo26</name>
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionName].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionName].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionName].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>contoatype</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contoatype].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.LabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=0;y=0;width=270;height=19;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>caption</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contoatype].properties.property[caption].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>lineWidth</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contoatype].properties.property[lineWidth].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>btnSave</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnSave].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnSave].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnSave].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnSubmit</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnSubmit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>1</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnSubmit].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnSubmit].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnCopy</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnCopy].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>2</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnCopy].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnCopy].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnRemove</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnRemove].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnRemove].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnRemove].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnExit</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnExit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>8</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnExit].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnExit].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>prmtCreator</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtCreator].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.PromptBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>disabled</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtCreator].properties.property[disabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>displayFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtCreator].properties.property[displayFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtCreator].properties.property[editFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contCreator" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>creator</bindingField>
+                    <fieldType>com.kingdee.eas.base.permission.UserInfo</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>pkCreateTime</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkCreateTime].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.DateField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>disabled</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkCreateTime].properties.property[disabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contCreateTime" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>createTime</bindingField>
+                    <fieldType>java.sql.Timestamp</fieldType>
+                    <accessType>0</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>prmtLastUpdateUser</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtLastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.PromptBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>disabled</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtLastUpdateUser].properties.property[disabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>displayFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtLastUpdateUser].properties.property[displayFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtLastUpdateUser].properties.property[editFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contLastUpdateUser" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>lastUpdateUser</bindingField>
+                    <fieldType>com.kingdee.eas.base.permission.UserInfo</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>pkLastUpdateTime</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkLastUpdateTime].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.DateField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>disabled</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkLastUpdateTime].properties.property[disabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contLastUpdateTime" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>lastUpdateTime</bindingField>
+                    <fieldType>java.sql.Timestamp</fieldType>
+                    <accessType>0</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>prmtCU</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtCU].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.PromptBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>disabled</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtCU].properties.property[disabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contCU" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>CU</bindingField>
+                    <fieldType>com.kingdee.eas.basedata.org.CtrlUnitInfo</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtNumber</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[txtNumber].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="contNumber" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>number</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>pkBizDate</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkBizDate].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.DateField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="contBizDate" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>bizDate</bindingField>
+                    <fieldType>java.util.Date</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>txtDescription</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[txtDescription].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="contDescription" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>description</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>prmtAuditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtAuditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.PromptBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>disabled</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtAuditor].properties.property[disabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>displayFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtAuditor].properties.property[displayFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtAuditor].properties.property[editFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contAuditor" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>auditor</bindingField>
+                    <fieldType>com.kingdee.eas.base.permission.UserInfo</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>comboStatus</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboStatus].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EnumCombo</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>disabled</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboStatus].properties.property[disabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>type</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboStatus].properties.property[type].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contStatus" />
+            </parent>
+        </component>
+        <component>
+            <name>comboBizStatus</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboBizStatus].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EnumCombo</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>disabled</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboBizStatus].properties.property[disabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboBizStatus].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>type</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboBizStatus].properties.property[type].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contBizStatus" />
+            </parent>
+        </component>
+        <component>
+            <name>pkAuditTime</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkAuditTime].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.DateField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>disabled</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkAuditTime].properties.property[disabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contAuditTime" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>auditTime</bindingField>
+                    <fieldType>java.sql.Timestamp</fieldType>
+                    <accessType>0</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>prmtprojectName</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.PromptBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>17</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editable</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].properties.property[editable].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>displayFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].properties.property[displayFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].properties.property[editFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>queryInfo</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].properties.property[queryInfo].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contprojectName" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>projectName</bindingField>
+                    <fieldType>com.kingdee.eas.basedata.assistant.ProjectInfo</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>prmtpersonMake</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.PromptBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>18</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editable</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].properties.property[editable].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>displayFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].properties.property[displayFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].properties.property[editFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>queryInfo</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].properties.property[queryInfo].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contpersonMake" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>personMake</bindingField>
+                    <fieldType>com.kingdee.eas.basedata.person.PersonInfo</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>textArea2</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[textArea2].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextArea</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>23</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[textArea2].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[textArea2].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contquestionDescription" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>questionDescription</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>textArea3</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[textArea3].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextArea</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>25</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[textArea3].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[textArea3].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contreasonAnalysis" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>reasonAnalysis</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>idColumn</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn].properties.property[header].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>idColumn</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn].properties.property[idColumn].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kdtE1" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>E1.id</bindingField>
+                    <fieldType>com.kingdee.bos.util.BOSUuid</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>seq</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seq].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout1</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seq].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seq].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seq].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kdtE1" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>E1.seq</bindingField>
+                    <fieldType>int</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>description</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[description].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout4</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[description].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[description].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[description].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kdtE1" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>E1.description</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>shuomColumn</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[shuomColumn].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>shuomWebLayout</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[shuomColumn].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[shuomColumn].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kdtE1" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>E1.shuom</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>seqEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seqEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.NumberField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="seq" />
+            </parent>
+        </component>
+        <component>
+            <name>descriptionEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[descriptionEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="description" />
+            </parent>
+        </component>
+        <component>
+            <name>shuomEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[shuomEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="shuomColumn" />
+            </parent>
+        </component>
+        <component>
+            <name>txtquestionName</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[txtquestionName].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>31</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[txtquestionName].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[txtquestionName].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contquestionName" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>questionName</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>prmtoatype</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtoatype].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.PromptBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>queryInfo</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtoatype].properties.property[queryInfo].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>diaplayFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtoatype].properties.property[diaplayFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtoatype].properties.property[editFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>commitFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtoatype].properties.property[commitFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contoatype" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>oatype</bindingField>
+                    <fieldType>com.kingdee.eas.port.pm.qa.OATypeInfo</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>idColumn1</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout2</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn1].properties.property[header].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn1].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>idColumn</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn1].properties.property[idColumn].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn1].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kdtE2" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>E2.id</bindingField>
+                    <fieldType>com.kingdee.bos.util.BOSUuid</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>seqColumn</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seqColumn].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>seqWebLayout</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seqColumn].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seqColumn].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kdtE2" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>E2.seq</bindingField>
+                    <fieldType>int</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>billTypeColumn</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeColumn].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>billTypeWebLayout</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeColumn].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeColumn].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>converter</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeColumn].properties.property[converter].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kdtE2" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>E2.billType</bindingField>
+                    <fieldType>com.kingdee.eas.port.pm.qa.LinkBillInfo</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>billNumberColumn</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billNumberColumn].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>billNumberWebLayout</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billNumberColumn].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billNumberColumn].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kdtE2" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>E2.billNumber</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>billContentColumn</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billContentColumn].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>billContentWebLayout</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billContentColumn].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billContentColumn].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kdtE2" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>E2.billContent</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>billIDColumn</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billIDColumn].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>billIDWebLayout</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billIDColumn].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billIDColumn].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kdtE2" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>E2.billID</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
+            <name>seqEditor1</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seqEditor1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.NumberField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="seqColumn" />
+            </parent>
+        </component>
+        <component>
+            <name>billTypeEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.PromptBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>queryInfo</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeEditor].properties.property[queryInfo].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>store</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeEditor].properties.property[store].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>diaplayFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeEditor].properties.property[diaplayFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>editFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeEditor].properties.property[editFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>commitFormat</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeEditor].properties.property[commitFormat].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="billTypeColumn" />
+            </parent>
+        </component>
+        <component>
+            <name>billNumberEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billNumberEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="billNumberColumn" />
+            </parent>
+        </component>
+        <component>
+            <name>billContentEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billContentEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="billContentColumn" />
+            </parent>
+        </component>
+        <component>
+            <name>billIDEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billIDEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="billIDColumn" />
+            </parent>
+        </component>
+    </components>
+    <dataObjects>
+        <dataObject>
+            <name>editData</name>
+            <type>com.kingdee.eas.port.pm.qa.app.ProjectOA</type>
+            <objectType>enty</objectType>
+            <herited>false</herited>
+            <userDefined>true</userDefined>
+        </dataObject>
+    </dataObjects>
+    <resource>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目协同" />
+            <lang locale="zh_HK" value="項目協同" />
+            <lang locale="zh_TW" value="項目協同" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billContentColumn].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billContentColumn].properties.property[header].value">
+            <lang locale="en_US" value="单据内容" />
+            <lang locale="zh_CN" value="单据内容" />
+            <lang locale="zh_HK" value="單據內容" />
+            <lang locale="zh_TW" value="單據內容" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billContentColumn].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billContentEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billIDColumn].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billIDColumn].properties.property[header].value">
+            <lang locale="en_US" value="单据ID" />
+            <lang locale="zh_CN" value="单据ID" />
+            <lang locale="zh_HK" value="單據ID" />
+            <lang locale="zh_TW" value="單據ID" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billIDColumn].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billIDEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billNumberColumn].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billNumberColumn].properties.property[header].value">
+            <lang locale="en_US" value="单据编号" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billNumberColumn].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billNumberEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeColumn].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeColumn].properties.property[converter].value">
+            <lang locale="en_US" value="objectValueConverter" />
+            <lang locale="zh_CN" value="objectValueConverter" />
+            <lang locale="zh_HK" value="objectValueConverter" />
+            <lang locale="zh_TW" value="objectValueConverter" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeColumn].properties.property[header].value">
+            <lang locale="en_US" value="单据类型" />
+            <lang locale="zh_CN" value="单据类型" />
+            <lang locale="zh_HK" value="單據類型" />
+            <lang locale="zh_TW" value="單據類型" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeColumn].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeEditor].properties.property[commitFormat].value">
+            <lang locale="en_US" value="$number$" />
+            <lang locale="zh_CN" value="$number$" />
+            <lang locale="zh_HK" value="$number$" />
+            <lang locale="zh_TW" value="$number$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeEditor].properties.property[diaplayFormat].value">
+            <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
+            <lang locale="zh_HK" value="$name$" />
+            <lang locale="zh_TW" value="$name$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeEditor].properties.property[editFormat].value">
+            <lang locale="en_US" value="$number$" />
+            <lang locale="zh_CN" value="$number$" />
+            <lang locale="zh_HK" value="$number$" />
+            <lang locale="zh_TW" value="$number$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeEditor].properties.property[queryInfo].value">
+            <lang locale="en_US" value="com.kingdee.eas.port.pm.qa.app.LinkBillQuery" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.pm.qa.app.LinkBillQuery" />
+            <lang locale="zh_HK" value="com.kingdee.eas.port.pm.qa.app.LinkBillQuery" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.pm.qa.app.LinkBillQuery" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[billTypeEditor].properties.property[store].value">
+            <lang locale="en_US" value="#{port.pm.qa.ProjectOAE2Bean.storeValue('billType')}" />
+            <lang locale="zh_CN" value="#{port.pm.qa.ProjectOAE2Bean.storeValue('billType')}" />
+            <lang locale="zh_HK" value="#{port.pm.qa.ProjectOAE2Bean.storeValue('billType')}" />
+            <lang locale="zh_TW" value="#{port.pm.qa.ProjectOAE2Bean.storeValue('billType')}" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnCopy].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnCopy].properties.property[actionBinding].value">
+            <lang locale="en_US" value="copyNewAction" />
+            <lang locale="zh_CN" value="copyNewAction" />
+            <lang locale="zh_HK" value="copyNewAction" />
+            <lang locale="zh_TW" value="copyNewAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnCopy].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="复制" />
+            <lang locale="zh_HK" value="複製" />
+            <lang locale="zh_TW" value="複製" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnExit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnExit].properties.property[actionBinding].value">
+            <lang locale="en_US" value="exitAction" />
+            <lang locale="zh_CN" value="exitAction" />
+            <lang locale="zh_HK" value="exitAction" />
+            <lang locale="zh_TW" value="exitAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnExit].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="退出" />
+            <lang locale="zh_HK" value="退出" />
+            <lang locale="zh_TW" value="退出" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnRemove].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnRemove].properties.property[actionBinding].value">
+            <lang locale="en_US" value="deleteAction" />
+            <lang locale="zh_CN" value="deleteAction" />
+            <lang locale="zh_HK" value="deleteAction" />
+            <lang locale="zh_TW" value="deleteAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnRemove].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="删除" />
+            <lang locale="zh_HK" value="刪除" />
+            <lang locale="zh_TW" value="刪除" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnSave].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnSave].properties.property[actionBinding].value">
+            <lang locale="en_US" value="saveAction" />
+            <lang locale="zh_CN" value="saveAction" />
+            <lang locale="zh_HK" value="saveAction" />
+            <lang locale="zh_TW" value="saveAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnSave].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="保存" />
+            <lang locale="zh_HK" value="保存" />
+            <lang locale="zh_TW" value="保存" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnSubmit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnSubmit].properties.property[actionBinding].value">
+            <lang locale="en_US" value="submitAction" />
+            <lang locale="zh_CN" value="submitAction" />
+            <lang locale="zh_HK" value="submitAction" />
+            <lang locale="zh_TW" value="submitAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[btnSubmit].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提交" />
+            <lang locale="zh_HK" value="提交" />
+            <lang locale="zh_TW" value="提交" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboBizStatus].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务状态" />
+            <lang locale="zh_HK" value="業務狀態" />
+            <lang locale="zh_TW" value="業務狀態" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboBizStatus].properties.property[disabled].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboBizStatus].properties.property[type].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="[Enum]com.kingdee.eas.xr.app.XRBizActionEnum" />
+            <lang locale="zh_HK" value="[Enum]com.kingdee.eas.xr.app.XRBizActionEnum" />
+            <lang locale="zh_TW" value="[Enum]com.kingdee.eas.xr.app.XRBizActionEnum" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboBizStatus].properties.property[visible].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboStatus].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboStatus].properties.property[disabled].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[comboStatus].properties.property[type].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="[Enum]com.kingdee.eas.xr.app.XRBillStatusEnum" />
+            <lang locale="zh_HK" value="[Enum]com.kingdee.eas.xr.app.XRBillStatusEnum" />
+            <lang locale="zh_TW" value="[Enum]com.kingdee.eas.xr.app.XRBillStatusEnum" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contAuditTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contAuditTime].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核时间" />
+            <lang locale="zh_HK" value="審核時間" />
+            <lang locale="zh_TW" value="審核時間" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contAuditTime].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contAuditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contAuditor].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contAuditor].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizDate].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="发生日期" />
+            <lang locale="zh_HK" value="發生日期" />
+            <lang locale="zh_TW" value="發生日期" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizDate].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizStatus].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizStatus].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务操作状态" />
+            <lang locale="zh_HK" value="業務操作狀態" />
+            <lang locale="zh_TW" value="業務操作狀態" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizStatus].properties.property[disabled].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contBizStatus].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCU].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCU].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目单位" />
+            <lang locale="zh_HK" value="項目單位" />
+            <lang locale="zh_TW" value="項目單位" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCU].properties.property[disabled].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCU].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCreateTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCreateTime].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="制单时间" />
+            <lang locale="zh_HK" value="制單時間" />
+            <lang locale="zh_TW" value="制單時間" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCreateTime].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCreator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCreator].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="制单人" />
+            <lang locale="zh_HK" value="制單人" />
+            <lang locale="zh_TW" value="制單人" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contCreator].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contDescription].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contDescription].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="参考信息" />
+            <lang locale="zh_HK" value="參考信息" />
+            <lang locale="zh_TW" value="參考信息" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contDescription].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contLastUpdateTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contLastUpdateTime].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contLastUpdateTime].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contLastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contLastUpdateUser].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改人" />
+            <lang locale="zh_HK" value="最後修改人" />
+            <lang locale="zh_TW" value="最後修改人" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contLastUpdateUser].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contNumber].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contNumber].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contStatus].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contStatus].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contStatus].properties.property[disabled].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contStatus].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contoatype].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contoatype].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="协同类型" />
+            <lang locale="zh_HK" value="協同類型" />
+            <lang locale="zh_TW" value="協同類型" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contoatype].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contpersonMake].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contpersonMake].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提出人" />
+            <lang locale="zh_HK" value="提出人" />
+            <lang locale="zh_TW" value="提出人" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contpersonMake].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contpersonMake].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contprojectName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contprojectName].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目名称" />
+            <lang locale="zh_HK" value="項目名稱" />
+            <lang locale="zh_TW" value="項目名稱" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contprojectName].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contprojectName].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionDescription].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionDescription].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="问题说明" />
+            <lang locale="zh_HK" value="問題說明" />
+            <lang locale="zh_TW" value="問題說明" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionDescription].properties.property[lineWidth].value">
+            <lang locale="en_US" value="16" />
+            <lang locale="zh_CN" value="16" />
+            <lang locale="zh_HK" value="16" />
+            <lang locale="zh_TW" value="16" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionDescription].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionName].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="问题名称" />
+            <lang locale="zh_HK" value="問題名稱" />
+            <lang locale="zh_TW" value="問題名稱" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionName].properties.property[lineWidth].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contquestionName].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contreasonAnalysis].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contreasonAnalysis].properties.property[caption].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="原因分析" />
+            <lang locale="zh_HK" value="原因分析" />
+            <lang locale="zh_TW" value="原因分析" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contreasonAnalysis].properties.property[lineWidth].value">
+            <lang locale="en_US" value="16" />
+            <lang locale="zh_CN" value="16" />
+            <lang locale="zh_HK" value="16" />
+            <lang locale="zh_TW" value="16" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[contreasonAnalysis].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[descriptionEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[description].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[description].properties.property[header].value">
+            <lang locale="en_US" value="说明" />
+            <lang locale="zh_CN" value="说明" />
+            <lang locale="zh_HK" value="說明" />
+            <lang locale="zh_TW" value="說明" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[description].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[description].properties.property[width].value">
+            <lang locale="en_US" value="300" />
+            <lang locale="zh_CN" value="300" />
+            <lang locale="zh_HK" value="300" />
+            <lang locale="zh_TW" value="300" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn1].properties.property[header].value">
+            <lang locale="en_US" value="id" />
+            <lang locale="zh_CN" value="id" />
+            <lang locale="zh_HK" value="id" />
+            <lang locale="zh_TW" value="id" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn1].properties.property[hidden].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn1].properties.property[idColumn].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn1].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn].properties.property[header].value">
+            <lang locale="en_US" value="id" />
+            <lang locale="zh_CN" value="id" />
+            <lang locale="zh_HK" value="id" />
+            <lang locale="zh_TW" value="id" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn].properties.property[hidden].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn].properties.property[idColumn].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[idColumn].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[innerWindowUserTag].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[innerWindowUserTag].properties.property[attributes].value">
+            <lang locale="en_US" value="beanName=#{port.pm.qa.ProjectOAEditUIBean}" />
+            <lang locale="zh_CN" value="beanName=#{port.pm.qa.ProjectOAEditUIBean}" />
+            <lang locale="zh_HK" value="beanName=#{port.pm.qa.ProjectOAEditUIBean}" />
+            <lang locale="zh_TW" value="beanName=#{port.pm.qa.ProjectOAEditUIBean}" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kDCheckBox1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kDCheckBox1].properties.property[boxLabel].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否影响进度" />
+            <lang locale="zh_HK" value="是否影響進度" />
+            <lang locale="zh_TW" value="是否影響進度" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE1].properties.property[binding].value">
+            <lang locale="en_US" value="#{port.pm.qa.ProjectOAE1Bean.editGrid}" />
+            <lang locale="zh_CN" value="#{port.pm.qa.ProjectOAE1Bean.editGrid}" />
+            <lang locale="zh_HK" value="#{port.pm.qa.ProjectOAE1Bean.editGrid}" />
+            <lang locale="zh_TW" value="#{port.pm.qa.ProjectOAE1Bean.editGrid}" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE1].properties.property[showRowNumber].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE1].properties.property[sync].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE1].properties.property[value].value">
+            <lang locale="en_US" value="#{port.pm.qa.ProjectOAE1Bean.listModel}" />
+            <lang locale="zh_CN" value="#{port.pm.qa.ProjectOAE1Bean.listModel}" />
+            <lang locale="zh_HK" value="#{port.pm.qa.ProjectOAE1Bean.listModel}" />
+            <lang locale="zh_TW" value="#{port.pm.qa.ProjectOAE1Bean.listModel}" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE1].properties.property[var].value">
+            <lang locale="en_US" value="data" />
+            <lang locale="zh_CN" value="data" />
+            <lang locale="zh_HK" value="data" />
+            <lang locale="zh_TW" value="data" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE2].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE2].extendedProperty.createbutton4editdatagrid">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE2].properties.property[binding].value">
+            <lang locale="en_US" value="#{port.pm.qa.ProjectOAE2Bean.editGrid}" />
+            <lang locale="zh_CN" value="#{port.pm.qa.ProjectOAE2Bean.editGrid}" />
+            <lang locale="zh_HK" value="#{port.pm.qa.ProjectOAE2Bean.editGrid}" />
+            <lang locale="zh_TW" value="#{port.pm.qa.ProjectOAE2Bean.editGrid}" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE2].properties.property[showRowNumber].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE2].properties.property[sync].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE2].properties.property[value].value">
+            <lang locale="en_US" value="#{port.pm.qa.ProjectOAE2Bean.listModel}" />
+            <lang locale="zh_CN" value="#{port.pm.qa.ProjectOAE2Bean.listModel}" />
+            <lang locale="zh_HK" value="#{port.pm.qa.ProjectOAE2Bean.listModel}" />
+            <lang locale="zh_TW" value="#{port.pm.qa.ProjectOAE2Bean.listModel}" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[kdtE2].properties.property[var].value">
+            <lang locale="en_US" value="data" />
+            <lang locale="zh_CN" value="data" />
+            <lang locale="zh_HK" value="data" />
+            <lang locale="zh_TW" value="data" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkAuditTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核时间" />
+            <lang locale="zh_HK" value="審核時間" />
+            <lang locale="zh_TW" value="審核時間" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkAuditTime].properties.property[disabled].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkBizDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
+            <lang locale="zh_TW" value="業務日期" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkCreateTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkCreateTime].properties.property[disabled].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkLastUpdateTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[pkLastUpdateTime].properties.property[disabled].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtAuditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtAuditor].properties.property[disabled].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtAuditor].properties.property[displayFormat].value">
+            <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
+            <lang locale="zh_HK" value="$name$" />
+            <lang locale="zh_TW" value="$name$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtAuditor].properties.property[editFormat].value">
+            <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
+            <lang locale="zh_HK" value="$name$" />
+            <lang locale="zh_TW" value="$name$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtCU].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
+            <lang locale="zh_TW" value="控制單元" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtCU].properties.property[disabled].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtCreator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtCreator].properties.property[disabled].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtCreator].properties.property[displayFormat].value">
+            <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
+            <lang locale="zh_HK" value="$name$" />
+            <lang locale="zh_TW" value="$name$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtCreator].properties.property[editFormat].value">
+            <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
+            <lang locale="zh_HK" value="$name$" />
+            <lang locale="zh_TW" value="$name$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtLastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtLastUpdateUser].properties.property[disabled].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtLastUpdateUser].properties.property[displayFormat].value">
+            <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
+            <lang locale="zh_HK" value="$name$" />
+            <lang locale="zh_TW" value="$name$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtLastUpdateUser].properties.property[editFormat].value">
+            <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
+            <lang locale="zh_HK" value="$name$" />
+            <lang locale="zh_TW" value="$name$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtoatype].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="协同类型" />
+            <lang locale="zh_HK" value="協同類型" />
+            <lang locale="zh_TW" value="協同類型" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtoatype].properties.property[commitFormat].value">
+            <lang locale="en_US" value="$number$" />
+            <lang locale="zh_CN" value="$number$" />
+            <lang locale="zh_HK" value="$number$" />
+            <lang locale="zh_TW" value="$number$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtoatype].properties.property[diaplayFormat].value">
+            <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
+            <lang locale="zh_HK" value="$name$" />
+            <lang locale="zh_TW" value="$name$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtoatype].properties.property[editFormat].value">
+            <lang locale="en_US" value="$number$" />
+            <lang locale="zh_CN" value="$number$" />
+            <lang locale="zh_HK" value="$number$" />
+            <lang locale="zh_TW" value="$number$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtoatype].properties.property[queryInfo].value">
+            <lang locale="en_US" value="com.kingdee.eas.port.pm.qa.app.OATypeQuery" />
+            <lang locale="zh_CN" value="com.kingdee.eas.port.pm.qa.app.OATypeQuery" />
+            <lang locale="zh_HK" value="com.kingdee.eas.port.pm.qa.app.OATypeQuery" />
+            <lang locale="zh_TW" value="com.kingdee.eas.port.pm.qa.app.OATypeQuery" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提出人" />
+            <lang locale="zh_HK" value="提出人" />
+            <lang locale="zh_TW" value="提出人" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].properties.property[displayFormat].value">
+            <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
+            <lang locale="zh_HK" value="$name$" />
+            <lang locale="zh_TW" value="$name$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].properties.property[editFormat].value">
+            <lang locale="en_US" value="$number$" />
+            <lang locale="zh_CN" value="$number$" />
+            <lang locale="zh_HK" value="$number$" />
+            <lang locale="zh_TW" value="$number$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].properties.property[editable].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].properties.property[queryInfo].value">
+            <lang locale="en_US" value="com.kingdee.eas.basedata.person.app.PersonQuery" />
+            <lang locale="zh_CN" value="com.kingdee.eas.basedata.person.app.PersonQuery" />
+            <lang locale="zh_HK" value="com.kingdee.eas.basedata.person.app.PersonQuery" />
+            <lang locale="zh_TW" value="com.kingdee.eas.basedata.person.app.PersonQuery" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtpersonMake].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目名称" />
+            <lang locale="zh_HK" value="項目名稱" />
+            <lang locale="zh_TW" value="項目名稱" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].properties.property[displayFormat].value">
+            <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
+            <lang locale="zh_HK" value="$name$" />
+            <lang locale="zh_TW" value="$name$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].properties.property[editFormat].value">
+            <lang locale="en_US" value="$number$" />
+            <lang locale="zh_CN" value="$number$" />
+            <lang locale="zh_HK" value="$number$" />
+            <lang locale="zh_TW" value="$number$" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].properties.property[editable].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].properties.property[queryInfo].value">
+            <lang locale="en_US" value="com.kingdee.eas.basedata.assistant.app.F7ProjectQuery" />
+            <lang locale="zh_CN" value="com.kingdee.eas.basedata.assistant.app.F7ProjectQuery" />
+            <lang locale="zh_HK" value="com.kingdee.eas.basedata.assistant.app.F7ProjectQuery" />
+            <lang locale="zh_TW" value="com.kingdee.eas.basedata.assistant.app.F7ProjectQuery" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[prmtprojectName].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[rootToolBar].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seqColumn].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seqColumn].properties.property[header].value">
+            <lang locale="en_US" value="单据分录序列号" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seqColumn].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seqEditor1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seqEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seq].properties.property[header].value">
+            <lang locale="en_US" value="单据分录序列号" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seq].properties.property[hidden].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[seq].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[shuomColumn].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[shuomColumn].properties.property[header].value">
+            <lang locale="en_US" value="说明" />
+            <lang locale="zh_CN" value="说明" />
+            <lang locale="zh_HK" value="說明" />
+            <lang locale="zh_TW" value="說明" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[shuomColumn].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[shuomEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[textArea2].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="内容" />
+            <lang locale="zh_HK" value="內容" />
+            <lang locale="zh_TW" value="內容" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[textArea2].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[textArea2].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[textArea3].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[textArea3].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[textArea3].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[txtDescription].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="参考信息" />
+            <lang locale="zh_HK" value="參考信息" />
+            <lang locale="zh_TW" value="參考信息" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[txtNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[txtquestionName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="协同名称" />
+            <lang locale="zh_HK" value="協同名稱" />
+            <lang locale="zh_TW" value="協同名稱" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[txtquestionName].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].components.component[txtquestionName].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.ProjectOAEditUI].title">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目协同" />
+            <lang locale="zh_HK" value="項目協同" />
+            <lang locale="zh_TW" value="項目協同" />
+        </rs>
+    </resource>
+</webUIObject>
+

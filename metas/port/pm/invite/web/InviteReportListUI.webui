@@ -1,0 +1,3247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webUIObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.invite.web</package>
+    <name>InviteReportListUI</name>
+    <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].alias</alias>
+    <description>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].description</description>
+    <userDefined>true</userDefined>
+    <releasePackage>com.kingdee.eas.port.pm.invite.web</releasePackage>
+    <releaseClass>InviteReportListUI</releaseClass>
+    <title>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].title</title>
+    <uitype />
+    <defaultbutton />
+    <bizUnitPK>com.kingdee.eas.port.pm.invite.InviteReport</bizUnitPK>
+    <parent>
+        <key name="package" value="com.kingdee.eas.framework.web" />
+        <key name="name" value="BillListUI" />
+    </parent>
+    <components>
+        <component>
+            <name>innerWindowUserTag</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[innerWindowUserTag].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.UserTag</classType>
+            <isContainer>true</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>attributes</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[innerWindowUserTag].properties.property[attributes].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>rootToolBar</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rootToolBar].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.ToolBar</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=5;y=4;width=996;height=30;autoSize=12</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>webToolBarLayout1</name>
+                <type>WebToolBarLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>kDSplitPane1</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[kDSplitPane1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Splitcontainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=2;y=30;width=1002;height=620;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>WebSplitLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>dividerLocation</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[kDSplitPane1].properties.property[dividerLocation].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>btnAddNew</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnAddNew].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnAddNew].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnAddNew].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnView</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnView].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>1</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnView].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnView].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnEdit</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnEdit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>2</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnEdit].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnEdit].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnRemove</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnRemove].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnRemove].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnRemove].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnRefresh</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnRefresh].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>4</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnRefresh].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnRefresh].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnQuery</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnQuery].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>5</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnQuery].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnQuery].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnExit</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnExit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>14</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnExit].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnExit].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>tblMainFreePanel</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMainFreePanel].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.FreePanel</classType>
+            <isContainer>true</isContainer>
+            <constraints>right</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>SmartLayout</name>
+                <type>SmartLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDSplitPane1" />
+            </parent>
+        </component>
+        <component>
+            <name>kDTreeView1FreePanel</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[kDTreeView1FreePanel].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.FreePanel</classType>
+            <isContainer>true</isContainer>
+            <constraints>left</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>SmartLayout1</name>
+                <type>SmartLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDSplitPane1" />
+            </parent>
+        </component>
+        <component>
+            <name>tblMain</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.DataGrid</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=255;y=0;width=545;height=600;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>webLayout</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>binding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[binding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>paged</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[paged].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>rows</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[rows].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>value</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[value].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>var</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[var].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>showRowNumber</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[showRowNumber].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>sync</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[sync].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMainFreePanel" />
+            </parent>
+        </component>
+        <component>
+            <name>number</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[number].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[number].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[number].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[number].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>status</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[status].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout1</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[status].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[status].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[status].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>useOrg_name</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[useOrg_name].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout2</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[useOrg_name].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[useOrg_name].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[useOrg_name].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>proName_name</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[proName_name].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout3</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[proName_name].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[proName_name].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[proName_name].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>reportName</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reportName].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout4</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reportName].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reportName].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reportName].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>BIMUDF0004</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[BIMUDF0004].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout5</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[BIMUDF0004].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[BIMUDF0004].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[BIMUDF0004].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>inviteBudget</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteBudget].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout6</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteBudget].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteBudget].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteBudget].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>inviteType_name</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteType_name].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout7</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteType_name].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteType_name].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteType_name].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>applicant_name</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[applicant_name].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout8</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[applicant_name].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[applicant_name].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[applicant_name].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>judgeSolution</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[judgeSolution].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout9</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[judgeSolution].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[judgeSolution].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[judgeSolution].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>evaTemplate_templateName</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaTemplate_templateName].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout10</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaTemplate_templateName].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaTemplate_templateName].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaTemplate_templateName].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>validTemplate_templateName</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[validTemplate_templateName].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout11</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[validTemplate_templateName].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[validTemplate_templateName].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[validTemplate_templateName].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>inviteDate</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteDate].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout12</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteDate].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteDate].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteDate].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>subDate</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[subDate].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout13</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[subDate].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[subDate].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[subDate].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>openDate</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[openDate].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout14</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[openDate].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[openDate].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[openDate].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>audDate</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[audDate].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout15</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[audDate].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[audDate].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[audDate].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>paperFee</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[paperFee].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout16</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[paperFee].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[paperFee].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[paperFee].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>bidBond</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[bidBond].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout17</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[bidBond].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[bidBond].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[bidBond].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>businessScore</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[businessScore].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout18</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[businessScore].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[businessScore].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[businessScore].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>techScore</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[techScore].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout19</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[techScore].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[techScore].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[techScore].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>rmhigh</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmhigh].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout20</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmhigh].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmhigh].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmhigh].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>rmlow</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmlow].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout21</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmlow].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmlow].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmlow].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>reduHigh</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduHigh].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout22</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduHigh].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduHigh].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduHigh].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>reduLow</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduLow].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout23</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduLow].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduLow].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduLow].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>auditTime</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[auditTime].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout24</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[auditTime].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[auditTime].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[auditTime].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>createTime</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[createTime].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout25</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[createTime].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[createTime].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[createTime].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>lastUpdateTime</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[lastUpdateTime].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout26</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[lastUpdateTime].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[lastUpdateTime].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[lastUpdateTime].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>QualificationRequemt</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[QualificationRequemt].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout27</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[QualificationRequemt].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[QualificationRequemt].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[QualificationRequemt].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>invitePlan_planName</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[invitePlan_planName].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout28</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[invitePlan_planName].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[invitePlan_planName].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[invitePlan_planName].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>coefficient</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[coefficient].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout29</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[coefficient].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[coefficient].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[coefficient].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>id</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[id].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout30</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[id].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[id].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[id].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>evaluaMethod</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaluaMethod].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout31</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaluaMethod].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaluaMethod].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaluaMethod].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>numberEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[numberEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="number" />
+            </parent>
+        </component>
+        <component>
+            <name>statusEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[statusEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="status" />
+            </parent>
+        </component>
+        <component>
+            <name>useOrg_nameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[useOrg_nameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="useOrg_name" />
+            </parent>
+        </component>
+        <component>
+            <name>proName_nameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[proName_nameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="proName_name" />
+            </parent>
+        </component>
+        <component>
+            <name>reportNameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reportNameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="reportName" />
+            </parent>
+        </component>
+        <component>
+            <name>BIMUDF0004Editor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[BIMUDF0004Editor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="BIMUDF0004" />
+            </parent>
+        </component>
+        <component>
+            <name>inviteBudgetEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteBudgetEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="inviteBudget" />
+            </parent>
+        </component>
+        <component>
+            <name>inviteType_nameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteType_nameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="inviteType_name" />
+            </parent>
+        </component>
+        <component>
+            <name>applicant_nameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[applicant_nameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="applicant_name" />
+            </parent>
+        </component>
+        <component>
+            <name>judgeSolutionEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[judgeSolutionEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="judgeSolution" />
+            </parent>
+        </component>
+        <component>
+            <name>evaTemplate_templateNameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaTemplate_templateNameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="evaTemplate_templateName" />
+            </parent>
+        </component>
+        <component>
+            <name>validTemplate_templateNameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[validTemplate_templateNameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="validTemplate_templateName" />
+            </parent>
+        </component>
+        <component>
+            <name>inviteDateEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteDateEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="inviteDate" />
+            </parent>
+        </component>
+        <component>
+            <name>subDateEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[subDateEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="subDate" />
+            </parent>
+        </component>
+        <component>
+            <name>openDateEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[openDateEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="openDate" />
+            </parent>
+        </component>
+        <component>
+            <name>audDateEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[audDateEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="audDate" />
+            </parent>
+        </component>
+        <component>
+            <name>paperFeeEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[paperFeeEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="paperFee" />
+            </parent>
+        </component>
+        <component>
+            <name>bidBondEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[bidBondEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="bidBond" />
+            </parent>
+        </component>
+        <component>
+            <name>businessScoreEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[businessScoreEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="businessScore" />
+            </parent>
+        </component>
+        <component>
+            <name>techScoreEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[techScoreEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="techScore" />
+            </parent>
+        </component>
+        <component>
+            <name>rmhighEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmhighEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="rmhigh" />
+            </parent>
+        </component>
+        <component>
+            <name>rmlowEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmlowEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="rmlow" />
+            </parent>
+        </component>
+        <component>
+            <name>reduHighEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduHighEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="reduHigh" />
+            </parent>
+        </component>
+        <component>
+            <name>reduLowEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduLowEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="reduLow" />
+            </parent>
+        </component>
+        <component>
+            <name>auditTimeEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[auditTimeEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="auditTime" />
+            </parent>
+        </component>
+        <component>
+            <name>createTimeEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[createTimeEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="createTime" />
+            </parent>
+        </component>
+        <component>
+            <name>lastUpdateTimeEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[lastUpdateTimeEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="lastUpdateTime" />
+            </parent>
+        </component>
+        <component>
+            <name>QualificationRequemtEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[QualificationRequemtEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="QualificationRequemt" />
+            </parent>
+        </component>
+        <component>
+            <name>invitePlan_planNameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[invitePlan_planNameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="invitePlan_planName" />
+            </parent>
+        </component>
+        <component>
+            <name>coefficientEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[coefficientEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="coefficient" />
+            </parent>
+        </component>
+        <component>
+            <name>idEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[idEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="id" />
+            </parent>
+        </component>
+        <component>
+            <name>evaluaMethodEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaluaMethodEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="evaluaMethod" />
+            </parent>
+        </component>
+        <component>
+            <name>kDTreeView1</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[kDTreeView1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Tree</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=0;y=0;width=250;height=600;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo1</name>
+                <type>TreeViewLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDTreeView1FreePanel" />
+            </parent>
+        </component>
+        <component>
+            <name>kDTree1</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[kDTree1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Tree</classType>
+            <isContainer>false</isContainer>
+            <constraints>2</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="kDTreeView1" />
+            </parent>
+        </component>
+    </components>
+    <dataObjects>
+        <dataObject>
+            <name>mainQuery</name>
+            <type>com.kingdee.eas.port.pm.invite.app.InviteReportQuery</type>
+            <objectType>jqye</objectType>
+            <herited>false</herited>
+            <userDefined>true</userDefined>
+        </dataObject>
+    </dataObjects>
+    <resource>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[BIMUDF0004Editor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[BIMUDF0004].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[BIMUDF0004].properties.property[header].value">
+            <lang locale="en_US" value="标段内容" />
+            <lang locale="zh_CN" value="标段内容" />
+            <lang locale="zh_TW" value="标段内容" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[BIMUDF0004].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[BIMUDF0004].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[QualificationRequemtEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[QualificationRequemt].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[QualificationRequemt].properties.property[header].value">
+            <lang locale="en_US" value="资质要求" />
+            <lang locale="zh_CN" value="资质要求" />
+            <lang locale="zh_TW" value="资质要求" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[QualificationRequemt].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[QualificationRequemt].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[applicant_nameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[applicant_name].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[applicant_name].properties.property[header].value">
+            <lang locale="en_US" value="申报人" />
+            <lang locale="zh_CN" value="申报人" />
+            <lang locale="zh_TW" value="申报人" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[applicant_name].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[applicant_name].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[audDateEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[audDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[audDate].properties.property[header].value">
+            <lang locale="en_US" value="招标报审表时间" />
+            <lang locale="zh_CN" value="招标报审表时间" />
+            <lang locale="zh_TW" value="招标报审表时间" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[audDate].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[audDate].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[auditTimeEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[auditTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[auditTime].properties.property[header].value">
+            <lang locale="en_US" value="审核时间" />
+            <lang locale="zh_CN" value="审核时间" />
+            <lang locale="zh_TW" value="审核时间" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[auditTime].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[auditTime].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[bidBondEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[bidBond].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[bidBond].properties.property[header].value">
+            <lang locale="en_US" value="投标保证金" />
+            <lang locale="zh_CN" value="投标保证金" />
+            <lang locale="zh_TW" value="投标保证金" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[bidBond].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[bidBond].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnAddNew].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnAddNew].properties.property[actionBinding].value">
+            <lang locale="en_US" value="addNewAction" />
+            <lang locale="zh_CN" value="addNewAction" />
+            <lang locale="zh_TW" value="addNewAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnAddNew].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="新增" />
+            <lang locale="zh_TW" value="新增" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnEdit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnEdit].properties.property[actionBinding].value">
+            <lang locale="en_US" value="editAction" />
+            <lang locale="zh_CN" value="editAction" />
+            <lang locale="zh_TW" value="editAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnEdit].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编辑" />
+            <lang locale="zh_TW" value="編輯" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnExit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnExit].properties.property[actionBinding].value">
+            <lang locale="en_US" value="exitAction" />
+            <lang locale="zh_CN" value="exitAction" />
+            <lang locale="zh_TW" value="exitAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnExit].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="退出" />
+            <lang locale="zh_TW" value="退出" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnQuery].properties.property[actionBinding].value">
+            <lang locale="en_US" value="queryAction" />
+            <lang locale="zh_CN" value="queryAction" />
+            <lang locale="zh_TW" value="queryAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnQuery].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="查询" />
+            <lang locale="zh_TW" value="查詢" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnRefresh].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnRefresh].properties.property[actionBinding].value">
+            <lang locale="en_US" value="refreshAction" />
+            <lang locale="zh_CN" value="refreshAction" />
+            <lang locale="zh_TW" value="refreshAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnRefresh].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="刷新" />
+            <lang locale="zh_TW" value="刷新" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnRemove].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnRemove].properties.property[actionBinding].value">
+            <lang locale="en_US" value="deleteAction" />
+            <lang locale="zh_CN" value="deleteAction" />
+            <lang locale="zh_TW" value="deleteAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnRemove].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="删除" />
+            <lang locale="zh_TW" value="刪除" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnView].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnView].properties.property[actionBinding].value">
+            <lang locale="en_US" value="viewAction" />
+            <lang locale="zh_CN" value="viewAction" />
+            <lang locale="zh_TW" value="viewAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[btnView].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="查看" />
+            <lang locale="zh_TW" value="查看" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[businessScoreEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[businessScore].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[businessScore].properties.property[header].value">
+            <lang locale="en_US" value="商务分" />
+            <lang locale="zh_CN" value="商务分" />
+            <lang locale="zh_TW" value="商务分" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[businessScore].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[businessScore].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[coefficientEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[coefficient].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[coefficient].properties.property[header].value">
+            <lang locale="en_US" value="评标基准系数X" />
+            <lang locale="zh_CN" value="评标基准系数X" />
+            <lang locale="zh_TW" value="评标基准系数X" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[coefficient].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[coefficient].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[createTimeEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[createTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[createTime].properties.property[header].value">
+            <lang locale="en_US" value="创建时间" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_TW" value="创建时间" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[createTime].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[createTime].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaTemplate_templateNameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaTemplate_templateName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaTemplate_templateName].properties.property[header].value">
+            <lang locale="en_US" value="评标模板名称" />
+            <lang locale="zh_CN" value="评标模板名称" />
+            <lang locale="zh_TW" value="评标模板名称" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaTemplate_templateName].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaTemplate_templateName].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaluaMethodEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaluaMethod].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaluaMethod].properties.property[header].value">
+            <lang locale="en_US" value="评标办法" />
+            <lang locale="zh_CN" value="评标办法" />
+            <lang locale="zh_TW" value="评标办法" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaluaMethod].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[evaluaMethod].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[idEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[id].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[id].properties.property[header].value">
+            <lang locale="en_US" value="ID" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[id].properties.property[hidden].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[id].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[innerWindowUserTag].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[innerWindowUserTag].properties.property[attributes].value">
+            <lang locale="en_US" value="beanName=value" />
+            <lang locale="zh_CN" value="beanName=#{port.pm.invite.InviteReportListUIBean}" />
+            <lang locale="zh_TW" value="beanName=value" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteBudgetEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteBudget].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteBudget].properties.property[header].value">
+            <lang locale="en_US" value="投资概算" />
+            <lang locale="zh_CN" value="投资概算" />
+            <lang locale="zh_TW" value="投资概算" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteBudget].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteBudget].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteDateEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteDate].properties.property[header].value">
+            <lang locale="en_US" value="招标时间" />
+            <lang locale="zh_CN" value="招标时间" />
+            <lang locale="zh_TW" value="招标时间" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteDate].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteDate].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[invitePlan_planNameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[invitePlan_planName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[invitePlan_planName].properties.property[header].value">
+            <lang locale="en_US" value="招标计划" />
+            <lang locale="zh_CN" value="招标计划" />
+            <lang locale="zh_TW" value="招标计划" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[invitePlan_planName].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[invitePlan_planName].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteType_nameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteType_name].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteType_name].properties.property[header].value">
+            <lang locale="en_US" value="招标方式" />
+            <lang locale="zh_CN" value="招标方式" />
+            <lang locale="zh_TW" value="招标方式" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteType_name].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[inviteType_name].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[judgeSolutionEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[judgeSolution].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[judgeSolution].properties.property[header].value">
+            <lang locale="en_US" value="评标方法" />
+            <lang locale="zh_CN" value="评标方法" />
+            <lang locale="zh_TW" value="评标方法" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[judgeSolution].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[judgeSolution].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[kDSplitPane1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[kDSplitPane1].properties.property[dividerLocation].value">
+            <lang locale="en_US" value="250" />
+            <lang locale="zh_CN" value="250" />
+            <lang locale="zh_TW" value="250" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[kDTree1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[kDTreeView1FreePanel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[kDTreeView1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[lastUpdateTimeEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[lastUpdateTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[lastUpdateTime].properties.property[header].value">
+            <lang locale="en_US" value="最后修改时间" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_TW" value="最后修改时间" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[lastUpdateTime].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[lastUpdateTime].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[numberEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[number].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[number].properties.property[header].value">
+            <lang locale="en_US" value="单据编号" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_TW" value="单据编号" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[number].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[number].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[openDateEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[openDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[openDate].properties.property[header].value">
+            <lang locale="en_US" value="拟开标时间" />
+            <lang locale="zh_CN" value="拟开标时间" />
+            <lang locale="zh_TW" value="拟开标时间" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[openDate].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[openDate].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[paperFeeEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[paperFee].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[paperFee].properties.property[header].value">
+            <lang locale="en_US" value="招标文件费" />
+            <lang locale="zh_CN" value="招标文件费" />
+            <lang locale="zh_TW" value="招标文件费" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[paperFee].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[paperFee].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[proName_nameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[proName_name].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[proName_name].properties.property[header].value">
+            <lang locale="en_US" value="项目名称" />
+            <lang locale="zh_CN" value="项目名称" />
+            <lang locale="zh_TW" value="项目名称" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[proName_name].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[proName_name].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduHighEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduHigh].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduHigh].properties.property[header].value">
+            <lang locale="en_US" value="高1%扣" />
+            <lang locale="zh_CN" value="高1%扣" />
+            <lang locale="zh_TW" value="高1%扣" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduHigh].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduHigh].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduLowEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduLow].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduLow].properties.property[header].value">
+            <lang locale="en_US" value="低1%扣" />
+            <lang locale="zh_CN" value="低1%扣" />
+            <lang locale="zh_TW" value="低1%扣" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduLow].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reduLow].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reportNameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reportName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reportName].properties.property[header].value">
+            <lang locale="en_US" value="招标方案名称" />
+            <lang locale="zh_CN" value="招标方案名称" />
+            <lang locale="zh_TW" value="招标方案名称" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reportName].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[reportName].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmhighEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmhigh].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmhigh].properties.property[header].value">
+            <lang locale="en_US" value="去除几个最高" />
+            <lang locale="zh_CN" value="去除几个最高" />
+            <lang locale="zh_TW" value="去除几个最高" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmhigh].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmhigh].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmlowEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmlow].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmlow].properties.property[header].value">
+            <lang locale="en_US" value="去除几个最低" />
+            <lang locale="zh_CN" value="去除几个最低" />
+            <lang locale="zh_TW" value="去除几个最低" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmlow].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rmlow].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[rootToolBar].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[statusEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[status].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[status].properties.property[header].value">
+            <lang locale="en_US" value="单据状态" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_TW" value="单据状态" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[status].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[status].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[subDateEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[subDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[subDate].properties.property[header].value">
+            <lang locale="en_US" value="投标时间" />
+            <lang locale="zh_CN" value="投标时间" />
+            <lang locale="zh_TW" value="投标时间" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[subDate].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[subDate].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMainFreePanel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[binding].value">
+            <lang locale="en_US" value="#{port.pm.invite.InviteReportListUIBean.grid}" />
+            <lang locale="zh_CN" value="#{port.pm.invite.InviteReportListUIBean.grid}" />
+            <lang locale="zh_TW" value="#{port.pm.invite.InviteReportListUIBean.grid}" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[paged].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[rows].value">
+            <lang locale="en_US" value="10" />
+            <lang locale="zh_CN" value="10" />
+            <lang locale="zh_TW" value="10" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[showRowNumber].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[sync].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[value].value">
+            <lang locale="en_US" value="pagedListData" />
+            <lang locale="zh_CN" value="pagedListData" />
+            <lang locale="zh_TW" value="pagedListData" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[tblMain].properties.property[var].value">
+            <lang locale="en_US" value="data" />
+            <lang locale="zh_CN" value="data" />
+            <lang locale="zh_TW" value="data" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[techScoreEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[techScore].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[techScore].properties.property[header].value">
+            <lang locale="en_US" value="技术分" />
+            <lang locale="zh_CN" value="技术分" />
+            <lang locale="zh_TW" value="技术分" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[techScore].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[techScore].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[useOrg_nameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[useOrg_name].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[useOrg_name].properties.property[header].value">
+            <lang locale="en_US" value="使用单位" />
+            <lang locale="zh_CN" value="使用单位" />
+            <lang locale="zh_TW" value="使用单位" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[useOrg_name].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[useOrg_name].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[validTemplate_templateNameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[validTemplate_templateName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[validTemplate_templateName].properties.property[header].value">
+            <lang locale="en_US" value="评标模板名称" />
+            <lang locale="zh_CN" value="评标模板名称" />
+            <lang locale="zh_TW" value="评标模板名称" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[validTemplate_templateName].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].components.component[validTemplate_templateName].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.invite.web.InviteReportListUI].title">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="招标方案申报" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</webUIObject>
+

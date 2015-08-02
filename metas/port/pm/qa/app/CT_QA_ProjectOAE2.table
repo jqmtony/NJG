@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.qa.app</package>
+    <name>CT_QA_ProjectOAE2</name>
+    <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].alias</alias>
+    <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].description</description>
+    <userDefined>true</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[FID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSeq</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[FSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[FSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[FParentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBillTypeID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillTypeID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBillNumber</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillNumber].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBillContent</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillContent].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillContent].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBillID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>CPK_QA_PrjctOAEcs0</name>
+        <userDefined>true</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType />
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <foreignKeys>
+        <foreignKey>
+            <name>CFK_QA_QAPOAE2Il2s</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
+                <key name="name" value="CT_QA_LinkBill" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFBillTypeID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="关联单据" />
+            <lang locale="zh_HK" value="關聯單據" />
+            <lang locale="zh_TW" value="關聯單據" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillContent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内容" />
+            <lang locale="zh_HK" value="單據內容" />
+            <lang locale="zh_TW" value="單據內容" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillContent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内容" />
+            <lang locale="zh_HK" value="單據內容" />
+            <lang locale="zh_TW" value="單據內容" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据ID" />
+            <lang locale="zh_HK" value="單據ID" />
+            <lang locale="zh_TW" value="單據ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据ID" />
+            <lang locale="zh_HK" value="單據ID" />
+            <lang locale="zh_TW" value="單據ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillTypeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据类型" />
+            <lang locale="zh_HK" value="單據類型" />
+            <lang locale="zh_TW" value="單據類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[CFBillTypeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据类型" />
+            <lang locale="zh_HK" value="單據類型" />
+            <lang locale="zh_TW" value="單據類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[FParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[FParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[FSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].columns.column[FSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.qa.app.CT_QA_ProjectOAE2].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="关联单据" />
+            <lang locale="zh_HK" value="關聯單據" />
+            <lang locale="zh_TW" value="關聯單據" />
+        </rs>
+    </resource>
+</dataTable>
+

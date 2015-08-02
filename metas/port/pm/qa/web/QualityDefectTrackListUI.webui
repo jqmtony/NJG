@@ -1,0 +1,2356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webUIObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.port.pm.qa.web</package>
+    <name>QualityDefectTrackListUI</name>
+    <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].alias</alias>
+    <description>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].description</description>
+    <userDefined>true</userDefined>
+    <releasePackage>com.kingdee.eas.port.pm.qa.web</releasePackage>
+    <releaseClass>QualityDefectTrackListUI</releaseClass>
+    <title>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].title</title>
+    <uitype />
+    <defaultbutton />
+    <bizUnitPK>com.kingdee.eas.port.pm.qa.QualityDefectTrack</bizUnitPK>
+    <parent>
+        <key name="package" value="com.kingdee.eas.framework.web" />
+        <key name="name" value="BillListUI" />
+    </parent>
+    <components>
+        <component>
+            <name>innerWindowUserTag</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[innerWindowUserTag].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.UserTag</classType>
+            <isContainer>true</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>attributes</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[innerWindowUserTag].properties.property[attributes].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>rootToolBar</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[rootToolBar].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.ToolBar</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=5;y=4;width=996;height=30;autoSize=12</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>webToolBarLayout1</name>
+                <type>WebToolBarLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>kDSplitPane1</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[kDSplitPane1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Splitcontainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=4;y=35;width=1002;height=620;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>WebSplitLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>dividerLocation</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[kDSplitPane1].properties.property[dividerLocation].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootForm" />
+            </parent>
+        </component>
+        <component>
+            <name>btnAddNew</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnAddNew].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnAddNew].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnAddNew].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnView</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnView].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>1</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnView].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnView].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnEdit</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnEdit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>2</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnEdit].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnEdit].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnRemove</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnRemove].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>3</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnRemove].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnRemove].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnRefresh</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnRefresh].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>4</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnRefresh].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnRefresh].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnQuery</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnQuery].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>5</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnQuery].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnQuery].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>btnExit</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnExit].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Button</classType>
+            <isContainer>false</isContainer>
+            <constraints>14</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>label</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnExit].properties.property[label].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>actionBinding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnExit].properties.property[actionBinding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="rootToolBar" />
+            </parent>
+        </component>
+        <component>
+            <name>tblMainFreePanel</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMainFreePanel].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.FreePanel</classType>
+            <isContainer>true</isContainer>
+            <constraints>right</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>SmartLayout</name>
+                <type>SmartLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDSplitPane1" />
+            </parent>
+        </component>
+        <component>
+            <name>kDTreeView1FreePanel</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[kDTreeView1FreePanel].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.FreePanel</classType>
+            <isContainer>true</isContainer>
+            <constraints>left</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>SmartLayout1</name>
+                <type>SmartLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDSplitPane1" />
+            </parent>
+        </component>
+        <component>
+            <name>tblMain</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.DataGrid</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=255;y=0;width=545;height=600;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>webLayout</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>binding</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[binding].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>paged</name>
+                    <type>boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[paged].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>rows</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[rows].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>value</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[value].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>var</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[var].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>showRowNumber</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[showRowNumber].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>sync</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[sync].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMainFreePanel" />
+            </parent>
+        </component>
+        <component>
+            <name>number</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[number].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[number].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[number].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[number].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>status</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[status].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout1</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[status].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[status].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[status].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>projectName_name</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[projectName_name].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout2</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[projectName_name].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[projectName_name].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[projectName_name].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>questionName</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionName].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout3</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionName].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionName].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionName].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>questionType_name</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionType_name].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout4</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionType_name].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionType_name].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionType_name].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>economicLoss</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[economicLoss].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout5</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[economicLoss].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[economicLoss].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[economicLoss].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>personMake_name</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personMake_name].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout6</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personMake_name].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personMake_name].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personMake_name].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>personImplement_name</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personImplement_name].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout7</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personImplement_name].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personImplement_name].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personImplement_name].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>respondDepart_name</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[respondDepart_name].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout8</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[respondDepart_name].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[respondDepart_name].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[respondDepart_name].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>impactNote</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[impactNote].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout9</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[impactNote].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[impactNote].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[impactNote].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>questionDescription</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionDescription].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout10</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionDescription].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionDescription].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionDescription].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>reasonAnalysis</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[reasonAnalysis].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout11</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[reasonAnalysis].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[reasonAnalysis].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[reasonAnalysis].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>solution</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[solution].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout12</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[solution].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[solution].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[solution].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>creator_name</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[creator_name].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout13</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[creator_name].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[creator_name].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[creator_name].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>createTime</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[createTime].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout14</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[createTime].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[createTime].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[createTime].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>lastUpdateUser_name</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateUser_name].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout15</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateUser_name].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateUser_name].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateUser_name].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>lastUpdateTime</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateTime].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout16</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateTime].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateTime].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateTime].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>auditor_name</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditor_name].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout17</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditor_name].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditor_name].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditor_name].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>auditTime</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditTime].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout18</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditTime].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditTime].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditTime].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>CU_id</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[CU_id].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout19</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[CU_id].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[CU_id].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[CU_id].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>id</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[id].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.EditableColumn</classType>
+            <isContainer>true</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>WebLayout20</name>
+                <type>WebLayout</type>
+                <value>0,1,false</value>
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>header</name>
+                    <type>java.lang.String</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[id].properties.property[header].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>width</name>
+                    <type>int</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[id].properties.property[width].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>hidden</name>
+                    <type>java.lang.Boolean</type>
+                    <value>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[id].properties.property[hidden].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="tblMain" />
+            </parent>
+        </component>
+        <component>
+            <name>numberEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[numberEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="number" />
+            </parent>
+        </component>
+        <component>
+            <name>statusEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[statusEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="status" />
+            </parent>
+        </component>
+        <component>
+            <name>projectName_nameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[projectName_nameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="projectName_name" />
+            </parent>
+        </component>
+        <component>
+            <name>questionNameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionNameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="questionName" />
+            </parent>
+        </component>
+        <component>
+            <name>questionType_nameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionType_nameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="questionType_name" />
+            </parent>
+        </component>
+        <component>
+            <name>economicLossEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[economicLossEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="economicLoss" />
+            </parent>
+        </component>
+        <component>
+            <name>personMake_nameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personMake_nameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="personMake_name" />
+            </parent>
+        </component>
+        <component>
+            <name>personImplement_nameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personImplement_nameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="personImplement_name" />
+            </parent>
+        </component>
+        <component>
+            <name>respondDepart_nameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[respondDepart_nameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="respondDepart_name" />
+            </parent>
+        </component>
+        <component>
+            <name>impactNoteEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[impactNoteEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="impactNote" />
+            </parent>
+        </component>
+        <component>
+            <name>questionDescriptionEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionDescriptionEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="questionDescription" />
+            </parent>
+        </component>
+        <component>
+            <name>reasonAnalysisEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[reasonAnalysisEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="reasonAnalysis" />
+            </parent>
+        </component>
+        <component>
+            <name>solutionEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[solutionEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="solution" />
+            </parent>
+        </component>
+        <component>
+            <name>creator_nameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[creator_nameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="creator_name" />
+            </parent>
+        </component>
+        <component>
+            <name>createTimeEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[createTimeEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="createTime" />
+            </parent>
+        </component>
+        <component>
+            <name>lastUpdateUser_nameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateUser_nameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="lastUpdateUser_name" />
+            </parent>
+        </component>
+        <component>
+            <name>lastUpdateTimeEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateTimeEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="lastUpdateTime" />
+            </parent>
+        </component>
+        <component>
+            <name>auditor_nameEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditor_nameEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="auditor_name" />
+            </parent>
+        </component>
+        <component>
+            <name>auditTimeEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditTimeEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="auditTime" />
+            </parent>
+        </component>
+        <component>
+            <name>CU_idEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[CU_idEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="CU_id" />
+            </parent>
+        </component>
+        <component>
+            <name>idEditor</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[idEditor].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.TextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>width=170;height=19;newLine=false</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="id" />
+            </parent>
+        </component>
+        <component>
+            <name>kDTreeView1</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[kDTreeView1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Tree</classType>
+            <isContainer>true</isContainer>
+            <constraints>x=0;y=0;width=250;height=600;autoSize=0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>layoutInfo1</name>
+                <type>TreeViewLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDTreeView1FreePanel" />
+            </parent>
+        </component>
+        <component>
+            <name>kDTree1</name>
+            <alias>webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[kDTree1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.web.Tree</classType>
+            <isContainer>false</isContainer>
+            <constraints>2</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <parent>
+                <key name="name" value="kDTreeView1" />
+            </parent>
+        </component>
+    </components>
+    <dataObjects>
+        <dataObject>
+            <name>mainQuery</name>
+            <type>com.kingdee.eas.port.pm.qa.app.QualityDefectTrackQuery</type>
+            <objectType>jqye</objectType>
+            <herited>false</herited>
+            <userDefined>true</userDefined>
+        </dataObject>
+    </dataObjects>
+    <resource>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[CU_idEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[CU_id].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[CU_id].properties.property[header].value">
+            <lang locale="en_US" value="ID" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[CU_id].properties.property[hidden].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[CU_id].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditTimeEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditTime].properties.property[header].value">
+            <lang locale="en_US" value="审核时间" />
+            <lang locale="zh_CN" value="审核时间" />
+            <lang locale="zh_TW" value="审核时间" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditTime].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditTime].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditor_nameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditor_name].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditor_name].properties.property[header].value">
+            <lang locale="en_US" value="审核人" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_TW" value="审核人" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditor_name].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[auditor_name].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnAddNew].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnAddNew].properties.property[actionBinding].value">
+            <lang locale="en_US" value="addNewAction" />
+            <lang locale="zh_CN" value="addNewAction" />
+            <lang locale="zh_TW" value="addNewAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnAddNew].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="新增" />
+            <lang locale="zh_TW" value="新增" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnEdit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnEdit].properties.property[actionBinding].value">
+            <lang locale="en_US" value="editAction" />
+            <lang locale="zh_CN" value="editAction" />
+            <lang locale="zh_TW" value="editAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnEdit].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编辑" />
+            <lang locale="zh_TW" value="編輯" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnExit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnExit].properties.property[actionBinding].value">
+            <lang locale="en_US" value="exitAction" />
+            <lang locale="zh_CN" value="exitAction" />
+            <lang locale="zh_TW" value="exitAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnExit].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="退出" />
+            <lang locale="zh_TW" value="退出" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnQuery].properties.property[actionBinding].value">
+            <lang locale="en_US" value="queryAction" />
+            <lang locale="zh_CN" value="queryAction" />
+            <lang locale="zh_TW" value="queryAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnQuery].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="查询" />
+            <lang locale="zh_TW" value="查詢" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnRefresh].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnRefresh].properties.property[actionBinding].value">
+            <lang locale="en_US" value="refreshAction" />
+            <lang locale="zh_CN" value="refreshAction" />
+            <lang locale="zh_TW" value="refreshAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnRefresh].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="刷新" />
+            <lang locale="zh_TW" value="刷新" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnRemove].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnRemove].properties.property[actionBinding].value">
+            <lang locale="en_US" value="deleteAction" />
+            <lang locale="zh_CN" value="deleteAction" />
+            <lang locale="zh_TW" value="deleteAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnRemove].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="删除" />
+            <lang locale="zh_TW" value="刪除" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnView].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnView].properties.property[actionBinding].value">
+            <lang locale="en_US" value="viewAction" />
+            <lang locale="zh_CN" value="viewAction" />
+            <lang locale="zh_TW" value="viewAction" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[btnView].properties.property[label].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="查看" />
+            <lang locale="zh_TW" value="查看" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[createTimeEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[createTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[createTime].properties.property[header].value">
+            <lang locale="en_US" value="制单时间" />
+            <lang locale="zh_CN" value="制单时间" />
+            <lang locale="zh_TW" value="制单时间" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[createTime].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[createTime].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[creator_nameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[creator_name].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[creator_name].properties.property[header].value">
+            <lang locale="en_US" value="制单人" />
+            <lang locale="zh_CN" value="制单人" />
+            <lang locale="zh_TW" value="制单人" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[creator_name].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[creator_name].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[economicLossEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[economicLoss].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[economicLoss].properties.property[header].value">
+            <lang locale="en_US" value="经济损失" />
+            <lang locale="zh_CN" value="经济损失" />
+            <lang locale="zh_TW" value="经济损失" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[economicLoss].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[economicLoss].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[idEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[id].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[id].properties.property[header].value">
+            <lang locale="en_US" value="ID" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[id].properties.property[hidden].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[id].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[impactNoteEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[impactNote].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[impactNote].properties.property[header].value">
+            <lang locale="en_US" value="影响情况说明" />
+            <lang locale="zh_CN" value="影响情况说明" />
+            <lang locale="zh_TW" value="影响情况说明" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[impactNote].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[impactNote].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[innerWindowUserTag].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[innerWindowUserTag].properties.property[attributes].value">
+            <lang locale="en_US" value="beanName=value" />
+            <lang locale="zh_CN" value="beanName=#{port.pm.qa.QualityDefectTrackListUIBean}" />
+            <lang locale="zh_TW" value="beanName=value" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[kDSplitPane1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[kDSplitPane1].properties.property[dividerLocation].value">
+            <lang locale="en_US" value="250" />
+            <lang locale="zh_CN" value="250" />
+            <lang locale="zh_TW" value="250" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[kDTree1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[kDTreeView1FreePanel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[kDTreeView1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateTimeEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateTime].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateTime].properties.property[header].value">
+            <lang locale="en_US" value="最后修改时间" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_TW" value="最后修改时间" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateTime].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateTime].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateUser_nameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateUser_name].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateUser_name].properties.property[header].value">
+            <lang locale="en_US" value="最后修改人" />
+            <lang locale="zh_CN" value="最后修改人" />
+            <lang locale="zh_TW" value="最后修改人" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateUser_name].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[lastUpdateUser_name].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[numberEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[number].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[number].properties.property[header].value">
+            <lang locale="en_US" value="单据编号" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_TW" value="单据编号" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[number].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[number].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personImplement_nameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personImplement_name].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personImplement_name].properties.property[header].value">
+            <lang locale="en_US" value="落实人" />
+            <lang locale="zh_CN" value="落实人" />
+            <lang locale="zh_TW" value="落实人" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personImplement_name].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personImplement_name].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personMake_nameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personMake_name].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personMake_name].properties.property[header].value">
+            <lang locale="en_US" value="提出人" />
+            <lang locale="zh_CN" value="提出人" />
+            <lang locale="zh_TW" value="提出人" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personMake_name].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[personMake_name].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[projectName_nameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[projectName_name].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[projectName_name].properties.property[header].value">
+            <lang locale="en_US" value="项目名称" />
+            <lang locale="zh_CN" value="项目名称" />
+            <lang locale="zh_TW" value="项目名称" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[projectName_name].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[projectName_name].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionDescriptionEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionDescription].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionDescription].properties.property[header].value">
+            <lang locale="en_US" value="问题说明" />
+            <lang locale="zh_CN" value="问题说明" />
+            <lang locale="zh_TW" value="问题说明" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionDescription].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionDescription].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionNameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionName].properties.property[header].value">
+            <lang locale="en_US" value="问题名称" />
+            <lang locale="zh_CN" value="问题名称" />
+            <lang locale="zh_TW" value="问题名称" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionName].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionName].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionType_nameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionType_name].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionType_name].properties.property[header].value">
+            <lang locale="en_US" value="问题类型" />
+            <lang locale="zh_CN" value="问题类型" />
+            <lang locale="zh_TW" value="问题类型" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionType_name].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[questionType_name].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[reasonAnalysisEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[reasonAnalysis].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[reasonAnalysis].properties.property[header].value">
+            <lang locale="en_US" value="原因分析" />
+            <lang locale="zh_CN" value="原因分析" />
+            <lang locale="zh_TW" value="原因分析" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[reasonAnalysis].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[reasonAnalysis].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[respondDepart_nameEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[respondDepart_name].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[respondDepart_name].properties.property[header].value">
+            <lang locale="en_US" value="责任部门" />
+            <lang locale="zh_CN" value="责任部门" />
+            <lang locale="zh_TW" value="责任部门" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[respondDepart_name].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[respondDepart_name].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[rootToolBar].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[solutionEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[solution].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[solution].properties.property[header].value">
+            <lang locale="en_US" value="解决方案" />
+            <lang locale="zh_CN" value="解决方案" />
+            <lang locale="zh_TW" value="解决方案" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[solution].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[solution].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[statusEditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[status].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[status].properties.property[header].value">
+            <lang locale="en_US" value="单据状态" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_TW" value="单据状态" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[status].properties.property[hidden].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[status].properties.property[width].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMainFreePanel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[binding].value">
+            <lang locale="en_US" value="#{port.pm.qa.QualityDefectTrackListUIBean.grid}" />
+            <lang locale="zh_CN" value="#{port.pm.qa.QualityDefectTrackListUIBean.grid}" />
+            <lang locale="zh_TW" value="#{port.pm.qa.QualityDefectTrackListUIBean.grid}" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[paged].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[rows].value">
+            <lang locale="en_US" value="10" />
+            <lang locale="zh_CN" value="10" />
+            <lang locale="zh_TW" value="10" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[showRowNumber].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[sync].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[value].value">
+            <lang locale="en_US" value="pagedListData" />
+            <lang locale="zh_CN" value="pagedListData" />
+            <lang locale="zh_TW" value="pagedListData" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].components.component[tblMain].properties.property[var].value">
+            <lang locale="en_US" value="data" />
+            <lang locale="zh_CN" value="data" />
+            <lang locale="zh_TW" value="data" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="webUIObject[com.kingdee.eas.port.pm.qa.web.QualityDefectTrackListUI].title">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="质量缺陷跟踪" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</webUIObject>
+
