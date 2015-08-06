@@ -88,45 +88,6 @@
             </entityRef>
         </subEntity>
         <subEntity>
-            <name>personMake</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].subObjects.subEntity[personMake].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.basedata.person.app" />
-                <key name="name" value="Person" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
-            <name>E1</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].subObjects.subEntity[E1].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAE1" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
-            <name>E1_supplier</name>
-            <alias>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].subObjects.subEntity[E1_supplier].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.basedata.master.cssp.app" />
-                <key name="name" value="Supplier" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
             <name>oatype</name>
             <alias>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].subObjects.subEntity[oatype].alias</alias>
             <userDefined>true</userDefined>
@@ -141,6 +102,37 @@
         </subEntity>
     </subObjects>
     <units>
+        <queryField>
+            <name>oatype.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[oatype.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>193fea48-e53a-4279-827c-47b0c9ded9d0</key>
+                    <parentUnit>
+                        <key name="name" value="oatype.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="oatype" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
+                <key name="name" value="ProjectOAQuery" />
+            </query>
+        </queryField>
         <queryField>
             <name>number</name>
             <userDefined>true</userDefined>
@@ -545,316 +537,6 @@
             </query>
         </propertyUnit>
         <queryField>
-            <name>questionName</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[questionName].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>7d0a90ac-b2cf-4d38-abda-0e49c76f1371</key>
-                    <parentUnit>
-                        <key name="name" value="questionName" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="ProjectOA" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="questionName" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>personMake.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[personMake.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>cbdc14f3-d48e-47b9-a612-2525f4692059</key>
-                    <parentUnit>
-                        <key name="name" value="personMake.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="personMake" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>483acf93-cfd6-41f8-8da6-725fa41499e4</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[483acf93-cfd6-41f8-8da6-725fa41499e4].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>f6bbf167-bd65-481e-9c32-cbc58c371e4c</key>
-                    <parentUnit>
-                        <key name="name" value="483acf93-cfd6-41f8-8da6-725fa41499e4" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="ProjectOA" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="personMake" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>7d42bd7b-4cfd-46a4-b6f4-44be09f49b56</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[7d42bd7b-4cfd-46a4-b6f4-44be09f49b56].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>c84dff4f-401a-424c-9e10-74c417381c0a</key>
-                    <parentUnit>
-                        <key name="name" value="7d42bd7b-4cfd-46a4-b6f4-44be09f49b56" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="personMake" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </propertyUnit>
-        <queryField>
-            <name>questionDescription</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[questionDescription].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>a4a73b67-baba-4515-ae00-859f5a17262a</key>
-                    <parentUnit>
-                        <key name="name" value="questionDescription" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="ProjectOA" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="questionDescription" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>reasonAnalysis</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[reasonAnalysis].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>c16123f3-76b2-4715-902e-e0019ce0781d</key>
-                    <parentUnit>
-                        <key name="name" value="reasonAnalysis" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="ProjectOA" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="reasonAnalysis" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>d0e9530b-cb58-49ac-880e-e77492a1dec7</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[d0e9530b-cb58-49ac-880e-e77492a1dec7].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>3d3f860e-9054-4927-aea0-c4c0cda3b3bf</key>
-                    <parentUnit>
-                        <key name="name" value="d0e9530b-cb58-49ac-880e-e77492a1dec7" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="ProjectOA" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>bf064826-ea57-48c9-8c06-4b60a17bcc59</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[bf064826-ea57-48c9-8c06-4b60a17bcc59].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>3c643f90-a4e6-448c-bd1c-e8640add2f15</key>
-                    <parentUnit>
-                        <key name="name" value="bf064826-ea57-48c9-8c06-4b60a17bcc59" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="parent" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>2d11ca0d-939d-4744-9d2b-c4067f97acdd</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[2d11ca0d-939d-4744-9d2b-c4067f97acdd].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>0e4608e8-f60c-4873-b7b1-0bf00aaceeac</key>
-                    <parentUnit>
-                        <key name="name" value="2d11ca0d-939d-4744-9d2b-c4067f97acdd" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="supplier" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>2ef44763-b2b5-4f10-8bcb-5907cef38f85</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[2ef44763-b2b5-4f10-8bcb-5907cef38f85].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType />
-            <propertyRefs>
-                <propertyRef>
-                    <key>06a1c5e3-5ea0-40e2-abc1-a260cd1c01ba</key>
-                    <parentUnit>
-                        <key name="name" value="2ef44763-b2b5-4f10-8bcb-5907cef38f85" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1_supplier" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </propertyUnit>
-        <queryField>
             <name>creator.name</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -1102,37 +784,6 @@
                 <key name="name" value="ProjectOAQuery" />
             </query>
         </queryField>
-        <queryField>
-            <name>oatype.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[oatype.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>193fea48-e53a-4279-827c-47b0c9ded9d0</key>
-                    <parentUnit>
-                        <key name="name" value="oatype.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="oatype" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
             <name>25eae61e-7384-4578-9aed-256b13d1fe0f</name>
             <userDefined>true</userDefined>
@@ -1195,37 +846,6 @@
                 <key name="name" value="ProjectOAQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>E1.shuom</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[E1.shuom].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>1d5bbd32-b2bd-49c6-9e97-1e5121fcd39c</key>
-                    <parentUnit>
-                        <key name="name" value="E1.shuom" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="E1" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="shuom" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1400,96 +1020,6 @@
             </query>
         </join>
         <join>
-            <name>b4cdd0c3-d1a4-49f2-8aa5-25118a9038f1</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="ProjectOA" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="personMake" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>d7919f0e-99d0-48fc-8b71-6e8be1279472</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="483acf93-cfd6-41f8-8da6-725fa41499e4" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="7d42bd7b-4cfd-46a4-b6f4-44be09f49b56" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="b4cdd0c3-d1a4-49f2-8aa5-25118a9038f1" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </join>
-        <join>
-            <name>efc26eff-7585-492d-b586-93d635be7ff1</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="ProjectOA" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="E1" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>cea9aa05-5196-4248-b164-2a57394c45ef</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="d0e9530b-cb58-49ac-880e-e77492a1dec7" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="bf064826-ea57-48c9-8c06-4b60a17bcc59" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="efc26eff-7585-492d-b586-93d635be7ff1" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </join>
-        <join>
-            <name>f6932f30-c6ed-49e9-a23f-d79355807947</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="E1" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="E1_supplier" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>d6f3bec9-1499-4697-99fc-1f0784c53cc6</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="2d11ca0d-939d-4744-9d2b-c4067f97acdd" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="2ef44763-b2b5-4f10-8bcb-5907cef38f85" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="f6932f30-c6ed-49e9-a23f-d79355807947" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.port.pm.qa.app" />
-                <key name="name" value="ProjectOAQuery" />
-            </query>
-        </join>
-        <join>
             <name>62dd4e54-ba81-4cc6-b4fb-25eecfae652e</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
@@ -1554,18 +1084,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].subObjects.subEntity[E1].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].subObjects.subEntity[E1_supplier].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].subObjects.subEntity[ProjectOA].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1591,12 +1109,6 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].subObjects.subEntity[oatype].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].subObjects.subEntity[personMake].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1644,25 +1156,7 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[2d11ca0d-939d-4744-9d2b-c4067f97acdd].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[2ef44763-b2b5-4f10-8bcb-5907cef38f85].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[30e119ba-be66-40e6-8b49-fea8f39a5f06].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[483acf93-cfd6-41f8-8da6-725fa41499e4].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1686,24 +1180,6 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[7d42bd7b-4cfd-46a4-b6f4-44be09f49b56].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[bf064826-ea57-48c9-8c06-4b60a17bcc59].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[d0e9530b-cb58-49ac-880e-e77492a1dec7].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.propertyUnit[e2d4e712-e3ae-494f-ac8e-5908534f9998].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1721,22 +1197,6 @@
             <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[E1.shuom].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="说明" />
-            <lang locale="zh_HK" value="說明" />
-            <lang locale="zh_TW" value="說明" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[E1.shuom].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[E1.shuom].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[auditTime].displayName">
             <lang locale="en_US" value="null" />
@@ -1877,27 +1337,6 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[personMake.name].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="提出人" />
-            <lang locale="zh_HK" value="提出人" />
-            <lang locale="zh_TW" value="提出人" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[personMake.name].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[personMake.name].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[personMake.name].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[projectName.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="项目名称" />
@@ -1915,54 +1354,6 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[projectName.name].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[questionDescription].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="问题说明" />
-            <lang locale="zh_HK" value="問題說明" />
-            <lang locale="zh_TW" value="問題說明" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[questionDescription].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[questionDescription].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[questionName].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="问题名称" />
-            <lang locale="zh_HK" value="問題名稱" />
-            <lang locale="zh_TW" value="問題名稱" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[questionName].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[questionName].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[reasonAnalysis].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="原因分析" />
-            <lang locale="zh_HK" value="原因分析" />
-            <lang locale="zh_TW" value="原因分析" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[reasonAnalysis].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.port.pm.qa.app.ProjectOAQuery].units.queryField[reasonAnalysis].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
