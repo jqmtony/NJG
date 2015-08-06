@@ -301,6 +301,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFEquID</name>
+            <alias>dataTable[com.kingdee.eas.port.pm.acceptance.app.CT_ACC_CompleteAcceptE1].columns.column[CFEquID].alias</alias>
+            <description>dataTable[com.kingdee.eas.port.pm.acceptance.app.CT_ACC_CompleteAcceptE1].columns.column[CFEquID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_ACC_CmpltAEjc3</name>
@@ -315,141 +329,6 @@
             </primaryKeyColumn>
         </primaryKeyColumns>
     </primaryKey>
-    <foreignKeys>
-        <foreignKey>
-            <name>CFK_ACC_ACCCAE1Yjv</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.port.equipment.record.app" />
-                <key name="name" value="CT_REC_EquId" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="CFTypeID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
-        <foreignKey>
-            <name>CFK_ACC_ACCCAE1Ssn</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.basedata.person" />
-                <key name="name" value="T_BD_Person" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="CFUsePersonID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
-        <foreignKey>
-            <name>CFK_ACC_ACCCAE1Eud</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.basedata.person" />
-                <key name="name" value="T_BD_Person" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="CFResponsibleID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
-        <foreignKey>
-            <name>CFK_ACC_ACCCAE1Ato</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.basedata.org" />
-                <key name="name" value="T_ORG_Admin" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="CFManagementID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
-        <foreignKey>
-            <name>CFK_ACC_ACCCAE1A9s</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.basedata.org" />
-                <key name="name" value="T_ORG_Admin" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="CFTakeOverDepID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
-        <foreignKey>
-            <name>CFK_ACC_ACCCAE1O6v</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.basedata.assistant" />
-                <key name="name" value="T_BD_Address" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="CFLocationID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
-        <foreignKey>
-            <name>CFK_ACC_ACCCAE1Ee2</name>
-            <userDefined>true</userDefined>
-            <refTable>
-                <key name="package" value="com.kingdee.eas.basedata.assistant" />
-                <key name="name" value="T_BD_MeasureUnit" />
-            </refTable>
-            <fkColumnPairs>
-                <fkColumnPair>
-                    <sequence>0</sequence>
-                    <refColumn>
-                        <key name="name" value="FID" />
-                    </refColumn>
-                    <fkColumn>
-                        <key name="name" value="CFMeasureUnitID" />
-                    </fkColumn>
-                </fkColumnPair>
-            </fkColumnPairs>
-        </foreignKey>
-    </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.port.pm.acceptance.app.CT_ACC_CompleteAcceptE1].alias">
             <lang locale="en_US" value="null" />
@@ -492,6 +371,18 @@
             <lang locale="zh_CN" value="配置" />
             <lang locale="zh_HK" value="配置" />
             <lang locale="zh_TW" value="配置" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.acceptance.app.CT_ACC_CompleteAcceptE1].columns.column[CFEquID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备" />
+            <lang locale="zh_HK" value="設備" />
+            <lang locale="zh_TW" value="設備" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.port.pm.acceptance.app.CT_ACC_CompleteAcceptE1].columns.column[CFEquID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设备" />
+            <lang locale="zh_HK" value="設備" />
+            <lang locale="zh_TW" value="設備" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.port.pm.acceptance.app.CT_ACC_CompleteAcceptE1].columns.column[CFLocationID].alias">
             <lang locale="en_US" value="null" />
