@@ -1541,6 +1541,37 @@
                 <key name="name" value="InviteReportQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>lowestprice</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[lowestprice].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c6199135-347b-4634-a60c-9179aab36d93</key>
+                    <parentUnit>
+                        <key name="name" value="lowestprice" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="InviteReport" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lowestprice" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.invite.app" />
+                <key name="name" value="InviteReportQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -2192,6 +2223,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[lowestprice].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最低价为基准价" />
+            <lang locale="zh_HK" value="最低價為基準價" />
+            <lang locale="zh_TW" value="最低價為基準價" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[lowestprice].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.invite.app.InviteReportQuery].units.queryField[lowestprice].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
