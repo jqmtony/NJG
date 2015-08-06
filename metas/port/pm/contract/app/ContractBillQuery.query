@@ -554,6 +554,37 @@
             </query>
         </queryField>
         <queryField>
+            <name>description</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.port.pm.contract.app.ContractBillQuery].units.queryField[description].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2a812d66-bdfc-4a61-a30a-134e4a82ca33</key>
+                    <parentUnit>
+                        <key name="name" value="description" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ContractBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="description" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.port.pm.contract.app" />
+                <key name="name" value="ContractBillQuery" />
+            </query>
+        </queryField>
+        <queryField>
             <name>number</name>
             <userDefined>true</userDefined>
             <formulaString>#0</formulaString>
@@ -5306,6 +5337,17 @@
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.contract.app.ContractBillQuery].units.queryField[description].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="公司合同号" />
+            <lang locale="zh_HK" value="公司合同號" />
+            <lang locale="zh_TW" value="公司合同號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.port.pm.contract.app.ContractBillQuery].units.queryField[description].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.port.pm.contract.app.ContractBillQuery].units.queryField[exRate].displayName">
             <lang locale="en_US" value="null" />

@@ -369,7 +369,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>531,53,470,19,137</constraints>
+            <constraints>627,119,374,19,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -593,7 +593,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDTabbedPane</classType>
             <isContainer>true</isContainer>
-            <constraints>9,271,593,358,77</constraints>
+            <constraints>9,271,593,358,325</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1107,7 +1107,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>631,335,368,294,137</constraints>
+            <constraints>631,335,368,294,201</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1135,7 +1135,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>632,277,368,45,137</constraints>
+            <constraints>632,279,368,50,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1310,7 +1310,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>627,124,371,146,0</constraints>
+            <constraints>627,147,371,123,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1353,6 +1353,48 @@
                     <type>int</type>
                     <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contfkfs].properties.property[boundLabelAlignment].value</value>
                     <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="mainPanel" />
+            </parent>
+        </component>
+        <component>
+            <name>contAmtBig</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contAmtBig].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>531,53,469,19,137</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contAmtBig].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contAmtBig].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contAmtBig].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
             </properties>
@@ -7598,6 +7640,47 @@
             </propertyBindings>
         </component>
         <component>
+            <name>txtCompanyNo</name>
+            <alias>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[txtCompanyNo].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>enabled</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[txtCompanyNo].properties.property[enabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contAmtBig" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>description</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType />
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
             <name>kDContainer1</name>
             <alias>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[kDContainer1].alias</alias>
             <userDefined>true</userDefined>
@@ -8401,55 +8484,6 @@
             </parent>
         </component>
         <component>
-            <name>contAmtBig</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contAmtBig].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
-            <isContainer>true</isContainer>
-            <constraints>11,145,213,19</constraints>
-            <tabIndex>0</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
-            <layoutInfo>
-                <name />
-                <type>LabelContainerLayout</type>
-                <value />
-            </layoutInfo>
-            <properties>
-                <property>
-                    <name>boundLabelText</name>
-                    <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contAmtBig].properties.property[boundLabelText].value</value>
-                    <isMultiLan>true</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>boundLabelLength</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contAmtBig].properties.property[boundLabelLength].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>boundLabelUnderline</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contAmtBig].properties.property[boundLabelUnderline].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>enabled</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contAmtBig].properties.property[enabled].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
-            <parent>
-                <key name="name" value="kDPanel3" />
-            </parent>
-        </component>
-        <component>
             <name>contGrtRate</name>
             <alias>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contGrtRate].alias</alias>
             <userDefined>true</userDefined>
@@ -8609,48 +8643,6 @@
                     <name>boundLabelUnderline</name>
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contGrtAmount].properties.property[boundLabelUnderline].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
-            <parent>
-                <key name="name" value="kDPanel3" />
-            </parent>
-        </component>
-        <component>
-            <name>conContrarctRule</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[conContrarctRule].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
-            <isContainer>true</isContainer>
-            <constraints>10,255,211,19</constraints>
-            <tabIndex>0</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
-            <layoutInfo>
-                <name />
-                <type>LabelContainerLayout</type>
-                <value />
-            </layoutInfo>
-            <properties>
-                <property>
-                    <name>boundLabelText</name>
-                    <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[conContrarctRule].properties.property[boundLabelText].value</value>
-                    <isMultiLan>true</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>boundLabelUnderline</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[conContrarctRule].properties.property[boundLabelUnderline].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
-                    <name>boundLabelLength</name>
-                    <type>int</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[conContrarctRule].properties.property[boundLabelLength].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
@@ -9001,34 +8993,6 @@
             </propertyBindings>
         </component>
         <component>
-            <name>txtAmtBig</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[txtAmtBig].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
-            <isContainer>false</isContainer>
-            <constraints>7</constraints>
-            <tabIndex>0</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
-            <layoutInfo>
-                <name />
-                <type>XYLayout</type>
-                <value />
-            </layoutInfo>
-            <properties>
-                <property>
-                    <name>enabled</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[txtAmtBig].properties.property[enabled].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
-            <parent>
-                <key name="name" value="contAmtBig" />
-            </parent>
-        </component>
-        <component>
             <name>txtGrtRate</name>
             <alias>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[txtGrtRate].alias</alias>
             <userDefined>true</userDefined>
@@ -9261,34 +9225,6 @@
                     <userDefined>true</userDefined>
                 </propertyBinding>
             </propertyBindings>
-        </component>
-        <component>
-            <name>textFwContract</name>
-            <alias>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[textFwContract].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.swing.KDTextField</classType>
-            <isContainer>false</isContainer>
-            <constraints>7</constraints>
-            <tabIndex>0</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
-            <layoutInfo>
-                <name />
-                <type>XYLayout</type>
-                <value />
-            </layoutInfo>
-            <properties>
-                <property>
-                    <name>enabled</name>
-                    <type>boolean</type>
-                    <value>uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[textFwContract].properties.property[enabled].value</value>
-                    <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
-            <parent>
-                <key name="name" value="conContrarctRule" />
-            </parent>
         </component>
         <component>
             <name>btnAddNew</name>
@@ -12966,30 +12902,6 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[conContrarctRule].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[conContrarctRule].properties.property[boundLabelLength].value">
-            <lang locale="en_US" value="100" />
-            <lang locale="zh_CN" value="100" />
-            <lang locale="zh_HK" value="100" />
-            <lang locale="zh_TW" value="100" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[conContrarctRule].properties.property[boundLabelText].value">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="合约规划名称" />
-            <lang locale="zh_HK" value="合約規劃名稱" />
-            <lang locale="zh_TW" value="合約規劃名稱" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[conContrarctRule].properties.property[boundLabelUnderline].value">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_HK" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[conEffectiveEndDate].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -13094,21 +13006,15 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contAmtBig].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="本位币金额大写" />
-            <lang locale="zh_HK" value="本位幣金額大寫" />
-            <lang locale="zh_TW" value="本位幣金額大寫" />
+            <lang locale="zh_CN" value="公司合同号" />
+            <lang locale="zh_HK" value="公司合同號" />
+            <lang locale="zh_TW" value="公司合同號" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contAmtBig].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contAmtBig].properties.property[enabled].value">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_HK" value="false" />
-            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[contAttachmentNameList].alias">
             <lang locale="en_US" value="null" />
@@ -16725,30 +16631,6 @@
             <lang locale="zh_HK" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;number&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;respDept&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;creator&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;createDate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;auditor&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;auditDate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header1&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;id&lt;/t:Cell&gt;&lt;t:Cell&gt;單據編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;單據名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;編制部門&lt;/t:Cell&gt;&lt;t:Cell&gt;編制人&lt;/t:Cell&gt;&lt;t:Cell&gt;編制日期&lt;/t:Cell&gt;&lt;t:Cell&gt;審批人&lt;/t:Cell&gt;&lt;t:Cell&gt;審批日期&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
             <lang locale="zh_TW" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;id&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;number&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;name&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;respDept&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;creator&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;createDate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;auditor&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;auditDate&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header1&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;id&lt;/t:Cell&gt;&lt;t:Cell&gt;單據編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;單據名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;編制部門&lt;/t:Cell&gt;&lt;t:Cell&gt;編制人&lt;/t:Cell&gt;&lt;t:Cell&gt;編制日期&lt;/t:Cell&gt;&lt;t:Cell&gt;審批人&lt;/t:Cell&gt;&lt;t:Cell&gt;審批日期&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
         </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[textFwContract].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[textFwContract].properties.property[enabled].value">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_HK" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[txtAmtBig].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[txtAmtBig].properties.property[enabled].value">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_HK" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[txtBailOriAmount].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -16772,6 +16654,18 @@
             <lang locale="zh_CN" value="1" />
             <lang locale="zh_HK" value="1" />
             <lang locale="zh_TW" value="1" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[txtCompanyNo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[txtCompanyNo].properties.property[enabled].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.port.pm.contract.client.ContractBillEditUI].components.component[txtCreator].alias">
             <lang locale="en_US" value="null" />
