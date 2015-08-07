@@ -12,23 +12,34 @@
             <value>i18nResource[com.kingdee.eas.fdc.contract.programming.client.ProgrammingResource].resourceItems.resourceItem[ProgrammingTemplateQueryF7WindowTitle].value</value>
             <userDefined>false</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>PcTypeQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.fdc.contract.programming.client.ProgrammingResource].resourceItems.resourceItem[PcTypeQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.fdc.contract.programming.client.ProgrammingResource].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.fdc.contract.programming.client.ProgrammingResource].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="i18nResource[com.kingdee.eas.fdc.contract.programming.client.ProgrammingResource].resourceItems.resourceItem[ProgrammingTemplateQueryF7WindowTitle].value">
-            <lang locale="zh_CN" value="合约框架模板" />
+        <rs key="i18nResource[com.kingdee.eas.fdc.contract.programming.client.ProgrammingResource].resourceItems.resourceItem[PcTypeQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约类型" />
+            <lang locale="zh_HK" value="合約類型" />
+            <lang locale="zh_TW" value="合約類型" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.fdc.contract.programming.client.ProgrammingResource].resourceItems.resourceItem[ProgrammingTemplateQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约框架模板" />
             <lang locale="zh_HK" value="合約框架範本" />
             <lang locale="zh_TW" value="合約框架範本" />
         </rs>
