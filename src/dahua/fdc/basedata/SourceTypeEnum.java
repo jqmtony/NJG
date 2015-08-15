@@ -13,9 +13,9 @@ import com.kingdee.util.enums.IntEnum;
  */
 public class SourceTypeEnum extends IntEnum
 {
-    public static final int IMP_VALUE = 0;
-    public static final int CREATE_VALUE = 1;
-    public static final int ADDNEW_VALUE = 2;
+    public static final int IMP_VALUE = 0;//alias=系统导入
+    public static final int CREATE_VALUE = 1;//alias=关联生成
+    public static final int ADDNEW_VALUE = 2;//alias=手工新增
 
     public static final SourceTypeEnum IMP = new SourceTypeEnum("IMP", IMP_VALUE);
     public static final SourceTypeEnum CREATE = new SourceTypeEnum("CREATE", CREATE_VALUE);

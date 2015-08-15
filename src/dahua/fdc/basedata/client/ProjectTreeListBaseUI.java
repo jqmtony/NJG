@@ -335,7 +335,7 @@ public abstract class ProjectTreeListBaseUI extends
 			filterByBillState(viewInfo);
 		} catch (Exception e) {
 			// @AbortException
-			logger.error(e.getMessage(), e);
+			logger.error(e.getMessage(), e); 
 			e.printStackTrace();
 		}
 
