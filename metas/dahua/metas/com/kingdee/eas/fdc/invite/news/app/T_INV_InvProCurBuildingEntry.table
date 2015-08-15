@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.invite.news.app</package>
+    <name>T_INV_InvProCurBuildingEntry</name>
+    <alias>dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].alias</alias>
+    <description>dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].description</description>
+    <userDefined>true</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSeq</name>
+            <alias>dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FCurBuildingID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FCurBuildingID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FCurBuildingID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FParentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>PK_InvProBuildEnt</name>
+        <userDefined>true</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="招标范围" />
+            <lang locale="zh_TW" value="招標立項工程樓棟分錄" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FCurBuildingID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程楼栋" />
+            <lang locale="zh_TW" value="工程樓棟" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FCurBuildingID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程楼栋" />
+            <lang locale="zh_TW" value="工程樓棟" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="招标立项" />
+            <lang locale="zh_TW" value="招標立項" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="招标立项" />
+            <lang locale="zh_TW" value="招標立項" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分录序号" />
+            <lang locale="zh_TW" value="分錄序號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].columns.column[FSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分录序号" />
+            <lang locale="zh_TW" value="分錄序號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="招标范围" />
+            <lang locale="zh_TW" value="招標立項工程樓棟分錄" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.invite.news.app.T_INV_InvProCurBuildingEntry].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</dataTable>
+

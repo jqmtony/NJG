@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleSet xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.invite.news.app</package>
+    <name>StrategyPactRuleSet</name>
+    <alias>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].alias</alias>
+    <description>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].description</description>
+    <userDefined>true</userDefined>
+    <expressions>
+        <groupExpression>
+            <id>3f59d648-a6d2-45d9-ad97-c924953e7427</id>
+            <parentID />
+            <source>Entry.productNumber=Entry.product.number</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>d8199d88-829b-4132-8e7a-9d1f7156f048</id>
+            <parentID>3f59d648-a6d2-45d9-ad97-c924953e7427</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>629dc20f-d924-49cd-9111-9ca5df1077d4</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>629dc20f-d924-49cd-9111-9ca5df1077d4</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"productNumber")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>98c35d53-a256-4d7a-bc40-1cf897492276</id>
+            <parentID>3f59d648-a6d2-45d9-ad97-c924953e7427</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>52c66207-1add-43ce-8ce9-fa3f83d6443e</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>81939482-ce62-4b0f-ae1b-b37463a5ec06</id>
+                        <expressionID>a4766f95-446f-4c14-8e64-77c0dd6e8add</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>43fd650b-5de2-438c-bac7-4cdb6e7a6c44</id>
+                        <expressionID>78d83571-07e0-459a-99f8-1a97a99cd78d</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>52c66207-1add-43ce-8ce9-fa3f83d6443e</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>a4766f95-446f-4c14-8e64-77c0dd6e8add</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>5680d02e-4d97-49eb-b91a-b0fc60b798e2</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>5680d02e-4d97-49eb-b91a-b0fc60b798e2</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"product")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>78d83571-07e0-459a-99f8-1a97a99cd78d</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>number</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>fb9832d2-7816-4c72-a3da-3e2e73277ab2</id>
+            <parentID />
+            <source>Entry.model=Entry.product.model</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>c0ed74b8-27c3-42ab-a5dd-b34f1d3b6f01</id>
+            <parentID>fb9832d2-7816-4c72-a3da-3e2e73277ab2</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>9c4e176d-4b5c-479e-9505-583101a3e2c0</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9c4e176d-4b5c-479e-9505-583101a3e2c0</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"model")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>20e07ffc-8ae4-42e4-9c30-31fa2ca219e1</id>
+            <parentID>fb9832d2-7816-4c72-a3da-3e2e73277ab2</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>50abee66-2e32-448f-b9f9-219bc6d4befa</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>4d2976f6-120d-44ab-9f5e-d9ed1f73f001</id>
+                        <expressionID>4bdb61fe-c3da-4e0f-a1a2-58dadb6ab09b</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>d875e7b3-9f2f-444d-b418-d7298c8ea5ec</id>
+                        <expressionID>9b70dbd6-3c63-4dcd-8bbb-f118046fe575</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>50abee66-2e32-448f-b9f9-219bc6d4befa</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>4bdb61fe-c3da-4e0f-a1a2-58dadb6ab09b</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>d13cdc05-5ef7-417d-b17f-8c0e37a3cd26</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>d13cdc05-5ef7-417d-b17f-8c0e37a3cd26</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"product")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>9b70dbd6-3c63-4dcd-8bbb-f118046fe575</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>model</value>
+        </simpleExpression>
+        <groupExpression>
+            <id>da1fee1c-0ede-48f6-8012-90414872a084</id>
+            <parentID />
+            <source>Entry.unit=Entry.product.unit.name</source>
+            <operator>=</operator>
+        </groupExpression>
+        <simpleExpression>
+            <id>2ada966e-535d-4b23-ae99-710dfc6ae3e0</id>
+            <parentID>da1fee1c-0ede-48f6-8012-90414872a084</parentID>
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>String</valueType>
+            <value />
+            <property>
+                <ownerID>52d433b4-0c7d-4b0c-847a-103ffc556240</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>52d433b4-0c7d-4b0c-847a-103ffc556240</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>kdtEntry.getCell(rowIndex,"unit")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>150c5098-a75a-4ffd-af2b-09aa02d67f43</id>
+            <parentID>da1fee1c-0ede-48f6-8012-90414872a084</parentID>
+            <source />
+            <type>METHODINVOKE</type>
+            <valueType>String</valueType>
+            <value />
+            <method>
+                <ownerID>be7232ce-3bce-45bb-8be2-3180d4719499</ownerID>
+                <name>getProperty</name>
+                <type>Object</type>
+                <parameters>
+                    <parameter>
+                        <id>00390460-bad3-41fd-b83c-4c528efdcc5a</id>
+                        <expressionID>eb34b0ac-3e6a-4593-b179-375c3140e4a5</expressionID>
+                    </parameter>
+                    <parameter>
+                        <id>ebb97690-273b-4a44-bb32-583568582090</id>
+                        <expressionID>ec19e190-7717-4912-a3de-131632afca10</expressionID>
+                    </parameter>
+                </parameters>
+            </method>
+        </simpleExpression>
+        <simpleExpression>
+            <id>be7232ce-3bce-45bb-8be2-3180d4719499</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>com.kingdee.bos.ui.face.UIRuleUtil</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>eb34b0ac-3e6a-4593-b179-375c3140e4a5</id>
+            <parentID />
+            <source />
+            <type>PROPERTYACCESS</type>
+            <valueType>Object</valueType>
+            <value />
+            <property>
+                <ownerID>129a1495-24e5-4e27-9dfb-41f6781227cc</ownerID>
+                <name>value</name>
+                <type>Object</type>
+            </property>
+        </simpleExpression>
+        <simpleExpression>
+            <id>129a1495-24e5-4e27-9dfb-41f6781227cc</id>
+            <parentID />
+            <source />
+            <type>VARIANT</type>
+            <valueType>UNKOWN</valueType>
+            <value>(com.kingdee.bos.dao.IObjectValue)kdtEntry.getCell(rowIndex,"product")</value>
+        </simpleExpression>
+        <simpleExpression>
+            <id>ec19e190-7717-4912-a3de-131632afca10</id>
+            <parentID />
+            <source />
+            <type>CONST</type>
+            <valueType>String</valueType>
+            <value>unit.name</value>
+        </simpleExpression>
+    </expressions>
+    <actions>
+        <action>
+            <id>0fc05414-70e1-4725-b9f5-6645a9e076db</id>
+            <name>Entry_productNumber_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].actions.action[Entry_productNumber_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].actions.action[Entry_productNumber_ActionInfo].description</description>
+            <expressionID>3f59d648-a6d2-45d9-ad97-c924953e7427</expressionID>
+        </action>
+        <action>
+            <id>3ca87262-c3f6-4c09-883b-fd4dec954f33</id>
+            <name>Entry_model_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].actions.action[Entry_model_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].actions.action[Entry_model_ActionInfo].description</description>
+            <expressionID>fb9832d2-7816-4c72-a3da-3e2e73277ab2</expressionID>
+        </action>
+        <action>
+            <id>10b94938-d696-4515-b0c4-d27284878b37</id>
+            <name>Entry_unit_ActionInfo</name>
+            <alias>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].actions.action[Entry_unit_ActionInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].actions.action[Entry_unit_ActionInfo].description</description>
+            <expressionID>da1fee1c-0ede-48f6-8012-90414872a084</expressionID>
+        </action>
+    </actions>
+    <rules>
+        <conditionRule>
+            <name>Entry_productNumber_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_productNumber_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_productNumber_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="0fc05414-70e1-4725-b9f5-6645a9e076db" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_model_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_model_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_model_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="3ca87262-c3f6-4c09-883b-fd4dec954f33" />
+                </action>
+            </actions>
+        </conditionRule>
+        <conditionRule>
+            <name>Entry_unit_RuleInfo</name>
+            <alias>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_unit_RuleInfo].alias</alias>
+            <description>ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_unit_RuleInfo].description</description>
+            <ruleType>withproperty</ruleType>
+            <eventObjectName />
+            <eventType>CHANGE</eventType>
+            <eventName>CHANGE</eventName>
+            <actions>
+                <action>
+                    <key name="id" value="10b94938-d696-4515-b0c4-d27284878b37" />
+                </action>
+            </actions>
+        </conditionRule>
+    </rules>
+    <resource>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].actions.action[Entry_model_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_model" />
+            <lang locale="zh_TW" value="攜帶字段屬性_model" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].actions.action[Entry_model_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].actions.action[Entry_productNumber_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_number" />
+            <lang locale="zh_TW" value="攜帶字段屬性_number" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].actions.action[Entry_productNumber_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].actions.action[Entry_unit_ActionInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_unit" />
+            <lang locale="zh_TW" value="攜帶字段屬性_unit" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].actions.action[Entry_unit_ActionInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_model_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_model" />
+            <lang locale="zh_TW" value="攜帶字段屬性_model" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_model_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_model_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="product" />
+            <lang locale="zh_CN" value="product" />
+            <lang locale="zh_TW" value="product" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_model_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_productNumber_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_number" />
+            <lang locale="zh_TW" value="攜帶字段屬性_number" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_productNumber_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_productNumber_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="product" />
+            <lang locale="zh_CN" value="product" />
+            <lang locale="zh_TW" value="product" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_productNumber_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_unit_RuleInfo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="携带字段属性_unit" />
+            <lang locale="zh_TW" value="攜帶字段屬性_unit" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_unit_RuleInfo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_unit_RuleInfo].extendedProperty.columnName">
+            <lang locale="en_US" value="product" />
+            <lang locale="zh_CN" value="product" />
+            <lang locale="zh_TW" value="product" />
+        </rs>
+        <rs key="ruleSet[com.kingdee.eas.fdc.invite.news.app.StrategyPactRuleSet].rules.conditionRule[Entry_unit_RuleInfo].extendedProperty.userDefined">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</ruleSet>
+

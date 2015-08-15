@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.invite.news.app</package>
+    <name>R_TenderDiscusstionEntryInfo_CurProjectInfo_curProject</name>
+    <alias>relationship[com.kingdee.eas.fdc.invite.news.app.R_TenderDiscusstionEntryInfo_CurProjectInfo_curProject].alias</alias>
+    <description>relationship[com.kingdee.eas.fdc.invite.news.app.R_TenderDiscusstionEntryInfo_CurProjectInfo_curProject].description</description>
+    <userDefined>false</userDefined>
+    <type>Association</type>
+    <clientCardinality>1</clientCardinality>
+    <supplierCardinality>0..1</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+        <key name="name" value="TenderDiscusstionEntry" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+        <key name="name" value="CurProject" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.fdc.invite.news.app.R_TenderDiscusstionEntryInfo_CurProjectInfo_curProject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="对应项目" />
+            <lang locale="zh_HK" value="對應項目" />
+            <lang locale="zh_TW" value="對應項目" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.fdc.invite.news.app.R_TenderDiscusstionEntryInfo_CurProjectInfo_curProject].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="对应项目" />
+            <lang locale="zh_HK" value="對應項目" />
+            <lang locale="zh_TW" value="對應項目" />
+        </rs>
+    </resource>
+</relationship>
+

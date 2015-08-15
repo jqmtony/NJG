@@ -1,0 +1,1928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.invite.news.app</package>
+    <name>TenderDiscusstionQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].description</description>
+    <userDefined>false</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.fdc.invite.news.TenderDiscusstion</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>TenderDiscusstion</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].subObjects.subEntity[TenderDiscusstion].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstion" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>invType</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].subObjects.subEntity[invType].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.invite.app" />
+                <key name="name" value="InviteType" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>purMode</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].subObjects.subEntity[purMode].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.invite.app" />
+                <key name="name" value="InviteMode" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>costTarget</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].subObjects.subEntity[costTarget].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractProgramming" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>tenderPerson</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].subObjects.subEntity[tenderPerson].alias</alias>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.person.app" />
+                <key name="name" value="Person" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>businessor</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].subObjects.subEntity[businessor].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.person.app" />
+                <key name="name" value="Person" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>95fe4a07-db45-4a3d-98b9-ece8c44568da</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[95fe4a07-db45-4a3d-98b9-ece8c44568da].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>c7bed7f0-2518-4433-bc7e-24f0949b2540</key>
+                    <parentUnit>
+                        <key name="name" value="95fe4a07-db45-4a3d-98b9-ece8c44568da" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="invType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>d11c2034-5dac-41fe-80b8-05f7eb6071ee</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[d11c2034-5dac-41fe-80b8-05f7eb6071ee].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>dab11dbc-640a-462e-9c7a-9dd9848cdb25</key>
+                    <parentUnit>
+                        <key name="name" value="d11c2034-5dac-41fe-80b8-05f7eb6071ee" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="invType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>c3b78e87-feee-491b-8b4f-97b69a0c03e4</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[c3b78e87-feee-491b-8b4f-97b69a0c03e4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>7ee722e7-b174-40f0-9cf8-185ae8d5ba90</key>
+                    <parentUnit>
+                        <key name="name" value="c3b78e87-feee-491b-8b4f-97b69a0c03e4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="purMode" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>ac0a4d1a-2927-47c3-8ac3-09383100bc57</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[ac0a4d1a-2927-47c3-8ac3-09383100bc57].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>5117f594-431a-41dc-91b1-f04d02b87ab5</key>
+                    <parentUnit>
+                        <key name="name" value="ac0a4d1a-2927-47c3-8ac3-09383100bc57" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="purMode" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5c4191dd-0870-421d-a336-6f6f76419e17</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>state</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[state].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>bf92fc75-99a0-4a67-b716-60554a26cdad</key>
+                    <parentUnit>
+                        <key name="name" value="state" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="state" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a4014677-c3e6-4e86-8a1a-d7080745be32</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>invType.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[invType.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0de50be4-62e1-4507-ba2e-3324fcaa583f</key>
+                    <parentUnit>
+                        <key name="name" value="invType.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="invType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>purMode.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[purMode.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>312a14c2-8bb0-4782-ba49-f99a67450eb7</key>
+                    <parentUnit>
+                        <key name="name" value="purMode.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="purMode" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>invForm</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[invForm].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5cd464bb-0853-461d-aa16-4113949cb228</key>
+                    <parentUnit>
+                        <key name="name" value="invForm" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="invForm" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>07c8265a-2dd9-45d8-b72c-00be48a3e79e</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isMulBid</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isMulBid].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>074ed152-8d53-4c7b-bd32-ace53d1ed8ca</key>
+                    <parentUnit>
+                        <key name="name" value="isMulBid" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isMulBid" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bidNum</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[bidNum].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>368ca170-4f07-44d4-959b-565f16a1c7e6</key>
+                    <parentUnit>
+                        <key name="name" value="bidNum" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bidNum" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>picketageTime</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[picketageTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>728414dd-5027-4708-b9e9-2839b1e4fa61</key>
+                    <parentUnit>
+                        <key name="name" value="picketageTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="picketageTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>costTarget.name</name>
+            <userDefined>false</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[costTarget.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>17e8be99-36db-4a67-a93b-1cff2870ffaa</key>
+                    <parentUnit>
+                        <key name="name" value="costTarget.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="costTarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>d5616f22-c33e-43aa-adf6-da413475c7fa</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[d5616f22-c33e-43aa-adf6-da413475c7fa].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>c4b0d16f-895b-4b48-8f24-d135c9a4f62c</key>
+                    <parentUnit>
+                        <key name="name" value="d5616f22-c33e-43aa-adf6-da413475c7fa" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="costTarget" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>51f82469-54ec-474d-a04e-e776cc16fa31</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[51f82469-54ec-474d-a04e-e776cc16fa31].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>21bab1cd-7982-445c-8dc6-96e55e7cc9b7</key>
+                    <parentUnit>
+                        <key name="name" value="51f82469-54ec-474d-a04e-e776cc16fa31" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="costTarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>007bdca9-b815-462f-8a18-cbe304944ac1</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[007bdca9-b815-462f-8a18-cbe304944ac1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>76eb8283-fd89-47f6-8c2c-0a61a0704ca3</key>
+                    <parentUnit>
+                        <key name="name" value="007bdca9-b815-462f-8a18-cbe304944ac1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="tenderPerson" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>1c13f766-622c-4fe1-8402-24d692273044</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[1c13f766-622c-4fe1-8402-24d692273044].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>8085d2d1-be1e-4af0-b44f-85486324487f</key>
+                    <parentUnit>
+                        <key name="name" value="1c13f766-622c-4fe1-8402-24d692273044" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="tenderPerson" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>tenderPerson.name</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[tenderPerson.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>dc08a130-e164-4f57-b5ba-79e75ef94f90</key>
+                    <parentUnit>
+                        <key name="name" value="tenderPerson.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="tenderPerson" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>tenderPerson.number</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[tenderPerson.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>130c6f7c-4c8c-42c6-9311-58592a8a7b3c</key>
+                    <parentUnit>
+                        <key name="name" value="tenderPerson.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="tenderPerson" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>costTarget.programmingMoney</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[costTarget.programmingMoney].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>683a54b0-3f0b-44c5-8609-5e4509812799</key>
+                    <parentUnit>
+                        <key name="name" value="costTarget.programmingMoney" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="costTarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="programmingMoney" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>costTarget.amount</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[costTarget.amount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e1512351-3983-47d6-8f86-1139b68b0176</key>
+                    <parentUnit>
+                        <key name="name" value="costTarget.amount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="costTarget" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="amount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>noTendeReasons</name>
+            <userDefined>false</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[noTendeReasons].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>212e2abf-cecb-40fa-ad01-de7da66fa043</key>
+                    <parentUnit>
+                        <key name="name" value="noTendeReasons" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="noTendeReasons" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>invMethod</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[invMethod].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d1221e29-30c2-4366-8432-44952d0ce1a0</key>
+                    <parentUnit>
+                        <key name="name" value="invMethod" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="invMethod" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>durationDepict</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[durationDepict].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7093145e-ceb4-4fe5-a5e2-669cf8586926</key>
+                    <parentUnit>
+                        <key name="name" value="durationDepict" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="durationDepict" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>subject</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[subject].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9a85a23f-6155-46ce-b70a-1eb4c6d80b92</key>
+                    <parentUnit>
+                        <key name="name" value="subject" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="subject" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>businessor.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[businessor.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>71495d7f-0c7c-472f-9458-3396b36529b4</key>
+                    <parentUnit>
+                        <key name="name" value="businessor.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="businessor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>18bbf364-717e-44b4-be5e-282adbf533f1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[18bbf364-717e-44b4-be5e-282adbf533f1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>659af7c4-c1c9-48ca-a553-2f77221a4e48</key>
+                    <parentUnit>
+                        <key name="name" value="18bbf364-717e-44b4-be5e-282adbf533f1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="businessor" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>c6b9885c-3312-40ba-a21c-a05edda9c34d</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[c6b9885c-3312-40ba-a21c-a05edda9c34d].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>325501e0-810f-480a-823c-9b954b66720c</key>
+                    <parentUnit>
+                        <key name="name" value="c6b9885c-3312-40ba-a21c-a05edda9c34d" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="businessor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>isClearfy</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isClearfy].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c6563f4b-bf67-482a-b7b8-5cb2c8b11842</key>
+                    <parentUnit>
+                        <key name="name" value="isClearfy" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isClearfy" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isInquiry</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isInquiry].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>8ecceba6-b44c-4e89-9e8d-830f4bbc0f64</key>
+                    <parentUnit>
+                        <key name="name" value="isInquiry" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isInquiry" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isIssuing</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isIssuing].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>646bf1ba-aff7-41b8-8ec2-fa01dcdc70c6</key>
+                    <parentUnit>
+                        <key name="name" value="isIssuing" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isIssuing" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>cutTenderDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[cutTenderDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f412ccf2-9b71-4558-8784-c0a10d925b0d</key>
+                    <parentUnit>
+                        <key name="name" value="cutTenderDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="cutTenderDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>projectName</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[projectName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>96d8c4fd-3393-4594-b374-4678c2c1614e</key>
+                    <parentUnit>
+                        <key name="name" value="projectName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isUnionInv</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isUnionInv].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>41ac7d62-b385-4fd2-9533-e0c18ec45f0d</key>
+                    <parentUnit>
+                        <key name="name" value="isUnionInv" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isUnionInv" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>false</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c9f059ae-4c8b-4e80-82d4-04d07bc13499</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="TenderDiscusstion" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+            <key name="name" value="TenderDiscusstionQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>createTime</propertyName>
+            <sortType>DESC</sortType>
+            <userDefined>false</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>7dbfdc4b-0060-4788-88af-228e2bbda5fc</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="TenderDiscusstion" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="invType" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>b4b55492-5158-46de-89c9-0af17e535779</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="95fe4a07-db45-4a3d-98b9-ece8c44568da" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="d11c2034-5dac-41fe-80b8-05f7eb6071ee" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="7dbfdc4b-0060-4788-88af-228e2bbda5fc" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </join>
+        <join>
+            <name>4d27111b-73db-4ac6-b9b3-594290a4bde6</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="TenderDiscusstion" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="purMode" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>d0e8230e-a2f2-48af-9208-62cfd6fe81aa</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="c3b78e87-feee-491b-8b4f-97b69a0c03e4" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="ac0a4d1a-2927-47c3-8ac3-09383100bc57" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="4d27111b-73db-4ac6-b9b3-594290a4bde6" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </join>
+        <join>
+            <name>feb99818-8085-4e0c-96bb-52163c062cde</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="TenderDiscusstion" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="costTarget" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>8dac4491-30c1-4187-a6d3-ec079df09dee</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="d5616f22-c33e-43aa-adf6-da413475c7fa" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="51f82469-54ec-474d-a04e-e776cc16fa31" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="feb99818-8085-4e0c-96bb-52163c062cde" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </join>
+        <join>
+            <name>5a3e4a69-9be4-4ba9-a024-101caafdb418</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="TenderDiscusstion" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="tenderPerson" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>09c5427f-e343-4e40-b6c4-b15fc9b2c6df</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="007bdca9-b815-462f-8a18-cbe304944ac1" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="1c13f766-622c-4fe1-8402-24d692273044" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="5a3e4a69-9be4-4ba9-a024-101caafdb418" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </join>
+        <join>
+            <name>6867795a-8bb4-4abc-8964-0e1f596b001b</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="TenderDiscusstion" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="businessor" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>f4f95041-b4e9-4181-b8b2-63ba3becd90a</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="18bbf364-717e-44b4-be5e-282adbf533f1" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="c6b9885c-3312-40ba-a21c-a05edda9c34d" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="6867795a-8bb4-4abc-8964-0e1f596b001b" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="TenderDiscusstionQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="议标查询" />
+            <lang locale="zh_HK" value="議標查詢" />
+            <lang locale="zh_TW" value="議標查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="议标" />
+            <lang locale="zh_CN" value="议标" />
+            <lang locale="zh_TW" value="议标" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="议标查询" />
+            <lang locale="zh_HK" value="議標查詢" />
+            <lang locale="zh_TW" value="議標查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="议标管理" />
+            <lang locale="zh_CN" value="议标管理" />
+            <lang locale="zh_TW" value="议标管理" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].subObjects.subEntity[TenderDiscusstion].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].subObjects.subEntity[businessor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].subObjects.subEntity[costTarget].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].subObjects.subEntity[invType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].subObjects.subEntity[purMode].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].subObjects.subEntity[tenderPerson].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[007bdca9-b815-462f-8a18-cbe304944ac1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[18bbf364-717e-44b4-be5e-282adbf533f1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[1c13f766-622c-4fe1-8402-24d692273044].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[51f82469-54ec-474d-a04e-e776cc16fa31].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[95fe4a07-db45-4a3d-98b9-ece8c44568da].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[ac0a4d1a-2927-47c3-8ac3-09383100bc57].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[c3b78e87-feee-491b-8b4f-97b69a0c03e4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[c6b9885c-3312-40ba-a21c-a05edda9c34d].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[d11c2034-5dac-41fe-80b8-05f7eb6071ee].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.propertyUnit[d5616f22-c33e-43aa-adf6-da413475c7fa].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[bidNum].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="标段数" />
+            <lang locale="zh_HK" value="標段數" />
+            <lang locale="zh_TW" value="標段數" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[bidNum].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[bidNum].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[businessor.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="商务经办人" />
+            <lang locale="zh_HK" value="商務經辦人" />
+            <lang locale="zh_TW" value="商務經辦人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[businessor.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[businessor.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[businessor.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[costTarget.amount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本位币金额" />
+            <lang locale="zh_HK" value="本位幣金額" />
+            <lang locale="zh_TW" value="本位幣金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[costTarget.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本目标" />
+            <lang locale="zh_HK" value="成本目標" />
+            <lang locale="zh_TW" value="成本目標" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[costTarget.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[costTarget.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[costTarget.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[costTarget.programmingMoney].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="规划金额" />
+            <lang locale="zh_HK" value="規劃金額" />
+            <lang locale="zh_TW" value="規劃金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="createTime" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[cutTenderDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="截标时间" />
+            <lang locale="zh_HK" value="截標時間" />
+            <lang locale="zh_TW" value="截標時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[cutTenderDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[cutTenderDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[durationDepict].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工期描述" />
+            <lang locale="zh_HK" value="工期描述" />
+            <lang locale="zh_TW" value="工期描述" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[durationDepict].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[durationDepict].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[invForm].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="采购形式" />
+            <lang locale="zh_HK" value="採購形式" />
+            <lang locale="zh_TW" value="採購形式" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[invForm].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[invForm].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[invMethod].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="采购方式" />
+            <lang locale="zh_HK" value="採購方式" />
+            <lang locale="zh_TW" value="採購方式" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[invMethod].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[invMethod].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[invType.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="采购类型" />
+            <lang locale="zh_HK" value="採購類型" />
+            <lang locale="zh_TW" value="採購類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[invType.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[invType.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isClearfy].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否澄清报价" />
+            <lang locale="zh_HK" value="是否澄清報價" />
+            <lang locale="zh_TW" value="是否澄清報價" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isClearfy].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isClearfy].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isInquiry].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否询价" />
+            <lang locale="zh_HK" value="是否詢價" />
+            <lang locale="zh_TW" value="是否詢價" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isInquiry].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isInquiry].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isIssuing].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否发标" />
+            <lang locale="zh_HK" value="是否發標" />
+            <lang locale="zh_TW" value="是否發標" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isIssuing].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isIssuing].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isMulBid].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否多标段" />
+            <lang locale="zh_HK" value="是否多標段" />
+            <lang locale="zh_TW" value="是否多標段" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isMulBid].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isMulBid].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[isUnionInv].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否联合" />
+            <lang locale="zh_HK" value="是否聯合" />
+            <lang locale="zh_TW" value="是否聯合" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="议标名称" />
+            <lang locale="zh_HK" value="議標名稱" />
+            <lang locale="zh_TW" value="議標名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[noTendeReasons].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="不招标原因" />
+            <lang locale="zh_HK" value="不招標原因" />
+            <lang locale="zh_TW" value="不招標原因" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[noTendeReasons].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[noTendeReasons].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="议标编号" />
+            <lang locale="zh_HK" value="議標編號" />
+            <lang locale="zh_TW" value="議標編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[picketageTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="定标时间" />
+            <lang locale="zh_HK" value="定標時間" />
+            <lang locale="zh_TW" value="定標時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[picketageTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[picketageTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[projectName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[purMode.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="采购方式" />
+            <lang locale="zh_HK" value="採購方式" />
+            <lang locale="zh_TW" value="採購方式" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[purMode.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[purMode.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[state].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="状态" />
+            <lang locale="zh_HK" value="狀態" />
+            <lang locale="zh_TW" value="狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[state].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[state].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[subject].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="事由" />
+            <lang locale="zh_HK" value="事由" />
+            <lang locale="zh_TW" value="事由" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[subject].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[subject].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[tenderPerson.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="经办人名称" />
+            <lang locale="zh_HK" value="經辦人名稱" />
+            <lang locale="zh_TW" value="經辦人名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[tenderPerson.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[tenderPerson.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.invite.news.app.TenderDiscusstionQuery].units.queryField[tenderPerson.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="经办人编码" />
+            <lang locale="zh_HK" value="經辦人編碼" />
+            <lang locale="zh_TW" value="經辦人編碼" />
+        </rs>
+    </resource>
+</joinQuery>
+

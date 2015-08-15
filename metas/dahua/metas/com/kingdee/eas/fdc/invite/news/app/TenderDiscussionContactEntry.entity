@@ -1,0 +1,1453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entityObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.invite.news.app</package>
+    <name>TenderDiscussionContactEntry</name>
+    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].alias</alias>
+    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].description</description>
+    <userDefined>true</userDefined>
+    <bosType>C65A9154</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.fdc.invite.news.TenderDiscussionContactEntry</businessImplName>
+    <businessControllerName>com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntryController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].description</description>
+            <innerID>d20c5736-0d23-4257-a52b-1b9d59aae387</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].description</description>
+            <innerID>0108b2e1-f747-47a4-842b-c69fc8cba6d8</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].description</description>
+            <innerID>7ccc38c5-1418-4191-8272-ddc82ee2f82b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].description</description>
+            <innerID>ed8dc002-61a2-464a-8681-6e8db2d2dba5</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].description</description>
+            <innerID>417c2b95-c732-4fbd-b55e-6d40679ed64e</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].description</description>
+            <innerID>1830e1ee-5a2b-4e83-88ea-c6edc6bbac62</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].description</description>
+            <innerID>54e873e4-61c7-45f6-8cb6-30658cadc94f</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].description</description>
+            <innerID>3365d6dc-e143-4fe3-ba4e-3449a2ad7e0b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>update</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[update].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[update].description</description>
+            <innerID>905bad22-7f6c-4e1c-9052-d5b5d4b26035</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[update].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[update].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[update].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[update].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updatePartial</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updatePartial].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updatePartial].description</description>
+            <innerID>39a4cf52-6544-4b30-aaf1-08d1abf3373b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updatePartial].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updatePartial].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updatePartial].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updatePartial].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updateBigObject</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updateBigObject].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updateBigObject].description</description>
+            <innerID>eb9852ae-6b30-409b-ad04-6d464b663439</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updateBigObject].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updateBigObject].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updateBigObject].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updateBigObject].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry</metadataRef>
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].description</description>
+            <innerID>4fea3d6c-c224-4b88-b159-8f39447bd76a</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].description</description>
+            <innerID>ce1f3bcc-9284-48cd-8316-4e3827888528</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].description</description>
+            <innerID>8dab8ee3-a02d-4bf1-aac7-b8cbc61ccdbe</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].description</description>
+            <innerID>6ea8019b-5b00-405d-8ef4-6f68e50a5f22</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+                <parameter>
+                    <name>sorter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].parameters.parameter[sorter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].parameters.parameter[sorter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SorterItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].description</description>
+            <innerID>b7dc33e3-71a9-4be6-ade7-0096c51cc52a</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].description</description>
+            <innerID>d3e2f4ae-af55-4191-af12-11d3e6a7ecc0</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>view</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].parameters.parameter[view].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].parameters.parameter[view].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.EntityViewInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].description</description>
+            <innerID>23e0d82c-e778-48f2-b512-05e62da89145</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].description</description>
+            <innerID>8b0560dd-6b1a-4840-a901-bdb456179deb</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].description</description>
+            <innerID>647d3dd9-e7e3-4544-b367-7f2cd50162a2</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].description</description>
+            <innerID>2a7c600f-f6e4-49f2-a742-b12b07401f31</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>false</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>arrayPK</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[arrayPK].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[arrayPK].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK[]</dataType>
+                    <metadataRef />
+                    <userDefined>false</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+    </methods>
+    <isAbstract>false</isAbstract>
+    <bizUnitPK>com.kingdee.eas.fdc.invite.news.TenderDiscusstion</bizUnitPK>
+    <baseEntity>
+        <key name="package" value="com.kingdee.eas.framework.app" />
+        <key name="name" value="CoreBillEntryBase" />
+    </baseEntity>
+    <table>
+        <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+        <key name="name" value="T_INV_TenderDisContractEntry" />
+    </table>
+    <properties>
+        <linkProperty>
+            <name>contractPro</name>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[contractPro].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[contractPro].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="FContractProgID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="R_TenderDiscusstionContactEntry_ContractProg_contractProg" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>curBuildingEntry</name>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[curBuildingEntry].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[curBuildingEntry].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="R_TenderDiscussionContactEntry_CurBuilding_building" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>parent</name>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[parent].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[parent].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="FParentID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="R_TenderDiscusstion_TenderDiscussionContactEntry_contractEntry" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>curProject</name>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[curProject].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[curProject].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="FCurProjectID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="R_TenderDiscusstionContactEntry_CurProject_project" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>isMulBid</name>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[isMulBid].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[isMulBid].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>Boolean</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>0</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[isMulBid].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FIsMulBid" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>segments</name>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[segments].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[segments].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>Enum</dataType>
+            <metadataRef>com.kingdee.eas.fdc.invite.InviteProjectSegmentEnum</metadataRef>
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>0</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[segments].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FSegments" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>areaType</name>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[areaType].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[areaType].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>Enum</dataType>
+            <metadataRef>com.kingdee.eas.fdc.invite.BuildAreaEnum</metadataRef>
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>0</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[areaType].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FAreaType" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>involveArea</name>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[involveArea].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[involveArea].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[involveArea].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FInvolveArea" />
+            </mappingField>
+        </ownProperty>
+        <linkProperty>
+            <name>purPlan</name>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[purPlan].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[purPlan].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="FPurPlanID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+                <key name="name" value="R_TenderDiscusstionContactEntry_PriPurMonthPlan_purPlan" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>bidNum</name>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[bidNum].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[bidNum].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>Enum</dataType>
+            <metadataRef>com.kingdee.eas.fdc.invite.InviteProjectSegmentEnum</metadataRef>
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>0</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[bidNum].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FBidNum" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>controlAmt</name>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[controlAmt].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[controlAmt].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>0</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[controlAmt].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FControlAmt" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>projectSchedule</name>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[projectSchedule].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[projectSchedule].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>Integer</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>4</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[projectSchedule].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FProjectSchedule" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>description</name>
+            <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[description].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[description].description</description>
+            <userDefined>false</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>200</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[description].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="Fdescription" />
+            </mappingField>
+        </ownProperty>
+    </properties>
+    <logicalKey>
+        <name>id</name>
+        <alias>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].logicalKey[id].alias</alias>
+        <description>entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].logicalKey[id].description</description>
+        <keyClass>com.kingdee.bos.dao.IObjectPK</keyClass>
+        <userDefined>false</userDefined>
+        <keyProperties>
+            <baseProperty>
+                <key name="name" value="id" />
+            </baseProperty>
+        </keyProperties>
+    </logicalKey>
+    <resource>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约构成分录" />
+            <lang locale="zh_HK" value="合約構成分錄" />
+            <lang locale="zh_TW" value="合約構成分錄" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约构成分录" />
+            <lang locale="zh_HK" value="合約構成分錄" />
+            <lang locale="zh_TW" value="合約構成分錄" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].logicalKey[id].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].logicalKey[id].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[addnew].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[arrayPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[arrayPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[exists].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].parameters.parameter[view].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getCollection].parameters.parameter[view].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].parameters.parameter[sorter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getPKList].parameters.parameter[sorter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[selector].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[getValue].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updateBigObject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updateBigObject].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updateBigObject].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updateBigObject].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updateBigObject].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updateBigObject].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updatePartial].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updatePartial].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updatePartial].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updatePartial].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updatePartial].parameters.parameter[selector].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[updatePartial].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[update].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[update].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[update].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[update].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[update].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].methods.method[update].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[contractPro].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约框架" />
+            <lang locale="zh_HK" value="合約框架" />
+            <lang locale="zh_TW" value="合約框架" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[contractPro].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约框架" />
+            <lang locale="zh_HK" value="合約框架" />
+            <lang locale="zh_TW" value="合約框架" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[curBuildingEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="招标范围" />
+            <lang locale="zh_HK" value="招標範圍" />
+            <lang locale="zh_TW" value="招標範圍" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[curBuildingEntry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="招标范围" />
+            <lang locale="zh_HK" value="招標範圍" />
+            <lang locale="zh_TW" value="招標範圍" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[curProject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[curProject].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[parent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="议标" />
+            <lang locale="zh_HK" value="議標" />
+            <lang locale="zh_TW" value="議標" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[parent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="议标" />
+            <lang locale="zh_HK" value="議標" />
+            <lang locale="zh_TW" value="議標" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[purPlan].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="采购计划" />
+            <lang locale="zh_HK" value="採購計畫" />
+            <lang locale="zh_TW" value="採購計畫" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.linkProperty[purPlan].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="采购计划" />
+            <lang locale="zh_HK" value="採購計畫" />
+            <lang locale="zh_TW" value="採購計畫" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[areaType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="面积类型" />
+            <lang locale="zh_HK" value="面積類型" />
+            <lang locale="zh_TW" value="面積類型" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[areaType].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[areaType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="面积类型" />
+            <lang locale="zh_HK" value="面積類型" />
+            <lang locale="zh_TW" value="面積類型" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[bidNum].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="对应标段" />
+            <lang locale="zh_HK" value="對應標段" />
+            <lang locale="zh_TW" value="對應標段" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[bidNum].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[bidNum].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="对应标段" />
+            <lang locale="zh_HK" value="對應標段" />
+            <lang locale="zh_TW" value="對應標段" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[controlAmt].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="采购控制价" />
+            <lang locale="zh_HK" value="採購控制價" />
+            <lang locale="zh_TW" value="採購控制價" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[controlAmt].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[controlAmt].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="采购控制价" />
+            <lang locale="zh_HK" value="採購控制價" />
+            <lang locale="zh_TW" value="採購控制價" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[description].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="说明" />
+            <lang locale="zh_HK" value="說明" />
+            <lang locale="zh_TW" value="說明" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[description].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[description].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="说明" />
+            <lang locale="zh_HK" value="說明" />
+            <lang locale="zh_TW" value="說明" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[involveArea].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="涉及面积" />
+            <lang locale="zh_HK" value="涉及面積" />
+            <lang locale="zh_TW" value="涉及面積" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[involveArea].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[involveArea].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="涉及面积" />
+            <lang locale="zh_HK" value="涉及面積" />
+            <lang locale="zh_TW" value="涉及面積" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[isMulBid].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否多标段" />
+            <lang locale="zh_HK" value="是否多標段" />
+            <lang locale="zh_TW" value="是否多標段" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[isMulBid].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[isMulBid].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[projectSchedule].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="总工期" />
+            <lang locale="zh_HK" value="總工期" />
+            <lang locale="zh_TW" value="總工期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[projectSchedule].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="0" />
+            <lang locale="zh_HK" value="0" />
+            <lang locale="zh_TW" value="0" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[projectSchedule].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="总工期" />
+            <lang locale="zh_HK" value="總工期" />
+            <lang locale="zh_TW" value="總工期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[segments].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="总标段" />
+            <lang locale="zh_HK" value="總標段" />
+            <lang locale="zh_TW" value="總標段" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[segments].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.invite.news.app.TenderDiscussionContactEntry].properties.ownProperty[segments].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="总标段" />
+            <lang locale="zh_HK" value="總標段" />
+            <lang locale="zh_TW" value="總標段" />
+        </rs>
+    </resource>
+</entityObject>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.invite.news.app</package>
+    <name>R_TenderDiscussionContactEntry_CurBuilding_building</name>
+    <alias>relationship[com.kingdee.eas.fdc.invite.news.app.R_TenderDiscussionContactEntry_CurBuilding_building].alias</alias>
+    <description>relationship[com.kingdee.eas.fdc.invite.news.app.R_TenderDiscussionContactEntry_CurBuilding_building].description</description>
+    <userDefined>false</userDefined>
+    <type>Composition</type>
+    <clientCardinality>1</clientCardinality>
+    <supplierCardinality>0..*</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+        <key name="name" value="TenderDiscussionContactEntry" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.fdc.invite.news.app" />
+        <key name="name" value="TenderDiscConBuildEntry" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.fdc.invite.news.app.R_TenderDiscussionContactEntry_CurBuilding_building].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约构成与楼栋分录关系" />
+            <lang locale="zh_HK" value="合約構成與樓棟分錄關係" />
+            <lang locale="zh_TW" value="合約構成與樓棟分錄關係" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.fdc.invite.news.app.R_TenderDiscussionContactEntry_CurBuilding_building].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约构成与楼栋分录关系" />
+            <lang locale="zh_HK" value="合約構成與樓棟分錄關係" />
+            <lang locale="zh_TW" value="合約構成與樓棟分錄關係" />
+        </rs>
+    </resource>
+</relationship>
+
