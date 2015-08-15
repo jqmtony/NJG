@@ -20,7 +20,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         put("copySupp", new com.kingdee.eas.fdc.contract.CopySupplierEntryCollection());
     }
     /**
-     * Object: 变更签证申请分录 's 主送单位 property 
+     * Object: 变更签证申请下发单位分录 's 主送单位 property 
      */
     public com.kingdee.eas.basedata.master.cssp.SupplierInfo getMainSupp()
     {
@@ -31,7 +31,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         put("mainSupp", item);
     }
     /**
-     * Object: 变更签证申请分录 's 合同 property 
+     * Object: 变更签证申请下发单位分录 's 合同 property 
      */
     public com.kingdee.eas.fdc.contract.ContractBillInfo getContractBill()
     {
@@ -42,7 +42,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         put("contractBill", item);
     }
     /**
-     * Object:变更签证申请分录's 是否责任扣款单位property 
+     * Object:变更签证申请下发单位分录's 是否责任扣款单位property 
      */
     public boolean isIsDeduct()
     {
@@ -53,7 +53,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         setBoolean("isDeduct", item);
     }
     /**
-     * Object:变更签证申请分录's 责任扣款金额property 
+     * Object:变更签证申请下发单位分录's 责任扣款金额property 
      */
     public java.math.BigDecimal getDeductAmount()
     {
@@ -64,7 +64,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         setBigDecimal("deductAmount", item);
     }
     /**
-     * Object:变更签证申请分录's 扣款原因property 
+     * Object:变更签证申请下发单位分录's 扣款原因property 
      */
     public String getDeductReason()
     {
@@ -75,7 +75,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         setString("deductReason", item);
     }
     /**
-     * Object:变更签证申请分录's 成本测算金额property 
+     * Object:变更签证申请下发单位分录's 成本测算金额property 
      */
     public java.math.BigDecimal getCostAmount()
     {
@@ -86,7 +86,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         setBigDecimal("costAmount", item);
     }
     /**
-     * Object:变更签证申请分录's 成本测算说明property 
+     * Object:变更签证申请下发单位分录's 成本测算说明property 
      */
     public String getCostDescription()
     {
@@ -97,7 +97,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         setString("costDescription", item);
     }
     /**
-     * Object: 变更签证申请分录 's 变更签证申请 property 
+     * Object: 变更签证申请下发单位分录 's 变更签证申请 property 
      */
     public com.kingdee.eas.fdc.contract.ChangeAuditBillInfo getParent()
     {
@@ -108,7 +108,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         put("parent", item);
     }
     /**
-     * Object:变更签证申请分录's 结算方式property 
+     * Object:变更签证申请下发单位分录's 结算方式property 
      */
     public String getBalanceType()
     {
@@ -119,7 +119,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         setString("balanceType", item);
     }
     /**
-     * Object: 变更签证申请分录 's 测算人 property 
+     * Object: 变更签证申请下发单位分录 's 测算人 property 
      */
     public com.kingdee.eas.base.permission.UserInfo getReckonor()
     {
@@ -130,7 +130,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         put("reckonor", item);
     }
     /**
-     * Object: 变更签证申请分录 's 责任归属单位 property 
+     * Object: 变更签证申请下发单位分录 's 责任归属单位 property 
      */
     public com.kingdee.eas.basedata.master.cssp.SupplierInfo getDutySupplier()
     {
@@ -141,7 +141,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         put("dutySupplier", item);
     }
     /**
-     * Object: 变更签证申请分录 's 指令单 property 
+     * Object: 变更签证申请下发单位分录 's 指令单 property 
      */
     public com.kingdee.eas.fdc.contract.ContractChangeBillInfo getContractChange()
     {
@@ -152,21 +152,21 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         put("contractChange", item);
     }
     /**
-     * Object: 变更签证申请分录 's 执行内容 property 
+     * Object: 变更签证申请下发单位分录 's 执行内容 property 
      */
     public com.kingdee.eas.fdc.contract.SupplierContentEntryCollection getEntrys()
     {
         return (com.kingdee.eas.fdc.contract.SupplierContentEntryCollection)get("entrys");
     }
     /**
-     * Object: 变更签证申请分录 's 抄送单位 property 
+     * Object: 变更签证申请下发单位分录 's 抄送单位 property 
      */
     public com.kingdee.eas.fdc.contract.CopySupplierEntryCollection getCopySupp()
     {
         return (com.kingdee.eas.fdc.contract.CopySupplierEntryCollection)get("copySupp");
     }
     /**
-     * Object: 变更签证申请分录 's 责任归属部门 property 
+     * Object: 变更签证申请下发单位分录 's 责任归属部门 property 
      */
     public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getDutyOrg()
     {
@@ -177,7 +177,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         put("dutyOrg", item);
     }
     /**
-     * Object: 变更签证申请分录 's 币别 property 
+     * Object: 变更签证申请下发单位分录 's 币别 property 
      */
     public com.kingdee.eas.basedata.assistant.CurrencyInfo getCurrency()
     {
@@ -188,7 +188,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         put("currency", item);
     }
     /**
-     * Object:变更签证申请分录's 责任扣款金额原币property 
+     * Object:变更签证申请下发单位分录's 责任扣款金额原币property 
      */
     public java.math.BigDecimal getOriDeductAmount()
     {
@@ -199,7 +199,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         setBigDecimal("oriDeductAmount", item);
     }
     /**
-     * Object:变更签证申请分录's 成本测算金额property 
+     * Object:变更签证申请下发单位分录's 成本测算金额property 
      */
     public java.math.BigDecimal getOriCostAmount()
     {
@@ -210,7 +210,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         setBigDecimal("oriCostAmount", item);
     }
     /**
-     * Object:变更签证申请分录's 汇率property 
+     * Object:变更签证申请下发单位分录's 汇率property 
      */
     public java.math.BigDecimal getExRate()
     {
@@ -221,7 +221,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         setBigDecimal("exRate", item);
     }
     /**
-     * Object:变更签证申请分录's 原始联系单号property 
+     * Object:变更签证申请下发单位分录's 原始联系单号property 
      */
     public String getOriginalContactNum()
     {
@@ -232,7 +232,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         setString("originalContactNum", item);
     }
     /**
-     * Object:变更签证申请分录's 是否确认变更金额property 
+     * Object:变更签证申请下发单位分录's 是否确认变更金额property 
      */
     public boolean isIsSureChangeAmt()
     {
@@ -243,7 +243,7 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
         setBoolean("isSureChangeAmt", item);
     }
     /**
-     * Object:变更签证申请分录's 施工方报审金额property 
+     * Object:变更签证申请下发单位分录's 施工方报审金额property 
      */
     public java.math.BigDecimal getConstructPrice()
     {
@@ -252,6 +252,17 @@ public class AbstractChangeSupplierEntryInfo extends com.kingdee.eas.framework.C
     public void setConstructPrice(java.math.BigDecimal item)
     {
         setBigDecimal("constructPrice", item);
+    }
+    /**
+     * Object: 变更签证申请下发单位分录 's 预估变更签证单 property 
+     */
+    public com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo getForecastChangeVi()
+    {
+        return (com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo)get("forecastChangeVi");
+    }
+    public void setForecastChangeVi(com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo item)
+    {
+        put("forecastChangeVi", item);
     }
     public BOSObjectType getBOSType()
     {

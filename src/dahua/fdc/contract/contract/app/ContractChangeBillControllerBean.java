@@ -534,6 +534,7 @@ public class ContractChangeBillControllerBean extends
     		info.setSpecialtyTypeName(info.getSpecialtyType().getName());
 		super._update(ctx, pk, info);
 	}
+    
 
     /**
      * ÅúÁ¿Ç©Ö¤

@@ -45,12 +45,15 @@ public abstract class AbstractSpecialtyTypeEntryControllerBean extends CoreBillE
     public SpecialtyTypeEntryCollection getSpecialtyTypeEntryCollection(Context ctx) throws BOSException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("76736b1f-e3b5-48c1-9ffa-7460829dccc3"), new Object[]{ctx});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("f81b26b0-1825-40da-a867-9a4836a2ebf3"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SpecialtyTypeEntryCollection retValue = (SpecialtyTypeEntryCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SpecialtyTypeEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -65,12 +68,15 @@ public abstract class AbstractSpecialtyTypeEntryControllerBean extends CoreBillE
     public SpecialtyTypeEntryCollection getSpecialtyTypeEntryCollection(Context ctx, EntityViewInfo view) throws BOSException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("c40551a7-b74a-4783-bf56-08c7c82b7417"), new Object[]{ctx, view});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("3ed5aae1-294a-4a99-ab81-b64bde749e71"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SpecialtyTypeEntryCollection retValue = (SpecialtyTypeEntryCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SpecialtyTypeEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -85,12 +91,15 @@ public abstract class AbstractSpecialtyTypeEntryControllerBean extends CoreBillE
     public SpecialtyTypeEntryCollection getSpecialtyTypeEntryCollection(Context ctx, String oql) throws BOSException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("56bb1daa-dc84-49cc-ba22-dbb9e28dc3a1"), new Object[]{ctx, oql});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("35b6aa9e-9757-4722-b3f5-0929058ffcbb"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SpecialtyTypeEntryCollection retValue = (SpecialtyTypeEntryCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SpecialtyTypeEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {

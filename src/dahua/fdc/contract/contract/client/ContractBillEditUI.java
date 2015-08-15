@@ -5730,9 +5730,9 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		typeInfo = ContractTypeFactory.getRemoteInstance().getContractTypeInfo(new ObjectUuidPK(typeInfo.getId()));
 		boolean isRef = typeInfo.isIsRefProgram();
 
-		if (prmtFwContract.isRequired() && isRef && conContrarctRule.isVisible()) {
-			FDCClientVerifyHelper.verifyEmpty(this, prmtFwContract);
-		}
+//		if (prmtFwContract.isRequired() && isRef && conContrarctRule.isVisible()) {
+//			FDCClientVerifyHelper.verifyEmpty(this, prmtFwContract);
+//		}
 		FDCClientVerifyHelper.verifyEmpty(this, prmtlandDeveloper);
 		
 		//R20141226-0137   合同单据责任人字段是否可以设置不比录并隐藏

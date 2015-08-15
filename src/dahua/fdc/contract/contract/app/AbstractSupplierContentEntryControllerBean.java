@@ -50,10 +50,13 @@ public abstract class AbstractSupplierContentEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("0c6a46f0-0111-1000-e000-0014c0a80e94"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SupplierContentEntryInfo retValue = (SupplierContentEntryInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SupplierContentEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -72,10 +75,13 @@ public abstract class AbstractSupplierContentEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("0c6a46f0-0111-1000-e000-0015c0a80e94"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SupplierContentEntryInfo retValue = (SupplierContentEntryInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SupplierContentEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -94,10 +100,13 @@ public abstract class AbstractSupplierContentEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("0c6a46f0-0111-1000-e000-0016c0a80e94"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SupplierContentEntryInfo retValue = (SupplierContentEntryInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SupplierContentEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -116,10 +125,13 @@ public abstract class AbstractSupplierContentEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("0c6a46f0-0111-1000-e000-0017c0a80e94"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SupplierContentEntryCollection retValue = (SupplierContentEntryCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SupplierContentEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -136,10 +148,13 @@ public abstract class AbstractSupplierContentEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("0c6a46f0-0111-1000-e000-0018c0a80e94"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SupplierContentEntryCollection retValue = (SupplierContentEntryCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SupplierContentEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -156,10 +171,13 @@ public abstract class AbstractSupplierContentEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("0c6a46f0-0111-1000-e000-0019c0a80e94"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SupplierContentEntryCollection retValue = (SupplierContentEntryCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SupplierContentEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {

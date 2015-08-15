@@ -13,10 +13,10 @@ import com.kingdee.util.enums.StringEnum;
  */
 public class OfferEnum extends StringEnum
 {
-    public static final String SELFCOM_VALUE = "SELFCOM";
-    public static final String DESIGNCOM_VALUE = "DESIGNCOM";
-    public static final String CONSTRPARTY_VALUE = "CONSTRPARTY";
-    public static final String SUPERVISER_VALUE = "SUPERVISER";
+    public static final String SELFCOM_VALUE = "SELFCOM";//alias=我司
+    public static final String DESIGNCOM_VALUE = "DESIGNCOM";//alias=设计公司
+    public static final String CONSTRPARTY_VALUE = "CONSTRPARTY";//alias=施工方
+    public static final String SUPERVISER_VALUE = "SUPERVISER";//alias=监理方
 
     public static final OfferEnum SELFCOM = new OfferEnum("SELFCOM", SELFCOM_VALUE);
     public static final OfferEnum DESIGNCOM = new OfferEnum("DESIGNCOM", DESIGNCOM_VALUE);

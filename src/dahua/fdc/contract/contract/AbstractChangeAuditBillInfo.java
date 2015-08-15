@@ -21,14 +21,14 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         put("specialtyTypeEntry", new com.kingdee.eas.fdc.contract.SpecialtyTypeEntryCollection());
     }
     /**
-     * Object: 变更签证申请 's 变更内容分录 property 
+     * Object: 合同变更发起 's 变更内容分录 property 
      */
     public com.kingdee.eas.fdc.contract.ChangeAuditEntryCollection getEntrys()
     {
         return (com.kingdee.eas.fdc.contract.ChangeAuditEntryCollection)get("entrys");
     }
     /**
-     * Object: 变更签证申请 's 工程项目 property 
+     * Object: 合同变更发起 's 工程项目 property 
      */
     public com.kingdee.eas.fdc.basedata.CurProjectInfo getCurProject()
     {
@@ -39,7 +39,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         put("curProject", item);
     }
     /**
-     * Object: 变更签证申请 's 变更类型 property 
+     * Object: 合同变更发起 's 变更类型 property 
      */
     public com.kingdee.eas.fdc.basedata.ChangeTypeInfo getAuditType()
     {
@@ -50,7 +50,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         put("auditType", item);
     }
     /**
-     * Object: 变更签证申请 's 变更原因 property 
+     * Object: 合同变更发起 's 变更原因 property 
      */
     public com.kingdee.eas.fdc.basedata.ChangeReasonInfo getChangeReason()
     {
@@ -61,7 +61,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         put("changeReason", item);
     }
     /**
-     * Object:变更签证申请's 状态property 
+     * Object:合同变更发起's 状态property 
      */
     public com.kingdee.eas.fdc.contract.ChangeBillStateEnum getChangeState()
     {
@@ -74,7 +74,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
 		}
     }
     /**
-     * Object:变更签证申请's 紧急程度property 
+     * Object:合同变更发起's 紧急程度property 
      */
     public com.kingdee.eas.fdc.contract.ChangeUrgentDegreeEnum getUrgentDegree()
     {
@@ -87,14 +87,14 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
 		}
     }
     /**
-     * Object: 变更签证申请 's 变更签证申请下发单位分录 property 
+     * Object: 合同变更发起 's 变更签证申请下发单位分录 property 
      */
     public com.kingdee.eas.fdc.contract.ChangeSupplierEntryCollection getSuppEntry()
     {
         return (com.kingdee.eas.fdc.contract.ChangeSupplierEntryCollection)get("suppEntry");
     }
     /**
-     * Object: 变更签证申请 's 承包类型 property 
+     * Object: 合同变更发起 's 承包类型 property 
      */
     public com.kingdee.eas.fdc.basedata.JobTypeInfo getJobType()
     {
@@ -105,7 +105,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         put("jobType", item);
     }
     /**
-     * Object: 变更签证申请 's 专业类型 property 
+     * Object: 合同变更发起 's 专业类型 property 
      */
     public com.kingdee.eas.fdc.basedata.SpecialtyTypeInfo getSpecialtyType()
     {
@@ -116,7 +116,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         put("specialtyType", item);
     }
     /**
-     * Object:变更签证申请's 变更主题property 
+     * Object:合同变更发起's 变更主题property 
      */
     public String getChangeSubject()
     {
@@ -127,7 +127,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setString("changeSubject", item);
     }
     /**
-     * Object:变更签证申请's 附图情况property 
+     * Object:合同变更发起's 附图情况property 
      */
     public com.kingdee.eas.fdc.contract.GraphCountEnum getGraphCount()
     {
@@ -140,7 +140,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
 		}
     }
     /**
-     * Object:变更签证申请's 下发单位个数property 
+     * Object:合同变更发起's 下发单位个数property 
      */
     public int getSuppCount()
     {
@@ -151,7 +151,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setInt("suppCount", item);
     }
     /**
-     * Object:变更签证申请's 是否提前下发property 
+     * Object:合同变更发起's 是否提前下发property 
      */
     public boolean isIsRegister()
     {
@@ -162,7 +162,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setBoolean("isRegister", item);
     }
     /**
-     * Object:变更签证申请's 成本测算金额汇总property 
+     * Object:合同变更发起's 成本测算金额汇总property 
      */
     public java.math.BigDecimal getTotalCost()
     {
@@ -173,7 +173,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setBigDecimal("totalCost", item);
     }
     /**
-     * Object:变更签证申请's 涉及无效成本的金额property 
+     * Object:合同变更发起's 涉及无效成本的金额property 
      */
     public java.math.BigDecimal getCostNouse()
     {
@@ -184,7 +184,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setBigDecimal("costNouse", item);
     }
     /**
-     * Object:变更签证申请's 涉及无效成本原因property 
+     * Object:合同变更发起's 涉及无效成本原因property 
      */
     public String getReason()
     {
@@ -195,7 +195,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setString("reason", item);
     }
     /**
-     * Object:变更签证申请's 甲方承担费用property 
+     * Object:合同变更发起's 甲方承担费用property 
      */
     public java.math.BigDecimal getAmountA()
     {
@@ -206,7 +206,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setBigDecimal("amountA", item);
     }
     /**
-     * Object:变更签证申请's 责任单位承担费用property 
+     * Object:合同变更发起's 责任单位承担费用property 
      */
     public java.math.BigDecimal getAmountDutySupp()
     {
@@ -217,7 +217,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setBigDecimal("amountDutySupp", item);
     }
     /**
-     * Object: 变更签证申请 's 提出部门 property 
+     * Object: 合同变更发起 's 提出部门 property 
      */
     public com.kingdee.eas.basedata.org.AdminOrgUnitInfo getConductDept()
     {
@@ -228,7 +228,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         put("conductDept", item);
     }
     /**
-     * Object:变更签证申请's 提前下发原因property 
+     * Object:合同变更发起's 提前下发原因property 
      */
     public String getAheadReason()
     {
@@ -239,7 +239,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setString("aheadReason", item);
     }
     /**
-     * Object:变更签证申请's 批准人property 
+     * Object:合同变更发起's 批准人property 
      */
     public String getValidator()
     {
@@ -250,7 +250,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setString("validator", item);
     }
     /**
-     * Object:变更签证申请's 沟通方式property 
+     * Object:合同变更发起's 沟通方式property 
      */
     public String getConnectType()
     {
@@ -261,7 +261,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setString("connectType", item);
     }
     /**
-     * Object:变更签证申请's 工程项目property 
+     * Object:合同变更发起's 工程项目property 
      */
     public String getCurProjectName()
     {
@@ -272,7 +272,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setString("curProjectName", item);
     }
     /**
-     * Object:变更签证申请's 变更类型property 
+     * Object:合同变更发起's 变更类型property 
      */
     public String getAuditTypeName()
     {
@@ -283,7 +283,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setString("auditTypeName", item);
     }
     /**
-     * Object:变更签证申请's 承包类型property 
+     * Object:合同变更发起's 承包类型property 
      */
     public String getJobTypeName()
     {
@@ -294,7 +294,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setString("jobTypeName", item);
     }
     /**
-     * Object:变更签证申请's 专业类型property 
+     * Object:合同变更发起's 专业类型property 
      */
     public String getSpecialtyTypeName()
     {
@@ -305,7 +305,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setString("specialtyTypeName", item);
     }
     /**
-     * Object:变更签证申请's 是否存在无效成本property 
+     * Object:合同变更发起's 是否存在无效成本property 
      */
     public boolean isIsNoUse()
     {
@@ -316,7 +316,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setBoolean("isNoUse", item);
     }
     /**
-     * Object: 变更签证申请 's 无效成本原因 property 
+     * Object: 合同变更发起 's 无效成本原因 property 
      */
     public com.kingdee.eas.fdc.basedata.InvalidCostReasonInfo getInvalidCostReason()
     {
@@ -327,7 +327,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         put("invalidCostReason", item);
     }
     /**
-     * Object:变更签证申请's 单据来源方式property 
+     * Object:合同变更发起's 单据来源方式property 
      */
     public com.kingdee.eas.fdc.basedata.SourceTypeEnum getSourceType()
     {
@@ -340,7 +340,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
 		}
     }
     /**
-     * Object:变更签证申请's 提出方property 
+     * Object:合同变更发起's 提出方property 
      */
     public com.kingdee.eas.fdc.contract.OfferEnum getOffer()
     {
@@ -353,7 +353,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
 		}
     }
     /**
-     * Object: 变更签证申请 's 施工单位 property 
+     * Object: 合同变更发起 's 施工单位 property 
      */
     public com.kingdee.eas.basedata.master.cssp.SupplierInfo getConstrUnit()
     {
@@ -364,7 +364,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         put("constrUnit", item);
     }
     /**
-     * Object: 变更签证申请 's 设计单位 property 
+     * Object: 合同变更发起 's 设计单位 property 
      */
     public com.kingdee.eas.basedata.master.cssp.SupplierInfo getDesignUnit()
     {
@@ -375,7 +375,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         put("designUnit", item);
     }
     /**
-     * Object:变更签证申请's 施工部位 property 
+     * Object:合同变更发起's 施工部位 property 
      */
     public String getConstrSite()
     {
@@ -386,7 +386,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setString("constrSite", item);
     }
     /**
-     * Object:变更签证申请's 原因说明property 
+     * Object:合同变更发起's 原因说明property 
      */
     public String getReaDesc()
     {
@@ -397,7 +397,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setString("reaDesc", item);
     }
     /**
-     * Object: 变更签证申请 's 提出单位 property 
+     * Object: 合同变更发起 's 提出单位 property 
      */
     public com.kingdee.eas.basedata.master.cssp.SupplierInfo getConductUnit()
     {
@@ -408,7 +408,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         put("conductUnit", item);
     }
     /**
-     * Object:变更签证申请's 是否重大变更property 
+     * Object:合同变更发起's 是否重大变更property 
      */
     public boolean isIsImportChange()
     {
@@ -419,7 +419,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setBoolean("isImportChange", item);
     }
     /**
-     * Object:变更签证申请's 归档稿property 
+     * Object:合同变更发起's 归档稿property 
      */
     public String getOwnID()
     {
@@ -430,14 +430,14 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         setString("ownID", item);
     }
     /**
-     * Object: 变更签证申请 's 专业类型 property 
+     * Object: 合同变更发起 's 专业类型 property 
      */
     public com.kingdee.eas.fdc.contract.SpecialtyTypeEntryCollection getSpecialtyTypeEntry()
     {
         return (com.kingdee.eas.fdc.contract.SpecialtyTypeEntryCollection)get("specialtyTypeEntry");
     }
     /**
-     * Object:变更签证申请's 专业类型property 
+     * Object:合同变更发起's 专业类型property 
      */
     public String getSpecialName()
     {
@@ -446,6 +446,74 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
     public void setSpecialName(String item)
     {
         setString("specialName", item);
+    }
+    /**
+     * Object:合同变更发起's 单据类型property 
+     */
+    public com.kingdee.eas.fdc.contract.ChangeAuditBillType getBillType()
+    {
+        return com.kingdee.eas.fdc.contract.ChangeAuditBillType.getEnum(getString("billType"));
+    }
+    public void setBillType(com.kingdee.eas.fdc.contract.ChangeAuditBillType item)
+    {
+		if (item != null) {
+        setString("billType", item.getValue());
+		}
+    }
+    /**
+     * Object:合同变更发起's 提出时间property 
+     */
+    public java.util.Date getPutForwardTime()
+    {
+        return getDate("putForwardTime");
+    }
+    public void setPutForwardTime(java.util.Date item)
+    {
+        setDate("putForwardTime", item);
+    }
+    /**
+     * Object:合同变更发起's 产品品质property 
+     */
+    public String getQuality()
+    {
+        return getString("quality");
+    }
+    public void setQuality(String item)
+    {
+        setString("quality", item);
+    }
+    /**
+     * Object:合同变更发起's 工期property 
+     */
+    public String getTimeLi()
+    {
+        return getString("timeLi");
+    }
+    public void setTimeLi(String item)
+    {
+        setString("timeLi", item);
+    }
+    /**
+     * Object:合同变更发起's 销售property 
+     */
+    public String getSale()
+    {
+        return getString("sale");
+    }
+    public void setSale(String item)
+    {
+        setString("sale", item);
+    }
+    /**
+     * Object:合同变更发起's 成本property 
+     */
+    public String getCost()
+    {
+        return getString("cost");
+    }
+    public void setCost(String item)
+    {
+        setString("cost", item);
     }
     public BOSObjectType getBOSType()
     {

@@ -18,7 +18,7 @@ public class AbstractChangeAuditEntryInfo extends com.kingdee.eas.framework.Core
         super(pkField);
     }
     /**
-     * Object: 变更签证申请分录 's 单据头 property 
+     * Object: 变更内容分录 's 单据头 property 
      */
     public com.kingdee.eas.fdc.contract.ChangeAuditBillInfo getParent()
     {
@@ -29,7 +29,7 @@ public class AbstractChangeAuditEntryInfo extends com.kingdee.eas.framework.Core
         put("parent", item);
     }
     /**
-     * Object:变更签证申请分录's 变更内容property 
+     * Object:变更内容分录's 变更内容property 
      */
     public String getChangeContent()
     {
@@ -40,7 +40,7 @@ public class AbstractChangeAuditEntryInfo extends com.kingdee.eas.framework.Core
         setString("changeContent", item);
     }
     /**
-     * Object:变更签证申请分录's 是否返工property 
+     * Object:变更内容分录's 是否返工property 
      */
     public boolean isIsBack()
     {
@@ -51,7 +51,7 @@ public class AbstractChangeAuditEntryInfo extends com.kingdee.eas.framework.Core
         setBoolean("isBack", item);
     }
     /**
-     * Object:变更签证申请分录's 变更内容编码property 
+     * Object:变更内容分录's 变更内容编码property 
      */
     public String getNumber()
     {

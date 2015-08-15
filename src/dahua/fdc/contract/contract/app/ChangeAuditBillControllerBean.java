@@ -28,7 +28,9 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.eas.base.param.util.ParamManager;
 import com.kingdee.eas.basedata.assistant.PeriodInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
@@ -39,8 +41,11 @@ import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
+import com.kingdee.eas.fdc.contract.ChangeAuditBillType;
+import com.kingdee.eas.fdc.contract.ChangeAuditUtil;
 import com.kingdee.eas.fdc.contract.ChangeBillStateEnum;
 import com.kingdee.eas.fdc.contract.ChangeSupplierEntryCollection;
 import com.kingdee.eas.fdc.contract.ChangeSupplierEntryFactory;
@@ -52,6 +57,7 @@ import com.kingdee.eas.fdc.contract.ConChangeSplitFactory;
 import com.kingdee.eas.fdc.contract.ContractBillCollection;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
+import com.kingdee.eas.fdc.contract.ContractChangeBillCollection;
 import com.kingdee.eas.fdc.contract.ContractChangeBillFactory;
 import com.kingdee.eas.fdc.contract.ContractChangeBillInfo;
 import com.kingdee.eas.fdc.contract.ContractChangeEntryCollection;
@@ -61,6 +67,8 @@ import com.kingdee.eas.fdc.contract.ContractChangeException;
 import com.kingdee.eas.fdc.contract.ContractException;
 import com.kingdee.eas.fdc.contract.CopySupplierEntryFactory;
 import com.kingdee.eas.fdc.contract.FDCUtils;
+import com.kingdee.eas.fdc.contract.IContractBill;
+import com.kingdee.eas.fdc.contract.IContractChangeBill;
 import com.kingdee.eas.fdc.contract.SettNoCostSplitEntryFactory;
 import com.kingdee.eas.fdc.contract.SettNoCostSplitFactory;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitEntryFactory;
@@ -68,6 +76,12 @@ import com.kingdee.eas.fdc.contract.SettlementCostSplitFactory;
 import com.kingdee.eas.fdc.contract.SupplierContentEntryCollection;
 import com.kingdee.eas.fdc.contract.SupplierContentEntryFactory;
 import com.kingdee.eas.fdc.contract.SupplierContentEntryInfo;
+import com.kingdee.eas.fdc.contract.client.AbstractSplitInvokeStrategy;
+import com.kingdee.eas.fdc.contract.client.SplitInvokeStrategyFactory;
+import com.kingdee.eas.fdc.contract.programming.IProgrammingContract;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
+import com.kingdee.eas.fdc.finance.ConPayPlanFactory;
 import com.kingdee.eas.fdc.finance.PaymentNoCostSplitEntryFactory;
 import com.kingdee.eas.fdc.finance.PaymentNoCostSplitFactory;
 import com.kingdee.eas.fdc.finance.PaymentSplitEntryFactory;
@@ -826,6 +840,8 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
 
 		checkBillForAudit( ctx,billId,billInfo);
 		
+		vefySettleAmount(ctx, billInfo);
+		
 //		billInfo.setId(billId);
 		billInfo.setChangeState(ChangeBillStateEnum.Audit);
 		billInfo.setState(FDCBillStateEnum.AUDITTED);
@@ -905,6 +921,204 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
 		
 		
 		updatePeriod(ctx, billId);
+		
+		if(billInfo.getBillType()!=null&&!billInfo.getBillType().equals(ChangeAuditBillType.ChangeAuditRequest))
+			runBathBill(ctx,billInfo,null);
+	}
+	
+	private void runBathBill(Context ctx,ChangeAuditBillInfo billInfo,String actionName) throws BOSException, EASBizException{
+		String oql = "where changeAudit='"+billInfo.getId()+"'";
+		List selectedIdValues = new ArrayList();
+		IContractChangeBill iBill = ContractChangeBillFactory.getLocalInstance(ctx);
+		ContractChangeBillCollection contractChangeBillColl = iBill.getContractChangeBillCollection(oql);
+		
+		ContractChangeBillInfo changeBillInfo[] = new ContractChangeBillInfo[contractChangeBillColl.size()];
+		ObjectUuidPK objectPk[] = new ObjectUuidPK[contractChangeBillColl.size()];
+		
+		for (int i = 0; i < contractChangeBillColl.size(); i++) {
+			ContractChangeBillInfo contractChangeBillInfo = contractChangeBillColl.get(i);
+			selectedIdValues.add(contractChangeBillInfo.getId().toString());
+			
+			for (int j = 0; j < contractChangeBillInfo.getEntrys().size(); j++) {
+				contractChangeBillInfo.getEntrys().get(j).setIsAllExe(Boolean.TRUE);
+			}
+			objectPk[i] = new ObjectUuidPK(contractChangeBillInfo.getId());
+			changeBillInfo[i] = contractChangeBillInfo;
+		}
+		iBill.disPatch(FDCHelper.CollectionToArrayPK(selectedIdValues));
+		iBill.visa(objectPk,contractChangeBillColl);
+		for (int i = 0; i < changeBillInfo.length; i++) {
+			ContractChangeBillInfo contractChangeBillInfo = changeBillInfo[i];
+			
+			BigDecimal seteeAmount = UIRuleUtil.getBigDecimal(contractChangeBillInfo.getOriginalAmount());
+			contractChangeBillInfo.setBalanceAmount(seteeAmount);
+			contractChangeBillInfo.setOriBalanceAmount(seteeAmount);
+			
+			BigDecimal balanceAmount =  FDCHelper.ZERO;
+			if(contractChangeBillInfo.isHasSettled()){
+				balanceAmount = contractChangeBillInfo.getBalanceAmount();
+			}else{
+				balanceAmount = contractChangeBillInfo.getAmount();
+			}
+			if (!isConChangeAuditInWF(ctx)) {
+				contractChangeBillInfo.setHasSettled(true);
+				contractChangeBillInfo.setSettleTime(DateTimeUtils.truncateDate(new Date()));
+				
+				ConChangeSplitFactory.getLocalInstance(ctx).changeSettle(contractChangeBillInfo);
+				ContractChangeBillFactory.getLocalInstance(ctx).changeSettle(contractChangeBillInfo.getId());
+				
+				ContractChangeBillFactory.getLocalInstance(ctx).submitForWF(contractChangeBillInfo);
+			}else{
+				iBill.submit(contractChangeBillInfo);
+			}
+			
+			try {
+				synContractProgAmt(ctx,balanceAmount, contractChangeBillInfo, true);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			/**
+			 * 更新合同付款计划
+			 * 这尼玛,中断后就脏数据了.不能回滚啊
+			 */
+			ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(contractChangeBillInfo.getContractBill().getId().toString(), false);
+		}
+	}
+	
+	/**
+	 * 启用变更结算工作流审批 by Cassiel_peng 2009-8-19
+	 */
+	private boolean isConChangeAuditInWF(Context ctx) {
+		String companyID = ContextUtil.getCurrentCostUnit(ctx).getId().toString();
+		boolean retValue=false;
+		try {
+			 retValue=FDCUtils.getDefaultFDCParamByKey(ctx,companyID, FDCConstants.FDC_PARAM_CHANGESETTAUDIT);
+		} catch (EASBizException e) {
+			e.printStackTrace();
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+		return retValue;
+	}
+	
+	 /**
+	  * 当合同未结算时(无最终结算或最终结算未审批)，规划余额=规划金额-（签约金额+变更金额），控制余额=控制金额-签约金额，
+	  * 当合同已结算时(最终结算已审批)，规划余额=规划金额-结算金额，控制余额=控制金额-结算金额
+    * @return
+    * @throws BOSException 
+    * @throws EASBizException 
+    * @throws SQLException 
+    */
+	private void synContractProgAmt(Context ctx,BigDecimal oldChangeAmount,ContractChangeBillInfo model,boolean flag) throws EASBizException, BOSException, SQLException{
+	  flag = true;
+	   //变更结算之后的变更金额
+	  BigDecimal newChangeAmount = model.getBalanceAmount();
+	  SelectorItemCollection sictc = new SelectorItemCollection();
+  	  sictc.add("*");
+  	  sictc.add("amount");
+  	  ContractChangeBillInfo contractChangeBillInfo = ContractChangeBillFactory.getLocalInstance(ctx).getContractChangeBillInfo(new ObjectUuidPK(model.getId()), sictc);
+  	  //变更结算之前的变更金额
+	  BigDecimal oldChangeAmt = oldChangeAmount;
+	  if(oldChangeAmount == null){
+		 oldChangeAmt = contractChangeBillInfo.getAmount();
+	  }
+  	  BOSUuid contractBillId = model.getContractBill().getId();
+  	  SelectorItemCollection sic = new SelectorItemCollection();
+  	  sic.add("*");
+  	  sic.add("programmingContract.*");
+  	  IContractBill serviceCon = null;
+  	  IProgrammingContract service = null;
+  	  ContractBillInfo contractBillInfo = null;
+		//	FDCSQLBuilder builder = null;
+  	  serviceCon = ContractBillFactory.getLocalInstance(ctx);
+	  service = ProgrammingContractFactory.getLocalInstance(ctx);
+		//	builder = new FDCSQLBuilder();
+	  contractBillInfo = serviceCon.getContractBillInfo(new ObjectUuidPK(contractBillId.toString()), sic);
+	  ProgrammingContractInfo pcInfo = contractBillInfo.getProgrammingContract();
+  	  if(pcInfo == null) return;
+  	  // 规划余额
+	  BigDecimal balanceAmt = pcInfo.getBalance();
+	  // 控制余额
+	  BigDecimal controlBalanceAmt = pcInfo.getControlBalance();
+	  //变更单预算本币金额
+	  BigDecimal changeAmount = model.getAmount();
+	  //框架合约签约金额
+	  BigDecimal changeAmountProg = pcInfo.getChangeAmount();
+	  //差额
+	  BigDecimal otherChangeAmount = FDCHelper.ZERO;
+	  if(flag){
+		  pcInfo.setBalance(FDCHelper.subtract(FDCHelper.add(balanceAmt, oldChangeAmt), newChangeAmount));
+		  pcInfo.setControlBalance(FDCHelper.subtract(FDCHelper.add(controlBalanceAmt, oldChangeAmt), newChangeAmount));
+		  pcInfo.setChangeAmount(FDCHelper.add(FDCHelper.subtract(changeAmountProg, oldChangeAmt), newChangeAmount));
+		  otherChangeAmount = FDCHelper.subtract(FDCHelper.add(FDCHelper.subtract(changeAmountProg, oldChangeAmt), newChangeAmount), changeAmountProg);
+	  }
+  	  SelectorItemCollection sict = new SelectorItemCollection();
+  	  sict.add("balance");
+  	  sict.add("controlBalance");
+	  sict.add("signUpAmount");
+	  sict.add("changeAmount");
+	  sict.add("settleAmount");
+	  sict.add("srcId");
+  	  service.updatePartial(pcInfo, sict);
+	  //更新其他的合约规划版本金额
+	  String progId = pcInfo.getId().toString();
+	  while (progId != null) {
+		  String nextVersionProgId = getNextVersionProg(ctx,progId);
+		  if (nextVersionProgId != null) {
+			  pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(nextVersionProgId), sict);
+			  pcInfo.setBalance(FDCHelper.subtract(pcInfo.getBalance(),otherChangeAmount));
+			  pcInfo.setControlBalance(FDCHelper.subtract(pcInfo.getControlBalance(),otherChangeAmount));
+			  pcInfo.setChangeAmount(FDCHelper.add(pcInfo.getChangeAmount(),otherChangeAmount));
+			  service.updatePartial(pcInfo, sict);
+			  progId = pcInfo.getId().toString();
+		} else {
+			  progId = null;
+		}
+	  }
+	}
+  
+	private  String getNextVersionProg(Context ctx,String nextProgId) throws BOSException, SQLException{
+		String tempId = null;
+		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
+		IRowSet rowSet = null;
+		builder.appendSql(" select fid from t_con_programmingContract where  ");
+		builder.appendParam("FSrcId", nextProgId);
+		rowSet = builder.executeQuery();
+		while(rowSet.next()){
+			tempId = rowSet.getString("fid");
+		}
+		return tempId ;
+	}
+	
+    private void vefySettleAmount(Context ctx,ChangeAuditBillInfo billInfo) throws EASBizException, BOSException {
+    	String oql = "where changeAudit='"+billInfo.getId()+"'";
+    	IContractChangeBill iBill = ContractChangeBillFactory.getLocalInstance(ctx);
+		ContractChangeBillCollection contractChangeBillColl = iBill.getContractChangeBillCollection(oql);
+		
+		for (int i = 0; i < contractChangeBillColl.size(); i++) {
+			ContractChangeBillInfo contractChangeBillInfo = contractChangeBillColl.get(i);
+			BigDecimal balanceAmount =  FDCHelper.ZERO;
+			if(contractChangeBillInfo.isHasSettled()){
+				balanceAmount = contractChangeBillInfo.getBalanceAmount();
+			}else{
+				balanceAmount = contractChangeBillInfo.getAmount();
+			}
+	    	String org = ContextUtil.getCurrentOrgUnit(ctx).getId().toString();
+	    	String paramValue = ParamManager.getParamValue(ctx, new ObjectUuidPK(org), "FDC228_ISSTRICTCONTROL");
+		  	//严格控制时校验
+		  	if(contractChangeBillInfo.getContractBill()!=null && "0".equals(paramValue)){
+		  		BOSUuid id = contractChangeBillInfo.getContractBill().getId();
+			  	SelectorItemCollection selector = new SelectorItemCollection();
+			  	selector.add("programmingContract.balance");
+			  
+			  	ContractBillInfo contractBillInfo = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(id), selector);
+			  
+			  	if(contractBillInfo.getProgrammingContract()!=null && FDCHelper.compareTo(contractChangeBillInfo.getBalanceAmount(), FDCHelper.add(balanceAmount, contractBillInfo.getProgrammingContract().getBalance()))>0){
+			  		throw new EASBizException(new NumericExceptionSubItem("100","合同变更结算金额不能大于合约规划的控制余额！"));
+			  	}
+		  	}
+		}
 	}
 	
 	/**
@@ -1037,6 +1251,7 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
 		}
 		_updatePartial(ctx, billInfo, selector);
 
+//		runBathBill(ctx,billInfo, "UNAUDIT");
 	}
 
 	protected void _register4WF(Context ctx, IObjectPK pk) throws BOSException, EASBizException {

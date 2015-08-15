@@ -13,8 +13,8 @@ import com.kingdee.util.enums.StringEnum;
  */
 public class ChangeUrgentDegreeEnum extends StringEnum
 {
-    public static final String NORMAL_VALUE = "1normal";
-    public static final String URGENT_VALUE = "2urgent";
+    public static final String NORMAL_VALUE = "1normal";//alias=∆’Õ®
+    public static final String URGENT_VALUE = "2urgent";//alias=ΩÙº±
 
     public static final ChangeUrgentDegreeEnum Normal = new ChangeUrgentDegreeEnum("Normal", NORMAL_VALUE);
     public static final ChangeUrgentDegreeEnum Urgent = new ChangeUrgentDegreeEnum("Urgent", URGENT_VALUE);

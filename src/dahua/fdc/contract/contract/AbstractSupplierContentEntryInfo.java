@@ -18,7 +18,7 @@ public class AbstractSupplierContentEntryInfo extends com.kingdee.eas.framework.
         super(pkField);
     }
     /**
-     * Object: 下发单位分录 's 单据头 property 
+     * Object: 执行内容 's 单据头 property 
      */
     public com.kingdee.eas.fdc.contract.ChangeSupplierEntryInfo getParent()
     {
@@ -29,7 +29,7 @@ public class AbstractSupplierContentEntryInfo extends com.kingdee.eas.framework.
         put("parent", item);
     }
     /**
-     * Object: 下发单位分录 's 执行内容 property 
+     * Object: 执行内容 's 执行内容 property 
      */
     public com.kingdee.eas.fdc.contract.ChangeAuditEntryInfo getContent()
     {

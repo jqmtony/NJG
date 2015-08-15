@@ -18,7 +18,7 @@ public class AbstractSpecialtyTypeEntryInfo extends com.kingdee.eas.framework.Co
         super(pkField);
     }
     /**
-     * Object: 专业类型分录 's 变更签证申请分录 property 
+     * Object: 专业类型 's 变更签证申请分录 property 
      */
     public com.kingdee.eas.fdc.contract.ChangeAuditBillInfo getParent()
     {
@@ -29,7 +29,7 @@ public class AbstractSpecialtyTypeEntryInfo extends com.kingdee.eas.framework.Co
         put("parent", item);
     }
     /**
-     * Object: 专业类型分录 's 专业类型 property 
+     * Object: 专业类型 's 专业类型 property 
      */
     public com.kingdee.eas.fdc.basedata.SpecialtyTypeInfo getSpecialtyType()
     {

@@ -13,15 +13,15 @@ import com.kingdee.util.enums.StringEnum;
  */
 public class ChangeBillStateEnum extends StringEnum
 {
-    public static final String SAVED_VALUE = "1Saved";
-    public static final String REGISTER_VALUE = "2Register";
-    public static final String SUBMIT_VALUE = "3Submit";
-    public static final String AUDITTING_VALUE = "4Auditting";
-    public static final String AUDIT_VALUE = "5Audit";
-    public static final String ANNOUNCE_VALUE = "6Announce";
-    public static final String VISA_VALUE = "7Visa";
-    public static final String AHEADDISPATCH_VALUE = "8AheadDisPatch";
-    public static final String INVALID_VALUE = "9INVALID";
+    public static final String SAVED_VALUE = "1Saved";//alias=保存
+    public static final String REGISTER_VALUE = "2Register";//alias=已登记
+    public static final String SUBMIT_VALUE = "3Submit";//alias=已提交
+    public static final String AUDITTING_VALUE = "4Auditting";//alias=审批中
+    public static final String AUDIT_VALUE = "5Audit";//alias=已审批
+    public static final String ANNOUNCE_VALUE = "6Announce";//alias=已下发
+    public static final String VISA_VALUE = "7Visa";//alias=已签证
+    public static final String AHEADDISPATCH_VALUE = "8AheadDisPatch";//alias=已提前下发
+    public static final String INVALID_VALUE = "9INVALID";//alias=作废
 
     public static final ChangeBillStateEnum Saved = new ChangeBillStateEnum("Saved", SAVED_VALUE);
     public static final ChangeBillStateEnum Register = new ChangeBillStateEnum("Register", REGISTER_VALUE);

@@ -13,9 +13,9 @@ import com.kingdee.util.enums.StringEnum;
  */
 public class GraphCountEnum extends StringEnum
 {
-    public static final String ELECTFILE_VALUE = "1ElectFile";
-    public static final String PAPERFILE_VALUE = "2PaperFile";
-    public static final String NOFILE_VALUE = "3NoFile";
+    public static final String ELECTFILE_VALUE = "1ElectFile";//alias=电子文件
+    public static final String PAPERFILE_VALUE = "2PaperFile";//alias=纸质文件
+    public static final String NOFILE_VALUE = "3NoFile";//alias=无文件
 
     public static final GraphCountEnum ElectFile = new GraphCountEnum("ElectFile", ELECTFILE_VALUE);
     public static final GraphCountEnum PaperFile = new GraphCountEnum("PaperFile", PAPERFILE_VALUE);

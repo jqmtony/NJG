@@ -1318,7 +1318,7 @@ public abstract class ContractListBaseUI extends AbstractContractListBaseUI {
      * 创建时间：2006-8-26 <p>
      */
     protected void checkRef(String id) throws Exception {
-    	
+    	System.out.println("");
     }
     
     /**

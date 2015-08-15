@@ -50,10 +50,13 @@ public abstract class AbstractChangeSupplierEntryControllerBean extends CoreBill
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("803f0517-0110-1000-e000-0006c0a80e94"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ChangeSupplierEntryInfo retValue = (ChangeSupplierEntryInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ChangeSupplierEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -72,10 +75,13 @@ public abstract class AbstractChangeSupplierEntryControllerBean extends CoreBill
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("803f0517-0110-1000-e000-0007c0a80e94"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ChangeSupplierEntryInfo retValue = (ChangeSupplierEntryInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ChangeSupplierEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -94,10 +100,13 @@ public abstract class AbstractChangeSupplierEntryControllerBean extends CoreBill
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("803f0517-0110-1000-e000-0008c0a80e94"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ChangeSupplierEntryInfo retValue = (ChangeSupplierEntryInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ChangeSupplierEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -116,10 +125,13 @@ public abstract class AbstractChangeSupplierEntryControllerBean extends CoreBill
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("803f0517-0110-1000-e000-0009c0a80e94"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ChangeSupplierEntryCollection retValue = (ChangeSupplierEntryCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ChangeSupplierEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -136,10 +148,13 @@ public abstract class AbstractChangeSupplierEntryControllerBean extends CoreBill
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("803f0517-0110-1000-e000-000ac0a80e94"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ChangeSupplierEntryCollection retValue = (ChangeSupplierEntryCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ChangeSupplierEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -156,10 +171,13 @@ public abstract class AbstractChangeSupplierEntryControllerBean extends CoreBill
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("803f0517-0110-1000-e000-000bc0a80e94"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ChangeSupplierEntryCollection retValue = (ChangeSupplierEntryCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ChangeSupplierEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {

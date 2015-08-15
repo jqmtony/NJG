@@ -18,7 +18,7 @@ public class AbstractCopySupplierEntryInfo extends com.kingdee.eas.framework.Cor
         super(pkField);
     }
     /**
-     * Object: ³­ËÍµ¥Î»·ÖÂ¼ 's ¸¸ property 
+     * Object: ³­ËÍµ¥Î» 's ¸¸ property 
      */
     public com.kingdee.eas.fdc.contract.ChangeSupplierEntryInfo getParent()
     {
@@ -29,7 +29,7 @@ public class AbstractCopySupplierEntryInfo extends com.kingdee.eas.framework.Cor
         put("parent", item);
     }
     /**
-     * Object: ³­ËÍµ¥Î»·ÖÂ¼ 's ³­ËÍµ¥Î» property 
+     * Object: ³­ËÍµ¥Î» 's ³­ËÍµ¥Î» property 
      */
     public com.kingdee.eas.basedata.master.cssp.SupplierInfo getCopySupp()
     {
