@@ -515,6 +515,50 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
     {
         setString("cost", item);
     }
+    /**
+     * Object:合同变更发起's 返工签证费用估算property 
+     */
+    public java.math.BigDecimal getReworkVisa()
+    {
+        return getBigDecimal("reworkVisa");
+    }
+    public void setReworkVisa(java.math.BigDecimal item)
+    {
+        setBigDecimal("reworkVisa", item);
+    }
+    /**
+     * Object:合同变更发起's 占合同价比例property 
+     */
+    public java.math.BigDecimal getContractAmPro()
+    {
+        return getBigDecimal("contractAmPro");
+    }
+    public void setContractAmPro(java.math.BigDecimal item)
+    {
+        setBigDecimal("contractAmPro", item);
+    }
+    /**
+     * Object:合同变更发起's 累计变更占合同比property 
+     */
+    public java.math.BigDecimal getTotalChangeAmount()
+    {
+        return getBigDecimal("totalChangeAmount");
+    }
+    public void setTotalChangeAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("totalChangeAmount", item);
+    }
+    /**
+     * Object:合同变更发起's 设计变更金额property 
+     */
+    public java.math.BigDecimal getDesignChangeAmount()
+    {
+        return getBigDecimal("designChangeAmount");
+    }
+    public void setDesignChangeAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("designChangeAmount", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("70116117");
