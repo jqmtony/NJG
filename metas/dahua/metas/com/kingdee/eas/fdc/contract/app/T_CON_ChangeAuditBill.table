@@ -917,6 +917,62 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFReworkVisa</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFReworkVisa].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFReworkVisa].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFContractAmPro</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFContractAmPro].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFContractAmPro].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFTotalChangeAmount</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFTotalChangeAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFTotalChangeAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFDesignChangeAmount</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFDesignChangeAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFDesignChangeAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_ChangeAuditBill</name>
@@ -1047,6 +1103,18 @@
             <lang locale="zh_HK" value="文本" />
             <lang locale="zh_TW" value="文本" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFContractAmPro].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="占合同价比例" />
+            <lang locale="zh_HK" value="占合同價比例" />
+            <lang locale="zh_TW" value="占合同價比例" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFContractAmPro].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFCost].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="成本" />
@@ -1054,6 +1122,18 @@
             <lang locale="zh_TW" value="成本" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFCost].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFDesignChangeAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设计变更金额" />
+            <lang locale="zh_HK" value="設計變更金額" />
+            <lang locale="zh_TW" value="設計變更金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFDesignChangeAmount].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="文本" />
             <lang locale="zh_HK" value="文本" />
@@ -1083,6 +1163,18 @@
             <lang locale="zh_HK" value="文本" />
             <lang locale="zh_TW" value="文本" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFReworkVisa].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="返工签证费用估算" />
+            <lang locale="zh_HK" value="返工簽證費用估算" />
+            <lang locale="zh_TW" value="返工簽證費用估算" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFReworkVisa].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFSale].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="销售" />
@@ -1102,6 +1194,18 @@
             <lang locale="zh_TW" value="工期" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFTimeLi].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFTotalChangeAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计变更占合同比" />
+            <lang locale="zh_HK" value="累計變更占合同比" />
+            <lang locale="zh_TW" value="累計變更占合同比" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ChangeAuditBill].columns.column[CFTotalChangeAmount].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="文本" />
             <lang locale="zh_HK" value="文本" />

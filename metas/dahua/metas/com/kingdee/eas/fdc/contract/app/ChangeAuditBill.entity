@@ -1288,6 +1288,86 @@
                 <key name="name" value="CFCost" />
             </mappingField>
         </ownProperty>
+        <ownProperty>
+            <name>reworkVisa</name>
+            <alias>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFReworkVisa" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>contractAmPro</name>
+            <alias>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFContractAmPro" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>totalChangeAmount</name>
+            <alias>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFTotalChangeAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>designChangeAmount</name>
+            <alias>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFDesignChangeAmount" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -3153,6 +3233,69 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="占合同价比例" />
+            <lang locale="zh_HK" value="占合同價比例" />
+            <lang locale="zh_TW" value="占合同價比例" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[contractAmPro].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[costNouse].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="涉及无效成本的金额" />
@@ -3283,6 +3426,69 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[curProjectName].extendedProperty.isInCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设计变更金额" />
+            <lang locale="zh_HK" value="設計變更金額" />
+            <lang locale="zh_TW" value="設計變更金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[designChangeAmount].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
@@ -3711,6 +3917,69 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="返工签证费用估算" />
+            <lang locale="zh_HK" value="返工簽證費用估算" />
+            <lang locale="zh_TW" value="返工簽證費用估算" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[reworkVisa].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[sale].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="销售" />
@@ -3963,6 +4232,69 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[timeLi].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计变更占合同比" />
+            <lang locale="zh_HK" value="累計變更占合同比" />
+            <lang locale="zh_TW" value="累計變更占合同比" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.ownProperty[totalChangeAmount].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
