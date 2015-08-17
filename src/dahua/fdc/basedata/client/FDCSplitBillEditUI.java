@@ -2987,6 +2987,97 @@ public abstract class FDCSplitBillEditUI extends AbstractFDCSplitBillEditUI
 		checkTotalCostAmt();    	
     	editData.setState(FDCBillStateEnum.SAVED);
 	}
+	public void checkbeforeForChangeSave(){
+		IRow row=null;
+		FDCSplitBillEntryInfo entry=null;
+		BigDecimal amount;		
+		
+		//处理分录内的增加金额字段
+		for(int i=0;i<getDetailTable().getRowCount();i++){
+			row=getDetailTable().getRow(i);
+			entry=(FDCSplitBillEntryInfo)row.getUserObject();
+			if(entry.getLevel()!=0){
+				continue;
+			}
+			
+			amount=entry.getAmount();
+			Object obj=row.getCell("amount").getValue();
+			if(!(obj instanceof BigDecimal)&&isLimitCost){
+				FDCMsgBox.showWarning(this,FDCSplitClientHelper.getRes("mustInput"));
+				SysUtil.abort();
+			}
+		}
+		
+		//检查附加科目的汇总金额（手工录入）是否与上级金额相等		
+		BigDecimal amountTotal=null;
+		CostAccountInfo acct=null;
+		CurProjectInfo proj=null;		
+		int level=0;
+		
+		for(int i=0; i<kdtEntrys.getRowCount()-1; i++){
+			row=kdtEntrys.getRow(i);
+			entry=(FDCSplitBillEntryInfo)row.getUserObject();
+			if(entry.getLevel()<0) continue;//总计行
+			//明细工程项目
+			if(entry.getCostAccount().getCurProject().isIsLeaf()
+					&& !entry.getCostAccount().isIsLeaf()){		
+				acct=entry.getCostAccount();
+				proj=acct.getCurProject();				
+				level=acct.getLevel();
+				
+				//汇总金额
+				if(entry.getAmount()!=null){
+					amount=entry.getAmount();					
+				}else{
+					amount=FDCHelper.ZERO;
+				}
+				
+				//后一科目必须为附加明细科目
+				row=kdtEntrys.getRow(i+1);
+				entry=(FDCSplitBillEntryInfo)row.getUserObject();				
+				if(isAddlAcctLeaf(entry)){
+					
+					//金额累加
+					amountTotal=FDCHelper.ZERO;
+					
+					for(int j=i+1; j<kdtEntrys.getRowCount(); j++){
+						row=kdtEntrys.getRow(j);
+						entry=(FDCSplitBillEntryInfo)row.getUserObject();	
+						
+						//同一工程项目
+						if(entry.getCostAccount().getCurProject().getId().equals(proj.getId())){
+							//下一级成本科目
+							if(entry.getCostAccount().getLevel()>level){
+								if(entry.getCostAccount().getLevel()==level+1
+										&& !isProdSplitLeaf(entry)
+										&& entry.getAmount()!=null){
+									amountTotal=amountTotal.add(entry.getAmount());									
+								}
+								
+							}else{
+								break;
+							}
+						}else{
+							break;
+						}						
+					}
+					/*代码有问题
+				//精度的处理
+					BigDecimal subtract = amountTotal.subtract(amount);
+					BigDecimal compareAmt1=new BigDecimal("0.1");
+//					BigDecimal compareAmt2=new BigDecimal("-0.1");
+					 */					
+//					if(subtract.abs().compareTo(compareAmt1)>0){
+					if(amountTotal.compareTo(amount)!=0){
+						FDCMsgBox.showWarning(this,FDCSplitClientHelper.getRes("mustEqu"));
+						SysUtil.abort();						
+					}
+				}								
+			}
+		}				
+		checkTotalCostAmt();    	
+		editData.setState(FDCBillStateEnum.SAVED);
+	}
 
 	/**
 	 * 检查 成本拆分 汇总金额

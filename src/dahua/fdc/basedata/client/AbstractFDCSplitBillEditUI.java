@@ -58,7 +58,7 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtSplitedAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer6;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtCostBillName;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntrys;
+    public com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntrys;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer7;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox bizPromptLastUpdateUser;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer8;
