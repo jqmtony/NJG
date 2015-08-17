@@ -5754,7 +5754,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}
 		
 		//校验合约规划
-		 checkConProgram();
+//		 checkConProgram();
 	}
 
 	/**

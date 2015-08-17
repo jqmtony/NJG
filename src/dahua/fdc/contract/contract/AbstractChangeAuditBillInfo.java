@@ -18,6 +18,7 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
         super(pkField);
         put("suppEntry", new com.kingdee.eas.fdc.contract.ChangeSupplierEntryCollection());
         put("entrys", new com.kingdee.eas.fdc.contract.ChangeAuditEntryCollection());
+        put("SplitEntry", new com.kingdee.eas.fdc.contract.ChangeAuditBillSplitEntryCollection());
         put("specialtyTypeEntry", new com.kingdee.eas.fdc.contract.SpecialtyTypeEntryCollection());
     }
     /**
@@ -558,6 +559,24 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
     public void setDesignChangeAmount(java.math.BigDecimal item)
     {
         setBigDecimal("designChangeAmount", item);
+    }
+    /**
+     * Object:合同变更发起's 变更费用估算property 
+     */
+    public String getChangeEstimate()
+    {
+        return getString("changeEstimate");
+    }
+    public void setChangeEstimate(String item)
+    {
+        setString("changeEstimate", item);
+    }
+    /**
+     * Object: 合同变更发起 's 变更拆分 property 
+     */
+    public com.kingdee.eas.fdc.contract.ChangeAuditBillSplitEntryCollection getSplitEntry()
+    {
+        return (com.kingdee.eas.fdc.contract.ChangeAuditBillSplitEntryCollection)get("SplitEntry");
     }
     public BOSObjectType getBOSType()
     {

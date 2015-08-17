@@ -3,6 +3,7 @@
  */
 package com.kingdee.eas.fdc.contract.client;
 
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -21,6 +22,7 @@ import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.util.KDTableUtil;
+import com.kingdee.bos.ctrl.swing.KDLayout;
 import com.kingdee.bos.ctrl.swing.KDMenuItem;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
@@ -495,6 +497,16 @@ public class ConChangeSplitEditUI extends AbstractConChangeSplitEditUI
 			this.storeFields();
 		}
 		getDetailTable().getColumn("splitScale").setEditor(getScaleCellNumberEdit());
+		
+		if(getUIContext().get("AUDITBILLVIEW")!=null){
+			this.kDLabelContainer8.setVisible(false);
+			this.kDLabelContainer1.setVisible(false);
+			this.kDLabelContainer10.setVisible(false);
+			this.kDLabelContainer11.setVisible(false);
+			kdtEntrys.setBounds(new Rectangle(10, 54, 993, 487));
+			this.add(kdtEntrys, new KDLayout.Constraints(10, 59, 993, 532, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+	        
+		}
 	}
 	
 	/**

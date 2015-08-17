@@ -140,6 +140,9 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcontractAmPro;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttotalChangeAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdesignChangeAmount;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contchangeEstimate;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtSplitEntry;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtSplitEntry_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDComboBox billType;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtSpecialtyType;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkputForwardTime;
@@ -151,6 +154,7 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtcontractAmPro;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txttotalChangeAmount;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtdesignChangeAmount;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtchangeEstimate;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCurProject;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewContract;
     protected javax.swing.JToolBar.Separator separator4;
@@ -389,6 +393,8 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         this.contcontractAmPro = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conttotalChangeAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contdesignChangeAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contchangeEstimate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kdtSplitEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.billType = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.txtSpecialtyType = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.pkputForwardTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
@@ -400,6 +406,7 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         this.txtcontractAmPro = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txttotalChangeAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtdesignChangeAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtchangeEstimate = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtCurProject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.btnViewContract = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.separator4 = new javax.swing.JToolBar.Separator();
@@ -503,6 +510,8 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         this.contcontractAmPro.setName("contcontractAmPro");
         this.conttotalChangeAmount.setName("conttotalChangeAmount");
         this.contdesignChangeAmount.setName("contdesignChangeAmount");
+        this.contchangeEstimate.setName("contchangeEstimate");
+        this.kdtSplitEntry.setName("kdtSplitEntry");
         this.billType.setName("billType");
         this.txtSpecialtyType.setName("txtSpecialtyType");
         this.pkputForwardTime.setName("pkputForwardTime");
@@ -514,6 +523,7 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         this.txtcontractAmPro.setName("txtcontractAmPro");
         this.txttotalChangeAmount.setName("txttotalChangeAmount");
         this.txtdesignChangeAmount.setName("txtdesignChangeAmount");
+        this.txtchangeEstimate.setName("txtchangeEstimate");
         this.prmtCurProject.setName("prmtCurProject");
         this.btnViewContract.setName("btnViewContract");
         this.separator4.setName("separator4");
@@ -1033,6 +1043,32 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         this.contdesignChangeAmount.setBoundLabelLength(100);		
         this.contdesignChangeAmount.setBoundLabelUnderline(true);		
         this.contdesignChangeAmount.setVisible(true);
+        // contchangeEstimate		
+        this.contchangeEstimate.setBoundLabelText(resHelper.getString("contchangeEstimate.boundLabelText"));		
+        this.contchangeEstimate.setBoundLabelLength(100);		
+        this.contchangeEstimate.setBoundLabelUnderline(true);		
+        this.contchangeEstimate.setVisible(true);
+        // kdtSplitEntry
+		String kdtSplitEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"contractBill\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{contractBill}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kdtSplitEntry.setFormatXml(resHelper.translateString("kdtSplitEntry",kdtSplitEntryStrXML));
+
+                this.kdtSplitEntry.putBindContents("editData",new String[] {"seq","contractBill"});
+
+
+        this.kdtSplitEntry.checkParsed();
+        final KDBizPromptBox kdtSplitEntry_contractBill_PromptBox = new KDBizPromptBox();
+        kdtSplitEntry_contractBill_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.app.ContractBillQuery");
+        kdtSplitEntry_contractBill_PromptBox.setVisible(true);
+        kdtSplitEntry_contractBill_PromptBox.setEditable(true);
+        kdtSplitEntry_contractBill_PromptBox.setDisplayFormat("$number$");
+        kdtSplitEntry_contractBill_PromptBox.setEditFormat("$number$");
+        kdtSplitEntry_contractBill_PromptBox.setCommitFormat("$number$");
+        KDTDefaultCellEditor kdtSplitEntry_contractBill_CellEditor = new KDTDefaultCellEditor(kdtSplitEntry_contractBill_PromptBox);
+        this.kdtSplitEntry.getColumn("contractBill").setEditor(kdtSplitEntry_contractBill_CellEditor);
+        ObjectValueRender kdtSplitEntry_contractBill_OVR = new ObjectValueRender();
+        kdtSplitEntry_contractBill_OVR.setFormat(new BizDataFormat("$name$"));
+        this.kdtSplitEntry.getColumn("contractBill").setRenderer(kdtSplitEntry_contractBill_OVR);
         // billType		
         this.billType.setVisible(true);		
         this.billType.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.contract.ChangeAuditBillType").toArray());		
@@ -1099,6 +1135,11 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         this.txtdesignChangeAmount.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
         this.txtdesignChangeAmount.setPrecision(2);		
         this.txtdesignChangeAmount.setRequired(false);
+        // txtchangeEstimate		
+        this.txtchangeEstimate.setVisible(true);		
+        this.txtchangeEstimate.setHorizontalAlignment(2);		
+        this.txtchangeEstimate.setMaxLength(100);		
+        this.txtchangeEstimate.setRequired(false);
         // prmtCurProject		
         this.prmtCurProject.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7ProjectQuery");		
         this.prmtCurProject.setCommitFormat("$name$");		
@@ -1223,8 +1264,8 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         this.add(viewAttenTwo, new KDLayout.Constraints(482, 213, 101, 21, 0));
         kdtSpecialtyType.setBounds(new Rectangle(293, 39, 68, 140));
         this.add(kdtSpecialtyType, new KDLayout.Constraints(293, 39, 68, 140, 0));
-        kDPanel1.setBounds(new Rectangle(581, 242, 376, 295));
-        this.add(kDPanel1, new KDLayout.Constraints(581, 242, 376, 295, 0));
+        kDPanel1.setBounds(new Rectangle(581, 242, 428, 289));
+        this.add(kDPanel1, new KDLayout.Constraints(581, 242, 428, 289, 0));
         contCurProject.setBounds(new Rectangle(520, 12, 480, 19));
         this.add(contCurProject, new KDLayout.Constraints(520, 12, 480, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
@@ -1334,7 +1375,7 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
         conAttenTwo.setBoundEditor(cmbAttenTwo);
         //kDPanel1
         kDPanel1.setLayout(new KDLayout());
-        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(581, 242, 376, 295));        contbillType.setBounds(new Rectangle(9, 15, 270, 19));
+        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(581, 242, 428, 289));        contbillType.setBounds(new Rectangle(9, 15, 270, 19));
         kDPanel1.add(contbillType, new KDLayout.Constraints(9, 15, 270, 19, 0));
         kDLabelContainer3.setBounds(new Rectangle(21, 40, 270, 19));
         kDPanel1.add(kDLabelContainer3, new KDLayout.Constraints(21, 40, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
@@ -1356,6 +1397,11 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
         kDPanel1.add(conttotalChangeAmount, new KDLayout.Constraints(25, 218, 270, 19, 0));
         contdesignChangeAmount.setBounds(new Rectangle(34, 245, 270, 19));
         kDPanel1.add(contdesignChangeAmount, new KDLayout.Constraints(34, 245, 270, 19, 0));
+        contchangeEstimate.setBounds(new Rectangle(33, 265, 270, 19));
+        kDPanel1.add(contchangeEstimate, new KDLayout.Constraints(33, 265, 270, 19, 0));
+        kdtSplitEntry.setBounds(new Rectangle(278, 16, 156, 170));
+        kdtSplitEntry_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtSplitEntry,new com.kingdee.eas.fdc.contract.ChangeAuditBillSplitEntryInfo(),null,false);
+        kDPanel1.add(kdtSplitEntry_detailPanel, new KDLayout.Constraints(278, 16, 156, 170, 0));
         //contbillType
         contbillType.setBoundEditor(billType);
         //kDLabelContainer3
@@ -1378,6 +1424,8 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
         conttotalChangeAmount.setBoundEditor(txttotalChangeAmount);
         //contdesignChangeAmount
         contdesignChangeAmount.setBoundEditor(txtdesignChangeAmount);
+        //contchangeEstimate
+        contchangeEstimate.setBoundEditor(txtchangeEstimate);
         //contCurProject
         contCurProject.setBoundEditor(prmtCurProject);
 
@@ -1604,6 +1652,9 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
 		dataBinder.registerBinding("designUnit", com.kingdee.eas.basedata.master.cssp.SupplierInfo.class, this.prmtDesignUnit, "data");
 		dataBinder.registerBinding("constrSite", String.class, this.txtConstrSite, "text");
 		dataBinder.registerBinding("conductUnit", com.kingdee.eas.basedata.master.cssp.SupplierInfo.class, this.prmtConductUnit, "data");
+		dataBinder.registerBinding("SplitEntry.seq", int.class, this.kdtSplitEntry, "seq.text");
+		dataBinder.registerBinding("SplitEntry", com.kingdee.eas.fdc.contract.ChangeAuditBillSplitEntryInfo.class, this.kdtSplitEntry, "userObject");
+		dataBinder.registerBinding("SplitEntry.contractBill", java.lang.Object.class, this.kdtSplitEntry, "contractBill.text");
 		dataBinder.registerBinding("billType", com.kingdee.eas.fdc.contract.ChangeAuditBillType.class, this.billType, "selectedItem");
 		dataBinder.registerBinding("specialName", String.class, this.txtSpecialtyType, "text");
 		dataBinder.registerBinding("putForwardTime", java.util.Date.class, this.pkputForwardTime, "value");
@@ -1615,6 +1666,7 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
 		dataBinder.registerBinding("contractAmPro", java.math.BigDecimal.class, this.txtcontractAmPro, "value");
 		dataBinder.registerBinding("totalChangeAmount", java.math.BigDecimal.class, this.txttotalChangeAmount, "value");
 		dataBinder.registerBinding("designChangeAmount", java.math.BigDecimal.class, this.txtdesignChangeAmount, "value");
+		dataBinder.registerBinding("changeEstimate", String.class, this.txtchangeEstimate, "text");
 		dataBinder.registerBinding("curProject", com.kingdee.eas.fdc.basedata.CurProjectInfo.class, this.prmtCurProject, "data");		
 	}
 	//Regiester UI State
@@ -1665,7 +1717,7 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
     protected void removeByPK(IObjectPK pk) throws Exception {
     	IObjectValue editData = this.editData;
     	super.removeByPK(pk);
-    	recycleNumberByOrg(editData,"CostCenter",editData.getString("number"));
+    	recycleNumberByOrg(editData,"NONE",editData.getString("number"));
     }
     
     protected void recycleNumberByOrg(IObjectValue editData,String orgType,String number) {
@@ -1721,17 +1773,13 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
             }
         }
     }
-			protected com.kingdee.eas.basedata.org.OrgType getMainBizOrgType() {
-			return com.kingdee.eas.basedata.org.OrgType.getEnum("CostCenter");
-		}
-
 
     /**
      * output loadFields method
      */
     public void loadFields()
     {
-        		setAutoNumberByOrg("CostCenter");
+        		setAutoNumberByOrg("NONE");
         dataBinder.loadFields();
     }
 		protected void setOrgF7(KDBizPromptBox f7,com.kingdee.eas.basedata.org.OrgType orgType) throws Exception
@@ -1796,6 +1844,9 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
 		getValidateHelper().registerBindProperty("designUnit", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("constrSite", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("conductUnit", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SplitEntry.seq", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SplitEntry", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SplitEntry.contractBill", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("billType", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("specialName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("putForwardTime", ValidateHelper.ON_SAVE);    
@@ -1807,6 +1858,7 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
 		getValidateHelper().registerBindProperty("contractAmPro", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("totalChangeAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("designChangeAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("changeEstimate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("curProject", ValidateHelper.ON_SAVE);    		
 	}
 
@@ -2075,6 +2127,22 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
         	sic.add(new SelectorItemInfo("conductUnit.number"));
         	sic.add(new SelectorItemInfo("conductUnit.name"));
 		}
+    	sic.add(new SelectorItemInfo("SplitEntry.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("SplitEntry.*"));
+		}
+		else{
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("SplitEntry.contractBill.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("SplitEntry.contractBill.id"));
+			sic.add(new SelectorItemInfo("SplitEntry.contractBill.name"));
+        	sic.add(new SelectorItemInfo("SplitEntry.contractBill.number"));
+		}
         sic.add(new SelectorItemInfo("billType"));
         sic.add(new SelectorItemInfo("specialName"));
         sic.add(new SelectorItemInfo("putForwardTime"));
@@ -2086,6 +2154,7 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
         sic.add(new SelectorItemInfo("contractAmPro"));
         sic.add(new SelectorItemInfo("totalChangeAmount"));
         sic.add(new SelectorItemInfo("designChangeAmount"));
+        sic.add(new SelectorItemInfo("changeEstimate"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("curProject.*"));

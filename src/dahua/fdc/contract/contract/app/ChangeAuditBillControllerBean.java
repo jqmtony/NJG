@@ -1,5 +1,6 @@
 package com.kingdee.eas.fdc.contract.app;
 
+import java.awt.BorderLayout;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import org.apache.log4j.Logger;
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.SQLDataException;
+import com.kingdee.bos.ctrl.swing.KDPanel;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -52,8 +54,10 @@ import com.kingdee.eas.fdc.contract.ChangeSupplierEntryFactory;
 import com.kingdee.eas.fdc.contract.ChangeSupplierEntryInfo;
 import com.kingdee.eas.fdc.contract.ConChangeNoCostSplitEntryFactory;
 import com.kingdee.eas.fdc.contract.ConChangeNoCostSplitFactory;
+import com.kingdee.eas.fdc.contract.ConChangeSplitCollection;
 import com.kingdee.eas.fdc.contract.ConChangeSplitEntryFactory;
 import com.kingdee.eas.fdc.contract.ConChangeSplitFactory;
+import com.kingdee.eas.fdc.contract.ConChangeSplitInfo;
 import com.kingdee.eas.fdc.contract.ContractBillCollection;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
@@ -67,6 +71,7 @@ import com.kingdee.eas.fdc.contract.ContractChangeException;
 import com.kingdee.eas.fdc.contract.ContractException;
 import com.kingdee.eas.fdc.contract.CopySupplierEntryFactory;
 import com.kingdee.eas.fdc.contract.FDCUtils;
+import com.kingdee.eas.fdc.contract.IConChangeSplit;
 import com.kingdee.eas.fdc.contract.IContractBill;
 import com.kingdee.eas.fdc.contract.IContractChangeBill;
 import com.kingdee.eas.fdc.contract.SettNoCostSplitEntryFactory;
@@ -77,6 +82,7 @@ import com.kingdee.eas.fdc.contract.SupplierContentEntryCollection;
 import com.kingdee.eas.fdc.contract.SupplierContentEntryFactory;
 import com.kingdee.eas.fdc.contract.SupplierContentEntryInfo;
 import com.kingdee.eas.fdc.contract.client.AbstractSplitInvokeStrategy;
+import com.kingdee.eas.fdc.contract.client.ConChangeSplitEditUI;
 import com.kingdee.eas.fdc.contract.client.SplitInvokeStrategyFactory;
 import com.kingdee.eas.fdc.contract.programming.IProgrammingContract;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
@@ -110,6 +116,15 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
     	if(info.getSpecialtyType()!=null)
     		info.setSpecialtyTypeName(info.getSpecialtyType().getName());
     	super._save(ctx, pk, info);
+    	
+    	if(info.getSuppEntry()!=null&&info.getSuppEntry().size()>0){
+    		if(!isGenerateAfterAudit(ctx)){//中渝模式，审批后生成
+    			//原系统中，变更签证申请提交后自动生成的指令单为保存状态，需要改为和审批单状态一致，即已提交状态。
+    			//by Cassiel_peng   2009-7-8
+    			ChangeBill(ctx,model,FDCBillStateEnum.SAVED);
+    		}
+    	}
+    	updateSplit(ctx, info);
     }
     
     protected IObjectPK _save(Context ctx, IObjectValue model) throws BOSException, EASBizException {
@@ -122,7 +137,19 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
     		info.setJobTypeName(info.getJobType().getName());
     	if(info.getSpecialtyType()!=null)
     		info.setSpecialtyTypeName(info.getSpecialtyType().getName());
-    	return super._save(ctx, info);
+    	
+    	
+    	IObjectPK _save = super._save(ctx, info);
+    	if(info.getSuppEntry()!=null&&info.getSuppEntry().size()>0){
+    		if(isGenerateAfterAudit(ctx)){//中渝模式，审批后生成
+    			return super._save(ctx, info);
+    		}
+    		//原系统中，变更签证申请提交后自动生成的指令单为保存状态，需要改为和审批单状态一致，即已提交状态。
+    		//by Cassiel_peng   2009-7-8
+    		ChangeBill(ctx,model,FDCBillStateEnum.SAVED);
+    	}
+    	updateSplit(ctx, info);
+    	return _save;
     }
     
     protected void _submit(Context ctx, IObjectPK pk, IObjectValue model)
@@ -147,6 +174,7 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
     		//目前系统中，变更签证申请提交后自动生成的指令单为保存状态，需要改为和审批单状态一致，即已提交状态。 by Cassiel_peng
     		ChangeBill(ctx,model,FDCBillStateEnum.SUBMITTED);
     	}
+    	updateSplit(ctx, info);
     }
     /**
      * by Cassiel_peng
@@ -321,7 +349,32 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
     		ChangeBill(ctx,model,FDCBillStateEnum.SUBMITTED);
     	}
     	
-    	return super._submit(ctx, info);
+    	 IObjectPK _submit = super._submit(ctx, info);
+    	updateSplit(ctx, info);
+    	return _submit;
+    }
+    
+    private void updateSplit(Context ctx,ChangeAuditBillInfo info) throws BOSException, EASBizException{
+    	String oql = "select id,contractBill.id,contractBill.number,contractBill.name where changeAudit.id='"+info.getId()+"'";
+    	IContractChangeBill iBill = ContractChangeBillFactory.getLocalInstance(ctx);
+    	IConChangeSplit localInstance = ConChangeSplitFactory.getLocalInstance(ctx);
+		ContractChangeBillCollection contractChangeBillColl = iBill.getContractChangeBillCollection(oql);
+		
+		Set<String> idSet = new HashSet<String>();
+		for (int i = 0; i < contractChangeBillColl.size(); i++) {
+			ContractChangeBillInfo contractChangeBillInfo = contractChangeBillColl.get(i);
+			idSet.add(contractChangeBillInfo.getId().toString());
+		}
+		
+		oql = "select contractChange.id where sourceBillId='"+info.getId()+"'";
+		ConChangeSplitCollection conChangeSplitColl = localInstance.getConChangeSplitCollection(oql);
+		for (int i = 0; i < conChangeSplitColl.size(); i++) {
+			ConChangeSplitInfo conChangeSplitInfo = conChangeSplitColl.get(i);
+			if(conChangeSplitInfo.getContractChange()==null)
+				continue;
+			if(!idSet.contains(conChangeSplitInfo.getContractChange().getId().toString()))
+				localInstance.delete(new ObjectUuidPK(conChangeSplitInfo.getId()));
+		}
     }
 
 	protected void _delete(Context ctx, IObjectPK pk) throws BOSException, EASBizException {
@@ -334,10 +387,19 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
 			SupplierContentEntryFactory.getLocalInstance(ctx).delete(filter);
 			CopySupplierEntryFactory.getLocalInstance(ctx).delete(filter);
 		}
+		
+		EntityViewInfo view = new EntityViewInfo();
 		FilterInfo filter = new FilterInfo();
 		FilterItemCollection filterItems = filter.getFilterItems();
 		filterItems.add(new FilterItemInfo("changeAudit.id",info.getId().toString()));
-		ContractChangeBillFactory.getLocalInstance(ctx).delete(filter);
+		view.setFilter(filter);
+		IContractChangeBill localInstance = ContractChangeBillFactory.getLocalInstance(ctx);
+		ContractChangeBillCollection contractChangeBillColl = localInstance.getContractChangeBillCollection(view);
+		for (int i = 0; i < contractChangeBillColl.size(); i++) 
+			ConChangeSplitFactory.getLocalInstance(ctx).delete("where contractChange.id='"+contractChangeBillColl.get(i).getId()+"'");
+		
+		localInstance.delete(filter);
+		
 		super._delete(ctx, pk);
 	}
 
@@ -348,10 +410,17 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
 			for(int j=0;j<c.size();j++){
 				info.getSuppEntry().removeObject(j);
 			}
+			EntityViewInfo view = new EntityViewInfo();
 			FilterInfo filter = new FilterInfo();
 			FilterItemCollection filterItems = filter.getFilterItems();
 			filterItems.add(new FilterItemInfo("changeAudit.id",info.getId().toString()));
-			ContractChangeBillFactory.getLocalInstance(ctx).delete(filter);
+			view.setFilter(filter);
+			IContractChangeBill localInstance = ContractChangeBillFactory.getLocalInstance(ctx);
+			ContractChangeBillCollection contractChangeBillColl = localInstance.getContractChangeBillCollection(view);
+			for (int i1 = 0; i1 < contractChangeBillColl.size(); i1++) 
+				ConChangeSplitFactory.getLocalInstance(ctx).delete("where contractChange.id='"+contractChangeBillColl.get(i1).getId()+"'");
+			
+			localInstance.delete(filter);
 		}
 		super._delete(ctx, arrayPK);
 	}
@@ -384,13 +453,14 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
 	
 	private void ChangeBill(Context ctx, IObjectValue model, FDCBillStateEnum state) throws BOSException, EASBizException {
 		ChangeAuditBillInfo info = (ChangeAuditBillInfo) model;
-		
+		if(info.getBillType()!=null&&info.getBillType().equals(ChangeAuditBillType.ChangeAuditRequest))
+			return;
 		ChangeSupplierEntryCollection c = info.getSuppEntry();
 		//之前系统中如果变更签证申请下发单位分录为空是不允许提交的,现在中渝模式下是没有此限制的,故必须处理为空的情况 by Cassiel_peng 2009-9-25
 		if(c!=null){
 			for(int i=0;i<c.size();i++){			
 				ChangeSupplierEntryInfo entry = c.get(i);
-				if(entry.getContractChange()==null){
+				if(entry.getContractChange()==null){ 
 					ContractChangeBillInfo change = new ContractChangeBillInfo();
 					change.setConductTime(FDCHelper.getCurrentDate());
 					change.setSettleTime(FDCHelper.getCurrentDate());	    	
@@ -927,9 +997,10 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
 	}
 	
 	private void runBathBill(Context ctx,ChangeAuditBillInfo billInfo,String actionName) throws BOSException, EASBizException{
-		String oql = "where changeAudit='"+billInfo.getId()+"'";
+		String oql = "where changeAudit.id='"+billInfo.getId()+"'";
 		List selectedIdValues = new ArrayList();
 		IContractChangeBill iBill = ContractChangeBillFactory.getLocalInstance(ctx);
+		IConChangeSplit IConChangeSplit = ConChangeSplitFactory.getLocalInstance(ctx);
 		ContractChangeBillCollection contractChangeBillColl = iBill.getContractChangeBillCollection(oql);
 		
 		ContractChangeBillInfo changeBillInfo[] = new ContractChangeBillInfo[contractChangeBillColl.size()];
@@ -947,6 +1018,12 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
 		}
 		iBill.disPatch(FDCHelper.CollectionToArrayPK(selectedIdValues));
 		iBill.visa(objectPk,contractChangeBillColl);
+		
+		oql = "select contractChange.id where sourceBillId='"+billInfo.getId()+"'";
+		ConChangeSplitCollection conChangeSplitColl = IConChangeSplit.getConChangeSplitCollection(oql);
+		for (int i = 0; i < conChangeSplitColl.size(); i++) 
+			IConChangeSplit.audit(conChangeSplitColl.get(i).getId());
+		
 		for (int i = 0; i < changeBillInfo.length; i++) {
 			ContractChangeBillInfo contractChangeBillInfo = changeBillInfo[i];
 			
