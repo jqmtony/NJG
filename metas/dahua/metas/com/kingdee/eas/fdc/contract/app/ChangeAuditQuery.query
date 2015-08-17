@@ -2301,6 +2301,37 @@
                 <key name="name" value="ChangeAuditQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>changeEstimate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ChangeAuditQuery].units.queryField[changeEstimate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>38947701-5701-4a5b-8dc8-3954dbf60843</key>
+                    <parentUnit>
+                        <key name="name" value="changeEstimate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="changeEstimate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ChangeAuditQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -3102,6 +3133,22 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ChangeAuditQuery].units.queryField[bookedDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ChangeAuditQuery].units.queryField[changeEstimate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更费用估算" />
+            <lang locale="zh_HK" value="變更費用估算" />
+            <lang locale="zh_TW" value="變更費用估算" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ChangeAuditQuery].units.queryField[changeEstimate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ChangeAuditQuery].units.queryField[changeEstimate].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
