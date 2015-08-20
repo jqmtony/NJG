@@ -17,10 +17,11 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
     {
         super(pkField);
         put("costEntries", new com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection());
+        put("FxbdEntry", new com.kingdee.eas.fdc.contract.programming.ProgrammingContractFxbdEntryCollection());
         put("economyEntries", new com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyCollection());
     }
     /**
-     * Object: 框架合约 's 项目合约规划 property 
+     * Object: 分录 's 项目合约规划 property 
      */
     public com.kingdee.eas.fdc.contract.programming.ProgrammingInfo getProgramming()
     {
@@ -31,7 +32,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         put("programming", item);
     }
     /**
-     * Object: 框架合约 's 上级规划合约 property 
+     * Object: 分录 's 上级规划合约 property 
      */
     public com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo getParent()
     {
@@ -42,7 +43,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         put("parent", item);
     }
     /**
-     * Object:框架合约's 规划金额property 
+     * Object:分录's 规划金额property 
      */
     public java.math.BigDecimal getAmount()
     {
@@ -53,7 +54,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setBigDecimal("amount", item);
     }
     /**
-     * Object:框架合约's 控制金额property 
+     * Object:分录's 控制金额property 
      */
     public java.math.BigDecimal getControlAmount()
     {
@@ -64,7 +65,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setBigDecimal("controlAmount", item);
     }
     /**
-     * Object:框架合约's 规划余额property 
+     * Object:分录's 规划余额property 
      */
     public java.math.BigDecimal getBalance()
     {
@@ -75,7 +76,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setBigDecimal("balance", item);
     }
     /**
-     * Object:框架合约's 控制余额property 
+     * Object:分录's 控制余额property 
      */
     public java.math.BigDecimal getControlBalance()
     {
@@ -86,7 +87,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setBigDecimal("controlBalance", item);
     }
     /**
-     * Object:框架合约's 签约金额property 
+     * Object:分录's 签约金额property 
      */
     public java.math.BigDecimal getSignUpAmount()
     {
@@ -97,7 +98,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setBigDecimal("signUpAmount", item);
     }
     /**
-     * Object:框架合约's 变更金额property 
+     * Object:分录's 变更金额property 
      */
     public java.math.BigDecimal getChangeAmount()
     {
@@ -108,7 +109,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setBigDecimal("changeAmount", item);
     }
     /**
-     * Object:框架合约's 结算金额property 
+     * Object:分录's 结算金额property 
      */
     public java.math.BigDecimal getSettleAmount()
     {
@@ -119,7 +120,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setBigDecimal("settleAmount", item);
     }
     /**
-     * Object:框架合约's 是否被引用property 
+     * Object:分录's 是否被引用property 
      */
     public boolean isIsCiting()
     {
@@ -130,7 +131,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setBoolean("isCiting", item);
     }
     /**
-     * Object:框架合约's 引用版本property 
+     * Object:分录's 引用版本property 
      */
     public int getCiteVersion()
     {
@@ -141,7 +142,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setInt("citeVersion", item);
     }
     /**
-     * Object:框架合约's 规划合约源IDproperty 
+     * Object:分录's 规划合约源IDproperty 
      */
     public String getSrcId()
     {
@@ -152,7 +153,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setString("srcId", item);
     }
     /**
-     * Object:框架合约's 附件property 
+     * Object:分录's 附件property 
      */
     public String getAttachment()
     {
@@ -163,21 +164,21 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setString("attachment", item);
     }
     /**
-     * Object: 框架合约 's 成本构成 property 
+     * Object: 分录 's 成本构成 property 
      */
     public com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection getCostEntries()
     {
         return (com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection)get("costEntries");
     }
     /**
-     * Object: 框架合约 's 经济条款 property 
+     * Object: 分录 's 经济条款 property 
      */
     public com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyCollection getEconomyEntries()
     {
         return (com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyCollection)get("economyEntries");
     }
     /**
-     * Object:框架合约's 排序列property 
+     * Object:分录's 排序列property 
      */
     public int getSortNumber()
     {
@@ -188,7 +189,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setInt("sortNumber", item);
     }
     /**
-     * Object:框架合约's 工作内容property 
+     * Object:分录's 工作内容property 
      */
     public String getWorkContent()
     {
@@ -199,7 +200,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setString("workContent", item);
     }
     /**
-     * Object:框架合约's 甲供及甲指材设property 
+     * Object:分录's 甲供及甲指材设property 
      */
     public String getSupMaterial()
     {
@@ -210,7 +211,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setString("supMaterial", item);
     }
     /**
-     * Object:框架合约's 招标方式property 
+     * Object:分录's 招标方式property 
      */
     public com.kingdee.eas.fdc.invite.InviteFormEnum getInviteWay()
     {
@@ -223,7 +224,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
 		}
     }
     /**
-     * Object: 框架合约 's 招标组织 property 
+     * Object: 分录 's 招标组织 property 
      */
     public com.kingdee.eas.basedata.org.CostCenterOrgUnitInfo getInviteOrg()
     {
@@ -234,7 +235,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         put("inviteOrg", item);
     }
     /**
-     * Object:框架合约's 建筑单方property 
+     * Object:分录's 建筑单方property 
      */
     public java.math.BigDecimal getBuildPerSquare()
     {
@@ -245,7 +246,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setBigDecimal("buildPerSquare", item);
     }
     /**
-     * Object:框架合约's 可售单方property 
+     * Object:分录's 可售单方property 
      */
     public java.math.BigDecimal getSoldPerSquare()
     {
@@ -256,7 +257,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setBigDecimal("soldPerSquare", item);
     }
     /**
-     * Object:框架合约's 是否编制付款计划property 
+     * Object:分录's 是否编制付款计划property 
      */
     public boolean isIsHasPlan()
     {
@@ -267,7 +268,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setBoolean("isHasPlan", item);
     }
     /**
-     * Object:框架合约's 预留变更率property 
+     * Object:分录's 预留变更率property 
      */
     public java.math.BigDecimal getReservedChangeRate()
     {
@@ -278,7 +279,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setBigDecimal("reservedChangeRate", item);
     }
     /**
-     * Object:框架合约's 源idproperty 
+     * Object:分录's 源idproperty 
      */
     public String getBaseId()
     {
@@ -289,7 +290,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setString("baseId", item);
     }
     /**
-     * Object:框架合约's 预计发包开始时间property 
+     * Object:分录's 预计发包开始时间property 
      */
     public java.util.Date getEstimateAwardStartDate()
     {
@@ -300,7 +301,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setDate("estimateAwardStartDate", item);
     }
     /**
-     * Object:框架合约's 预计发包结束时间property 
+     * Object:分录's 预计发包结束时间property 
      */
     public java.util.Date getEstimateAwardEndDate()
     {
@@ -311,7 +312,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         setDate("estimateAwardEndDate", item);
     }
     /**
-     * Object: 框架合约 's 招投标方式 property 
+     * Object: 分录 's 招投标方式 property 
      */
     public com.kingdee.eas.fdc.invite.InviteModeInfo getInviteMode()
     {
@@ -322,7 +323,7 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
         put("inviteMode", item);
     }
     /**
-     * Object: 框架合约 's 发包方式 property 
+     * Object: 分录 's 发包方式 property 
      */
     public com.kingdee.eas.fdc.basedata.JobTypeInfo getJobType()
     {
@@ -331,6 +332,127 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
     public void setJobType(com.kingdee.eas.fdc.basedata.JobTypeInfo item)
     {
         put("jobType", item);
+    }
+    /**
+     * Object: 分录 's 合约类型 property 
+     */
+    public com.kingdee.eas.fdc.contract.programming.PcTypeInfo getHyType()
+    {
+        return (com.kingdee.eas.fdc.contract.programming.PcTypeInfo)get("hyType");
+    }
+    public void setHyType(com.kingdee.eas.fdc.contract.programming.PcTypeInfo item)
+    {
+        put("hyType", item);
+    }
+    /**
+     * Object:分录's 计价方式property 
+     */
+    public com.kingdee.eas.fdc.contract.programming.PriceWay getPriceWay()
+    {
+        return com.kingdee.eas.fdc.contract.programming.PriceWay.getEnum(getString("priceWay"));
+    }
+    public void setPriceWay(com.kingdee.eas.fdc.contract.programming.PriceWay item)
+    {
+		if (item != null) {
+        setString("priceWay", item.getValue());
+		}
+    }
+    /**
+     * Object:分录's 发包方式property 
+     */
+    public com.kingdee.eas.fdc.contract.programming.SendContWay getSendPage()
+    {
+        return com.kingdee.eas.fdc.contract.programming.SendContWay.getEnum(getString("sendPage"));
+    }
+    public void setSendPage(com.kingdee.eas.fdc.contract.programming.SendContWay item)
+    {
+		if (item != null) {
+        setString("sendPage", item.getValue());
+		}
+    }
+    /**
+     * Object:分录's 合同范围property 
+     */
+    public String getContractRange()
+    {
+        return getString("contractRange");
+    }
+    public void setContractRange(String item)
+    {
+        setString("contractRange", item);
+    }
+    /**
+     * Object:分录's 施工图完成交接时间property 
+     */
+    public java.util.Date getSgtDate()
+    {
+        return getDate("sgtDate");
+    }
+    public void setSgtDate(java.util.Date item)
+    {
+        setDate("sgtDate", item);
+    }
+    /**
+     * Object:分录's 合同签订时间property 
+     */
+    public java.util.Date getContSignDate()
+    {
+        return getDate("contSignDate");
+    }
+    public void setContSignDate(java.util.Date item)
+    {
+        setDate("contSignDate", item);
+    }
+    /**
+     * Object:分录's 开工时间property 
+     */
+    public java.util.Date getStartDate()
+    {
+        return getDate("startDate");
+    }
+    public void setStartDate(java.util.Date item)
+    {
+        setDate("startDate", item);
+    }
+    /**
+     * Object:分录's 竣工时间property 
+     */
+    public java.util.Date getEndDate()
+    {
+        return getDate("endDate");
+    }
+    public void setEndDate(java.util.Date item)
+    {
+        setDate("endDate", item);
+    }
+    /**
+     * Object:分录's 合同签订完成时间property 
+     */
+    public java.util.Date getCsendDate()
+    {
+        return getDate("csendDate");
+    }
+    public void setCsendDate(java.util.Date item)
+    {
+        setDate("csendDate", item);
+    }
+    /**
+     * Object: 分录 's 副项表单 property 
+     */
+    public com.kingdee.eas.fdc.contract.programming.ProgrammingContractFxbdEntryCollection getFxbdEntry()
+    {
+        return (com.kingdee.eas.fdc.contract.programming.ProgrammingContractFxbdEntryCollection)get("FxbdEntry");
+    }
+    /**
+     * Object:分录's 合同是否签完property 
+     */
+    public boolean isIscse()
+    {
+        return getBoolean("iscse");
+    }
+    public void setIscse(boolean item)
+    {
+        setBoolean("iscse", item);
     }
     public BOSObjectType getBOSType()
     {

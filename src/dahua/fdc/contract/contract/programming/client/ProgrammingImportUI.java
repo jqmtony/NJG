@@ -196,9 +196,11 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		
 		ProgrammingContractCollection entries = programming.getEntries();
 		entries.clear();
+		ProgrammingTemplateEntireInfo templateEntry = null;
+		ProgrammingContractInfo programmingEntry = null;
 		for (int i = 0, size = templateEntryCollection.size(); i < size; i++) {
-			ProgrammingTemplateEntireInfo templateEntry = templateEntryCollection.get(i);
-			ProgrammingContractInfo programmingEntry = new ProgrammingContractInfo();
+			templateEntry = templateEntryCollection.get(i);
+			programmingEntry = new ProgrammingContractInfo();
 			initEntryAttribute(templateEntry, programmingEntry);
 			// copyAttachment(templateEntry, programmingEntry);
 			//初始化附件
@@ -264,7 +266,8 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		f.getFilterItems().add(new FilterItemInfo("schedule.isLatestVer", Boolean.TRUE));
 		f.getFilterItems().add(new FilterItemInfo("schedule.project.id", project.getId().toString()));
 		view.setFilter(f);
-		FDCScheduleTaskCollection col = FDCScheduleTaskFactory.getRemoteInstance().getFDCScheduleTaskCollection(view);
+		// yxl 20150811
+//		FDCScheduleTaskCollection col = FDCScheduleTaskFactory.getRemoteInstance().getFDCScheduleTaskCollection(view);
 //		for(int i=0;i<col.size();i++){
 //			if(col.get(i).getSchTemplateTask()!=null){
 //				tempTaskMap.put(col.get(i).getSchTemplateTask().getId().toString(), col.get(i));
@@ -353,6 +356,9 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 
 	private void initEntryAttribute(ProgrammingTemplateEntireInfo templateEntry,
 			ProgrammingContractInfo programmingEntry) {
+		//modified by yxl 20150811 将模板中的合约类型和合同范围引入合约规划
+		programmingEntry.setContractRange(templateEntry.getContractRange());
+		programmingEntry.setHyType(templateEntry.getHyType());
 		programmingEntry.setId(BOSUuid.create(programmingEntry.getBOSType()));
 		programmingEntry.setLevel(templateEntry.getLevel());
 		programmingEntry.setLongNumber(templateEntry.getLongNumber());
@@ -803,6 +809,9 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		sic.add("displayName");
 		sic.add("sortNumber");
 		sic.add("scope");	// modified by zhaoqin on 2013/11/08
+		sic.add("hyType.id");
+		sic.add("hyType.hyType");
+		sic.add("contractRange");
 		return sic;
 	}
 

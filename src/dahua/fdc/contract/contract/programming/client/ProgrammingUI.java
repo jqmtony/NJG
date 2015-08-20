@@ -54,6 +54,7 @@ import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.util.editor.ICellEditor;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.swing.KDComboBox;
+import com.kingdee.bos.ctrl.swing.KDDatePicker;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDMenu;
 import com.kingdee.bos.ctrl.swing.KDMenuItem;
@@ -93,7 +94,12 @@ import com.kingdee.eas.base.permission.PermissionFactory;
 import com.kingdee.eas.base.uiframe.client.BodyUI;
 import com.kingdee.eas.base.uiframe.client.NewWinMainUI;
 import com.kingdee.eas.basedata.org.CostCenterOrgUnitInfo;
+import com.kingdee.eas.basedata.org.FullOrgUnitFactory;
+import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
+import com.kingdee.eas.basedata.org.OrgStructureInfo;
 import com.kingdee.eas.basedata.org.OrgType;
+import com.kingdee.eas.basedata.person.client.PersonF7UI;
+import com.kingdee.eas.basedata.person.client.PersonPromptBox;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
@@ -121,6 +127,7 @@ import com.kingdee.eas.fdc.basedata.client.IFDCWork;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.programming.IProgramming;
+import com.kingdee.eas.fdc.contract.programming.PcTypeInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostFactory;
@@ -162,6 +169,7 @@ import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.util.NumericExceptionSubItem;
 import com.kingdee.util.StringUtils;
 import com.kingdee.util.Uuid;
+import com.kingdee.util.enums.EnumUtils;
 
 /**
  * 合约规划 列表与编辑揉合界面 成研外包开发
@@ -203,28 +211,27 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	protected KDWorkButton btnRemoveLines;
 	protected KDWorkButton btnDetails;
 	protected KDWorkButton btnSplit;
+	protected KDWorkButton btnScontract;
 	// 获取有权限的组织
 	protected Set authorizedOrgs = null;
 
 	// 是否重新加载成本科目页签
 	private boolean isRewLoadCostAccountTab = true;
-
 	public static final String IS_MODIFY = "isModify";
 
 	// modified by zhaoqin on 2013/10/12
 	// 合约规划的目标成本字段是否为空
 	private boolean has_aimCost = true;
-
 	/**
 	 * FDC228_ISSTRICTCONTROL 合同签约金额超过与之关联的合约规划金额时是否严格控制 当参数为“严格控制”时0，合同提交时必须关联合约规划，合同金额大于控制金额时，合同不允许提交；
 	 * 当参数为“提示控制”时1，合同提交时必须关联合约规划，合同金额大于合约控制金额时，合同允许提交； 当参数为“不控制”时2，则不做任何判断。默认值为：提示控制
 	 */
 	private String paramIsstrictcontrol = "1";
 	
-	
-	
 	public ProgrammingUI() throws Exception {
 		super();
+		txtYjDays.setEnabled(false);
+		prmtYjPerson.setEnabled(false);
 	}
 
 	public void onLoad() throws Exception {
@@ -259,12 +266,51 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		buildProjectTree();
 		treeSelectionListeners = treeMain.getTreeSelectionListeners();
 		switchButtonEnabled();
-		
-		
 		menuItemAddNew.setText("修改付款规划");
-
+		// modify by yxl 20150814
+		prmtYjPerson.setDisplayFormat("$name$");
+		prmtYjPerson.setEditFormat("$number$");
+		prmtYjPerson.setCommitFormat("$number$");
+		DefaultKingdeeTreeNode treeNode = getTreeNode(treeMain.getSelectionPath());
+		if(treeNode!=null && treeNode.getUserObject() instanceof OrgStructureInfo){
+			OrgStructureInfo osinfo = (OrgStructureInfo)treeNode.getUserObject();
+			FullOrgUnitInfo fullorg = FullOrgUnitFactory.getRemoteInstance().getFullOrgUnitInfo(new ObjectUuidPK(osinfo.getUnit().getId()));
+			setPersonF7(fullorg.getId().toString(),false);
+		}
 	}
 
+	public void setPersonF7(String cuId,boolean isSingle) {
+		HashMap param = new HashMap();
+		if(cuId!=null){
+			param.put(PersonF7UI.CU_ID, cuId);
+		}else{
+			param.put(PersonF7UI.ALL_ADMIN, "YES");
+		}
+		PersonPromptBox pmt = new PersonPromptBox(this,param);
+        prmtYjPerson.setEnabledMultiSelection(isSingle);
+//        map.put(PersonF7UI.ALL_ADMIN, "YES");
+        prmtYjPerson.setSelector(pmt);
+        //通用F7是可以做到隔离的,只要bizPromptBox.setEntityViewInfo(view)正确 JinXP  20071217
+        if (cuId!=null) {
+            EntityViewInfo view = new EntityViewInfo();
+    		SorterItemCollection sorc = view.getSorter();
+    		SorterItemInfo sort = new SorterItemInfo("number");
+    		sorc.add(sort);
+
+            FilterInfo filter = new FilterInfo();
+            view.setFilter(filter);
+            FilterItemCollection fic = filter.getFilterItems();
+            fic.add(new FilterItemInfo("CU2.id", cuId));
+            fic.add(new FilterItemInfo("CU2.id", null,CompareType.NOTEQUALS ));
+            fic.add(new FilterItemInfo("CU.id", cuId));
+            filter.setMaskString("(#0 and #1) or #2 ");
+
+            prmtYjPerson.setEntityViewInfo(view);
+        }else{
+            //防止输入编码调出通用F7来选择，那样无法做到隔离
+//            ((KDBizPromptBox)box).setQueryInfo(null);
+        }
+	}
 	/**
 	 * 
 	 */
@@ -682,24 +728,76 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		kdCombox.addItem(InviteFormEnum.TENDERDISCUSSION);
 		kdCombox.setSelectedIndex(-1);
 		kdtEntries.getColumn("inviteWay").setEditor(inviteEditor);
-
 		// /////////////////////////////////////////////////////////////////////
 		// start，厦门建发，合约规划的详细内容及列表界面加入4个字段“发包方式”、“招投标方式”、“预计发包开始时间”、“预计发包结束时间”等四个字段
 		// by skyiter_wang 20131009
 		// /////////////////////////////////////////////////////////////////////
-
 		kdtEntries.getColumn("estimateAwardStartDate").getStyleAttributes().setLocked(true);
 		kdtEntries.getColumn("estimateAwardEndDate").getStyleAttributes().setLocked(true);
 		kdtEntries.getColumn("inviteMode").getStyleAttributes().setLocked(true);
 		kdtEntries.getColumn("jobType").getStyleAttributes().setLocked(true);
-
-		// /////////////////////////////////////////////////////////////////////
-		// end
-		// /////////////////////////////////////////////////////////////////////
-
 		createCostCentertF7();
-		
 		kdtEntries.getColumn(CONTROL_BALANCE).getStyleAttributes().setHided(false);
+		/**
+			隐藏四个字段，为合约类型设置F7 两个枚举  五个时间
+			已发生金额occurAmount 规划余额balance 控制余额controlBalance 付款计划isHasPlan
+			合约类型hyType 计价方式priceWay 发包方式sendPage 施工图sgDate
+			合同签订csDate 开工startDate 竣工endDate 合同完成csendDate
+			by yxl 20150811
+		*/
+		kdtEntries.getColumn("occurAmount").getStyleAttributes().setHided(true);
+		kdtEntries.getColumn("balance").getStyleAttributes().setHided(true);
+		kdtEntries.getColumn("controlBalance").getStyleAttributes().setHided(true);
+		kdtEntries.getColumn("isHasPlan").getStyleAttributes().setHided(true);
+		final KDBizPromptBox hyType = new KDBizPromptBox();
+		hyType.setQueryInfo("com.kingdee.eas.fdc.contract.programming.app.PcTypeQuery");
+		hyType.setDisplayFormat("$hyType$");
+		hyType.setEditFormat("$hyType$");
+		hyType.setCommitFormat("$hyType$");
+        KDTDefaultCellEditor hyTypeCellEditor = new KDTDefaultCellEditor(hyType);
+        kdtEntries.getColumn("hyType").setEditor(hyTypeCellEditor);
+        ObjectValueRender hyType_OVR = new ObjectValueRender();
+        hyType_OVR.setFormat(new BizDataFormat("$hyType$"));
+        kdtEntries.getColumn("hyType").setRenderer(hyType_OVR);
+		KDComboBox priceSend = new KDComboBox();
+		KDTDefaultCellEditor priceSendEditor = new KDTDefaultCellEditor(priceSend);
+		priceSend.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.contract.programming.PriceWay").toArray());
+		kdtEntries.getColumn("priceWay").setEditor(priceSendEditor);
+		priceSend = new KDComboBox();
+		priceSendEditor = new KDTDefaultCellEditor(priceSend);
+		priceSend.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.contract.programming.SendContWay").toArray());
+		kdtEntries.getColumn("sendPage").setEditor(priceSendEditor);
+		KDDatePicker datePicker = new KDDatePicker();
+        datePicker.setEditable(true);
+        KDTDefaultCellEditor dateEditor = new KDTDefaultCellEditor(datePicker);
+        kdtEntries.getColumn("sgDate").setEditor(dateEditor);
+        kdtEntries.getColumn("csDate").setEditor(dateEditor);
+        kdtEntries.getColumn("startDate").setEditor(dateEditor);
+        kdtEntries.getColumn("endDate").setEditor(dateEditor);
+        kdtEntries.getColumn("csendDate").setEditor(dateEditor);
+        kdtEntries.getColumn("sgDate").getStyleAttributes().setNumberFormat("yyyy-MM-dd");
+        kdtEntries.getColumn("csDate").getStyleAttributes().setNumberFormat("yyyy-MM-dd");
+        kdtEntries.getColumn("startDate").getStyleAttributes().setNumberFormat("yyyy-MM-dd");
+        kdtEntries.getColumn("endDate").getStyleAttributes().setNumberFormat("yyyy-MM-dd");
+        kdtEntries.getColumn("csendDate").getStyleAttributes().setNumberFormat("yyyy-MM-dd");
+//        ObjectValueRender date_OVR = new ObjectValueRender();
+//        kdtEntries.getColumn("sgDate").setRenderer(date_OVR);
+//        datePicker = new KDDatePicker();
+//        datePicker.setEditable(true);
+//        dateEditor = new KDTDefaultCellEditor(datePicker);
+//        kdtEntries.getColumn("csDate").setEditor(dateEditor);
+//        datePicker = new KDDatePicker();
+//        datePicker.setEditable(true);
+//        dateEditor = new KDTDefaultCellEditor(datePicker);
+//        kdtEntries.getColumn("startDate").setEditor(dateEditor);
+//        datePicker = new KDDatePicker();
+//        datePicker.setEditable(true);
+//        dateEditor = new KDTDefaultCellEditor(datePicker);
+//        kdtEntries.getColumn("endDate").setEditor(dateEditor);
+//        datePicker = new KDDatePicker();
+//        datePicker.setEditable(true);
+//        dateEditor = new KDTDefaultCellEditor(datePicker);
+//        kdtEntries.getColumn("csendDate").setEditor(dateEditor);
 	}
 
 	private void cellToFormattedText(KDTable table, String column) {
@@ -930,6 +1028,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		btnRemoveLines = new KDWorkButton();
 		btnDetails = new KDWorkButton();
 		btnSplit = new KDWorkButton();
+		btnScontract = new KDWorkButton();
 
 		btnDetails.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -983,12 +1082,24 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				}
 			}
 		});
+		
+		btnScontract.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					actionScontract_actionPerformed(e);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
 
 		setButtonStyle(btnAddnewLine, "新增行", "imgTbtn_addline");
 		setButtonStyle(btnRemoveLines, "删除行", "imgTbtn_deleteline");
 		setButtonStyle(btnInsertLines, "插入行", "imgTbtn_insert");
 		setButtonStyle(btnDetails, "详细信息", "imgTbtn_particular");
 		setButtonStyle(btnSplit, "分解", "imgTbtn_particular");
+		btnScontract.setText("合同未签完");
+		conProgramming.addButton(btnScontract);
 	}
 
 	private void setButtionEnable(boolean isEnable) {
@@ -1034,7 +1145,12 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			}
 		}
 	}
-
+	
+	//针对每个明细合约，设置 合同是否签完 按钮，默认显示“合同未签完” by yxl 20150820
+	public void actionScontract_actionPerformed(ActionEvent e) throws Exception {
+		
+	}
+	
 	/**
 	 * 点击新增行按钮
 	 * 
@@ -1858,10 +1974,8 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		if (oldValue == null && newValue == null) {
 			return;
 		}
-		
 		/* modified by zhaoqin for R140507-0214 on 2014/05/13 */
 		setSaved(false);
-		
 		this.dataBinder.storeFields();
 		int rowIndex = kdtEntries.getSelectManager().getActiveRowIndex();
 		if (rowIndex < 0)
@@ -2052,6 +2166,12 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				}
 			}
 		}
+		//modify by yxl 20150814 根据合约类型带出计价方式和发包方式
+		if(colIndex==kdtEntries.getColumnIndex("hyType") && kdtEntries.getCell(e.getRowIndex(),colIndex).getValue()!=null){
+			PcTypeInfo ptinfo=(PcTypeInfo)kdtEntries.getCell(rowIndex,colIndex).getValue();
+			kdtEntries.getCell(rowIndex,"priceWay").setValue(ptinfo.getPriceWay());
+			kdtEntries.getCell(rowIndex,"sendPage").setValue(ptinfo.getSendContWay());
+		}
 	}
 
 	/**
@@ -2175,6 +2295,12 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		uiContext.put("pcCollection", pcCollection);// 规划合约集合
 		uiContext.put("project", project);// 工程项目
 		uiContext.put("aimCostInfo", aimCostInfo);// 目标成本
+		//选中合约规划记录时，在下方自动显示模板中该合约的工作说明    modify by yxl
+		if(rowObject.getWorkContent()==null){
+			labelExplain.setText("规划说明：");
+		}else{
+			labelExplain.setText("规划说明："+rowObject.getWorkContent());
+		}
 
 		// 双击编辑附件
 		if (e.getType() == KDTStyleConstants.BODY_ROW && e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 2
@@ -3395,6 +3521,10 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		sic.add(new SelectorItemInfo("entries.jobType.id"));
 		sic.add(new SelectorItemInfo("entries.jobType.number"));
 		sic.add(new SelectorItemInfo("entries.jobType.name"));
+		// yxl
+		sic.add(new SelectorItemInfo("entries.hyType.id"));
+		sic.add(new SelectorItemInfo("entries.hyType.hyType"));
+		sic.add(new SelectorItemInfo("entries.iscse"));
 
 		// /////////////////////////////////////////////////////////////////////
 		// end
@@ -3406,6 +3536,10 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		sic.add(new SelectorItemInfo("lastUpdateTime"));
 		sic.add(new SelectorItemInfo("CU.id"));
 		sic.add(new SelectorItemInfo("orgUnit.id"));
+		sic.add(new SelectorItemInfo("yjPerson.id"));
+    	sic.add(new SelectorItemInfo("yjPerson.number"));
+    	sic.add(new SelectorItemInfo("yjPerson.name"));
+    	sic.add(new SelectorItemInfo("yjDays"));
 		return sic;
 	}
 
@@ -4226,7 +4360,6 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	 */
 	public void buildProjectTree() throws Exception {
 		ProjectTreeBuilder projectTreeBuilder = new ProjectTreeBuilder();
-
 		projectTreeBuilder.build(this, treeMain, actionOnLoad);
 
 		authorizedOrgs = (Set) ActionCache.get("FDCBillListUIHandler.authorizedOrgs");
@@ -4263,8 +4396,10 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				actionSave_actionPerformed(null);
 			}
 		}
-		/* modified by zhaoqin for R140507-0214 on 2014/05/13 start */
+		// modify by yxl 20150814
+		treeMain.getLastSelectedPathComponent();
 		
+		/* modified by zhaoqin for R140507-0214 on 2014/05/13 start */
 		prmtAimCost.removeDataChangeListener(dataChangeListener);// 刷新前取消监听
 		clearUIContext();
 		setOprtState(OprtState.VIEW);
@@ -4345,6 +4480,9 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		}
 		setAimCostVersionMsg();
 		/* modified by zhaoqin for R140507-0214 on 2014/05/13 start */
+		labelExplain.setText("规划说明：");
+		txtYjDays.setEnabled(false);
+		prmtYjPerson.setEnabled(false);
 	}
 
 	/**
@@ -4976,16 +5114,22 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				actionNextPerson.setVisible(false);
 				actionNextPerson.setEnabled(false);
 			}
+			txtYjDays.setEnabled(false);
+			prmtYjPerson.setEnabled(false);
 		} else if (oprtState.equals(OprtState.ADDNEW)) {
 			btnEdit.setEnabled(false);
 			btnAudit.setEnabled(false);
 			btnUnAudit.setEnabled(false);
+			txtYjDays.setEnabled(true);
+			prmtYjPerson.setEnabled(true);
 		} else if (oprtState.equals(OprtState.EDIT)) {
 			if (isBillStateEquals(FDCBillStateEnum.SUBMITTED)) {
 				btnSave.setEnabled(false);
 			}
 			btnEdit.setEnabled(false);
 			btnUnAudit.setEnabled(false);
+			txtYjDays.setEnabled(true);
+			prmtYjPerson.setEnabled(true);
 		}
 	}
 
@@ -5915,10 +6059,14 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	 * @date 2014/05/14
 	 */
 	private void setAimCostVersionMsg() throws BOSException, EASBizException {
-		if(null == this.editData || null == this.editData.getId())
+		//modified by yxl 20150811
+		if(null == this.editData || null == this.editData.getId()){
+			txtCostVersionInfo.setText(null);
 			return;
+		}
 		String id = this.editData.getId().toString();
-		StringBuilder msg = new StringBuilder("目标成本版本信息：");
+//		StringBuilder msg = new StringBuilder("目标成本版本信息：");
+		StringBuilder msg = new StringBuilder();
 		int initLeng = msg.length();
 		FDCSQLBuilder builder = new FDCSQLBuilder();
 		builder.appendSql("select ac.fversionnumber,ac.fversionname from T_CON_Programming p join T_AIM_AimCost ac on ac.fid = p.faimcostid ");
@@ -5939,7 +6087,8 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		if(msg.length() > initLeng) {
 			msg.delete(msg.length() - 2, msg.length() - 1);
 		}
-		labelExplain.setText(msg.toString());
+//		labelExplain.setText(msg.toString());
+		txtCostVersionInfo.setText(msg.toString());
 	}
 	
 	/**

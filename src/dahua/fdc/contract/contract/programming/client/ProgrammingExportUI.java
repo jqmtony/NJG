@@ -238,6 +238,9 @@ public class ProgrammingExportUI extends AbstractProgrammingExportUI
     
 	private ProgrammingTemplateEntireInfo addProgrammingTemplateEntireInfo(ProgrammingTemplateEntireInfo proTempInfo,
 			ProgrammingContractInfo proInfo) throws BOSException {
+		// modify yxl 20150811
+		proTempInfo.setContractRange(proInfo.getContractRange());
+		proTempInfo.setHyType(proInfo.getHyType());
 		proTempInfo.setLevel(proInfo.getLevel());
 		proTempInfo.setSortNumber(proInfo.getSortNumber());
 		proTempInfo.setLongNumber(proInfo.getLongNumber());

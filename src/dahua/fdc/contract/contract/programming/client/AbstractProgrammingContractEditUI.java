@@ -63,6 +63,7 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDTextField txtAttachment;
     protected com.kingdee.bos.ctrl.swing.KDPanel kdplContract;
     protected com.kingdee.bos.ctrl.swing.KDPanel kdplPayPlan;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1fx;
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDContainer kdContainerCost;
@@ -92,6 +93,7 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkEstimateAwardEndDate;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtInviteMode;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtJobType;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtfxbd;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnSave;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAttachment;
     protected com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo editData = null;
@@ -141,6 +143,7 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         this.txtAttachment = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kdplContract = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kdplPayPlan = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.kDContainer1fx = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
         this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kdContainerCost = new com.kingdee.bos.ctrl.swing.KDContainer();
@@ -170,6 +173,7 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         this.pkEstimateAwardEndDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtInviteMode = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtJobType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.kdtfxbd = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.btnSave = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnAttachment = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.pnlHide.setName("pnlHide");
@@ -189,6 +193,7 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         this.txtAttachment.setName("txtAttachment");
         this.kdplContract.setName("kdplContract");
         this.kdplPayPlan.setName("kdplPayPlan");
+        this.kDContainer1fx.setName("kDContainer1fx");
         this.kDTabbedPane1.setName("kDTabbedPane1");
         this.kDPanel1.setName("kDPanel1");
         this.kdContainerCost.setName("kdContainerCost");
@@ -218,6 +223,7 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         this.pkEstimateAwardEndDate.setName("pkEstimateAwardEndDate");
         this.prmtInviteMode.setName("prmtInviteMode");
         this.prmtJobType.setName("prmtJobType");
+        this.kdtfxbd.setName("kdtfxbd");
         this.btnSave.setName("btnSave");
         this.btnAttachment.setName("btnAttachment");
         // CoreUI		
@@ -269,6 +275,8 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         this.txtAttachment.setMaxLength(80);
         // kdplContract
         // kdplPayPlan
+        // kDContainer1fx		
+        this.kDContainer1fx.setTitle(resHelper.getString("kDContainer1fx.title"));
         // kDTabbedPane1
         // kDPanel1
         // kdContainerCost		
@@ -478,6 +486,13 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         this.prmtJobType.setEditFormat("$number$");		
         this.prmtJobType.setDisplayFormat("$name$");		
         this.prmtJobType.setQueryInfo("com.kingdee.eas.fdc.basedata.app.JobTypeQuery");
+        // kdtfxbd
+		String kdtfxbdStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles /><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup /><t:Head /></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kdtfxbd.setFormatXml(resHelper.translateString("kdtfxbd",kdtfxbdStrXML));
+
+        
+
         // btnSave
         this.btnSave.setAction((IItemAction)ActionProxyFactory.getProxy(actionSubmit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnSave.setText(resHelper.getString("btnSave.text"));		
@@ -547,6 +562,7 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         //kdtpMain
         kdtpMain.add(kdplContract, resHelper.getString("kdplContract.constraints"));
         kdtpMain.add(kdplPayPlan, resHelper.getString("kdplPayPlan.constraints"));
+        kdtpMain.add(kDContainer1fx, resHelper.getString("kDContainer1fx.constraints"));
         //kdplContract
         kdplContract.setLayout(new KDLayout());
         kdplContract.putClientProperty("OriginalBounds", new Rectangle(0, 0, 799, 567));        kDTabbedPane1.setBounds(new Rectangle(0, 199, 800, 370));
@@ -608,7 +624,9 @@ kDContainerEconomy.getContentPane().setLayout(new BorderLayout(0, 0));        kD
         contInviteMode.setBoundEditor(prmtInviteMode);
         //contJobType
         contJobType.setBoundEditor(prmtJobType);
-        kdplPayPlan.setLayout(null);
+        kdplPayPlan.setLayout(null);        //kDContainer1fx
+kDContainer1fx.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer1fx.getContentPane().add(kdtfxbd, BorderLayout.CENTER);
+
     }
 
 
@@ -658,8 +676,8 @@ kDContainerEconomy.getContentPane().setLayout(new BorderLayout(0, 0));        kD
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnSave);
-        this.toolBar.add(btnAttachment);
         this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnAttachment);
 
 
     }

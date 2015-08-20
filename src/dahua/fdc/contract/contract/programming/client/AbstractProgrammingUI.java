@@ -55,6 +55,9 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contProject;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer labelState;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer labelDisplayVersion;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer6;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer7;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer8;
     protected com.kingdee.bos.ctrl.swing.KDContainer conProgramming;
     protected com.kingdee.bos.ctrl.swing.KDContainer pnlCostAccount;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntries;
@@ -63,6 +66,9 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
     protected com.kingdee.bos.ctrl.swing.KDTextField txtProjectName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtState;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtDisplayVersion;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtYjDays;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtYjPerson;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtCostVersionInfo;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
@@ -166,6 +172,9 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.contProject = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.labelState = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.labelDisplayVersion = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer6 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer7 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer8 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conProgramming = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.pnlCostAccount = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kdtEntries = new com.kingdee.bos.ctrl.kdf.table.KDTable();
@@ -174,6 +183,9 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.txtProjectName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtState = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtDisplayVersion = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtYjDays = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.prmtYjPerson = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtCostVersionInfo = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -214,6 +226,9 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.contProject.setName("contProject");
         this.labelState.setName("labelState");
         this.labelDisplayVersion.setName("labelDisplayVersion");
+        this.kDLabelContainer6.setName("kDLabelContainer6");
+        this.kDLabelContainer7.setName("kDLabelContainer7");
+        this.kDLabelContainer8.setName("kDLabelContainer8");
         this.conProgramming.setName("conProgramming");
         this.pnlCostAccount.setName("pnlCostAccount");
         this.kdtEntries.setName("kdtEntries");
@@ -222,6 +237,9 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.txtProjectName.setName("txtProjectName");
         this.txtState.setName("txtState");
         this.txtDisplayVersion.setName("txtDisplayVersion");
+        this.txtYjDays.setName("txtYjDays");
+        this.prmtYjPerson.setName("prmtYjPerson");
+        this.txtCostVersionInfo.setName("txtCostVersionInfo");
         this.kDLabelContainer2.setName("kDLabelContainer2");
         this.contNumber.setName("contNumber");
         this.kDLabelContainer1.setName("kDLabelContainer1");
@@ -355,12 +373,24 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.labelDisplayVersion.setBoundLabelText(resHelper.getString("labelDisplayVersion.boundLabelText"));		
         this.labelDisplayVersion.setBoundLabelLength(100);		
         this.labelDisplayVersion.setBoundLabelUnderline(true);
+        // kDLabelContainer6		
+        this.kDLabelContainer6.setBoundLabelText(resHelper.getString("kDLabelContainer6.boundLabelText"));		
+        this.kDLabelContainer6.setBoundLabelLength(100);		
+        this.kDLabelContainer6.setBoundLabelUnderline(true);
+        // kDLabelContainer7		
+        this.kDLabelContainer7.setBoundLabelText(resHelper.getString("kDLabelContainer7.boundLabelText"));		
+        this.kDLabelContainer7.setBoundLabelLength(100);		
+        this.kDLabelContainer7.setBoundLabelUnderline(true);
+        // kDLabelContainer8		
+        this.kDLabelContainer8.setBoundLabelText(resHelper.getString("kDLabelContainer8.boundLabelText"));		
+        this.kDLabelContainer8.setBoundLabelLength(100);		
+        this.kDLabelContainer8.setBoundLabelUnderline(true);
         // conProgramming		
         this.conProgramming.setTitle(resHelper.getString("conProgramming.title"));
         // pnlCostAccount		
         this.pnlCostAccount.setTitle(resHelper.getString("pnlCostAccount.title"));
         // kdtEntries
-		String kdtEntriesStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol2\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol8\"><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol9\"><c:Protection locked=\"true\" /><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol10\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection locked=\"true\" hidden=\"true\" /><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol12\"><c:Protection locked=\"true\" hidden=\"true\" /><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol13\"><c:Protection locked=\"true\" hidden=\"true\" /><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol14\"><c:Protection locked=\"true\" /><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol15\"><c:Protection locked=\"true\" hidden=\"true\" /><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol16\"><c:Protection locked=\"true\" hidden=\"true\" /><c:Alignment horizontal=\"center\" /></c:Style><c:Style id=\"sCol17\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol18\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol19\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol20\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol21\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol22\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol23\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol24\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol25\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol26\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol28\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol29\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol30\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol31\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"longNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"0\" t:styleID=\"sCol0\" /><t:Column t:key=\"name\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"1\" /><t:Column t:key=\"workContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" t:styleID=\"sCol2\" /><t:Column t:key=\"supMaterial\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" t:styleID=\"sCol3\" /><t:Column t:key=\"inviteWay\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"inviteOrg\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" t:styleID=\"sCol5\" /><t:Column t:key=\"amount\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"reservedChangeRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"controlAmount\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"occurAmount\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" t:styleID=\"sCol9\" /><t:Column t:key=\"isCiting\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" t:styleID=\"sCol10\" /><t:Column t:key=\"signUpAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" t:styleID=\"sCol11\" /><t:Column t:key=\"changeAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" t:styleID=\"sCol12\" /><t:Column t:key=\"settleAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" t:styleID=\"sCol13\" /><t:Column t:key=\"balance\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" t:styleID=\"sCol14\" /><t:Column t:key=\"controlBalance\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" t:styleID=\"sCol15\" /><t:Column t:key=\"attachment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" t:styleID=\"sCol16\" /><t:Column t:key=\"buildPerSquare\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" t:styleID=\"sCol17\" /><t:Column t:key=\"soldPerSquare\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"18\" t:styleID=\"sCol18\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"19\" t:styleID=\"sCol19\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"20\" t:styleID=\"sCol20\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"21\" t:styleID=\"sCol21\" /><t:Column t:key=\"level\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"22\" t:styleID=\"sCol22\" /><t:Column t:key=\"citeVersion\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"23\" t:styleID=\"sCol23\" /><t:Column t:key=\"headNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"24\" t:styleID=\"sCol24\" /><t:Column t:key=\"longName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"25\" t:styleID=\"sCol25\" /><t:Column t:key=\"sortNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"26\" t:styleID=\"sCol26\" /><t:Column t:key=\"isHasPlan\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"27\" /><t:Column t:key=\"estimateAwardStartDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol28\" /><t:Column t:key=\"estimateAwardEndDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol29\" /><t:Column t:key=\"inviteMode\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol30\" /><t:Column t:key=\"jobType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol31\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{longNumber}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{workContent}</t:Cell><t:Cell>$Resource{supMaterial}</t:Cell><t:Cell>$Resource{inviteWay}</t:Cell><t:Cell>$Resource{inviteOrg}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{reservedChangeRate}</t:Cell><t:Cell>$Resource{controlAmount}</t:Cell><t:Cell>$Resource{occurAmount}</t:Cell><t:Cell>$Resource{isCiting}</t:Cell><t:Cell>$Resource{signUpAmount}</t:Cell><t:Cell>$Resource{changeAmount}</t:Cell><t:Cell>$Resource{settleAmount}</t:Cell><t:Cell>$Resource{balance}</t:Cell><t:Cell>$Resource{controlBalance}</t:Cell><t:Cell>$Resource{attachment}</t:Cell><t:Cell>$Resource{buildPerSquare}</t:Cell><t:Cell>$Resource{soldPerSquare}</t:Cell><t:Cell>$Resource{remark}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{level}</t:Cell><t:Cell>$Resource{citeVersion}</t:Cell><t:Cell>$Resource{headNumber}</t:Cell><t:Cell>$Resource{longName}</t:Cell><t:Cell>$Resource{sortNumber}</t:Cell><t:Cell>$Resource{isHasPlan}</t:Cell><t:Cell>$Resource{estimateAwardStartDate}</t:Cell><t:Cell>$Resource{estimateAwardEndDate}</t:Cell><t:Cell>$Resource{inviteMode}</t:Cell><t:Cell>$Resource{jobType}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntriesStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol1\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol7\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol10\"><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol11\"><c:Protection locked=\"true\" /><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol12\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection locked=\"true\" hidden=\"true\" /><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol14\"><c:Protection locked=\"true\" hidden=\"true\" /><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol15\"><c:Protection locked=\"true\" hidden=\"true\" /><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol16\"><c:Protection locked=\"true\" /><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol17\"><c:Protection locked=\"true\" hidden=\"true\" /><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol18\"><c:Protection locked=\"true\" hidden=\"true\" /><c:Alignment horizontal=\"center\" /></c:Style><c:Style id=\"sCol19\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol20\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol21\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol22\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol23\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol24\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol25\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol26\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol27\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol28\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol30\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol31\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol32\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol33\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"iscse\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" /><t:Column t:key=\"longNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"1\" t:styleID=\"sCol1\" /><t:Column t:key=\"name\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"2\" /><t:Column t:key=\"hyType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"workContent\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"supMaterial\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" t:styleID=\"sCol5\" /><t:Column t:key=\"inviteWay\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"inviteOrg\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" t:styleID=\"sCol7\" /><t:Column t:key=\"amount\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"reservedChangeRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"controlAmount\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" t:styleID=\"sCol10\" /><t:Column t:key=\"occurAmount\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" t:styleID=\"sCol11\" /><t:Column t:key=\"isCiting\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" t:styleID=\"sCol12\" /><t:Column t:key=\"signUpAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" t:styleID=\"sCol13\" /><t:Column t:key=\"changeAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" t:styleID=\"sCol14\" /><t:Column t:key=\"settleAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" t:styleID=\"sCol15\" /><t:Column t:key=\"balance\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" t:styleID=\"sCol16\" /><t:Column t:key=\"controlBalance\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" t:styleID=\"sCol17\" /><t:Column t:key=\"attachment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"18\" t:styleID=\"sCol18\" /><t:Column t:key=\"buildPerSquare\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"19\" t:styleID=\"sCol19\" /><t:Column t:key=\"soldPerSquare\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"20\" t:styleID=\"sCol20\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"21\" t:styleID=\"sCol21\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"22\" t:styleID=\"sCol22\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"23\" t:styleID=\"sCol23\" /><t:Column t:key=\"level\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"24\" t:styleID=\"sCol24\" /><t:Column t:key=\"citeVersion\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"25\" t:styleID=\"sCol25\" /><t:Column t:key=\"headNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"26\" t:styleID=\"sCol26\" /><t:Column t:key=\"longName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"27\" t:styleID=\"sCol27\" /><t:Column t:key=\"sortNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"28\" t:styleID=\"sCol28\" /><t:Column t:key=\"isHasPlan\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"29\" /><t:Column t:key=\"estimateAwardStartDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"30\" t:styleID=\"sCol30\" /><t:Column t:key=\"estimateAwardEndDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"31\" t:styleID=\"sCol31\" /><t:Column t:key=\"inviteMode\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"32\" t:styleID=\"sCol32\" /><t:Column t:key=\"jobType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"33\" t:styleID=\"sCol33\" /><t:Column t:key=\"contractRange\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"34\" /><t:Column t:key=\"priceWay\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"35\" /><t:Column t:key=\"sendPage\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"36\" /><t:Column t:key=\"sgDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"37\" /><t:Column t:key=\"csDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"38\" /><t:Column t:key=\"startDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"39\" /><t:Column t:key=\"endDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"40\" /><t:Column t:key=\"csendDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"41\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{iscse}</t:Cell><t:Cell>$Resource{longNumber}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{hyType}</t:Cell><t:Cell>$Resource{workContent}</t:Cell><t:Cell>$Resource{supMaterial}</t:Cell><t:Cell>$Resource{inviteWay}</t:Cell><t:Cell>$Resource{inviteOrg}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{reservedChangeRate}</t:Cell><t:Cell>$Resource{controlAmount}</t:Cell><t:Cell>$Resource{occurAmount}</t:Cell><t:Cell>$Resource{isCiting}</t:Cell><t:Cell>$Resource{signUpAmount}</t:Cell><t:Cell>$Resource{changeAmount}</t:Cell><t:Cell>$Resource{settleAmount}</t:Cell><t:Cell>$Resource{balance}</t:Cell><t:Cell>$Resource{controlBalance}</t:Cell><t:Cell>$Resource{attachment}</t:Cell><t:Cell>$Resource{buildPerSquare}</t:Cell><t:Cell>$Resource{soldPerSquare}</t:Cell><t:Cell>$Resource{remark}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{level}</t:Cell><t:Cell>$Resource{citeVersion}</t:Cell><t:Cell>$Resource{headNumber}</t:Cell><t:Cell>$Resource{longName}</t:Cell><t:Cell>$Resource{sortNumber}</t:Cell><t:Cell>$Resource{isHasPlan}</t:Cell><t:Cell>$Resource{estimateAwardStartDate}</t:Cell><t:Cell>$Resource{estimateAwardEndDate}</t:Cell><t:Cell>$Resource{inviteMode}</t:Cell><t:Cell>$Resource{jobType}</t:Cell><t:Cell>$Resource{contractRange}</t:Cell><t:Cell>$Resource{priceWay}</t:Cell><t:Cell>$Resource{sendPage}</t:Cell><t:Cell>$Resource{sgDate}</t:Cell><t:Cell>$Resource{csDate}</t:Cell><t:Cell>$Resource{startDate}</t:Cell><t:Cell>$Resource{endDate}</t:Cell><t:Cell>$Resource{csendDate}</t:Cell></t:Row><t:Row t:name=\"header2\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{iscse_Row2}</t:Cell><t:Cell>$Resource{longNumber_Row2}</t:Cell><t:Cell>$Resource{name_Row2}</t:Cell><t:Cell>$Resource{hyType_Row2}</t:Cell><t:Cell>$Resource{workContent_Row2}</t:Cell><t:Cell>$Resource{supMaterial_Row2}</t:Cell><t:Cell>$Resource{inviteWay_Row2}</t:Cell><t:Cell>$Resource{inviteOrg_Row2}</t:Cell><t:Cell>$Resource{amount_Row2}</t:Cell><t:Cell>$Resource{reservedChangeRate_Row2}</t:Cell><t:Cell>$Resource{controlAmount_Row2}</t:Cell><t:Cell>$Resource{occurAmount_Row2}</t:Cell><t:Cell>$Resource{isCiting_Row2}</t:Cell><t:Cell>$Resource{signUpAmount_Row2}</t:Cell><t:Cell>$Resource{changeAmount_Row2}</t:Cell><t:Cell>$Resource{settleAmount_Row2}</t:Cell><t:Cell>$Resource{balance_Row2}</t:Cell><t:Cell>$Resource{controlBalance_Row2}</t:Cell><t:Cell>$Resource{attachment_Row2}</t:Cell><t:Cell>$Resource{buildPerSquare_Row2}</t:Cell><t:Cell>$Resource{soldPerSquare_Row2}</t:Cell><t:Cell>$Resource{remark_Row2}</t:Cell><t:Cell>$Resource{id_Row2}</t:Cell><t:Cell>$Resource{number_Row2}</t:Cell><t:Cell>$Resource{level_Row2}</t:Cell><t:Cell>$Resource{citeVersion_Row2}</t:Cell><t:Cell>$Resource{headNumber_Row2}</t:Cell><t:Cell>$Resource{longName_Row2}</t:Cell><t:Cell>$Resource{sortNumber_Row2}</t:Cell><t:Cell>$Resource{isHasPlan_Row2}</t:Cell><t:Cell>$Resource{estimateAwardStartDate_Row2}</t:Cell><t:Cell>$Resource{estimateAwardEndDate_Row2}</t:Cell><t:Cell>$Resource{inviteMode_Row2}</t:Cell><t:Cell>$Resource{jobType_Row2}</t:Cell><t:Cell>$Resource{contractRange_Row2}</t:Cell><t:Cell>$Resource{priceWay_Row2}</t:Cell><t:Cell>$Resource{sendPage_Row2}</t:Cell><t:Cell>$Resource{sgDate_Row2}</t:Cell><t:Cell>$Resource{csDate_Row2}</t:Cell><t:Cell>$Resource{startDate_Row2}</t:Cell><t:Cell>$Resource{endDate_Row2}</t:Cell><t:Cell>$Resource{csendDate_Row2}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head><t:Block t:top=\"0\" t:left=\"0\" t:bottom=\"1\" t:right=\"0\" /><t:Block t:top=\"0\" t:left=\"2\" t:bottom=\"1\" t:right=\"2\" /><t:Block t:top=\"0\" t:left=\"3\" t:bottom=\"1\" t:right=\"3\" /><t:Block t:top=\"0\" t:left=\"8\" t:bottom=\"1\" t:right=\"8\" /><t:Block t:top=\"0\" t:left=\"9\" t:bottom=\"1\" t:right=\"9\" /><t:Block t:top=\"0\" t:left=\"10\" t:bottom=\"1\" t:right=\"10\" /><t:Block t:top=\"0\" t:left=\"0\" t:bottom=\"0\" t:right=\"0\" /><t:Block t:top=\"0\" t:left=\"34\" t:bottom=\"1\" t:right=\"34\" /><t:Block t:top=\"0\" t:left=\"35\" t:bottom=\"1\" t:right=\"35\" /><t:Block t:top=\"0\" t:left=\"36\" t:bottom=\"1\" t:right=\"36\" /><t:Block t:top=\"0\" t:left=\"39\" t:bottom=\"0\" t:right=\"40\" /></t:Head></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntries.setFormatXml(resHelper.translateString("kdtEntries",kdtEntriesStrXML));
         this.kdtEntries.addKDTActiveCellListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTActiveCellListener() {
@@ -407,7 +437,7 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
             }
         });
 
-                this.kdtEntries.putBindContents("editData",new String[] {"longNumber","name","workContent","supMaterial","inviteWay","inviteOrg","amount","reservedChangeRate","controlAmount","","isCiting","signUpAmount","changeAmount","settleAmount","balance","controlBalance","attachment","buildPerSquare","soldPerSquare","description","id","number","level","citeVersion","parent.longNumber","displayName","sortNumber","isHasPlan","estimateAwardStartDate","estimateAwardEndDate","inviteMode","jobType"});
+                this.kdtEntries.putBindContents("editData",new String[] {"iscse","longNumber","name","hyType","workContent","supMaterial","inviteWay","inviteOrg","amount","reservedChangeRate","controlAmount","","isCiting","signUpAmount","changeAmount","settleAmount","balance","controlBalance","attachment","buildPerSquare","soldPerSquare","description","id","number","level","citeVersion","parent.longNumber","displayName","sortNumber","isHasPlan","estimateAwardStartDate","estimateAwardEndDate","inviteMode","jobType","contractRange","priceWay","sendPage","sgtDate","contSignDate","startDate","endDate","csendDate"});
 
 
         // labelExplain		
@@ -435,6 +465,14 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.txtState.setEnabled(false);
         // txtDisplayVersion		
         this.txtDisplayVersion.setEnabled(false);
+        // txtYjDays
+        // prmtYjPerson		
+        this.prmtYjPerson.setDisplayFormat("$name$");		
+        this.prmtYjPerson.setEditFormat("$number$");		
+        this.prmtYjPerson.setCommitFormat("$number$");		
+        this.prmtYjPerson.setQueryInfo("com.kingdee.eas.cp.base.app.PersonF7Query");
+        // txtCostVersionInfo		
+        this.txtCostVersionInfo.setEnabled(false);
         // kDLabelContainer2		
         this.kDLabelContainer2.setBoundLabelText(resHelper.getString("kDLabelContainer2.boundLabelText"));		
         this.kDLabelContainer2.setEnabled(false);		
@@ -602,14 +640,20 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         treeMainView.setTree(treeMain);
         //kDPanel1
         kDPanel1.setLayout(new KDLayout());
-        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 742, 618));        kDTabbedPane1.setBounds(new Rectangle(4, 33, 735, 582));
-        kDPanel1.add(kDTabbedPane1, new KDLayout.Constraints(4, 33, 735, 582, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contProject.setBounds(new Rectangle(6, 7, 220, 20));
-        kDPanel1.add(contProject, new KDLayout.Constraints(6, 7, 220, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        labelState.setBounds(new Rectangle(518, 7, 220, 20));
-        kDPanel1.add(labelState, new KDLayout.Constraints(518, 7, 220, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 742, 618));        kDTabbedPane1.setBounds(new Rectangle(4, 54, 735, 561));
+        kDPanel1.add(kDTabbedPane1, new KDLayout.Constraints(4, 54, 735, 561, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contProject.setBounds(new Rectangle(6, 7, 220, 19));
+        kDPanel1.add(contProject, new KDLayout.Constraints(6, 7, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        labelState.setBounds(new Rectangle(518, 7, 220, 19));
+        kDPanel1.add(labelState, new KDLayout.Constraints(518, 7, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         labelDisplayVersion.setBounds(new Rectangle(262, 8, 220, 19));
         kDPanel1.add(labelDisplayVersion, new KDLayout.Constraints(262, 8, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer6.setBounds(new Rectangle(262, 30, 220, 19));
+        kDPanel1.add(kDLabelContainer6, new KDLayout.Constraints(262, 30, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer7.setBounds(new Rectangle(518, 29, 220, 19));
+        kDPanel1.add(kDLabelContainer7, new KDLayout.Constraints(518, 29, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDLabelContainer8.setBounds(new Rectangle(6, 30, 220, 19));
+        kDPanel1.add(kDLabelContainer8, new KDLayout.Constraints(6, 30, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //kDTabbedPane1
         kDTabbedPane1.add(conProgramming, resHelper.getString("conProgramming.constraints"));
         kDTabbedPane1.add(pnlCostAccount, resHelper.getString("pnlCostAccount.constraints"));
@@ -624,6 +668,12 @@ pnlCostAccount.getContentPane().setLayout(new BorderLayout(0, 0));        pnlCos
         labelState.setBoundEditor(txtState);
         //labelDisplayVersion
         labelDisplayVersion.setBoundEditor(txtDisplayVersion);
+        //kDLabelContainer6
+        kDLabelContainer6.setBoundEditor(txtYjDays);
+        //kDLabelContainer7
+        kDLabelContainer7.setBoundEditor(prmtYjPerson);
+        //kDLabelContainer8
+        kDLabelContainer8.setBoundEditor(txtCostVersionInfo);
         //pnlHide
         pnlHide.setLayout(null);        kDLabelContainer2.setBounds(new Rectangle(14, 7, 270, 19));
         pnlHide.add(kDLabelContainer2, null);
@@ -886,8 +936,20 @@ pnlCostAccount.getContentPane().setLayout(new BorderLayout(0, 0));        pnlCos
 		dataBinder.registerBinding("entries.estimateAwardEndDate", java.util.Date.class, this.kdtEntries, "estimateAwardEndDate.text");
 		dataBinder.registerBinding("entries.inviteMode", com.kingdee.eas.fdc.invite.InviteModeInfo.class, this.kdtEntries, "inviteMode.text");
 		dataBinder.registerBinding("entries.jobType", com.kingdee.eas.fdc.basedata.JobTypeInfo.class, this.kdtEntries, "jobType.text");
+		dataBinder.registerBinding("entries.contractRange", String.class, this.kdtEntries, "contractRange.text");
+		dataBinder.registerBinding("entries.priceWay", com.kingdee.eas.fdc.contract.programming.PriceWay.class, this.kdtEntries, "priceWay.text");
+		dataBinder.registerBinding("entries.sendPage", com.kingdee.eas.fdc.contract.programming.SendContWay.class, this.kdtEntries, "sendPage.text");
+		dataBinder.registerBinding("entries.sgtDate", java.util.Date.class, this.kdtEntries, "sgDate.text");
+		dataBinder.registerBinding("entries.contSignDate", java.util.Date.class, this.kdtEntries, "csDate.text");
+		dataBinder.registerBinding("entries.startDate", java.util.Date.class, this.kdtEntries, "startDate.text");
+		dataBinder.registerBinding("entries.endDate", java.util.Date.class, this.kdtEntries, "endDate.text");
+		dataBinder.registerBinding("entries.csendDate", java.util.Date.class, this.kdtEntries, "csendDate.text");
+		dataBinder.registerBinding("entries.hyType", com.kingdee.eas.fdc.contract.programming.PcTypeInfo.class, this.kdtEntries, "hyType.text");
+		dataBinder.registerBinding("entries.iscse", boolean.class, this.kdtEntries, "iscse.text");
 		dataBinder.registerBinding("project.name", String.class, this.txtProjectName, "text");
 		dataBinder.registerBinding("state", com.kingdee.eas.fdc.basedata.FDCBillStateEnum.class, this.txtState, "text");
+		dataBinder.registerBinding("yjDays", int.class, this.txtYjDays, "value");
+		dataBinder.registerBinding("yjPerson", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtYjPerson, "data");
 		dataBinder.registerBinding("lastUpdateTime", java.sql.Timestamp.class, this.kDDatePicker2, "value");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.kDDatePicker1, "value");
@@ -986,8 +1048,20 @@ pnlCostAccount.getContentPane().setLayout(new BorderLayout(0, 0));        pnlCos
 		getValidateHelper().registerBindProperty("entries.estimateAwardEndDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entries.inviteMode", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entries.jobType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.contractRange", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.priceWay", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.sendPage", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.sgtDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.contSignDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.startDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.endDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.csendDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.hyType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entries.iscse", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("project.name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("state", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("yjDays", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("yjPerson", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
@@ -1146,8 +1220,36 @@ pnlCostAccount.getContentPane().setLayout(new BorderLayout(0, 0));        pnlCos
 			sic.add(new SelectorItemInfo("entries.jobType.name"));
         	sic.add(new SelectorItemInfo("entries.jobType.number"));
 		}
+    	sic.add(new SelectorItemInfo("entries.contractRange"));
+    	sic.add(new SelectorItemInfo("entries.priceWay"));
+    	sic.add(new SelectorItemInfo("entries.sendPage"));
+    	sic.add(new SelectorItemInfo("entries.sgtDate"));
+    	sic.add(new SelectorItemInfo("entries.contSignDate"));
+    	sic.add(new SelectorItemInfo("entries.startDate"));
+    	sic.add(new SelectorItemInfo("entries.endDate"));
+    	sic.add(new SelectorItemInfo("entries.csendDate"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entries.hyType.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entries.hyType.id"));
+			sic.add(new SelectorItemInfo("entries.hyType.hyType"));
+        	sic.add(new SelectorItemInfo("entries.hyType.number"));
+		}
+    	sic.add(new SelectorItemInfo("entries.iscse"));
         sic.add(new SelectorItemInfo("project.name"));
         sic.add(new SelectorItemInfo("state"));
+        sic.add(new SelectorItemInfo("yjDays"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("yjPerson.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("yjPerson.id"));
+        	sic.add(new SelectorItemInfo("yjPerson.number"));
+        	sic.add(new SelectorItemInfo("yjPerson.name"));
+		}
         sic.add(new SelectorItemInfo("lastUpdateTime"));
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("createTime"));

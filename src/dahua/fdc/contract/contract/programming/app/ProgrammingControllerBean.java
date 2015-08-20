@@ -74,6 +74,8 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 		sic.add("isLatest");
 		sic.add("entries.id");
 		sic.add("entries.srcId");
+		sic.add("yjDays");
+		sic.add("yjPerson.id");
 		return sic;
 	}
 

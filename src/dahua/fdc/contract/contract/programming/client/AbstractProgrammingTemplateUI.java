@@ -196,7 +196,7 @@ public abstract class AbstractProgrammingTemplateUI extends com.kingdee.eas.base
         // kDContainer1		
         this.kDContainer1.setTitle(resHelper.getString("kDContainer1.title"));
         // kdtEntires
-		String kdtEntiresStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection locked=\"true\" hidden=\"true\" /><c:Alignment horizontal=\"center\" /></c:Style><c:Style id=\"sCol6\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol7\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol9\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"longNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"0\" t:styleID=\"sCol0\" /><t:Column t:key=\"name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"1\" /><t:Column t:key=\"costAccount\" t:width=\"350\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"remark\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"attachment\" t:width=\"60\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" t:styleID=\"sCol5\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"level\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" t:styleID=\"sCol7\" /><t:Column t:key=\"headNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"longName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /><t:Column t:key=\"sortNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{longNumber}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{costAccount}</t:Cell><t:Cell>$Resource{remark}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{attachment}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{level}</t:Cell><t:Cell>$Resource{headNumber}</t:Cell><t:Cell>$Resource{longName}</t:Cell><t:Cell>$Resource{sortNumber}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot> ";
+		String kdtEntiresStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol7\"><c:Protection locked=\"true\" hidden=\"true\" /><c:Alignment horizontal=\"center\" /></c:Style><c:Style id=\"sCol8\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol9\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"longNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"0\" t:styleID=\"sCol0\" /><t:Column t:key=\"name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"1\" /><t:Column t:key=\"contractRange\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"hyType\" t:width=\"100\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"costAccount\" t:width=\"350\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"remark\" t:width=\"300\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"attachment\" t:width=\"60\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" t:styleID=\"sCol7\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"level\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" t:styleID=\"sCol9\" /><t:Column t:key=\"headNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" t:styleID=\"sCol10\" /><t:Column t:key=\"longName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" t:styleID=\"sCol11\" /><t:Column t:key=\"sortNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" t:styleID=\"sCol12\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{longNumber}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{contractRange}</t:Cell><t:Cell>$Resource{hyType}</t:Cell><t:Cell>$Resource{costAccount}</t:Cell><t:Cell>$Resource{remark}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{attachment}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{level}</t:Cell><t:Cell>$Resource{headNumber}</t:Cell><t:Cell>$Resource{longName}</t:Cell><t:Cell>$Resource{sortNumber}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntires.setFormatXml(resHelper.translateString("kdtEntires",kdtEntiresStrXML));
         this.kdtEntires.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
@@ -243,10 +243,27 @@ public abstract class AbstractProgrammingTemplateUI extends com.kingdee.eas.base
             }
         });
 
-                this.kdtEntires.putBindContents("editData",new String[] {"longNumber","name","","scope","id","attachment","number","level","head.longNumber","displayName","sortNumber"});
+                this.kdtEntires.putBindContents("editData",new String[] {"longNumber","name","contractRange","hyType","","scope","id","attachment","number","level","head.longNumber","displayName","sortNumber"});
 
 
         this.kdtEntires.checkParsed();
+        KDTextField kdtEntires_contractRange_TextField = new KDTextField();
+        kdtEntires_contractRange_TextField.setName("kdtEntires_contractRange_TextField");
+        kdtEntires_contractRange_TextField.setMaxLength(500);
+        KDTDefaultCellEditor kdtEntires_contractRange_CellEditor = new KDTDefaultCellEditor(kdtEntires_contractRange_TextField);
+        this.kdtEntires.getColumn("contractRange").setEditor(kdtEntires_contractRange_CellEditor);
+        final KDBizPromptBox kdtEntires_hyType_PromptBox = new KDBizPromptBox();
+        kdtEntires_hyType_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.programming.app.PcTypeQuery");
+        kdtEntires_hyType_PromptBox.setVisible(true);
+        kdtEntires_hyType_PromptBox.setEditable(true);
+        kdtEntires_hyType_PromptBox.setDisplayFormat("$number$");
+        kdtEntires_hyType_PromptBox.setEditFormat("$number$");
+        kdtEntires_hyType_PromptBox.setCommitFormat("$number$");
+        KDTDefaultCellEditor kdtEntires_hyType_CellEditor = new KDTDefaultCellEditor(kdtEntires_hyType_PromptBox);
+        this.kdtEntires.getColumn("hyType").setEditor(kdtEntires_hyType_CellEditor);
+        ObjectValueRender kdtEntires_hyType_OVR = new ObjectValueRender();
+        kdtEntires_hyType_OVR.setFormat(new BizDataFormat("$hyType$"));
+        this.kdtEntires.getColumn("hyType").setRenderer(kdtEntires_hyType_OVR);
         KDTextField kdtEntires_remark_TextField = new KDTextField();
         kdtEntires_remark_TextField.setName("kdtEntires_remark_TextField");
         kdtEntires_remark_TextField.setMaxLength(1024);
@@ -386,6 +403,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     {
         this.menuBar.add(menuFile);
         this.menuBar.add(menuEdit);
+        this.menuBar.add(MenuService);
         this.menuBar.add(menuView);
         this.menuBar.add(menuBiz);
         this.menuBar.add(menuTool);
@@ -393,9 +411,13 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(kDSeparator1);
+        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemSave);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(menuItemSubmit);
+        menuFile.add(menuItemCloudShare);
         menuFile.add(menuSubmitOption);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(rMenuItemSubmit);
         menuFile.add(rMenuItemSubmitAndAddNew);
         menuFile.add(rMenuItemSubmitAndPrint);
@@ -415,6 +437,12 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         menuEdit.add(menuItemEdit);
         menuEdit.add(menuItemRemove);
         menuEdit.add(kDSeparator4);
+        menuEdit.add(menuItemReset);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
         //menuView
         menuView.add(menuItemFirst);
         menuView.add(menuItemPre);
@@ -428,6 +456,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         menuTool.add(menuItemMsgFormat);
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuHelp
         menuHelp.add(menuItemHelp);
         menuHelp.add(kDSeparator12);
@@ -446,7 +475,9 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSave);
         this.toolBar.add(btnSubmit);
@@ -472,8 +503,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 
 	//Regiester control's property binding.
 	private void registerBindings(){
-		dataBinder.registerBinding("Entires", com.kingdee.eas.fdc.contract.programming.ProgrammingTemplateEntireInfo.class, this.kdtEntires, "userObject");
 		dataBinder.registerBinding("Entires.number", String.class, this.kdtEntires, "number.text");
+		dataBinder.registerBinding("Entires", com.kingdee.eas.fdc.contract.programming.ProgrammingTemplateEntireInfo.class, this.kdtEntires, "userObject");
 		dataBinder.registerBinding("Entires.name", String.class, this.kdtEntires, "name.text");
 		dataBinder.registerBinding("Entires.id", com.kingdee.bos.util.BOSUuid.class, this.kdtEntires, "id.text");
 		dataBinder.registerBinding("Entires.level", int.class, this.kdtEntires, "level.text");
@@ -483,6 +514,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		dataBinder.registerBinding("Entires.displayName", String.class, this.kdtEntires, "longName.text");
 		dataBinder.registerBinding("Entires.sortNumber", int.class, this.kdtEntires, "sortNumber.text");
 		dataBinder.registerBinding("Entires.scope", String.class, this.kdtEntires, "remark.text");
+		dataBinder.registerBinding("Entires.contractRange", String.class, this.kdtEntires, "contractRange.text");
+		dataBinder.registerBinding("Entires.hyType", java.lang.Object.class, this.kdtEntires, "hyType.text");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("name", String.class, this.txtName, "text");
 		dataBinder.registerBinding("description", String.class, this.txtRemark, "text");		
@@ -602,7 +635,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     }
 		protected void setOrgF7(KDBizPromptBox f7,com.kingdee.eas.basedata.org.OrgType orgType) throws Exception
 		{
-			com.kingdee.bos.ctrl.extendcontrols.ext.OrgUnitFilterInfoProducer oufip=(com.kingdee.bos.ctrl.extendcontrols.ext.OrgUnitFilterInfoProducer)com.kingdee.bos.ctrl.extendcontrols.ext.FilterInfoProducerFactory.getOrgUnitFilterInfoProducer(orgType);
+			com.kingdee.eas.basedata.org.client.f7.NewOrgUnitFilterInfoProducer oufip = new com.kingdee.eas.basedata.org.client.f7.NewOrgUnitFilterInfoProducer(orgType);
 			oufip.getModel().setIsCUFilter(true);
 			f7.setFilterInfoProducer(oufip);
 		}
@@ -620,8 +653,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
-		getValidateHelper().registerBindProperty("Entires", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entires.number", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entires", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entires.name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entires.id", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entires.level", ValidateHelper.ON_SAVE);    
@@ -631,6 +664,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 		getValidateHelper().registerBindProperty("Entires.displayName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entires.sortNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entires.scope", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entires.contractRange", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entires.hyType", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    		
@@ -719,18 +754,36 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
-        sic.add(new SelectorItemInfo("Entires.*"));
-//        sic.add(new SelectorItemInfo("Entires.number"));
-    sic.add(new SelectorItemInfo("Entires.number"));
-    sic.add(new SelectorItemInfo("Entires.name"));
-    sic.add(new SelectorItemInfo("Entires.id"));
-    sic.add(new SelectorItemInfo("Entires.level"));
-    sic.add(new SelectorItemInfo("Entires.longNumber"));
-    sic.add(new SelectorItemInfo("Entires.head.longNumber"));
-    sic.add(new SelectorItemInfo("Entires.attachment"));
-    sic.add(new SelectorItemInfo("Entires.displayName"));
-    sic.add(new SelectorItemInfo("Entires.sortNumber"));
-    sic.add(new SelectorItemInfo("Entires.scope"));
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
+    	sic.add(new SelectorItemInfo("Entires.number"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("Entires.*"));
+		}
+		else{
+			sic.add(new SelectorItemInfo("Entires.name"));
+		}
+    	sic.add(new SelectorItemInfo("Entires.id"));
+    	sic.add(new SelectorItemInfo("Entires.level"));
+    	sic.add(new SelectorItemInfo("Entires.longNumber"));
+    	sic.add(new SelectorItemInfo("Entires.head.longNumber"));
+    	sic.add(new SelectorItemInfo("Entires.attachment"));
+    	sic.add(new SelectorItemInfo("Entires.displayName"));
+    	sic.add(new SelectorItemInfo("Entires.sortNumber"));
+    	sic.add(new SelectorItemInfo("Entires.scope"));
+    	sic.add(new SelectorItemInfo("Entires.contractRange"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("Entires.hyType.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("Entires.hyType.id"));
+			sic.add(new SelectorItemInfo("Entires.hyType.hyType"));
+        	sic.add(new SelectorItemInfo("Entires.hyType.number"));
+		}
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("description"));

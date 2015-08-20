@@ -99,6 +99,28 @@ public class AbstractProgrammingTemplateEntireInfo extends com.kingdee.eas.frame
     {
         setInt("sortNumber", item);
     }
+    /**
+     * Object:合约框架's 合同范围property 
+     */
+    public String getContractRange()
+    {
+        return getString("contractRange");
+    }
+    public void setContractRange(String item)
+    {
+        setString("contractRange", item);
+    }
+    /**
+     * Object: 合约框架 's 合约类型 property 
+     */
+    public com.kingdee.eas.fdc.contract.programming.PcTypeInfo getHyType()
+    {
+        return (com.kingdee.eas.fdc.contract.programming.PcTypeInfo)get("hyType");
+    }
+    public void setHyType(com.kingdee.eas.fdc.contract.programming.PcTypeInfo item)
+    {
+        put("hyType", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("B9EEC6B4");

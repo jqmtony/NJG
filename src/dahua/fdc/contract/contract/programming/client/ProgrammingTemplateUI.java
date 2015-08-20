@@ -2064,6 +2064,8 @@ public class ProgrammingTemplateUI extends AbstractProgrammingTemplateUI {
 		sic.add(new SelectorItemInfo("Entires.level"));
 		sic.add(new SelectorItemInfo("Entires.longNumber"));
 		sic.add(new SelectorItemInfo("Entires.head.*"));
+		sic.add(new SelectorItemInfo("Entires.hyType.id"));
+		sic.add(new SelectorItemInfo("Entires.hyType.hyType"));
 		sic.add(new SelectorItemInfo("Entires.head.longNumber"));
 		sic.add(new SelectorItemInfo("Entires.attachment"));
 		sic.add(new SelectorItemInfo("Entires.displayName"));

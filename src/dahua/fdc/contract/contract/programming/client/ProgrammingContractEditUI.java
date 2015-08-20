@@ -18,11 +18,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
@@ -36,10 +38,14 @@ import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.IDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.ICell;
+import com.kingdee.bos.ctrl.kdf.table.IColumn;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
+import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTStyleConstants;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.util.editor.ICellEditor;
@@ -102,6 +108,9 @@ import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillCollection;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillFactory;
 import com.kingdee.eas.fdc.contract.FDCUtils;
+import com.kingdee.eas.fdc.contract.programming.PcTypeEntryCollection;
+import com.kingdee.eas.fdc.contract.programming.PcTypeEntryFactory;
+import com.kingdee.eas.fdc.contract.programming.PcTypeEntryInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
@@ -109,6 +118,9 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyCollec
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFxbdEntryCollection;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFxbdEntryFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFxbdEntryInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.finance.client.PayPlanNewUI;
 import com.kingdee.eas.fdc.invite.InviteFormEnum;
@@ -133,6 +145,10 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	protected KDWorkButton btnRemoveLines_cost;
 	protected KDWorkButton btnAddnewLine_economy;
 	protected KDWorkButton btnRemoveLines_economy;
+	
+	private Map<String,PcTypeEntryInfo> ptentrys = new HashMap<String,PcTypeEntryInfo>();
+	private Map<String,Date> ckDates = new HashMap<String,Date>();
+	private ProgrammingContractFxbdEntryCollection fxcoll=null;
 
 	private ProgrammingContractInfo oldPcInfo;
 	private ProgrammingContractCollection pcCollection;
@@ -466,6 +482,22 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 			pciInfo.setDescription((String) descriptionObj);// 存储付款条件
 			editData.getEconomyEntries().add(pciInfo);
 		}*/
+		//modify by yxl 20150814 store fxbd
+		
+		editData.getFxbdEntry().clear();
+		ProgrammingContractFxbdEntryInfo fxbdinfo = null;
+		String number = null;
+		for (int k = 0; k < kdtfxbd.getColumnCount(); k=k+2) {
+			number = kdtfxbd.getColumnKey(k).substring(0,3);
+			for (int j = kdtfxbd.getRowCount3()-1; j >=0; j--) {
+				fxbdinfo = new ProgrammingContractFxbdEntryInfo();
+				fxbdinfo.setItemName((String)kdtfxbd.getCell(j,k).getValue());
+				fxbdinfo.setPlanDate((Date)kdtfxbd.getCell(j,number+"date").getValue());
+				fxbdinfo.setRecordSeq(number+j);
+				editData.getFxbdEntry().add(fxbdinfo);
+			}
+		}
+		fxcoll = editData.getFxbdEntry();
 	}
 
 	protected void initPayPlan() throws UIException {
@@ -518,7 +550,6 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		pcCollection = (ProgrammingContractCollection) uiContext.get("pcCollection");
 		preparePCData();
 		
-
 		initAmountControlEnable();
 		if(kdtCost.getRowCount()>0){
 			txtAmount.setEnabled(false);
@@ -539,8 +570,209 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		changeTxtAmountState(); // modified by zhaoqin for R130828-0384 on 2013/9/29
 		
 		kDTabbedPane1.remove(kDContainerEconomy);
+		//modify by yxl 20150812
+		initFxbd();
 	}
 
+	private void initFxbd() throws BOSException{
+		//modify by yxl 20150812  增加副项表单页签
+		if(editData.getHyType() != null){
+			String oql="select depType.id,depType.number,depType.name,fieldName,ckDate,tqDays,strongControl,recordSeq where parent.id='"+editData.getHyType().getId().toString()+"' order by recordSeq";
+			PcTypeEntryCollection pcoll=PcTypeEntryFactory.getRemoteInstance().getPcTypeEntryCollection(oql);
+			PcTypeEntryInfo einfo = null;
+			String depId = null;
+			Map<String,Integer> depIds = new TreeMap<String,Integer>();
+			for (int i = pcoll.size()-1; i >=0; i--) {
+				einfo = pcoll.get(i);
+				depId = einfo.getDepType().getNumber();
+				if(depIds.containsKey(depId)){
+					depIds.put(depId,depIds.get(depId)+1);
+				}else{
+					depIds.put(depId,1);
+				}
+				ptentrys.put(einfo.getRecordSeq(),einfo);
+			}
+			IColumn icol = null;
+//			icol = kdtfxbd.addColumn();
+//			icol.setKey("tempColumn");
+			IRow row0 = kdtfxbd.addHeadRow(0);
+			IRow row1 = kdtfxbd.addHeadRow(1);
+			IRow row2 = kdtfxbd.addHeadRow(2);
+//			kdtfxbd.getHeadMergeManager().setMergeMode(KDTMergeManager.FREE_ROW_MERGE);
+			KDTMergeManager kdmm = kdtfxbd.getHeadMergeManager();
+			String key = null;
+			int columnIndex = -1;
+			int maxSize = 0;
+			KDDatePicker ywDate_DatePicker = new KDDatePicker();
+		    KDTDefaultCellEditor ywDate_CellEditor = new KDTDefaultCellEditor(ywDate_DatePicker);
+		    String name = null;
+			for(Iterator<String> it=depIds.keySet().iterator(); it.hasNext();){
+				key = it.next();
+				if(maxSize < depIds.get(key)){
+					maxSize = depIds.get(key);
+				}
+				name = ptentrys.get(key+"0").getDepType().getName();
+				icol = kdtfxbd.addColumn();
+				icol.setKey(key+"name");
+				columnIndex = icol.getColumnIndex();
+				icol.getStyleAttributes().setLocked(true);
+				row0.getCell(columnIndex).setValue(name);
+				row1.getCell(columnIndex).setValue("关键工作及其计划完成时间");
+				row2.getCell(columnIndex).setValue("事项名称");
+				icol = kdtfxbd.addColumn();
+				icol.setEditor(ywDate_CellEditor);
+				icol.setKey(key+"date");
+				columnIndex = icol.getColumnIndex();
+				icol.getStyleAttributes().setNumberFormat("yyyy-MM-dd");
+				row0.getCell(columnIndex).setValue(name);
+				row1.getCell(columnIndex).setValue("关键工作及其计划完成时间");
+				row2.getCell(columnIndex).setValue("完成时间");
+				kdmm.mergeBlock(0,columnIndex-1,0,columnIndex);
+				kdmm.mergeBlock(1,columnIndex-1,1,columnIndex);
+			}
+			
+			ckDates.put("SGT",editData.getSgtDate());
+			ckDates.put("CSD",editData.getContSignDate());
+			ckDates.put("SWD",editData.getStartDate());
+			ckDates.put("EWD",editData.getEndDate());
+			ckDates.put("CSED",editData.getCsendDate());
+			
+			fxcoll=ProgrammingContractFxbdEntryFactory.getRemoteInstance().getProgrammingContractFxbdEntryCollection("where parent1.id='"+editData.getId().toString()+"'");
+			if(fxcoll.size() > 0){
+				ProgrammingContractFxbdEntryInfo feinfo = null;
+				Map<String,ProgrammingContractFxbdEntryInfo> fxentrys = new HashMap<String,ProgrammingContractFxbdEntryInfo>();
+				for (int i = 0; i < fxcoll.size(); i++) {
+					feinfo = fxcoll.get(i);
+					fxentrys.put(feinfo.getRecordSeq(),feinfo);
+				}
+				for(int i=0; i<maxSize; i++){
+					row0 = kdtfxbd.addRow();
+					for(Iterator<String> it=depIds.keySet().iterator(); it.hasNext();){
+						key = it.next();
+						feinfo = fxentrys.get(key+row0.getRowIndex());
+						row0.getCell(key+"name").setValue(feinfo.getItemName());
+						row0.getCell(key+"date").setValue(feinfo.getPlanDate());
+					}
+				}
+			}else{
+				for(int i=0; i<maxSize; i++){
+					row0 = kdtfxbd.addRow();
+					for(Iterator<String> it=depIds.keySet().iterator(); it.hasNext();){
+						key = it.next();
+						einfo = ptentrys.get(key+row0.getRowIndex());
+						if(einfo != null){
+							row0.getCell(key+"name").setValue(einfo.getFieldName());
+							if(einfo.getCkDate() != null)
+								row0.getCell(key+"date").setValue(ckDates.get(einfo.getCkDate().getName()));
+						}else{
+							row0.getCell(key+"date").getStyleAttributes().setLocked(true);
+						}
+					}
+				}
+			}
+			kdtfxbd.addKDTEditListener(new KDTEditAdapter(){
+				@Override
+				public void editStopped(KDTEditEvent e) {
+					kdtfxbd_editStopped(e);
+				}
+			});
+			
+		}
+		
+	}
+	
+	private void kdtfxbd_editStopped(KDTEditEvent e){
+		int rowIndex = e.getRowIndex();
+		int colIndex = e.getColIndex();
+		if(kdtfxbd.getCell(rowIndex,colIndex).getValue() == null){
+			kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.white);
+			return;
+		}
+		String ckey = kdtfxbd.getColumnKey(colIndex).substring(0,3);
+		PcTypeEntryInfo pinfo = ptentrys.get(ckey+rowIndex);
+		if(pinfo.isStrongControl() && pinfo.getCkDate()!=null && ckDates.get(pinfo.getCkDate().getName())!=null){
+			
+			if(ckDates.get(pinfo.getCkDate().getName()).before((Date)kdtfxbd.getCell(rowIndex,colIndex).getValue())){
+				FDCMsgBox.showInfo("只能把时间往前改！");
+				kdtfxbd.getCell(rowIndex,colIndex).setValue(ckDates.get(pinfo.getCkDate().getName()));
+				return;
+			}
+		}
+		kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.RED);
+	}
+	
+	private void initFxbdButton(){
+		KDWorkButton addLine = new KDWorkButton("新增行");
+		KDWorkButton insetLine = new KDWorkButton("插入行");
+		KDWorkButton removeLine = new KDWorkButton("删除行");
+		addLine.setName("addLine");
+		insetLine.setName("insetLine");
+		removeLine.setName("removeLine");
+		addLine.setIcon(EASResource.getIcon("imgTbtn_addline"));
+		insetLine.setIcon(EASResource.getIcon("imgTbtn_insert"));
+		removeLine.setIcon(EASResource.getIcon("imgTbtn_deleteline"));
+		kDContainer1fx.addButton(addLine);
+		kDContainer1fx.addButton(removeLine);
+		kDContainer1fx.addButton(insetLine);
+		MyActionListener myal = new MyActionListener();
+		addLine.addActionListener(myal);
+		insetLine.addActionListener(myal);
+		removeLine.addActionListener(myal);
+	}
+	
+	class MyActionListener implements ActionListener{
+    	private KDTable table;
+    	
+    	public MyActionListener() {
+		}
+    	public MyActionListener(KDTable tab) {
+    		table = tab;
+		}
+    	public void actionPerformed(ActionEvent e) {
+    		String type = ((KDWorkButton)e.getSource()).getName();
+    		IRow row = null;
+    		if("addLine".equals(type)){
+    			row = table.addRow();
+    		}else if("insetLine".equals(type)){
+    			if(table.getSelectManager().size() > 0) {
+    	            int top = table.getSelectManager().get().getTop();
+    	            if(isTableColumnSelected(table))
+    	            	row = table.addRow();
+    	            else
+    	            	row = table.addRow(top);
+    	        } else {
+    	        	row = table.addRow();
+    	        }
+    		}else{
+    			if(table.getSelectManager().size() == 0){
+    	            MsgBox.showInfo(EASResource.getString("com.kingdee.eas.framework.FrameWorkResource.Msg_NoneEntry"));
+    	            return;
+    	        }
+    	        int top = table.getSelectManager().get().getTop();
+    	        if(table.getRow(top) == null){
+    	            MsgBox.showInfo(EASResource.getString("com.kingdee.eas.framework.FrameWorkResource.Msg_NoneEntry"));
+    	            return;
+    	        }
+    	        table.removeRow(top);
+//    	        kdtEntrys.removeRow(getEntrysRowIndex(table.getName()+top));
+    		}
+    		if(row != null){
+//    			row.getCell("strongControl").setValue(Boolean.FALSE);
+//    			IRow entryRow = kdtEntrys.addRow();
+//    			entryRow.getCell("depType").setValue(depTypeMap.get(table.getName()));
+//    			entryRow.getCell("recordSeq").setValue(table.getName()+row.getRowIndex());
+    		}
+    	}
+		private boolean isTableColumnSelected(KDTable table2) {
+			if(table2.getSelectManager().size() > 0) {
+	            KDTSelectBlock block = table2.getSelectManager().get();
+	            if(block.getMode() == 4 || block.getMode() == 8)
+	                return true;
+	        }
+	        return false;
+		}
+    }
+	
 	/**
 	 * 初始化一些旧值，后续作判断用
 	 */
@@ -935,6 +1167,9 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		// 分录
 		kdtCost.setEditable(isEditable);
 		kdtEconomy.setEditable(isEditable);
+		
+		//modify by yxl 20150813
+		kdtfxbd.setEditable(isEditable);
 	}
 
 	/**
@@ -980,7 +1215,6 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	 * @return	   true表示已修改过，false表示未做修改
 	 */
 	private boolean verifyIsModify() {
-
 		if (oprtState.equals(OprtState.VIEW)) {
 			return false;
 		}
@@ -988,16 +1222,17 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		if (!oprtState.equals(OprtState.EDIT) && !oprtState.equals(OprtState.ADDNEW)) {
 			return false;
 		}
-
 		if (isBillHeadModified())
 			return true;
 
 		if (isCostModified())
 			return true;
-
-		if (isEconomyModified())
+		//经济条款注释掉   加上副项表单    modified by yxl 20150814
+//		if (isEconomyModified())
+//			return true;
+		if(isFxbdModified())
 			return true;
-
+		
 		return false;
 	}
 
@@ -1178,6 +1413,31 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		return false;
 	}
 
+	//modify by yxl 20150814  check fxbd is modify
+	private boolean isFxbdModified() {
+		if(fxcoll == null)
+			return false;
+		if(fxcoll.size()==0 && kdtfxbd.getRowCount3()>0)
+			return true;
+		ProgrammingContractFxbdEntryInfo feinfo = null;
+		Date planDate = null;
+		Date realDate = null;
+		String recordSeq = null;
+		for (int i = 0; i < fxcoll.size(); i++) {
+			feinfo = fxcoll.get(i);
+			recordSeq = feinfo.getRecordSeq();
+			realDate = (Date)kdtfxbd.getCell(Integer.parseInt(recordSeq.substring(3)),recordSeq.substring(0,3)+"date").getValue();
+			planDate = feinfo.getPlanDate();
+			if(realDate==null ^ planDate==null)
+				return true;
+			if(realDate!=null & planDate!=null){
+				if(new Timestamp(realDate.getTime()).compareTo(new Timestamp(planDate.getTime())) != 0)
+					return true;
+			}
+		}
+		return false;
+	}
+	
 	/**
 	 * 重构抽取出来的方法：成本构成是否有修改
 	 * @Author：owen_wen
@@ -1313,6 +1573,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		}
 		}
 		lockUIComponent();
+		kdtfxbd.setEditable(false);
 		actionSubmit.setEnabled(false);
 		btnSave.setEnabled(false);
 		setButtionEnable(false);

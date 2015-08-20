@@ -19,7 +19,7 @@ public class AbstractProgrammingInfo extends com.kingdee.eas.fdc.basedata.FDCBil
         put("entries", new com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection());
     }
     /**
-     * Object:项目合约规划's 版本property 
+     * Object:合约规划's 版本property 
      */
     public java.math.BigDecimal getVersion()
     {
@@ -30,7 +30,7 @@ public class AbstractProgrammingInfo extends com.kingdee.eas.fdc.basedata.FDCBil
         setBigDecimal("version", item);
     }
     /**
-     * Object:项目合约规划's 是否最新版本property 
+     * Object:合约规划's 是否最新版本property 
      */
     public boolean isIsLatest()
     {
@@ -41,7 +41,7 @@ public class AbstractProgrammingInfo extends com.kingdee.eas.fdc.basedata.FDCBil
         setBoolean("isLatest", item);
     }
     /**
-     * Object: 项目合约规划 's 工程项目 property 
+     * Object: 合约规划 's 工程项目 property 
      */
     public com.kingdee.eas.fdc.basedata.CurProjectInfo getProject()
     {
@@ -52,7 +52,7 @@ public class AbstractProgrammingInfo extends com.kingdee.eas.fdc.basedata.FDCBil
         put("project", item);
     }
     /**
-     * Object: 项目合约规划 's 目标成本 property 
+     * Object: 合约规划 's 目标成本 property 
      */
     public com.kingdee.eas.fdc.aimcost.AimCostInfo getAimCost()
     {
@@ -63,14 +63,14 @@ public class AbstractProgrammingInfo extends com.kingdee.eas.fdc.basedata.FDCBil
         put("aimCost", item);
     }
     /**
-     * Object: 项目合约规划 's 分录 property 
+     * Object: 合约规划 's 分录 property 
      */
     public com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection getEntries()
     {
         return (com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection)get("entries");
     }
     /**
-     * Object:项目合约规划's 版本组property 
+     * Object:合约规划's 版本组property 
      */
     public String getVersionGroup()
     {
@@ -81,7 +81,7 @@ public class AbstractProgrammingInfo extends com.kingdee.eas.fdc.basedata.FDCBil
         setString("versionGroup", item);
     }
     /**
-     * Object:项目合约规划's 总建筑面积property 
+     * Object:合约规划's 总建筑面积property 
      */
     public java.math.BigDecimal getBuildArea()
     {
@@ -92,7 +92,7 @@ public class AbstractProgrammingInfo extends com.kingdee.eas.fdc.basedata.FDCBil
         setBigDecimal("buildArea", item);
     }
     /**
-     * Object:项目合约规划's 可售面积property 
+     * Object:合约规划's 可售面积property 
      */
     public java.math.BigDecimal getSoldArea()
     {
@@ -101,6 +101,28 @@ public class AbstractProgrammingInfo extends com.kingdee.eas.fdc.basedata.FDCBil
     public void setSoldArea(java.math.BigDecimal item)
     {
         setBigDecimal("soldArea", item);
+    }
+    /**
+     * Object:合约规划's 预警天数property 
+     */
+    public int getYjDays()
+    {
+        return getInt("yjDays");
+    }
+    public void setYjDays(int item)
+    {
+        setInt("yjDays", item);
+    }
+    /**
+     * Object: 合约规划 's 预警人员 property 
+     */
+    public com.kingdee.eas.basedata.person.PersonInfo getYjPerson()
+    {
+        return (com.kingdee.eas.basedata.person.PersonInfo)get("yjPerson");
+    }
+    public void setYjPerson(com.kingdee.eas.basedata.person.PersonInfo item)
+    {
+        put("yjPerson", item);
     }
     public BOSObjectType getBOSType()
     {
