@@ -752,6 +752,20 @@
                 <key name="name" value="CFContractRange" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>hyType</name>
+            <alias>entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[hyType].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[hyType].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFHyTypeID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="R_ProgrammingTemplateEntire_PcType_hyType" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -1203,6 +1217,63 @@
             <lang locale="zh_HK" value="上級框架合約" />
             <lang locale="zh_TW" value="上級框架合約" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[hyType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约类型" />
+            <lang locale="zh_HK" value="合約類型" />
+            <lang locale="zh_TW" value="合約類型" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[hyType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约类型" />
+            <lang locale="zh_HK" value="合約類型" />
+            <lang locale="zh_TW" value="合約類型" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[hyType].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[hyType].extendedProperty.dataField">
+            <lang locale="en_US" value="hyType" />
+            <lang locale="zh_CN" value="hyType" />
+            <lang locale="zh_TW" value="hyType" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[hyType].extendedProperty.isAsstAcctType">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[hyType].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[hyType].extendedProperty.isForMapping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[hyType].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[hyType].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[hyType].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[hyType].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.linkProperty[parent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="合约框架模版" />
@@ -1256,6 +1327,21 @@
             <lang locale="zh_HK" value="附件" />
             <lang locale="zh_TW" value="附件" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.ownProperty[attachment].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.ownProperty[attachment].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.ownProperty[attachment].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.ownProperty[contractRange].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="合同范围" />
@@ -1269,9 +1355,23 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.ownProperty[contractRange].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.ownProperty[contractRange].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.ownProperty[contractRange].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.ownProperty[contractRange].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.ownProperty[problem].alias">
             <lang locale="en_US" value="null" />
@@ -1423,6 +1523,21 @@
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.ownProperty[sortNumber].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.ownProperty[sortNumber].extendedProperty.bizDataType">
+            <lang locale="en_US" value="INTEGER" />
+            <lang locale="zh_CN" value="INTEGER" />
+            <lang locale="zh_TW" value="INTEGER" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.programming.app.ProgrammingTemplateEntire].properties.ownProperty[sortNumber].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
     </resource>
 </entityObject>
