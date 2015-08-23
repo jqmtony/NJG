@@ -578,6 +578,105 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
     {
         return (com.kingdee.eas.fdc.contract.ChangeAuditBillSplitEntryCollection)get("SplitEntry");
     }
+    /**
+     * Object:合同变更发起's 工程图纸编号property 
+     */
+    public String getImgNumber()
+    {
+        return getString("imgNumber");
+    }
+    public void setImgNumber(String item)
+    {
+        setString("imgNumber", item);
+    }
+    /**
+     * Object:合同变更发起's 经济签证事项完成时间property 
+     */
+    public java.util.Date getCompDate()
+    {
+        return getDate("compDate");
+    }
+    public void setCompDate(java.util.Date item)
+    {
+        setDate("compDate", item);
+    }
+    /**
+     * Object:合同变更发起's 施工方申报金额property 
+     */
+    public java.math.BigDecimal getAppliAmount()
+    {
+        return getBigDecimal("appliAmount");
+    }
+    public void setAppliAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("appliAmount", item);
+    }
+    /**
+     * Object:合同变更发起's 处罚金额property 
+     */
+    public java.math.BigDecimal getPunisAmount()
+    {
+        return getBigDecimal("punisAmount");
+    }
+    public void setPunisAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("punisAmount", item);
+    }
+    /**
+     * Object:合同变更发起's 最终核定金额property 
+     */
+    public java.math.BigDecimal getApprovedAmount()
+    {
+        return getBigDecimal("approvedAmount");
+    }
+    public void setApprovedAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("approvedAmount", item);
+    }
+    /**
+     * Object:合同变更发起's 施工负责人property 
+     */
+    public String getConstructionHead()
+    {
+        return getString("constructionHead");
+    }
+    public void setConstructionHead(String item)
+    {
+        setString("constructionHead", item);
+    }
+    /**
+     * Object:合同变更发起's 实际工作内容描述property 
+     */
+    public String getWorkNote()
+    {
+        return getString("workNote");
+    }
+    public void setWorkNote(String item)
+    {
+        setString("workNote", item);
+    }
+    /**
+     * Object: 合同变更发起 's 经办人 property 
+     */
+    public com.kingdee.eas.basedata.person.PersonInfo getBIMUDF0052()
+    {
+        return (com.kingdee.eas.basedata.person.PersonInfo)get("BIMUDF0052");
+    }
+    public void setBIMUDF0052(com.kingdee.eas.basedata.person.PersonInfo item)
+    {
+        put("BIMUDF0052", item);
+    }
+    /**
+     * Object:合同变更发起's 经济签证延迟申报天数property 
+     */
+    public int getDelyDay()
+    {
+        return getInt("delyDay");
+    }
+    public void setDelyDay(int item)
+    {
+        setInt("delyDay", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("70116117");

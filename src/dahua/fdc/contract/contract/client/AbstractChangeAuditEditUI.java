@@ -143,6 +143,15 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contchangeEstimate;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtSplitEntry;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtSplitEntry_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contimgNumber;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcompDate;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contappliAmount;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contpunisAmount;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contapprovedAmount;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contconstructionHead;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contworkNote;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBIMUDF0052;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdelyDay;
     protected com.kingdee.bos.ctrl.swing.KDComboBox billType;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtSpecialtyType;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkputForwardTime;
@@ -155,6 +164,16 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txttotalChangeAmount;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtdesignChangeAmount;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtchangeEstimate;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtimgNumber;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker pkcompDate;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtappliAmount;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtpunisAmount;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtapprovedAmount;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtconstructionHead;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane scrollPaneworkNote;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtworkNote;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtBIMUDF0052;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtdelyDay;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCurProject;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewContract;
     protected javax.swing.JToolBar.Separator separator4;
@@ -395,6 +414,15 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         this.contdesignChangeAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contchangeEstimate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kdtSplitEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.contimgNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contcompDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contappliAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contpunisAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contapprovedAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contconstructionHead = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contworkNote = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contBIMUDF0052 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contdelyDay = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.billType = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.txtSpecialtyType = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.pkputForwardTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
@@ -407,6 +435,16 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         this.txttotalChangeAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtdesignChangeAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtchangeEstimate = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtimgNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.pkcompDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.txtappliAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtpunisAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtapprovedAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtconstructionHead = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.scrollPaneworkNote = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtworkNote = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.prmtBIMUDF0052 = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtdelyDay = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.prmtCurProject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.btnViewContract = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.separator4 = new javax.swing.JToolBar.Separator();
@@ -512,6 +550,15 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         this.contdesignChangeAmount.setName("contdesignChangeAmount");
         this.contchangeEstimate.setName("contchangeEstimate");
         this.kdtSplitEntry.setName("kdtSplitEntry");
+        this.contimgNumber.setName("contimgNumber");
+        this.contcompDate.setName("contcompDate");
+        this.contappliAmount.setName("contappliAmount");
+        this.contpunisAmount.setName("contpunisAmount");
+        this.contapprovedAmount.setName("contapprovedAmount");
+        this.contconstructionHead.setName("contconstructionHead");
+        this.contworkNote.setName("contworkNote");
+        this.contBIMUDF0052.setName("contBIMUDF0052");
+        this.contdelyDay.setName("contdelyDay");
         this.billType.setName("billType");
         this.txtSpecialtyType.setName("txtSpecialtyType");
         this.pkputForwardTime.setName("pkputForwardTime");
@@ -524,6 +571,16 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         this.txttotalChangeAmount.setName("txttotalChangeAmount");
         this.txtdesignChangeAmount.setName("txtdesignChangeAmount");
         this.txtchangeEstimate.setName("txtchangeEstimate");
+        this.txtimgNumber.setName("txtimgNumber");
+        this.pkcompDate.setName("pkcompDate");
+        this.txtappliAmount.setName("txtappliAmount");
+        this.txtpunisAmount.setName("txtpunisAmount");
+        this.txtapprovedAmount.setName("txtapprovedAmount");
+        this.txtconstructionHead.setName("txtconstructionHead");
+        this.scrollPaneworkNote.setName("scrollPaneworkNote");
+        this.txtworkNote.setName("txtworkNote");
+        this.prmtBIMUDF0052.setName("prmtBIMUDF0052");
+        this.txtdelyDay.setName("txtdelyDay");
         this.prmtCurProject.setName("prmtCurProject");
         this.btnViewContract.setName("btnViewContract");
         this.separator4.setName("separator4");
@@ -1069,6 +1126,51 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         ObjectValueRender kdtSplitEntry_contractBill_OVR = new ObjectValueRender();
         kdtSplitEntry_contractBill_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtSplitEntry.getColumn("contractBill").setRenderer(kdtSplitEntry_contractBill_OVR);
+        // contimgNumber		
+        this.contimgNumber.setBoundLabelText(resHelper.getString("contimgNumber.boundLabelText"));		
+        this.contimgNumber.setBoundLabelLength(100);		
+        this.contimgNumber.setBoundLabelUnderline(true);		
+        this.contimgNumber.setVisible(true);
+        // contcompDate		
+        this.contcompDate.setBoundLabelText(resHelper.getString("contcompDate.boundLabelText"));		
+        this.contcompDate.setBoundLabelLength(100);		
+        this.contcompDate.setBoundLabelUnderline(true);		
+        this.contcompDate.setVisible(true);
+        // contappliAmount		
+        this.contappliAmount.setBoundLabelText(resHelper.getString("contappliAmount.boundLabelText"));		
+        this.contappliAmount.setBoundLabelLength(100);		
+        this.contappliAmount.setBoundLabelUnderline(true);		
+        this.contappliAmount.setVisible(true);
+        // contpunisAmount		
+        this.contpunisAmount.setBoundLabelText(resHelper.getString("contpunisAmount.boundLabelText"));		
+        this.contpunisAmount.setBoundLabelLength(100);		
+        this.contpunisAmount.setBoundLabelUnderline(true);		
+        this.contpunisAmount.setVisible(true);
+        // contapprovedAmount		
+        this.contapprovedAmount.setBoundLabelText(resHelper.getString("contapprovedAmount.boundLabelText"));		
+        this.contapprovedAmount.setBoundLabelLength(100);		
+        this.contapprovedAmount.setBoundLabelUnderline(true);		
+        this.contapprovedAmount.setVisible(true);
+        // contconstructionHead		
+        this.contconstructionHead.setBoundLabelText(resHelper.getString("contconstructionHead.boundLabelText"));		
+        this.contconstructionHead.setBoundLabelLength(100);		
+        this.contconstructionHead.setBoundLabelUnderline(true);		
+        this.contconstructionHead.setVisible(true);
+        // contworkNote		
+        this.contworkNote.setBoundLabelText(resHelper.getString("contworkNote.boundLabelText"));		
+        this.contworkNote.setBoundLabelLength(100);		
+        this.contworkNote.setBoundLabelUnderline(true);		
+        this.contworkNote.setVisible(true);
+        // contBIMUDF0052		
+        this.contBIMUDF0052.setBoundLabelText(resHelper.getString("contBIMUDF0052.boundLabelText"));		
+        this.contBIMUDF0052.setBoundLabelLength(100);		
+        this.contBIMUDF0052.setBoundLabelUnderline(true);		
+        this.contBIMUDF0052.setVisible(true);
+        // contdelyDay		
+        this.contdelyDay.setBoundLabelText(resHelper.getString("contdelyDay.boundLabelText"));		
+        this.contdelyDay.setBoundLabelLength(100);		
+        this.contdelyDay.setBoundLabelUnderline(true);		
+        this.contdelyDay.setVisible(true);
         // billType		
         this.billType.setVisible(true);		
         this.billType.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.contract.ChangeAuditBillType").toArray());		
@@ -1140,6 +1242,65 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         this.txtchangeEstimate.setHorizontalAlignment(2);		
         this.txtchangeEstimate.setMaxLength(100);		
         this.txtchangeEstimate.setRequired(false);
+        // txtimgNumber		
+        this.txtimgNumber.setVisible(true);		
+        this.txtimgNumber.setHorizontalAlignment(2);		
+        this.txtimgNumber.setMaxLength(100);		
+        this.txtimgNumber.setRequired(false);
+        // pkcompDate		
+        this.pkcompDate.setVisible(true);		
+        this.pkcompDate.setRequired(false);
+        // txtappliAmount		
+        this.txtappliAmount.setVisible(true);		
+        this.txtappliAmount.setHorizontalAlignment(2);		
+        this.txtappliAmount.setDataType(1);		
+        this.txtappliAmount.setSupportedEmpty(true);		
+        this.txtappliAmount.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
+        this.txtappliAmount.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
+        this.txtappliAmount.setPrecision(2);		
+        this.txtappliAmount.setRequired(false);
+        // txtpunisAmount		
+        this.txtpunisAmount.setVisible(true);		
+        this.txtpunisAmount.setHorizontalAlignment(2);		
+        this.txtpunisAmount.setDataType(1);		
+        this.txtpunisAmount.setSupportedEmpty(true);		
+        this.txtpunisAmount.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
+        this.txtpunisAmount.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
+        this.txtpunisAmount.setPrecision(2);		
+        this.txtpunisAmount.setRequired(false);
+        // txtapprovedAmount		
+        this.txtapprovedAmount.setVisible(true);		
+        this.txtapprovedAmount.setHorizontalAlignment(2);		
+        this.txtapprovedAmount.setDataType(1);		
+        this.txtapprovedAmount.setSupportedEmpty(true);		
+        this.txtapprovedAmount.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
+        this.txtapprovedAmount.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
+        this.txtapprovedAmount.setPrecision(2);		
+        this.txtapprovedAmount.setRequired(false);
+        // txtconstructionHead		
+        this.txtconstructionHead.setVisible(true);		
+        this.txtconstructionHead.setHorizontalAlignment(2);		
+        this.txtconstructionHead.setMaxLength(100);		
+        this.txtconstructionHead.setRequired(false);
+        // scrollPaneworkNote
+        // txtworkNote		
+        this.txtworkNote.setVisible(true);		
+        this.txtworkNote.setRequired(false);		
+        this.txtworkNote.setMaxLength(500);
+        // prmtBIMUDF0052		
+        this.prmtBIMUDF0052.setQueryInfo("com.kingdee.eas.basedata.person.app.PersonQuery");		
+        this.prmtBIMUDF0052.setVisible(true);		
+        this.prmtBIMUDF0052.setEditable(true);		
+        this.prmtBIMUDF0052.setDisplayFormat("$name$");		
+        this.prmtBIMUDF0052.setEditFormat("$number$");		
+        this.prmtBIMUDF0052.setCommitFormat("$number$");		
+        this.prmtBIMUDF0052.setRequired(false);
+        // txtdelyDay		
+        this.txtdelyDay.setVisible(true);		
+        this.txtdelyDay.setHorizontalAlignment(2);		
+        this.txtdelyDay.setDataType(0);		
+        this.txtdelyDay.setSupportedEmpty(true);		
+        this.txtdelyDay.setRequired(false);
         // prmtCurProject		
         this.prmtCurProject.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7ProjectQuery");		
         this.prmtCurProject.setCommitFormat("$name$");		
@@ -1264,8 +1425,8 @@ public abstract class AbstractChangeAuditEditUI extends com.kingdee.eas.fdc.base
         this.add(viewAttenTwo, new KDLayout.Constraints(482, 213, 101, 21, 0));
         kdtSpecialtyType.setBounds(new Rectangle(293, 39, 68, 140));
         this.add(kdtSpecialtyType, new KDLayout.Constraints(293, 39, 68, 140, 0));
-        kDPanel1.setBounds(new Rectangle(581, 242, 428, 289));
-        this.add(kDPanel1, new KDLayout.Constraints(581, 242, 428, 289, 0));
+        kDPanel1.setBounds(new Rectangle(581, 242, 428, 335));
+        this.add(kDPanel1, new KDLayout.Constraints(581, 242, 428, 335, 0));
         contCurProject.setBounds(new Rectangle(520, 12, 480, 19));
         this.add(contCurProject, new KDLayout.Constraints(520, 12, 480, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
@@ -1375,7 +1536,7 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
         conAttenTwo.setBoundEditor(cmbAttenTwo);
         //kDPanel1
         kDPanel1.setLayout(new KDLayout());
-        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(581, 242, 428, 289));        contbillType.setBounds(new Rectangle(9, 15, 270, 19));
+        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(581, 242, 428, 335));        contbillType.setBounds(new Rectangle(9, 15, 270, 19));
         kDPanel1.add(contbillType, new KDLayout.Constraints(9, 15, 270, 19, 0));
         kDLabelContainer3.setBounds(new Rectangle(21, 40, 270, 19));
         kDPanel1.add(kDLabelContainer3, new KDLayout.Constraints(21, 40, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
@@ -1389,19 +1550,37 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
         kDPanel1.add(contcost, new KDLayout.Constraints(23, 117, 270, 19, 0));
         contsale.setBounds(new Rectangle(16, 133, 270, 19));
         kDPanel1.add(contsale, new KDLayout.Constraints(16, 133, 270, 19, 0));
-        contreworkVisa.setBounds(new Rectangle(26, 163, 270, 19));
-        kDPanel1.add(contreworkVisa, new KDLayout.Constraints(26, 163, 270, 19, 0));
-        contcontractAmPro.setBounds(new Rectangle(24, 194, 270, 19));
-        kDPanel1.add(contcontractAmPro, new KDLayout.Constraints(24, 194, 270, 19, 0));
-        conttotalChangeAmount.setBounds(new Rectangle(25, 218, 270, 19));
-        kDPanel1.add(conttotalChangeAmount, new KDLayout.Constraints(25, 218, 270, 19, 0));
-        contdesignChangeAmount.setBounds(new Rectangle(34, 245, 270, 19));
-        kDPanel1.add(contdesignChangeAmount, new KDLayout.Constraints(34, 245, 270, 19, 0));
-        contchangeEstimate.setBounds(new Rectangle(33, 265, 270, 19));
-        kDPanel1.add(contchangeEstimate, new KDLayout.Constraints(33, 265, 270, 19, 0));
+        contreworkVisa.setBounds(new Rectangle(9, 154, 270, 19));
+        kDPanel1.add(contreworkVisa, new KDLayout.Constraints(9, 154, 270, 19, 0));
+        contcontractAmPro.setBounds(new Rectangle(7, 175, 270, 19));
+        kDPanel1.add(contcontractAmPro, new KDLayout.Constraints(7, 175, 270, 19, 0));
+        conttotalChangeAmount.setBounds(new Rectangle(8, 196, 270, 19));
+        kDPanel1.add(conttotalChangeAmount, new KDLayout.Constraints(8, 196, 270, 19, 0));
+        contdesignChangeAmount.setBounds(new Rectangle(17, 215, 270, 19));
+        kDPanel1.add(contdesignChangeAmount, new KDLayout.Constraints(17, 215, 270, 19, 0));
+        contchangeEstimate.setBounds(new Rectangle(16, 235, 270, 19));
+        kDPanel1.add(contchangeEstimate, new KDLayout.Constraints(16, 235, 270, 19, 0));
         kdtSplitEntry.setBounds(new Rectangle(278, 16, 156, 170));
         kdtSplitEntry_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtSplitEntry,new com.kingdee.eas.fdc.contract.ChangeAuditBillSplitEntryInfo(),null,false);
         kDPanel1.add(kdtSplitEntry_detailPanel, new KDLayout.Constraints(278, 16, 156, 170, 0));
+        contimgNumber.setBounds(new Rectangle(16, 252, 270, 19));
+        kDPanel1.add(contimgNumber, new KDLayout.Constraints(16, 252, 270, 19, 0));
+        contcompDate.setBounds(new Rectangle(17, 271, 270, 19));
+        kDPanel1.add(contcompDate, new KDLayout.Constraints(17, 271, 270, 19, 0));
+        contappliAmount.setBounds(new Rectangle(284, 189, 270, 19));
+        kDPanel1.add(contappliAmount, new KDLayout.Constraints(284, 189, 270, 19, 0));
+        contpunisAmount.setBounds(new Rectangle(283, 211, 270, 19));
+        kDPanel1.add(contpunisAmount, new KDLayout.Constraints(283, 211, 270, 19, 0));
+        contapprovedAmount.setBounds(new Rectangle(290, 234, 270, 19));
+        kDPanel1.add(contapprovedAmount, new KDLayout.Constraints(290, 234, 270, 19, 0));
+        contconstructionHead.setBounds(new Rectangle(293, 254, 270, 19));
+        kDPanel1.add(contconstructionHead, new KDLayout.Constraints(293, 254, 270, 19, 0));
+        contworkNote.setBounds(new Rectangle(294, 278, 270, 19));
+        kDPanel1.add(contworkNote, new KDLayout.Constraints(294, 278, 270, 19, 0));
+        contBIMUDF0052.setBounds(new Rectangle(300, 298, 270, 19));
+        kDPanel1.add(contBIMUDF0052, new KDLayout.Constraints(300, 298, 270, 19, 0));
+        contdelyDay.setBounds(new Rectangle(21, 295, 270, 19));
+        kDPanel1.add(contdelyDay, new KDLayout.Constraints(21, 295, 270, 19, 0));
         //contbillType
         contbillType.setBoundEditor(billType);
         //kDLabelContainer3
@@ -1426,6 +1605,26 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
         contdesignChangeAmount.setBoundEditor(txtdesignChangeAmount);
         //contchangeEstimate
         contchangeEstimate.setBoundEditor(txtchangeEstimate);
+        //contimgNumber
+        contimgNumber.setBoundEditor(txtimgNumber);
+        //contcompDate
+        contcompDate.setBoundEditor(pkcompDate);
+        //contappliAmount
+        contappliAmount.setBoundEditor(txtappliAmount);
+        //contpunisAmount
+        contpunisAmount.setBoundEditor(txtpunisAmount);
+        //contapprovedAmount
+        contapprovedAmount.setBoundEditor(txtapprovedAmount);
+        //contconstructionHead
+        contconstructionHead.setBoundEditor(txtconstructionHead);
+        //contworkNote
+        contworkNote.setBoundEditor(scrollPaneworkNote);
+        //scrollPaneworkNote
+        scrollPaneworkNote.getViewport().add(txtworkNote, null);
+        //contBIMUDF0052
+        contBIMUDF0052.setBoundEditor(prmtBIMUDF0052);
+        //contdelyDay
+        contdelyDay.setBoundEditor(txtdelyDay);
         //contCurProject
         contCurProject.setBoundEditor(prmtCurProject);
 
@@ -1667,6 +1866,15 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
 		dataBinder.registerBinding("totalChangeAmount", java.math.BigDecimal.class, this.txttotalChangeAmount, "value");
 		dataBinder.registerBinding("designChangeAmount", java.math.BigDecimal.class, this.txtdesignChangeAmount, "value");
 		dataBinder.registerBinding("changeEstimate", String.class, this.txtchangeEstimate, "text");
+		dataBinder.registerBinding("imgNumber", String.class, this.txtimgNumber, "text");
+		dataBinder.registerBinding("compDate", java.util.Date.class, this.pkcompDate, "value");
+		dataBinder.registerBinding("appliAmount", java.math.BigDecimal.class, this.txtappliAmount, "value");
+		dataBinder.registerBinding("punisAmount", java.math.BigDecimal.class, this.txtpunisAmount, "value");
+		dataBinder.registerBinding("approvedAmount", java.math.BigDecimal.class, this.txtapprovedAmount, "value");
+		dataBinder.registerBinding("constructionHead", String.class, this.txtconstructionHead, "text");
+		dataBinder.registerBinding("workNote", String.class, this.txtworkNote, "text");
+		dataBinder.registerBinding("BIMUDF0052", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtBIMUDF0052, "data");
+		dataBinder.registerBinding("delyDay", int.class, this.txtdelyDay, "value");
 		dataBinder.registerBinding("curProject", com.kingdee.eas.fdc.basedata.CurProjectInfo.class, this.prmtCurProject, "data");		
 	}
 	//Regiester UI State
@@ -1859,6 +2067,15 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
 		getValidateHelper().registerBindProperty("totalChangeAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("designChangeAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("changeEstimate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("imgNumber", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("compDate", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("appliAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("punisAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("approvedAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("constructionHead", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("workNote", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("BIMUDF0052", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("delyDay", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("curProject", ValidateHelper.ON_SAVE);    		
 	}
 
@@ -2155,6 +2372,23 @@ pnlSupp.setLayout(new BorderLayout(0, 0));        pnlSupp.add(ctnSuppEntrys, Bor
         sic.add(new SelectorItemInfo("totalChangeAmount"));
         sic.add(new SelectorItemInfo("designChangeAmount"));
         sic.add(new SelectorItemInfo("changeEstimate"));
+        sic.add(new SelectorItemInfo("imgNumber"));
+        sic.add(new SelectorItemInfo("compDate"));
+        sic.add(new SelectorItemInfo("appliAmount"));
+        sic.add(new SelectorItemInfo("punisAmount"));
+        sic.add(new SelectorItemInfo("approvedAmount"));
+        sic.add(new SelectorItemInfo("constructionHead"));
+        sic.add(new SelectorItemInfo("workNote"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("BIMUDF0052.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("BIMUDF0052.id"));
+        	sic.add(new SelectorItemInfo("BIMUDF0052.number"));
+        	sic.add(new SelectorItemInfo("BIMUDF0052.name"));
+		}
+        sic.add(new SelectorItemInfo("delyDay"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("curProject.*"));

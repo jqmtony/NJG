@@ -45,7 +45,7 @@ public abstract class AbstractSpecialtyTypeEntryControllerBean extends CoreBillE
     public SpecialtyTypeEntryCollection getSpecialtyTypeEntryCollection(Context ctx) throws BOSException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("a5df3d4c-9a29-49ce-8a10-812962b21de3"), new Object[]{ctx});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("ca9ab5a6-3b85-435c-8e17-9021222229df"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
             SpecialtyTypeEntryCollection retValue = (SpecialtyTypeEntryCollection)_getCollection(ctx, svcCtx);
@@ -68,7 +68,7 @@ public abstract class AbstractSpecialtyTypeEntryControllerBean extends CoreBillE
     public SpecialtyTypeEntryCollection getSpecialtyTypeEntryCollection(Context ctx, EntityViewInfo view) throws BOSException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("359fb0af-9bb7-47ec-93df-1c5f10e3ba70"), new Object[]{ctx, view});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("560adbf6-9084-43c9-b4ac-2035c05e757f"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
             SpecialtyTypeEntryCollection retValue = (SpecialtyTypeEntryCollection)_getCollection(ctx, svcCtx, view);
@@ -91,7 +91,7 @@ public abstract class AbstractSpecialtyTypeEntryControllerBean extends CoreBillE
     public SpecialtyTypeEntryCollection getSpecialtyTypeEntryCollection(Context ctx, String oql) throws BOSException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("a26f4cd2-e52d-4cf4-851b-fb74b0c97892"), new Object[]{ctx, oql});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("51709bda-e79f-4912-8b17-6056827cd701"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
             SpecialtyTypeEntryCollection retValue = (SpecialtyTypeEntryCollection)_getCollection(ctx, svcCtx, oql);
