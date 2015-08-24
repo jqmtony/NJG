@@ -278,7 +278,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 					return;
 				}
 				if (OprtState.ADDNEW.equals(oprtState) || OprtState.EDIT.equals(oprtState)) {
-					storeEditData();
+//					storeEditData();  modify by yxl
 				}
 				payPlanNewUI.updateAmount(txtAmount.getBigDecimalValue());
 			}
@@ -494,6 +494,8 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 				fxbdinfo.setItemName((String)kdtfxbd.getCell(j,k).getValue());
 				fxbdinfo.setPlanDate((Date)kdtfxbd.getCell(j,number+"date").getValue());
 				fxbdinfo.setRecordSeq(number+j);
+				if(ptentrys.get(number+j) != null)
+					fxbdinfo.setDepType(ptentrys.get(number+j).getDepType());
 				editData.getFxbdEntry().add(fxbdinfo);
 			}
 		}

@@ -7,36 +7,38 @@ import java.awt.event.ActionEvent;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingTemplateEntireCollection;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingTemplateEntireFactory;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingTemplateEntireInfo;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingTemplateFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingFactory;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.util.client.MsgBox;
 
 /**
  * output class name
  */
-public class TempImportUI extends AbstractTempImportUI
+public class ProjectImportUI extends AbstractProjectImportUI
 {
-    private static final Logger logger = CoreUIObject.getLogger(TempImportUI.class);
+    private static final Logger logger = CoreUIObject.getLogger(ProjectImportUI.class);
     
     /**
      * output class constructor
      */
-    public TempImportUI() throws Exception
-    {
+    public ProjectImportUI() throws Exception {
         super();
     }
-
+    
     public void onLoad() throws Exception {
     	super.onLoad();
     	menuBar.setVisible(false);
@@ -46,9 +48,15 @@ public class TempImportUI extends AbstractTempImportUI
     	tblMain.getSelectManager().setSelectMode(KDTSelectManager.ROW_SELECT);
     	tblMain.getColumn("createTime").getStyleAttributes().setNumberFormat("YYYY-MM-DD");
     	tblMain.getColumn("lastUpdateTime").getStyleAttributes().setNumberFormat("YYYY-MM-DD");
-    	tblMain.getColumn("isEnabled").getStyleAttributes().setHided(true);
-    	tblMain.getColumn("description").getStyleAttributes().setHided(true);
-    	
+    	tblMain.getColumn("name").setWidth(300);
+    }
+    /**
+     * output actionConfirm_actionPerformed
+     */
+    public void actionConfirm_actionPerformed(ActionEvent e) throws Exception
+    {
+    	checkSelected();
+		executeImport();
     }
     
     protected void tblMain_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception {
@@ -60,15 +68,6 @@ public class TempImportUI extends AbstractTempImportUI
 			}
 		}
 	}
-    
-    /**
-     * output actionConfirm_actionPerformed
-     */
-    public void actionConfirm_actionPerformed(ActionEvent e) throws Exception
-    {
-    	checkSelected();
-		executeImport();
-    }
 
     private void executeImport() throws Exception {
 		if (MsgBox.OK != MsgBox.showConfirm2(this, "从模板导入将覆盖当前数据，继续么？")) {
@@ -76,21 +75,20 @@ public class TempImportUI extends AbstractTempImportUI
 		}
 		KDTable kdtEntrys = (KDTable)getUIContext().get("kdtEntrys"); // 被导入的合约规划
 		FilterInfo filter = new FilterInfo();
-		filter.getFilterItems().add(new FilterItemInfo("parent",getSelectedKeyValue()));
+		filter.getFilterItems().add(new FilterItemInfo("PROGRAMMING",getSelectedKeyValue()));
 		EntityViewInfo evi = new EntityViewInfo();
 		evi.setSelector(getTemplateEntrySelector());
 		evi.setFilter(filter);
-		
-		ProgrammingTemplateEntireCollection templateEntryColl = 
-			ProgrammingTemplateEntireFactory.getRemoteInstance().getProgrammingTemplateEntireCollection(evi);
-		ProgrammingTemplateEntireInfo templateEntry = null;
+		ProgrammingContractCollection pcColl = 
+			ProgrammingContractFactory.getRemoteInstance().getProgrammingContractCollection(evi);
+		ProgrammingContractInfo pcinfo = null;
 		IRow row = null;
 		kdtEntrys.removeRows();
-		for (int i = 0, size = templateEntryColl.size(); i < size; i++) {
-			templateEntry = templateEntryColl.get(i);
+		for (int i = 0, size = pcColl.size(); i < size; i++) {
+			pcinfo = pcColl.get(i);
 			row = kdtEntrys.addRow();
-			row.getCell("longNumber").setValue(templateEntry.getLongNumber());
-			row.getCell("pcname").setValue(templateEntry.getName());
+			row.getCell("longNumber").setValue(pcinfo.getLongNumber());
+			row.getCell("pcname").setValue(pcinfo.getName());
 		}
 		MsgBox.showInfo(this, "导入成功");
 		disposeUIWindow();
@@ -108,6 +106,25 @@ public class TempImportUI extends AbstractTempImportUI
 		return sic;
 	}
     
+    @Override
+    protected IQueryExecutor getQueryExecutor(IMetaDataPK queryPK,EntityViewInfo viewInfo) {
+    	EntityViewInfo newviewInfo = (EntityViewInfo) viewInfo.clone();
+    	FilterInfo filter = new FilterInfo();
+    	filter.getFilterItems().add(new FilterItemInfo("state","4AUDITTED"));
+    	filter.getFilterItems().add(new FilterItemInfo("isLatest","1"));
+    	filter.setMaskString("#0 and #1");
+    	if(newviewInfo.getFilter()!=null){
+    		try {
+				newviewInfo.getFilter().mergeFilter(filter,"and");
+			} catch (BOSException e) {
+				handUIException(e);
+			}
+    	}else{
+    		newviewInfo.setFilter(filter);
+    	}
+    	return super.getQueryExecutor(queryPK, newviewInfo);
+    }
+    
     /**
      * output actionExit_actionPerformed
      */
@@ -118,7 +135,8 @@ public class TempImportUI extends AbstractTempImportUI
 
 	@Override
 	protected ICoreBase getBizInterface() throws Exception {
-		return ProgrammingTemplateFactory.getRemoteInstance();
+		// TODO Auto-generated method stub
+		return ProgrammingFactory.getRemoteInstance();
 	}
 
 	@Override

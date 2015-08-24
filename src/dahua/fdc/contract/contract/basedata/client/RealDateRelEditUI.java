@@ -3,11 +3,22 @@
  */
 package com.kingdee.eas.fdc.contract.basedata.client;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.log4j.Logger;
+
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.eas.framework.*;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.WinStyle;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
  * output class name
@@ -15,7 +26,8 @@ import com.kingdee.eas.framework.*;
 public class RealDateRelEditUI extends AbstractRealDateRelEditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(RealDateRelEditUI.class);
-    
+    Map<String,Integer> costDays = new HashMap<String,Integer>();
+	Map<String,Integer> startDays = new HashMap<String,Integer>();
     /**
      * output class constructor
      */
@@ -23,6 +35,28 @@ public class RealDateRelEditUI extends AbstractRealDateRelEditUI
     {
         super();
     }
+    
+    @Override
+    public void onLoad() throws Exception {
+    	// TODO Auto-generated method stub
+    	super.onLoad();
+    	actionCopy.setVisible(false);
+    	actionSubmit.setVisible(false);
+    	btnSave.setIcon(btnSubmit.getIcon());
+    	btnImportTemp.setIcon(EASResource.getIcon("imgTbtn_input"));
+    	btnImportGroup.setIcon(EASResource.getIcon("imgTbtn_input"));
+    	btnImportGroup.setText("从项目导入");
+    	kdtEntrys.getColumn("pcname").getStyleAttributes().setLocked(false);
+    	FDCSQLBuilder builder = new FDCSQLBuilder();
+    	builder.appendSql("select entry.CFPcname,entry.CFCostDays,entry.CFStartDays from CT_CON_RealDateRelEntrys entry left join CT_CON_RealDateRel rdr on rdr.fid=entry.fparentid ");
+    	builder.appendSql("where rdr.FCONTROLUNITID='00000000-0000-0000-0000-000000000000CCE7AED4'");
+    	IRowSet rs = builder.executeQuery();
+    	while(rs.next()){
+    		costDays.put(rs.getString("CFPcname"),rs.getInt("CFCostDays"));
+    		startDays.put(rs.getString("CFPcname"),rs.getInt("CFStartDays"));
+    	}
+    }
+    
     /**
      * output loadFields method
      */
@@ -412,7 +446,13 @@ public class RealDateRelEditUI extends AbstractRealDateRelEditUI
      */
     public void actionImportTemp_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionImportTemp_actionPerformed(e);
+    	UIContext uiContext = new UIContext(this);
+		uiContext.put("kdtEntrys", kdtEntrys);
+		uiContext.put("costDays", costDays);
+		uiContext.put("startDays", startDays);
+    	IUIWindow ui = UIFactory.createUIFactory(UIFactoryName.MODEL).create(TempImportUI.class.getName(), uiContext, null, OprtState.VIEW,
+				WinStyle.SHOW_ONLYLEFTSTATUSBAR);
+		ui.show();
     }
 
     /**
@@ -420,7 +460,13 @@ public class RealDateRelEditUI extends AbstractRealDateRelEditUI
      */
     public void actionImportGroup_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionImportGroup_actionPerformed(e);
+    	UIContext uiContext = new UIContext(this);
+		uiContext.put("kdtEntrys", kdtEntrys);
+		uiContext.put("costDays", costDays);
+		uiContext.put("startDays", startDays);
+    	IUIWindow ui = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProjectImportUI.class.getName(), uiContext, null, OprtState.VIEW,
+				WinStyle.SHOW_ONLYLEFTSTATUSBAR);
+		ui.show();
     }
 
     /**
