@@ -1,0 +1,2872 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.contract.app</package>
+    <name>DesignChangeAuditQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.fdc.contract.ChangeAuditBill</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>ChangeAuditBill</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[ChangeAuditBill].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ChangeAuditBill" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>auditType</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[auditType].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="ChangeType" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>auditor</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[auditor].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>jobType</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[jobType].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="JobType" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>curProject</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[curProject].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProject" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>changeReason</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[changeReason].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="ChangeReason" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>specialtyType</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[specialtyType].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="SpecialtyType" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>invalidCostReason</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[invalidCostReason].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="InvalidCostReason" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>period</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[period].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="Period" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>orgUnit</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[orgUnit].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="FullOrgUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>suppEntry</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[suppEntry].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ChangeSupplierEntry" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>contractBill</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[contractBill].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractBill" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>partB</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[partB].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.master.cssp.app" />
+                <key name="name" value="Supplier" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>NewUnit0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditor" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit3</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit4</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="jobType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit5</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit5].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit5" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="jobType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit6</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit6].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit6" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit7</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit7].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit7" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit8</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit8].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit8" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="curProject" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit9</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUni10</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUni10].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUni10" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="changeReason" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUni11</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUni11].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUni11" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="changeReason" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUni12</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUni12].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUni12" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="specialtyType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUni13</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUni13].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUni13" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="specialtyType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>curProject.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[curProject.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ceee5baa-0118-1000-e000-00a3c0a8129f</key>
+                    <parentUnit>
+                        <key name="name" value="curProject.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>period.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[period.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e20f41b9-0117-1000-e000-02ccc0a81297</key>
+                    <parentUnit>
+                        <key name="name" value="period.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="period" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>orgUnit.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[orgUnit.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>099995cd-0119-1000-e000-012bc0a8129f</key>
+                    <parentUnit>
+                        <key name="name" value="orgUnit.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="orgUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ceee5baa-0118-1000-e000-00a1c0a8129f</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bookedDate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[bookedDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e20f41b9-0117-1000-e000-02cdc0a81297</key>
+                    <parentUnit>
+                        <key name="name" value="bookedDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bookedDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>curProject.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[curProject.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="curProject.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>changeState</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[changeState].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="changeState" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="changeState" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>totalCost</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[totalCost].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f3ff4eb0-93a5-4197-91b3-3d669c5c455c</key>
+                    <parentUnit>
+                        <key name="name" value="totalCost" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="totalCost" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>reworkVisa</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[reworkVisa].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>aa495af8-14ad-4958-b750-cd6971de6db5</key>
+                    <parentUnit>
+                        <key name="name" value="reworkVisa" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="reworkVisa" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>contractAmPro</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[contractAmPro].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b3c6e296-1e92-4700-94a4-c3659311fa68</key>
+                    <parentUnit>
+                        <key name="name" value="contractAmPro" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="contractAmPro" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>totalChangeAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[totalChangeAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6263469c-c3cd-42eb-a442-e726eb443e89</key>
+                    <parentUnit>
+                        <key name="name" value="totalChangeAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="totalChangeAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>designChangeAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[designChangeAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e8acf555-1cd9-4688-85c3-b816e9529037</key>
+                    <parentUnit>
+                        <key name="name" value="designChangeAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="designChangeAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditType.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditType.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="auditType.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>66ff6be9-0117-1000-e000-00b7c0a81297</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[66ff6be9-0117-1000-e000-00b7c0a81297].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>66ff6be9-0117-1000-e000-00b9c0a81297</key>
+                    <parentUnit>
+                        <key name="name" value="66ff6be9-0117-1000-e000-00b7c0a81297" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="invalidCostReason" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>66ff6be9-0117-1000-e000-00b8c0a81297</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[66ff6be9-0117-1000-e000-00b8c0a81297].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>66ff6be9-0117-1000-e000-00bac0a81297</key>
+                    <parentUnit>
+                        <key name="name" value="66ff6be9-0117-1000-e000-00b8c0a81297" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="invalidCostReason" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>e20f41b9-0117-1000-e000-02c8c0a81297</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[e20f41b9-0117-1000-e000-02c8c0a81297].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e20f41b9-0117-1000-e000-02cac0a81297</key>
+                    <parentUnit>
+                        <key name="name" value="e20f41b9-0117-1000-e000-02c8c0a81297" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="period" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>e20f41b9-0117-1000-e000-02c9c0a81297</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[e20f41b9-0117-1000-e000-02c9c0a81297].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e20f41b9-0117-1000-e000-02cbc0a81297</key>
+                    <parentUnit>
+                        <key name="name" value="e20f41b9-0117-1000-e000-02c9c0a81297" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="period" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>billType</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[billType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>35a1395c-2d32-4052-aa09-2f0cf6e46633</key>
+                    <parentUnit>
+                        <key name="name" value="billType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="billType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>putForwardTime</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[putForwardTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>76be947e-44d8-4dc1-9cf9-36db2793f55b</key>
+                    <parentUnit>
+                        <key name="name" value="putForwardTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="putForwardTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>reaDesc</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[reaDesc].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>04c99173-c691-48bc-bc65-dba3aabfe895</key>
+                    <parentUnit>
+                        <key name="name" value="reaDesc" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="reaDesc" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ceee5baa-0118-1000-e000-00a4c0a8129f</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ceee5baa-0118-1000-e000-00a5c0a8129f</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditor.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditor.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="auditor.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="auditTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>099995cd-0119-1000-e000-0127c0a8129f</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[099995cd-0119-1000-e000-0127c0a8129f].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>099995cd-0119-1000-e000-0129c0a8129f</key>
+                    <parentUnit>
+                        <key name="name" value="099995cd-0119-1000-e000-0127c0a8129f" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="orgUnit" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>099995cd-0119-1000-e000-0128c0a8129f</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[099995cd-0119-1000-e000-0128c0a8129f].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>099995cd-0119-1000-e000-012ac0a8129f</key>
+                    <parentUnit>
+                        <key name="name" value="099995cd-0119-1000-e000-0128c0a8129f" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="orgUnit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>e81b0c2a-10cd-43d0-9eca-ea84a93a4779</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[e81b0c2a-10cd-43d0-9eca-ea84a93a4779].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>770bd438-f748-4013-9db2-01cf166ef3a8</key>
+                    <parentUnit>
+                        <key name="name" value="e81b0c2a-10cd-43d0-9eca-ea84a93a4779" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>a902859e-b396-4f76-9232-53cc157d3185</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[a902859e-b396-4f76-9232-53cc157d3185].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4d04d67f-c703-4f85-b79e-1eff08915736</key>
+                    <parentUnit>
+                        <key name="name" value="a902859e-b396-4f76-9232-53cc157d3185" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ChangeAuditBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>5d07831a-ab95-48e3-a51d-940591318857</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[5d07831a-ab95-48e3-a51d-940591318857].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b1cea470-5921-4e71-a6f6-5b16e3001110</key>
+                    <parentUnit>
+                        <key name="name" value="5d07831a-ab95-48e3-a51d-940591318857" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="suppEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>7e51f8b2-87a1-45d4-8160-18367e695989</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[7e51f8b2-87a1-45d4-8160-18367e695989].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ecb0912a-0cbe-4bea-8d06-ab2a7f0e6d53</key>
+                    <parentUnit>
+                        <key name="name" value="7e51f8b2-87a1-45d4-8160-18367e695989" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="suppEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="contractBill" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f8efe237-0951-42d3-8365-e6a76f583b49</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[f8efe237-0951-42d3-8365-e6a76f583b49].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1c48d330-a092-457c-a27b-766b05c324c0</key>
+                    <parentUnit>
+                        <key name="name" value="f8efe237-0951-42d3-8365-e6a76f583b49" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="contractBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>73a97909-4f68-4ce8-8e6f-b19fbbb4d2a7</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[73a97909-4f68-4ce8-8e6f-b19fbbb4d2a7].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c67aa92d-b857-47f1-bcb4-0ff4257802e4</key>
+                    <parentUnit>
+                        <key name="name" value="73a97909-4f68-4ce8-8e6f-b19fbbb4d2a7" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="contractBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="partB" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>70246779-e7b8-4b4e-a702-020a2247f649</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[70246779-e7b8-4b4e-a702-020a2247f649].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ab8aef15-08a1-4516-9713-e80702575c63</key>
+                    <parentUnit>
+                        <key name="name" value="70246779-e7b8-4b4e-a702-020a2247f649" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="partB" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>contractBill.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[contractBill.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>dd50454c-83b5-4b5f-9025-c6a734bd50cd</key>
+                    <parentUnit>
+                        <key name="name" value="contractBill.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="contractBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>contractBill.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[contractBill.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e83ecb5b-dae4-4775-9615-9d91eba1bd83</key>
+                    <parentUnit>
+                        <key name="name" value="contractBill.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="contractBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>partB.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[partB.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>50ea51d5-86b9-4db6-8308-fd6bb4bde739</key>
+                    <parentUnit>
+                        <key name="name" value="partB.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="partB" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>partB.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[partB.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f5db60b5-af85-4f03-9555-912a9e0d732a</key>
+                    <parentUnit>
+                        <key name="name" value="partB.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="partB" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+            <key name="name" value="DesignChangeAuditQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>number</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>NewJoin0</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeAuditBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="auditType" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit1" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin1</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeAuditBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="auditor" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit3" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin1" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin2</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeAuditBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="jobType" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit4" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit5" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin2" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin3</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeAuditBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit6" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit7" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin3" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin4</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeAuditBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="curProject" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit8" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit9" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin4" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin5</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeAuditBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="changeReason" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUni10" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUni11" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin5" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin6</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeAuditBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="specialtyType" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUni12" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUni13" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin6" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </join>
+        <join>
+            <name>66ff6be9-0117-1000-e000-0029c0a81297</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeAuditBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="invalidCostReason" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>66ff6be9-0117-1000-e000-0028c0a81297</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="66ff6be9-0117-1000-e000-00b7c0a81297" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="66ff6be9-0117-1000-e000-00b8c0a81297" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="66ff6be9-0117-1000-e000-0029c0a81297" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </join>
+        <join>
+            <name>e20f41b9-0117-1000-e000-0234c0a81297</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeAuditBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="period" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>e20f41b9-0117-1000-e000-0233c0a81297</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="e20f41b9-0117-1000-e000-02c8c0a81297" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="e20f41b9-0117-1000-e000-02c9c0a81297" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="e20f41b9-0117-1000-e000-0234c0a81297" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </join>
+        <join>
+            <name>099995cd-0119-1000-e000-0090c0a8129f</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeAuditBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="orgUnit" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>099995cd-0119-1000-e000-008fc0a8129f</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="099995cd-0119-1000-e000-0127c0a8129f" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="099995cd-0119-1000-e000-0128c0a8129f" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="099995cd-0119-1000-e000-0090c0a8129f" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </join>
+        <join>
+            <name>5177becf-655b-4b9a-80f4-ad3b2e3bcee4</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ChangeAuditBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="suppEntry" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>c644c3af-17df-47b1-880b-c4ac30e6c79f</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="a902859e-b396-4f76-9232-53cc157d3185" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="5d07831a-ab95-48e3-a51d-940591318857" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="5177becf-655b-4b9a-80f4-ad3b2e3bcee4" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </join>
+        <join>
+            <name>b1f877b7-1065-4711-ba09-41e80fdcb0b0</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="suppEntry" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="contractBill" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>f2cf2dfb-567d-4cf8-9773-8d9e67978327</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="7e51f8b2-87a1-45d4-8160-18367e695989" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="f8efe237-0951-42d3-8365-e6a76f583b49" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="b1f877b7-1065-4711-ba09-41e80fdcb0b0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </join>
+        <join>
+            <name>68cc608a-1fcd-47e1-89ed-6aa3af40d659</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="contractBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="partB" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>e70e0882-84ce-4e33-bf17-da8401a6f677</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="73a97909-4f68-4ce8-8e6f-b19fbbb4d2a7" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="70246779-e7b8-4b4e-a702-020a2247f649" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="68cc608a-1fcd-47e1-89ed-6aa3af40d659" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="DesignChangeAuditQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设计变更审批表查询" />
+            <lang locale="zh_HK" value="設計變更審批表查詢" />
+            <lang locale="zh_TW" value="設計變更審批表查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="合同变更发起" />
+            <lang locale="zh_CN" value="合同变更发起" />
+            <lang locale="zh_TW" value="合同变更发起" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设计变更审批表查询" />
+            <lang locale="zh_HK" value="設計變更審批表查詢" />
+            <lang locale="zh_TW" value="設計變更審批表查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="合同变更发起" />
+            <lang locale="zh_CN" value="合同变更发起" />
+            <lang locale="zh_TW" value="合同变更发起" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[ChangeAuditBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[auditType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[auditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[changeReason].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[contractBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[curProject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[invalidCostReason].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[jobType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[orgUnit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[partB].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[period].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[specialtyType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].subObjects.subEntity[suppEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[099995cd-0119-1000-e000-0127c0a8129f].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[099995cd-0119-1000-e000-0128c0a8129f].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[5d07831a-ab95-48e3-a51d-940591318857].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[66ff6be9-0117-1000-e000-00b7c0a81297].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[66ff6be9-0117-1000-e000-00b8c0a81297].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[70246779-e7b8-4b4e-a702-020a2247f649].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[73a97909-4f68-4ce8-8e6f-b19fbbb4d2a7].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[7e51f8b2-87a1-45d4-8160-18367e695989].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUni10].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUni11].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUni12].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUni13].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit3].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit5].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit6].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit7].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit8].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[NewUnit9].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[a902859e-b396-4f76-9232-53cc157d3185].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[e20f41b9-0117-1000-e000-02c8c0a81297].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[e20f41b9-0117-1000-e000-02c9c0a81297].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[e81b0c2a-10cd-43d0-9eca-ea84a93a4779].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.propertyUnit[f8efe237-0951-42d3-8365-e6a76f583b49].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批日期" />
+            <lang locale="zh_HK" value="審批日期" />
+            <lang locale="zh_TW" value="審批日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditType.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更类型" />
+            <lang locale="zh_HK" value="變更類型" />
+            <lang locale="zh_TW" value="變更類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditType.name].extendedProperty.defaultF7Query">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.basedata.app.F7ChangeTypeQuery" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.basedata.app.F7ChangeTypeQuery" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.basedata.app.F7ChangeTypeQuery" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditType.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditType.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditType.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditor.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="审批人" />
+            <lang locale="zh_HK" value="審批人" />
+            <lang locale="zh_TW" value="審批人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditor.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[auditor.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[billType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据类型" />
+            <lang locale="zh_HK" value="單據類型" />
+            <lang locale="zh_TW" value="單據類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[billType].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[billType].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[bookedDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
+            <lang locale="zh_TW" value="業務日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[bookedDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[bookedDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[changeState].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="状态" />
+            <lang locale="zh_HK" value="狀態" />
+            <lang locale="zh_TW" value="狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[changeState].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[changeState].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[contractAmPro].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="占合同价比例" />
+            <lang locale="zh_HK" value="占合同價比例" />
+            <lang locale="zh_TW" value="占合同價比例" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[contractBill.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同名称" />
+            <lang locale="zh_HK" value="合同名稱" />
+            <lang locale="zh_TW" value="合同名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[contractBill.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[contractBill.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[contractBill.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同编码" />
+            <lang locale="zh_HK" value="合同編碼" />
+            <lang locale="zh_TW" value="合同編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[contractBill.number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[contractBill.number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="制单日期" />
+            <lang locale="zh_HK" value="制單日期" />
+            <lang locale="zh_TW" value="制單日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="制单人" />
+            <lang locale="zh_HK" value="制單人" />
+            <lang locale="zh_TW" value="制單人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[curProject.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[curProject.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[curProject.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[designChangeAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设计变更金额" />
+            <lang locale="zh_HK" value="設計變更金額" />
+            <lang locale="zh_TW" value="設計變更金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="事项名称" />
+            <lang locale="zh_HK" value="事項名稱" />
+            <lang locale="zh_TW" value="事項名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="申请单编号" />
+            <lang locale="zh_HK" value="申請單編號" />
+            <lang locale="zh_TW" value="申請單編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[orgUnit.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="组织" />
+            <lang locale="zh_HK" value="組織" />
+            <lang locale="zh_TW" value="組織" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[partB.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同乙方名称" />
+            <lang locale="zh_HK" value="合同乙方名稱" />
+            <lang locale="zh_TW" value="合同乙方名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[partB.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[partB.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[partB.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同乙方编码" />
+            <lang locale="zh_HK" value="合同乙方編碼" />
+            <lang locale="zh_TW" value="合同乙方編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[partB.number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[partB.number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[period.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="期间编码" />
+            <lang locale="zh_HK" value="期間編碼" />
+            <lang locale="zh_TW" value="期間編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[putForwardTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提出时间" />
+            <lang locale="zh_HK" value="提出時間" />
+            <lang locale="zh_TW" value="提出時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[putForwardTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[putForwardTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[reaDesc].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="适用范围" />
+            <lang locale="zh_HK" value="適用範圍" />
+            <lang locale="zh_TW" value="適用範圍" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[reaDesc].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[reaDesc].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[reworkVisa].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="返工签证费用估算" />
+            <lang locale="zh_HK" value="返工簽證費用估算" />
+            <lang locale="zh_TW" value="返工簽證費用估算" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[totalChangeAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="累计变更占合同比" />
+            <lang locale="zh_HK" value="累計變更占合同比" />
+            <lang locale="zh_TW" value="累計變更占合同比" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.DesignChangeAuditQuery].units.queryField[totalCost].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="估算工程费金额" />
+            <lang locale="zh_HK" value="估算工程費金額" />
+            <lang locale="zh_TW" value="估算工程費金額" />
+        </rs>
+    </resource>
+</joinQuery>
+

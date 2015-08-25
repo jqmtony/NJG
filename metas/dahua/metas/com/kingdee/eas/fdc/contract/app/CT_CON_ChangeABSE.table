@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.contract.app</package>
+    <name>CT_CON_ChangeABSE</name>
+    <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].alias</alias>
+    <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].description</description>
+    <userDefined>true</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FParentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FCostAccountID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FCostAccountID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FCostAccountID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FProductID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FProductID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FProductID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FAmount</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FSplitType</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSplitType].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSplitType].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>100</precision>
+        </column>
+        <column>
+            <name>FLevel</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FLevel].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FLevel].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FIsLeaf</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIsLeaf].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIsLeaf].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>1</precision>
+        </column>
+        <column>
+            <name>FApportionTypeID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FApportionTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FApportionTypeID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FApportionValue</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FApportionValue].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FApportionValue].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FApportionTotal</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FApportionTotal].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FApportionTotal].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FOtherRatio</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FOtherRatio].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FOtherRatio].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FOtherRatioTotal</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FOtherRatioTotal].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FOtherRatioTotal].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FDirectAmount</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FDirectAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FDirectAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FDirectTotal</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FDirectTotal].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FDirectTotal].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FIsApportion</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIsApportion].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIsApportion].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>1</precision>
+        </column>
+        <column>
+            <name>FIsAddlAccount</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIsAddlAccount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIsAddlAccount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>1</precision>
+        </column>
+        <column>
+            <name>FCostBillID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FCostBillID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FCostBillID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>FIndex</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIndex].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIndex].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FIdxApportionID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIdxApportionID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIdxApportionID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSplitBillId</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSplitBillId].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSplitBillId].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>FPrice</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FPrice].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FPrice].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FWorkLoad</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FWorkLoad].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FWorkLoad].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FSplitScale</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSplitScale].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSplitScale].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>NUMERIC</sqlType>
+            <length>13</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>FSeq</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSeq].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>CFContractBillID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[CFContractBillID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[CFContractBillID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>PK_ChangeAuditBill</name>
+        <userDefined>true</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <foreignKeys>
+        <foreignKey>
+            <name>CFK_CON_CONCABSEOA</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="T_FDC_CostAccount" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FCostAccountID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_CON_CONCABSERd</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="T_FDC_ProductType" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FProductID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_CON_CONCABSEPT</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="T_FDC_ApportionType" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FApportionTypeID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_CON_CONCABSEAr</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="T_CON_ChangeAuditBill" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FParentID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_CON_CONCABSE7a</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="T_CON_ContractBill" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFContractBillID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更拆分" />
+            <lang locale="zh_HK" value="變更拆分" />
+            <lang locale="zh_TW" value="變更拆分" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[CFContractBillID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同信息" />
+            <lang locale="zh_HK" value="合同信息" />
+            <lang locale="zh_TW" value="合同信息" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[CFContractBillID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同信息" />
+            <lang locale="zh_HK" value="合同信息" />
+            <lang locale="zh_TW" value="合同信息" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="归属金额" />
+            <lang locale="zh_HK" value="歸屬金額" />
+            <lang locale="zh_TW" value="歸屬金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FApportionTotal].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分摊比值汇总" />
+            <lang locale="zh_HK" value="分攤比值匯總" />
+            <lang locale="zh_TW" value="分攤比值匯總" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FApportionTotal].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FApportionTypeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分摊类型" />
+            <lang locale="zh_HK" value="分攤類型" />
+            <lang locale="zh_TW" value="分攤類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FApportionTypeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FApportionValue].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分摊比值" />
+            <lang locale="zh_HK" value="分攤比值" />
+            <lang locale="zh_TW" value="分攤比值" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FApportionValue].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FCostAccountID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本科目" />
+            <lang locale="zh_HK" value="成本科目" />
+            <lang locale="zh_TW" value="成本科目" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FCostAccountID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FCostBillID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本来源单据" />
+            <lang locale="zh_HK" value="成本來源單據" />
+            <lang locale="zh_TW" value="成本來源單據" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FCostBillID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FDirectAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="直接费用" />
+            <lang locale="zh_HK" value="直接費用" />
+            <lang locale="zh_TW" value="直接費用" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FDirectAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FDirectTotal].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="直接费用汇总" />
+            <lang locale="zh_HK" value="直接費用匯總" />
+            <lang locale="zh_TW" value="直接費用匯總" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FDirectTotal].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIdxApportionID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标刷新用指标ID" />
+            <lang locale="zh_HK" value="指標刷新用指標ID" />
+            <lang locale="zh_TW" value="指標刷新用指標ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIdxApportionID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标刷新用指标ID" />
+            <lang locale="zh_HK" value="指標刷新用指標ID" />
+            <lang locale="zh_TW" value="指標刷新用指標ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIndex].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="序号" />
+            <lang locale="zh_HK" value="序號" />
+            <lang locale="zh_TW" value="序號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIndex].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIsAddlAccount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否附加科目" />
+            <lang locale="zh_HK" value="是否附加科目" />
+            <lang locale="zh_TW" value="是否附加科目" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIsAddlAccount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIsApportion].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否参与分摊" />
+            <lang locale="zh_HK" value="是否參與分攤" />
+            <lang locale="zh_TW" value="是否參與分攤" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIsApportion].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIsLeaf].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否叶子节点" />
+            <lang locale="zh_HK" value="是否葉子節點" />
+            <lang locale="zh_TW" value="是否葉子節點" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FIsLeaf].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FLevel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="级次" />
+            <lang locale="zh_HK" value="級次" />
+            <lang locale="zh_TW" value="級次" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FLevel].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FOtherRatioTotal].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="其他比值汇总" />
+            <lang locale="zh_HK" value="其他比值匯總" />
+            <lang locale="zh_TW" value="其他比值匯總" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FOtherRatioTotal].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FOtherRatio].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="其他比值" />
+            <lang locale="zh_HK" value="其他比值" />
+            <lang locale="zh_TW" value="其他比值" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FOtherRatio].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FPrice].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单价" />
+            <lang locale="zh_HK" value="單價" />
+            <lang locale="zh_TW" value="單價" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FPrice].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单价" />
+            <lang locale="zh_HK" value="單價" />
+            <lang locale="zh_TW" value="單價" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FProductID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="产品" />
+            <lang locale="zh_HK" value="產品" />
+            <lang locale="zh_TW" value="產品" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FProductID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号（定义为序列属性即使用{seq}）" />
+            <lang locale="zh_HK" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+            <lang locale="zh_TW" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSplitBillId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="拆分单据ID" />
+            <lang locale="zh_HK" value="拆分單據ID" />
+            <lang locale="zh_TW" value="拆分單據ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSplitBillId].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="拆分单据ID" />
+            <lang locale="zh_HK" value="拆分單據ID" />
+            <lang locale="zh_TW" value="拆分單據ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSplitScale].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="拆分比例" />
+            <lang locale="zh_HK" value="拆分比例" />
+            <lang locale="zh_TW" value="拆分比例" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSplitScale].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分录比例和不超100%" />
+            <lang locale="zh_HK" value="分錄比例和不超100%" />
+            <lang locale="zh_TW" value="分錄比例和不超100%" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSplitType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="拆分类型" />
+            <lang locale="zh_HK" value="拆分類型" />
+            <lang locale="zh_TW" value="拆分類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FSplitType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FWorkLoad].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程量" />
+            <lang locale="zh_HK" value="工程量" />
+            <lang locale="zh_TW" value="工程量" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].columns.column[FWorkLoad].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程量" />
+            <lang locale="zh_HK" value="工程量" />
+            <lang locale="zh_TW" value="工程量" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.CT_CON_ChangeABSE].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</dataTable>
+
