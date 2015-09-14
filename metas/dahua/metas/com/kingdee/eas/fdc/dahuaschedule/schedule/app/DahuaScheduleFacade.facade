@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facade xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.dahuaschedule.schedule.app</package>
+    <name>DahuaScheduleFacade</name>
+    <alias>facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].alias</alias>
+    <description>facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].description</description>
+    <userDefined>true</userDefined>
+    <bosType>C5579C32</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleFacade</businessImplName>
+    <businessControllerName>com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacadeController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>createTempData</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].methods.method[createTempData].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].methods.method[createTempData].description</description>
+            <innerID>3bac21a9-eeb8-4874-a21d-9a3045a33dd2</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>xml</name>
+                    <alias>facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].methods.method[createTempData].parameters.parameter[xml].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].methods.method[createTempData].parameters.parameter[xml].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>createScheduleBill</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].methods.method[createScheduleBill].alias</alias>
+            <description>facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].methods.method[createScheduleBill].description</description>
+            <innerID>ccb6cb4a-d8cc-4cb2-9667-c36fe1f43a4b</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>String[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+    </methods>
+    <resource>
+        <rs key="facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="大华进度接口" />
+            <lang locale="zh_HK" value="大華進度介面" />
+            <lang locale="zh_TW" value="大華進度介面" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].methods.method[createScheduleBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="生成进度单据" />
+            <lang locale="zh_HK" value="生成進度單據" />
+            <lang locale="zh_TW" value="生成進度單據" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].methods.method[createScheduleBill].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].methods.method[createTempData].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="生成进度中间表数" />
+            <lang locale="zh_HK" value="生成進度中間表數" />
+            <lang locale="zh_TW" value="生成進度中間表數" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].methods.method[createTempData].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].methods.method[createTempData].parameters.parameter[xml].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleFacade].methods.method[createTempData].parameters.parameter[xml].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</facade>
+

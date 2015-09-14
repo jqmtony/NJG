@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.dahuaschedule.schedule.app</package>
+    <name>CT_SCH_DahuaScheduleEntry</name>
+    <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].alias</alias>
+    <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].description</description>
+    <userDefined>true</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FSeq</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[FSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[FSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[FID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[FParentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>CFLongNumber</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFLongNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFLongNumber].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFIsLeaf</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFIsLeaf].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFIsLeaf].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFLevel</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFLevel].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFLevel].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>10</precision>
+        </column>
+        <column>
+            <name>CFTask</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFTask].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFTask].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFTimes</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFTimes].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFTimes].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFCompleteRate</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFCompleteRate].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFCompleteRate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFStartDate</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFStartDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFStartDate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFEndDate</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFEndDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFEndDate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFManagerID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFManagerID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFManagerID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFDepartmentID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFDepartmentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFDepartmentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFActCompleteDate</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFActCompleteDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFActCompleteDate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFNumber</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFNumber].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFNumber].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFActStartDate</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFActStartDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFActStartDate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFManagerText</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFManagerText].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFManagerText].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFDepartmentText</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFDepartmentText].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFDepartmentText].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>CPK_SCH_DahuaSE1jr</name>
+        <userDefined>true</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <foreignKeys>
+        <foreignKey>
+            <name>CFK_SCH_SCHDSEPrto</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.dahuaschedule.schedule.app" />
+                <key name="name" value="CT_SCH_DahuaSchedule" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FParentID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_SCH_SCHDSEAne3</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.person" />
+                <key name="name" value="T_BD_Person" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFManagerID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_SCH_SCHDSEEpmd</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.org" />
+                <key name="name" value="T_ORG_Admin" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFDepartmentID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分录" />
+            <lang locale="zh_HK" value="分錄" />
+            <lang locale="zh_TW" value="分錄" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFActCompleteDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际完成日期" />
+            <lang locale="zh_HK" value="實際完成日期" />
+            <lang locale="zh_TW" value="實際完成日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFActCompleteDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际完成日期" />
+            <lang locale="zh_HK" value="實際完成日期" />
+            <lang locale="zh_TW" value="實際完成日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFActStartDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际开始时间" />
+            <lang locale="zh_HK" value="實際開始時間" />
+            <lang locale="zh_TW" value="實際開始時間" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFActStartDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际开始时间" />
+            <lang locale="zh_HK" value="實際開始時間" />
+            <lang locale="zh_TW" value="實際開始時間" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFCompleteRate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="完成进度" />
+            <lang locale="zh_HK" value="完成進度" />
+            <lang locale="zh_TW" value="完成進度" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFCompleteRate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="完成进度" />
+            <lang locale="zh_HK" value="完成進度" />
+            <lang locale="zh_TW" value="完成進度" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFDepartmentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任部门" />
+            <lang locale="zh_HK" value="責任部門" />
+            <lang locale="zh_TW" value="責任部門" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFDepartmentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任部门" />
+            <lang locale="zh_HK" value="責任部門" />
+            <lang locale="zh_TW" value="責任部門" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFDepartmentText].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任部门" />
+            <lang locale="zh_HK" value="責任部門" />
+            <lang locale="zh_TW" value="責任部門" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFDepartmentText].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任部门" />
+            <lang locale="zh_HK" value="責任部門" />
+            <lang locale="zh_TW" value="責任部門" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFEndDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划完成日期" />
+            <lang locale="zh_HK" value="計畫完成日期" />
+            <lang locale="zh_TW" value="計畫完成日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFEndDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划完成日期" />
+            <lang locale="zh_HK" value="計畫完成日期" />
+            <lang locale="zh_TW" value="計畫完成日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFIsLeaf].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否子节点" />
+            <lang locale="zh_HK" value="是否子節點" />
+            <lang locale="zh_TW" value="是否子節點" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFIsLeaf].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否子节点" />
+            <lang locale="zh_HK" value="是否子節點" />
+            <lang locale="zh_TW" value="是否子節點" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFLevel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="级次" />
+            <lang locale="zh_HK" value="級次" />
+            <lang locale="zh_TW" value="級次" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFLevel].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="级次" />
+            <lang locale="zh_HK" value="級次" />
+            <lang locale="zh_TW" value="級次" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFLongNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="长编码" />
+            <lang locale="zh_HK" value="長編碼" />
+            <lang locale="zh_TW" value="長編碼" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFLongNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="长编码" />
+            <lang locale="zh_HK" value="長編碼" />
+            <lang locale="zh_TW" value="長編碼" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFManagerID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任人" />
+            <lang locale="zh_HK" value="責任人" />
+            <lang locale="zh_TW" value="責任人" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFManagerID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任人" />
+            <lang locale="zh_HK" value="責任人" />
+            <lang locale="zh_TW" value="責任人" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFManagerText].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任人" />
+            <lang locale="zh_HK" value="責任人" />
+            <lang locale="zh_TW" value="責任人" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFManagerText].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任人" />
+            <lang locale="zh_HK" value="責任人" />
+            <lang locale="zh_TW" value="責任人" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="任务编码" />
+            <lang locale="zh_HK" value="任務編碼" />
+            <lang locale="zh_TW" value="任務編碼" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="任务编码" />
+            <lang locale="zh_HK" value="任務編碼" />
+            <lang locale="zh_TW" value="任務編碼" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFStartDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划开始日期" />
+            <lang locale="zh_HK" value="計畫開始日期" />
+            <lang locale="zh_TW" value="計畫開始日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFStartDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划开始日期" />
+            <lang locale="zh_HK" value="計畫開始日期" />
+            <lang locale="zh_TW" value="計畫開始日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFTask].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="任务名称" />
+            <lang locale="zh_HK" value="任務名稱" />
+            <lang locale="zh_TW" value="任務名稱" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFTask].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="任务" />
+            <lang locale="zh_HK" value="任務" />
+            <lang locale="zh_TW" value="任務" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFTimes].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工期" />
+            <lang locale="zh_HK" value="工期" />
+            <lang locale="zh_TW" value="工期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFTimes].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工期" />
+            <lang locale="zh_HK" value="工期" />
+            <lang locale="zh_TW" value="工期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[FParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[FParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[FSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[FSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号（定义为序列属性即使用{seq}）" />
+            <lang locale="zh_HK" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+            <lang locale="zh_TW" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</dataTable>
+
