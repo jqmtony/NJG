@@ -222,7 +222,7 @@ public class EntryTreeSumField {
     }
     
   //金额类字段在修改时自动向上汇总
-	protected void caclTotalAmount(KDTable kdtEntries) {
+	public void caclTotalAmount(KDTable kdtEntries) {
 		int maxLevel = 0;
 		int[] levelArray = new int[kdtEntries.getRowCount()];
 		for (int i = 0; i < kdtEntries.getRowCount(); i++) {

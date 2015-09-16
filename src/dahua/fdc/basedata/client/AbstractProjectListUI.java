@@ -420,6 +420,12 @@ public abstract class AbstractProjectListUI extends com.kingdee.eas.framework.cl
         this.menuItemExitCurrent.setAction((IItemAction)ActionProxyFactory.getProxy(actionExitCurrent, new Class[] { IItemAction.class }, getServiceContext()));		
         this.menuItemExitCurrent.setText(resHelper.getString("menuItemExitCurrent.text"));		
         this.menuItemExitCurrent.setToolTipText(resHelper.getString("menuItemExitCurrent.toolTipText"));		
+        this.menuTool.setText(resHelper.getString("menuTool.text"));		
+        this.menuTool.setToolTipText(resHelper.getString("menuTool.toolTipText"));		
+        this.menuTool.setMnemonic(84);
+        this.menuItemSendMessage.setAction((IItemAction)ActionProxyFactory.getProxy(actionSendMessage, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.menuItemSendMessage.setText(resHelper.getString("menuItemSendMessage.text"));		
+        this.menuItemSendMessage.setToolTipText(resHelper.getString("menuItemSendMessage.toolTipText"));		
         this.menuHelp.setText(resHelper.getString("menuHelp.text"));		
         this.menuHelp.setMnemonic(72);
         this.menuItemHelp.setAction((IItemAction)ActionProxyFactory.getProxy(actionHelp, new Class[] { IItemAction.class }, getServiceContext()));		
@@ -427,17 +433,11 @@ public abstract class AbstractProjectListUI extends com.kingdee.eas.framework.cl
         this.menuItemHelp.setToolTipText(resHelper.getString("menuItemHelp.toolTipText"));
         this.menuItemAbout.setAction((IItemAction)ActionProxyFactory.getProxy(actionAbout, new Class[] { IItemAction.class }, getServiceContext()));		
         this.menuItemAbout.setText(resHelper.getString("menuItemAbout.text"));		
-        this.menuItemAbout.setToolTipText(resHelper.getString("menuItemAbout.toolTipText"));		
-        this.menuTool.setText(resHelper.getString("menuTool.text"));		
-        this.menuTool.setToolTipText(resHelper.getString("menuTool.toolTipText"));		
-        this.menuTool.setMnemonic(84);
-        this.menuItemSendMessage.setAction((IItemAction)ActionProxyFactory.getProxy(actionSendMessage, new Class[] { IItemAction.class }, getServiceContext()));		
-        this.menuItemSendMessage.setText(resHelper.getString("menuItemSendMessage.text"));		
-        this.menuItemSendMessage.setToolTipText(resHelper.getString("menuItemSendMessage.toolTipText"));
-		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol14\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"longNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"landDeveloper.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"startDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"sortNo\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isEnabled\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectStatus.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isDevPrj\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /><t:Column t:key=\"fullOrgUnit.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" t:styleID=\"sCol11\" /><t:Column t:key=\"parent.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" t:styleID=\"sCol12\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" t:styleID=\"sCol13\" /><t:Column t:key=\"parent.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" t:styleID=\"sCol14\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{longNumber}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{landDeveloper.name}</t:Cell><t:Cell>$Resource{startDate}</t:Cell><t:Cell>$Resource{sortNo}</t:Cell><t:Cell>$Resource{isEnabled}</t:Cell><t:Cell>$Resource{projectStatus.name}</t:Cell><t:Cell>$Resource{projectType.name}</t:Cell><t:Cell>$Resource{isDevPrj}</t:Cell><t:Cell>$Resource{description}</t:Cell><t:Cell>$Resource{fullOrgUnit.name}</t:Cell><t:Cell>$Resource{parent.name}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell><t:Cell>$Resource{parent.id}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot> ";
+        this.menuItemAbout.setToolTipText(resHelper.getString("menuItemAbout.toolTipText"));
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol14\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"longNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"landDeveloper.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"startDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"sortNo\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isEnabled\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectStatus.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isDevPrj\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /><t:Column t:key=\"fullOrgUnit.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" t:styleID=\"sCol11\" /><t:Column t:key=\"parent.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" t:styleID=\"sCol12\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" t:styleID=\"sCol13\" /><t:Column t:key=\"parent.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" t:styleID=\"sCol14\" /><t:Column t:key=\"isWholeAgeStage\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{longNumber}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{landDeveloper.name}</t:Cell><t:Cell>$Resource{startDate}</t:Cell><t:Cell>$Resource{sortNo}</t:Cell><t:Cell>$Resource{isEnabled}</t:Cell><t:Cell>$Resource{projectStatus.name}</t:Cell><t:Cell>$Resource{projectType.name}</t:Cell><t:Cell>$Resource{isDevPrj}</t:Cell><t:Cell>$Resource{description}</t:Cell><t:Cell>$Resource{fullOrgUnit.name}</t:Cell><t:Cell>$Resource{parent.name}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell><t:Cell>$Resource{parent.id}</t:Cell><t:Cell>$Resource{isWholeAgeStage}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
-                this.tblMain.putBindContents("mainQuery",new String[] {"id","longNumber","name","landDeveloper.name","startDate","sortNo","isEnabled","projectStatus.name","projectType.name","isDevPrj","description","fullOrgUnit.name","parent.name","CU.id","parent.id"});
+                this.tblMain.putBindContents("mainQuery",new String[] {"id","longNumber","name","landDeveloper.name","startDate","sortNo","isEnabled","projectStatus.name","projectType.name","isDevPrj","description","fullOrgUnit.name","parent.name","CU.id","parent.id","isWholeAgeStage"});
 
 
         this.tblMain.checkParsed();
@@ -656,6 +656,7 @@ public abstract class AbstractProjectListUI extends com.kingdee.eas.framework.cl
     {
         this.menuBar.add(menuFile);
         this.menuBar.add(menuEdit);
+        this.menuBar.add(MenuService);
         this.menuBar.add(menuView);
         this.menuBar.add(menuTool);
         this.menuBar.add(menuBiz);
@@ -664,10 +665,14 @@ public abstract class AbstractProjectListUI extends com.kingdee.eas.framework.cl
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(menuItemImportData);
+        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemExportData);
         menuFile.add(kDSeparator1);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(separatorFile1);
         menuFile.add(menuItemPageSetup);
+        menuFile.add(menuItemCloudShare);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(menuItemPrint);
         menuFile.add(menuItemPrintPreview);
         menuFile.add(kDSeparator2);
@@ -678,15 +683,22 @@ public abstract class AbstractProjectListUI extends com.kingdee.eas.framework.cl
         menuEdit.add(MenuItemAttachment);
         menuEdit.add(menuItemMoveTree);
         menuEdit.add(separatorEdit1);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
         //menuView
         menuView.add(menuItemView);
         menuView.add(menuItemLocate);
         menuView.add(menuItemQuery);
         menuView.add(separatorView1);
         menuView.add(menuItemRefresh);
+        menuView.add(menuItemQueryScheme);
         //menuTool
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuBiz
         menuBiz.add(menuItemCancelCancel);
         menuBiz.add(menuItemCancel);
@@ -706,8 +718,8 @@ public abstract class AbstractProjectListUI extends com.kingdee.eas.framework.cl
         //menuHelp
         menuHelp.add(menuItemHelp);
         menuHelp.add(kDSeparator12);
-        menuHelp.add(menuItemAbout);
         menuHelp.add(menuItemRegPro);
+        menuHelp.add(menuItemAbout);
         menuHelp.add(menuItemPersonalSite);
         menuHelp.add(helpseparatorDiv);
         menuHelp.add(menuitemProductval);
@@ -721,7 +733,9 @@ public abstract class AbstractProjectListUI extends com.kingdee.eas.framework.cl
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(btnView);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnEdit);
         this.toolBar.add(btnRemove);
         this.toolBar.add(btnRefresh);
@@ -812,10 +826,6 @@ public abstract class AbstractProjectListUI extends com.kingdee.eas.framework.cl
             }
         }
     }
-			protected com.kingdee.eas.basedata.org.OrgType getMainBizOrgType() {
-			return com.kingdee.eas.basedata.org.OrgType.getEnum("CostCenter");
-		}
-
 
     /**
      * output loadFields method
@@ -891,23 +901,10 @@ public abstract class AbstractProjectListUI extends com.kingdee.eas.framework.cl
     {
     }
 
-			public SelectorItemCollection getBOTPSelectors() {
+	public SelectorItemCollection getBOTPSelectors() {
 			SelectorItemCollection sic = new SelectorItemCollection();
-			sic.add(new SelectorItemInfo("*"));
-			sic.add(new SelectorItemInfo("creator.*"));
-			sic.add(new SelectorItemInfo("lastUpdateUser.*"));
-			sic.add(new SelectorItemInfo("CU.*"));
-			sic.add(new SelectorItemInfo("fullOrgUnit.*"));
-			sic.add(new SelectorItemInfo("landDeveloper.*"));
-			sic.add(new SelectorItemInfo("curProjProductEntries.*"));
-			sic.add(new SelectorItemInfo("curProjProductEntries.productType.*"));
-			sic.add(new SelectorItemInfo("parent.*"));
-			sic.add(new SelectorItemInfo("projectStatus.*"));
-			sic.add(new SelectorItemInfo("projectType.*"));
-			sic.add(new SelectorItemInfo("costOrg.*"));
-			sic.add(new SelectorItemInfo("costCenter.*"));
 			return sic;
-		}
+	}
 
     /**
      * output getSelectors method
@@ -915,6 +912,10 @@ public abstract class AbstractProjectListUI extends com.kingdee.eas.framework.cl
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
         sic.add(new SelectorItemInfo("id"));
         sic.add(new SelectorItemInfo("longNumber"));
         sic.add(new SelectorItemInfo("name"));
@@ -930,6 +931,7 @@ public abstract class AbstractProjectListUI extends com.kingdee.eas.framework.cl
         sic.add(new SelectorItemInfo("projectStatus.name"));
         sic.add(new SelectorItemInfo("projectType.name"));
         sic.add(new SelectorItemInfo("isDevPrj"));
+        sic.add(new SelectorItemInfo("isWholeAgeStage"));
         return sic;
     }            protected java.util.List getQuerySorterFields() 
     { 

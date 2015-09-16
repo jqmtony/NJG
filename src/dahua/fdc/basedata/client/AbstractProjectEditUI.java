@@ -56,6 +56,10 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkIsDevPrj;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer5;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkisWholeAgeStage;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtSplitProject;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtSplitProject_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer6;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanelCost;
@@ -81,6 +85,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox bizProjectStatus;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox bizProjectType;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox landInfomationF7;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtSelectProject;
     protected com.kingdee.eas.fdc.basedata.CurProjectInfo editData = null;
     protected ActionProductAddLine actionProductAddLine = null;
     protected ActionProductInsertLine actionProductInsertLine = null;
@@ -407,6 +412,9 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.chkIsDevPrj = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.kDLabelContainer5 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.chkisWholeAgeStage = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.kdtSplitProject = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.kDLabelContainer6 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDPanelCost = new com.kingdee.bos.ctrl.swing.KDPanel();
@@ -432,6 +440,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.bizProjectStatus = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.bizProjectType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.landInfomationF7 = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtSelectProject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.contName.setName("contName");
         this.contLongNumber.setName("contLongNumber");
         this.kDTabbedPane1.setName("kDTabbedPane1");
@@ -442,6 +451,9 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.kDLabelContainer4.setName("kDLabelContainer4");
         this.chkIsDevPrj.setName("chkIsDevPrj");
         this.kDLabelContainer5.setName("kDLabelContainer5");
+        this.chkisWholeAgeStage.setName("chkisWholeAgeStage");
+        this.kdtSplitProject.setName("kdtSplitProject");
+        this.kDLabelContainer6.setName("kDLabelContainer6");
         this.txtName.setName("txtName");
         this.txtNumber.setName("txtNumber");
         this.kDPanelCost.setName("kDPanelCost");
@@ -467,6 +479,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.bizProjectStatus.setName("bizProjectStatus");
         this.bizProjectType.setName("bizProjectType");
         this.landInfomationF7.setName("landInfomationF7");
+        this.prmtSelectProject.setName("prmtSelectProject");
         // CoreUI
         this.btnPageSetup.setAction((IItemAction)ActionProxyFactory.getProxy(actionPageSetup, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnPageSetup.setText(resHelper.getString("btnPageSetup.text"));		
@@ -482,6 +495,12 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.menuItemExitCurrent.setAction((IItemAction)ActionProxyFactory.getProxy(actionExitCurrent, new Class[] { IItemAction.class }, getServiceContext()));		
         this.menuItemExitCurrent.setText(resHelper.getString("menuItemExitCurrent.text"));		
         this.menuItemExitCurrent.setToolTipText(resHelper.getString("menuItemExitCurrent.toolTipText"));		
+        this.menuTool.setText(resHelper.getString("menuTool.text"));		
+        this.menuTool.setToolTipText(resHelper.getString("menuTool.toolTipText"));		
+        this.menuTool.setMnemonic(84);
+        this.menuItemSendMessage.setAction((IItemAction)ActionProxyFactory.getProxy(actionSendMessage, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.menuItemSendMessage.setText(resHelper.getString("menuItemSendMessage.text"));		
+        this.menuItemSendMessage.setToolTipText(resHelper.getString("menuItemSendMessage.toolTipText"));		
         this.menuHelp.setText(resHelper.getString("menuHelp.text"));		
         this.menuHelp.setMnemonic(72);
         this.menuItemHelp.setAction((IItemAction)ActionProxyFactory.getProxy(actionHelp, new Class[] { IItemAction.class }, getServiceContext()));		
@@ -489,13 +508,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.menuItemHelp.setToolTipText(resHelper.getString("menuItemHelp.toolTipText"));
         this.menuItemAbout.setAction((IItemAction)ActionProxyFactory.getProxy(actionAbout, new Class[] { IItemAction.class }, getServiceContext()));		
         this.menuItemAbout.setText(resHelper.getString("menuItemAbout.text"));		
-        this.menuItemAbout.setToolTipText(resHelper.getString("menuItemAbout.toolTipText"));		
-        this.menuTool.setText(resHelper.getString("menuTool.text"));		
-        this.menuTool.setToolTipText(resHelper.getString("menuTool.toolTipText"));		
-        this.menuTool.setMnemonic(84);
-        this.menuItemSendMessage.setAction((IItemAction)ActionProxyFactory.getProxy(actionSendMessage, new Class[] { IItemAction.class }, getServiceContext()));		
-        this.menuItemSendMessage.setText(resHelper.getString("menuItemSendMessage.text"));		
-        this.menuItemSendMessage.setToolTipText(resHelper.getString("menuItemSendMessage.toolTipText"));
+        this.menuItemAbout.setToolTipText(resHelper.getString("menuItemAbout.toolTipText"));
         this.btnAddNew.setAction((IItemAction)ActionProxyFactory.getProxy(actionAddNew, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAddNew.setText(resHelper.getString("btnAddNew.text"));		
         this.btnAddNew.setToolTipText(resHelper.getString("btnAddNew.toolTipText"));
@@ -636,6 +649,36 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.kDLabelContainer5.setBoundLabelText(resHelper.getString("kDLabelContainer5.boundLabelText"));		
         this.kDLabelContainer5.setBoundLabelLength(100);		
         this.kDLabelContainer5.setBoundLabelUnderline(true);
+        // chkisWholeAgeStage		
+        this.chkisWholeAgeStage.setText(resHelper.getString("chkisWholeAgeStage.text"));		
+        this.chkisWholeAgeStage.setVisible(true);		
+        this.chkisWholeAgeStage.setHorizontalAlignment(2);
+        // kdtSplitProject
+		String kdtSplitProjectStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"splitProject\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{splitProject}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kdtSplitProject.setFormatXml(resHelper.translateString("kdtSplitProject",kdtSplitProjectStrXML));		
+        this.kdtSplitProject.setVisible(false);
+
+                this.kdtSplitProject.putBindContents("editData",new String[] {"seq","splitProject"});
+
+
+        this.kdtSplitProject.checkParsed();
+        final KDBizPromptBox kdtSplitProject_splitProject_PromptBox = new KDBizPromptBox();
+        kdtSplitProject_splitProject_PromptBox.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7ProjectForAssActQuery");
+        kdtSplitProject_splitProject_PromptBox.setVisible(true);
+        kdtSplitProject_splitProject_PromptBox.setEditable(true);
+        kdtSplitProject_splitProject_PromptBox.setDisplayFormat("$number$");
+        kdtSplitProject_splitProject_PromptBox.setEditFormat("$number$");
+        kdtSplitProject_splitProject_PromptBox.setCommitFormat("$number$");
+        KDTDefaultCellEditor kdtSplitProject_splitProject_CellEditor = new KDTDefaultCellEditor(kdtSplitProject_splitProject_PromptBox);
+        this.kdtSplitProject.getColumn("splitProject").setEditor(kdtSplitProject_splitProject_CellEditor);
+        ObjectValueRender kdtSplitProject_splitProject_OVR = new ObjectValueRender();
+        kdtSplitProject_splitProject_OVR.setFormat(new BizDataFormat("$name$"));
+        this.kdtSplitProject.getColumn("splitProject").setRenderer(kdtSplitProject_splitProject_OVR);
+        // kDLabelContainer6		
+        this.kDLabelContainer6.setBoundLabelText(resHelper.getString("kDLabelContainer6.boundLabelText"));		
+        this.kDLabelContainer6.setBoundLabelUnderline(true);		
+        this.kDLabelContainer6.setBoundLabelLength(100);
         // txtName		
         this.txtName.setRequired(true);		
         this.txtName.setMaxLength(80);
@@ -804,6 +847,9 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.landInfomationF7.setQueryInfo("com.kingdee.eas.fdc.basedata.app.LandInfomationF7Query");		
         this.landInfomationF7.setDisplayFormat("$name$");		
         this.landInfomationF7.setEditFormat("$number$");
+        // prmtSelectProject		
+        this.prmtSelectProject.setDisplayFormat("$name$");		
+        this.prmtSelectProject.setEditFormat("$number$");
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -830,26 +876,33 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
     {
         this.setBounds(new Rectangle(0, 0, 640, 500));
         this.setLayout(null);
-        contName.setBounds(new Rectangle(10, 70, 270, 19));
+        contName.setBounds(new Rectangle(10, 62, 270, 19));
         this.add(contName, null);
-        contLongNumber.setBounds(new Rectangle(10, 40, 270, 19));
+        contLongNumber.setBounds(new Rectangle(10, 36, 270, 19));
         this.add(contLongNumber, null);
-        kDTabbedPane1.setBounds(new Rectangle(10, 116, 618, 380));
+        kDTabbedPane1.setBounds(new Rectangle(10, 138, 618, 358));
         this.add(kDTabbedPane1, null);
         kDLabelContainer3.setBounds(new Rectangle(10, 10, 270, 19));
         this.add(kDLabelContainer3, null);
-        kDLabelContainer1.setBounds(new Rectangle(358, 70, 270, 19));
+        kDLabelContainer1.setBounds(new Rectangle(358, 62, 270, 19));
         this.add(kDLabelContainer1, null);
         chkIsEnabled.setBounds(new Rectangle(301, 29, 270, 19));
         this.add(chkIsEnabled, null);
         kDLabelContainer2.setBounds(new Rectangle(358, 10, 270, 19));
         this.add(kDLabelContainer2, null);
-        kDLabelContainer4.setBounds(new Rectangle(358, 40, 270, 19));
+        kDLabelContainer4.setBounds(new Rectangle(358, 36, 270, 19));
         this.add(kDLabelContainer4, null);
-        chkIsDevPrj.setBounds(new Rectangle(185, 97, 95, 19));
+        chkIsDevPrj.setBounds(new Rectangle(156, 88, 95, 19));
         this.add(chkIsDevPrj, null);
-        kDLabelContainer5.setBounds(new Rectangle(358, 96, 270, 19));
+        kDLabelContainer5.setBounds(new Rectangle(358, 88, 270, 19));
         this.add(kDLabelContainer5, null);
+        chkisWholeAgeStage.setBounds(new Rectangle(12, 88, 108, 19));
+        this.add(chkisWholeAgeStage, null);
+        kdtSplitProject.setBounds(new Rectangle(522, 124, 78, 46));
+        kdtSplitProject_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtSplitProject,new com.kingdee.eas.fdc.basedata.CurProjectSplitProjectInfo(),null,false);
+        this.add(kdtSplitProject_detailPanel, null);
+        kDLabelContainer6.setBounds(new Rectangle(10, 115, 618, 19));
+        this.add(kDLabelContainer6, null);
         //contName
         contName.setBoundEditor(txtName);
         //contLongNumber
@@ -859,7 +912,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         kDTabbedPane1.add(kDPanelProduct, resHelper.getString("kDPanelProduct.constraints"));
         //kDPanelCost
         kDPanelCost.setLayout(new KDLayout());
-        kDPanelCost.putClientProperty("OriginalBounds", new Rectangle(0, 0, 617, 347));        contLnkLandDeveloper.setBounds(new Rectangle(14, 13, 587, 19));
+        kDPanelCost.putClientProperty("OriginalBounds", new Rectangle(0, 0, 617, 325));        contLnkLandDeveloper.setBounds(new Rectangle(14, 13, 587, 19));
         kDPanelCost.add(contLnkLandDeveloper, new KDLayout.Constraints(14, 13, 587, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT));
         contSortNo.setBounds(new Rectangle(332, 267, 270, 19));
         kDPanelCost.add(contSortNo, new KDLayout.Constraints(332, 267, 270, 19, 0));
@@ -885,7 +938,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         contProjectAddress.setBoundEditor(txtProjectAddress);
         //kDPanelProduct
         kDPanelProduct.setLayout(new KDLayout());
-        kDPanelProduct.putClientProperty("OriginalBounds", new Rectangle(0, 0, 617, 347));        wbtProductAddLine.setBounds(new Rectangle(507, 12, 22, 19));
+        kDPanelProduct.putClientProperty("OriginalBounds", new Rectangle(0, 0, 617, 325));        wbtProductAddLine.setBounds(new Rectangle(507, 12, 22, 19));
         kDPanelProduct.add(wbtProductAddLine, new KDLayout.Constraints(507, 12, 22, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT));
         wbtProductInsertLine.setBounds(new Rectangle(543, 12, 22, 19));
         kDPanelProduct.add(wbtProductInsertLine, new KDLayout.Constraints(543, 12, 22, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT));
@@ -903,6 +956,8 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         kDLabelContainer4.setBoundEditor(bizProjectType);
         //kDLabelContainer5
         kDLabelContainer5.setBoundEditor(landInfomationF7);
+        //kDLabelContainer6
+        kDLabelContainer6.setBoundEditor(prmtSelectProject);
 
     }
 
@@ -914,6 +969,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
     {
         this.menuBar.add(menuFile);
         this.menuBar.add(menuEdit);
+        this.menuBar.add(MenuService);
         this.menuBar.add(menuView);
         this.menuBar.add(menuTool);
         this.menuBar.add(menuBiz);
@@ -921,9 +977,13 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(kDSeparator1);
+        menuFile.add(menuItemCloudFeed);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(menuItemSave);
+        menuFile.add(menuItemCloudShare);
         menuFile.add(menuItemSubmit);
         menuFile.add(menuSubmitOption);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(rMenuItemSubmit);
         menuFile.add(kDSeparator2);
         menuFile.add(rMenuItemSubmitAndAddNew);
@@ -943,8 +1003,14 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         menuEdit.add(menuItemCopy);
         menuEdit.add(MenuItemAttachment);
         menuEdit.add(kDSeparator4);
+        menuEdit.add(menuItemReset);
         menuEdit.add(menuItemCancelCancel);
         menuEdit.add(menuItemCancel);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
         //menuView
         menuView.add(menuItemFirst);
         menuView.add(menuItemPre);
@@ -954,11 +1020,12 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemMsgFormat);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuHelp
         menuHelp.add(menuItemHelp);
         menuHelp.add(kDSeparator12);
-        menuHelp.add(menuItemAbout);
         menuHelp.add(menuItemRegPro);
+        menuHelp.add(menuItemAbout);
         menuHelp.add(menuItemPersonalSite);
         menuHelp.add(helpseparatorDiv);
         menuHelp.add(menuitemProductval);
@@ -972,7 +1039,9 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
@@ -999,6 +1068,10 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
 	private void registerBindings(){
 		dataBinder.registerBinding("isEnabled", boolean.class, this.chkIsEnabled, "selected");
 		dataBinder.registerBinding("isDevPrj", boolean.class, this.chkIsDevPrj, "selected");
+		dataBinder.registerBinding("isWholeAgeStage", boolean.class, this.chkisWholeAgeStage, "selected");
+		dataBinder.registerBinding("SplitProject.seq", int.class, this.kdtSplitProject, "seq.text");
+		dataBinder.registerBinding("SplitProject", com.kingdee.eas.fdc.basedata.CurProjectSplitProjectInfo.class, this.kdtSplitProject, "userObject");
+		dataBinder.registerBinding("SplitProject.splitProject", java.lang.Object.class, this.kdtSplitProject, "splitProject.text");
 		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("landDeveloper", com.kingdee.eas.fdc.basedata.LandDeveloperInfo.class, this.bizLandDeveloper, "data");
@@ -1104,10 +1177,6 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         super.setDataObject(ov);
         this.editData = (com.kingdee.eas.fdc.basedata.CurProjectInfo)ov;
     }
-			protected com.kingdee.eas.basedata.org.OrgType getMainBizOrgType() {
-			return com.kingdee.eas.basedata.org.OrgType.getEnum("CostCenter");
-		}
-
 
     /**
      * output loadFields method
@@ -1118,7 +1187,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
     }
 		protected void setOrgF7(KDBizPromptBox f7,com.kingdee.eas.basedata.org.OrgType orgType) throws Exception
 		{
-			com.kingdee.bos.ctrl.extendcontrols.ext.OrgUnitFilterInfoProducer oufip=(com.kingdee.bos.ctrl.extendcontrols.ext.OrgUnitFilterInfoProducer)com.kingdee.bos.ctrl.extendcontrols.ext.FilterInfoProducerFactory.getOrgUnitFilterInfoProducer(orgType);
+			com.kingdee.eas.basedata.org.client.f7.NewOrgUnitFilterInfoProducer oufip = new com.kingdee.eas.basedata.org.client.f7.NewOrgUnitFilterInfoProducer(orgType);
 			oufip.getModel().setIsCUFilter(true);
 			f7.setFilterInfoProducer(oufip);
 		}
@@ -1138,6 +1207,10 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
     	getValidateHelper().setCustomValidator( getValidator() );
 		getValidateHelper().registerBindProperty("isEnabled", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("isDevPrj", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("isWholeAgeStage", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SplitProject.seq", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SplitProject", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("SplitProject.splitProject", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("landDeveloper", ValidateHelper.ON_SAVE);    
@@ -1292,19 +1365,72 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
         sic.add(new SelectorItemInfo("isEnabled"));
         sic.add(new SelectorItemInfo("isDevPrj"));
+        sic.add(new SelectorItemInfo("isWholeAgeStage"));
+    	sic.add(new SelectorItemInfo("SplitProject.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("SplitProject.*"));
+		}
+		else{
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("SplitProject.splitProject.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("SplitProject.splitProject.id"));
+			sic.add(new SelectorItemInfo("SplitProject.splitProject.name"));
+        	sic.add(new SelectorItemInfo("SplitProject.splitProject.number"));
+		}
         sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("number"));
-        sic.add(new SelectorItemInfo("landDeveloper.*"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("landDeveloper.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("landDeveloper.id"));
+        	sic.add(new SelectorItemInfo("landDeveloper.number"));
+        	sic.add(new SelectorItemInfo("landDeveloper.name"));
+		}
         sic.add(new SelectorItemInfo("sortNo"));
         sic.add(new SelectorItemInfo("startDate"));
         sic.add(new SelectorItemInfo("description"));
         sic.add(new SelectorItemInfo("projectAddress"));
         sic.add(new SelectorItemInfo("longNumber"));
-        sic.add(new SelectorItemInfo("projectStatus.*"));
-        sic.add(new SelectorItemInfo("projectType.*"));
-        sic.add(new SelectorItemInfo("landInfomation.*"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("projectStatus.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("projectStatus.id"));
+        	sic.add(new SelectorItemInfo("projectStatus.number"));
+        	sic.add(new SelectorItemInfo("projectStatus.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("projectType.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("projectType.id"));
+        	sic.add(new SelectorItemInfo("projectType.number"));
+        	sic.add(new SelectorItemInfo("projectType.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("landInfomation.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("landInfomation.id"));
+        	sic.add(new SelectorItemInfo("landInfomation.number"));
+        	sic.add(new SelectorItemInfo("landInfomation.name"));
+		}
         return sic;
     }        
     	

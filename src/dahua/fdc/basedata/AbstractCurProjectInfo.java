@@ -17,16 +17,17 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
     {
         super(pkField);
         put("curProjProductEntries", new com.kingdee.eas.fdc.basedata.CurProjProductEntriesCollection());
+        put("SplitProject", new com.kingdee.eas.fdc.basedata.CurProjectSplitProjectCollection());
     }
     /**
-     * Object: 工程项目 's 当前工程项目产品设置分录 property 
+     * Object: 当前工程项目 's 当前工程项目产品设置分录 property 
      */
     public com.kingdee.eas.fdc.basedata.CurProjProductEntriesCollection getCurProjProductEntries()
     {
         return (com.kingdee.eas.fdc.basedata.CurProjProductEntriesCollection)get("curProjProductEntries");
     }
     /**
-     * Object: 工程项目 's 父结点 property 
+     * Object: 当前工程项目 's 父结点 property 
      */
     public com.kingdee.eas.fdc.basedata.CurProjectInfo getParent()
     {
@@ -37,7 +38,7 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
         put("parent", item);
     }
     /**
-     * Object: 工程项目 's 项目状态 property 
+     * Object: 当前工程项目 's 项目状态 property 
      */
     public com.kingdee.eas.fdc.basedata.ProjectStatusInfo getProjectStatus()
     {
@@ -48,7 +49,7 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
         put("projectStatus", item);
     }
     /**
-     * Object: 工程项目 's 项目系列 property 
+     * Object: 当前工程项目 's 项目系列 property 
      */
     public com.kingdee.eas.fdc.basedata.ProjectTypeInfo getProjectType()
     {
@@ -59,7 +60,7 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
         put("projectType", item);
     }
     /**
-     * Object:工程项目's 启用property 
+     * Object:当前工程项目's 启用property 
      */
     public boolean isIsEnabled()
     {
@@ -70,7 +71,7 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
         setBoolean("isEnabled", item);
     }
     /**
-     * Object:工程项目's 项目分期property 
+     * Object:当前工程项目's 项目分期property 
      */
     public String getProjectPeriod()
     {
@@ -81,7 +82,7 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
         setString("projectPeriod", item);
     }
     /**
-     * Object: 工程项目 's 成本中心组织 property 
+     * Object: 当前工程项目 's 成本中心组织 property 
      */
     public com.kingdee.eas.basedata.org.CostCenterOrgUnitInfo getCostOrg()
     {
@@ -92,7 +93,7 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
         put("costOrg", item);
     }
     /**
-     * Object:工程项目's 项目IDproperty 
+     * Object:当前工程项目's 项目IDproperty 
      */
     public String getBdProjectID()
     {
@@ -103,7 +104,7 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
         setString("bdProjectID", item);
     }
     /**
-     * Object:工程项目's 工程项目长编码property 
+     * Object:当前工程项目's 工程项目长编码property 
      */
     public String getCodingNumber()
     {
@@ -114,7 +115,7 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
         setString("codingNumber", item);
     }
     /**
-     * Object: 工程项目 's 工程项目对应的成本中心 property 
+     * Object: 当前工程项目 's 工程项目对应的成本中心 property 
      */
     public com.kingdee.eas.basedata.org.CostCenterOrgUnitInfo getCostCenter()
     {
@@ -125,7 +126,7 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
         put("costCenter", item);
     }
     /**
-     * Object:工程项目's 是否开发项目property 
+     * Object:当前工程项目's 是否开发项目property 
      */
     public boolean isIsDevPrj()
     {
@@ -136,7 +137,7 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
         setBoolean("isDevPrj", item);
     }
     /**
-     * Object:工程项目's 项目地址property 
+     * Object:当前工程项目's 项目地址property 
      */
     public String getProjectAddress()
     {
@@ -147,7 +148,7 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
         setString("projectAddress", item);
     }
     /**
-     * Object: 工程项目 's 土地信息 property 
+     * Object: 当前工程项目 's 土地信息 property 
      */
     public com.kingdee.eas.fdc.basedata.LandInfomationInfo getLandInfomation()
     {
@@ -156,6 +157,24 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
     public void setLandInfomation(com.kingdee.eas.fdc.basedata.LandInfomationInfo item)
     {
         put("landInfomation", item);
+    }
+    /**
+     * Object:当前工程项目's 全期项目property 
+     */
+    public boolean isIsWholeAgeStage()
+    {
+        return getBoolean("isWholeAgeStage");
+    }
+    public void setIsWholeAgeStage(boolean item)
+    {
+        setBoolean("isWholeAgeStage", item);
+    }
+    /**
+     * Object: 当前工程项目 's 分期信息 property 
+     */
+    public com.kingdee.eas.fdc.basedata.CurProjectSplitProjectCollection getSplitProject()
+    {
+        return (com.kingdee.eas.fdc.basedata.CurProjectSplitProjectCollection)get("SplitProject");
     }
     public BOSObjectType getBOSType()
     {

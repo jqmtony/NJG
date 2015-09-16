@@ -56,10 +56,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0045c0a813bb"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, pk);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -78,10 +81,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0046c0a813bb"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, filter);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -100,10 +106,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0047c0a813bb"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, oql);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -122,10 +131,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0048c0a813bb"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             CurProjectInfo retValue = (CurProjectInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (CurProjectInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -144,10 +156,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0049c0a813bb"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             CurProjectInfo retValue = (CurProjectInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (CurProjectInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -166,10 +181,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-004ac0a813bb"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             CurProjectInfo retValue = (CurProjectInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (CurProjectInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -188,10 +206,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-004bc0a813bb"), new Object[]{ctx, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK retValue = (IObjectPK)_addnew(ctx, model);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -212,7 +233,9 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-004cc0a813bb"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _addnew(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -234,7 +257,9 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-004dc0a813bb"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _update(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -256,7 +281,9 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-004ec0a813bb"), new Object[]{ctx, model, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updatePartial(ctx, model, selector);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -278,7 +305,9 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-004fc0a813bb"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updateBigObject(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -297,7 +326,9 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0050c0a813bb"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, pk);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -319,10 +350,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0051c0a813bb"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -341,10 +375,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0052c0a813bb"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -363,10 +400,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0053c0a813bb"), new Object[]{ctx, filter, sorter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, filter, sorter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -385,10 +425,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0054c0a813bb"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             CurProjectCollection retValue = (CurProjectCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (CurProjectCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -405,10 +448,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0055c0a813bb"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             CurProjectCollection retValue = (CurProjectCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (CurProjectCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -425,10 +471,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0056c0a813bb"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             CurProjectCollection retValue = (CurProjectCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (CurProjectCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -445,10 +494,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0057c0a813bb"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, filter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -469,10 +521,13 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0058c0a813bb"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -493,7 +548,9 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a40d5c6-010c-1000-e000-0059c0a813bb"), new Object[]{ctx, arrayPK});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, arrayPK);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -515,10 +572,12 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("488de9d6-010d-1000-e000-0004c0a813bb"), new Object[]{ctx, cpPK});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_enabled(ctx, cpPK);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -536,10 +595,12 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("488de9d6-010d-1000-e000-0005c0a813bb"), new Object[]{ctx, cpPK});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_disEnabled(ctx, cpPK);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -557,10 +618,12 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7ed36ee6-010f-1000-e000-0049c0a80e96"), new Object[]{ctx, projId});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             int retValue = (int)_idxRefresh(ctx, projId);
             svcCtx.setMethodReturnValue(new Integer(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return ((Integer)svcCtx.getMethodReturnValue()).intValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -575,7 +638,9 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("b23aabe3-0116-1000-e000-007fc0a812cd"), new Object[]{ctx, projectPK});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _traceVoucher4Flow(ctx, projectPK);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -594,7 +659,9 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("b23aabe3-0116-1000-e000-0080c0a812cd"), new Object[]{ctx, projectPK});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _traceVoucher4Get(ctx, projectPK);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -613,7 +680,9 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("b8e26e33-0116-1000-e000-0004c0a812cd"), new Object[]{ctx, projectId, changeCase});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _changeStatus(ctx, projectId, changeCase);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -632,10 +701,12 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("9ad0862b-0117-1000-e000-0001c0a81296"), new Object[]{ctx, projId, productId, apportions});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             int retValue = (int)_idxRefresh(ctx, projId, productId, apportions);
             svcCtx.setMethodReturnValue(new Integer(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return ((Integer)svcCtx.getMethodReturnValue()).intValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -650,10 +721,12 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("d1eb5b50-0119-1000-e000-0008c0a8129f"), new Object[]{ctx, projectTypeMap});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_setProjectTpe(ctx, projectTypeMap);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -671,10 +744,12 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("fdfd0f49-011c-1000-e000-0001c0a81196"), new Object[]{ctx, projectMap});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             String retValue = (String)_synchronousProjects(ctx, projectMap);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return (String)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -692,7 +767,9 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("c2d7598a-011d-1000-e000-0001c0a810e2"), new Object[]{ctx, cuId});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _updateSortNo(ctx, cuId);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -708,7 +785,9 @@ public abstract class AbstractCurProjectControllerBean extends ProjectController
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("65225da7-adf9-4040-beab-2d3bb13bac51"), new Object[]{ctx, pk, new Boolean(isDevPrj)});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _setIsDevPrj(ctx, pk, isDevPrj);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();

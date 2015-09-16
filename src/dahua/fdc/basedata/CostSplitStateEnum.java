@@ -13,9 +13,9 @@ import com.kingdee.util.enums.StringEnum;
  */
 public class CostSplitStateEnum extends StringEnum
 {
-    public static final String NOSPLIT_VALUE = "1NOSPLIT";
-    public static final String PARTSPLIT_VALUE = "2PARTSPLIT";
-    public static final String ALLSPLIT_VALUE = "3ALLSPLIT";
+    public static final String NOSPLIT_VALUE = "1NOSPLIT";//alias=未拆分
+    public static final String PARTSPLIT_VALUE = "2PARTSPLIT";//alias=部分拆分
+    public static final String ALLSPLIT_VALUE = "3ALLSPLIT";//alias=全部拆分
 
     public static final CostSplitStateEnum NOSPLIT = new CostSplitStateEnum("NOSPLIT", NOSPLIT_VALUE);
     public static final CostSplitStateEnum PARTSPLIT = new CostSplitStateEnum("PARTSPLIT", PARTSPLIT_VALUE);

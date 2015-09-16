@@ -17,16 +17,16 @@ public abstract class AbstractProjectEditUIHandler extends com.kingdee.eas.frame
 	public void handleActionProductAddLine(RequestContext request,ResponseContext response, Context context) throws Exception {
 		_handleActionProductAddLine(request,response,context);
 	}
-	abstract protected void _handleActionProductAddLine(RequestContext request,ResponseContext response, Context context)
-		throws Exception;
+	protected void _handleActionProductAddLine(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 	public void handleActionProductInsertLine(RequestContext request,ResponseContext response, Context context) throws Exception {
 		_handleActionProductInsertLine(request,response,context);
 	}
-	abstract protected void _handleActionProductInsertLine(RequestContext request,ResponseContext response, Context context)
-		throws Exception;
+	protected void _handleActionProductInsertLine(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 	public void handleActionProductDelLine(RequestContext request,ResponseContext response, Context context) throws Exception {
 		_handleActionProductDelLine(request,response,context);
 	}
-	abstract protected void _handleActionProductDelLine(RequestContext request,ResponseContext response, Context context)
-		throws Exception;
+	protected void _handleActionProductDelLine(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

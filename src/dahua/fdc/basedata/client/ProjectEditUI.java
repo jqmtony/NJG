@@ -22,6 +22,9 @@ import java.util.Set;
 
 import javax.swing.Action;
 import javax.swing.JTextField;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.tree.TreeModel;
 
 import org.apache.log4j.Logger;
 
@@ -36,7 +39,11 @@ import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
+import com.kingdee.bos.ctrl.swing.KDTree;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
+import com.kingdee.bos.ctrl.swing.event.DataChangeListener;
 import com.kingdee.bos.ctrl.swing.event.SelectorEvent;
+import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.AbstractObjectValue;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
@@ -52,6 +59,7 @@ import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgConstants;
@@ -66,6 +74,8 @@ import com.kingdee.eas.fdc.basedata.CurProjProductEntriesCollection;
 import com.kingdee.eas.fdc.basedata.CurProjProductEntriesInfo;
 import com.kingdee.eas.fdc.basedata.CurProjectFactory;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
+import com.kingdee.eas.fdc.basedata.CurProjectSplitProjectCollection;
+import com.kingdee.eas.fdc.basedata.CurProjectSplitProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBasedataException;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
@@ -86,6 +96,7 @@ import com.kingdee.eas.fdc.basedata.ProjectStageEnum;
 import com.kingdee.eas.fdc.basedata.ProjectStatusInfo;
 import com.kingdee.eas.fdc.basedata.ProjectTypeInfo;
 import com.kingdee.eas.fdc.contract.FDCUtils;
+import com.kingdee.eas.fdc.contract.client.F7ProjectTreeSelectorPromptBox;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.framework.ObjectValueForEditUIUtil;
@@ -147,6 +158,7 @@ public class ProjectEditUI extends AbstractProjectEditUI {
 	}
 
 	public void onLoad() throws Exception {
+		this.prmtSelectProject.setEnabledMultiSelection(true);
 		super.onLoad();
 		this.txtProjectAddress.setMaxLength(80);
 		FDCClientHelper.setActionEnable(actionRemove, false);
@@ -168,7 +180,22 @@ public class ProjectEditUI extends AbstractProjectEditUI {
 		// add by qinyouzhen 2011-05-11,设置字段“产品类型”的背景颜色
 		tblProductEntries.getColumn("name").getStyleAttributes().setBackground(
 				FDCTableHelper.cantEditColor);
-		
+		prmtSelectProject.setRequired(true);
+		String sql = "select a.CFSplitProjectID from CT_BD_CurProjectSplitProject a left join T_FDC_CurProject b on b.fid=a.FParentID where 1=1";
+		if(editData.getId()!=null)
+			sql = sql + " and b.fid<>'"+editData.getId()+"'";
+		EntityViewInfo view = new EntityViewInfo();
+		FilterInfo filInfo = new FilterInfo();
+		filInfo.getFilterItems().add(new FilterItemInfo("isEnabled",1));
+		filInfo.getFilterItems().add(new FilterItemInfo("isLeaf",1));
+		filInfo.getFilterItems().add(new FilterItemInfo("fullOrgUnit.id",SysContext.getSysContext().getCurrentAdminUnit().getId()));
+		filInfo.getFilterItems().add(new FilterItemInfo("id",sql,CompareType.NOTINNER));
+		if(editData.getId()!=null)
+			filInfo.getFilterItems().add(new FilterItemInfo("id",editData.getId(),CompareType.NOTEQUALS));
+		view.setFilter(filInfo);
+		this.prmtSelectProject.setQueryInfo("com.kingdee.eas.fdc.basedata.app.CurProjectQuery");
+		this.prmtSelectProject.setEntityViewInfo(view);
+		this.kdtSplitProject_detailPanel.setVisible(false);
 		setTitle();
 		setBtnStatus();
 		this.bizProjectStatus
@@ -268,8 +295,70 @@ public class ProjectEditUI extends AbstractProjectEditUI {
 		storeFields();
 		initOldData(editData);
 //		setSortNoEnable();
+		prmtSelectProject.setEnabled(chkisWholeAgeStage.isSelected());
+		this.chkisWholeAgeStage.addChangeListener(new ChangeListener(){
+
+			public void stateChanged(ChangeEvent e) {
+				if(chkisWholeAgeStage.isSelected()){
+					prmtSelectProject.setEnabled(true);
+				}else{
+					prmtSelectProject.setEnabled(false);
+					prmtSelectProject.setValue(null);
+				}
+			}
+		});
+		this.prmtSelectProject.addDataChangeListener(new DataChangeListener(){
+
+			public void dataChanged(DataChangeEvent e) {
+				try {
+					prmtSelectProject_dataChanged(e);
+				} catch (BOSException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	private void prmtSelectProject_dataChanged(DataChangeEvent e) throws BOSException, SQLException {
+		this.kdtSplitProject.removeRows();
+		if(e.getNewValue()==null)
+			return;
+		Set<String> projectIdSet = new HashSet<String>();
+		Object project[] = (Object[]) this.prmtSelectProject.getValue();
+		for (int i = 0; i < project.length; i++) {
+			if(project[i]==null)
+				continue;
+			
+			if(project[i] instanceof CurProjectInfo)
+				projectIdSet.add(((CurProjectInfo)project[i]).getId().toString());
+		}
+		if(editData.getId()!=null){
+			String sql = "select distinct  c.fprojectid from T_CON_ContractPCSplitBillEntry a " +
+			" left join T_CON_ContractPCSplitBill bi on bi.fid=a.fheadid" +
+			" left join T_CON_ProgrammingContract b on b.fid= a.fprogrammingContractid" +
+			" left join T_CON_Programming c on c.fid=b.fparentid left join T_CON_ContractBill con on con.fid=bi.fcontractbillid" +
+			" where con.fcurprojectid='"+editData.getId()+"'";
+			IRowSet rowset = new FDCSQLBuilder().appendSql(sql).executeQuery();
+			while(rowset.next()){
+				String projecrId = rowset.getString(1);
+				if(UIRuleUtil.isNull(projecrId))
+					continue;
+				projectIdSet.add(projecrId);
+			}
+		}
+		Iterator<String> iterator = projectIdSet.iterator();
+		while(iterator.hasNext()){
+			CurProjectInfo curInfo = new CurProjectInfo();
+			curInfo.setId(BOSUuid.read(iterator.next()));
+			IRow addRow = this.kdtSplitProject.addRow();
+			addRow.getCell("splitProject").setValue(curInfo);
+		
+		}
 	}
 
+	
 	private void replaceSepOfNumber() {
 		// 设置编辑和查看状态下界面的上级编码控件和本级简码控件
 		String longNumber = editData.getLongNumber();
@@ -282,6 +371,56 @@ public class ProjectEditUI extends AbstractProjectEditUI {
 			}
 		}
 	}
+	
+	private void storProjectForEntry() throws BOSException, SQLException{
+		editData.getSplitProject().clear();
+		if(this.prmtSelectProject.getValue()==null)
+			return;
+		Set<String> projectIdSet = new HashSet<String>();
+		Object project[] = (Object[]) this.prmtSelectProject.getValue();
+		for (int i = 0; i < project.length; i++) {
+			if(project[i]==null)
+				continue;
+			
+			if(project[i] instanceof CurProjectInfo)
+				projectIdSet.add(((CurProjectInfo)project[i]).getId().toString());
+		}
+		if(editData.getId()!=null){
+			String sql = "select distinct  c.fprojectid from T_CON_ContractPCSplitBillEntry a " +
+			" left join T_CON_ContractPCSplitBill bi on bi.fid=a.fheadid" +
+			" left join T_CON_ProgrammingContract b on b.fid= a.fprogrammingContractid" +
+			" left join T_CON_Programming c on c.fid=b.fparentid left join T_CON_ContractBill con on con.fid=bi.fcontractbillid" +
+			" where con.fcurprojectid='"+editData.getId()+"'";
+			IRowSet rowset = new FDCSQLBuilder().appendSql(sql).executeQuery();
+			while(rowset.next()){
+				String projecrId = rowset.getString(1);
+				if(UIRuleUtil.isNull(projecrId))
+					continue;
+				projectIdSet.add(projecrId);
+			}
+		}
+		Iterator<String> iterator = projectIdSet.iterator();
+		while(iterator.hasNext()){
+			CurProjectSplitProjectInfo info = new CurProjectSplitProjectInfo();
+			CurProjectInfo curInfo = new CurProjectInfo();
+			curInfo.setId(BOSUuid.read(iterator.next()));
+			info.setSplitProject(curInfo);
+			editData.getSplitProject().add(info);
+		}
+	}
+	
+	private void loadProjectForEntry(){
+		int entryCount = editData.getSplitProject().size();
+		
+		CurProjectInfo obj[] = new CurProjectInfo[entryCount];
+		for (int i = 0; i < entryCount; i++) {
+			obj[i] = editData.getSplitProject().get(i).getSplitProject();
+		}
+		if(obj.length>0)
+			this.prmtSelectProject.setValue(obj);
+	}
+	
+	
 
 	/**
 	 * load指标数据
@@ -539,7 +678,7 @@ public class ProjectEditUI extends AbstractProjectEditUI {
 
 	public void loadFields() {
 		super.loadFields();
-
+		loadProjectForEntry();
 		replaceSepOfNumber();
 		clearTable();
 		try {
@@ -574,6 +713,9 @@ public class ProjectEditUI extends AbstractProjectEditUI {
 		sic.add(new SelectorItemInfo("fullOrgUnit.*"));
 		sic.add(new SelectorItemInfo("curProject.*"));
 		sic.add(new SelectorItemInfo("parent.*"));
+		sic.add(new SelectorItemInfo("SplitProject.splitProject.id"));
+		sic.add(new SelectorItemInfo("SplitProject.splitProject.number"));
+		sic.add(new SelectorItemInfo("SplitProject.splitProject.name"));
 		sic.add(new SelectorItemInfo("curProjProductEntries.*"));
 		sic.add(new SelectorItemInfo("curProjProductEntries.fiVouchered"));
 		sic.add(new SelectorItemInfo("curProjProductEntries.curProjProEntrApporData.*"));
@@ -1007,6 +1149,7 @@ public class ProjectEditUI extends AbstractProjectEditUI {
 	 */
 	protected void verifyInput(ActionEvent e) throws Exception {
 		FDCClientVerifyHelper.verifyRequire(this);
+		
 		if (this.txtNumber.getText() == null
 				|| this.txtNumber.getText().trim().length() == 0) {
 			throw new com.kingdee.eas.fdc.basedata.FDCBasedataException(
@@ -1034,6 +1177,12 @@ public class ProjectEditUI extends AbstractProjectEditUI {
 			MsgBox.showError(this, "项目系列为空");
 			SysUtil.abort();
 		}
+		
+		if(this.chkisWholeAgeStage.isSelected()&&this.prmtSelectProject.getValue()==null){
+			MsgBox.showError("当前项目是全期项目，请指定分期信息！");
+			SysUtil.abort();
+		}
+		
 		if (this.pkStartDate.getValue() == null) {
 			throw new com.kingdee.eas.fdc.basedata.FDCBasedataException(
 					FDCBasedataException.STARTDATE_IS_NULL);
@@ -1172,9 +1321,10 @@ public class ProjectEditUI extends AbstractProjectEditUI {
 	}
 
 	private void beforeStoreFields() {
-
 		this.editData.getCurProjProductEntries().clear();
 
+		if(this.editData.getSplitProject().size()>0)
+			this.editData.setIsWholeAgeStage(true);
 		// 成本分录
 		ProjectIndexDataInfo costInfo = getIndexInfo(null);
 
@@ -1269,6 +1419,7 @@ public class ProjectEditUI extends AbstractProjectEditUI {
 		setProductIdxColl(productColl);
 		//从界面取数（输入长度超80,提示，改成小于80还提示)
 		editData.setLongNumber(txtLongNumber.getText());
+		
 	}
 	
 	/**
