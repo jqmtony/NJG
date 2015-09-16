@@ -4,10 +4,34 @@
 package com.kingdee.eas.fdc.dahuaschedule.schedule.client;
 
 import java.awt.event.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+import javax.swing.event.TreeSelectionEvent;
+
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.bos.framework.cache.ActionCache;
+import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.eas.base.permission.PermissionFactory;
+import com.kingdee.eas.basedata.org.OrgStructureInfo;
+import com.kingdee.eas.basedata.org.OrgType;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.fdc.basedata.CurProjectInfo;
+import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
 import com.kingdee.eas.framework.*;
 
 /**
@@ -17,6 +41,7 @@ public class DahuaScheduleListUI extends AbstractDahuaScheduleListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(DahuaScheduleListUI.class);
     
+    protected Set authorizedOrgs = null;
     /**
      * output class constructor
      */
@@ -26,8 +51,9 @@ public class DahuaScheduleListUI extends AbstractDahuaScheduleListUI
     }
 
     public void onLoad() throws Exception {
-    	initUI();
     	super.onLoad();
+    	initUI();
+    	buildProjectTree();
     }
     
     protected String getEditUIModal() {
@@ -55,6 +81,58 @@ public class DahuaScheduleListUI extends AbstractDahuaScheduleListUI
         super.storeFields();
     }
 
+    protected IQueryExecutor getQueryExecutor(IMetaDataPK queryPK,
+    		EntityViewInfo viewInfo) {
+    	EntityViewInfo evi = new EntityViewInfo();
+    	DefaultKingdeeTreeNode node = (DefaultKingdeeTreeNode)treeMain.getLastSelectedPathComponent();
+    	if(node.getUserObject() instanceof CurProjectInfo) {
+    		CurProjectInfo project = (CurProjectInfo) node.getUserObject();
+    		FilterInfo filter = new FilterInfo();
+    		filter.getFilterItems().add(new FilterItemInfo("project.id", project.getId().toString(), CompareType.EQUALS));
+    		evi.setFilter(filter);
+			return super.getQueryExecutor(queryPK, evi);
+    	}else if(node.getUserObject()instanceof OrgStructureInfo) {
+    		OrgStructureInfo org = (OrgStructureInfo) node.getUserObject();
+    		FilterInfo filter = new FilterInfo();
+    		filter.getFilterItems().add(new FilterItemInfo("project.fullOrgUnit.longnumber", org.getLongNumber()+"%", CompareType.LIKE));
+    		return super.getQueryExecutor(queryPK, evi);
+    	}
+    	return super.getQueryExecutor(queryPK, viewInfo);
+    }
+    
+    protected void treeMain_valueChanged(TreeSelectionEvent e) throws Exception {
+//    	DefaultKingdeeTreeNode selectTreeNode = (DefaultKingdeeTreeNode) treeMain.getLastSelectedPathComponent();
+    	refresh(null);
+    }
+    /**
+	 * 构建项目数
+	 * 
+	 * @throws Exception
+	 */
+	public void buildProjectTree() throws Exception {
+		ProjectTreeBuilder projectTreeBuilder = new ProjectTreeBuilder();
+
+		projectTreeBuilder.build(this, treeMain, actionOnLoad);
+
+		authorizedOrgs = (Set) ActionCache.get("FDCBillListUIHandler.authorizedOrgs");
+		if (authorizedOrgs == null) {
+			authorizedOrgs = new HashSet();
+			Map orgs = PermissionFactory.getRemoteInstance().getAuthorizedOrgs(
+					new ObjectUuidPK(SysContext.getSysContext().getCurrentUserInfo().getId()), OrgType.CostCenter, null, null, null);
+			if (orgs != null) {
+				Set orgSet = orgs.keySet();
+				Iterator it = orgSet.iterator();
+				while (it.hasNext()) {
+					authorizedOrgs.add(it.next());
+				}
+			}
+		}
+		if (treeMain.getRowCount() > 0) {
+			treeMain.setSelectionRow(0);
+			treeMain.expandPath(treeMain.getSelectionPath());
+			
+		}
+	}
     /**
      * output tblMain_tableClicked method
      */

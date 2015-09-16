@@ -46,6 +46,9 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractDahuaScheduleListUI extends com.kingdee.eas.framework.client.CoreBillListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractDahuaScheduleListUI.class);
+    protected com.kingdee.bos.ctrl.swing.KDSplitPane kDSplitPane1;
+    protected com.kingdee.bos.ctrl.swing.KDTreeView kDTreeView1;
+    protected com.kingdee.bos.ctrl.swing.KDTree treeMain;
     protected ActionTDPrint actionTDPrint = null;
     protected ActionTDPrintPreview actionTDPrintPreview = null;
     public final static String STATUS_VIEW = "VIEW";
@@ -93,6 +96,12 @@ public abstract class AbstractDahuaScheduleListUI extends com.kingdee.eas.framew
         this.actionTDPrintPreview = new ActionTDPrintPreview(this);
         getActionManager().registerAction("actionTDPrintPreview", actionTDPrintPreview);
          this.actionTDPrintPreview.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        this.kDSplitPane1 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
+        this.kDTreeView1 = new com.kingdee.bos.ctrl.swing.KDTreeView();
+        this.treeMain = new com.kingdee.bos.ctrl.swing.KDTree();
+        this.kDSplitPane1.setName("kDSplitPane1");
+        this.kDTreeView1.setName("kDTreeView1");
+        this.treeMain.setName("treeMain");
         // CoreUI
 		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"project.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"version\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{project.name}</t:Cell><t:Cell>$Resource{version}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -109,6 +118,21 @@ public abstract class AbstractDahuaScheduleListUI extends com.kingdee.eas.framew
         this.kDSeparator6.setVisible(false);		
         this.menuItemViewDoProccess.setVisible(false);		
         this.menuItemAuditResult.setVisible(false);
+        // kDSplitPane1		
+        this.kDSplitPane1.setDividerLocation(250);
+        // kDTreeView1		
+        this.kDTreeView1.setShowControlPanel(false);
+        // treeMain
+        this.treeMain.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent e) {
+                try {
+                    treeMain_valueChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -136,8 +160,13 @@ public abstract class AbstractDahuaScheduleListUI extends com.kingdee.eas.framew
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        tblMain.setBounds(new Rectangle(10, 10, 996, 580));
-        this.add(tblMain, new KDLayout.Constraints(10, 10, 996, 580, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDSplitPane1.setBounds(new Rectangle(3, 4, 1006, 624));
+        this.add(kDSplitPane1, new KDLayout.Constraints(3, 4, 1006, 624, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        //kDSplitPane1
+        kDSplitPane1.add(tblMain, "right");
+        kDSplitPane1.add(kDTreeView1, "left");
+        //kDTreeView1
+        kDTreeView1.setTree(treeMain);
 
     }
 
@@ -376,6 +405,13 @@ public abstract class AbstractDahuaScheduleListUI extends com.kingdee.eas.framew
     public void setOprtState(String oprtType)
     {
         super.setOprtState(oprtType);
+    }
+
+    /**
+     * output treeMain_valueChanged method
+     */
+    protected void treeMain_valueChanged(javax.swing.event.TreeSelectionEvent e) throws Exception
+    {
     }
 
 	public SelectorItemCollection getBOTPSelectors() {

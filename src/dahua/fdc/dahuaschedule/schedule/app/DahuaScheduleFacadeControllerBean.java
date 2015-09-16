@@ -174,8 +174,8 @@ public class DahuaScheduleFacadeControllerBean extends AbstractDahuaScheduleFaca
 					
 					entryInfo.setStartDate(parseCustomDateString((String) entry[8], "yyyy-MM-dd")); //计划开始日期
 					entryInfo.setEndDate(parseCustomDateString((String) entry[9], "yyyy-MM-dd")); //计划结束日期
-					entryInfo.setManager(null);
-					entryInfo.setDepartment(null);
+					entryInfo.setManagerText((String) entry[10]); //责任人
+					entryInfo.setDepartmentText((String) entry[11]); //责任部门
 					entryInfo.setActStartDate(parseCustomDateString((String) entry[12], "yyyy-MM-dd")); //实际开始日期
 					entryInfo.setActCompleteDate(parseCustomDateString((String) entry[13], "yyyy-MM-dd"));//实际完成日期
 					
