@@ -1032,6 +1032,37 @@
                 <key name="name" value="CurProjectQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>isWholeAgeStage</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[isWholeAgeStage].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>04f67581-6491-4b79-81de-db64226f1638</key>
+                    <parentUnit>
+                        <key name="name" value="isWholeAgeStage" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CurProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isWholeAgeStage" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProjectQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1248,325 +1279,401 @@
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].alias">
-            <lang locale="zh_CN" value="当前工程项目查询" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="当前工程项目查询" />
             <lang locale="zh_HK" value="當前工程項目查詢" />
             <lang locale="zh_TW" value="當前工程項目查詢" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.Project" />
             <lang locale="zh_CN" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.Project" />
             <lang locale="zh_TW" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.Project" />
-            <lang locale="en_US" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.Project" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].description">
-            <lang locale="zh_CN" value="当前工程项目查询" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="当前工程项目查询" />
             <lang locale="zh_HK" value="當前工程項目查詢" />
             <lang locale="zh_TW" value="當前工程項目查詢" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].extendedProperty.f7WindowTitle">
-            <lang locale="zh_CN" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.Project" />
-            <lang locale="zh_TW" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.Project" />
-            <lang locale="en_US" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.Project" />
+            <lang locale="en_US" value="当前工程项目" />
+            <lang locale="zh_CN" value="当前工程项目" />
+            <lang locale="zh_TW" value="当前工程项目" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].queryPK[QueryPK].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].queryPK[QueryPK].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].subObjects.subEntity[CU].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].subObjects.subEntity[CurProject].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].subObjects.subEntity[fullOrgUnit].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].subObjects.subEntity[landDeveloper].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].subObjects.subEntity[parent].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].subObjects.subEntity[projectStatus].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].subObjects.subEntity[projectType].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.propertyUnit[NewUni10].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.propertyUnit[NewUni11].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.propertyUnit[NewUnit0].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.propertyUnit[NewUnit1].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.propertyUnit[NewUnit2].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.propertyUnit[NewUnit3].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.propertyUnit[NewUnit4].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.propertyUnit[NewUnit5].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.propertyUnit[NewUnit6].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.propertyUnit[NewUnit7].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.propertyUnit[NewUnit8].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.propertyUnit[NewUnit9].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[CU.id].displayName">
-            <lang locale="zh_CN" value="ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[CU.id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
-            <lang locale="en_US" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[description].displayName">
-            <lang locale="zh_CN" value="描述" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="描述" />
             <lang locale="zh_HK" value="描述" />
             <lang locale="zh_TW" value="描述" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[description].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[description].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[fullOrgUnit.id].displayName">
-            <lang locale="zh_CN" value="ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[fullOrgUnit.id].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
-            <lang locale="en_US" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[fullOrgUnit.id].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
-            <lang locale="en_US" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[fullOrgUnit.id].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
-            <lang locale="en_US" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[fullOrgUnit.id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
-            <lang locale="en_US" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[fullOrgUnit.longNumber].displayName">
-            <lang locale="zh_CN" value="组织长编码" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="组织长编码" />
             <lang locale="zh_HK" value="組織長編碼" />
             <lang locale="zh_TW" value="組織長編碼" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[fullOrgUnit.name].displayName">
-            <lang locale="zh_CN" value="组织" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="组织" />
             <lang locale="zh_HK" value="組織" />
             <lang locale="zh_TW" value="組織" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[id].displayName">
-            <lang locale="zh_CN" value="ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
-            <lang locale="en_US" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[isDevPrj].displayName">
-            <lang locale="zh_CN" value="是否开发项目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否开发项目" />
             <lang locale="zh_HK" value="是否開發項目" />
             <lang locale="zh_TW" value="是否開發項目" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[isDevPrj].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[isDevPrj].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[isEnabled].displayName">
-            <lang locale="zh_CN" value="启用" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="启用" />
             <lang locale="zh_HK" value="啟用" />
             <lang locale="zh_TW" value="啟用" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[isEnabled].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[isEnabled].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[isWholeAgeStage].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="全期项目" />
+            <lang locale="zh_HK" value="全期項目" />
+            <lang locale="zh_TW" value="全期項目" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[isWholeAgeStage].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[isWholeAgeStage].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[landDeveloper.name].displayName">
-            <lang locale="zh_CN" value="甲方" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="甲方" />
             <lang locale="zh_HK" value="甲方" />
             <lang locale="zh_TW" value="甲方" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[landDeveloper.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
-            <lang locale="en_US" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[longNumber].displayName">
-            <lang locale="zh_CN" value="工程简码" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程简码" />
             <lang locale="zh_HK" value="工程簡碼" />
             <lang locale="zh_TW" value="工程簡碼" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[longNumber].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[longNumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[name].displayName">
-            <lang locale="zh_CN" value="工程名称" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程名称" />
             <lang locale="zh_HK" value="工程名稱" />
             <lang locale="zh_TW" value="工程名稱" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[parent.id].displayName">
-            <lang locale="zh_CN" value="ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[parent.id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
-            <lang locale="en_US" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[parent.name].displayName">
-            <lang locale="zh_CN" value="上级工程项目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="上级工程项目" />
             <lang locale="zh_HK" value="上級工程項目" />
             <lang locale="zh_TW" value="上級工程項目" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[parent.name].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
-            <lang locale="en_US" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[projectPeriod].displayName">
-            <lang locale="zh_CN" value="项目分期" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目分期" />
             <lang locale="zh_HK" value="項目分期" />
             <lang locale="zh_TW" value="項目分期" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[projectPeriod].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[projectPeriod].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[projectStatus.name].displayName">
-            <lang locale="zh_CN" value="项目状态" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目状态" />
             <lang locale="zh_HK" value="項目狀態" />
             <lang locale="zh_TW" value="項目狀態" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[projectType.name].displayName">
-            <lang locale="zh_CN" value="项目系列名称" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目系列名称" />
             <lang locale="zh_HK" value="項目系列名稱" />
             <lang locale="zh_TW" value="項目系列名稱" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[sortNo].displayName">
-            <lang locale="zh_CN" value="排列序号" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="排列序号" />
             <lang locale="zh_HK" value="排列序號" />
             <lang locale="zh_TW" value="排列序號" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[sortNo].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[sortNo].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[startDate].displayName">
-            <lang locale="zh_CN" value="开始日期" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="开始日期" />
             <lang locale="zh_HK" value="開始日期" />
             <lang locale="zh_TW" value="開始日期" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[startDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[startDate].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
     </resource>
 </joinQuery>

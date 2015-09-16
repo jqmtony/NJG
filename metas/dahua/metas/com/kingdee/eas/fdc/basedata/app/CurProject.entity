@@ -1036,8 +1036,8 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>0</length>
-            <precision>0</precision>
+            <length>4</length>
+            <precision>4</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isEnabled].defaultValue</defaultValue>
             <displayFormat />
@@ -1056,8 +1056,8 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>0</length>
-            <precision>0</precision>
+            <length>80</length>
+            <precision>80</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectPeriod].defaultValue</defaultValue>
             <displayFormat />
@@ -1090,7 +1090,7 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>0</length>
+            <length>44</length>
             <precision>0</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[bdProjectID].defaultValue</defaultValue>
@@ -1110,7 +1110,7 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>true</isNullable>
             <formula />
-            <length>0</length>
+            <length>80</length>
             <precision>0</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[codingNumber].defaultValue</defaultValue>
@@ -1144,7 +1144,7 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>0</length>
+            <length>4</length>
             <precision>0</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isDevPrj].defaultValue</defaultValue>
@@ -1187,6 +1187,37 @@
                 <key name="name" value="R_CurProject_LandInfomation_landInfomation" />
             </relationship>
         </linkProperty>
+        <ownProperty>
+            <name>isWholeAgeStage</name>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Boolean</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>1</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFIsWholeAgeStage" />
+            </mappingField>
+        </ownProperty>
+        <linkProperty>
+            <name>SplitProject</name>
+            <alias>entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[SplitProject].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[SplitProject].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="R_CurProject_CurProjectSplitProject" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -1202,910 +1233,1098 @@
     </logicalKey>
     <resource>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].alias">
-            <lang locale="zh_CN" value="工程项目" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="工程項目" />
-            <lang locale="zh_TW" value="工程項目" />
+            <lang locale="zh_CN" value="当前工程项目" />
+            <lang locale="zh_HK" value="當前工程項目" />
+            <lang locale="zh_TW" value="當前工程項目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].description">
-            <lang locale="zh_CN" value="工程项目" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="工程項目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].extendedProperty.OrgType">
-            <lang locale="zh_CN" value="CostCenter" />
-            <lang locale="zh_TW" value="CostCenter" />
-            <lang locale="en_US" value="CostCenter" />
+            <lang locale="en_US" value="NONE" />
+            <lang locale="zh_CN" value="NONE" />
+            <lang locale="zh_TW" value="NONE" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].extendedProperty.defaultF7Query">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.basedata.app.F7ProjectForAssActQuery" />
             <lang locale="zh_CN" value="com.kingdee.eas.fdc.basedata.app.F7ProjectForAssActQuery" />
             <lang locale="zh_TW" value="com.kingdee.eas.fdc.basedata.app.F7ProjectForAssActQuery" />
-            <lang locale="en_US" value="com.kingdee.eas.fdc.basedata.app.F7ProjectForAssActQuery" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].extendedProperty.editUI">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.basedata.client.ProjectEditUI" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.basedata.client.ProjectEditUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.basedata.client.ProjectEditUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].extendedProperty.isAsstAcctType">
+            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
-            <lang locale="en_US" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].extendedProperty.isUseCodeRule">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].extendedProperty.listUI">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.basedata.client.ProjectListUI" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.basedata.client.ProjectListUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.basedata.client.ProjectListUI" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].logicalKey[id].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].logicalKey[id].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[addnew].alias">
-            <lang locale="zh_CN" value="新增" />
             <lang locale="en_US" value="addnew" />
+            <lang locale="zh_CN" value="新增" />
             <lang locale="zh_HK" value="新增" />
             <lang locale="zh_TW" value="新增" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[addnew].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[addnew].parameters.parameter[model].alias">
-            <lang locale="zh_CN" value="新增" />
             <lang locale="en_US" value="addnew" />
+            <lang locale="zh_CN" value="新增" />
             <lang locale="zh_HK" value="新增" />
             <lang locale="zh_TW" value="新增" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[addnew].parameters.parameter[model].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[addnew].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="新增" />
             <lang locale="en_US" value="addnew" />
+            <lang locale="zh_CN" value="新增" />
             <lang locale="zh_HK" value="新增" />
             <lang locale="zh_TW" value="新增" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[addnew].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[changeStatus].alias">
-            <lang locale="zh_CN" value="工程项目状态更改" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目状态更改" />
             <lang locale="zh_HK" value="工程項目狀態更改" />
             <lang locale="zh_TW" value="工程項目狀態更改" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[changeStatus].description">
-            <lang locale="zh_CN" value="工程项目状态更改" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目状态更改" />
             <lang locale="zh_HK" value="工程項目狀態更改" />
             <lang locale="zh_TW" value="工程項目狀態更改" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[changeStatus].parameters.parameter[changeCase].alias">
-            <lang locale="zh_CN" value="状态更改类型" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="状态更改类型" />
             <lang locale="zh_HK" value="狀態更改類型" />
             <lang locale="zh_TW" value="狀態更改類型" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[changeStatus].parameters.parameter[changeCase].description">
-            <lang locale="zh_CN" value="状态更改类型" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="状态更改类型" />
             <lang locale="zh_HK" value="狀態更改類型" />
             <lang locale="zh_TW" value="狀態更改類型" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[changeStatus].parameters.parameter[projectId].alias">
-            <lang locale="zh_CN" value="工程项目id" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目id" />
             <lang locale="zh_HK" value="工程項目id" />
             <lang locale="zh_TW" value="工程項目id" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[changeStatus].parameters.parameter[projectId].description">
-            <lang locale="zh_CN" value="工程项目id" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目id" />
             <lang locale="zh_HK" value="工程項目id" />
             <lang locale="zh_TW" value="工程項目id" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[delete].alias">
-            <lang locale="zh_CN" value="删除" />
             <lang locale="en_US" value="delete" />
+            <lang locale="zh_CN" value="删除" />
             <lang locale="zh_HK" value="刪除" />
             <lang locale="zh_TW" value="刪除" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[delete].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[delete].parameters.parameter[arrayPK].alias">
-            <lang locale="zh_CN" value="删除" />
             <lang locale="en_US" value="delete" />
+            <lang locale="zh_CN" value="删除" />
             <lang locale="zh_HK" value="刪除" />
             <lang locale="zh_TW" value="刪除" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[delete].parameters.parameter[arrayPK].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[delete].parameters.parameter[filter].alias">
-            <lang locale="zh_CN" value="删除" />
             <lang locale="en_US" value="delete" />
+            <lang locale="zh_CN" value="删除" />
             <lang locale="zh_HK" value="刪除" />
             <lang locale="zh_TW" value="刪除" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[delete].parameters.parameter[filter].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[delete].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="删除" />
             <lang locale="en_US" value="delete" />
+            <lang locale="zh_CN" value="删除" />
             <lang locale="zh_HK" value="刪除" />
             <lang locale="zh_TW" value="刪除" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[delete].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[delete].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="删除" />
             <lang locale="en_US" value="delete" />
+            <lang locale="zh_CN" value="删除" />
             <lang locale="zh_HK" value="刪除" />
             <lang locale="zh_TW" value="刪除" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[delete].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[disEnabled].alias">
-            <lang locale="zh_CN" value="禁用工程项目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="禁用工程项目" />
             <lang locale="zh_HK" value="禁用工程項目" />
             <lang locale="zh_TW" value="禁用工程項目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[disEnabled].description">
-            <lang locale="zh_CN" value="禁用工程项目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="禁用工程项目" />
             <lang locale="zh_HK" value="禁用工程項目" />
             <lang locale="zh_TW" value="禁用工程項目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[disEnabled].parameters.parameter[cpPK].alias">
-            <lang locale="zh_CN" value="cpPK" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="cpPK" />
             <lang locale="zh_HK" value="cpPK" />
             <lang locale="zh_TW" value="cpPK" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[disEnabled].parameters.parameter[cpPK].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[enabled].alias">
-            <lang locale="zh_CN" value="启用工程项目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="启用工程项目" />
             <lang locale="zh_HK" value="啟用工程項目" />
             <lang locale="zh_TW" value="啟用工程項目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[enabled].description">
-            <lang locale="zh_CN" value="启用工程项目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="启用工程项目" />
             <lang locale="zh_HK" value="啟用工程項目" />
             <lang locale="zh_TW" value="啟用工程項目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[enabled].parameters.parameter[cpPK].alias">
-            <lang locale="zh_CN" value="cpPK" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="cpPK" />
             <lang locale="zh_HK" value="cpPK" />
             <lang locale="zh_TW" value="cpPK" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[enabled].parameters.parameter[cpPK].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[exists].alias">
-            <lang locale="zh_CN" value="存在" />
             <lang locale="en_US" value="exists" />
+            <lang locale="zh_CN" value="存在" />
             <lang locale="zh_HK" value="存在" />
             <lang locale="zh_TW" value="存在" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[exists].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[exists].parameters.parameter[filter].alias">
-            <lang locale="zh_CN" value="存在" />
             <lang locale="en_US" value="exists" />
+            <lang locale="zh_CN" value="存在" />
             <lang locale="zh_HK" value="存在" />
             <lang locale="zh_TW" value="存在" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[exists].parameters.parameter[filter].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[exists].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="存在" />
             <lang locale="en_US" value="exists" />
+            <lang locale="zh_CN" value="存在" />
             <lang locale="zh_HK" value="存在" />
             <lang locale="zh_TW" value="存在" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[exists].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[exists].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="存在" />
             <lang locale="en_US" value="exists" />
+            <lang locale="zh_CN" value="存在" />
             <lang locale="zh_HK" value="存在" />
             <lang locale="zh_TW" value="存在" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[exists].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getCollection].alias">
-            <lang locale="zh_CN" value="取集合" />
             <lang locale="en_US" value="getCollection" />
+            <lang locale="zh_CN" value="取集合" />
             <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getCollection].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getCollection].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="取集合" />
             <lang locale="en_US" value="getCollection" />
+            <lang locale="zh_CN" value="取集合" />
             <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getCollection].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getCollection].parameters.parameter[view].alias">
-            <lang locale="zh_CN" value="取集合" />
             <lang locale="en_US" value="getCollection" />
+            <lang locale="zh_CN" value="取集合" />
             <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getCollection].parameters.parameter[view].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getPKList].alias">
-            <lang locale="zh_CN" value="取主键" />
             <lang locale="en_US" value="getPKList" />
+            <lang locale="zh_CN" value="取主键" />
             <lang locale="zh_HK" value="取主鍵" />
             <lang locale="zh_TW" value="取主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getPKList].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getPKList].parameters.parameter[filter].alias">
-            <lang locale="zh_CN" value="取主键" />
             <lang locale="en_US" value="getPKList" />
+            <lang locale="zh_CN" value="取主键" />
             <lang locale="zh_HK" value="取主鍵" />
             <lang locale="zh_TW" value="取主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getPKList].parameters.parameter[filter].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getPKList].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="取主键" />
             <lang locale="en_US" value="getPKList" />
+            <lang locale="zh_CN" value="取主键" />
             <lang locale="zh_HK" value="取主鍵" />
             <lang locale="zh_TW" value="取主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getPKList].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getPKList].parameters.parameter[sorter].alias">
-            <lang locale="zh_CN" value="取主键" />
             <lang locale="en_US" value="getPKList" />
+            <lang locale="zh_CN" value="取主键" />
             <lang locale="zh_HK" value="取主鍵" />
             <lang locale="zh_TW" value="取主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getPKList].parameters.parameter[sorter].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getValue].alias">
-            <lang locale="zh_CN" value="取值" />
             <lang locale="en_US" value="getValue" />
+            <lang locale="zh_CN" value="取值" />
             <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getValue].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getValue].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="取值" />
             <lang locale="en_US" value="getValue" />
+            <lang locale="zh_CN" value="取值" />
             <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getValue].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getValue].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="取值" />
             <lang locale="en_US" value="getValue" />
+            <lang locale="zh_CN" value="取值" />
             <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getValue].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getValue].parameters.parameter[selector].alias">
-            <lang locale="zh_CN" value="取值" />
             <lang locale="en_US" value="getValue" />
+            <lang locale="zh_CN" value="取值" />
             <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[getValue].parameters.parameter[selector].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[idxRefresh].alias">
-            <lang locale="zh_CN" value="面积刷新" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="面积刷新" />
             <lang locale="zh_HK" value="面積刷新" />
             <lang locale="zh_TW" value="面積刷新" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[idxRefresh].description">
-            <lang locale="zh_CN" value="按产品ID及指标进行细力度的指标刷新" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="按产品ID及指标进行细力度的指标刷新" />
             <lang locale="zh_HK" value="按產品ID及指標進行細力度的指標刷新" />
             <lang locale="zh_TW" value="按產品ID及指標進行細力度的指標刷新" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[idxRefresh].parameters.parameter[apportions].alias">
-            <lang locale="zh_CN" value="指标" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标" />
             <lang locale="zh_HK" value="指標" />
             <lang locale="zh_TW" value="指標" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[idxRefresh].parameters.parameter[apportions].description">
-            <lang locale="zh_CN" value="指标列表" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标列表" />
             <lang locale="zh_HK" value="指標列表" />
             <lang locale="zh_TW" value="指標列表" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[idxRefresh].parameters.parameter[productId].alias">
-            <lang locale="zh_CN" value="产品ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="产品ID" />
             <lang locale="zh_HK" value="產品ID" />
             <lang locale="zh_TW" value="產品ID" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[idxRefresh].parameters.parameter[productId].description">
-            <lang locale="zh_CN" value="产品ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="产品ID" />
             <lang locale="zh_HK" value="產品ID" />
             <lang locale="zh_TW" value="產品ID" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[idxRefresh].parameters.parameter[projId].alias">
-            <lang locale="zh_CN" value="工程项目ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目ID" />
             <lang locale="zh_HK" value="工程項目ID" />
             <lang locale="zh_TW" value="工程項目ID" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[idxRefresh].parameters.parameter[projId].description">
-            <lang locale="zh_CN" value="工程项目ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目ID" />
             <lang locale="zh_HK" value="工程項目ID" />
             <lang locale="zh_TW" value="工程項目ID" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[setIsDevPrj].alias">
-            <lang locale="zh_CN" value="设置是否开发项目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设置是否开发项目" />
             <lang locale="zh_HK" value="設置是否開發項目" />
             <lang locale="zh_TW" value="設置是否開發項目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[setIsDevPrj].description">
-            <lang locale="zh_CN" value="设置是否开发项目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设置是否开发项目" />
             <lang locale="zh_HK" value="設置是否開發項目" />
             <lang locale="zh_TW" value="設置是否開發項目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[setIsDevPrj].parameters.parameter[isDevPrj].alias">
-            <lang locale="zh_CN" value="isDevPrj" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="isDevPrj" />
             <lang locale="zh_HK" value="isDevPrj" />
             <lang locale="zh_TW" value="isDevPrj" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[setIsDevPrj].parameters.parameter[isDevPrj].description">
-            <lang locale="zh_CN" value="是否开发项目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否开发项目" />
             <lang locale="zh_HK" value="是否開發項目" />
             <lang locale="zh_TW" value="是否開發項目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[setIsDevPrj].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="pk" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="pk" />
             <lang locale="zh_HK" value="pk" />
             <lang locale="zh_TW" value="pk" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[setIsDevPrj].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="主键" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="主键" />
             <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[setProjectTpe].alias">
-            <lang locale="zh_CN" value="设置项目系列" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设置项目系列" />
             <lang locale="zh_HK" value="設置項目系列" />
             <lang locale="zh_TW" value="設置項目系列" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[setProjectTpe].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[setProjectTpe].parameters.parameter[projectTypeMap].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[setProjectTpe].parameters.parameter[projectTypeMap].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[synchronousProjects].alias">
-            <lang locale="zh_CN" value="同步项目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="同步项目" />
             <lang locale="zh_HK" value="同步項目" />
             <lang locale="zh_TW" value="同步項目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[synchronousProjects].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[synchronousProjects].parameters.parameter[projectMap].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[synchronousProjects].parameters.parameter[projectMap].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[traceVoucher4Flow].alias">
-            <lang locale="zh_CN" value="流失工程项目处理凭证" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="流失工程项目处理凭证" />
             <lang locale="zh_HK" value="流失工程項目處理憑證" />
             <lang locale="zh_TW" value="流失工程項目處理憑證" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[traceVoucher4Flow].description">
-            <lang locale="zh_CN" value="流失工程项目处理凭证" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="流失工程项目处理凭证" />
             <lang locale="zh_HK" value="流失工程項目處理憑證" />
             <lang locale="zh_TW" value="流失工程項目處理憑證" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[traceVoucher4Flow].parameters.parameter[projectPK].alias">
-            <lang locale="zh_CN" value="工程项目pk" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目pk" />
             <lang locale="zh_HK" value="工程項目pk" />
             <lang locale="zh_TW" value="工程項目pk" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[traceVoucher4Flow].parameters.parameter[projectPK].description">
-            <lang locale="zh_CN" value="工程项目pk" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目pk" />
             <lang locale="zh_HK" value="工程項目pk" />
             <lang locale="zh_TW" value="工程項目pk" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[traceVoucher4Get].alias">
-            <lang locale="zh_CN" value="获取工程项目处理凭证" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="获取工程项目处理凭证" />
             <lang locale="zh_HK" value="獲取工程項目處理憑證" />
             <lang locale="zh_TW" value="獲取工程項目處理憑證" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[traceVoucher4Get].description">
-            <lang locale="zh_CN" value="获取工程项目处理凭证" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="获取工程项目处理凭证" />
             <lang locale="zh_HK" value="獲取工程項目處理憑證" />
             <lang locale="zh_TW" value="獲取工程項目處理憑證" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[traceVoucher4Get].parameters.parameter[projectPK].alias">
-            <lang locale="zh_CN" value="工程项目pk" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目pk" />
             <lang locale="zh_HK" value="工程項目pk" />
             <lang locale="zh_TW" value="工程項目pk" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[traceVoucher4Get].parameters.parameter[projectPK].description">
-            <lang locale="zh_CN" value="工程项目pk" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目pk" />
             <lang locale="zh_HK" value="工程項目pk" />
             <lang locale="zh_TW" value="工程項目pk" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updateBigObject].alias">
-            <lang locale="zh_CN" value="更新大对象" />
             <lang locale="en_US" value="updateBigObject" />
+            <lang locale="zh_CN" value="更新大对象" />
             <lang locale="zh_HK" value="更新大對象" />
             <lang locale="zh_TW" value="更新大對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updateBigObject].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updateBigObject].parameters.parameter[model].alias">
-            <lang locale="zh_CN" value="更新大对象" />
             <lang locale="en_US" value="updateBigObject" />
+            <lang locale="zh_CN" value="更新大对象" />
             <lang locale="zh_HK" value="更新大對象" />
             <lang locale="zh_TW" value="更新大對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updateBigObject].parameters.parameter[model].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updateBigObject].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="更新大对象" />
             <lang locale="en_US" value="updateBigObject" />
+            <lang locale="zh_CN" value="更新大对象" />
             <lang locale="zh_HK" value="更新大對象" />
             <lang locale="zh_TW" value="更新大對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updateBigObject].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updatePartial].alias">
-            <lang locale="zh_CN" value="局部更新" />
             <lang locale="en_US" value="updatePartial" />
+            <lang locale="zh_CN" value="局部更新" />
             <lang locale="zh_HK" value="局部更新" />
             <lang locale="zh_TW" value="局部更新" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updatePartial].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updatePartial].parameters.parameter[model].alias">
-            <lang locale="zh_CN" value="局部更新" />
             <lang locale="en_US" value="updatePartial" />
+            <lang locale="zh_CN" value="局部更新" />
             <lang locale="zh_HK" value="局部更新" />
             <lang locale="zh_TW" value="局部更新" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updatePartial].parameters.parameter[model].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updatePartial].parameters.parameter[selector].alias">
-            <lang locale="zh_CN" value="局部更新" />
             <lang locale="en_US" value="updatePartial" />
+            <lang locale="zh_CN" value="局部更新" />
             <lang locale="zh_HK" value="局部更新" />
             <lang locale="zh_TW" value="局部更新" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updatePartial].parameters.parameter[selector].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updateSortNo].alias">
-            <lang locale="zh_CN" value="更新开发顺序" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="更新开发顺序" />
             <lang locale="zh_HK" value="更新開發順序" />
             <lang locale="zh_TW" value="更新開發順序" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updateSortNo].description">
-            <lang locale="zh_CN" value="更新开发顺序" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="更新开发顺序" />
             <lang locale="zh_HK" value="更新開發順序" />
             <lang locale="zh_TW" value="更新開發順序" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updateSortNo].parameters.parameter[cuId].alias">
-            <lang locale="zh_CN" value="controlUnitId" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="controlUnitId" />
             <lang locale="zh_HK" value="controlUnitId" />
             <lang locale="zh_TW" value="controlUnitId" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[updateSortNo].parameters.parameter[cuId].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[update].alias">
-            <lang locale="zh_CN" value="修改" />
             <lang locale="en_US" value="update" />
+            <lang locale="zh_CN" value="修改" />
             <lang locale="zh_HK" value="修改" />
             <lang locale="zh_TW" value="修改" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[update].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[update].parameters.parameter[model].alias">
-            <lang locale="zh_CN" value="更新" />
             <lang locale="en_US" value="update" />
+            <lang locale="zh_CN" value="更新" />
             <lang locale="zh_HK" value="更新" />
             <lang locale="zh_TW" value="更新" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[update].parameters.parameter[model].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[update].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="更新" />
             <lang locale="en_US" value="update" />
+            <lang locale="zh_CN" value="更新" />
             <lang locale="zh_HK" value="更新" />
             <lang locale="zh_TW" value="更新" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].methods.method[update].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[costCenter].alias">
-            <lang locale="zh_CN" value="工程项目对应的成本中心" />
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[SplitProject].alias">
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分期信息" />
+            <lang locale="zh_HK" value="分期信息" />
+            <lang locale="zh_TW" value="分期信息" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[SplitProject].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[costCenter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目对应的成本中心" />
             <lang locale="zh_HK" value="工程項目對應的成本中心" />
             <lang locale="zh_TW" value="工程項目對應的成本中心" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[costCenter].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[costOrg].alias">
-            <lang locale="zh_CN" value="成本中心组织" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本中心组织" />
             <lang locale="zh_HK" value="成本中心組織" />
             <lang locale="zh_TW" value="成本中心組織" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[costOrg].description">
-            <lang locale="zh_CN" value="成本中心组织" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本中心组织" />
             <lang locale="zh_HK" value="成本中心組織" />
             <lang locale="zh_TW" value="成本中心組織" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[curProjProductEntries].alias">
-            <lang locale="zh_CN" value="当前工程项目产品设置分录" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="当前工程项目产品设置分录" />
             <lang locale="zh_HK" value="當前工程項目產品設置分錄" />
             <lang locale="zh_TW" value="當前工程項目產品設置分錄" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[curProjProductEntries].description">
-            <lang locale="zh_CN" value="当前工程项目产品设置分录" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="当前工程项目产品设置分录" />
             <lang locale="zh_HK" value="當前工程項目產品設置分錄" />
             <lang locale="zh_TW" value="當前工程項目產品設置分錄" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[landInfomation].alias">
-            <lang locale="zh_CN" value="土地信息" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="土地信息" />
             <lang locale="zh_HK" value="土地信息" />
             <lang locale="zh_TW" value="土地信息" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[landInfomation].description">
-            <lang locale="zh_CN" value="关联的土地信息" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="关联的土地信息" />
             <lang locale="zh_HK" value="關聯的土地信息" />
             <lang locale="zh_TW" value="關聯的土地信息" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[parent].alias">
-            <lang locale="zh_CN" value="父结点" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="父结点" />
             <lang locale="zh_HK" value="父結點" />
             <lang locale="zh_TW" value="父結點" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[parent].description">
-            <lang locale="zh_CN" value="父结点" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="父结点" />
             <lang locale="zh_HK" value="父結點" />
             <lang locale="zh_TW" value="父結點" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[parent].extendedProperty.isInCode">
+            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
-            <lang locale="en_US" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[projectStatus].alias">
-            <lang locale="zh_CN" value="项目状态" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目状态" />
             <lang locale="zh_HK" value="項目狀態" />
             <lang locale="zh_TW" value="項目狀態" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[projectStatus].description">
-            <lang locale="zh_CN" value="项目状态" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目状态" />
             <lang locale="zh_HK" value="項目狀態" />
             <lang locale="zh_TW" value="項目狀態" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[projectType].alias">
-            <lang locale="zh_CN" value="项目系列" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目系列" />
             <lang locale="zh_HK" value="項目系列" />
             <lang locale="zh_TW" value="項目系列" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.linkProperty[projectType].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[bdProjectID].alias">
-            <lang locale="zh_CN" value="项目ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目ID" />
             <lang locale="zh_HK" value="項目ID" />
             <lang locale="zh_TW" value="項目ID" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[bdProjectID].defaultValue">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[bdProjectID].description">
-            <lang locale="zh_CN" value="全局基础资料的项目ID，同步时写" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="全局基础资料的项目ID，同步时写" />
             <lang locale="zh_HK" value="全局基礎資料的項目ID，同步時寫" />
             <lang locale="zh_TW" value="全局基礎資料的項目ID，同步時寫" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[bdProjectID].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[bdProjectID].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[bdProjectID].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[codingNumber].alias">
-            <lang locale="zh_CN" value="工程项目长编码" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目长编码" />
             <lang locale="zh_HK" value="工程項目長編碼" />
             <lang locale="zh_TW" value="工程項目長編碼" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[codingNumber].defaultValue">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[codingNumber].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[codingNumber].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[codingNumber].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[codingNumber].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[codingNumber].extendedProperty.isInCode">
+            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
-            <lang locale="en_US" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isDevPrj].alias">
-            <lang locale="zh_CN" value="是否开发项目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否开发项目" />
             <lang locale="zh_HK" value="是否開發項目" />
             <lang locale="zh_TW" value="是否開發項目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isDevPrj].defaultValue">
-            <lang locale="zh_CN" value="1" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="1" />
-            <lang locale="zh_TW" value="1" />
+            <lang locale="zh_CN" value="开发项目" />
+            <lang locale="zh_HK" value="開發項目" />
+            <lang locale="zh_TW" value="開發項目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isDevPrj].description">
-            <lang locale="zh_CN" value="是否开发项目,默认true" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否开发项目,默认true" />
             <lang locale="zh_HK" value="是否開發項目,默認true" />
             <lang locale="zh_TW" value="是否開發項目,默認true" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isDevPrj].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isDevPrj].extendedProperty.bizDataType">
+            <lang locale="en_US" value="BOOLEAN" />
+            <lang locale="zh_CN" value="BOOLEAN" />
+            <lang locale="zh_TW" value="BOOLEAN" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isDevPrj].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isEnabled].alias">
-            <lang locale="zh_CN" value="启用" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="启用" />
             <lang locale="zh_HK" value="啟用" />
             <lang locale="zh_TW" value="啟用" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isEnabled].defaultValue">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="启用/禁用状态" />
+            <lang locale="zh_HK" value="啟用/禁用狀態" />
+            <lang locale="zh_TW" value="啟用/禁用狀態" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isEnabled].description">
-            <lang locale="zh_CN" value="启用" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="启用" />
             <lang locale="zh_HK" value="啟用" />
             <lang locale="zh_TW" value="啟用" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectAddress].alias">
-            <lang locale="zh_CN" value="项目地址" />
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isEnabled].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isEnabled].extendedProperty.bizDataType">
+            <lang locale="en_US" value="BOOLEAN" />
+            <lang locale="zh_CN" value="BOOLEAN" />
+            <lang locale="zh_TW" value="BOOLEAN" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isEnabled].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].alias">
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="全期项目" />
+            <lang locale="zh_HK" value="全期項目" />
+            <lang locale="zh_TW" value="全期項目" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="全期项目" />
+            <lang locale="zh_HK" value="全期項目" />
+            <lang locale="zh_TW" value="全期項目" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="布尔" />
+            <lang locale="zh_HK" value="布爾" />
+            <lang locale="zh_TW" value="布爾" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].extendedProperty.bizDataType">
+            <lang locale="en_US" value="BOOLEAN" />
+            <lang locale="zh_CN" value="BOOLEAN" />
+            <lang locale="zh_TW" value="BOOLEAN" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].extendedProperty.isAsstAcctType">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].extendedProperty.isForMapping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[isWholeAgeStage].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectAddress].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目地址" />
             <lang locale="zh_HK" value="項目地址" />
             <lang locale="zh_TW" value="項目地址" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectAddress].defaultValue">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectAddress].description">
-            <lang locale="zh_CN" value="项目地址" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目地址" />
             <lang locale="zh_HK" value="項目地址" />
             <lang locale="zh_TW" value="項目地址" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectAddress].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectAddress].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectAddress].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectPeriod].alias">
-            <lang locale="zh_CN" value="项目分期" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目分期" />
             <lang locale="zh_HK" value="項目分期" />
             <lang locale="zh_TW" value="項目分期" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectPeriod].defaultValue">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectPeriod].description">
-            <lang locale="zh_CN" value="项目分期" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目分期" />
             <lang locale="zh_HK" value="項目分期" />
             <lang locale="zh_TW" value="項目分期" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectPeriod].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectPeriod].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectPeriod].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.basedata.app.CurProject].properties.ownProperty[projectPeriod].extendedProperty.isInCode">
+            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
-            <lang locale="en_US" value="true" />
         </rs>
     </resource>
 </entityObject>
