@@ -259,6 +259,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFProgammingID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFProgammingID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFProgammingID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_SCH_DahuaSE1jr</name>
@@ -327,6 +341,25 @@
                     </refColumn>
                     <fkColumn>
                         <key name="name" value="CFDepartmentID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_SCH_SCHDSERgp6</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="T_CON_ContractProgramming" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFProgammingID" />
                     </fkColumn>
                 </fkColumnPair>
             </fkColumnPairs>
@@ -482,6 +515,18 @@
             <lang locale="zh_CN" value="任务编码" />
             <lang locale="zh_HK" value="任務編碼" />
             <lang locale="zh_TW" value="任務編碼" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFProgammingID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约规划" />
+            <lang locale="zh_HK" value="合約規劃" />
+            <lang locale="zh_TW" value="合約規劃" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFProgammingID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约规划" />
+            <lang locale="zh_HK" value="合約規劃" />
+            <lang locale="zh_TW" value="合約規劃" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.app.CT_SCH_DahuaScheduleEntry].columns.column[CFStartDate].alias">
             <lang locale="en_US" value="null" />

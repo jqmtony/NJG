@@ -480,6 +480,20 @@
                 <key name="name" value="CFDepartmentText" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>progamming</name>
+            <alias>entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleEntry].properties.linkProperty[progamming].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleEntry].properties.linkProperty[progamming].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFProgammingID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.dahuaschedule.schedule.app" />
+                <key name="name" value="R_DahuaScheduleEntry_ContractProgramming_progamming" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -742,6 +756,58 @@
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleEntry].properties.linkProperty[progamming].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约规划" />
+            <lang locale="zh_HK" value="合約規劃" />
+            <lang locale="zh_TW" value="合約規劃" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleEntry].properties.linkProperty[progamming].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约规划" />
+            <lang locale="zh_HK" value="合約規劃" />
+            <lang locale="zh_TW" value="合約規劃" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleEntry].properties.linkProperty[progamming].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleEntry].properties.linkProperty[progamming].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleEntry].properties.linkProperty[progamming].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleEntry].properties.linkProperty[progamming].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleEntry].properties.linkProperty[progamming].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleEntry].properties.linkProperty[progamming].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleEntry].properties.linkProperty[progamming].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleEntry].properties.linkProperty[progamming].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.app.DahuaScheduleEntry].properties.ownProperty[actCompleteDate].alias">
             <lang locale="en_US" value="null" />
