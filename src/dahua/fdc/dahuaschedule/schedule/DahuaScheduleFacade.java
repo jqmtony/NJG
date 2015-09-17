@@ -48,7 +48,7 @@ public class DahuaScheduleFacade extends AbstractBizCtrl implements IDahuaSchedu
         }
     }
     /**
-     *生成进度单据-User defined method
+     *生成进度信息，发布webservice不要发布出来的-User defined method
      *@return
      */
     public String[] createScheduleBill() throws BOSException

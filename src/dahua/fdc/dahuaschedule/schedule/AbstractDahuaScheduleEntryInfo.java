@@ -193,6 +193,17 @@ public class AbstractDahuaScheduleEntryInfo extends com.kingdee.eas.framework.Co
     {
         setString("departmentText", item);
     }
+    /**
+     * Object: 分录 's 合约规划 property 
+     */
+    public com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo getProgamming()
+    {
+        return (com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo)get("progamming");
+    }
+    public void setProgamming(com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo item)
+    {
+        put("progamming", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("CC8749DA");

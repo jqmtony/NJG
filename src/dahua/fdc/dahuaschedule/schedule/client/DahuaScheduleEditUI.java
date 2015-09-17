@@ -11,13 +11,23 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleFacadeFactory;
 import com.kingdee.eas.fdc.dahuaschedule.schedule.IDahuaScheduleFacade;
 import com.kingdee.eas.framework.*;
+import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.ctrl.swing.KDFileChooser;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
@@ -38,8 +48,8 @@ public class DahuaScheduleEditUI extends AbstractDahuaScheduleEditUI
     }
     
     public void onLoad() throws Exception {
-    	initUI();
     	super.onLoad();
+    	initUI();
     }
     
     private void initUI() {
@@ -60,7 +70,8 @@ public class DahuaScheduleEditUI extends AbstractDahuaScheduleEditUI
     	this.btnCreateTo.setVisible(false);
     	this.btnMultiapprove.setVisible(false);
     	this.btnNextPerson.setVisible(false);
-    	this.btnAuditResult.setVisible(false);
+//    	this.btnAuditResult.setVisible(false);
+    	this.prmtproject.setEnabled(false);
     	
     	this.kdtEntrys_detailPanel.getAddNewLineButton().setVisible(false);
     	this.kdtEntrys_detailPanel.getInsertLineButton().setVisible(false);
@@ -76,27 +87,46 @@ public class DahuaScheduleEditUI extends AbstractDahuaScheduleEditUI
     	this.kdtEntrys.getColumn("completeRate").getStyleAttributes().setNumberFormat("##.00");
 //    	this.kdtEntrys.getColumn("completeRate").getStyleAttributes().setNumberFormat("##.00%");//百分比格式化
     	this.kdtEntrys.getColumn("completeRate").getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
+    	
+    	final KDBizPromptBox kdtEntrys_programming_PromptBox = new KDBizPromptBox();
+    	kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.programming.app.ProgrammingContractF7Query");
+//    	kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.invite.app.ProgrammingContractF7Query");
+    	kdtEntrys_programming_PromptBox.setVisible(true);
+    	kdtEntrys_programming_PromptBox.setEditable(true);
+    	kdtEntrys_programming_PromptBox.setDisplayFormat("$name$");
+    	kdtEntrys_programming_PromptBox.setEditFormat("$name$");
+    	kdtEntrys_programming_PromptBox.setCommitFormat("$name$");
+        KDTDefaultCellEditor kdtEntrys_programming_CellEditor = new KDTDefaultCellEditor(kdtEntrys_programming_PromptBox);
+        this.kdtEntrys.getColumn("progamming").setEditor(kdtEntrys_programming_CellEditor);
+        ObjectValueRender kdtEntrys_manager_OVR = new ObjectValueRender();
+        kdtEntrys_manager_OVR.setFormat(new BizDataFormat("$name$"));
+        this.kdtEntrys.getColumn("progamming").setRenderer(kdtEntrys_manager_OVR);
+        
+        CurProjectInfo project = (CurProjectInfo) prmtproject.getValue();
+        EntityViewInfo evi = new EntityViewInfo();
+        FilterInfo filter = new FilterInfo();
+        evi.setFilter(filter);
+        filter.getFilterItems().add(new FilterItemInfo("programming.project.id", project.getId().toString(), CompareType.EQUALS));
+        filter.getFilterItems().add(new FilterItemInfo("programming.isLatest", true, CompareType.EQUALS));
+//        filter.getFilterItems().add(new FilterItemInfo("isLeaf", true, CompareType.EQUALS));
+        kdtEntrys_programming_PromptBox.setEntityViewInfo(evi);
+        
+        kdtEntrys.getStyleAttributes().setLocked(true);
+        this.kdtEntrys.getColumn("progamming").getStyleAttributes().setLocked(false);
     }
     /**
      * 分录树状展示
      */
     private void showTableTreeStyle() {
-    	int i = 0;
-    	IRow addRow = this.kdtEntrys.addRow();
-    	addRow.setTreeLevel(i++);
-    	addRow = this.kdtEntrys.addRow();
-    	addRow.setTreeLevel(i++);
-    	addRow = this.kdtEntrys.addRow();
-    	addRow.setTreeLevel(i++);
-    	addRow = this.kdtEntrys.addRow();
-    	addRow.setTreeLevel(i++);
-    	addRow = this.kdtEntrys.addRow();
-    	addRow.setTreeLevel(i++);
-    	addRow = this.kdtEntrys.addRow();
-    	addRow.setTreeLevel(i++);
-    	addRow = this.kdtEntrys.addRow();
-    	addRow.setTreeLevel(i++);
-    	kdtEntrys.getTreeColumn().setDepth(i);
+    	int max = 0;
+    	for(int i = 0; i < kdtEntrys.getRowCount(); i++) {
+    		IRow row = kdtEntrys.getRow(i);
+    		int level = (Integer)row.getCell("level").getValue();
+    		row.setTreeLevel(level-1);
+    		if(level > max)
+    			max = level;
+    	}
+    	kdtEntrys.getTreeColumn().setDepth(max);
     }
     /**
      * output loadFields method
@@ -104,7 +134,7 @@ public class DahuaScheduleEditUI extends AbstractDahuaScheduleEditUI
     public void loadFields()
     {
         super.loadFields();
-//        showTableTreeStyle();
+        showTableTreeStyle();
     }
 
     /**
@@ -740,6 +770,8 @@ public class DahuaScheduleEditUI extends AbstractDahuaScheduleEditUI
         com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleInfo objectValue = new com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
 		
+        CurProjectInfo project = (CurProjectInfo) getUIContext().get("project");
+        objectValue.setProject(project);
         return objectValue;
     }
 

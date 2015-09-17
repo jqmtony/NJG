@@ -33,6 +33,8 @@ import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.MsgBox;
 
 /**
  * output class name
@@ -95,6 +97,7 @@ public class DahuaScheduleListUI extends AbstractDahuaScheduleListUI
     		OrgStructureInfo org = (OrgStructureInfo) node.getUserObject();
     		FilterInfo filter = new FilterInfo();
     		filter.getFilterItems().add(new FilterItemInfo("project.fullOrgUnit.longnumber", org.getLongNumber()+"%", CompareType.LIKE));
+    		evi.setFilter(filter);
     		return super.getQueryExecutor(queryPK, evi);
     	}
     	return super.getQueryExecutor(queryPK, viewInfo);
@@ -386,6 +389,13 @@ public class DahuaScheduleListUI extends AbstractDahuaScheduleListUI
      */
     public void actionAddNew_actionPerformed(ActionEvent e) throws Exception
     {
+    	DefaultKingdeeTreeNode node = (DefaultKingdeeTreeNode)treeMain.getLastSelectedPathComponent();
+    	if(!(node.getUserObject() instanceof CurProjectInfo)) {
+    		MsgBox.showWarning("请选择项目节点!");
+    		SysUtil.abort();
+    	}
+    	CurProjectInfo project = (CurProjectInfo) node.getUserObject();
+    	getUIContext().put("project", project);
         super.actionAddNew_actionPerformed(e);
     }
 

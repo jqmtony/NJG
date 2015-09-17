@@ -24,8 +24,12 @@ import com.kingdee.bos.*;
 import com.kingdee.bos.util.BOSObjectType;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.metadata.IMetaDataPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.metadata.rule.RuleExecutor;
 import com.kingdee.bos.metadata.MetaDataPK;
 //import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -42,6 +46,12 @@ import com.kingdee.eas.fdc.basedata.CurProjectFactory;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.ICurProject;
+import com.kingdee.eas.fdc.contract.programming.IProgrammingContract;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContract;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingInfo;
 import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleEntryInfo;
 import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleFacadeFactory;
 import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleFactory;
@@ -166,6 +176,8 @@ public class DahuaScheduleFacadeControllerBean extends AbstractDahuaScheduleFaca
 					entryInfo.setSeq((Integer)entry[0]);
 					entryInfo.setNumber((String) entry[1]); //任务编码
 					entryInfo.setTask((String) entry[2]); //任务名称
+					ProgrammingContractInfo programmingInfo = getProgrammingInfo(ctx, (String) entry[2], curProjectInfo.getId().toString());
+					entryInfo.setProgamming(programmingInfo);
 					entryInfo.setLongNumber((String) entry[3]); //长编码
 					entryInfo.setIsLeaf((Boolean) entry[4]);//是否子节点
 					entryInfo.setLevel((Integer) entry[5]); //级次
@@ -332,5 +344,33 @@ public class DahuaScheduleFacadeControllerBean extends AbstractDahuaScheduleFaca
 			e.printStackTrace();
 		}
 		return project;
+    }
+    
+    /**
+     * 根据进度名称以及项目ID查询该项目下同名称的合约规划
+     * @param ctx
+     * @param name 进度任务名称
+     * @param projectId 项目ID
+     * @return
+     */
+    private ProgrammingContractInfo getProgrammingInfo(Context ctx, String name, String projectId) {
+    	ProgrammingContractInfo programmingContractInfo = null;
+    	try {
+			IProgrammingContract iProgrammingContract = ProgrammingContractFactory.getLocalInstance(ctx);
+			EntityViewInfo evi = new EntityViewInfo();
+			FilterInfo filter = new FilterInfo();
+			evi.setFilter(filter);
+			filter.getFilterItems().add(new FilterItemInfo("programming.project.id", projectId, CompareType.EQUALS));
+			filter.getFilterItems().add(new FilterItemInfo("programming.isLatest", true, CompareType.EQUALS));
+			filter.getFilterItems().add(new FilterItemInfo("name", name, CompareType.EQUALS));
+			
+			ProgrammingContractCollection pcoll = iProgrammingContract.getProgrammingContractCollection(evi);
+			if(pcoll.size() > 0)
+				programmingContractInfo = pcoll.get(0);
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+    	
+    	return programmingContractInfo;
     }
 }
