@@ -988,6 +988,37 @@
                 <key name="name" value="ForecastChangeVisQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>banZreo</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[banZreo].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>be1a9bc9-a64c-41f0-a242-d337b8785ff5</key>
+                    <parentUnit>
+                        <key name="name" value="banZreo" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ForecastChangeVis" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="banZreo" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="ForecastChangeVisQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1377,6 +1408,22 @@
             <lang locale="zh_CN" value="审核人" />
             <lang locale="zh_HK" value="審核人" />
             <lang locale="zh_TW" value="審核人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[banZreo].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="余额归零" />
+            <lang locale="zh_HK" value="餘額歸零" />
+            <lang locale="zh_TW" value="餘額歸零" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[banZreo].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[banZreo].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[bizDate].displayName">
             <lang locale="en_US" value="null" />

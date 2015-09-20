@@ -1021,6 +1021,61 @@
             </parent>
         </component>
         <component>
+            <name>chkbanZreo</name>
+            <alias>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[chkbanZreo].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDCheckBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>663,39,270,19</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[chkbanZreo].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[chkbanZreo].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[chkbanZreo].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>selected</propertyName>
+                    <propertyType>boolean</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>banZreo</bindingField>
+                    <fieldType>boolean</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
             <name>prmtCreator</name>
             <alias>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[prmtCreator].alias</alias>
             <userDefined>true</userDefined>
@@ -1959,9 +2014,7 @@
                     <listenerType>com.kingdee.bos.ctrl.kdf.table.event.KDTEditListener</listenerType>
                     <listenerAdapter>com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter</listenerAdapter>
                     <methodName>kdtEntrys_editStopped</methodName>
-                    <code>
-      //write your code here1
-</code>
+                    <code>//write your code here1</code>
                     <isBindWorkFlow>false</isBindWorkFlow>
                     <herited>false</herited>
                     <userDefined>true</userDefined>
@@ -2914,12 +2967,49 @@
             <bimUIObjectPK />
         </component>
         <component>
+            <name>btnBananZreo</name>
+            <alias>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnBananZreo].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>17</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnBananZreo].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>icon</name>
+                    <type>javax.swing.Icon</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnBananZreo].properties.property[icon].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnBananZreo].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
+        </component>
+        <component>
             <name>btnFirst</name>
             <alias>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnFirst].alias</alias>
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>17</constraints>
+            <constraints>18</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -2930,7 +3020,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>18</constraints>
+            <constraints>19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -2941,7 +3031,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>19</constraints>
+            <constraints>20</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -2952,7 +3042,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>20</constraints>
+            <constraints>21</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -2963,7 +3053,7 @@
             <userDefined>false</userDefined>
             <classType>javax.swing.JToolBar.Separator</classType>
             <isContainer>false</isContainer>
-            <constraints>21</constraints>
+            <constraints>22</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -2974,7 +3064,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>22</constraints>
+            <constraints>23</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -2994,7 +3084,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>23</constraints>
+            <constraints>24</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3014,7 +3104,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>24</constraints>
+            <constraints>25</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3025,7 +3115,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>25</constraints>
+            <constraints>26</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3036,7 +3126,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>26</constraints>
+            <constraints>27</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3047,7 +3137,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>27</constraints>
+            <constraints>28</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3082,7 +3172,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>28</constraints>
+            <constraints>29</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3117,7 +3207,7 @@
             <userDefined>false</userDefined>
             <classType>javax.swing.JPopupMenu.Separator</classType>
             <isContainer>false</isContainer>
-            <constraints>29</constraints>
+            <constraints>30</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3128,7 +3218,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>30</constraints>
+            <constraints>31</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3139,7 +3229,7 @@
             <userDefined>false</userDefined>
             <classType>javax.swing.JToolBar.Separator</classType>
             <isContainer>false</isContainer>
-            <constraints>31</constraints>
+            <constraints>32</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3150,7 +3240,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>32</constraints>
+            <constraints>33</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3161,7 +3251,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>33</constraints>
+            <constraints>34</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3172,7 +3262,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>34</constraints>
+            <constraints>35</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3192,7 +3282,7 @@
             <userDefined>false</userDefined>
             <classType>javax.swing.JPopupMenu.Separator</classType>
             <isContainer>false</isContainer>
-            <constraints>35</constraints>
+            <constraints>36</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3203,7 +3293,7 @@
             <userDefined>false</userDefined>
             <classType>javax.swing.JToolBar.Separator</classType>
             <isContainer>false</isContainer>
-            <constraints>36</constraints>
+            <constraints>37</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3214,7 +3304,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>37</constraints>
+            <constraints>38</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3234,7 +3324,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>38</constraints>
+            <constraints>39</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3254,7 +3344,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>39</constraints>
+            <constraints>40</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3274,7 +3364,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>40</constraints>
+            <constraints>41</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3294,7 +3384,7 @@
             <userDefined>false</userDefined>
             <classType>javax.swing.JPopupMenu.Separator</classType>
             <isContainer>false</isContainer>
-            <constraints>41</constraints>
+            <constraints>42</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3305,7 +3395,7 @@
             <userDefined>false</userDefined>
             <classType>javax.swing.JToolBar.Separator</classType>
             <isContainer>false</isContainer>
-            <constraints>42</constraints>
+            <constraints>43</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3316,7 +3406,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>43</constraints>
+            <constraints>44</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3327,7 +3417,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>44</constraints>
+            <constraints>45</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3338,7 +3428,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>45</constraints>
+            <constraints>46</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3358,7 +3448,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>46</constraints>
+            <constraints>47</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3369,7 +3459,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>47</constraints>
+            <constraints>48</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3380,7 +3470,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>48</constraints>
+            <constraints>49</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3391,7 +3481,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
-            <constraints>49</constraints>
+            <constraints>50</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -3955,6 +4045,37 @@
             <isEntryAction>false</isEntryAction>
             <batchMethodName />
         </action>
+        <action>
+            <instanceName>actionBananZreo</instanceName>
+            <className>actionBananZreo</className>
+            <name>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionBananZreo].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionBananZreo].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionBananZreo].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionBananZreo].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;
+</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
     </actions>
     <resource>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionAcctSelect].longDescription">
@@ -4000,6 +4121,30 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionAudit].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionBananZreo].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionBananZreo].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionBananZreo].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionBananZreo].smallIcon">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -4232,6 +4377,30 @@
             <lang locale="zh_CN" value="审批" />
             <lang locale="zh_HK" value="審批" />
             <lang locale="zh_TW" value="審批" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnBananZreo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnBananZreo].properties.property[action].value">
+            <lang locale="en_US" value="actionBananZreo" />
+            <lang locale="zh_CN" value="actionBananZreo" />
+            <lang locale="zh_HK" value="actionBananZreo" />
+            <lang locale="zh_TW" value="actionBananZreo" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnBananZreo].properties.property[icon].value">
+            <lang locale="en_US" value="imgTbtn_amountgeneralledger" />
+            <lang locale="zh_CN" value="imgTbtn_amountgeneralledger" />
+            <lang locale="zh_HK" value="imgTbtn_amountgeneralledger" />
+            <lang locale="zh_TW" value="imgTbtn_amountgeneralledger" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnBananZreo].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="余额归零" />
+            <lang locale="zh_HK" value="餘額歸零" />
+            <lang locale="zh_TW" value="餘額歸零" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnCancelCancel].alias">
             <lang locale="en_US" value="null" />
@@ -4484,6 +4653,30 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[chkbanZreo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="余额归零" />
+            <lang locale="zh_HK" value="餘額歸零" />
+            <lang locale="zh_TW" value="餘額歸零" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[chkbanZreo].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[chkbanZreo].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="余额归零" />
+            <lang locale="zh_HK" value="餘額歸零" />
+            <lang locale="zh_TW" value="餘額歸零" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[chkbanZreo].properties.property[visible].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[chkisLast].alias">
             <lang locale="en_US" value="null" />
