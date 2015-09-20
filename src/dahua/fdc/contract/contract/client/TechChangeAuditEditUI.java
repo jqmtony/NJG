@@ -1401,6 +1401,17 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 	
 	public void onLoad() throws Exception {
 		kdtSpecialtyType.checkParsed();
+		this.txtreworkVisa.addDataChangeListener(new DataChangeListener(){
+
+			public void dataChanged(DataChangeEvent e) {
+				try {
+					changeAmount();
+				} catch (BOSException e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+		});
 		super.onLoad();
 		this.actionAddNew.setEnabled(false);
 		this.btnAttenTwo.setIcon(EASResource.getIcon("imgTbtn_addline"));
@@ -1434,19 +1445,6 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 
 		kdtEntrys.getColumn("changeContent").getStyleAttributes().setWrapText(true);
     	
-		this.txtreworkVisa.addDataChangeListener(new DataChangeListener(){
-
-			public void dataChanged(DataChangeEvent e) {
-				try {
-					changeAmount();
-				} catch (BOSException e1) {
-					e1.printStackTrace();
-				}
-			}
-			
-		});
-		
-		this.txtreworkVisa.setValue(0);
 		this.tbpChangAudit.addChangeListener(new ChangeListener(){
 			public void stateChanged(ChangeEvent e) {
 				tbpChangAudit_stateChanged(e);
@@ -1787,6 +1785,7 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
     			
 	   	addDataChangeListener( prmtAuditType);	   	
 	   	addDataChangeListener( prmtSpecialtyType);
+	   	addDataChangeListener( txtreworkVisa);
     }
     
     protected void detachListeners() {
@@ -1795,6 +1794,7 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
     	
 	   	removeDataChangeListener(prmtAuditType);
 	   	removeDataChangeListener(prmtSpecialtyType);
+	   	removeDataChangeListener(txtreworkVisa);
     }
     
 	public void loadFields()
@@ -1815,6 +1815,7 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 		conimeLi.setSelectedItem(editData.getTimeLi());
 		conquality.setSelectedItem(editData.getQuality());
 		conSale.setSelectedItem(editData.getSale());
+		this.txtreworkVisa.setValue(editData.getReworkVisa());
 		
 		this.kDTabbedPane1.removeAll();
 		uiSet.clear();

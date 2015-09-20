@@ -1402,6 +1402,28 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 	public void onLoad() throws Exception {
 		kdtSpecialtyType.checkParsed();
 		this.txtapprovedAmount.setEnabled(false);
+		this.txtreworkVisa.addDataChangeListener(new DataChangeListener(){
+
+			public void dataChanged(DataChangeEvent e) {
+				try {
+					changeAmount();
+				} catch (BOSException e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+		});
+		this.txtpunisAmount.addDataChangeListener(new DataChangeListener(){
+			
+			public void dataChanged(DataChangeEvent e) {
+				try {
+					changeAmount();
+				} catch (BOSException e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+		});
 		super.onLoad();
 		
 		this.txtdelyDay.setPrecision(0);
@@ -1438,30 +1460,7 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 
 		kdtEntrys.getColumn("changeContent").getStyleAttributes().setWrapText(true);
     	
-		this.txtreworkVisa.addDataChangeListener(new DataChangeListener(){
-
-			public void dataChanged(DataChangeEvent e) {
-				try {
-					changeAmount();
-				} catch (BOSException e1) {
-					e1.printStackTrace();
-				}
-			}
-			
-		});
-		this.txtpunisAmount.addDataChangeListener(new DataChangeListener(){
-			
-			public void dataChanged(DataChangeEvent e) {
-				try {
-					changeAmount();
-				} catch (BOSException e1) {
-					e1.printStackTrace();
-				}
-			}
-			
-		});
 		
-		this.txtreworkVisa.setValue(0);
 		this.tbpChangAudit.addChangeListener(new ChangeListener(){
 			public void stateChanged(ChangeEvent e) {
 				tbpChangAudit_stateChanged(e);
@@ -1803,6 +1802,8 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
     			
 	   	addDataChangeListener( prmtAuditType);	   	
 	   	addDataChangeListener( prmtSpecialtyType);
+	   	addDataChangeListener( txtreworkVisa);
+	   	addDataChangeListener( txtpunisAmount);
     }
     
     protected void detachListeners() {
@@ -1810,7 +1811,9 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
     	prmtCurProject.removeDataChangeListener(projectChangeListener);
     	
 	   	removeDataChangeListener(prmtAuditType);
-	   	removeDataChangeListener(prmtSpecialtyType);
+	   	removeDataChangeListener(prmtSpecialtyType); 
+	   	removeDataChangeListener(txtreworkVisa);
+	   	removeDataChangeListener(txtpunisAmount);
     }
     
 	public void loadFields()

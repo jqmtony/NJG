@@ -1448,6 +1448,17 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 	
 	public void onLoad() throws Exception {
 		kdtSpecialtyType.checkParsed();
+		this.txtreworkVisa.addDataChangeListener(new DataChangeListener(){
+
+			public void dataChanged(DataChangeEvent e) {
+				try {
+					changeAmount();
+				} catch (BOSException e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+		});
 		super.onLoad();
 		this.actionAddNew.setEnabled(false);
 		this.btnAttenTwo.setIcon(EASResource.getIcon("imgTbtn_addline"));
@@ -1481,19 +1492,7 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 
 		kdtEntrys.getColumn("changeContent").getStyleAttributes().setWrapText(true);
     	
-		this.txtreworkVisa.addDataChangeListener(new DataChangeListener(){
-
-			public void dataChanged(DataChangeEvent e) {
-				try {
-					changeAmount();
-				} catch (BOSException e1) {
-					e1.printStackTrace();
-				}
-			}
-			
-		});
-		
-		this.txtreworkVisa.setValue(0);
+//		this.txtreworkVisa.setValue(0);
 		this.tbpChangAudit.addChangeListener(new ChangeListener(){
 			public void stateChanged(ChangeEvent e) {
 				tbpChangAudit_stateChanged(e);
@@ -1834,6 +1833,7 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
     			
 	   	addDataChangeListener( prmtAuditType);	   	
 	   	addDataChangeListener( prmtSpecialtyType);
+	   	addDataChangeListener( txtreworkVisa);
     }
     
     protected void detachListeners() {
@@ -1842,6 +1842,7 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
     	
 	   	removeDataChangeListener(prmtAuditType);
 	   	removeDataChangeListener(prmtSpecialtyType);
+	   	removeDataChangeListener(txtreworkVisa);
     }
     
 	public void loadFields()
@@ -3937,8 +3938,8 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 		BigDecimal totalContractAmount = getContractAmount(contractSetId);
 		BigDecimal ChangeAuditAmount = getTotalChangeAuditAmount(contractSetId);
 		
-		this.txtcontractAmPro.setValue(FDCHelper.divide(this.txtTotalCost.getBigDecimalValue(), totalContractAmount,4).multiply(new BigDecimal("100")));
-		this.txttotalChangeAmount.setValue(FDCHelper.divide(ChangeAuditAmount, totalContractAmount,4).multiply(new BigDecimal("100")));
+		this.txtcontractAmPro.setValue(FDCHelper.multiply(FDCHelper.divide(this.txtTotalCost.getBigDecimalValue(), totalContractAmount,4),100,2));
+		this.txttotalChangeAmount.setValue(FDCHelper.multiply(FDCHelper.divide(ChangeAuditAmount, totalContractAmount,4), 100,2));
 		
 		hasSaveAddSu = false;
 	}

@@ -12,6 +12,7 @@ import java.awt.event.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.EventListener;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -21,6 +22,7 @@ import java.util.Set;
 
 import javax.swing.Action;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.event.ChangeEvent;
@@ -62,9 +64,12 @@ import com.kingdee.bos.ctrl.kdf.table.util.KDTableUtil;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.VerticalAlignment;
+import com.kingdee.bos.ctrl.swing.KDComboBox;
+import com.kingdee.bos.ctrl.swing.KDDatePicker;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDOptionPane;
 import com.kingdee.bos.ctrl.swing.KDPanel;
+import com.kingdee.bos.ctrl.swing.KDPromptBox;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.StringUtils;
@@ -1401,6 +1406,17 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 	
 	public void onLoad() throws Exception {
 		kdtSpecialtyType.checkParsed();
+		this.txtreworkVisa.addDataChangeListener(new DataChangeListener(){
+
+			public void dataChanged(DataChangeEvent e) {
+				try {
+					changeAmount();
+				} catch (BOSException e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+		});
 		super.onLoad();
 		this.actionAddNew.setEnabled(false);
 		this.btnAttenTwo.setIcon(EASResource.getIcon("imgTbtn_addline"));
@@ -1425,7 +1441,7 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
     	initUI();   	   	
     	
     	disableAutoAddLine(getDetailTable());
-		disableAutoAddLineDownArrow(getDetailTable());
+    	disableAutoAddLineDownArrow(getDetailTable());
 		
 		//new add by renliang at 2010-5-11
 		FDCClientUtils.initSupplierF7(this, prmtConstrUnit);
@@ -1434,19 +1450,8 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 
 		kdtEntrys.getColumn("changeContent").getStyleAttributes().setWrapText(true);
     	
-		this.txtreworkVisa.addDataChangeListener(new DataChangeListener(){
-
-			public void dataChanged(DataChangeEvent e) {
-				try {
-					changeAmount();
-				} catch (BOSException e1) {
-					e1.printStackTrace();
-				}
-			}
-			
-		});
 		
-		this.txtreworkVisa.setValue(0);
+//		this.txtreworkVisa.setValue(0);
 		this.tbpChangAudit.addChangeListener(new ChangeListener(){
 			public void stateChanged(ChangeEvent e) {
 				tbpChangAudit_stateChanged(e);
@@ -1787,6 +1792,7 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
     			
 	   	addDataChangeListener( prmtAuditType);	   	
 	   	addDataChangeListener( prmtSpecialtyType);
+	   	addDataChangeListener( txtreworkVisa); 
     }
     
     protected void detachListeners() {
@@ -1795,6 +1801,7 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
     	
 	   	removeDataChangeListener(prmtAuditType);
 	   	removeDataChangeListener(prmtSpecialtyType);
+	   	removeDataChangeListener(txtreworkVisa);
     }
     
 	public void loadFields()
@@ -1815,6 +1822,7 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 		conimeLi.setSelectedItem(editData.getTimeLi());
 		conquality.setSelectedItem(editData.getQuality());
 		conSale.setSelectedItem(editData.getSale());
+		this.txtreworkVisa.setValue(editData.getReworkVisa());
 		
 		this.kDTabbedPane1.removeAll();
 		uiSet.clear();
@@ -4953,6 +4961,63 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
         }
 	}
 	
+	
+	protected void removeDataChangeListener(JComponent com) {
+		EventListener[] listeners = null;	
+  	
+		if(com instanceof KDPromptBox){
+			listeners = com.getListeners(DataChangeListener.class);	
+    		for(int i=0;i<listeners.length;i++){
+    			((KDPromptBox)com).removeDataChangeListener((DataChangeListener)listeners[i]);
+    		}
+    	}else if(com instanceof KDFormattedTextField){
+    		listeners = com.getListeners(DataChangeListener.class);	
+    		for(int i=0;i<listeners.length;i++){
+    			((KDFormattedTextField)com).removeDataChangeListener((DataChangeListener)listeners[i]);
+    		}
+    	}else if(com instanceof KDDatePicker){
+    		listeners = com.getListeners(DataChangeListener.class);	
+    		for(int i=0;i<listeners.length;i++){
+    			((KDDatePicker)com).removeDataChangeListener((DataChangeListener)listeners[i]);
+    		}
+    	} 
+    	else if(com instanceof KDComboBox){
+    		listeners = com.getListeners(ItemListener.class);	
+    		for(int i=0;i<listeners.length;i++){
+    			((KDComboBox)com).removeItemListener((ItemListener)listeners[i]);
+    		}
+    	} 
+		
+		if(listeners!=null && listeners.length>0){
+			listenersMap.put(com,listeners );
+		}
+    }
+	
+	protected void addDataChangeListener(JComponent com) {
+    	
+    	EventListener[] listeners = (EventListener[] )listenersMap.get(com);
+    	
+    	if(listeners!=null && listeners.length>0){
+	    	if(com instanceof KDPromptBox){
+	    		for(int i=0;i<listeners.length;i++){
+	    			((KDPromptBox)com).addDataChangeListener((DataChangeListener)listeners[i]);
+	    		}
+	    	}else if(com instanceof KDFormattedTextField){
+	    		for(int i=0;i<listeners.length;i++){
+	    			((KDFormattedTextField)com).addDataChangeListener((DataChangeListener)listeners[i]);
+	    		}
+	    	}else if(com instanceof KDDatePicker){
+	    		for(int i=0;i<listeners.length;i++){
+	    			((KDDatePicker)com).addDataChangeListener((DataChangeListener)listeners[i]);
+	    		}
+	    	} else if(com instanceof KDComboBox){
+	    		for(int i=0;i<listeners.length;i++){
+	    			((KDComboBox)com).addItemListener((ItemListener)listeners[i]);
+	    		}
+	    	}
+    	}
+		
+    }
 	
 	/**
 	 * 设置专业类型名称
