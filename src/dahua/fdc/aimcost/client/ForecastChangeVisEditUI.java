@@ -71,6 +71,8 @@ import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.fdc.aimcost.ForecastChangeVisFactory;
+import com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo;
 import com.kingdee.eas.fdc.aimcost.ForecastChangeVisSplitEntryCollection;
 import com.kingdee.eas.fdc.aimcost.ForecastChangeVisSplitEntryInfo;
 import com.kingdee.eas.fdc.basedata.ApportionTypeInfo;
@@ -181,6 +183,9 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
     	initTable();
     	setButtonStatus();
     	contractBillId = editData.getContractNumber().getId().toString();
+    	
+    	this.chkMenuItemSubmitAndAddNew.setSelected(false);
+    	this.chkMenuItemSubmitAndAddNew.setEnabled(false);
     }
     
     public void onShow() throws Exception {
@@ -243,6 +248,7 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
     	this.pkBizDate.setRequired(true);
     	this.kdtEntrys.getColumn("itemName").setRequired(true);
     	this.kdtEntrys.getColumn("amount").setRequired(true);
+    	this.actionBananZreo.setEnabled(true);
     }
     
     private void initContainerButton(KDContainer kDContainer,DetailPanel detail) {
@@ -264,6 +270,20 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
 			}
 		});
 	}
+    
+    public void actionBananZreo_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionBananZreo_actionPerformed(e);
+    	if(!editData.getStatus().equals(FDCBillStateEnum.AUDITTED)||editData.isBanZreo()){
+    		MsgBox.showWarning("单据未审核或已经做过余额归零！");
+    		SysUtil.abort();
+    	}
+    	editData.setBanZreo(true);
+    	SelectorItemCollection sic = new SelectorItemCollection();
+    	sic.add("banZreo");
+    	ForecastChangeVisFactory.getRemoteInstance().updatePartial(editData, sic);
+    	MsgBox.showInfo("操作成功");
+    	syncDataFromDB();
+    }
     
     private void btnRemoveLine_actionPerformed(ActionEvent e) {
     	if ((kdtEntrys.getSelectManager().size() == 0)){
@@ -646,6 +666,10 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
     }
 
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
+    	if(!editData.isIsLast()){
+    		FDCMsgBox.showInfo("不是最新版，不能反审批！");
+			this.abort();
+    	}
     	checkBeforeAuditOrUnAudit(FDCBillStateEnum.AUDITTED, CANTUNAUDIT);
     	super.actionUnAudit_actionPerformed(e);
     	FDCClientUtils.showOprtOK(this);
@@ -858,15 +882,15 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
      * @param shouldSplitAmt:应拆金额
      */
 	private void setOneEntryAmt(BigDecimal shouldSplitAmt) throws Exception{
-		if(kdtSplitEntry.getRowCount()==1){
-			KDTEditEvent event = new KDTEditEvent(
-					kdtSplitEntry, null, null, 0,
-					kdtSplitEntry.getColumnIndex("amount"), true, 1);
-			final IRow row = kdtSplitEntry.getRow(0);
-			row.getCell("amount").setValue(shouldSplitAmt);
-			event.setValue(shouldSplitAmt);
-			kdtSplitEntry_editStopped(event);
-		}
+//		if(kdtSplitEntry.getRowCount()==1){
+//			KDTEditEvent event = new KDTEditEvent(
+//					kdtSplitEntry, null, null, 0,
+//					kdtSplitEntry.getColumnIndex("amount"), true, 1);
+//			final IRow row = kdtSplitEntry.getRow(0);
+//			row.getCell("amount").setValue(shouldSplitAmt);
+//			event.setValue(shouldSplitAmt);
+//			kdtSplitEntry_editStopped(event);
+//		}
 	}
 	
 	public void setMenuSplitState() {
@@ -926,6 +950,7 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
     	selectors.add("splitEntry.costAccount.displayName");
     	return selectors;
     }
+    
     
     private void setOneTreeDisplay(int rowIndex){
     	ForecastChangeVisSplitEntryInfo topEntry = (ForecastChangeVisSplitEntryInfo)kdtSplitEntry.getRow(rowIndex).getUserObject();    	
@@ -1244,7 +1269,6 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
         	calcAmount(0);
         }else{
         	txtSplitedAmount.setValue(FDCHelper.ZERO);    
-        	//shilei
         }        	
         
 
@@ -1295,8 +1319,6 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
 		} else {
 			txtSplitedAmount.setValue(amountTotal);
 		}    	
-		
-		//shilei 
     } 
     
 	protected void txtSplitedAmount_dataChanged(DataChangeEvent e) throws Exception {
@@ -1482,6 +1504,7 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
 		}
 
 		//返回值
+		entrys=new ForecastChangeVisSplitEntryCollection();
 		FDCSplitBillEntryCollection oldEntrys =(FDCSplitBillEntryCollection) ((CostSplitApptUI) uiWin.getUIObject()).getData() ;
 		for (int i = 0; i < oldEntrys.size(); i++) {
 			ForecastChangeVisSplitEntryInfo newInfo = new ForecastChangeVisSplitEntryInfo();
@@ -1588,14 +1611,8 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
 				}
 				
 			}
-			
-			
 			return;
 		}
-		
-		
-		
-		
 		//插入新的拆分行
 		int idxCurr=topIdx;
 		
@@ -2306,20 +2323,32 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
      */
     protected com.kingdee.bos.dao.IObjectValue createNewData()
     {
-        com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo objectValue = new com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo();
-        objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		if(getUIContext().get("contractInfo")==null){
-			MsgBox.showWarning("合同不能为空！");
-			SysUtil.abort();
-		}
-		ContractBillInfo conInfo = (ContractBillInfo)getUIContext().get("contractInfo");
-		objectValue.setContractNumber(conInfo);
-		objectValue.setContractName(conInfo.getName());
-		objectValue.setContractAmount(conInfo.getAmount());
-		objectValue.setVersion("1");
-		objectValue.setBizDate(new Date());
-		objectValue.setAmount(BigDecimal.ZERO);
-        return objectValue;
+    	if(getUIContext().get("ForInfo")!=null){
+    		ForecastChangeVisInfo info = (ForecastChangeVisInfo) getUIContext().get("ForInfo");
+    		info.setVersion(getUIContext().get("verson").toString());
+    		info.setId(null);
+    		info.setIsLast(false);
+    		for (int i = 0; i < info.getEntrys().size(); i++)
+    			info.getEntrys().get(i).setId(null);
+    		for (int i = 0; i < info.getSplitEntry().size(); i++)
+    			info.getSplitEntry().get(i).setId(null);
+    		return info;
+    	}else{
+    		com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo objectValue = new com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo();
+    		objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
+    		if(getUIContext().get("contractInfo")==null){
+    			MsgBox.showWarning("合同不能为空！");
+    			SysUtil.abort();
+    		}
+    		ContractBillInfo conInfo = (ContractBillInfo)getUIContext().get("contractInfo");
+    		objectValue.setContractNumber(conInfo);
+    		objectValue.setContractName(conInfo.getName());
+    		objectValue.setContractAmount(conInfo.getAmount());
+    		objectValue.setVersion("1");
+    		objectValue.setBizDate(new Date());
+    		objectValue.setAmount(BigDecimal.ZERO);
+    		return objectValue;
+    	}
     }
 
 }

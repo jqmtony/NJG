@@ -5,8 +5,8 @@ package com.kingdee.eas.fdc.aimcost.client;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
+import java.math.BigDecimal;
 import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -25,6 +25,7 @@ import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTSelectListener;
 import com.kingdee.bos.ctrl.swing.KDTree;
+import com.kingdee.bos.ctrl.swing.StringUtils;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
@@ -32,16 +33,15 @@ import com.kingdee.bos.dao.query.QueryExecutorFactory;
 import com.kingdee.bos.framework.cache.ActionCache;
 import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.MetaDataPK;
+import com.kingdee.bos.metadata.data.SortType;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemCollection;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
-import com.kingdee.bos.sql.ParserException;
-import com.kingdee.bos.sql.parser.Lexer;
-import com.kingdee.bos.sql.parser.SqlStmtParser;
-import com.kingdee.bos.sql.parser.TokenList;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.ItemAction;
@@ -67,6 +67,7 @@ import com.kingdee.eas.fdc.aimcost.IForecastChangeVis;
 import com.kingdee.eas.fdc.basedata.ContractTypeFactory;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCClientHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
@@ -75,11 +76,6 @@ import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.IContractBill;
 import com.kingdee.eas.fdc.contract.client.ContractBillEditUI;
 import com.kingdee.eas.fdc.contract.client.ContractClientUtils;
-import com.kingdee.eas.fm.common.FMIsqlFacadeFactory;
-import com.kingdee.eas.fm.common.IFMIsqlFacade;
-import com.kingdee.eas.fm.common.client.FMIsqlUI;
-import com.kingdee.eas.fm.common.client.FMIsqlUIHandler;
-import com.kingdee.eas.fm.common.client.SQLStmtInfo;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.framework.ITreeBase;
 import com.kingdee.eas.framework.TreeBaseInfo;
@@ -168,6 +164,7 @@ public class ForecastChangeVisListUI extends AbstractForecastChangeVisListUI
 			}
     	});
     }
+	
     
     protected void initWorkButton() {
     	super.initWorkButton();
@@ -182,6 +179,10 @@ public class ForecastChangeVisListUI extends AbstractForecastChangeVisListUI
     
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
     	ForecastChangeVisInfo info = getSelectInfo();
+    	if(!info.isIsLast()){
+    		FDCMsgBox.showInfo("不是最新版，不能反审批！");
+			this.abort();
+    	}
     	checkBeforeAuditOrUnAudit(info,FDCBillStateEnum.AUDITTED, CANTUNAUDIT);
     	super.actionUnAudit_actionPerformed(e);
     	FDCClientUtils.showOprtOK(this);
@@ -225,6 +226,7 @@ public class ForecastChangeVisListUI extends AbstractForecastChangeVisListUI
     	SelectorItemCollection sic = new SelectorItemCollection();
     	sic.add("id");
     	sic.add("status");
+    	sic.add("isLast");
     	return IForecastChangeVis.getForecastChangeVisInfo(new ObjectUuidPK(id),sic);
     }
     
@@ -302,6 +304,13 @@ public class ForecastChangeVisListUI extends AbstractForecastChangeVisListUI
 		}
     	
     	view.setFilter(filInfo);
+    	
+    	if(view.getSorter()!=null&&view.getSorter().size()<2){
+			viewInfo.getSorter().clear();
+			SorterItemInfo version=new SorterItemInfo("version"); //createTime
+			version.setSortType(SortType.DESCEND);
+			view.getSorter().add(version);
+		}
     	IQueryExecutor exec = super.getQueryExecutor(queryPK, view);
     	exec.option().isAutoTranslateBoolean = true;
         exec.option().isAutoTranslateEnum = true;
@@ -654,6 +663,142 @@ public class ForecastChangeVisListUI extends AbstractForecastChangeVisListUI
 		return kDTree1;
 	}
     
+	public void actionModify_actionPerformed(ActionEvent e) throws Exception {
+		super.actionModify_actionPerformed(e);
+		checkSelected();
+		ForecastChangeVisInfo info = getSelectorsForBillInfo(this.getSelectedKeyValue());
+		if(!info.getStatus().equals(FDCBillStateEnum.AUDITTED)){
+			FDCMsgBox.showWarning("单据未审批，不允许修订！");
+			return;
+		}
+		if(!info.isIsLast()){
+			FDCMsgBox.showWarning("不是最新版，不允许修订！");
+			return;
+		}
+		FilterInfo filter=new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("contractNumber.id",info.getContractNumber().getId()));
+		filter.getFilterItems().add(new FilterItemInfo("version",info.getVersion(),CompareType.GREATER));
+		if(ForecastChangeVisFactory.getRemoteInstance().exists(filter)){
+			FDCMsgBox.showWarning(this,"单据已修订！");
+			return;
+		}
+		
+		UIContext uiContext = new UIContext(this);
+		uiContext.put("ForInfo", info);
+		uiContext.put("IsModify", true);
+		uiContext.put("verson", FDCHelper.add(info.getVersion(), BigDecimal.ONE));
+		
+		IUIWindow ui = UIFactory.createUIFactory(getEditUIModal()).create(getEditUIName(), uiContext, null,	OprtState.ADDNEW);
+		ui.show();
+	}
+	
+	   public ForecastChangeVisInfo getSelectorsForBillInfo(String id) throws EASBizException, BOSException {
+	    	SelectorItemCollection sic = new SelectorItemCollection();
+			String selectorAll = System.getProperty("selector.all");
+			if(StringUtils.isEmpty(selectorAll)){
+				selectorAll = "true";
+			}
+	        sic.add(new SelectorItemInfo("isLast"));
+	        sic.add(new SelectorItemInfo("banZreo"));
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("creator.*"));
+			}
+			else{
+	        	sic.add(new SelectorItemInfo("creator.id"));
+	        	sic.add(new SelectorItemInfo("creator.number"));
+	        	sic.add(new SelectorItemInfo("creator.name"));
+			}
+	        sic.add(new SelectorItemInfo("createTime"));
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("lastUpdateUser.*"));
+			}
+			else{
+	        	sic.add(new SelectorItemInfo("lastUpdateUser.id"));
+	        	sic.add(new SelectorItemInfo("lastUpdateUser.number"));
+	        	sic.add(new SelectorItemInfo("lastUpdateUser.name"));
+			}
+	        sic.add(new SelectorItemInfo("lastUpdateTime"));
+	        sic.add(new SelectorItemInfo("number"));
+	        sic.add(new SelectorItemInfo("bizDate"));
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("auditor.*"));
+			}
+			else{
+	        	sic.add(new SelectorItemInfo("auditor.id"));
+	        	sic.add(new SelectorItemInfo("auditor.number"));
+	        	sic.add(new SelectorItemInfo("auditor.name"));
+			}
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("contractNumber.*"));
+			}
+			else{
+	        	sic.add(new SelectorItemInfo("contractNumber.id"));
+	        	sic.add(new SelectorItemInfo("contractNumber.number"));
+	        	sic.add(new SelectorItemInfo("contractNumber.name"));
+			}
+	        sic.add(new SelectorItemInfo("contractName"));
+	        sic.add(new SelectorItemInfo("version"));
+	        sic.add(new SelectorItemInfo("amount"));
+	        sic.add(new SelectorItemInfo("remake"));
+	        sic.add(new SelectorItemInfo("auditDate"));
+	    	sic.add(new SelectorItemInfo("entrys.id"));
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("entrys.*"));
+			}
+			else{
+			}
+	    	sic.add(new SelectorItemInfo("entrys.itemName"));
+	    	sic.add(new SelectorItemInfo("entrys.amount"));
+	    	sic.add(new SelectorItemInfo("entrys.remake"));
+	    	sic.add(new SelectorItemInfo("splitEntry.id"));
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("splitEntry.*"));
+			}
+			else{
+			}
+	    	sic.add(new SelectorItemInfo("splitEntry.amount"));
+			if(selectorAll.equalsIgnoreCase("true"))
+			{
+				sic.add(new SelectorItemInfo("splitEntry.product.*"));
+			}
+			else{
+		    	sic.add(new SelectorItemInfo("splitEntry.product.id"));
+				sic.add(new SelectorItemInfo("splitEntry.product.name"));
+	        	sic.add(new SelectorItemInfo("splitEntry.product.number"));
+			}
+	    	sic.add(new SelectorItemInfo("splitEntry.costAccount.curProject.id"));
+	    	sic.add(new SelectorItemInfo("splitEntry.costAccount.id"));
+	    	sic.add(new SelectorItemInfo("splitEntry.level"));
+	    	sic.add(new SelectorItemInfo("splitEntry.apportionType.name"));
+	    	sic.add(new SelectorItemInfo("splitEntry.apportionValue"));
+	    	sic.add(new SelectorItemInfo("splitEntry.directAmount"));
+	    	sic.add(new SelectorItemInfo("splitEntry.apportionValueTotal"));
+	    	sic.add(new SelectorItemInfo("splitEntry.directAmountTotal"));
+	    	sic.add(new SelectorItemInfo("splitEntry.otherRatioTotal"));
+	    	sic.add(new SelectorItemInfo("splitEntry.splitType"));
+	    	sic.add(new SelectorItemInfo("splitEntry.workLoad"));
+	    	sic.add(new SelectorItemInfo("splitEntry.price"));
+	    	sic.add(new SelectorItemInfo("splitEntry.splitScale"));
+	        sic.add(new SelectorItemInfo("status"));
+	        sic.add(new SelectorItemInfo("contractAmount"));
+	        sic.add(new SelectorItemInfo("SplitedAmount"));
+	        sic.add(new SelectorItemInfo("UnSplitAmount"));
+	        sic.add("splitEntry.costAccount.curProject.isLeaf");
+	        sic.add("splitEntry.costAccount.curProject.longNumber");
+	        sic.add("splitEntry.costAccount.curProject.number");
+	        sic.add("splitEntry.costAccount.curProject.name");
+	        sic.add("splitEntry.costAccount.curProject.displayName");
+	        sic.add("splitEntry.costAccount.name");
+	        sic.add("splitEntry.costAccount.longNumber");
+	        sic.add("splitEntry.costAccount.displayName");
+	    	return ForecastChangeVisFactory.getRemoteInstance().getForecastChangeVisInfo(new ObjectUuidPK(id),sic);
+	    }
 
     /**
      * output getBizInterface method

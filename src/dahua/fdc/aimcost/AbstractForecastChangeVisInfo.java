@@ -167,6 +167,17 @@ public class AbstractForecastChangeVisInfo extends com.kingdee.eas.framework.Cor
     {
         setBigDecimal("UnSplitAmount", item);
     }
+    /**
+     * Object:‘§π¿±‰∏¸«©÷§µ•'s ”‡∂ÓπÈ¡„property 
+     */
+    public boolean isBanZreo()
+    {
+        return getBoolean("banZreo");
+    }
+    public void setBanZreo(boolean item)
+    {
+        setBoolean("banZreo", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("B4926E1E");

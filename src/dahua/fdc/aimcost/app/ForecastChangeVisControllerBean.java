@@ -1,5 +1,7 @@
 package com.kingdee.eas.fdc.aimcost.app;
 
+import java.math.BigDecimal;
+
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
@@ -11,6 +13,8 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.app.ContextUtil;
 import com.kingdee.util.NumericExceptionSubItem;
@@ -27,6 +31,18 @@ public class ForecastChangeVisControllerBean extends AbstractForecastChangeVisCo
 			info.setAuditDate(SysUtil.getAppServerTime(ctx));
 			info.setAuditor(ContextUtil.getCurrentUserInfo(ctx));
 			info.setStatus(FDCBillStateEnum.AUDITTED);
+			
+			info.setIsLast(true);
+			
+			FDCSQLBuilder fdcSB = new FDCSQLBuilder(ctx);
+			fdcSB.setBatchType(FDCSQLBuilder.STATEMENT_TYPE);
+			
+			StringBuffer sql = new StringBuffer();
+			sql.append("update CT_AIM_ForecastChangeVis set CFIsLast = 0 where CFContractNumberID = '");
+			sql.append(info.getContractNumber().getId()).append("'");
+			fdcSB.addBatch(sql.toString());
+			fdcSB.executeBatch();
+			
 			updatePartial(ctx, info,getSelectorItem());
 		} catch (EASBizException e) {
 			e.printStackTrace();
@@ -37,6 +53,7 @@ public class ForecastChangeVisControllerBean extends AbstractForecastChangeVisCo
     	SelectorItemCollection sic = new SelectorItemCollection();
     	sic.add("auditDate");
     	sic.add("status");
+    	sic.add("isLast");
     	sic.add("auditor.id");
     	return sic;
     }
@@ -48,6 +65,18 @@ public class ForecastChangeVisControllerBean extends AbstractForecastChangeVisCo
 			info.setAuditDate(null);
 			info.setAuditor(null);
 			info.setStatus(FDCBillStateEnum.SUBMITTED);
+			
+			info.setIsLast(false);
+			
+			FDCSQLBuilder fdcSB = new FDCSQLBuilder(ctx);
+			fdcSB.setBatchType(FDCSQLBuilder.STATEMENT_TYPE);
+			
+			StringBuffer sql = new StringBuffer();
+			sql.append("update CT_AIM_ForecastChangeVis set CFIsLast = 1 where CFContractNumberID = '");
+			sql.append(info.getContractNumber().getId()).append("' and  CFVersion='"+FDCHelper.subtract(info.getVersion(), BigDecimal.ONE)+"'");
+			fdcSB.addBatch(sql.toString());
+			fdcSB.executeBatch();
+			
 			updatePartial(ctx, info,getSelectorItem());
 		} catch (EASBizException e) {
 			e.printStackTrace();

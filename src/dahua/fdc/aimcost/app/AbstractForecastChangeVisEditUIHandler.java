@@ -44,4 +44,9 @@ public abstract class AbstractForecastChangeVisEditUIHandler extends com.kingdee
 	}
 	protected void _handleactionSplitProd(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleactionBananZreo(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleactionBananZreo(request,response,context);
+	}
+	protected void _handleactionBananZreo(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

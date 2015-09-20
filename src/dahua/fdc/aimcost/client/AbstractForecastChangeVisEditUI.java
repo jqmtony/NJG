@@ -67,6 +67,7 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcontractAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contSplitedAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contUnSplitAmount;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkbanZreo;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker kDDateCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -97,6 +98,7 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtcontractAmount;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtSplitedAmount;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtUnSplitAmount;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnBananZreo;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAudit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnAudit;
     protected com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo editData = null;
@@ -106,6 +108,7 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
     protected actionSplitProj actionSplitProj = null;
     protected actionSplitBotUp actionSplitBotUp = null;
     protected actionSplitProd actionSplitProd = null;
+    protected actionBananZreo actionBananZreo = null;
     /**
      * output class constructor
      */
@@ -201,6 +204,10 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
         this.actionSplitProd = new actionSplitProd(this);
         getActionManager().registerAction("actionSplitProd", actionSplitProd);
          this.actionSplitProd.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionBananZreo
+        this.actionBananZreo = new actionBananZreo(this);
+        getActionManager().registerAction("actionBananZreo", actionBananZreo);
+         this.actionBananZreo.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -222,6 +229,7 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
         this.contcontractAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contSplitedAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contUnSplitAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.chkbanZreo = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDDateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -251,6 +259,7 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
         this.txtcontractAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtSplitedAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtUnSplitAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.btnBananZreo = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnUnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
@@ -274,6 +283,7 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
         this.contcontractAmount.setName("contcontractAmount");
         this.contSplitedAmount.setName("contSplitedAmount");
         this.contUnSplitAmount.setName("contUnSplitAmount");
+        this.chkbanZreo.setName("chkbanZreo");
         this.prmtCreator.setName("prmtCreator");
         this.kDDateCreateTime.setName("kDDateCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -303,6 +313,7 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
         this.txtcontractAmount.setName("txtcontractAmount");
         this.txtSplitedAmount.setName("txtSplitedAmount");
         this.txtUnSplitAmount.setName("txtUnSplitAmount");
+        this.btnBananZreo.setName("btnBananZreo");
         this.btnAudit.setName("btnAudit");
         this.btnUnAudit.setName("btnUnAudit");
         // CoreUI		
@@ -424,6 +435,10 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
         this.contUnSplitAmount.setBoundLabelLength(100);		
         this.contUnSplitAmount.setBoundLabelUnderline(true);		
         this.contUnSplitAmount.setVisible(true);
+        // chkbanZreo		
+        this.chkbanZreo.setText(resHelper.getString("chkbanZreo.text"));		
+        this.chkbanZreo.setVisible(false);		
+        this.chkbanZreo.setHorizontalAlignment(2);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);
         // kDDateCreateTime		
@@ -644,6 +659,10 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
         this.txtUnSplitAmount.setPrecision(2);		
         this.txtUnSplitAmount.setRequired(false);		
         this.txtUnSplitAmount.setEnabled(false);
+        // btnBananZreo
+        this.btnBananZreo.setAction((IItemAction)ActionProxyFactory.getProxy(actionBananZreo, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnBananZreo.setText(resHelper.getString("btnBananZreo.text"));		
+        this.btnBananZreo.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_amountgeneralledger"));
         // btnAudit
         this.btnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionAudit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAudit.setText(resHelper.getString("btnAudit.text"));
@@ -719,6 +738,8 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
         this.add(contSplitedAmount, new KDLayout.Constraints(371, 57, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contUnSplitAmount.setBounds(new Rectangle(734, 57, 270, 19));
         this.add(contUnSplitAmount, new KDLayout.Constraints(734, 57, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        chkbanZreo.setBounds(new Rectangle(663, 39, 270, 19));
+        this.add(chkbanZreo, new KDLayout.Constraints(663, 39, 270, 19, 0));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -910,6 +931,7 @@ kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         this.toolBar.add(btnPrint);
         this.toolBar.add(btnPrintPreview);
         this.toolBar.add(separatorFW2);
+        this.toolBar.add(btnBananZreo);
         this.toolBar.add(btnFirst);
         this.toolBar.add(btnPre);
         this.toolBar.add(btnNext);
@@ -950,6 +972,7 @@ kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 	//Regiester control's property binding.
 	private void registerBindings(){
 		dataBinder.registerBinding("isLast", boolean.class, this.chkisLast, "selected");
+		dataBinder.registerBinding("banZreo", boolean.class, this.chkbanZreo, "selected");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.kDDateCreateTime, "value");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
@@ -1116,6 +1139,7 @@ kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
 		getValidateHelper().registerBindProperty("isLast", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("banZreo", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
@@ -1223,6 +1247,7 @@ kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
 			selectorAll = "true";
 		}
         sic.add(new SelectorItemInfo("isLast"));
+        sic.add(new SelectorItemInfo("banZreo"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));
@@ -1407,6 +1432,14 @@ kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     public void actionSplitProd_actionPerformed(ActionEvent e) throws Exception
     {
     }
+    	
+
+    /**
+     * output actionBananZreo_actionPerformed method
+     */
+    public void actionBananZreo_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1504,6 +1537,17 @@ kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     }
 	
 	public boolean isPrepareactionSplitProd() {
+    	return false;
+    }
+	public RequestContext prepareactionBananZreo(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionBananZreo() {
     	return false;
     }
 
@@ -1688,6 +1732,37 @@ kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractForecastChangeVisEditUI.this, "actionSplitProd", "actionSplitProd_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionBananZreo class
+     */     
+    protected class actionBananZreo extends ItemAction {     
+    
+        public actionBananZreo()
+        {
+            this(null);
+        }
+
+        public actionBananZreo(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionBananZreo.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionBananZreo.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionBananZreo.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractForecastChangeVisEditUI.this, "actionBananZreo", "actionBananZreo_actionPerformed", e);
         }
     }
 
