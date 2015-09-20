@@ -13,18 +13,18 @@ import com.kingdee.util.enums.StringEnum;
  */
 public class FDCBillStateEnum extends StringEnum
 {
-    public static final String SAVED_VALUE = "1SAVED";
-    public static final String SUBMITTED_VALUE = "2SUBMITTED";
-    public static final String AUDITTING_VALUE = "3AUDITTING";
-    public static final String AUDITTED_VALUE = "4AUDITTED";
-    public static final String CANCEL_VALUE = "5CANCEL";
-    public static final String ANNOUNCE_VALUE = "7ANNOUNCE";
-    public static final String VISA_VALUE = "8VISA";
-    public static final String INVALID_VALUE = "9INVALID";
-    public static final String PUBLISH_VALUE = "10PUBLISH";
-    public static final String BACK_VALUE = "11BACK";
-    public static final String REVISING_VALUE = "12REVISING";
-    public static final String REVISE_VALUE = "12REVISE";
+    public static final String SAVED_VALUE = "1SAVED";//alias=保存
+    public static final String SUBMITTED_VALUE = "2SUBMITTED";//alias=已提交
+    public static final String AUDITTING_VALUE = "3AUDITTING";//alias=审批中
+    public static final String AUDITTED_VALUE = "4AUDITTED";//alias=已审批
+    public static final String CANCEL_VALUE = "5CANCEL";//alias=终止
+    public static final String ANNOUNCE_VALUE = "7ANNOUNCE";//alias=已下发
+    public static final String VISA_VALUE = "8VISA";//alias=已签证
+    public static final String INVALID_VALUE = "9INVALID";//alias=作废
+    public static final String PUBLISH_VALUE = "10PUBLISH";//alias=已上报
+    public static final String BACK_VALUE = "11BACK";//alias=被打回
+    public static final String REVISING_VALUE = "12REVISING";//alias=修订中
+    public static final String REVISE_VALUE = "12REVISE";//alias=已修订
 
     public static final FDCBillStateEnum SAVED = new FDCBillStateEnum("SAVED", SAVED_VALUE);
     public static final FDCBillStateEnum SUBMITTED = new FDCBillStateEnum("SUBMITTED", SUBMITTED_VALUE);
