@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class ForecastChangeVisInfo extends AbstractForecastChangeVisInfo implements Serializable 
 {
     public ForecastChangeVisInfo()
-    {
+    { 
         super();
     }
     protected ForecastChangeVisInfo(String pkField)

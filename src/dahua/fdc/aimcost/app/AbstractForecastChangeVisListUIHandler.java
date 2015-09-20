@@ -24,4 +24,19 @@ public abstract class AbstractForecastChangeVisListUIHandler extends com.kingdee
 	}
 	protected void _handleActionTDPrintPreview(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleActionAudit(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionAudit(request,response,context);
+	}
+	protected void _handleActionAudit(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
+	public void handleActionUnAudit(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionUnAudit(request,response,context);
+	}
+	protected void _handleActionUnAudit(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
+	public void handleactionModify(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleactionModify(request,response,context);
+	}
+	protected void _handleactionModify(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

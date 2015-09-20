@@ -28,6 +28,39 @@ public class AbstractForecastChangeVisEntryInfo extends com.kingdee.eas.framewor
     {
         put("parent", item);
     }
+    /**
+     * Object:分录's 事项名称property 
+     */
+    public String getItemName()
+    {
+        return getString("itemName");
+    }
+    public void setItemName(String item)
+    {
+        setString("itemName", item);
+    }
+    /**
+     * Object:分录's 预估金额property 
+     */
+    public java.math.BigDecimal getAmount()
+    {
+        return getBigDecimal("amount");
+    }
+    public void setAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("amount", item);
+    }
+    /**
+     * Object:分录's 特殊说明property 
+     */
+    public String getRemake()
+    {
+        return getString("remake");
+    }
+    public void setRemake(String item)
+    {
+        setString("remake", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("42F3CCF4");

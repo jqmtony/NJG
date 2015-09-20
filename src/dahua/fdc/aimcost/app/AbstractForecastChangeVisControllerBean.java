@@ -190,6 +190,46 @@ public abstract class AbstractForecastChangeVisControllerBean extends CoreBillBa
         return super._getValue(ctx, oql);
     }
 
+    public void actionAudit(Context ctx, ForecastChangeVisInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("63faf1ce-9aa2-4566-970a-23e6e6229d82"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _actionAudit(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _actionAudit(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
+    public void actionUnAudit(Context ctx, ForecastChangeVisInfo model) throws BOSException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("aa28d446-9d7e-41ce-8454-35111cc15015"), new Object[]{ctx, model});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _actionUnAudit(ctx, model);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            throw ex;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _actionUnAudit(Context ctx, IObjectValue model) throws BOSException
+    {    	
+        return;
+    }
+
     public CoreBillBaseCollection getCoreBillBaseCollection (Context ctx) throws BOSException
     {
     	return (CoreBillBaseCollection)(getForecastChangeVisCollection(ctx).cast(CoreBillBaseCollection.class));

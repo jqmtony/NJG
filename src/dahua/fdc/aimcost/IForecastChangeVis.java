@@ -27,4 +27,6 @@ public interface IForecastChangeVis extends ICoreBillBase
     public ForecastChangeVisInfo getForecastChangeVisInfo(IObjectPK pk) throws BOSException, EASBizException;
     public ForecastChangeVisInfo getForecastChangeVisInfo(IObjectPK pk, SelectorItemCollection selector) throws BOSException, EASBizException;
     public ForecastChangeVisInfo getForecastChangeVisInfo(String oql) throws BOSException, EASBizException;
+    public void actionAudit(ForecastChangeVisInfo model) throws BOSException;
+    public void actionUnAudit(ForecastChangeVisInfo model) throws BOSException;
 }

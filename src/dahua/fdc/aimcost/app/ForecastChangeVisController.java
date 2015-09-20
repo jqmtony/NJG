@@ -32,4 +32,6 @@ public interface ForecastChangeVisController extends CoreBillBaseController
     public ForecastChangeVisInfo getForecastChangeVisInfo(Context ctx, IObjectPK pk) throws BOSException, EASBizException, RemoteException;
     public ForecastChangeVisInfo getForecastChangeVisInfo(Context ctx, IObjectPK pk, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public ForecastChangeVisInfo getForecastChangeVisInfo(Context ctx, String oql) throws BOSException, EASBizException, RemoteException;
+    public void actionAudit(Context ctx, ForecastChangeVisInfo model) throws BOSException, RemoteException;
+    public void actionUnAudit(Context ctx, ForecastChangeVisInfo model) throws BOSException, RemoteException;
 }

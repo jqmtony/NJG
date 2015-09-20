@@ -125,4 +125,30 @@ public class ForecastChangeVis extends CoreBillBase implements IForecastChangeVi
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *…Û≈˙-User defined method
+     *@param model model
+     */
+    public void actionAudit(ForecastChangeVisInfo model) throws BOSException
+    {
+        try {
+            getController().actionAudit(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
+    /**
+     *∑¥…Û≈˙-User defined method
+     *@param model model
+     */
+    public void actionUnAudit(ForecastChangeVisInfo model) throws BOSException
+    {
+        try {
+            getController().actionUnAudit(getContext(), model);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

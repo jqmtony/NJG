@@ -46,8 +46,28 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractForecastChangeVisListUI extends com.kingdee.eas.framework.client.CoreBillListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractForecastChangeVisListUI.class);
+    protected com.kingdee.bos.ctrl.swing.KDSplitPane kDSplitPane1;
+    protected com.kingdee.bos.ctrl.swing.KDSplitPane kDSplitPane2;
+    protected com.kingdee.bos.ctrl.swing.KDSplitPane kDSplitPane3;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer3;
+    protected com.kingdee.bos.ctrl.swing.KDTreeView kDTreeView1;
+    protected com.kingdee.bos.ctrl.swing.KDTree kDTree2;
+    protected com.kingdee.bos.ctrl.swing.KDTreeView kDTreeView2;
+    protected com.kingdee.bos.ctrl.swing.KDTree kDTree1;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer2;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer4;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnModify;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAudit;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnAudit;
+    protected EntityViewInfo queryContractBillQuery = null;
+    protected IMetaDataPK queryContractBillQueryPK;
     protected ActionTDPrint actionTDPrint = null;
     protected ActionTDPrintPreview actionTDPrintPreview = null;
+    protected ActionAudit actionAudit = null;
+    protected ActionUnAudit actionUnAudit = null;
+    protected actionModify actionModify = null;
     public final static String STATUS_VIEW = "VIEW";
     /**
      * output class constructor
@@ -69,6 +89,7 @@ public abstract class AbstractForecastChangeVisListUI extends com.kingdee.eas.fr
         this.resHelper = new ResourceBundleHelper(AbstractForecastChangeVisListUI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
         mainQueryPK = new MetaDataPK("com.kingdee.eas.fdc.aimcost.app", "ForecastChangeVisQuery");
+        queryContractBillQueryPK = new MetaDataPK("com.kingdee.eas.fdc.contract.app", "ContractBillQuery");
         //actionRemove
         String _tempStr = null;
         actionRemove.setEnabled(true);
@@ -93,11 +114,61 @@ public abstract class AbstractForecastChangeVisListUI extends com.kingdee.eas.fr
         this.actionTDPrintPreview = new ActionTDPrintPreview(this);
         getActionManager().registerAction("actionTDPrintPreview", actionTDPrintPreview);
          this.actionTDPrintPreview.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionAudit
+        this.actionAudit = new ActionAudit(this);
+        getActionManager().registerAction("actionAudit", actionAudit);
+        this.actionAudit.setExtendProperty("canForewarn", "true");
+        this.actionAudit.setExtendProperty("userDefined", "true");
+        this.actionAudit.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionAudit.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionUnAudit
+        this.actionUnAudit = new ActionUnAudit(this);
+        getActionManager().registerAction("actionUnAudit", actionUnAudit);
+        this.actionUnAudit.setExtendProperty("canForewarn", "true");
+        this.actionUnAudit.setExtendProperty("userDefined", "true");
+        this.actionUnAudit.setExtendProperty("isObjectUpdateLock", "false");
+         this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+         this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionModify
+        this.actionModify = new actionModify(this);
+        getActionManager().registerAction("actionModify", actionModify);
+         this.actionModify.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        this.kDSplitPane1 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
+        this.kDSplitPane2 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
+        this.kDSplitPane3 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
+        this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
+        this.kDContainer3 = new com.kingdee.bos.ctrl.swing.KDContainer();
+        this.kDTreeView1 = new com.kingdee.bos.ctrl.swing.KDTreeView();
+        this.kDTree2 = new com.kingdee.bos.ctrl.swing.KDTree();
+        this.kDTreeView2 = new com.kingdee.bos.ctrl.swing.KDTreeView();
+        this.kDTree1 = new com.kingdee.bos.ctrl.swing.KDTree();
+        this.kDContainer2 = new com.kingdee.bos.ctrl.swing.KDContainer();
+        this.kDContainer4 = new com.kingdee.bos.ctrl.swing.KDContainer();
+        this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.btnModify = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnUnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.kDSplitPane1.setName("kDSplitPane1");
+        this.kDSplitPane2.setName("kDSplitPane2");
+        this.kDSplitPane3.setName("kDSplitPane3");
+        this.kDContainer1.setName("kDContainer1");
+        this.kDContainer3.setName("kDContainer3");
+        this.kDTreeView1.setName("kDTreeView1");
+        this.kDTree2.setName("kDTree2");
+        this.kDTreeView2.setName("kDTreeView2");
+        this.kDTree1.setName("kDTree1");
+        this.kDContainer2.setName("kDContainer2");
+        this.kDContainer4.setName("kDContainer4");
+        this.kDTable1.setName("kDTable1");
+        this.btnModify.setName("btnModify");
+        this.btnAudit.setName("btnAudit");
+        this.btnUnAudit.setName("btnUnAudit");
         // CoreUI
-		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol14\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol15\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:styleID=\"sCol4\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:styleID=\"sCol5\" /><t:Column t:key=\"auditor.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:styleID=\"sCol6\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"creator.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:styleID=\"sCol8\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"lastUpdateUser.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:styleID=\"sCol10\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:styleID=\"sCol11\" /><t:Column t:key=\"entrys.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:styleID=\"sCol12\" /><t:Column t:key=\"handler.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:styleID=\"sCol13\" /><t:Column t:key=\"handler.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:styleID=\"sCol14\" /><t:Column t:key=\"entrys.seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:styleID=\"sCol15\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{description}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.number}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{creator.number}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{lastUpdateUser.number}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{entrys.id}</t:Cell><t:Cell>$Resource{handler.number}</t:Cell><t:Cell>$Resource{handler.name}</t:Cell><t:Cell>$Resource{entrys.seq}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot> ";
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol17\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol18\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractNumber.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"version\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"isLast\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" /><t:Column t:key=\"remake\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" /><t:Column t:key=\"auditDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" /><t:Column t:key=\"contractAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"SplitedAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol17\" /><t:Column t:key=\"UnSplitAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol18\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{contractNumber.number}</t:Cell><t:Cell>$Resource{contractName}</t:Cell><t:Cell>$Resource{version}</t:Cell><t:Cell>$Resource{isLast}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{remake}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{auditDate}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{contractAmount}</t:Cell><t:Cell>$Resource{SplitedAmount}</t:Cell><t:Cell>$Resource{UnSplitAmount}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
-                this.tblMain.putBindContents("mainQuery",new String[] {"id","number","bizDate","description","createTime","lastUpdateTime","auditor.number","auditor.name","creator.number","creator.name","lastUpdateUser.number","lastUpdateUser.name","entrys.id","handler.number","handler.name","entrys.seq"});
+                this.tblMain.putBindContents("mainQuery",new String[] {"id","number","bizDate","status","contractNumber.number","contractName","version","isLast","amount","remake","createTime","creator.name","lastUpdateTime","lastUpdateUser.name","auditDate","auditor.name","contractAmount","SplitedAmount","UnSplitAmount"});
 
 
         this.tblMain.checkParsed();
@@ -109,6 +180,73 @@ public abstract class AbstractForecastChangeVisListUI extends com.kingdee.eas.fr
         this.kDSeparator6.setVisible(false);		
         this.menuItemViewDoProccess.setVisible(false);		
         this.menuItemAuditResult.setVisible(false);
+        // kDSplitPane1		
+        this.kDSplitPane1.setDividerLocation(250);
+        // kDSplitPane2		
+        this.kDSplitPane2.setOrientation(0);		
+        this.kDSplitPane2.setDividerLocation(300);
+        // kDSplitPane3		
+        this.kDSplitPane3.setOrientation(0);		
+        this.kDSplitPane3.setDividerLocation(300);
+        // kDContainer1		
+        this.kDContainer1.setEnableActive(false);		
+        this.kDContainer1.setTitle(resHelper.getString("kDContainer1.title"));
+        // kDContainer3		
+        this.kDContainer3.setEnableActive(false);		
+        this.kDContainer3.setTitle(resHelper.getString("kDContainer3.title"));
+        // kDTreeView1
+        // kDTree2
+        this.kDTree2.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent e) {
+                try {
+                    kDTree2_valueChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        // kDTreeView2
+        // kDTree1
+        this.kDTree1.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent e) {
+                try {
+                    kDTree1_valueChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        // kDContainer2		
+        this.kDContainer2.setEnableActive(false);		
+        this.kDContainer2.setTitle(resHelper.getString("kDContainer2.title"));
+        // kDContainer4		
+        this.kDContainer4.setEnableActive(false);		
+        this.kDContainer4.setTitle(resHelper.getString("kDContainer4.title"));
+        // kDTable1
+		String kDTable1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol16\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol19\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol20\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol29\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol30\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol31\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol32\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol33\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol34\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol35\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol36\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol37\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"partB.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"signDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"respDept.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"hasSettled\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"currency.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"originalAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"exRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"period.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costProperty\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractPropert\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"curProject.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"landDeveloper.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"partC.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isArchived\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol19\" /><t:Column t:key=\"curProject.displayName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol20\" /><t:Column t:key=\"bookedDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"mainContractNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"attachment\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"content\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractSourceId.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol29\" /><t:Column t:key=\"isRespite\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol30\" /><t:Column t:key=\"ceremonyb\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol31\" /><t:Column t:key=\"ceremonybb\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol32\" /><t:Column t:key=\"tabShowIsAmtWithoutCost\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol33\" /><t:Column t:key=\"orgUnit.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol34\" /><t:Column t:key=\"currency.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol35\" /><t:Column t:key=\"currency.precision\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol36\" /><t:Column t:key=\"respPerson.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol37\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{contractType.name}</t:Cell><t:Cell>$Resource{partB.name}</t:Cell><t:Cell>$Resource{signDate}</t:Cell><t:Cell>$Resource{respDept.name}</t:Cell><t:Cell>$Resource{state}</t:Cell><t:Cell>$Resource{hasSettled}</t:Cell><t:Cell>$Resource{currency.name}</t:Cell><t:Cell>$Resource{originalAmount}</t:Cell><t:Cell>$Resource{exRate}</t:Cell><t:Cell>$Resource{period.number}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{costProperty}</t:Cell><t:Cell>$Resource{contractPropert}</t:Cell><t:Cell>$Resource{curProject.id}</t:Cell><t:Cell>$Resource{landDeveloper.name}</t:Cell><t:Cell>$Resource{partC.name}</t:Cell><t:Cell>$Resource{isArchived}</t:Cell><t:Cell>$Resource{curProject.displayName}</t:Cell><t:Cell>$Resource{bookedDate}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{mainContractNumber}</t:Cell><t:Cell>$Resource{attachment}</t:Cell><t:Cell>$Resource{content}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{contractSourceId.name}</t:Cell><t:Cell>$Resource{isRespite}</t:Cell><t:Cell>$Resource{ceremonyb}</t:Cell><t:Cell>$Resource{ceremonybb}</t:Cell><t:Cell>$Resource{tabShowIsAmtWithoutCost}</t:Cell><t:Cell>$Resource{orgUnit.name}</t:Cell><t:Cell>$Resource{currency.id}</t:Cell><t:Cell>$Resource{currency.precision}</t:Cell><t:Cell>$Resource{respPerson.name}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kDTable1.setFormatXml(resHelper.translateString("kDTable1",kDTable1StrXML));
+                this.kDTable1.putBindContents("queryContractBillQuery",new String[] {"id","number","name","contractType.name","partB.name","signDate","respDept.name","state","hasSettled","currency.name","originalAmount","exRate","period.number","amount","costProperty","contractPropert","curProject.id","landDeveloper.name","partC.name","isArchived","curProject.displayName","bookedDate","auditor.name","auditTime","mainContractNumber","attachment","content","creator.name","createTime","contractSourceId.name","isRespite","ceremonyb","ceremonybb","tabShowIsAmtWithoutCost","orgUnit.name","currency.id","currency.precision","respPerson.name"});
+
+        this.kDTable1.addRequestRowSetListener(new RequestRowSetListener() {
+            public void doRequestRowSet(RequestRowSetEvent e) {
+                kDTable1_doRequestRowSet(e);
+            }
+        });
+
+        this.kDTable1.checkParsed();
+        this.kDTable1.getGroupManager().setGroup(true);
+        // btnModify
+        this.btnModify.setAction((IItemAction)ActionProxyFactory.getProxy(actionModify, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnModify.setText(resHelper.getString("btnModify.text"));
+        // btnAudit
+        this.btnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionAudit, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnAudit.setText(resHelper.getString("btnAudit.text"));
+        // btnUnAudit
+        this.btnUnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionUnAudit, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnUnAudit.setText(resHelper.getString("btnUnAudit.text"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -136,8 +274,29 @@ public abstract class AbstractForecastChangeVisListUI extends com.kingdee.eas.fr
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        tblMain.setBounds(new Rectangle(10, 10, 996, 580));
-        this.add(tblMain, new KDLayout.Constraints(10, 10, 996, 580, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDSplitPane1.setBounds(new Rectangle(4, 4, 1007, 623));
+        this.add(kDSplitPane1, new KDLayout.Constraints(4, 4, 1007, 623, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        //kDSplitPane1
+        kDSplitPane1.add(kDSplitPane2, "left");
+        kDSplitPane1.add(kDSplitPane3, "right");
+        //kDSplitPane2
+        kDSplitPane2.add(kDContainer1, "top");
+        kDSplitPane2.add(kDContainer3, "bottom");
+        //kDContainer1
+kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer1.getContentPane().add(kDTreeView1, BorderLayout.CENTER);
+        //kDTreeView1
+        kDTreeView1.setTree(kDTree2);
+        //kDContainer3
+kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer3.getContentPane().add(kDTreeView2, BorderLayout.CENTER);
+        //kDTreeView2
+        kDTreeView2.setTree(kDTree1);
+        //kDSplitPane3
+        kDSplitPane3.add(kDContainer2, "top");
+        kDSplitPane3.add(kDContainer4, "bottom");
+        //kDContainer2
+kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer2.getContentPane().add(kDTable1, BorderLayout.CENTER);
+        //kDContainer4
+kDContainer4.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer4.getContentPane().add(tblMain, BorderLayout.CENTER);
 
     }
 
@@ -255,10 +414,13 @@ public abstract class AbstractForecastChangeVisListUI extends com.kingdee.eas.fr
         this.toolBar.add(btnPrint);
         this.toolBar.add(btnPrintPreview);
         this.toolBar.add(separatorFW2);
+        this.toolBar.add(btnModify);
         this.toolBar.add(btnCreateTo);
         this.toolBar.add(btnCopyTo);
         this.toolBar.add(btnQueryScheme);
         this.toolBar.add(separatorFW3);
+        this.toolBar.add(btnAudit);
+        this.toolBar.add(btnUnAudit);
         this.toolBar.add(btnTraceUp);
         this.toolBar.add(btnTraceDown);
         this.toolBar.add(btnWorkFlowG);
@@ -318,6 +480,17 @@ public abstract class AbstractForecastChangeVisListUI extends com.kingdee.eas.fr
         IObjectValue ov = dataObject;        	    	
         super.setDataObject(ov);
     }
+
+    /**
+     * output setDataObject method
+     */
+    public void setDataObject(String key, IObjectValue dataObject)
+    {
+        super.setDataObject(key, dataObject);
+        if (key.equalsIgnoreCase("queryContractBillQuery")) {
+            this.queryContractBillQuery = (EntityViewInfo)dataObject;
+		}
+	}
 	protected void Remove() throws Exception {
     	IObjectValue editData = getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
     	super.Remove();
@@ -378,6 +551,67 @@ public abstract class AbstractForecastChangeVisListUI extends com.kingdee.eas.fr
         super.setOprtState(oprtType);
     }
 
+    /**
+     * output kDTree2_valueChanged method
+     */
+    protected void kDTree2_valueChanged(javax.swing.event.TreeSelectionEvent e) throws Exception
+    {
+        //write your code here1
+    }
+
+    /**
+     * output kDTree1_valueChanged method
+     */
+    protected void kDTree1_valueChanged(javax.swing.event.TreeSelectionEvent e) throws Exception
+    {
+        //write your code here1
+    }
+
+    /**
+     * output kDTable1_tableClicked method
+     */
+    protected void kDTable1_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
+    {
+        //write your code here
+    }
+
+    /**
+     * output kDTable1_tableSelectChanged method
+     */
+    protected void kDTable1_tableSelectChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent e) throws Exception
+    {
+        //write your code here
+    }
+
+    /**
+     * output kDTable1_doRequestRowSet method
+     */
+    protected void kDTable1_doRequestRowSet(RequestRowSetEvent e)
+    {
+        if (this.queryContractBillQuery != null) {
+            int start = ((Integer)e.getParam1()).intValue();
+            int length = ((Integer)e.getParam2()).intValue() - start + 1;
+            try {
+                IQueryExecutor exec = this.getQueryExecutor(this.queryContractBillQueryPK, this.queryContractBillQuery);
+                IRowSet rowSet = exec.executeQuery(start,length);
+                e.setRowSet(rowSet);
+                onGetRowSet(rowSet);
+            } catch (Exception ee) {
+                handUIException(ee);
+            }
+        }
+    }
+
+
+    /**
+     * output getQueryExecutor method
+     */
+    protected IQueryExecutor getQueryExecutor(IMetaDataPK queryPK,EntityViewInfo viewInfo)
+    {
+        IQueryExecutor exec = QueryExecutorFactory.getRemoteInstance(queryPK);
+        exec.setObjectView(viewInfo);
+        return exec;
+    }
 	public SelectorItemCollection getBOTPSelectors() {
 			SelectorItemCollection sic = new SelectorItemCollection();
 			return sic;
@@ -396,32 +630,33 @@ public abstract class AbstractForecastChangeVisListUI extends com.kingdee.eas.fr
         sic.add(new SelectorItemInfo("id"));
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("bizDate"));
-        sic.add(new SelectorItemInfo("description"));
+        sic.add(new SelectorItemInfo("status"));
+        sic.add(new SelectorItemInfo("contractNumber.number"));
+        sic.add(new SelectorItemInfo("contractName"));
+        sic.add(new SelectorItemInfo("version"));
+        sic.add(new SelectorItemInfo("amount"));
+        sic.add(new SelectorItemInfo("remake"));
         sic.add(new SelectorItemInfo("createTime"));
-        sic.add(new SelectorItemInfo("lastUpdateTime"));
-        sic.add(new SelectorItemInfo("auditor.number"));
-        sic.add(new SelectorItemInfo("auditor.name"));
-        sic.add(new SelectorItemInfo("creator.number"));
         sic.add(new SelectorItemInfo("creator.name"));
-        sic.add(new SelectorItemInfo("lastUpdateUser.number"));
+        sic.add(new SelectorItemInfo("lastUpdateTime"));
         sic.add(new SelectorItemInfo("lastUpdateUser.name"));
-        sic.add(new SelectorItemInfo("entrys.id"));
-        sic.add(new SelectorItemInfo("handler.number"));
-        sic.add(new SelectorItemInfo("handler.name"));
-        sic.add(new SelectorItemInfo("entrys.seq"));
+        sic.add(new SelectorItemInfo("auditDate"));
+        sic.add(new SelectorItemInfo("auditor.name"));
+        sic.add(new SelectorItemInfo("isLast"));
+        sic.add(new SelectorItemInfo("contractAmount"));
+        sic.add(new SelectorItemInfo("SplitedAmount"));
+        sic.add(new SelectorItemInfo("UnSplitAmount"));
         return sic;
     }            protected java.util.List getQuerySorterFields() 
     { 
         java.util.List sorterFieldList = new ArrayList(); 
         sorterFieldList.add("number"); 
-        sorterFieldList.add("entrys.seq"); 
         return sorterFieldList; 
     } 
     protected java.util.List getQueryPKFields() 
     { 
         java.util.List pkList = new ArrayList(); 
         pkList.add("id"); 
-        pkList.add("entrys.id"); 
         return pkList;
     }
     	
@@ -463,6 +698,36 @@ public abstract class AbstractForecastChangeVisListUI extends com.kingdee.eas.fr
         com.kingdee.bos.ctrl.report.forapp.kdnote.client.KDNoteHelper appHlp = new com.kingdee.bos.ctrl.report.forapp.kdnote.client.KDNoteHelper();
         appHlp.printPreview(getTDFileName(), data, javax.swing.SwingUtilities.getWindowAncestor(this));
     }
+    	
+
+    /**
+     * output actionAudit_actionPerformed method
+     */
+    public void actionAudit_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo editData = (com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.fdc.aimcost.ForecastChangeVisFactory.getRemoteInstance().actionAudit(editData);
+    }
+    	
+
+    /**
+     * output actionUnAudit_actionPerformed method
+     */
+    public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception
+    {
+        if (getSelectedKeyValue() == null) return;
+com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo editData = (com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+com.kingdee.eas.fdc.aimcost.ForecastChangeVisFactory.getRemoteInstance().actionUnAudit(editData);
+    }
+    	
+
+    /**
+     * output actionModify_actionPerformed method
+     */
+    public void actionModify_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionRemove(itemAction);		
 		if (request != null) {
@@ -494,6 +759,39 @@ public abstract class AbstractForecastChangeVisListUI extends com.kingdee.eas.fr
     }
 	
 	public boolean isPrepareActionTDPrintPreview() {
+    	return false;
+    }
+	public RequestContext prepareActionAudit(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionAudit() {
+    	return false;
+    }
+	public RequestContext prepareActionUnAudit(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionUnAudit() {
+    	return false;
+    }
+	public RequestContext prepareactionModify(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionModify() {
     	return false;
     }
 
@@ -558,6 +856,97 @@ public abstract class AbstractForecastChangeVisListUI extends com.kingdee.eas.fr
     }
 
     /**
+     * output ActionAudit class
+     */     
+    protected class ActionAudit extends ItemAction {     
+    
+        public ActionAudit()
+        {
+            this(null);
+        }
+
+        public ActionAudit(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionAudit.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionAudit.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionAudit.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractForecastChangeVisListUI.this, "ActionAudit", "actionAudit_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionUnAudit class
+     */     
+    protected class ActionUnAudit extends ItemAction {     
+    
+        public ActionUnAudit()
+        {
+            this(null);
+        }
+
+        public ActionUnAudit(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionUnAudit.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnAudit.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionUnAudit.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractForecastChangeVisListUI.this, "ActionUnAudit", "actionUnAudit_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionModify class
+     */     
+    protected class actionModify extends ItemAction {     
+    
+        public actionModify()
+        {
+            this(null);
+        }
+
+        public actionModify(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionModify.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionModify.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionModify.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractForecastChangeVisListUI.this, "actionModify", "actionModify_actionPerformed", e);
+        }
+    }
+
+    /**
      * output getMetaDataPK method
      */
     public IMetaDataPK getMetaDataPK()
@@ -602,7 +991,7 @@ public abstract class AbstractForecastChangeVisListUI extends com.kingdee.eas.fr
      */
     public String[] getMergeColumnKeys()
     {
-        return new String[] {"id","number","bizDate","description","createTime","lastUpdateTime","auditor.number","auditor.name","creator.number","creator.name","lastUpdateUser.number","lastUpdateUser.name","handler.number","handler.name"};
+        return new String[] {"id","number","bizDate","status","contractNumber.number","contractName","version","isLast","amount","remake","createTime","creator.name","lastUpdateTime","lastUpdateUser.name","auditDate","auditor.name","contractAmount","SplitedAmount","UnSplitAmount"};
     }
 
 
