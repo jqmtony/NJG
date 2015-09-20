@@ -49,6 +49,48 @@
             <scale>0</scale>
             <precision>44</precision>
         </column>
+        <column>
+            <name>CFItemName</name>
+            <alias>dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[CFItemName].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[CFItemName].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFAmount</name>
+            <alias>dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[CFAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[CFAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFRemake</name>
+            <alias>dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[CFRemake].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[CFRemake].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_AIM_FrcstCVr2s</name>
@@ -88,37 +130,80 @@
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="分录" />
+            <lang locale="zh_HK" value="分錄" />
             <lang locale="zh_TW" value="分錄" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[CFAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="预估金额" />
+            <lang locale="zh_HK" value="預估金額" />
+            <lang locale="zh_TW" value="預估金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[CFAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="预估金额" />
+            <lang locale="zh_HK" value="預估金額" />
+            <lang locale="zh_TW" value="預估金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[CFItemName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="事项名称" />
+            <lang locale="zh_HK" value="事項名稱" />
+            <lang locale="zh_TW" value="事項名稱" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[CFItemName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="事项名称" />
+            <lang locale="zh_HK" value="事項名稱" />
+            <lang locale="zh_TW" value="事項名稱" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[CFRemake].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="特殊说明" />
+            <lang locale="zh_HK" value="特殊說明" />
+            <lang locale="zh_TW" value="特殊說明" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[CFRemake].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="特殊说明" />
+            <lang locale="zh_HK" value="特殊說明" />
+            <lang locale="zh_TW" value="特殊說明" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[FID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[FID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[FParentID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[FParentID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[FSeq].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].columns.column[FSeq].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号（定义为序列属性即使用{seq}）" />
+            <lang locale="zh_HK" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+            <lang locale="zh_TW" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.CT_AIM_ForecastChangeVisEntry].description">
             <lang locale="en_US" value="null" />

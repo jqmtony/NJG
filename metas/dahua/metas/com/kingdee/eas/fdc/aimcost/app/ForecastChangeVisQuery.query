@@ -62,19 +62,6 @@
             </entityRef>
         </subEntity>
         <subEntity>
-            <name>entrys</name>
-            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].subObjects.subEntity[entrys].alias</alias>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
-                <key name="name" value="ForecastChangeVisQuery" />
-            </query>
-            <entityRef>
-                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
-                <key name="name" value="ForecastChangeVisEntry" />
-            </entityRef>
-        </subEntity>
-        <subEntity>
             <name>handler</name>
             <alias>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].subObjects.subEntity[handler].alias</alias>
             <userDefined>true</userDefined>
@@ -85,6 +72,19 @@
             <entityRef>
                 <key name="package" value="com.kingdee.eas.base.permission.app" />
                 <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>contractNumber</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].subObjects.subEntity[contractNumber].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="ForecastChangeVisQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractBill" />
             </entityRef>
         </subEntity>
     </subObjects>
@@ -369,28 +369,183 @@
             </query>
         </queryField>
         <queryField>
-            <name>description</name>
+            <name>status</name>
             <userDefined>true</userDefined>
-            <formulaString />
+            <formulaString>#0</formulaString>
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[description].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[status].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
+            <isSorter>true</isSorter>
             <isParameter>false</isParameter>
             <returnType>String</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>0</key>
+                    <key>5bc438f1-24ce-4bdd-9401-ae2645c96f63</key>
                     <parentUnit>
-                        <key name="name" value="description" />
+                        <key name="name" value="status" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="ForecastChangeVis" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="description" />
+                        <key name="name" value="status" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="ForecastChangeVisQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>contractNumber.number</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[contractNumber.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>bbadeb06-8ac7-470e-a827-ec742a0c96d1</key>
+                    <parentUnit>
+                        <key name="name" value="contractNumber.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="contractNumber" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="ForecastChangeVisQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>contractName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[contractName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4901e92d-6bac-4bb0-b6c4-8b87a8321ece</key>
+                    <parentUnit>
+                        <key name="name" value="contractName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ForecastChangeVis" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="contractName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="ForecastChangeVisQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>version</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[version].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>61d59435-36c4-4df7-9589-9eb6be329730</key>
+                    <parentUnit>
+                        <key name="name" value="version" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ForecastChangeVis" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="version" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="ForecastChangeVisQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>amount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[amount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f7b9392d-2172-4357-b05a-cf7971c53632</key>
+                    <parentUnit>
+                        <key name="name" value="amount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ForecastChangeVis" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="amount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="ForecastChangeVisQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>remake</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[remake].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>888c7aff-1826-412b-9a52-74780a7a7708</key>
+                    <parentUnit>
+                        <key name="name" value="remake" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ForecastChangeVis" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="remake" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -431,130 +586,6 @@
             </query>
         </queryField>
         <queryField>
-            <name>lastUpdateTime</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[lastUpdateTime].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Timestamp</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="lastUpdateTime" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="ForecastChangeVis" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="lastUpdateTime" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
-                <key name="name" value="ForecastChangeVisQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>auditor.number</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[auditor.number].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="auditor.number" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="auditor" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="number" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
-                <key name="name" value="ForecastChangeVisQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>auditor.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[auditor.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="auditor.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="auditor" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
-                <key name="name" value="ForecastChangeVisQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>creator.number</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[creator.number].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="creator.number" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="creator" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="number" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
-                <key name="name" value="ForecastChangeVisQuery" />
-            </query>
-        </queryField>
-        <queryField>
             <name>creator.name</name>
             <userDefined>true</userDefined>
             <formulaString />
@@ -586,28 +617,28 @@
             </query>
         </queryField>
         <queryField>
-            <name>lastUpdateUser.number</name>
+            <name>lastUpdateTime</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[lastUpdateUser.number].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[lastUpdateTime].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
+            <isSorter>false</isSorter>
             <isParameter>false</isParameter>
-            <returnType>String</returnType>
+            <returnType>Timestamp</returnType>
             <propertyRefs>
                 <propertyRef>
                     <key>0</key>
                     <parentUnit>
-                        <key name="name" value="lastUpdateUser.number" />
+                        <key name="name" value="lastUpdateTime" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="lastUpdateUser" />
+                        <key name="name" value="ForecastChangeVis" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="number" />
+                        <key name="name" value="lastUpdateTime" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -648,28 +679,28 @@
             </query>
         </queryField>
         <queryField>
-            <name>entrys.id</name>
+            <name>auditDate</name>
             <userDefined>true</userDefined>
-            <formulaString />
+            <formulaString>#0</formulaString>
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[entrys.id].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[auditDate].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
-            <isSorter>false</isSorter>
+            <isSorter>true</isSorter>
             <isParameter>false</isParameter>
-            <returnType>String</returnType>
+            <returnType>Date</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>0</key>
+                    <key>26dd4146-bf0c-43f3-85e8-cb52c554bcb2</key>
                     <parentUnit>
-                        <key name="name" value="entrys.id" />
+                        <key name="name" value="auditDate" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="entrys" />
+                        <key name="name" value="ForecastChangeVis" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="id" />
+                        <key name="name" value="auditDate" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -679,11 +710,11 @@
             </query>
         </queryField>
         <queryField>
-            <name>handler.number</name>
+            <name>auditor.name</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[handler.number].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[auditor.name].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -694,41 +725,10 @@
                 <propertyRef>
                     <key>0</key>
                     <parentUnit>
-                        <key name="name" value="handler.number" />
+                        <key name="name" value="auditor.name" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="handler" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="number" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
-                <key name="name" value="ForecastChangeVisQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>handler.name</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[handler.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="handler.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="handler" />
+                        <key name="name" value="auditor" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="name" />
@@ -740,99 +740,6 @@
                 <key name="name" value="ForecastChangeVisQuery" />
             </query>
         </queryField>
-        <queryField>
-            <name>entrys.seq</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[entrys.seq].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>Int</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="entrys.seq" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="entrys" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="seq" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
-                <key name="name" value="ForecastChangeVisQuery" />
-            </query>
-        </queryField>
-        <propertyUnit>
-            <name>NewUnit7</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[NewUnit7].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="NewUnit7" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="ForecastChangeVis" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
-                <key name="name" value="ForecastChangeVisQuery" />
-            </query>
-        </propertyUnit>
-        <propertyUnit>
-            <name>NewUnit6</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[NewUnit6].displayName</displayName>
-            <groupType />
-            <isSelector>false</isSelector>
-            <isFilter>false</isFilter>
-            <isSorter>false</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="NewUnit6" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="entrys" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="parent" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
-                <key name="name" value="ForecastChangeVisQuery" />
-            </query>
-        </propertyUnit>
         <propertyUnit>
             <name>NewUnit9</name>
             <userDefined>true</userDefined>
@@ -895,12 +802,74 @@
                 <key name="name" value="ForecastChangeVisQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>Fivouchered</name>
+        <propertyUnit>
+            <name>0c75ccdd-d4a5-409d-bd2c-5d59ff1dd469</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[Fivouchered].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[0c75ccdd-d4a5-409d-bd2c-5d59ff1dd469].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>998d2440-c2e9-441c-a3c7-eb099b9fdbbe</key>
+                    <parentUnit>
+                        <key name="name" value="0c75ccdd-d4a5-409d-bd2c-5d59ff1dd469" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ForecastChangeVis" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="contractNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="ForecastChangeVisQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>89579e34-c7f6-46cb-8a15-e29160279586</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[89579e34-c7f6-46cb-8a15-e29160279586].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0da7d0f8-26b5-43b9-993a-884021af2daa</key>
+                    <parentUnit>
+                        <key name="name" value="89579e34-c7f6-46cb-8a15-e29160279586" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="contractNumber" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="ForecastChangeVisQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>isLast</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[isLast].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -909,15 +878,108 @@
             <returnType>Boolean</returnType>
             <propertyRefs>
                 <propertyRef>
-                    <key>0</key>
+                    <key>51f2168c-ab00-4517-b296-ef226a888efb</key>
                     <parentUnit>
-                        <key name="name" value="Fivouchered" />
+                        <key name="name" value="isLast" />
                     </parentUnit>
                     <subEntity>
                         <key name="name" value="ForecastChangeVis" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="Fivouchered" />
+                        <key name="name" value="isLast" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="ForecastChangeVisQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>contractAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[contractAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5900e87a-cb42-4dd1-aa9d-e01200ee38e6</key>
+                    <parentUnit>
+                        <key name="name" value="contractAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ForecastChangeVis" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="contractAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="ForecastChangeVisQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>SplitedAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[SplitedAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>62a53120-76dc-4735-aed1-7ae19dfce25f</key>
+                    <parentUnit>
+                        <key name="name" value="SplitedAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ForecastChangeVis" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="SplitedAmount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="ForecastChangeVisQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>UnSplitAmount</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[UnSplitAmount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6e7ba423-f2e9-426d-85e2-dcdabf851132</key>
+                    <parentUnit>
+                        <key name="name" value="UnSplitAmount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ForecastChangeVis" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="UnSplitAmount" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
@@ -946,16 +1008,6 @@
             </query>
             <configured>false</configured>
         </querySorterItem>
-        <querySorterItem>
-            <propertyName>entrys.seq</propertyName>
-            <sortType>ASC</sortType>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
-                <key name="name" value="ForecastChangeVisQuery" />
-            </query>
-            <configured>false</configured>
-        </querySorterItem>
     </defaultSorters>
     <queryPK>
         <name>QueryPK</name>
@@ -964,9 +1016,6 @@
         <keyProperties>
             <queryField>
                 <key name="name" value="id" />
-            </queryField>
-            <queryField>
-                <key name="name" value="entrys.id" />
             </queryField>
         </keyProperties>
     </queryPK>
@@ -1063,36 +1112,6 @@
             </query>
         </join>
         <join>
-            <name>NewJoin3</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="ForecastChangeVis" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="entrys" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>0</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="NewUnit7" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="NewUnit6" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="NewJoin3" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
-                <key name="name" value="ForecastChangeVisQuery" />
-            </query>
-        </join>
-        <join>
             <name>NewJoin4</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
@@ -1122,12 +1141,43 @@
                 <key name="name" value="ForecastChangeVisQuery" />
             </query>
         </join>
+        <join>
+            <name>3d01a1fe-ffab-4055-9b54-b078db05ae0f</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ForecastChangeVis" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="contractNumber" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>ccd27492-e222-4423-8d7f-203e9b0192a0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="0c75ccdd-d4a5-409d-bd2c-5d59ff1dd469" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="89579e34-c7f6-46cb-8a15-e29160279586" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="3d01a1fe-ffab-4055-9b54-b078db05ae0f" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="ForecastChangeVisQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="预估变更签证单" />
-            <lang locale="zh_TW" value="多分錄基礎單據查詢" />
+            <lang locale="zh_HK" value="預估變更簽證單" />
+            <lang locale="zh_TW" value="預估變更簽證單" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
             <lang locale="en_US" value="多分录基础单据模板" />
@@ -1137,6 +1187,7 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="多分录基础单据查询" />
+            <lang locale="zh_HK" value="多分錄基礎單據查詢" />
             <lang locale="zh_TW" value="多分錄基礎單據查詢" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].extendedProperty.F7WindowTitle">
@@ -1152,121 +1203,185 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].queryPK[QueryPK].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].queryPK[QueryPK].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].subObjects.subEntity[ForecastChangeVis].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].subObjects.subEntity[auditor].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].subObjects.subEntity[contractNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].subObjects.subEntity[creator].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].subObjects.subEntity[entrys].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].subObjects.subEntity[handler].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].subObjects.subEntity[lastUpdateUser].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[0c75ccdd-d4a5-409d-bd2c-5d59ff1dd469].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[89579e34-c7f6-46cb-8a15-e29160279586].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[NewUnit0].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[NewUnit1].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[NewUnit2].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[NewUnit3].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[NewUnit4].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[NewUnit5].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[NewUnit6].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[NewUnit7].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[NewUnit8].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.propertyUnit[NewUnit9].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[Fivouchered].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[SplitedAmount].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="是否生成凭证" />
-            <lang locale="zh_TW" value="是否生成憑證" />
+            <lang locale="zh_CN" value="拆分金额" />
+            <lang locale="zh_HK" value="拆分金額" />
+            <lang locale="zh_TW" value="拆分金額" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[Fivouchered].extendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[SplitedAmount].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[Fivouchered].extendedProperty.isCommonQuerySorter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[SplitedAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[UnSplitAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="未拆分金额" />
+            <lang locale="zh_HK" value="未拆分金額" />
+            <lang locale="zh_TW" value="未拆分金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[UnSplitAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[UnSplitAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[amount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="预估变更签证金额" />
+            <lang locale="zh_HK" value="預估變更簽證金額" />
+            <lang locale="zh_TW" value="預估變更簽證金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[amount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[amount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[auditDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核日期" />
+            <lang locale="zh_HK" value="審核日期" />
+            <lang locale="zh_TW" value="審核日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[auditDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[auditDate].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[auditor.name].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="别名" />
-            <lang locale="zh_TW" value="別名" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[auditor.number].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="用户名" />
-            <lang locale="zh_TW" value="用戶名" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[bizDate].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
             <lang locale="zh_TW" value="業務日期" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[bizDate].extendedProperty.isCommonQueryFilter">
@@ -1279,70 +1394,188 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[contractAmount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同金额" />
+            <lang locale="zh_HK" value="合同金額" />
+            <lang locale="zh_TW" value="合同金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[contractAmount].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[contractAmount].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[contractName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同名称" />
+            <lang locale="zh_HK" value="合同名稱" />
+            <lang locale="zh_TW" value="合同名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[contractName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[contractName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[contractNumber.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同编码" />
+            <lang locale="zh_HK" value="合同編碼" />
+            <lang locale="zh_TW" value="合同編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[contractNumber.number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[contractNumber.number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[contractNumber.number].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[createTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
             <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[creator.name].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="别名" />
-            <lang locale="zh_TW" value="別名" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[creator.number].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="用户名" />
-            <lang locale="zh_TW" value="用戶名" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[description].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="参考信息" />
-            <lang locale="zh_TW" value="參考信息" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[entrys.id].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[entrys.seq].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="单据分录序列号" />
-            <lang locale="zh_TW" value="單據分錄序列號" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[handler.name].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="别名" />
-            <lang locale="zh_TW" value="別名" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[handler.number].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="用户名" />
-            <lang locale="zh_TW" value="用戶名" />
+            <lang locale="zh_CN" value="制单人" />
+            <lang locale="zh_HK" value="制單人" />
+            <lang locale="zh_TW" value="制單人" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[id].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[isLast].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否最新版" />
+            <lang locale="zh_HK" value="是否最新版" />
+            <lang locale="zh_TW" value="是否最新版" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[isLast].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[isLast].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[lastUpdateTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
             <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[lastUpdateUser.name].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="别名" />
-            <lang locale="zh_TW" value="別名" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[lastUpdateUser.number].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="用户名" />
-            <lang locale="zh_TW" value="用戶名" />
+            <lang locale="zh_CN" value="最后修改人" />
+            <lang locale="zh_HK" value="最後修改人" />
+            <lang locale="zh_TW" value="最後修改人" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
             <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[remake].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[remake].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[remake].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[status].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[status].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[status].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[version].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="版本号" />
+            <lang locale="zh_HK" value="版本號" />
+            <lang locale="zh_TW" value="版本號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[version].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery].units.queryField[version].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
     </resource>
 </joinQuery>

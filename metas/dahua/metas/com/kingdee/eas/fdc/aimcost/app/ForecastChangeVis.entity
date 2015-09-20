@@ -166,6 +166,58 @@
             </parameters>
             <configured>false</configured>
         </method>
+        <method>
+            <name>actionAudit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionAudit].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionAudit].description</description>
+            <innerID>63faf1ce-9aa2-4566-970a-23e6e6229d82</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionAudit].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionAudit].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>actionUnAudit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionUnAudit].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionUnAudit].description</description>
+            <innerID>aa28d446-9d7e-41ce-8454-35111cc15015</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionUnAudit].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionUnAudit].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.fdc.aimcost.ForecastChangeVis</bizUnitPK>
@@ -207,6 +259,231 @@
             <displayFormat />
             <mappingField>
                 <key name="name" value="FFivouchered" />
+            </mappingField>
+        </ownProperty>
+        <linkProperty>
+            <name>contractNumber</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[contractNumber].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[contractNumber].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFContractNumberID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="R_ForecastChangeVis_ContractBill_contractNumber" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>contractName</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFContractName" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>version</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFVersion" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>amount</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>remake</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>500</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFRemake" />
+            </mappingField>
+        </ownProperty>
+        <linkProperty>
+            <name>splitEntry</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[splitEntry].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[splitEntry].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="R_FprecastChange_FprecastChangeSplitEntry_entrys" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>auditDate</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Date</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>8</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFAuditDate" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>status</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Enum</dataType>
+            <metadataRef>com.kingdee.eas.fdc.basedata.FDCBillStateEnum</metadataRef>
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFStatus" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>isLast</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Boolean</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>1</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFIsLast" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>contractAmount</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFContractAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>SplitedAmount</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFSplitedAmount" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>UnSplitAmount</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFUnSplitAmount" />
             </mappingField>
         </ownProperty>
     </properties>
@@ -433,6 +710,90 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>actionAuditEvent</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>63faf1ce-9aa2-4566-970a-23e6e6229d82</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].eventMethods.eventMethod[63faf1ce-9aa2-4566-970a-23e6e6229d82].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].eventMethods.eventMethod[63faf1ce-9aa2-4566-970a-23e6e6229d82].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="actionAudit" />
+                        <key name="innerID" value="63faf1ce-9aa2-4566-970a-23e6e6229d82" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].eventMethods.eventMethod[63faf1ce-9aa2-4566-970a-23e6e6229d82].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].eventMethods.eventMethod[63faf1ce-9aa2-4566-970a-23e6e6229d82].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>0176c0cc-7005-421c-bd1e-71e9e3e43bfbevfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>0176c0cc-7005-421c-bd1e-71e9e3e43bfbevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>actionUnAuditEvent</name>
+            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>aa28d446-9d7e-41ce-8454-35111cc15015</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].eventMethods.eventMethod[aa28d446-9d7e-41ce-8454-35111cc15015].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].eventMethods.eventMethod[aa28d446-9d7e-41ce-8454-35111cc15015].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="actionUnAudit" />
+                        <key name="innerID" value="aa28d446-9d7e-41ce-8454-35111cc15015" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].eventMethods.eventMethod[aa28d446-9d7e-41ce-8454-35111cc15015].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].eventMethods.eventMethod[aa28d446-9d7e-41ce-8454-35111cc15015].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>16f6d369-0e3a-43c5-be50-d0459bfeaa33evfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>16f6d369-0e3a-43c5-be50-d0459bfeaa33evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -446,7 +807,8 @@
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="预估变更签证单" />
-            <lang locale="zh_TW" value="多分錄基礎單據範本" />
+            <lang locale="zh_HK" value="預估變更簽證單" />
+            <lang locale="zh_TW" value="預估變更簽證單" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].defaultView.filterextendedProperty.codingRuleEnabled">
             <lang locale="en_US" value="true" />
@@ -456,11 +818,13 @@
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].defaultViewalias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].defaultViewdescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].defaultViewextendedProperty.codingRuleEnabled">
@@ -470,102 +834,217 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="多分录基础单据模板" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="多分錄基礎單據範本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批事件" />
+            <lang locale="zh_HK" value="審批事件" />
+            <lang locale="zh_TW" value="審批事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].eventMethods.eventMethod[63faf1ce-9aa2-4566-970a-23e6e6229d82].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].eventMethods.eventMethod[63faf1ce-9aa2-4566-970a-23e6e6229d82].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].eventMethods.eventMethod[63faf1ce-9aa2-4566-970a-23e6e6229d82].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].eventMethods.eventMethod[63faf1ce-9aa2-4566-970a-23e6e6229d82].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionAuditEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审批事件" />
+            <lang locale="zh_HK" value="反審批事件" />
+            <lang locale="zh_TW" value="反審批事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].eventMethods.eventMethod[aa28d446-9d7e-41ce-8454-35111cc15015].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].eventMethods.eventMethod[aa28d446-9d7e-41ce-8454-35111cc15015].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].eventMethods.eventMethod[aa28d446-9d7e-41ce-8454-35111cc15015].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].eventMethods.eventMethod[aa28d446-9d7e-41ce-8454-35111cc15015].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[actionUnAuditEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[deleteEvent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="删除事件" />
+            <lang locale="zh_HK" value="刪除事件" />
             <lang locale="zh_TW" value="刪除事件" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[deleteEvent].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="删除事件" />
+            <lang locale="zh_HK" value="刪除事件" />
             <lang locale="zh_TW" value="刪除事件" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[deleteEvent].eventMethods.eventMethod[be5779dd-00fe-1000-e000-0007c0a813a9].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[deleteEvent].eventMethods.eventMethod[be5779dd-00fe-1000-e000-0007c0a813a9].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[deleteEvent].eventMethods.eventMethod[be5779dd-00fe-1000-e000-0007c0a813a9].parameterMappings.parameterMappingalias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[deleteEvent].eventMethods.eventMethod[be5779dd-00fe-1000-e000-0007c0a813a9].parameterMappings.parameterMappingdescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[passAuditEvent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="审核通过事件" />
+            <lang locale="zh_HK" value="審核通過事件" />
             <lang locale="zh_TW" value="審核通過事件" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[passAuditEvent].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="审核通过事件" />
+            <lang locale="zh_HK" value="審核通過事件" />
             <lang locale="zh_TW" value="審核通過事件" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[passAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000ec0a813e6].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[passAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000ec0a813e6].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[passAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000ec0a813e6].parameterMappings.parameterMappingalias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[passAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000ec0a813e6].parameterMappings.parameterMappingdescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[passAuditEvent].formalParameters.formalParameter.parameter[model].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
             <lang locale="zh_TW" value="值對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[passAuditEvent].formalParameters.formalParameter.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
             <lang locale="zh_TW" value="值對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="对象主键" />
+            <lang locale="zh_HK" value="對象主鍵" />
             <lang locale="zh_TW" value="對象主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="对象主键" />
+            <lang locale="zh_HK" value="對象主鍵" />
             <lang locale="zh_TW" value="對象主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[submitEvent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="提交" />
+            <lang locale="zh_HK" value="提交" />
             <lang locale="zh_TW" value="提交" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[submitEvent].description">
@@ -576,81 +1055,97 @@
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingalias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingdescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[submitEvent].formalParameters.formalParameter.parameter[model].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
             <lang locale="zh_TW" value="值對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[submitEvent].formalParameters.formalParameter.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[unpassAuditEvent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="反审核事件" />
+            <lang locale="zh_HK" value="反審核事件" />
             <lang locale="zh_TW" value="反審核事件" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[unpassAuditEvent].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="反审核事件" />
+            <lang locale="zh_HK" value="反審核事件" />
             <lang locale="zh_TW" value="反審核事件" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[unpassAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000fc0a813e6].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[unpassAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000fc0a813e6].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[unpassAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000fc0a813e6].parameterMappings.parameterMappingalias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[unpassAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000fc0a813e6].parameterMappings.parameterMappingdescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[model].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
             <lang locale="zh_TW" value="值對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
             <lang locale="zh_TW" value="值對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="对象主键" />
+            <lang locale="zh_HK" value="對象主鍵" />
             <lang locale="zh_TW" value="對象主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="对象主键" />
+            <lang locale="zh_HK" value="對象主鍵" />
             <lang locale="zh_TW" value="對象主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].extendedProperty.OrgType">
@@ -662,6 +1157,11 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisControllerBeanEx" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].extendedProperty.defaultDisplayField">
             <lang locale="en_US" value="" />
@@ -678,7 +1178,17 @@
             <lang locale="zh_CN" value="com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI" />
             <lang locale="zh_TW" value="com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].extendedProperty.isParamObject">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].extendedProperty.isUseCodeRule">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
@@ -691,86 +1201,203 @@
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].logicalKey[id].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].logicalKey[id].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionAudit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批" />
+            <lang locale="zh_HK" value="審批" />
+            <lang locale="zh_TW" value="審批" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionAudit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionAudit].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionAudit].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionUnAudit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审批" />
+            <lang locale="zh_HK" value="反審批" />
+            <lang locale="zh_TW" value="反審批" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionUnAudit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionUnAudit].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[actionUnAudit].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getCollection].alias">
             <lang locale="en_US" value="getCollection" />
             <lang locale="zh_CN" value="取集合" />
+            <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getCollection].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getCollection].parameters.parameter[oql].alias">
             <lang locale="en_US" value="getCollection" />
             <lang locale="zh_CN" value="取集合" />
+            <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getCollection].parameters.parameter[oql].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getCollection].parameters.parameter[view].alias">
             <lang locale="en_US" value="getCollection" />
             <lang locale="zh_CN" value="取集合" />
+            <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getCollection].parameters.parameter[view].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getValue].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getValue].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getValue].parameters.parameter[oql].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getValue].parameters.parameter[oql].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getValue].parameters.parameter[pk].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getValue].parameters.parameter[pk].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getValue].parameters.parameter[selector].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].methods.method[getValue].parameters.parameter[selector].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[contractNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同编码" />
+            <lang locale="zh_HK" value="合同編碼" />
+            <lang locale="zh_TW" value="合同編碼" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[contractNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[contractNumber].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[contractNumber].extendedProperty.dataField">
+            <lang locale="en_US" value="number" />
+            <lang locale="zh_CN" value="number" />
+            <lang locale="zh_TW" value="number" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[contractNumber].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[contractNumber].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[contractNumber].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[contractNumber].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[contractNumber].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[contractNumber].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[entrys].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="分录" />
+            <lang locale="zh_HK" value="分錄" />
             <lang locale="zh_TW" value="分錄" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[entrys].description">
@@ -778,19 +1405,34 @@
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[splitEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="拆分分录" />
+            <lang locale="zh_HK" value="拆分分錄" />
+            <lang locale="zh_TW" value="拆分分錄" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.linkProperty[splitEntry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[Fivouchered].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="是否生成凭证" />
+            <lang locale="zh_HK" value="是否生成憑證" />
             <lang locale="zh_TW" value="是否生成憑證" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[Fivouchered].defaultValue">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[Fivouchered].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="是否生成凭证" />
+            <lang locale="zh_HK" value="是否生成憑證" />
             <lang locale="zh_TW" value="是否生成憑證" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[Fivouchered].extendedProperty.ColWidthInKDTable">
@@ -802,6 +1444,11 @@
             <lang locale="en_US" value="BOOLEAN" />
             <lang locale="zh_CN" value="BOOLEAN" />
             <lang locale="zh_TW" value="BOOLEAN" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[Fivouchered].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[Fivouchered].extendedProperty.isForGrouping">
             <lang locale="en_US" value="false" />
@@ -829,6 +1476,641 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[Fivouchered].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="拆分金额" />
+            <lang locale="zh_HK" value="拆分金額" />
+            <lang locale="zh_TW" value="拆分金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[SplitedAmount].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="未拆分金额" />
+            <lang locale="zh_HK" value="未拆分金額" />
+            <lang locale="zh_TW" value="未拆分金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[UnSplitAmount].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="预估变更签证金额" />
+            <lang locale="zh_HK" value="預估變更簽證金額" />
+            <lang locale="zh_TW" value="預估變更簽證金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[amount].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核日期" />
+            <lang locale="zh_HK" value="審核日期" />
+            <lang locale="zh_TW" value="審核日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="日期" />
+            <lang locale="zh_HK" value="日期" />
+            <lang locale="zh_TW" value="日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DATE" />
+            <lang locale="zh_CN" value="DATE" />
+            <lang locale="zh_TW" value="DATE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[auditDate].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同金额" />
+            <lang locale="zh_HK" value="合同金額" />
+            <lang locale="zh_TW" value="合同金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="小数" />
+            <lang locale="zh_HK" value="小數" />
+            <lang locale="zh_TW" value="小數" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractAmount].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同名称" />
+            <lang locale="zh_HK" value="合同名稱" />
+            <lang locale="zh_TW" value="合同名稱" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[contractName].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否最新版" />
+            <lang locale="zh_HK" value="是否最新版" />
+            <lang locale="zh_TW" value="是否最新版" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否最新版" />
+            <lang locale="zh_HK" value="是否最新版" />
+            <lang locale="zh_TW" value="是否最新版" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="布尔" />
+            <lang locale="zh_HK" value="布爾" />
+            <lang locale="zh_TW" value="布爾" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].extendedProperty.bizDataType">
+            <lang locale="en_US" value="BOOLEAN" />
+            <lang locale="zh_CN" value="BOOLEAN" />
+            <lang locale="zh_TW" value="BOOLEAN" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[isLast].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].extendedProperty.bizDataType">
+            <lang locale="en_US" value="NOTE" />
+            <lang locale="zh_CN" value="NOTE" />
+            <lang locale="zh_TW" value="NOTE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[remake].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="SAVED" />
+            <lang locale="zh_HK" value="SAVED" />
+            <lang locale="zh_TW" value="SAVED" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].extendedProperty.bizDataType">
+            <lang locale="en_US" value="ENUM" />
+            <lang locale="zh_CN" value="ENUM" />
+            <lang locale="zh_TW" value="ENUM" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].extendedProperty.defaultValue">
+            <lang locale="en_US" value="SAVED" />
+            <lang locale="zh_CN" value="SAVED" />
+            <lang locale="zh_TW" value="SAVED" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[status].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="版本号" />
+            <lang locale="zh_HK" value="版本號" />
+            <lang locale="zh_TW" value="版本號" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.ForecastChangeVis].properties.ownProperty[version].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
