@@ -1,0 +1,876 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.contract.programming.app</package>
+    <name>ScheduleForProgrammingContract</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>DahuaScheduleEntry</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].subObjects.subEntity[DahuaScheduleEntry].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.dahuaschedule.schedule.app" />
+                <key name="name" value="DahuaScheduleEntry" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>parent</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].subObjects.subEntity[parent].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.dahuaschedule.schedule.app" />
+                <key name="name" value="DahuaSchedule" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>project</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].subObjects.subEntity[project].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProject" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>faff5b03-43ca-4aae-ae7f-ddb2291cfeb8</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaScheduleEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>task</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[task].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>26008215-7e39-45d3-850c-4e4447a64122</key>
+                    <parentUnit>
+                        <key name="name" value="task" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaScheduleEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="task" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>times</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[times].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4e0ef5af-e5d7-4d2b-ab5e-a61a4f2a6c7c</key>
+                    <parentUnit>
+                        <key name="name" value="times" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaScheduleEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="times" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>completeRate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[completeRate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>180210e8-5fe8-4f8f-ae3e-efab3ed44655</key>
+                    <parentUnit>
+                        <key name="name" value="completeRate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaScheduleEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="completeRate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>startDate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[startDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a97ebb96-4da9-4c6e-ba55-dffb74cd6931</key>
+                    <parentUnit>
+                        <key name="name" value="startDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaScheduleEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="startDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>endDate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[endDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>dc6e3824-0ea3-4211-b4f8-423c0f3e5f77</key>
+                    <parentUnit>
+                        <key name="name" value="endDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaScheduleEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="endDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>actStartDate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[actStartDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>65a67fdd-69dd-4fd8-9a42-1cdedf9cd82b</key>
+                    <parentUnit>
+                        <key name="name" value="actStartDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaScheduleEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="actStartDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>actCompleteDate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[actCompleteDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>153de96e-a235-4f57-9ec9-b3621c73463e</key>
+                    <parentUnit>
+                        <key name="name" value="actCompleteDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaScheduleEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="actCompleteDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>managerText</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[managerText].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>485e2757-3db4-4be0-b7a8-c380d38afc3f</key>
+                    <parentUnit>
+                        <key name="name" value="managerText" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaScheduleEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="managerText" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>departmentText</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[departmentText].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>605bdb33-49ac-45f9-b1dc-7a9c178df93d</key>
+                    <parentUnit>
+                        <key name="name" value="departmentText" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaScheduleEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="departmentText" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7350e726-45a9-4d09-beae-69b3f9ec27f5</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaScheduleEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>ba021d2d-f85e-4efe-bf5f-2040901fcd15</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.propertyUnit[ba021d2d-f85e-4efe-bf5f-2040901fcd15].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5be180aa-e721-45eb-9cce-8811906c6439</key>
+                    <parentUnit>
+                        <key name="name" value="ba021d2d-f85e-4efe-bf5f-2040901fcd15" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="parent" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="project" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>0198cf05-55ee-4bc0-8f2b-13d147ea23df</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.propertyUnit[0198cf05-55ee-4bc0-8f2b-13d147ea23df].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0e2f49fc-3b2e-4d58-a0d7-32cec73ebdfd</key>
+                    <parentUnit>
+                        <key name="name" value="0198cf05-55ee-4bc0-8f2b-13d147ea23df" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>4e9b597c-f3c0-48fc-a4b8-c3d8e3547e9f</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.propertyUnit[4e9b597c-f3c0-48fc-a4b8-c3d8e3547e9f].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3424fb0c-1186-4f14-bc08-e3d65a43bb86</key>
+                    <parentUnit>
+                        <key name="name" value="4e9b597c-f3c0-48fc-a4b8-c3d8e3547e9f" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaScheduleEntry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>13a356ae-72b7-48f3-985c-4bd6e466c540</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.propertyUnit[13a356ae-72b7-48f3-985c-4bd6e466c540].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>58d8718e-a602-4b47-9459-40887f4384c0</key>
+                    <parentUnit>
+                        <key name="name" value="13a356ae-72b7-48f3-985c-4bd6e466c540" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="parent" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>88814824-665f-4d61-91df-0b37bbc540c7</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.propertyUnit[88814824-665f-4d61-91df-0b37bbc540c7].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d34b7c95-4ed3-4322-a3f6-dc20e160f89e</key>
+                    <parentUnit>
+                        <key name="name" value="88814824-665f-4d61-91df-0b37bbc540c7" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="parent" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="project" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>18dde183-113e-4010-8c18-de91ccc795f9</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.propertyUnit[18dde183-113e-4010-8c18-de91ccc795f9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3d57750e-184e-4e44-9b05-b75dfdb0dddb</key>
+                    <parentUnit>
+                        <key name="name" value="18dde183-113e-4010-8c18-de91ccc795f9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>project.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[project.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2a06e1f4-ce16-4d89-9e8d-830e110ea3cd</key>
+                    <parentUnit>
+                        <key name="name" value="project.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+            <key name="name" value="ScheduleForProgrammingContract" />
+        </query>
+    </defaultFilter>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>3a22638e-dcd0-4358-b4cf-b33fcbcc84f3</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="DahuaScheduleEntry" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="parent" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>ab637327-2d2f-4dbc-8ed1-69603c2082c6</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="4e9b597c-f3c0-48fc-a4b8-c3d8e3547e9f" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="13a356ae-72b7-48f3-985c-4bd6e466c540" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="3a22638e-dcd0-4358-b4cf-b33fcbcc84f3" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </join>
+        <join>
+            <name>bb6e869f-3496-4716-8358-93f4531f7809</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="parent" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="project" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>bd69f18e-a421-4e4c-9729-7c045790cc8f</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="88814824-665f-4d61-91df-0b37bbc540c7" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="18dde183-113e-4010-8c18-de91ccc795f9" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="bb6e869f-3496-4716-8358-93f4531f7809" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ScheduleForProgrammingContract" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="任务节点F7" />
+            <lang locale="zh_HK" value="任務節點F7" />
+            <lang locale="zh_TW" value="任務節點F7" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="任务节点F7" />
+            <lang locale="zh_HK" value="任務節點F7" />
+            <lang locale="zh_TW" value="任務節點F7" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].subObjects.subEntity[DahuaScheduleEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].subObjects.subEntity[parent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].subObjects.subEntity[project].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.propertyUnit[0198cf05-55ee-4bc0-8f2b-13d147ea23df].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.propertyUnit[13a356ae-72b7-48f3-985c-4bd6e466c540].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.propertyUnit[18dde183-113e-4010-8c18-de91ccc795f9].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.propertyUnit[4e9b597c-f3c0-48fc-a4b8-c3d8e3547e9f].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.propertyUnit[88814824-665f-4d61-91df-0b37bbc540c7].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.propertyUnit[ba021d2d-f85e-4efe-bf5f-2040901fcd15].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[actCompleteDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际完成日期" />
+            <lang locale="zh_HK" value="實際完成日期" />
+            <lang locale="zh_TW" value="實際完成日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[actStartDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际开始时间" />
+            <lang locale="zh_HK" value="實際開始時間" />
+            <lang locale="zh_TW" value="實際開始時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[completeRate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="完成进度" />
+            <lang locale="zh_HK" value="完成進度" />
+            <lang locale="zh_TW" value="完成進度" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[departmentText].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任部门" />
+            <lang locale="zh_HK" value="責任部門" />
+            <lang locale="zh_TW" value="責任部門" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[endDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划完成日期" />
+            <lang locale="zh_HK" value="計畫完成日期" />
+            <lang locale="zh_TW" value="計畫完成日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[managerText].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任人" />
+            <lang locale="zh_HK" value="責任人" />
+            <lang locale="zh_TW" value="責任人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="任务编码" />
+            <lang locale="zh_HK" value="任務編碼" />
+            <lang locale="zh_TW" value="任務編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[project.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[project.id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[startDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划开始日期" />
+            <lang locale="zh_HK" value="計畫開始日期" />
+            <lang locale="zh_TW" value="計畫開始日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[task].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="任务名称" />
+            <lang locale="zh_HK" value="任務名稱" />
+            <lang locale="zh_TW" value="任務名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[task].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[task].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.programming.app.ScheduleForProgrammingContract].units.queryField[times].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工期" />
+            <lang locale="zh_HK" value="工期" />
+            <lang locale="zh_TW" value="工期" />
+        </rs>
+    </resource>
+</joinQuery>
+

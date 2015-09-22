@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <joinQuery xmlns="com.kingdee.bos.metadata">
-    <package>com.kingdee.eas.fdc.contract.basedata.app</package>
-    <name>RealDateRelQuery</name>
-    <alias>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].alias</alias>
-    <description>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].description</description>
+    <package>com.kingdee.eas.fdc.costindexdb.database.app</package>
+    <name>SinglePointTempQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].description</description>
     <userDefined>true</userDefined>
     <reportDataSource />
-    <bizUnitPK>com.kingdee.eas.fdc.contract.basedata.RealDateRel</bizUnitPK>
+    <bizUnitPK>com.kingdee.eas.fdc.costindexdb.database.SinglePointTemp</bizUnitPK>
     <connectionProvider />
     <subObjects>
         <subEntity>
-            <name>RealDateRel</name>
-            <alias>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].subObjects.subEntity[RealDateRel].alias</alias>
+            <name>SinglePointTemp</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].subObjects.subEntity[SinglePointTemp].alias</alias>
             <userDefined>true</userDefined>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
             <entityRef>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRel" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTemp" />
             </entityRef>
         </subEntity>
         <subEntity>
             <name>creator</name>
-            <alias>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].subObjects.subEntity[creator].alias</alias>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].subObjects.subEntity[creator].alias</alias>
             <userDefined>true</userDefined>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
             <entityRef>
                 <key name="package" value="com.kingdee.eas.base.permission.app" />
@@ -37,11 +37,11 @@
         </subEntity>
         <subEntity>
             <name>lastUpdateUser</name>
-            <alias>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
             <userDefined>true</userDefined>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
             <entityRef>
                 <key name="package" value="com.kingdee.eas.base.permission.app" />
@@ -49,29 +49,42 @@
             </entityRef>
         </subEntity>
         <subEntity>
-            <name>Entrys</name>
-            <alias>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].subObjects.subEntity[Entrys].alias</alias>
+            <name>Entry</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].subObjects.subEntity[Entry].alias</alias>
             <userDefined>true</userDefined>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
             <entityRef>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelEntry" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempEntry" />
             </entityRef>
         </subEntity>
         <subEntity>
-            <name>curProject</name>
-            <alias>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].subObjects.subEntity[curProject].alias</alias>
+            <name>Entry_baseUnit</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].subObjects.subEntity[Entry_baseUnit].alias</alias>
             <userDefined>true</userDefined>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.assistant.app" />
+                <key name="name" value="MeasureUnit" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>Entry_costAcount</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].subObjects.subEntity[Entry_costAcount].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
             <entityRef>
                 <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
-                <key name="name" value="CurProject" />
+                <key name="name" value="CostAccount" />
             </entityRef>
         </subEntity>
     </subObjects>
@@ -81,7 +94,7 @@
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[NewUnit0].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[NewUnit0].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -95,7 +108,7 @@
                         <key name="name" value="NewUnit0" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="RealDateRel" />
+                        <key name="name" value="SinglePointTemp" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="creator" />
@@ -103,8 +116,8 @@
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </propertyUnit>
         <propertyUnit>
@@ -112,7 +125,7 @@
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[NewUnit1].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[NewUnit1].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -134,8 +147,8 @@
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </propertyUnit>
         <propertyUnit>
@@ -143,7 +156,7 @@
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[NewUnit2].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[NewUnit2].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -157,7 +170,7 @@
                         <key name="name" value="NewUnit2" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="RealDateRel" />
+                        <key name="name" value="SinglePointTemp" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="lastUpdateUser" />
@@ -165,8 +178,8 @@
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </propertyUnit>
         <propertyUnit>
@@ -174,7 +187,7 @@
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[NewUnit3].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[NewUnit3].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -196,16 +209,78 @@
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>isUse</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[isUse].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4b4a1a25-e158-41ed-b827-772397876ca2</key>
+                    <parentUnit>
+                        <key name="name" value="isUse" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="SinglePointTemp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isUse" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="SinglePointTemp" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
+            </query>
+        </queryField>
         <queryField>
             <name>number</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[number].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[number].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -219,7 +294,7 @@
                         <key name="name" value="number" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="RealDateRel" />
+                        <key name="name" value="SinglePointTemp" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="number" />
@@ -227,8 +302,8 @@
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </queryField>
         <queryField>
@@ -236,7 +311,7 @@
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[name].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[name].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -250,7 +325,7 @@
                         <key name="name" value="name" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="RealDateRel" />
+                        <key name="name" value="SinglePointTemp" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="name" />
@@ -258,8 +333,8 @@
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </queryField>
         <queryField>
@@ -267,7 +342,7 @@
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[creator.name].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[creator.name].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -289,8 +364,8 @@
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </queryField>
         <queryField>
@@ -298,7 +373,7 @@
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[createTime].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[createTime].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -312,7 +387,7 @@
                         <key name="name" value="createTime" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="RealDateRel" />
+                        <key name="name" value="SinglePointTemp" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="createTime" />
@@ -320,8 +395,8 @@
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </queryField>
         <queryField>
@@ -329,7 +404,7 @@
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -351,8 +426,8 @@
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </queryField>
         <queryField>
@@ -360,7 +435,7 @@
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateTime].displayName</displayName>
             <groupType />
             <isSelector>true</isSelector>
             <isFilter>true</isFilter>
@@ -374,7 +449,7 @@
                         <key name="name" value="lastUpdateTime" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="RealDateRel" />
+                        <key name="name" value="SinglePointTemp" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="lastUpdateTime" />
@@ -382,47 +457,16 @@
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
-            </query>
-        </queryField>
-        <queryField>
-            <name>id</name>
-            <userDefined>true</userDefined>
-            <formulaString />
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[id].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>0</key>
-                    <parentUnit>
-                        <key name="name" value="id" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="RealDateRel" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="id" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </queryField>
         <propertyUnit>
-            <name>70f662a1-de54-43f7-8b86-c6a0569007fb</name>
+            <name>432ee008-54ab-441f-a6f4-09fe968a5769</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[70f662a1-de54-43f7-8b86-c6a0569007fb].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[432ee008-54ab-441f-a6f4-09fe968a5769].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -431,12 +475,12 @@
             <returnType />
             <propertyRefs>
                 <propertyRef>
-                    <key>ac99cbaf-fbc8-4e97-93e4-0909474cf92d</key>
+                    <key>7e78fe5c-b8d2-4995-91a1-2843d55f41ba</key>
                     <parentUnit>
-                        <key name="name" value="70f662a1-de54-43f7-8b86-c6a0569007fb" />
+                        <key name="name" value="432ee008-54ab-441f-a6f4-09fe968a5769" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="RealDateRel" />
+                        <key name="name" value="SinglePointTemp" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="id" />
@@ -444,16 +488,16 @@
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </propertyUnit>
         <propertyUnit>
-            <name>8a95bcb9-c5bc-4db7-8f46-cf7614e464ee</name>
+            <name>8b1f0fba-0382-4038-82f2-8e92a6de8392</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[8a95bcb9-c5bc-4db7-8f46-cf7614e464ee].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[8b1f0fba-0382-4038-82f2-8e92a6de8392].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -462,12 +506,12 @@
             <returnType />
             <propertyRefs>
                 <propertyRef>
-                    <key>818103c7-314d-42b9-9183-6a0082208f6b</key>
+                    <key>181479cb-1352-4333-a8b6-f458a7632405</key>
                     <parentUnit>
-                        <key name="name" value="8a95bcb9-c5bc-4db7-8f46-cf7614e464ee" />
+                        <key name="name" value="8b1f0fba-0382-4038-82f2-8e92a6de8392" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="Entrys" />
+                        <key name="name" value="Entry" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="parent" />
@@ -475,47 +519,16 @@
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </propertyUnit>
-        <queryField>
-            <name>curProject.name</name>
-            <userDefined>true</userDefined>
-            <formulaString>#0</formulaString>
-            <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[curProject.name].displayName</displayName>
-            <groupType />
-            <isSelector>true</isSelector>
-            <isFilter>true</isFilter>
-            <isSorter>true</isSorter>
-            <isParameter>false</isParameter>
-            <returnType>String</returnType>
-            <propertyRefs>
-                <propertyRef>
-                    <key>49d2ef57-5abe-44b3-8539-6d1fdde41766</key>
-                    <parentUnit>
-                        <key name="name" value="curProject.name" />
-                    </parentUnit>
-                    <subEntity>
-                        <key name="name" value="curProject" />
-                    </subEntity>
-                    <refProperty>
-                        <key name="name" value="name" />
-                    </refProperty>
-                </propertyRef>
-            </propertyRefs>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
-            </query>
-        </queryField>
         <propertyUnit>
-            <name>3855a21b-ccc5-4299-9356-5cdf608adabe</name>
+            <name>dd92a44d-05dd-4732-b569-c104ed5f505a</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[3855a21b-ccc5-4299-9356-5cdf608adabe].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[dd92a44d-05dd-4732-b569-c104ed5f505a].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -524,29 +537,29 @@
             <returnType />
             <propertyRefs>
                 <propertyRef>
-                    <key>d85f150d-736d-4b3c-81d7-b7df37ab53dc</key>
+                    <key>46374fba-d2ac-40c1-92c0-6a51b9b79f90</key>
                     <parentUnit>
-                        <key name="name" value="3855a21b-ccc5-4299-9356-5cdf608adabe" />
+                        <key name="name" value="dd92a44d-05dd-4732-b569-c104ed5f505a" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="RealDateRel" />
+                        <key name="name" value="Entry" />
                     </subEntity>
                     <refProperty>
-                        <key name="name" value="curProject" />
+                        <key name="name" value="baseUnit" />
                     </refProperty>
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </propertyUnit>
         <propertyUnit>
-            <name>0481c608-514d-4beb-92e0-9fd515544fc3</name>
+            <name>523814a0-d014-4287-a9cd-d0c6804639fd</name>
             <userDefined>true</userDefined>
             <formulaString />
             <constString />
-            <displayName>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[0481c608-514d-4beb-92e0-9fd515544fc3].displayName</displayName>
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[523814a0-d014-4287-a9cd-d0c6804639fd].displayName</displayName>
             <groupType />
             <isSelector>false</isSelector>
             <isFilter>false</isFilter>
@@ -555,12 +568,12 @@
             <returnType />
             <propertyRefs>
                 <propertyRef>
-                    <key>bdbcc159-97ae-413b-9cd3-d5e91f1e7b71</key>
+                    <key>07621261-18ba-4c79-a669-39352ff43ef1</key>
                     <parentUnit>
-                        <key name="name" value="0481c608-514d-4beb-92e0-9fd515544fc3" />
+                        <key name="name" value="523814a0-d014-4287-a9cd-d0c6804639fd" />
                     </parentUnit>
                     <subEntity>
-                        <key name="name" value="curProject" />
+                        <key name="name" value="Entry_baseUnit" />
                     </subEntity>
                     <refProperty>
                         <key name="name" value="id" />
@@ -568,8 +581,70 @@
                 </propertyRef>
             </propertyRefs>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>d199502a-f86c-413d-a2fa-d6851832cbc5</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[d199502a-f86c-413d-a2fa-d6851832cbc5].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>4f05838a-710b-4d80-ae34-43fb7e0c62da</key>
+                    <parentUnit>
+                        <key name="name" value="d199502a-f86c-413d-a2fa-d6851832cbc5" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="costAcount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>f72f0299-ecbc-4561-9a51-c9dcb69e57c7</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[f72f0299-ecbc-4561-9a51-c9dcb69e57c7].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>b24c3b9d-a822-4d20-9644-3b11c3e230ea</key>
+                    <parentUnit>
+                        <key name="name" value="f72f0299-ecbc-4561-9a51-c9dcb69e57c7" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="Entry_costAcount" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </propertyUnit>
     </units>
@@ -577,8 +652,8 @@
         <name>defaultFilter</name>
         <formulaString />
         <query>
-            <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-            <key name="name" value="RealDateRelQuery" />
+            <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+            <key name="name" value="SinglePointTempQuery" />
         </query>
     </defaultFilter>
     <defaultSorters>
@@ -587,16 +662,16 @@
             <sortType>ASC</sortType>
             <userDefined>true</userDefined>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
             <configured>false</configured>
         </querySorterItem>
     </defaultSorters>
     <queryPK>
         <name>QueryPK</name>
-        <alias>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].queryPK[QueryPK].alias</alias>
-        <description>joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].queryPK[QueryPK].description</description>
+        <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].queryPK[QueryPK].description</description>
         <keyProperties>
             <queryField>
                 <key name="name" value="id" />
@@ -610,7 +685,7 @@
             <formulaString>#0</formulaString>
             <type>INNER JOIN</type>
             <leftObject>
-                <key name="name" value="RealDateRel" />
+                <key name="name" value="SinglePointTemp" />
             </leftObject>
             <rightObject>
                 <key name="name" value="creator" />
@@ -631,8 +706,8 @@
                 </joinItem>
             </joinItems>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </join>
         <join>
@@ -640,7 +715,7 @@
             <formulaString>#0</formulaString>
             <type>INNER JOIN</type>
             <leftObject>
-                <key name="name" value="RealDateRel" />
+                <key name="name" value="SinglePointTemp" />
             </leftObject>
             <rightObject>
                 <key name="name" value="lastUpdateUser" />
@@ -661,467 +736,510 @@
                 </joinItem>
             </joinItems>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </join>
         <join>
-            <name>9aedfbf1-67e8-4b72-a333-6149448c2edb</name>
+            <name>4983ea2f-b0b0-4006-b4cd-801e5e1f5dd2</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
             <leftObject>
-                <key name="name" value="RealDateRel" />
+                <key name="name" value="SinglePointTemp" />
             </leftObject>
             <rightObject>
-                <key name="name" value="Entrys" />
+                <key name="name" value="Entry" />
             </rightObject>
             <joinItems>
                 <joinItem>
-                    <name>e05dff09-afd3-432d-8ab8-6003c7352233</name>
+                    <name>a35130bb-9a97-4718-9a1d-f10647a0a57b</name>
                     <compareType>=</compareType>
                     <leftField>
-                        <key name="name" value="70f662a1-de54-43f7-8b86-c6a0569007fb" />
+                        <key name="name" value="432ee008-54ab-441f-a6f4-09fe968a5769" />
                     </leftField>
                     <rightField>
-                        <key name="name" value="8a95bcb9-c5bc-4db7-8f46-cf7614e464ee" />
+                        <key name="name" value="8b1f0fba-0382-4038-82f2-8e92a6de8392" />
                     </rightField>
                     <join>
-                        <key name="name" value="9aedfbf1-67e8-4b72-a333-6149448c2edb" />
+                        <key name="name" value="4983ea2f-b0b0-4006-b4cd-801e5e1f5dd2" />
                     </join>
                 </joinItem>
             </joinItems>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </join>
         <join>
-            <name>56f64e1d-ddfc-4698-bd5b-c0228d077c9f</name>
+            <name>28630e73-1a63-4406-acac-74126bafddb1</name>
             <formulaString>#0</formulaString>
             <type>LEFT OUTER JOIN</type>
             <leftObject>
-                <key name="name" value="RealDateRel" />
+                <key name="name" value="Entry" />
             </leftObject>
             <rightObject>
-                <key name="name" value="curProject" />
+                <key name="name" value="Entry_baseUnit" />
             </rightObject>
             <joinItems>
                 <joinItem>
-                    <name>086f33a5-2438-4343-bdc5-328c3db7d553</name>
+                    <name>c81a926d-fac4-4d37-8224-cb10f87b2401</name>
                     <compareType>=</compareType>
                     <leftField>
-                        <key name="name" value="3855a21b-ccc5-4299-9356-5cdf608adabe" />
+                        <key name="name" value="dd92a44d-05dd-4732-b569-c104ed5f505a" />
                     </leftField>
                     <rightField>
-                        <key name="name" value="0481c608-514d-4beb-92e0-9fd515544fc3" />
+                        <key name="name" value="523814a0-d014-4287-a9cd-d0c6804639fd" />
                     </rightField>
                     <join>
-                        <key name="name" value="56f64e1d-ddfc-4698-bd5b-c0228d077c9f" />
+                        <key name="name" value="28630e73-1a63-4406-acac-74126bafddb1" />
                     </join>
                 </joinItem>
             </joinItems>
             <query>
-                <key name="package" value="com.kingdee.eas.fdc.contract.basedata.app" />
-                <key name="name" value="RealDateRelQuery" />
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
+            </query>
+        </join>
+        <join>
+            <name>049bea12-27af-4330-b225-55aacb01e0f1</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="Entry" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="Entry_costAcount" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>e381d50e-78ce-425f-8e88-be5c2cf96bd5</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="d199502a-f86c-413d-a2fa-d6851832cbc5" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="f72f0299-ecbc-4561-9a51-c9dcb69e57c7" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="049bea12-27af-4330-b225-55aacb01e0f1" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="SinglePointTempQuery" />
             </query>
         </join>
     </joins>
     <resource>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].alias">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="时间完成时间关系表" />
-            <lang locale="zh_HK" value="時間完成時間關係表" />
-            <lang locale="zh_TW" value="時間完成時間關係表" />
+            <lang locale="zh_CN" value="单项要素模板" />
+            <lang locale="zh_HK" value="單項要素範本" />
+            <lang locale="zh_TW" value="單項要素範本" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].defaultSorters.querySorterItemextendedProperty.ColWidthInKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].defaultSorters.querySorterItemextendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />
             <lang locale="zh_CN" value="50" />
             <lang locale="zh_TW" value="50" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].defaultSorters.querySorterItemextendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].defaultSorters.querySorterItemextendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].defaultSorters.querySorterItemextendedProperty.isCommonQuerySorter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].defaultSorters.querySorterItemextendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].defaultSorters.querySorterItemextendedProperty.isUsingF7">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].defaultSorters.querySorterItemextendedProperty.isUsingF7">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].defaultSorters.querySorterItemextendedProperty.isVisibleForKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].defaultSorters.querySorterItemextendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].description">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单级基础资料查询" />
             <lang locale="zh_HK" value="單級基礎資料查詢" />
             <lang locale="zh_TW" value="單級基礎資料查詢" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].extendedProperty.ColWidthInKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].extendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />
             <lang locale="zh_CN" value="50" />
             <lang locale="zh_TW" value="50" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].extendedProperty.F7WindowTitle">
-            <lang locale="en_US" value="com.kingdee.eas.fdc.contract.basedata.client.BasedataResource.RealDateRelQueryF7WindowTitle" />
-            <lang locale="zh_CN" value="com.kingdee.eas.fdc.contract.basedata.client.BasedataResource.RealDateRelQueryF7WindowTitle" />
-            <lang locale="zh_TW" value="com.kingdee.eas.fdc.contract.basedata.client.BasedataResource.RealDateRelQueryF7WindowTitle" />
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.costindexdb.database.client.DatabaseResource.SinglePointTempQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.costindexdb.database.client.DatabaseResource.SinglePointTempQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.costindexdb.database.client.DatabaseResource.SinglePointTempQueryF7WindowTitle" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].extendedProperty.f7WindowTitle">
-            <lang locale="en_US" value="时间完成时间关系表" />
-            <lang locale="zh_CN" value="时间完成时间关系表" />
-            <lang locale="zh_TW" value="时间完成时间关系表" />
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="单项要素模板" />
+            <lang locale="zh_CN" value="单项要素模板" />
+            <lang locale="zh_TW" value="单项要素模板" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].extendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].extendedProperty.isCommonQuerySorter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].extendedProperty.isUsingF7">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].extendedProperty.isUsingF7">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].extendedProperty.isVisibleForKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].queryPK[QueryPK].alias">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].queryPK[QueryPK].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].queryPK[QueryPK].description">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].queryPK[QueryPK].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].subObjects.subEntity[Entrys].alias">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].subObjects.subEntity[Entry].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].subObjects.subEntity[RealDateRel].alias">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].subObjects.subEntity[Entry_baseUnit].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].subObjects.subEntity[creator].alias">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].subObjects.subEntity[Entry_costAcount].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].subObjects.subEntity[curProject].alias">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].subObjects.subEntity[SinglePointTemp].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].subObjects.subEntity[lastUpdateUser].alias">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].subObjects.subEntity[creator].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[0481c608-514d-4beb-92e0-9fd515544fc3].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].subObjects.subEntity[lastUpdateUser].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[3855a21b-ccc5-4299-9356-5cdf608adabe].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[432ee008-54ab-441f-a6f4-09fe968a5769].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[70f662a1-de54-43f7-8b86-c6a0569007fb].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[523814a0-d014-4287-a9cd-d0c6804639fd].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[8a95bcb9-c5bc-4db7-8f46-cf7614e464ee].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[8b1f0fba-0382-4038-82f2-8e92a6de8392].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[NewUnit0].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[NewUnit0].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[NewUnit1].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[NewUnit1].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[NewUnit2].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[NewUnit2].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.propertyUnit[NewUnit3].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[NewUnit3].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[createTime].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[d199502a-f86c-413d-a2fa-d6851832cbc5].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[dd92a44d-05dd-4732-b569-c104ed5f505a].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.propertyUnit[f72f0299-ecbc-4561-9a51-c9dcb69e57c7].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[createTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="创建时间" />
             <lang locale="zh_HK" value="創建時間" />
             <lang locale="zh_TW" value="創建時間" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[createTime].extendedProperty.colWidthInKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[createTime].extendedProperty.colWidthInKDTable">
             <lang locale="en_US" value="50" />
             <lang locale="zh_CN" value="50" />
             <lang locale="zh_TW" value="50" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[createTime].extendedProperty.isUsingF7">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[createTime].extendedProperty.isUsingF7">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[createTime].extendedProperty.isVisibleForKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[createTime].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[creator.name].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[creator.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="创建人" />
             <lang locale="zh_HK" value="創建人" />
             <lang locale="zh_TW" value="創建人" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[creator.name].extendedProperty.colWidthInKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[creator.name].extendedProperty.colWidthInKDTable">
             <lang locale="en_US" value="50" />
             <lang locale="zh_CN" value="50" />
             <lang locale="zh_TW" value="50" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[creator.name].extendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[creator.name].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[creator.name].extendedProperty.isCommonQuerySorter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[creator.name].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[creator.name].extendedProperty.isUsingF7">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[creator.name].extendedProperty.isUsingF7">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[creator.name].extendedProperty.isVisibleForKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[creator.name].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[curProject.name].displayName">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="项目" />
-            <lang locale="zh_HK" value="項目" />
-            <lang locale="zh_TW" value="項目" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[curProject.name].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[curProject.name].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[curProject.name].extendedProperty.isUsingF7">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[id].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[id].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[id].extendedProperty.colWidthInKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[id].extendedProperty.colWidthInKDTable">
             <lang locale="en_US" value="50" />
             <lang locale="zh_CN" value="50" />
             <lang locale="zh_TW" value="50" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[id].extendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[id].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[id].extendedProperty.isCommonQuerySorter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[id].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[id].extendedProperty.isUsingF7">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[id].extendedProperty.isUsingF7">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateTime].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[isUse].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否启用" />
+            <lang locale="zh_HK" value="是否啟用" />
+            <lang locale="zh_TW" value="是否啟用" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[isUse].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[isUse].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="最后修改时间" />
             <lang locale="zh_HK" value="最後修改時間" />
             <lang locale="zh_TW" value="最後修改時間" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateTime].extendedProperty.colWidthInKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateTime].extendedProperty.colWidthInKDTable">
             <lang locale="en_US" value="50" />
             <lang locale="zh_CN" value="50" />
             <lang locale="zh_TW" value="50" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateTime].extendedProperty.isUsingF7">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateTime].extendedProperty.isUsingF7">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateTime].extendedProperty.isVisibleForKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateTime].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateUser.name].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateUser.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="最后修改人" />
             <lang locale="zh_HK" value="最後修改人" />
             <lang locale="zh_TW" value="最後修改人" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateUser.name].extendedProperty.colWidthInKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateUser.name].extendedProperty.colWidthInKDTable">
             <lang locale="en_US" value="50" />
             <lang locale="zh_CN" value="50" />
             <lang locale="zh_TW" value="50" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateUser.name].extendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateUser.name].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateUser.name].extendedProperty.isCommonQuerySorter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateUser.name].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateUser.name].extendedProperty.isUsingF7">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateUser.name].extendedProperty.isUsingF7">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[lastUpdateUser.name].extendedProperty.isVisibleForKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[lastUpdateUser.name].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[name].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[name].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="名称" />
-            <lang locale="zh_HK" value="名稱" />
-            <lang locale="zh_TW" value="名稱" />
+            <lang locale="zh_CN" value="模板名称" />
+            <lang locale="zh_HK" value="範本名稱" />
+            <lang locale="zh_TW" value="範本名稱" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[name].extendedProperty.colWidthInKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[name].extendedProperty.colWidthInKDTable">
             <lang locale="en_US" value="50" />
             <lang locale="zh_CN" value="50" />
             <lang locale="zh_TW" value="50" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[name].extendedProperty.isUsingF7">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[name].extendedProperty.isUsingF7">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[name].extendedProperty.isVisibleForKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[name].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[number].displayName">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[number].displayName">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="编码" />
-            <lang locale="zh_HK" value="編碼" />
-            <lang locale="zh_TW" value="編碼" />
+            <lang locale="zh_CN" value="模板编码" />
+            <lang locale="zh_HK" value="範本編碼" />
+            <lang locale="zh_TW" value="範本編碼" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[number].extendedProperty.colWidthInKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[number].extendedProperty.colWidthInKDTable">
             <lang locale="en_US" value="50" />
             <lang locale="zh_CN" value="50" />
             <lang locale="zh_TW" value="50" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[number].extendedProperty.isUsingF7">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[number].extendedProperty.isUsingF7">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.contract.basedata.app.RealDateRelQuery].units.queryField[number].extendedProperty.isVisibleForKDTable">
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.SinglePointTempQuery].units.queryField[number].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

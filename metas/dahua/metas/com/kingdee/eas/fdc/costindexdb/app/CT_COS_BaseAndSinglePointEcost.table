@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.costindexdb.app</package>
+    <name>CT_COS_BaseAndSinglePointEcost</name>
+    <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].alias</alias>
+    <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].description</description>
+    <userDefined>true</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[FID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSeq</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[FSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[FSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[FParentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFSeq</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>0</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFCostAccountID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFCostAccountID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFCostAccountID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFPointName</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFPointName].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFPointName].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFPointValue</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFPointValue].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFPointValue].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFBaseUnitID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBaseUnitID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBaseUnitID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFIsCombo</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFIsCombo].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFIsCombo].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFProductTypeID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFProductTypeID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFProductTypeID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFIsModel</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFIsModel].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFIsModel].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBuildValue</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBuildValue].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBuildValue].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFBeizhu</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBeizhu].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBeizhu].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFBuildNoID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBuildNoID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBuildNoID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>CPK_COS_BaseASPjd1</name>
+        <userDefined>true</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType />
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <foreignKeys>
+        <foreignKey>
+            <name>CFK_COS_COSBASPEf2</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="T_FDC_CostAccount" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFCostAccountID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_COS_COSBASPEu1</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.assistant" />
+                <key name="name" value="T_BD_MeasureUnit" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFBaseUnitID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_COS_COSBASPEbm</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="T_FDC_ProductType" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFProductTypeID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_COS_COSBASPEgp</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="CT_DAT_BuildNumber" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFBuildNoID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单项要素" />
+            <lang locale="zh_HK" value="單項要素" />
+            <lang locale="zh_TW" value="單項要素" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBaseUnitID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单位" />
+            <lang locale="zh_HK" value="單位" />
+            <lang locale="zh_TW" value="單位" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBaseUnitID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单位" />
+            <lang locale="zh_HK" value="單位" />
+            <lang locale="zh_TW" value="單位" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBeizhu].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBeizhu].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_HK" value="備註" />
+            <lang locale="zh_TW" value="備註" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBuildNoID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="楼号" />
+            <lang locale="zh_HK" value="樓號" />
+            <lang locale="zh_TW" value="樓號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBuildNoID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="楼号" />
+            <lang locale="zh_HK" value="樓號" />
+            <lang locale="zh_TW" value="樓號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBuildValue].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数值" />
+            <lang locale="zh_HK" value="數值" />
+            <lang locale="zh_TW" value="數值" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFBuildValue].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数值" />
+            <lang locale="zh_HK" value="數值" />
+            <lang locale="zh_TW" value="數值" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFCostAccountID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本科目" />
+            <lang locale="zh_HK" value="成本科目" />
+            <lang locale="zh_TW" value="成本科目" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFCostAccountID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本科目" />
+            <lang locale="zh_HK" value="成本科目" />
+            <lang locale="zh_TW" value="成本科目" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFIsCombo].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否需要拆分" />
+            <lang locale="zh_HK" value="是否需要拆分" />
+            <lang locale="zh_TW" value="是否需要拆分" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFIsCombo].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否需要拆分" />
+            <lang locale="zh_HK" value="是否需要拆分" />
+            <lang locale="zh_TW" value="是否需要拆分" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFIsModel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否典型楼" />
+            <lang locale="zh_HK" value="是否典型樓" />
+            <lang locale="zh_TW" value="是否典型樓" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFIsModel].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否典型楼" />
+            <lang locale="zh_HK" value="是否典型樓" />
+            <lang locale="zh_TW" value="是否典型樓" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFPointName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="要素" />
+            <lang locale="zh_HK" value="要素" />
+            <lang locale="zh_TW" value="要素" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFPointName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="要素" />
+            <lang locale="zh_HK" value="要素" />
+            <lang locale="zh_TW" value="要素" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFPointValue].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数值" />
+            <lang locale="zh_HK" value="數值" />
+            <lang locale="zh_TW" value="數值" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFPointValue].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数值" />
+            <lang locale="zh_HK" value="數值" />
+            <lang locale="zh_TW" value="數值" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFProductTypeID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="产品类型" />
+            <lang locale="zh_HK" value="產品類型" />
+            <lang locale="zh_TW" value="產品類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFProductTypeID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="产品类型" />
+            <lang locale="zh_HK" value="產品類型" />
+            <lang locale="zh_TW" value="產品類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[CFSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[FParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[FParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[FSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].columns.column[FSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号（定义为序列属性即使用{seq}）" />
+            <lang locale="zh_HK" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+            <lang locale="zh_TW" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BaseAndSinglePointEcost].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</dataTable>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.finance.app</package>
+    <name>R_PayPlanNewBySchedule_ScheduleTask</name>
+    <alias>relationship[com.kingdee.eas.fdc.finance.app.R_PayPlanNewBySchedule_ScheduleTask].alias</alias>
+    <description>relationship[com.kingdee.eas.fdc.finance.app.R_PayPlanNewBySchedule_ScheduleTask].description</description>
+    <userDefined>true</userDefined>
+    <type>Association</type>
+    <clientCardinality>1</clientCardinality>
+    <supplierCardinality>0..1</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.fdc.finance.app" />
+        <key name="name" value="PayPlanNewBySchedule" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.fdc.dahuaschedule.schedule.app" />
+        <key name="name" value="DahuaScheduleEntry" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.fdc.finance.app.R_PayPlanNewBySchedule_ScheduleTask].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名源进度任务关系" />
+            <lang locale="zh_HK" value="名源進度任務關係" />
+            <lang locale="zh_TW" value="名源進度任務關係" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.fdc.finance.app.R_PayPlanNewBySchedule_ScheduleTask].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名源进度任务关系" />
+            <lang locale="zh_HK" value="名源進度任務關係" />
+            <lang locale="zh_TW" value="名源進度任務關係" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.fdc.finance.app.R_PayPlanNewBySchedule_ScheduleTask].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</relationship>
+
