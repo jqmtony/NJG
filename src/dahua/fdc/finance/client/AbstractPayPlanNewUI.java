@@ -189,11 +189,11 @@ public abstract class AbstractPayPlanNewUI extends com.kingdee.eas.framework.cli
         // contPayPlanLst		
         this.contPayPlanLst.setTitle(resHelper.getString("contPayPlanLst.title"));
         // tblBySchedule
-		String tblByScheduleStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol1\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol12\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" t:styleID=\"sCol0\" /><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" t:styleID=\"sCol1\" /><t:Column t:key=\"paymentType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"taskName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"task\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"costAccount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" t:styleID=\"sCol5\" /><t:Column t:key=\"taskMeasureAmount\" t:width=\"110\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"calType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"beginDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" /><t:Column t:key=\"endDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"payScale\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" t:styleID=\"sCol10\" /><t:Column t:key=\"calStandard\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"delayDay\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" t:styleID=\"sCol12\" /><t:Column t:key=\"planPayDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" /><t:Column t:key=\"writeOffType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" /><t:Column t:key=\"planPayAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{paymentType}</t:Cell><t:Cell>$Resource{taskName}</t:Cell><t:Cell>$Resource{task}</t:Cell><t:Cell>$Resource{costAccount}</t:Cell><t:Cell>$Resource{taskMeasureAmount}</t:Cell><t:Cell>$Resource{calType}</t:Cell><t:Cell>$Resource{beginDate}</t:Cell><t:Cell>$Resource{endDate}</t:Cell><t:Cell>$Resource{payScale}</t:Cell><t:Cell>$Resource{calStandard}</t:Cell><t:Cell>$Resource{delayDay}</t:Cell><t:Cell>$Resource{planPayDate}</t:Cell><t:Cell>$Resource{writeOffType}</t:Cell><t:Cell>$Resource{planPayAmount}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot> ";
+		String tblByScheduleStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol1\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol8\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol14\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" t:styleID=\"sCol0\" /><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" t:styleID=\"sCol1\" /><t:Column t:key=\"paymentType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"taskName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"task\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"scheduleTask\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"payScale\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"planPayAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"costAccount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"taskMeasureAmount\" t:width=\"110\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"calType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /><t:Column t:key=\"beginDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"endDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" /><t:Column t:key=\"calStandard\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" /><t:Column t:key=\"delayDay\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" t:styleID=\"sCol14\" /><t:Column t:key=\"planPayDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" /><t:Column t:key=\"writeOffType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{paymentType}</t:Cell><t:Cell>$Resource{taskName}</t:Cell><t:Cell>$Resource{task}</t:Cell><t:Cell>$Resource{scheduleTask}</t:Cell><t:Cell>$Resource{payScale}</t:Cell><t:Cell>$Resource{planPayAmount}</t:Cell><t:Cell>$Resource{costAccount}</t:Cell><t:Cell>$Resource{taskMeasureAmount}</t:Cell><t:Cell>$Resource{calType}</t:Cell><t:Cell>$Resource{beginDate}</t:Cell><t:Cell>$Resource{endDate}</t:Cell><t:Cell>$Resource{calStandard}</t:Cell><t:Cell>$Resource{delayDay}</t:Cell><t:Cell>$Resource{planPayDate}</t:Cell><t:Cell>$Resource{writeOffType}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblBySchedule.setFormatXml(resHelper.translateString("tblBySchedule",tblByScheduleStrXML));
 
-                this.tblBySchedule.putBindContents("editData",new String[] {"id","seq","paymentType","","","costAccount","taskMeasureAmount","calType","beginDate","endDate","payScale","calStandard","delayDay","planPayDate","writeOffType","planPayAmount"});
+                this.tblBySchedule.putBindContents("editData",new String[] {"id","seq","paymentType","","","scheduleTask","payScale","planPayAmount","costAccount","taskMeasureAmount","calType","beginDate","endDate","calStandard","delayDay","planPayDate","writeOffType"});
 
 
         // tblByMonth
@@ -262,14 +262,14 @@ public abstract class AbstractPayPlanNewUI extends com.kingdee.eas.framework.cli
         this.setBounds(new Rectangle(10, 10, 680, 545));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 680, 545));
-        contProgramming.setBounds(new Rectangle(6, 33, 672, 386));
-        this.add(contProgramming, new KDLayout.Constraints(6, 33, 672, 386, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contProgramming.setBounds(new Rectangle(6, 33, 672, 189));
+        this.add(contProgramming, new KDLayout.Constraints(6, 33, 672, 189, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         btnBySchedule.setBounds(new Rectangle(44, 11, 140, 19));
         this.add(btnBySchedule, new KDLayout.Constraints(44, 11, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         btnByMonth.setBounds(new Rectangle(373, 11, 140, 19));
         this.add(btnByMonth, new KDLayout.Constraints(373, 11, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contPayPlanLst.setBounds(new Rectangle(5, 425, 673, 116));
-        this.add(contPayPlanLst, new KDLayout.Constraints(5, 425, 673, 116, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contPayPlanLst.setBounds(new Rectangle(5, 225, 673, 316));
+        this.add(contPayPlanLst, new KDLayout.Constraints(5, 225, 673, 316, KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //contProgramming
         contProgramming.getContentPane().setLayout(null);        tblBySchedule.setBounds(new Rectangle(1, 2, 322, 367));
         contProgramming.getContentPane().add(tblBySchedule, null);
@@ -361,9 +361,8 @@ contPayPlanLst.getContentPane().setLayout(new BorderLayout(0, 0));        contPa
         this.toolBar.add(btnPageSetup);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnAddNew);
-        
-        this.toolBar.add(btnEdit);
         this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnEdit);
         this.toolBar.add(bntSubmit);
         this.toolBar.add(btnAttachment);
         this.toolBar.add(btnReset);
@@ -403,7 +402,8 @@ contPayPlanLst.getContentPane().setLayout(new BorderLayout(0, 0));        contPa
 		dataBinder.registerBinding("BySchedule.endDate", java.util.Date.class, this.tblBySchedule, "endDate.text");
 		dataBinder.registerBinding("BySchedule.planPayDate", java.util.Date.class, this.tblBySchedule, "planPayDate.text");
 		dataBinder.registerBinding("BySchedule.planPayAmount", java.math.BigDecimal.class, this.tblBySchedule, "planPayAmount.text");
-		dataBinder.registerBinding("BySchedule.payScale", java.math.BigDecimal.class, this.tblBySchedule, "payScale.text");		
+		dataBinder.registerBinding("BySchedule.payScale", java.math.BigDecimal.class, this.tblBySchedule, "payScale.text");
+		dataBinder.registerBinding("BySchedule.scheduleTask", com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleEntryInfo.class, this.tblBySchedule, "scheduleTask.text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -477,7 +477,8 @@ contPayPlanLst.getContentPane().setLayout(new BorderLayout(0, 0));        contPa
 		getValidateHelper().registerBindProperty("BySchedule.endDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("BySchedule.planPayDate", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("BySchedule.planPayAmount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("BySchedule.payScale", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("BySchedule.payScale", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("BySchedule.scheduleTask", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -568,6 +569,14 @@ contPayPlanLst.getContentPane().setLayout(new BorderLayout(0, 0));        contPa
     	sic.add(new SelectorItemInfo("BySchedule.planPayDate"));
     	sic.add(new SelectorItemInfo("BySchedule.planPayAmount"));
     	sic.add(new SelectorItemInfo("BySchedule.payScale"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("BySchedule.scheduleTask.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("BySchedule.scheduleTask.id"));
+        	sic.add(new SelectorItemInfo("BySchedule.scheduleTask.number"));
+		}
         return sic;
     }        
     	

@@ -206,7 +206,7 @@ public class PayPlanNewControllerBean extends AbstractPayPlanNewControllerBean {
 			return;
 		}
 		if (PayPlanModeEnum.BYSCHEDULE.equals(info.getMode())) {
-			_checkBySchedule(ctx, info);
+			//_checkBySchedule(ctx, info);
 		} else {
 			throw new EASBizException(new NumericExceptionSubItem("0001", "付款规划没有指定通用合同还是零星合同！"));
 		}
@@ -278,10 +278,10 @@ public class PayPlanNewControllerBean extends AbstractPayPlanNewControllerBean {
 		if (!_checkCanCalculate(ctx, info)) {
 			return info;
 		}
- 
-		if (PayPlanModeEnum.BYSCHEDULE.equals(info.getMode())) {
-			info = _caculateBySchedule(ctx, info);
-		}
+		// modify by yxl
+//		if (PayPlanModeEnum.BYSCHEDULE.equals(info.getMode())) {
+//			info = _caculateBySchedule(ctx, info);
+//		}
 
 		return info;
 	}

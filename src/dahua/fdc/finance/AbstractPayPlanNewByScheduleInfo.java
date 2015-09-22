@@ -118,6 +118,17 @@ public class AbstractPayPlanNewByScheduleInfo extends com.kingdee.eas.fdc.financ
     {
         return (com.kingdee.eas.fdc.finance.PayPlanNewByScheduleTaskNameCollection)get("TaskName");
     }
+    /**
+     * Object: 按节点支付 's 名源进度任务 property 
+     */
+    public com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleEntryInfo getScheduleTask()
+    {
+        return (com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleEntryInfo)get("scheduleTask");
+    }
+    public void setScheduleTask(com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleEntryInfo item)
+    {
+        put("scheduleTask", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("DE24E4EC");

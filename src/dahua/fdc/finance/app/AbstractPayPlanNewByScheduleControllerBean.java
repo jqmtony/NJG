@@ -52,10 +52,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("eac7db1b-ce6b-4986-a82d-d4933379e1ef"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, pk);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -74,10 +77,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("5714dc6e-9dbd-4ef7-825e-299c1ba3602b"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, filter);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -96,10 +102,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("d734affd-3dc2-456d-ac5a-f8152c36cc51"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, oql);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -118,10 +127,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("72cb2422-79c0-44f8-b5dc-293a6218acce"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             PayPlanNewByScheduleInfo retValue = (PayPlanNewByScheduleInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (PayPlanNewByScheduleInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -140,10 +152,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("acdcb47f-dcc1-410e-9656-1d4f3109c61e"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             PayPlanNewByScheduleInfo retValue = (PayPlanNewByScheduleInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (PayPlanNewByScheduleInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -162,10 +177,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("e7e2d568-9dd2-424c-a18c-17f95efc7e5d"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             PayPlanNewByScheduleInfo retValue = (PayPlanNewByScheduleInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (PayPlanNewByScheduleInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -184,10 +202,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("a458af97-f40e-4051-929b-f3d310a4e148"), new Object[]{ctx, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK retValue = (IObjectPK)_addnew(ctx, model);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -208,7 +229,9 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("82e4f502-b905-4bec-811b-9f4cc7415bfd"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _addnew(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -230,7 +253,9 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("13c65aee-fe31-402c-8046-f23a8a766eed"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _update(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -252,7 +277,9 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("69d0812a-aad0-4cdc-b634-912bb4ec80c5"), new Object[]{ctx, model, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updatePartial(ctx, model, selector);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -274,7 +301,9 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("d69f55c2-9886-4de4-b539-7fa63173b081"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updateBigObject(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -293,7 +322,9 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("3e918cf0-7983-4a94-8a61-5978306d1e94"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, pk);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -315,10 +346,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("df97b895-8980-49fe-abef-b70bd63515c0"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -337,10 +371,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("59587935-a61f-46b4-a4a2-4d87d4cb5a27"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -359,10 +396,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("43bcfd88-8fd2-4728-b328-4fc342b7c1e3"), new Object[]{ctx, filter, sorter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, filter, sorter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -381,10 +421,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("b2d3620e-9e34-4b28-bf60-6433400dec88"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             PayPlanNewByScheduleCollection retValue = (PayPlanNewByScheduleCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (PayPlanNewByScheduleCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -401,10 +444,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("8fcc7631-9721-425f-8633-336a599e4728"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             PayPlanNewByScheduleCollection retValue = (PayPlanNewByScheduleCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (PayPlanNewByScheduleCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -421,10 +467,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("858e3b1d-9097-4bec-a5a5-6010104eb513"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             PayPlanNewByScheduleCollection retValue = (PayPlanNewByScheduleCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (PayPlanNewByScheduleCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -441,10 +490,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("22f5298e-7d09-479c-b7ea-6c55ec06701c"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, filter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -465,10 +517,13 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("85ed373c-3db5-47a9-821a-841422d379c0"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -489,7 +544,9 @@ public abstract class AbstractPayPlanNewByScheduleControllerBean extends PayPlan
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("e0b057eb-4224-46e8-b35d-7f950d894fd6"), new Object[]{ctx, arrayPK});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, arrayPK);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
