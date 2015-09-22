@@ -2914,23 +2914,53 @@ public class CurProjectControllerBean extends AbstractCurProjectControllerBean {
 		for(Iterator it = colls.iterator();it.hasNext();){
 			projectIds.add(((TreeBaseInfo)it.next()).getId().toString());
 		}
-		EntityViewInfo v=new EntityViewInfo();
-		v.getSelector().add("orgOrProId");
-		FilterInfo filter=new FilterInfo();
-		filter.getFilterItems().add(new FilterItemInfo("orgOrProId",projectIds,CompareType.INCLUDE));
-		v.setFilter(filter);
-		AimCostCollection acColl=AimCostFactory.getLocalInstance(ctx).getAimCostCollection(v);
+//		EntityViewInfo v=new EntityViewInfo();
+//		v.getSelector().add("orgOrProId");
+//		FilterInfo filter=new FilterInfo();
+//		filter.getFilterItems().add(new FilterItemInfo("orgOrProId",projectIds,CompareType.INCLUDE));
+//		v.setFilter(filter);
+//		AimCostCollection acColl=AimCostFactory.getLocalInstance(ctx).getAimCostCollection(v);
+//		Map projectHasAimCost = new HashMap();
+//		for(Iterator it = acColl.iterator();it.hasNext();){
+//			//projectHasAimCost.put(((AimCostInfo)it.next()).getOrgOrProId().toString(),null);
+//			projectHasAimCost.put(((AimCostInfo)it.next()).getOrgOrProId(),null);
+//		}
+//		for(Iterator it = colls.iterator();it.hasNext();){
+//			TreeBaseInfo info = (TreeBaseInfo)it.next();
+//			if(projectHasAimCost.containsKey(info.getId().toString()))
+//				info.put("hasAimCost", Boolean.TRUE);
+//			else
+//				info.put("hasAimCost", Boolean.FALSE);
+//		}
+		
+		projectIds.add("999");
+		
+		String str = "";
+		int i = 0;
+		for(Iterator itor = projectIds.iterator();itor.hasNext();){
+			if(i==0)
+				str = "'"+(String)itor.next()+"'";
+			else 
+				str = str + ",'" +(String)itor.next()+"'";
+			i++;
+		}
+		
 		Map projectHasAimCost = new HashMap();
-		for(Iterator it = acColl.iterator();it.hasNext();){
-			//projectHasAimCost.put(((AimCostInfo)it.next()).getOrgOrProId().toString(),null);
-			projectHasAimCost.put(((AimCostInfo)it.next()).getOrgOrProId(),null);
+		StringBuffer sb = new StringBuffer();
+		sb.append(" select forgOrProId from T_AIM_AimCost where forgOrProId in("+str+")");
+		IRowSet rowset = DbUtil.executeQuery(ctx, sb.toString());
+		try {
+			while(rowset.next())
+				projectHasAimCost.put(rowset.getString(1), null);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		for(Iterator it = colls.iterator();it.hasNext();){
-			TreeBaseInfo info = (TreeBaseInfo)it.next();
-			if(projectHasAimCost.containsKey(info.getId().toString()))
-				info.put("hasAimCost", Boolean.TRUE);
-			else
-				info.put("hasAimCost", Boolean.FALSE);
+		TreeBaseInfo info = (TreeBaseInfo)it.next();
+		if(projectHasAimCost.containsKey(info.getId().toString()))
+			info.put("hasAimCost", Boolean.TRUE);
+		else
+			info.put("hasAimCost", Boolean.FALSE);
 		}
 		return colls;
 	}	
