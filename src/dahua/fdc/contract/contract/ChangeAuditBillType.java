@@ -31,7 +31,7 @@ public class ChangeAuditBillType extends StringEnum
      */
     private ChangeAuditBillType(String name, String changeAuditBillType)
     {
-        super(name, changeAuditBillType);
+        super(name, changeAuditBillType); 
     }
     
     /**

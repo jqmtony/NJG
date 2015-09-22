@@ -9,6 +9,11 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
@@ -16,8 +21,14 @@ import com.kingdee.bos.ui.face.WinStyle;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
+import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
@@ -42,6 +53,9 @@ public class RealDateRelEditUI extends AbstractRealDateRelEditUI
     	super.onLoad();
     	actionCopy.setVisible(false);
     	actionSubmit.setVisible(false);
+    	actionAddNew.setVisible(false);
+    	actionCancelCancel.setVisible(false);
+    	actionCancel.setVisible(false);
     	btnSave.setIcon(btnSubmit.getIcon());
     	btnImportTemp.setIcon(EASResource.getIcon("imgTbtn_input"));
     	btnImportGroup.setIcon(EASResource.getIcon("imgTbtn_input"));
@@ -54,6 +68,19 @@ public class RealDateRelEditUI extends AbstractRealDateRelEditUI
     	while(rs.next()){
     		costDays.put(rs.getString("CFPcname"),rs.getInt("CFCostDays"));
     		startDays.put(rs.getString("CFPcname"),rs.getInt("CFStartDays"));
+    	}
+//    	kdtEntrys.getColumn("longNumber").getStyleAttributes().setHided(false);
+    }
+    
+    @Override
+    protected void verifyInput(ActionEvent e) throws Exception {
+    	if(null==txtNumber.getText() || "".equals(txtNumber.getText().trim())){
+    		MsgBox.showInfo("编码不能为空！");
+    		SysUtil.abort();
+    	}
+    	if(null==txtName.getSelectedItemData()|| "".equals(txtName.getSelectedItemData().toString().trim())){
+    		MsgBox.showInfo("名称不能为空！");
+    		SysUtil.abort();
     	}
     }
     
@@ -458,16 +485,87 @@ public class RealDateRelEditUI extends AbstractRealDateRelEditUI
     /**
      * output actionImportGroup_actionPerformed
      */
-    public void actionImportGroup_actionPerformed(ActionEvent e) throws Exception
-    {
-    	UIContext uiContext = new UIContext(this);
-		uiContext.put("kdtEntrys", kdtEntrys);
-		uiContext.put("costDays", costDays);
-		uiContext.put("startDays", startDays);
-    	IUIWindow ui = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProjectImportUI.class.getName(), uiContext, null, OprtState.VIEW,
-				WinStyle.SHOW_ONLYLEFTSTATUSBAR);
-		ui.show();
+    public void actionImportGroup_actionPerformed(ActionEvent e) throws Exception{
+    	//从项目导入
+//    	UIContext uiContext = new UIContext(this);
+//		uiContext.put("kdtEntrys", kdtEntrys);
+//		uiContext.put("costDays", costDays);
+//		uiContext.put("startDays", startDays);
+//    	IUIWindow ui = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProjectImportUI.class.getName(), uiContext, null, OprtState.VIEW,
+//				WinStyle.SHOW_ONLYLEFTSTATUSBAR);
+//		ui.show();
+    	
+//    	FilterInfo filter = new FilterInfo();
+//		filter.getFilterItems().add(new FilterItemInfo("PROGRAMMING",""));
+//		filter.getFilterItems().add(new FilterItemInfo("state","4AUDITTED"));
+//    	filter.getFilterItems().add(new FilterItemInfo("isLatest","1"));
+//		EntityViewInfo evi = new EntityViewInfo();
+//		evi.setSelector(getTemplateEntrySelector());
+//		evi.setFilter(filter);
+    	String pid = ((CurProjectInfo)prmtcurProject.getValue()).getId().toString();
+		String oql="select longNumber,sortNumber,name where PROGRAMMING in(select fid from T_CON_Programming where fstate='4AUDITTED' and fisLatest=1 and fprojectid='"+pid+"') order by sortNumber";
+		ProgrammingContractCollection pcColl = 
+			ProgrammingContractFactory.getRemoteInstance().getProgrammingContractCollection(oql);
+		if(pcColl.size() == 0){
+			MsgBox.showInfo("该项目下无已审核的最新版合约规划！");
+			return;
+		}
+//		if(pcColl.size() == kdtEntrys.getRowCount3()){
+//			MsgBox.showInfo("合约规划已是最新版！");
+//			return;
+//		}
+		if(MsgBox.OK != MsgBox.showConfirm2(this,"从项目导入数据，继续么？")) {
+			return;
+		}
+		ProgrammingContractInfo pcinfo = null;
+		IRow row = null;
+//		kdtEntrys.removeRows();
+		if(kdtEntrys.getRowCount3() == 0){
+			for(int i = 0, size = pcColl.size(); i < size; i++) {
+				pcinfo = pcColl.get(i);
+				row = kdtEntrys.addRow();
+				row.getCell("longNumber").setValue(pcinfo.getLongNumber());
+				row.getCell("pcname").setValue(pcinfo.getName());
+			}
+		}else{
+			Map<String,Integer> indexNumber = new HashMap<String,Integer>();
+			getIndexNumber(indexNumber);
+			for(int i = 0, size = pcColl.size(); i < size; i++) {
+				pcinfo = pcColl.get(i);
+				if(!indexNumber.containsKey(pcinfo.getLongNumber())){
+					// add new 
+					if(i == 0){
+						row = kdtEntrys.addRow(0);
+					}else{
+						row = kdtEntrys.addRow(indexNumber.get(pcColl.get(i-1).getLongNumber())+1);
+					}
+					row.getCell("longNumber").setValue(pcinfo.getLongNumber());
+					row.getCell("pcname").setValue(pcinfo.getName());
+					getIndexNumber(indexNumber);
+				}
+			}
+		}
+		MsgBox.showInfo(this, "导入成功！");
     }
+    
+    public Map<String,Integer> getIndexNumber(Map<String,Integer> indexNumber){
+    	for (int i = 0; i < kdtEntrys.getRowCount3(); i++) {
+			indexNumber.put((String)kdtEntrys.getCell(i,"longNumber").getValue(),i);
+		}
+    	return indexNumber;
+    }
+    
+    private SelectorItemCollection getTemplateEntrySelector() {
+		SelectorItemCollection sic = new SelectorItemCollection();
+		sic.add("name");
+		sic.add("number");
+		sic.add("id");
+		sic.add("level");
+		sic.add("longNumber");
+		sic.add("displayName");
+		sic.add("sortNumber");
+		return sic;
+	}
 
     /**
      * output getBizInterface method
@@ -484,7 +582,8 @@ public class RealDateRelEditUI extends AbstractRealDateRelEditUI
     {
         com.kingdee.eas.fdc.contract.basedata.RealDateRelInfo objectValue = new com.kingdee.eas.fdc.contract.basedata.RealDateRelInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
+        CurProjectInfo cpinfo = (CurProjectInfo)getUIContext().get("treeSelectedObj");
+        objectValue.setCurProject(cpinfo);
         return objectValue;
     }
 

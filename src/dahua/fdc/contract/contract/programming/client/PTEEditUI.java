@@ -123,7 +123,7 @@ public class PTEEditUI extends AbstractPTEEditUI implements REAutoCompletionData
 
 	public void onLoad() throws Exception {
 		super.onLoad();
-		isParent = (Boolean) this.getUIContext().get("isParent");
+//		isParent = (Boolean) this.getUIContext().get("isParent");
 		setSmallButton();
 		if (this.oprtState.equals(OprtState.VIEW)) {
 			isEditable(false);

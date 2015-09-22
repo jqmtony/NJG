@@ -47,6 +47,17 @@ public class AbstractRealDateRelInfo extends com.kingdee.eas.framework.DataBaseI
     {
         setBoolean("latest", item);
     }
+    /**
+     * Object: 时间完成时间关系表 's 工程项目 property 
+     */
+    public com.kingdee.eas.fdc.basedata.CurProjectInfo getCurProject()
+    {
+        return (com.kingdee.eas.fdc.basedata.CurProjectInfo)get("curProject");
+    }
+    public void setCurProject(com.kingdee.eas.fdc.basedata.CurProjectInfo item)
+    {
+        put("curProject", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("FF80291B");

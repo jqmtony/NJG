@@ -28,11 +28,16 @@ import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.contract.basedata.PcDepTypeCollection;
 import com.kingdee.eas.fdc.contract.basedata.PcDepTypeFactory;
 import com.kingdee.eas.fdc.contract.basedata.PcDepTypeInfo;
+import com.kingdee.eas.fdc.contract.programming.IPcType;
+import com.kingdee.eas.fdc.contract.programming.PcTypeCollection;
 import com.kingdee.eas.fdc.contract.programming.PcTypeEntryCollection;
 import com.kingdee.eas.fdc.contract.programming.PcTypeEntryInfo;
+import com.kingdee.eas.fdc.contract.programming.PcTypeFactory;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.util.enums.EnumUtils;
@@ -202,6 +207,27 @@ public class PcTypeEditUI extends AbstractPcTypeEditUI
     }
     
     private void loadTableDatas(){
+    	
+    }
+    
+    @Override
+    protected void verifyInput(ActionEvent e) throws Exception {
+    	if(null==txthyType.getText() || "".equals(txthyType.getText().trim())){
+    		FDCMsgBox.showInfo("合约类型不能为空！");
+    		txthyType.grabFocus();
+			SysUtil.abort();
+    	}
+    	IPcType ipt = PcTypeFactory.getRemoteInstance();
+    	PcTypeCollection pcoll = null;
+    	if(editData.getId() == null)
+    		pcoll = ipt.getPcTypeCollection(" where hyType='"+txthyType.getText()+"'");
+    	else
+    		pcoll = ipt.getPcTypeCollection(" where hyType='"+txthyType.getText()+"' and id<>'"+editData.getId().toString()+"'");
+    	if(pcoll.size() > 0){
+    		FDCMsgBox.showInfo("合约类型:'"+txthyType.getText()+"'已存在！");
+    		txthyType.grabFocus();
+			SysUtil.abort();
+    	}
     	
     }
     

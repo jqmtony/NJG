@@ -256,12 +256,12 @@ public class ProgrammingExportUI extends AbstractProgrammingExportUI
 		ProgrammingContracCostCollection  proCostCol = proInfo.getCostEntries();
 		addCostEntries(proTempInfo, pteCostCol, proCostCol);
 		
-		PTEEnonomyCollection pteEnonomyCol = proTempInfo.getPteEnonomy();
-		ProgrammingContractEconomyCollection economyInfoCol = proInfo.getEconomyEntries();
-		addEnonomyEntries(proTempInfo, pteEnonomyCol, economyInfoCol);
 		
-		//添加付款规划模板
-		addPayPlanTemplate(proTempInfo, proInfo);
+		//添加付款规划模板  modify by yxl 20150915 
+//		PTEEnonomyCollection pteEnonomyCol = proTempInfo.getPteEnonomy();
+//		ProgrammingContractEconomyCollection economyInfoCol = proInfo.getEconomyEntries();
+//		addEnonomyEntries(proTempInfo, pteEnonomyCol, economyInfoCol);
+//		addPayPlanTemplate(proTempInfo, proInfo);
 		return proTempInfo;
 	}
 

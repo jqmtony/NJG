@@ -54,11 +54,13 @@ public abstract class AbstractRealDateRelEditUI extends com.kingdee.eas.framewor
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntrys_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contversion;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chklatest;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcurProject;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtSimpleName;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtDescription;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtversion;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtcurProject;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnImportTemp;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnImportGroup;
     protected com.kingdee.eas.fdc.contract.basedata.RealDateRelInfo editData = null;
@@ -106,11 +108,13 @@ public abstract class AbstractRealDateRelEditUI extends com.kingdee.eas.framewor
         this.kdtEntrys = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.contversion = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.chklatest = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.contcurProject = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
         this.txtSimpleName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtDescription = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
         this.txtversion = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.prmtcurProject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.btnImportTemp = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnImportGroup = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.kDLabelContainer1.setName("kDLabelContainer1");
@@ -120,11 +124,13 @@ public abstract class AbstractRealDateRelEditUI extends com.kingdee.eas.framewor
         this.kdtEntrys.setName("kdtEntrys");
         this.contversion.setName("contversion");
         this.chklatest.setName("chklatest");
+        this.contcurProject.setName("contcurProject");
         this.txtNumber.setName("txtNumber");
         this.txtName.setName("txtName");
         this.txtSimpleName.setName("txtSimpleName");
         this.txtDescription.setName("txtDescription");
         this.txtversion.setName("txtversion");
+        this.prmtcurProject.setName("prmtcurProject");
         this.btnImportTemp.setName("btnImportTemp");
         this.btnImportGroup.setName("btnImportGroup");
         // CoreUI		
@@ -195,6 +201,11 @@ public abstract class AbstractRealDateRelEditUI extends com.kingdee.eas.framewor
         this.chklatest.setText(resHelper.getString("chklatest.text"));		
         this.chklatest.setHorizontalAlignment(2);		
         this.chklatest.setVisible(false);
+        // contcurProject		
+        this.contcurProject.setBoundLabelText(resHelper.getString("contcurProject.boundLabelText"));		
+        this.contcurProject.setBoundLabelLength(100);		
+        this.contcurProject.setBoundLabelUnderline(true);		
+        this.contcurProject.setVisible(true);
         // txtNumber		
         this.txtNumber.setMaxLength(80);
         // txtName
@@ -206,13 +217,22 @@ public abstract class AbstractRealDateRelEditUI extends com.kingdee.eas.framewor
         this.txtversion.setDataType(0);		
         this.txtversion.setSupportedEmpty(true);		
         this.txtversion.setRequired(false);
+        // prmtcurProject		
+        this.prmtcurProject.setQueryInfo("com.kingdee.eas.fdc.basedata.app.CurProjectQuery");		
+        this.prmtcurProject.setVisible(true);		
+        this.prmtcurProject.setEditable(true);		
+        this.prmtcurProject.setDisplayFormat("$name$");		
+        this.prmtcurProject.setEditFormat("$number$");		
+        this.prmtcurProject.setCommitFormat("$number$");		
+        this.prmtcurProject.setRequired(false);		
+        this.prmtcurProject.setEnabled(false);
         // btnImportTemp
         this.btnImportTemp.setAction((IItemAction)ActionProxyFactory.getProxy(actionImportTemp, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnImportTemp.setText(resHelper.getString("btnImportTemp.text"));
         // btnImportGroup
         this.btnImportGroup.setAction((IItemAction)ActionProxyFactory.getProxy(actionImportGroup, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnImportGroup.setText(resHelper.getString("btnImportGroup.text"));
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtName,txtNumber,txtDescription,txtSimpleName,txtversion,chklatest,kdtEntrys}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtName,txtNumber,txtDescription,txtSimpleName,txtversion,chklatest,kdtEntrys,prmtcurProject}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -238,23 +258,25 @@ public abstract class AbstractRealDateRelEditUI extends com.kingdee.eas.framewor
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(0, 0, 1013, 629));
+        this.setBounds(new Rectangle(0, 0, 850, 480));
         this.setLayout(null);
-        kDLabelContainer1.setBounds(new Rectangle(13, 13, 270, 19));
+        kDLabelContainer1.setBounds(new Rectangle(13, 13, 300, 19));
         this.add(kDLabelContainer1, null);
-        kDLabelContainer2.setBounds(new Rectangle(385, 13, 270, 19));
+        kDLabelContainer2.setBounds(new Rectangle(434, 13, 300, 19));
         this.add(kDLabelContainer2, null);
-        kDLabelContainer3.setBounds(new Rectangle(485, 509, 270, 19));
+        kDLabelContainer3.setBounds(new Rectangle(339, 441, 154, 19));
         this.add(kDLabelContainer3, null);
-        kDLabelContainer4.setBounds(new Rectangle(473, 489, 270, 19));
+        kDLabelContainer4.setBounds(new Rectangle(16, 441, 170, 19));
         this.add(kDLabelContainer4, null);
-        kdtEntrys.setBounds(new Rectangle(13, 47, 798, 283));
+        kdtEntrys.setBounds(new Rectangle(13, 65, 818, 368));
         kdtEntrys_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntrys,new com.kingdee.eas.fdc.contract.basedata.RealDateRelEntryInfo(),null,false);
         this.add(kdtEntrys_detailPanel, null);
-        contversion.setBounds(new Rectangle(750, 478, 259, 19));
+        contversion.setBounds(new Rectangle(566, 441, 127, 19));
         this.add(contversion, null);
-        chklatest.setBounds(new Rectangle(758, 505, 81, 19));
+        chklatest.setBounds(new Rectangle(220, 441, 81, 19));
         this.add(chklatest, null);
+        contcurProject.setBounds(new Rectangle(13, 38, 300, 19));
+        this.add(contcurProject, null);
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtNumber);
         //kDLabelContainer2
@@ -265,6 +287,8 @@ public abstract class AbstractRealDateRelEditUI extends com.kingdee.eas.framewor
         kDLabelContainer4.setBoundEditor(txtDescription);
         //contversion
         contversion.setBoundEditor(txtversion);
+        //contcurProject
+        contcurProject.setBoundEditor(prmtcurProject);
 
     }
 
@@ -387,7 +411,8 @@ public abstract class AbstractRealDateRelEditUI extends com.kingdee.eas.framewor
 		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
 		dataBinder.registerBinding("simpleName", String.class, this.txtSimpleName, "text");
 		dataBinder.registerBinding("description", String.class, this.txtDescription, "_multiLangItem");
-		dataBinder.registerBinding("version", int.class, this.txtversion, "value");		
+		dataBinder.registerBinding("version", int.class, this.txtversion, "value");
+		dataBinder.registerBinding("curProject", com.kingdee.eas.fdc.basedata.CurProjectInfo.class, this.prmtcurProject, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){
@@ -545,7 +570,8 @@ public abstract class AbstractRealDateRelEditUI extends com.kingdee.eas.framewor
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("simpleName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("version", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("version", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("curProject", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -601,6 +627,15 @@ public abstract class AbstractRealDateRelEditUI extends com.kingdee.eas.framewor
         sic.add(new SelectorItemInfo("simpleName"));
         sic.add(new SelectorItemInfo("description"));
         sic.add(new SelectorItemInfo("version"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("curProject.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("curProject.id"));
+        	sic.add(new SelectorItemInfo("curProject.number"));
+        	sic.add(new SelectorItemInfo("curProject.name"));
+		}
         return sic;
     }        
     	

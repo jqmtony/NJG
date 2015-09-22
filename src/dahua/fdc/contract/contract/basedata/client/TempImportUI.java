@@ -4,6 +4,8 @@
 package com.kingdee.eas.fdc.contract.basedata.client;
 
 import java.awt.event.ActionEvent;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
@@ -80,17 +82,37 @@ public class TempImportUI extends AbstractTempImportUI
 		EntityViewInfo evi = new EntityViewInfo();
 		evi.setSelector(getTemplateEntrySelector());
 		evi.setFilter(filter);
-		
 		ProgrammingTemplateEntireCollection templateEntryColl = 
 			ProgrammingTemplateEntireFactory.getRemoteInstance().getProgrammingTemplateEntireCollection(evi);
 		ProgrammingTemplateEntireInfo templateEntry = null;
 		IRow row = null;
-		kdtEntrys.removeRows();
-		for (int i = 0, size = templateEntryColl.size(); i < size; i++) {
-			templateEntry = templateEntryColl.get(i);
-			row = kdtEntrys.addRow();
-			row.getCell("longNumber").setValue(templateEntry.getLongNumber());
-			row.getCell("pcname").setValue(templateEntry.getName());
+		IRow rowTemp = null;
+		if(kdtEntrys.getRowCount3()>0){
+			Map<String,IRow> rowMaps = new HashMap<String,IRow>();
+			for (int i = kdtEntrys.getRowCount3()-1; i >=0 ; i--) {
+				row = kdtEntrys.getRow(i);
+				rowMaps.put((String)row.getCell("longNumber").getValue(),row);
+			}
+			kdtEntrys.removeRows();
+			for (int i = 0, size = templateEntryColl.size(); i < size; i++) {
+				templateEntry = templateEntryColl.get(i);
+				row = kdtEntrys.addRow();
+				row.getCell("longNumber").setValue(templateEntry.getLongNumber());
+				row.getCell("pcname").setValue(templateEntry.getName());
+				if(rowMaps.containsKey(templateEntry.getLongNumber())){
+					rowTemp = rowMaps.get(templateEntry.getLongNumber());
+					//costDays  startDays
+					row.getCell("costDays").setValue(rowTemp.getCell("costDays").getValue());
+					row.getCell("startDays").setValue(rowTemp.getCell("startDays").getValue());
+				}
+			}
+		}else{
+			for (int i = 0, size = templateEntryColl.size(); i < size; i++) {
+				templateEntry = templateEntryColl.get(i);
+				row = kdtEntrys.addRow();
+				row.getCell("longNumber").setValue(templateEntry.getLongNumber());
+				row.getCell("pcname").setValue(templateEntry.getName());
+			}
 		}
 		MsgBox.showInfo(this, "导入成功");
 		disposeUIWindow();

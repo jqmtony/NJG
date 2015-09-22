@@ -45,6 +45,7 @@ import com.kingdee.bos.ctrl.kdf.table.ICell;
 import com.kingdee.bos.ctrl.kdf.table.IColumn;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
+import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTSortManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTStyleConstants;
@@ -53,6 +54,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTableHelper;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTActiveCellEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener;
 import com.kingdee.bos.ctrl.kdf.util.editor.ICellEditor;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.swing.KDComboBox;
@@ -129,7 +131,15 @@ import com.kingdee.eas.fdc.basedata.client.FDCUIWeightWorker;
 import com.kingdee.eas.fdc.basedata.client.IFDCWork;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
 import com.kingdee.eas.fdc.contract.FDCUtils;
+import com.kingdee.eas.fdc.contract.basedata.PcDepTypeCollection;
+import com.kingdee.eas.fdc.contract.basedata.PcDepTypeFactory;
+import com.kingdee.eas.fdc.contract.basedata.PcDepTypeInfo;
+import com.kingdee.eas.fdc.contract.programming.CKDate;
+import com.kingdee.eas.fdc.contract.programming.IPcTypeEntry;
 import com.kingdee.eas.fdc.contract.programming.IProgramming;
+import com.kingdee.eas.fdc.contract.programming.PcTypeEntryCollection;
+import com.kingdee.eas.fdc.contract.programming.PcTypeEntryFactory;
+import com.kingdee.eas.fdc.contract.programming.PcTypeEntryInfo;
 import com.kingdee.eas.fdc.contract.programming.PcTypeInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection;
@@ -139,10 +149,13 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFxbdEntryCollection;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFxbdEntryInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingException;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingInfo;
+import com.kingdee.eas.fdc.contract.programming.SendContWay;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleDatazCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleDatazInfo;
@@ -215,6 +228,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	protected KDWorkButton btnDetails;
 	protected KDWorkButton btnSplit;
 	protected KDWorkButton btnScontract;
+	protected KDWorkButton updateSchduleTime;
 	// 获取有权限的组织
 	protected Set authorizedOrgs = null;
 
@@ -234,6 +248,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	 * 当参数为“提示控制”时1，合同提交时必须关联合约规划，合同金额大于合约控制金额时，合同允许提交； 当参数为“不控制”时2，则不做任何判断。默认值为：提示控制
 	 */
 	private String paramIsstrictcontrol = "1";
+	private PcDepTypeCollection pcs = null;
 	
 	public ProgrammingUI() throws Exception {
 		super();
@@ -262,24 +277,35 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		icol.setKey("name");
 		icol.setWidth(200);
 		icol = kdfxbd.addColumn();
-		icol.setKey("hytype");
-		icol = kdfxbd.addColumn();
-		icol.setKey("dep");
-		icol = kdfxbd.addColumn();
-		icol.setKey("itemName");
+		icol.setKey("htrange");
 		icol.setWidth(150);
+		//暂存最大行数，用于副项表单的缩进
 		icol = kdfxbd.addColumn();
-		icol.setKey("planDate");
-		icol.getStyleAttributes().setNumberFormat("yyyy-MM-dd");
-		icol = kdfxbd.addColumn();
-		icol.setKey("longNumber");
+		icol.setKey("maxSize");
 		icol.getStyleAttributes().setHided(true);
-		IRow row = kdfxbd.addHeadRow();
-		row.getCell("name").setValue("规划合同名称");
-		row.getCell("hytype").setValue("合约类型");
-		row.getCell("dep").setValue("部门类型");
-		row.getCell("itemName").setValue("事项名称");
-		row.getCell("planDate").setValue("计划时间");
+		IRow row0 = kdfxbd.addHeadRow();
+		row0.getCell("name").setValue("规划合同名称");
+		row0.getCell("htrange").setValue("合同范围");
+		IRow row1 = kdfxbd.addHeadRow();
+		row1.getCell("name").setValue("规划合同名称");
+		row1.getCell("htrange").setValue("合同范围");
+		pcs = PcDepTypeFactory.getRemoteInstance().getPcDepTypeCollection(" order by number");
+		PcDepTypeInfo pinfo = null;
+		for (int i = 0; i < pcs.size(); i++) {
+			pinfo = pcs.get(i);
+			icol = kdfxbd.addColumn();
+			icol.setKey(pinfo.getNumber());
+			icol.setWidth(160);
+			row0.getCell(pinfo.getNumber()).setValue(pinfo.getName());
+			row1.getCell(pinfo.getNumber()).setValue("关键工作及其计划完成时间 ");
+		}
+		kdfxbd.getHeadMergeManager().setMergeMode(KDTMergeManager.FREE_ROW_MERGE);
+		kdfxbd.setEditable(false);
+		kdfxbd.addKDTMouseListener(new KDTMouseListener(){
+			 public void tableClicked(KDTMouseEvent e){
+				 kdfxbd_tableClicked(e);
+			 }
+		});
 		//---------
 		setOprtState(OprtState.VIEW);
 		initTable();
@@ -306,6 +332,8 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		switchButtonEnabled();
 		menuItemAddNew.setText("修改付款规划");
 		// modify by yxl 20150814
+		prmtYjPerson.setRequired(true);
+		txtYjDays.setRequired(true);
 		prmtYjPerson.setDisplayFormat("$name$");
 		prmtYjPerson.setEditFormat("$number$");
 		prmtYjPerson.setCommitFormat("$number$");
@@ -313,7 +341,33 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		if(treeNode!=null && treeNode.getUserObject() instanceof OrgStructureInfo){
 			OrgStructureInfo osinfo = (OrgStructureInfo)treeNode.getUserObject();
 			FullOrgUnitInfo fullorg = FullOrgUnitFactory.getRemoteInstance().getFullOrgUnitInfo(new ObjectUuidPK(osinfo.getUnit().getId()));
-			setPersonF7(fullorg.getId().toString(),false);
+			setPersonF7(fullorg.getId().toString(),true);
+		}
+	}
+
+	protected void kdfxbd_tableClicked(KDTMouseEvent e) {
+		int rowIndex = e.getRowIndex();
+		int colIndex = e.getColIndex();
+		if (e.getType() != KDTStyleConstants.BODY_ROW) {
+			kdfxbd.getSelectManager().remove();
+			kdfxbd.getSelectManager().setActiveRowIndex(-1);
+			return;
+		}
+		if (colIndex == kdfxbd.getColumnIndex("name") || e.getClickCount() == 1) {
+			ICell cell = kdfxbd.getCell(rowIndex, colIndex);
+			if (cell != null) {
+				Object value = cell.getValue();
+				if (value != null) {
+					if (value instanceof CellTreeNode) {
+						CellTreeNode node = (CellTreeNode) value;
+						//row.getCell("maxSize").setValue(mxSize);
+						if(kdfxbd.getCell(rowIndex,"maxSize").getValue() != null){
+							rowIndex = ((Integer)kdfxbd.getCell(rowIndex,"maxSize").getValue()).intValue()+rowIndex-1;
+						}
+						node.doTreeClick(kdfxbd, kdfxbd.getCell(rowIndex, colIndex));
+					}
+				}
+			}
 		}
 	}
 
@@ -325,8 +379,9 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			param.put(PersonF7UI.ALL_ADMIN, "YES");
 		}
 		PersonPromptBox pmt = new PersonPromptBox(this,param);
-        prmtYjPerson.setEnabledMultiSelection(isSingle);
+//        prmtYjPerson.setEnabledMultiSelection(isSingle);
 //        map.put(PersonF7UI.ALL_ADMIN, "YES");
+        pmt.setEnabledMultiSelection(isSingle);
         prmtYjPerson.setSelector(pmt);
         //通用F7是可以做到隔离的,只要bizPromptBox.setEntityViewInfo(view)正确 JinXP  20071217
         if (cuId!=null) {
@@ -865,7 +920,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		super.loadFields();
 		
 		isRewLoadCostAccountTab = true;
-		
+		isReloadFxbdTab = true;
 		// 加载数据时按长编码排序
 		List rows = kdtEntries.getBody().getRows();
 		Collections.sort(rows, new TableCellComparator(kdtEntries.getColumnIndex("sortNumber"), KDTSortManager.SORT_ASCEND));
@@ -1080,6 +1135,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		btnDetails = new KDWorkButton();
 		btnSplit = new KDWorkButton();
 		btnScontract = new KDWorkButton();
+		updateSchduleTime = new KDWorkButton();
 
 		btnDetails.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -1129,22 +1185,33 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				try {
 					actionSplit_actionPerformed(e);
 				} catch (Exception e1) {
-					e1.printStackTrace();
+					handUIExceptionAndAbort(e1);
 				}
 			}
 		});
-		
 		btnScontract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					actionScontract_actionPerformed(e);
 				} catch (Exception e1) {
-					e1.printStackTrace();
+					handUIExceptionAndAbort(e1);
+				}
+			}
+		});
+		
+		updateSchduleTime.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					updateSchduleTime_actionPerformed(e);
+				} catch (Exception e1) {
+					handUIExceptionAndAbort(e1);
 				}
 			}
 		});
 		btnScontract.setEnabled(false);
+		updateSchduleTime.setEnabled(false);
 		setButtonStyle(btnScontract, "合同未签完", "imgTbtn_readin");
+		setButtonStyle(updateSchduleTime, "更新进度时间", "imgTbtn_readin");
 		setButtonStyle(btnAddnewLine, "新增行", "imgTbtn_addline");
 		setButtonStyle(btnRemoveLines, "删除行", "imgTbtn_deleteline");
 		setButtonStyle(btnInsertLines, "插入行", "imgTbtn_insert");
@@ -1196,6 +1263,10 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		}
 	}
 	
+	public void updateSchduleTime_actionPerformed(ActionEvent e) throws Exception {
+		
+	}
+	
 	//针对每个明细合约，设置 合同是否签完 按钮，默认显示“合同未签完” by yxl 20150820
 	public void actionScontract_actionPerformed(ActionEvent e) throws Exception {
 		FDCTableHelper.checkSelectedAndAbort(this, kdtEntries);
@@ -1205,12 +1276,14 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		String id = ((BOSUuid)kdtEntries.getCell(rowIndex,"id").getValue()).toString();
 		if((Boolean)kdtEntries.getCell(rowIndex,"iscse").getValue()){
 			btnScontract.setText("合同未签完");
-			kdtEntries.getCell(rowIndex,"iscse").setValue(Boolean.FALSE);
+//			kdtEntries.getCell(rowIndex,"iscse").setValue(Boolean.FALSE);
+			//判断此节点有无父节点，有父节点，则跟着变化
 			builder.appendSql("update T_CON_ProgrammingContract set cfiscse=0 where fid='"+id+"'");
 			builder.executeUpdate();
 		}else{
 			btnScontract.setText("合同已签完");
-			kdtEntries.getCell(rowIndex,"iscse").setValue(Boolean.TRUE);
+//			kdtEntries.getCell(rowIndex,"iscse").setValue(Boolean.TRUE);
+			//判断此节点有无父节点，有父节点，再判断孩子节点是否都已签完
 			builder.appendSql("update T_CON_ProgrammingContract set cfiscse=1 where fid='"+id+"'");
 			builder.executeUpdate();
 		}
@@ -1744,6 +1817,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	 * @throws Exception
 	 */
 	public void actionDetails_actionPerformed(ActionEvent e) throws Exception {
+		
 		FDCTableHelper.checkSelectedAndAbort(this, kdtEntries);
 		int rowIndex = kdtEntries.getSelectManager().getActiveRowIndex();
 		this.kdtEntries.getEditManager().editingStopped();
@@ -1776,6 +1850,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 
 		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProgrammingContractEditUI.class.getName(), uiContext, null, oprtState);
 		uiWindow.show();
+		
 		if (oprtState.equals(OprtState.VIEW))
 			return;
 		// 绑定数据到分录上
@@ -2232,54 +2307,107 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			}
 		}
 		//modify by yxl 20150814 根据合约类型带出计价方式和发包方式
-		//设计部时间早于成本管理部早于工程部        材料管理公司，时间应早于开工时间N天
-		if(colIndex==kdtEntries.getColumnIndex("hyType") && kdtEntries.getCell(e.getRowIndex(),colIndex).getValue()!=null){
-			PcTypeInfo ptinfo=(PcTypeInfo)kdtEntries.getCell(rowIndex,colIndex).getValue();
-			kdtEntries.getCell(rowIndex,"priceWay").setValue(ptinfo.getPriceWay());
-			kdtEntries.getCell(rowIndex,"sendPage").setValue(ptinfo.getSendContWay());
-		}else if(colIndex==kdtEntries.getColumnIndex("sgDate") && kdtEntries.getCell(rowIndex,colIndex).getValue()!=null){
-			Timestamp sgDate = new Timestamp(((Date)kdtEntries.getCell(rowIndex,colIndex).getValue()).getTime());
+		//设计部时间早于成本管理部早于工程部        材料管理公司，时间应早于开工时间N天  sendPage
+		if(colIndex==kdtEntries.getColumnIndex("hyType")){
+			if(newValue == null){
+				ProgrammingContractInfo	pcinfo = (ProgrammingContractInfo)kdtEntries.getRow(rowIndex).getUserObject();
+				pcinfo.getFxbdEntry().clear();
+			}else{
+//				PcTypeInfo ptinfo=(PcTypeInfo)kdtEntries.getCell(rowIndex,colIndex).getValue();
+				PcTypeInfo oldInfo = (PcTypeInfo)oldValue;
+				PcTypeInfo newInfo = (PcTypeInfo)newValue;
+				if (oldInfo != null && newInfo.getId().toString().equals(oldInfo.getId().toString())) {
+					return;
+				}
+				kdtEntries.getCell(rowIndex,"priceWay").setValue(newInfo.getPriceWay());
+				kdtEntries.getCell(rowIndex,"sendPage").setValue(newInfo.getSendContWay());
+				ProgrammingContractInfo	pcinfo = (ProgrammingContractInfo)kdtEntries.getRow(rowIndex).getUserObject();
+				pcinfo.getFxbdEntry().clear();
+			}
+		}else if(colIndex==kdtEntries.getColumnIndex("sendPage") && newValue != null){
+			if (oldValue != null && oldValue.equals(newValue)) {
+				return;
+			}
+			if(kdtEntries.getCell(rowIndex,"hyType").getValue() != null){
+				PcTypeInfo hytype = (PcTypeInfo)kdtEntries.getCell(rowIndex,"hyType").getValue();
+				if(hytype.getSendContWay().equals((SendContWay)newValue))
+					return;
+			}
+			if("ZJWT".equals(((SendContWay)newValue).getName())){
+				kdtEntries.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.red);
+			}else
+				kdtEntries.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.white);
+		}else if(colIndex==kdtEntries.getColumnIndex("sgDate")){
+			if(newValue == null){
+				fxbdChangeByMain(rowIndex,"SGT",null);
+				return;
+			}
+			if (oldValue != null && newValue != null && oldValue.equals(newValue)) {
+				return;
+			}
+			Timestamp sgDate = new Timestamp(((Date)newValue).getTime());
 			if(kdtEntries.getCell(rowIndex,"csDate").getValue()!=null){
 				Timestamp csDate = new Timestamp(((Date)kdtEntries.getCell(rowIndex,"csDate").getValue()).getTime());
-				if(sgDate.compareTo(csDate) < 0){
+				if(sgDate.compareTo(csDate) > 0){
 					FDCMsgBox.showInfo("设计部时间应早于成本管理部！");
 					kdtEntries.getCell(rowIndex,colIndex).setValue(null);
+//					kdtEntries.getEditManager().editCellAt(rowIndex,colIndex);
+					fxbdChangeByMain(rowIndex,"SGT",null);
 					return;
 				}
 			}
 			if(kdtEntries.getCell(rowIndex,"startDate").getValue()!=null){
 				Timestamp startDate = new Timestamp(((Date)kdtEntries.getCell(rowIndex,"startDate").getValue()).getTime());
-				if(sgDate.compareTo(startDate) < 0){
+				if(sgDate.compareTo(startDate) > 0){
 					FDCMsgBox.showInfo("设计部时间应早于工程部！");
 					kdtEntries.getCell(rowIndex,colIndex).setValue(null);
+					fxbdChangeByMain(rowIndex,"SGT",null);
 					return;
 				}
 			}
-			if(kdtEntries.getCell(rowIndex,"endDate").getValue()!=null){
-				Timestamp endDate = new Timestamp(((Date)kdtEntries.getCell(rowIndex,"endDate").getValue()).getTime());
-				if(sgDate.compareTo(endDate) < 0){
-					FDCMsgBox.showInfo("设计部时间应早于工程部！");
-					kdtEntries.getCell(rowIndex,colIndex).setValue(null);
-					return;
-				}
+			fxbdChangeByMain(rowIndex,"SGT",(Date)newValue);
+//			if(kdtEntries.getCell(rowIndex,"endDate").getValue()!=null){
+//				Timestamp endDate = new Timestamp(((Date)kdtEntries.getCell(rowIndex,"endDate").getValue()).getTime());
+//				if(sgDate.compareTo(endDate) < 0){
+//					FDCMsgBox.showInfo("设计部时间应早于工程部！");
+//					kdtEntries.getCell(rowIndex,colIndex).setValue(null);
+//					return;
+//				}
+//			}
+		}else if(colIndex==kdtEntries.getColumnIndex("csDate")){
+			if(newValue == null){
+				fxbdChangeByMain(rowIndex,"CSD",null);
+				return;
 			}
-		}else if(colIndex==kdtEntries.getColumnIndex("csDate") && kdtEntries.getCell(rowIndex,colIndex).getValue()!=null){
-			Timestamp csDate = new Timestamp(((Date)kdtEntries.getCell(rowIndex,colIndex).getValue()).getTime());
+			if (oldValue != null && newValue != null && oldValue.equals(newValue)) {
+				return;
+			}
+			Timestamp csDate = new Timestamp(((Date)newValue).getTime());
 			if(kdtEntries.getCell(rowIndex,"sgDate").getValue()!=null){
 				Timestamp sgDate = new Timestamp(((Date)kdtEntries.getCell(rowIndex,"sgDate").getValue()).getTime());
 				if(csDate.compareTo(sgDate) < 0){
 					FDCMsgBox.showInfo("成本管理部应晚于设计部时间！");
 					kdtEntries.getCell(rowIndex,colIndex).setValue(null);
+					fxbdChangeByMain(rowIndex,"CSD",null);
 					return;
 				}
 			}
-		}else if(colIndex==kdtEntries.getColumnIndex("startDate") && kdtEntries.getCell(rowIndex,colIndex).getValue()!=null){
-			Timestamp startDate = new Timestamp(((Date)kdtEntries.getCell(rowIndex,colIndex).getValue()).getTime());
+			fxbdChangeByMain(rowIndex,"CSD",(Date)newValue);
+		}else if(colIndex==kdtEntries.getColumnIndex("startDate")){
+			if(newValue == null){
+				fxbdChangeByMain(rowIndex,"SWD",null);
+				return;
+			}
+			if (oldValue != null && newValue != null && oldValue.equals(newValue)) {
+				return;
+			}
+			Timestamp startDate = new Timestamp(((Date)newValue).getTime());
 			if(kdtEntries.getCell(rowIndex,"sgDate").getValue()!=null){
 				Timestamp sgDate = new Timestamp(((Date)kdtEntries.getCell(rowIndex,"sgDate").getValue()).getTime());
 				if(startDate.compareTo(sgDate) < 0){
 					FDCMsgBox.showInfo("工程部应晚于设计部时间！");
 					kdtEntries.getCell(rowIndex,colIndex).setValue(null);
+					fxbdChangeByMain(rowIndex,"SWD",null);
 					return;
 				}
 			}
@@ -2288,16 +2416,26 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				if(startDate.compareTo(endDate) > 0){
 					FDCMsgBox.showInfo("开工时间应早于竣工时间！");
 					kdtEntries.getCell(rowIndex,colIndex).setValue(null);
+					fxbdChangeByMain(rowIndex,"SWD",null);
 					return;
 				}
 			}
-		}else if(colIndex==kdtEntries.getColumnIndex("endDate") && kdtEntries.getCell(rowIndex,colIndex).getValue()!=null){
-			Timestamp endDate = new Timestamp(((Date)kdtEntries.getCell(rowIndex,colIndex).getValue()).getTime());
+			fxbdChangeByMain(rowIndex,"SWD",(Date)newValue);
+		}else if(colIndex==kdtEntries.getColumnIndex("endDate")){
+			if(newValue == null){
+				fxbdChangeByMain(rowIndex,"EWD",null);
+				return;
+			}
+			if (oldValue != null && newValue != null && oldValue.equals(newValue)) {
+				return;
+			}
+			Timestamp endDate = new Timestamp(((Date)newValue).getTime());
 			if(kdtEntries.getCell(rowIndex,"sgDate").getValue()!=null){
 				Timestamp sgDate = new Timestamp(((Date)kdtEntries.getCell(rowIndex,"sgDate").getValue()).getTime());
 				if(endDate.compareTo(sgDate) < 0){
 					FDCMsgBox.showInfo("工程部应晚于设计部时间！");
 					kdtEntries.getCell(rowIndex,colIndex).setValue(null);
+					fxbdChangeByMain(rowIndex,"EWD",null);
 					return;
 				}
 			}
@@ -2306,19 +2444,30 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				if(startDate.compareTo(endDate) > 0){
 					FDCMsgBox.showInfo("竣工时间应晚于开工时间！");
 					kdtEntries.getCell(rowIndex,colIndex).setValue(null);
+					fxbdChangeByMain(rowIndex,"EWD",null);
 					return;
 				}
 			}
-		}else if(colIndex==kdtEntries.getColumnIndex("csendDate") && kdtEntries.getCell(rowIndex,colIndex).getValue()!=null){
-			Timestamp csendDate = new Timestamp(((Date)kdtEntries.getCell(rowIndex,colIndex).getValue()).getTime());
+			fxbdChangeByMain(rowIndex,"EWD",(Date)newValue);
+		}else if(colIndex==kdtEntries.getColumnIndex("csendDate")){
+			if(newValue == null){
+				fxbdChangeByMain(rowIndex,"CSED",null);
+				return;
+			}
+			if (oldValue != null && newValue != null && oldValue.equals(newValue)) {
+				return;
+			}
+			Timestamp csendDate = new Timestamp(((Date)newValue).getTime());
 			if(kdtEntries.getCell(rowIndex,"startDate").getValue()!=null){
 				Timestamp startDate = new Timestamp(((Date)kdtEntries.getCell(rowIndex,"startDate").getValue()).getTime());
 				if(startDate.compareTo(csendDate) < 0){
 					FDCMsgBox.showInfo("材料管理公司时间应早于开工时间！");
 					kdtEntries.getCell(rowIndex,colIndex).setValue(null);
+					fxbdChangeByMain(rowIndex,"CSED",null);
 					return;
 				}
 			}
+			fxbdChangeByMain(rowIndex,"CSED",(Date)newValue);
 		}
 	}
 
@@ -2736,6 +2885,16 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 					kdtEntries.getCell(i, BALANCE).getStyleAttributes().setFontColor(Color.red);
 				}
 			}
+			if(kdtEntries.getCell(i,"sendPage").getValue() != null){
+				if(kdtEntries.getCell(i,"hyType").getValue() != null){
+					PcTypeInfo hytype = (PcTypeInfo)kdtEntries.getCell(i,"hyType").getValue();
+					if(hytype.getSendContWay().equals((SendContWay)kdtEntries.getCell(i,"sendPage").getValue()))
+						continue;
+				}
+				if("ZJWT".equals(((SendContWay)kdtEntries.getCell(i,"sendPage").getValue()).getName())){
+					kdtEntries.getCell(i,"sendPage").getStyleAttributes().setBackground(Color.red);
+				}
+			}
 		}
 	}
 
@@ -2935,9 +3094,14 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	 * 合约规划保存
 	 */
 	public void actionSave_actionPerformed(ActionEvent e) throws Exception {
+//		if(prmtYjPerson.getValue() == null)
+//			throw new EASBizException(new NumericExceptionSubItem("1", "预警人员不能为空！"));
+//		if(txtYjDays.getIntegerValue() <= 0)
+//			throw new EASBizException(new NumericExceptionSubItem("1", "预警天数应大于零！"));
 		veryfyForSave();
 		verifyDataBySave();
 		editData.setState(FDCBillStateEnum.SAVED); // modified by zhaoqin for R130819-0171 on 2013/09/11
+		fillFxbdByHyType();
 		super.actionSave_actionPerformed(e);
 		sumClass.appendProFootRow(null, null);
 		setNameDisplay();
@@ -2992,6 +3156,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		if (StringUtils.isEmpty(txtVersion.getText())) {
 			throw new EASBizException(new NumericExceptionSubItem("1", "版本号不能为空"));
 		}
+		
 		FilterInfo filter = new FilterInfo();
 		FilterItemInfo filterItem = new FilterItemInfo(IFWEntityStruct.dataBase_Name, name_txt, CompareType.EQUALS);
 		filter.getFilterItems().add(filterItem);
@@ -3025,11 +3190,89 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			txtNumber.setText(getDateString());
 		}
 	}
+	
+	//保存或者提交时，根据合约类型填充副项表单。(没有去详细编辑副项表单页签而直接保存的情况)
+	public void fillFxbdByHyType() throws Exception{
+		// modify by yxl 20150908
+		ProgrammingContractCollection entries = editData.getEntries();
+		if (entries != null && entries.size() > 0) {
+			ProgrammingContractInfo pcinfo = null;
+			ProgrammingContractFxbdEntryCollection fxbdcoll = null;
+			ProgrammingContractFxbdEntryInfo fxbdinfo = null;
+			String hyTypeId = null;
+			Map<String,Date> ckDates = new HashMap<String,Date>();
+			Calendar c1 = Calendar.getInstance();
+			IPcTypeEntry ipt = PcTypeEntryFactory.getRemoteInstance();
+			PcTypeEntryCollection pcoll = null;
+			PcTypeEntryInfo pcentryinfo = null;
+			for (int i = 0; i < entries.size(); i++) {
+				pcinfo = entries.get(i);
+				fxbdcoll = pcinfo.getFxbdEntry();
+				if(pcinfo.getHyType() == null || fxbdcoll.size() > 0)
+					continue;
+				ckDates.put("SGT",pcinfo.getSgtDate());
+				ckDates.put("CSD",pcinfo.getContSignDate());
+				ckDates.put("SWD",pcinfo.getStartDate());
+				ckDates.put("EWD",pcinfo.getEndDate());
+				ckDates.put("CSED",pcinfo.getCsendDate());
+				hyTypeId = pcinfo.getHyType().getId().toString();
+				pcoll=ipt.getPcTypeEntryCollection("select depType.id,depType.number,depType.name,fieldName,ckDate,tqDays,recordSeq where parent.id='"+hyTypeId+"'");
+				for (int j = pcoll.size()-1; j >= 0; j--) {
+					pcentryinfo = pcoll.get(j);
+					fxbdinfo = new ProgrammingContractFxbdEntryInfo();
+					fxbdinfo.setRecordSeq(pcentryinfo.getRecordSeq());
+					fxbdinfo.setDepType(pcentryinfo.getDepType());
+					fxbdinfo.setItemName(pcentryinfo.getFieldName());
+					if(pcentryinfo.getCkDate() != null && ckDates.get(pcentryinfo.getCkDate().getName()) != null){
+						c1.setTime(ckDates.get(pcentryinfo.getCkDate().getName()));
+						c1.add(Calendar.DATE,-pcentryinfo.getTqDays());
+						fxbdinfo.setPlanDate(c1.getTime());
+					}
+					fxbdcoll.add(fxbdinfo);
+				}
+				ckDates.clear();
+			}
+		}
+	}
 
+	//主项的时间改变，副项跟着变化
+	public void fxbdChangeByMain(int rowIndex,String ckdate, Date realDate) throws Exception{
+		ProgrammingContractInfo	pcinfo = (ProgrammingContractInfo)kdtEntries.getRow(rowIndex).getUserObject();
+		ProgrammingContractFxbdEntryCollection fxcoll = pcinfo.getFxbdEntry();
+		if(fxcoll.size() > 0 && pcinfo.getHyType() != null){
+			PcTypeEntryCollection pcoll = null;
+			IPcTypeEntry ipt = PcTypeEntryFactory.getRemoteInstance();
+			Calendar c1 = Calendar.getInstance();
+			pcoll=ipt.getPcTypeEntryCollection("select fieldName,ckDate,tqDays,recordSeq where parent.id='"+pcinfo.getHyType().getId().toString()+"'");
+			PcTypeEntryInfo einfo = null;
+			for (int j = pcoll.size()-1; j >=0; j--) {
+				einfo = pcoll.get(j);
+				if(einfo.getCkDate()!=null && ckdate.equals(einfo.getCkDate().getName())){
+					for (int i = fxcoll.size()-1; i >=0; i--) {
+						if(fxcoll.get(i).getRecordSeq().equals(einfo.getRecordSeq())){
+							if(realDate == null)
+								fxcoll.get(i).setPlanDate(null);
+							else{
+								c1.setTime(realDate);
+								c1.add(Calendar.DATE,-einfo.getTqDays());
+								fxcoll.get(i).setPlanDate(c1.getTime());
+							}
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	/**
 	 * output actionSubmit_actionPerformed
 	 */
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+		if(prmtYjPerson.getValue() == null)
+			throw new EASBizException(new NumericExceptionSubItem("1", "预警人员不能为空！"));
+		if(txtYjDays.getIntegerValue() <= 0)
+			throw new EASBizException(new NumericExceptionSubItem("1", "预警天数应大于零！"));
 		verifyControlParam();
 		verifyRedData();
 		verifyDataBySave();
@@ -3052,16 +3295,14 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			if (name != null && name.toString().trim().length() > 0) {
 				row.getCell("name").setValue(name.toString().trim());
 			}
-
 			row.getCell("sortNumber").setValue(new Integer(i));
 		}
-
 		if (txtNumber.getText() == null || "".equals(txtNumber.getText())) {
 			txtNumber.setText(getDateString());
 		}
-
 		String curVersion = txtVersion.getText();
 		String versionGroup = txtVersionGroup.getText();
+		fillFxbdByHyType();
 		super.actionSubmit_actionPerformed(e);
 		if (isBillModify()) {
 			getServiceInterface2().billModify(versionGroup, curVersion); // 维护最新版本字段
@@ -3116,13 +3357,14 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	 * @throws Exception
 	 */
 	public void verifyDataBySave() throws Exception {
+		
 		Map contractScale = new HashMap();
-
 		//		ProgrammingContracCostCollection proCostCol = new ProgrammingContracCostCollection();
 		ProgrammingContractCollection entries = editData.getEntries();
+		ProgrammingContractInfo programmingContractInfo = null;
 		if (entries != null && entries.size() > 0) {
 			for (int i = 0; i < entries.size(); i++) {
-				ProgrammingContractInfo programmingContractInfo = entries.get(i);
+				programmingContractInfo = entries.get(i);
 				ProgrammingContracCostCollection costEntries = programmingContractInfo.getCostEntries();
 
 				if (costEntries != null && costEntries.size() > 0) {
@@ -3223,7 +3465,12 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 					throw new EASBizException(new NumericExceptionSubItem("1", "分录第" + (i + 1) + "行，框架合约长名称超长\n请修改框架合约名称数据！"));
 				}
 			}
-
+			//modify by yxl 20150914 校验合约类型和规划金额不能为空
+//			if(kdtEntries.getCell(i, "hyType").getValue() == null)
+//				throw new EASBizException(new NumericExceptionSubItem("1", "分录第" + (i + 1) + "行，合约类型不能为空！"));
+//			if(FDCHelper.isEmpty(kdtEntries.getCell(i,"amount").getValue(),false))
+//				throw new EASBizException(new NumericExceptionSubItem("1", "分录第" + (i + 1) + "行，规划金额不能为空或零！"));
+			
 			String lnumber = number.toString();
 			String name = proName.toString().trim();
 
@@ -3685,7 +3932,16 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		// yxl
 		sic.add(new SelectorItemInfo("entries.hyType.id"));
 		sic.add(new SelectorItemInfo("entries.hyType.hyType"));
+		sic.add(new SelectorItemInfo("entries.hyType.sendContWay"));
 		sic.add(new SelectorItemInfo("entries.iscse"));
+		sic.add(new SelectorItemInfo("yjPerson.id"));
+    	sic.add(new SelectorItemInfo("yjPerson.number"));
+    	sic.add(new SelectorItemInfo("yjPerson.name"));
+    	sic.add(new SelectorItemInfo("yjDays"));
+    	sic.add(new SelectorItemInfo("entries.FxbdEntry.id"));
+    	sic.add(new SelectorItemInfo("entries.FxbdEntry.recordSeq"));
+    	sic.add(new SelectorItemInfo("entries.FxbdEntry.itemName"));
+    	sic.add(new SelectorItemInfo("entries.FxbdEntry.planDate"));
 
 		// /////////////////////////////////////////////////////////////////////
 		// end
@@ -3697,10 +3953,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		sic.add(new SelectorItemInfo("lastUpdateTime"));
 		sic.add(new SelectorItemInfo("CU.id"));
 		sic.add(new SelectorItemInfo("orgUnit.id"));
-		sic.add(new SelectorItemInfo("yjPerson.id"));
-    	sic.add(new SelectorItemInfo("yjPerson.number"));
-    	sic.add(new SelectorItemInfo("yjPerson.name"));
-    	sic.add(new SelectorItemInfo("yjDays"));
+		
 		return sic;
 	}
 
@@ -3814,31 +4067,170 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			CurProjectInfo project = (CurProjectInfo) this.getUIContext().get(TREE_SELECTED_OBJ);
 			if(null == project || null == project.getId())
 				return;
-			FDCSQLBuilder builder = new FDCSQLBuilder();
-			builder.appendSql("select pcont.fname_l2,pctype.cfhytype,deptype.fname_l2,fxdb.CFItemName,fxdb.CFPlanDate from CT_CON_ProgrammingFxbdEntry fxdb left join ");
-			builder.appendSql("T_CON_ProgrammingContract pcont on fxdb.fparentid=pcont.fid left join T_CON_Programming program ");
-			builder.appendSql("on pcont.FPROGRAMMINGID=program.fid left join CT_CON_PcType pctype on pctype.fid=pcont.cfhytypeid ");
-			builder.appendSql("left join CT_CON_PcDepType deptype on deptype.fid=fxdb.cfdeptypeid where program.FIsLatest=1 and ");
-			builder.appendSql("program.fprojectid='"+project.getId().toString()+"' order by pcont.fsortnumber,deptype.fnumber");
-			IRowSet rs = builder.executeQuery();
-			if(rs.size() == 0) {
-				kdfxbd.removeRows();
-				MsgBox.showWarning(this, "该工程项目下没有副项表单!");
-				return;
-			}
 			if (flag) {
+				kdfxbd.removeRows();
 				IRow row = null;
-				while(rs.next()){
-					row = kdfxbd.addRow();
-					row.getCell("name").setValue(rs.getString(1));
-					row.getCell("hytype").setValue(rs.getString(2));
-					row.getCell("dep").setValue(rs.getString(3));
-					row.getCell("itemName").setValue(rs.getString(4));
-					row.getCell("planDate").setValue(rs.getString(5));
+				IRowSet rsfxbd = null;
+				String hyTypeId = null;
+				FDCSQLBuilder builder = new FDCSQLBuilder();
+				PcTypeEntryCollection pcoll = null;
+				String depNumber = null;
+				PcTypeEntryInfo einfo = null;
+				ProgrammingContractInfo pcinfo = null;
+				ProgrammingContractFxbdEntryCollection fxcoll = null;
+				ProgrammingContractFxbdEntryInfo feinfo = null;
+				Map<String,ProgrammingContractFxbdEntryInfo> fxentrys = new HashMap<String,ProgrammingContractFxbdEntryInfo>();
+				Map<String,PcTypeEntryInfo> ptentrys = new HashMap<String,PcTypeEntryInfo>();
+				Map<String,Date> ckDates = new HashMap<String,Date>();
+				IPcTypeEntry ipt = PcTypeEntryFactory.getRemoteInstance();
+				Calendar c1 = Calendar.getInstance();
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				Color bgc = new Color(227,227,227);
+				int rowFlag = 1;
+				Object pcname = null;
+				String htrange = null;
+				for (int i = 0; i < kdtEntries.getRowCount(); i++) {
+					pcinfo = (ProgrammingContractInfo)kdtEntries.getRow(i).getUserObject();
+					fxcoll = pcinfo.getFxbdEntry();
+					ckDates.put("SGT",pcinfo.getSgtDate());
+					ckDates.put("CSD",pcinfo.getContSignDate());
+					ckDates.put("SWD",pcinfo.getStartDate());
+					ckDates.put("EWD",pcinfo.getEndDate());
+					ckDates.put("CSED",pcinfo.getCsendDate());
+					pcname = kdtEntries.getCell(i,"name").getValue();
+					htrange = pcinfo.getContractRange();
+					if(pcinfo.getHyType() == null){
+						row = kdfxbd.addRow();
+						if(pcname instanceof CellTreeNode)
+							row.getCell("name").setValue(pcname);
+						else if(pcname!=null && ((String)pcname).trim().length()>0)
+								row.getCell("name").setValue(createCellTreeNode(((String)pcname),pcinfo.getLevel(),isLeaf(pcinfo.getLongNumber(),kdtEntries,HEADNUMBER)));
+						row.getCell("htrange").setValue(htrange);
+						if(rowFlag%2 == 0)
+							row.getStyleAttributes().setBackground(bgc);
+						rowFlag++;
+					}else if(fxcoll.size() == 0){
+						hyTypeId = pcinfo.getHyType().getId().toString();
+						pcoll=ipt.getPcTypeEntryCollection("select fieldName,ckDate,tqDays,recordSeq where parent.id='"+hyTypeId+"'");
+						for (int j = pcoll.size()-1; j >=0; j--) {
+							einfo = pcoll.get(j);
+							ptentrys.put(einfo.getRecordSeq(),einfo);
+						}
+						builder.appendSql("select max(count(fid)) from CT_CON_PcTypeEntry where fparentid='"+hyTypeId+"' group by CFDepTypeID");
+						rsfxbd = builder.executeQuery();
+						int mxSize = 0;
+						if(rsfxbd.next()){
+							mxSize = rsfxbd.getInt(1);
+						}
+						for(int k=0; k<mxSize; k++){
+							row = kdfxbd.addRow();
+							if(pcname instanceof CellTreeNode)
+								row.getCell("name").setValue(pcname);
+							else if(pcname!=null && ((String)pcname).trim().length()>0)
+									row.getCell("name").setValue(createCellTreeNode(((String)pcname),pcinfo.getLevel(),isLeaf(pcinfo.getLongNumber(),kdtEntries,HEADNUMBER)));
+							row.getCell("htrange").setValue(htrange);
+							row.getCell("maxSize").setValue(Integer.valueOf(mxSize));
+							for (int j = 0; j < pcs.size(); j++) {
+								depNumber = pcs.get(j).getNumber();
+								einfo = ptentrys.get(depNumber+k);
+								if(einfo != null && einfo.getFieldName()!=null){
+									if(einfo.getCkDate() != null && ckDates.get(einfo.getCkDate().getName()) != null){
+										c1.setTime(ckDates.get(einfo.getCkDate().getName()));
+										c1.add(Calendar.DATE,-einfo.getTqDays());
+										row.getCell(depNumber).setValue(einfo.getFieldName()+":"+sdf.format(c1.getTime()));
+									}else{
+										row.getCell(depNumber).setValue(einfo.getFieldName()+":");
+									}
+								}
+							}
+							if(rowFlag%2 == 0)
+								row.getStyleAttributes().setBackground(bgc);
+						}
+						builder.clear();
+						ptentrys.clear();
+						rowFlag++;
+						//设置隔行的背景颜色 
+						kdfxbd.getMergeManager().mergeBlock(kdfxbd.getRowCount3()-mxSize,0,kdfxbd.getRowCount3()-1,0);
+						kdfxbd.getMergeManager().mergeBlock(kdfxbd.getRowCount3()-mxSize,1,kdfxbd.getRowCount3()-1,1);
+					}else if(fxcoll.size() > 0){
+						hyTypeId = pcinfo.getHyType().getId().toString();
+						pcoll=ipt.getPcTypeEntryCollection("select fieldName,ckDate,tqDays,recordSeq where parent.id='"+hyTypeId+"'");
+						for (int j = pcoll.size()-1; j >=0; j--) {
+							einfo = pcoll.get(j);
+							ptentrys.put(einfo.getRecordSeq(),einfo);
+						}
+						for (int j = 0; j < fxcoll.size(); j++) {
+							feinfo = fxcoll.get(j);
+							fxentrys.put(feinfo.getRecordSeq(),feinfo);
+						}
+						builder.appendSql("select max(count(fid)) from CT_CON_PcTypeEntry where fparentid='"+hyTypeId+"' group by CFDepTypeID");
+						rsfxbd = builder.executeQuery();
+						int mxSize = 0;
+						if(rsfxbd.next()){
+							mxSize = rsfxbd.getInt(1);
+						}
+						for(int k=0; k<mxSize; k++){
+							row = kdfxbd.addRow();
+							if(pcname instanceof CellTreeNode)
+								row.getCell("name").setValue(pcname);
+							else if(pcname!=null && ((String)pcname).trim().length()>0)
+									row.getCell("name").setValue(createCellTreeNode(((String)pcname),pcinfo.getLevel(),isLeaf(pcinfo.getLongNumber(),kdtEntries,HEADNUMBER)));
+							row.getCell("htrange").setValue(htrange);
+							row.getCell("maxSize").setValue(Integer.valueOf(mxSize));
+							if(rowFlag%2 == 0)
+								row.getStyleAttributes().setBackground(bgc);
+							for (int j = 0; j < pcs.size(); j++) {
+								depNumber = pcs.get(j).getNumber();
+								feinfo = fxentrys.get(depNumber+k);
+								if(feinfo!=null && feinfo.getItemName() != null){
+									row.getCell(depNumber).setValue(feinfo.getItemName()+":"+(feinfo.getPlanDate()==null?"":feinfo.getPlanDate()));
+									if(isDateChange(ptentrys.get(depNumber+k),feinfo.getPlanDate(),c1,ckDates))
+										row.getCell(depNumber).getStyleAttributes().setBackground(Color.red);
+								}
+							}
+						}
+						builder.clear();
+						ptentrys.clear();
+						fxentrys.clear();
+						rowFlag++;
+						//设置隔行的背景颜色 
+						kdfxbd.getMergeManager().mergeBlock(kdfxbd.getRowCount3()-mxSize,0,kdfxbd.getRowCount3()-1,0);
+						kdfxbd.getMergeManager().mergeBlock(kdfxbd.getRowCount3()-mxSize,1,kdfxbd.getRowCount3()-1,1);
+					}
+					ckDates.clear();
 				}
+				//设置缩进
 				isReloadFxbdTab = false;
 			}
 		}
+	}
+	
+	private boolean isDateChange(PcTypeEntryInfo einfo,Date editDate,Calendar c1,Map<String,Date> ckDates){
+		if(einfo != null){
+			if(editDate==null)
+				return false;
+			CKDate ckItem = einfo.getCkDate();
+			if(ckItem==null)
+				return false;
+			Date ckdate = ckDates.get(ckItem.getName());
+			if(ckdate==null)
+				return false;
+//			CKDate ckItem = einfo.getCkDate();
+//			if(ckItem==null && editDate==null)
+//				return false;
+//			if(ckItem==null && editDate!=null)
+//				return true;
+//			Date ckdate = ckDates.get(ckItem.getName());
+//			if(ckdate==null && editDate==null)
+//				return false;
+//			if(ckdate==null ^ editDate==null)
+//				return true;
+			c1.setTime(ckdate);
+			c1.add(Calendar.DATE,-einfo.getTqDays());
+			if(new Timestamp(c1.getTime().getTime()).compareTo(new Timestamp(editDate.getTime())) != 0)
+				return true;
+		}
+		return false;
 	}
 	
 	/**
@@ -4589,6 +4981,8 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		}
 		// modify by yxl 20150814
 		btnScontract.setEnabled(false);
+		txtYjDays.setEnabled(false);
+		prmtYjPerson.setEnabled(false);
 		
 		/* modified by zhaoqin for R140507-0214 on 2014/05/13 start */
 		prmtAimCost.removeDataChangeListener(dataChangeListener);// 刷新前取消监听
@@ -4672,8 +5066,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		setAimCostVersionMsg();
 		/* modified by zhaoqin for R140507-0214 on 2014/05/13 start */
 		labelExplain.setText("规划说明：");
-		txtYjDays.setEnabled(false);
-		prmtYjPerson.setEnabled(false);
+		
 	}
 
 	/**

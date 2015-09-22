@@ -108,6 +108,7 @@ import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillCollection;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillFactory;
 import com.kingdee.eas.fdc.contract.FDCUtils;
+import com.kingdee.eas.fdc.contract.programming.CKDate;
 import com.kingdee.eas.fdc.contract.programming.PcTypeEntryCollection;
 import com.kingdee.eas.fdc.contract.programming.PcTypeEntryFactory;
 import com.kingdee.eas.fdc.contract.programming.PcTypeEntryInfo;
@@ -119,7 +120,6 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyFactor
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFxbdEntryCollection;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFxbdEntryFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFxbdEntryInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.finance.client.PayPlanNewUI;
@@ -280,7 +280,9 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 				if (OprtState.ADDNEW.equals(oprtState) || OprtState.EDIT.equals(oprtState)) {
 //					storeEditData();  modify by yxl
 				}
-				payPlanNewUI.updateAmount(txtAmount.getBigDecimalValue());
+				if(txtAmount.getBigDecimalValue()!=null && txtAmount.getBigDecimalValue().compareTo(payPlanNewUI.planAmount)!=0){
+					payPlanNewUI.updateAmount(txtAmount.getBigDecimalValue());
+				}
 			}
 		}
 		kdtpMain.putClientProperty("oldIndex", new Integer(kdtpMain.getSelectedIndex()));
@@ -499,10 +501,11 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 				editData.getFxbdEntry().add(fxbdinfo);
 			}
 		}
-		fxcoll = editData.getFxbdEntry();
+//		fxcoll = editData.getFxbdEntry();
 	}
 
 	protected void initPayPlan() throws UIException {
+		//yuxue
 		UIContext uiContext = new UIContext(this);
 		ProgrammingContractInfo editData = (ProgrammingContractInfo) getUIContext().get("programmingContract");
 		uiContext.put("programming", editData);
@@ -639,7 +642,9 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 			ckDates.put("EWD",editData.getEndDate());
 			ckDates.put("CSED",editData.getCsendDate());
 			
-			fxcoll=ProgrammingContractFxbdEntryFactory.getRemoteInstance().getProgrammingContractFxbdEntryCollection("where parent1.id='"+editData.getId().toString()+"'");
+//			fxcoll=ProgrammingContractFxbdEntryFactory.getRemoteInstance().getProgrammingContractFxbdEntryCollection("where parent1.id='"+editData.getId().toString()+"'");
+			fxcoll = editData.getFxbdEntry();
+			
 			if(fxcoll.size() > 0){
 				ProgrammingContractFxbdEntryInfo feinfo = null;
 				Map<String,ProgrammingContractFxbdEntryInfo> fxentrys = new HashMap<String,ProgrammingContractFxbdEntryInfo>();
@@ -652,11 +657,19 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 					for(Iterator<String> it=depIds.keySet().iterator(); it.hasNext();){
 						key = it.next();
 						feinfo = fxentrys.get(key+row0.getRowIndex());
-						row0.getCell(key+"name").setValue(feinfo.getItemName());
-						row0.getCell(key+"date").setValue(feinfo.getPlanDate());
+						if(feinfo != null){
+							if(feinfo.getItemName() != null){
+								row0.getCell(key+"name").setValue(feinfo.getItemName());
+								row0.getCell(key+"date").setValue(feinfo.getPlanDate());
+							}else
+								row0.getCell(key+"date").getStyleAttributes().setLocked(true);
+							
+						}
 					}
 				}
+				setFxbdBg();
 			}else{
+				Calendar c1 = Calendar.getInstance();
 				for(int i=0; i<maxSize; i++){
 					row0 = kdtfxbd.addRow();
 					for(Iterator<String> it=depIds.keySet().iterator(); it.hasNext();){
@@ -664,8 +677,11 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 						einfo = ptentrys.get(key+row0.getRowIndex());
 						if(einfo != null){
 							row0.getCell(key+"name").setValue(einfo.getFieldName());
-							if(einfo.getCkDate() != null)
-								row0.getCell(key+"date").setValue(ckDates.get(einfo.getCkDate().getName()));
+							if(einfo.getCkDate()!=null && ckDates.get(einfo.getCkDate().getName())!=null){
+								c1.setTime(ckDates.get(einfo.getCkDate().getName()));
+								c1.add(Calendar.DATE,-einfo.getTqDays());
+								row0.getCell(key+"date").setValue(c1.getTime());
+							}
 						}else{
 							row0.getCell(key+"date").getStyleAttributes().setLocked(true);
 						}
@@ -678,9 +694,43 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 					kdtfxbd_editStopped(e);
 				}
 			});
-			
 		}
-		
+	}
+	
+	private boolean isDateChange(String key,Date editDate,Calendar c1){
+		PcTypeEntryInfo einfo = ptentrys.get(key);
+		if(einfo != null){
+			if(editDate==null)
+				return false;
+			CKDate ckItem = einfo.getCkDate();
+			if(ckItem==null)
+				return false;
+			Date ckdate = ckDates.get(ckItem.getName());
+			if(ckdate==null)
+				return false;
+			c1.setTime(ckdate);
+			c1.add(Calendar.DATE,-einfo.getTqDays());
+			if(new Timestamp(c1.getTime().getTime()).compareTo(new Timestamp(editDate.getTime())) != 0)
+				return true;
+//			if(realDate!=null & planDate!=null){
+//				if(new Timestamp(realDate.getTime()).compareTo(new Timestamp(planDate.getTime())) != 0)
+//					return true;
+//			}
+		}
+		return false;
+	}
+	
+	private void setFxbdBg(){
+		Calendar c1 = Calendar.getInstance();
+		String number = null;
+		for (int k = 0; k < kdtfxbd.getColumnCount(); k=k+2) {
+			number = kdtfxbd.getColumnKey(k).substring(0,3);
+			for (int j = kdtfxbd.getRowCount3()-1; j >=0; j--) {
+				if(isDateChange(number+j,(Date)kdtfxbd.getCell(j,number+"date").getValue(),c1)){
+					kdtfxbd.getCell(j,number+"date").getStyleAttributes().setBackground(Color.red);
+				}
+			}
+		}
 	}
 	
 	private void kdtfxbd_editStopped(KDTEditEvent e){
@@ -692,15 +742,23 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		}
 		String ckey = kdtfxbd.getColumnKey(colIndex).substring(0,3);
 		PcTypeEntryInfo pinfo = ptentrys.get(ckey+rowIndex);
-		if(pinfo.isStrongControl() && pinfo.getCkDate()!=null && ckDates.get(pinfo.getCkDate().getName())!=null){
-			
-			if(ckDates.get(pinfo.getCkDate().getName()).before((Date)kdtfxbd.getCell(rowIndex,colIndex).getValue())){
+		if(pinfo.getCkDate()!=null && ckDates.get(pinfo.getCkDate().getName())!=null){
+			Calendar c1 = Calendar.getInstance();
+			c1.setTime(ckDates.get(pinfo.getCkDate().getName()));
+			c1.add(Calendar.DATE,-pinfo.getTqDays());
+			Timestamp ckdate = new Timestamp(c1.getTime().getTime());
+			Timestamp editdate = new Timestamp(((Date)kdtfxbd.getCell(rowIndex,colIndex).getValue()).getTime());
+			//强控
+			if(pinfo.isStrongControl() && ckdate.compareTo(editdate)<0){
 				FDCMsgBox.showInfo("只能把时间往前改！");
-				kdtfxbd.getCell(rowIndex,colIndex).setValue(ckDates.get(pinfo.getCkDate().getName()));
+				kdtfxbd.getCell(rowIndex,colIndex).setValue(c1.getTime());
 				return;
 			}
+			if(ckdate.compareTo(editdate)==0){
+				return;
+			}
+			kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.RED);
 		}
-		kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.RED);
 	}
 	
 	private void initFxbdButton(){
@@ -1016,6 +1074,8 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	 * 格式化KDFormattedTextField文本框
 	 */
 	private void initFormat() {
+		
+		//yuxue
 		setTextFormat(txtAmount);
 		setTextFormat(txtControlAmount);
 		setTextFormat(txtReservedChangeRate);
@@ -1028,7 +1088,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 //		txtReservedChangeRate.setPrecision(4);
 //		txtReservedChangeRate.setHorizontalAlignment(JTextField.RIGHT);
 //		txtReservedChangeRate.setSupportedEmpty(true);
-		filterORG();
+//		filterORG();
 	}
 
 	private void filterORG() {
@@ -2422,7 +2482,9 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 			afterContractAssignChange();
 		}
 		
-		payPlanNewUI.updateAmount(txtAmount.getBigDecimalValue());
+		if(txtAmount.getBigDecimalValue()!=null && txtAmount.getBigDecimalValue().compareTo(payPlanNewUI.planAmount)!=0){
+			payPlanNewUI.updateAmount(txtAmount.getBigDecimalValue());
+		}
 	}
 
 	/**
@@ -3021,6 +3083,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 
 	private void preparePCData() {
 		// 单据头信息
+		//yuxue
 		if (editData.getParent() != null) {
 			String longName = editData.getDisplayName();
 			if (longName.lastIndexOf('.') > -1) {
@@ -3065,21 +3128,21 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		txtDescription.setToolTipText(editData.getDescription());
 		txtAttachment.setText(getAllAttachmentName(editData.getId().toString()).toString());// 附件
 		processAttachments(editData.getId().toString());
-		ObjectValueRender render_scale = new ObjectValueRender();
-		render_scale.setFormat(new IDataFormat() {
-			public String format(Object o) {
-				String str = o.toString();
-				if (!FDCHelper.isEmpty(str)) {
-					return str + "%";
-				}
-				return str;
-			}
-		});
-		kdtEconomy.getColumn(SCALE).setRenderer(render_scale);
+//		ObjectValueRender render_scale = new ObjectValueRender();
+//		render_scale.setFormat(new IDataFormat() {
+//			public String format(Object o) {
+//				String str = o.toString();
+//				if (!FDCHelper.isEmpty(str)) {
+//					return str + "%";
+//				}
+//				return str;
+//			}
+//		});
+//		kdtEconomy.getColumn(SCALE).setRenderer(render_scale);
 
 		// 分录信息
 		addCostLine(kdtCost);
-		addEconomyLine(kdtEconomy);
+//		addEconomyLine(kdtEconomy);
 
 		int level = editData.getLevel();
 		if (level > 1) {
@@ -3804,7 +3867,9 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	 */
 	protected void txtAmount_dataChanged(DataChangeEvent e) throws Exception {
 		calPurControl();
-		payPlanNewUI.updateAmount(txtAmount.getBigDecimalValue());
+		if(txtAmount.getBigDecimalValue()!=null && txtAmount.getBigDecimalValue().compareTo(payPlanNewUI.planAmount)!=0){
+			payPlanNewUI.updateAmount(txtAmount.getBigDecimalValue());
+		}
 	}
 
 	/**

@@ -617,7 +617,7 @@ public class ProjectChangeAuditListUI extends AbstractProjectChangeAuditListUI
 		
 		return new String[] {"id","curProject.id","period.number","orgUnit.name","number","name","bookedDate","curProject.name","changeState","auditType.name","billType","putForwardTime","quality","timeLi","sale","cost","reaDesc","creator.name","createTime","auditor.name","auditTime"};
 	}
-
+	
 	protected CommonQueryDialog initCommonQueryDialog() {
 		if (commonQueryDialog == null) {
 			commonQueryDialog = super.initCommonQueryDialog();

@@ -35,6 +35,11 @@ public class PcTypeListUI extends AbstractPcTypeListUI
     	actionTraceUp.setVisible(false);
     }
 
+    @Override
+    protected boolean isIgnoreCUFilter() {
+    	return true;
+    }
+    
     /**
      * output storeFields method
      */

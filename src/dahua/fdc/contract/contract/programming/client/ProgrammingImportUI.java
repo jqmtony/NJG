@@ -211,8 +211,8 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 			programmingEntry.setBalance(programmingEntry.getAmount());
 			
 			programmingEntry.setWorkContent(templateEntry.getScope());	// modified by zhaoqin on 2013/11/08
-			
-			payPlanImport(programming, templateEntry, programmingEntry, project,payPlanTempMap,tempTaskMap);
+			// modify by yxl 20150914 暂时不导入付款规划页签
+//			payPlanImport(programming, templateEntry, programmingEntry, project,payPlanTempMap,tempTaskMap);
 		}
 
 		//批量添加附件关联
@@ -359,6 +359,10 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		//modified by yxl 20150811 将模板中的合约类型和合同范围引入合约规划
 		programmingEntry.setContractRange(templateEntry.getContractRange());
 		programmingEntry.setHyType(templateEntry.getHyType());
+		if(templateEntry.getHyType() != null){
+			programmingEntry.setPriceWay(templateEntry.getHyType().getPriceWay());
+			programmingEntry.setSendPage(templateEntry.getHyType().getSendContWay());
+		}
 		programmingEntry.setId(BOSUuid.create(programmingEntry.getBOSType()));
 		programmingEntry.setLevel(templateEntry.getLevel());
 		programmingEntry.setLongNumber(templateEntry.getLongNumber());
@@ -811,6 +815,8 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		sic.add("scope");	// modified by zhaoqin on 2013/11/08
 		sic.add("hyType.id");
 		sic.add("hyType.hyType");
+		sic.add("hyType.sendContWay");
+		sic.add("hyType.priceWay");
 		sic.add("contractRange");
 		return sic;
 	}
