@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.contract.settle.app</package>
+    <name>CT_CON_SettleDeclarationBillE2</name>
+    <alias>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].alias</alias>
+    <description>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].description</description>
+    <userDefined>true</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[FParentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>CFSbzl2</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[CFSbzl2].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[CFSbzl2].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>100</precision>
+        </column>
+        <column>
+            <name>CFXuanze2</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[CFXuanze2].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[CFXuanze2].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue>0</defaultValue>
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>1</precision>
+        </column>
+        <column>
+            <name>CFYeshu2</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[CFYeshu2].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[CFYeshu2].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FSeq</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[FSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[FSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[FID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue>''</defaultValue>
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>PK_SettleDeclarati</name>
+        <userDefined>true</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <foreignKeys>
+        <foreignKey>
+            <name>CFK_CON_CONSDBE2Ar</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.contract.settle.app" />
+                <key name="name" value="CT_CON_SettleDeclarationBill" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FParentID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="第2个表体" />
+            <lang locale="zh_HK" value="第2個表體" />
+            <lang locale="zh_TW" value="第2個表體" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[CFSbzl2].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="申报资料" />
+            <lang locale="zh_HK" value="申報資料" />
+            <lang locale="zh_TW" value="申報資料" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[CFSbzl2].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="申报资料" />
+            <lang locale="zh_HK" value="申報資料" />
+            <lang locale="zh_TW" value="申報資料" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[CFXuanze2].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="选择" />
+            <lang locale="zh_HK" value="選擇" />
+            <lang locale="zh_TW" value="選擇" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[CFXuanze2].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="选择" />
+            <lang locale="zh_HK" value="選擇" />
+            <lang locale="zh_TW" value="選擇" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[CFYeshu2].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="页数" />
+            <lang locale="zh_HK" value="頁數" />
+            <lang locale="zh_TW" value="頁數" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[CFYeshu2].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="页数" />
+            <lang locale="zh_HK" value="頁數" />
+            <lang locale="zh_TW" value="頁數" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[FParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[FParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[FSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].columns.column[FSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号（定义为序列属性即使用{seq}）" />
+            <lang locale="zh_HK" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+            <lang locale="zh_TW" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBillE2].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</dataTable>
+
