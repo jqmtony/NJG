@@ -121,8 +121,8 @@
             <name>totalPayReqAmt&gt;LastPriceCantSubmit</name>
             <value>i18nResource[com.kingdee.eas.fdc.finance.client.FinanceResource].resourceItems.resourceItem[totalPayReqAmt&gt;LastPriceCantSubmit].value</value>
             <userDefined>false</userDefined>
-        </resourceItem>
-        <resourceItem>
+        </resourceItem>	
+	<resourceItem>
             <name>DeductBill_Import_fOrgUnitNumber</name>
             <value>i18nResource[com.kingdee.eas.fdc.finance.client.FinanceResource].resourceItems.resourceItem[DeductBill_Import_fOrgUnitNumber].value</value>
             <userDefined>false</userDefined>
@@ -507,16 +507,6 @@
             <value>i18nResource[com.kingdee.eas.fdc.finance.client.FinanceResource].resourceItems.resourceItem[PaymentSplitWithoutTxtCon_Import_fEntrysProductNameL21].value</value>
             <userDefined>false</userDefined>
         </resourceItem>
-        <resourceItem>
-            <name>UuuuQueryF7WindowTitle</name>
-            <value>i18nResource[com.kingdee.eas.fdc.finance.client.FinanceResource].resourceItems.resourceItem[UuuuQueryF7WindowTitle].value</value>
-            <userDefined>false</userDefined>
-        </resourceItem>
-        <resourceItem>
-            <name>FDCProDepConPayPlanQueryF7WindowTitle</name>
-            <value>i18nResource[com.kingdee.eas.fdc.finance.client.FinanceResource].resourceItems.resourceItem[FDCProDepConPayPlanQueryF7WindowTitle].value</value>
-            <userDefined>false</userDefined>
-        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.fdc.finance.client.FinanceResource].alias">
@@ -752,12 +742,6 @@
             <lang locale="en_US" value="value_new" />
             <lang locale="zh_HK" value="對象找不到！" />
             <lang locale="zh_TW" value="對象找不到！" />
-        </rs>
-        <rs key="i18nResource[com.kingdee.eas.fdc.finance.client.FinanceResource].resourceItems.resourceItem[FDCProDepConPayPlanQueryF7WindowTitle].value">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="项目月度付款计划" />
-            <lang locale="zh_HK" value="項目月度付款計畫" />
-            <lang locale="zh_TW" value="項目月度付款計畫" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.fdc.finance.client.FinanceResource].resourceItems.resourceItem[Import_NOTNULL].value">
             <lang locale="zh_CN" value="在系统中不存在！" />
@@ -1034,12 +1018,6 @@
             <lang locale="en_US" value="value_new" />
             <lang locale="zh_HK" value="審批人編碼不能為空！" />
             <lang locale="zh_TW" value="審批人編碼不能為空！" />
-        </rs>
-        <rs key="i18nResource[com.kingdee.eas.fdc.finance.client.FinanceResource].resourceItems.resourceItem[UuuuQueryF7WindowTitle].value">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="Uuuu" />
-            <lang locale="zh_HK" value="Uuuu" />
-            <lang locale="zh_TW" value="Uuuu" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.fdc.finance.client.FinanceResource].resourceItems.resourceItem[companyClose].value">
             <lang locale="zh_CN" value="在结账之前，应检查当前财务组织下所有的工程项目的当前期间是否都已经财务成本月结，并且已经处理发生在当期的产品结算相关账务处理。" />
