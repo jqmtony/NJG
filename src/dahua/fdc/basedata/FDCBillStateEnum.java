@@ -25,6 +25,7 @@ public class FDCBillStateEnum extends StringEnum
     public static final String BACK_VALUE = "11BACK";//alias=被打回
     public static final String REVISING_VALUE = "12REVISING";//alias=修订中
     public static final String REVISE_VALUE = "12REVISE";//alias=已修订
+    public static final String CONFIRMED_VALUE = "13CONFIRMED";//alias=已确认
 
     public static final FDCBillStateEnum SAVED = new FDCBillStateEnum("SAVED", SAVED_VALUE);
     public static final FDCBillStateEnum SUBMITTED = new FDCBillStateEnum("SUBMITTED", SUBMITTED_VALUE);
@@ -38,6 +39,7 @@ public class FDCBillStateEnum extends StringEnum
     public static final FDCBillStateEnum BACK = new FDCBillStateEnum("BACK", BACK_VALUE);
     public static final FDCBillStateEnum REVISING = new FDCBillStateEnum("REVISING", REVISING_VALUE);
     public static final FDCBillStateEnum REVISE = new FDCBillStateEnum("REVISE", REVISE_VALUE);
+    public static final FDCBillStateEnum CONFIRMED = new FDCBillStateEnum("CONFIRMED", CONFIRMED_VALUE);
 
     /**
      * construct function
