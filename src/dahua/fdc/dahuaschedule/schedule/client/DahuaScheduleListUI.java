@@ -4,6 +4,10 @@
 package com.kingdee.eas.fdc.dahuaschedule.schedule.client;
 
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -15,6 +19,8 @@ import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ctrl.swing.KDFileChooser;
+import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -32,6 +38,8 @@ import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
+import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleFacadeFactory;
+import com.kingdee.eas.fdc.dahuaschedule.schedule.IDahuaScheduleFacade;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
@@ -74,6 +82,62 @@ public class DahuaScheduleListUI extends AbstractDahuaScheduleListUI
     	this.btnWorkFlowG.setVisible(false);
     	this.btnAuditResult.setVisible(false);
     	this.btnAttachment.setVisible(false);
+    	KDWorkButton btnImport = new KDWorkButton();
+    	btnImport.setText("数据导入临时表");
+    	btnImport.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				actionImportTempData(e);
+			}
+    	});
+    	KDWorkButton btnCreateSchedule = new KDWorkButton();
+    	btnCreateSchedule.setText("生成进度单据");
+    	btnCreateSchedule.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				actionCreateScheduleInfo(e);
+			}
+    	});
+    	
+    	this.toolBar.add(btnImport);
+    	this.toolBar.add(btnCreateSchedule);
+    }
+    /**
+     * 导入临时表
+     * @param e
+     */
+    public void actionImportTempData(ActionEvent e) {
+    	try {
+    		KDFileChooser chooser = new KDFileChooser();
+    		chooser.showOpenDialog(null);
+    		File xmlFile = chooser.getSelectedFile();
+    		
+    		if(xmlFile == null)
+    			return;
+    		BufferedReader br = new BufferedReader(
+    				new InputStreamReader(
+    						new FileInputStream(xmlFile), "utf-8"));
+    		String xml = "", line = "";
+    		while ((line = br.readLine()) != null)
+    			xml += line;
+    		br.close();
+        	IDahuaScheduleFacade iDaScheduleFacade = DahuaScheduleFacadeFactory.getRemoteInstance();
+        	iDaScheduleFacade.createTempData(xml);
+//        	iDaScheduleFacade.createScheduleBill();
+    	} catch (Exception e1) {
+		}
+    }
+    /**
+     * 生成进度单据（读取临时表）
+     * @param e
+     */
+    public void actionCreateScheduleInfo(ActionEvent e) {
+    	try {
+			IDahuaScheduleFacade iDaScheduleFacade = DahuaScheduleFacadeFactory.getRemoteInstance();
+			iDaScheduleFacade.createScheduleBill();
+		} catch (BOSException e1) {
+			e1.printStackTrace();
+		}
     }
     /**
      * output storeFields method
@@ -108,7 +172,7 @@ public class DahuaScheduleListUI extends AbstractDahuaScheduleListUI
     	refresh(null);
     }
     /**
-	 * 构建项目数
+	 * 构建项目树
 	 * 
 	 * @throws Exception
 	 */
@@ -133,7 +197,6 @@ public class DahuaScheduleListUI extends AbstractDahuaScheduleListUI
 		if (treeMain.getRowCount() > 0) {
 			treeMain.setSelectionRow(0);
 			treeMain.expandPath(treeMain.getSelectionPath());
-			
 		}
 	}
     /**

@@ -70,7 +70,7 @@ public class DahuaScheduleEditUI extends AbstractDahuaScheduleEditUI
     	this.btnCreateTo.setVisible(false);
     	this.btnMultiapprove.setVisible(false);
     	this.btnNextPerson.setVisible(false);
-//    	this.btnAuditResult.setVisible(false);
+    	this.btnAuditResult.setVisible(false);
     	this.prmtproject.setEnabled(false);
     	
     	this.kdtEntrys_detailPanel.getAddNewLineButton().setVisible(false);
