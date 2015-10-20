@@ -23,7 +23,7 @@ import com.kingdee.eas.framework.*;
 public class DesignApproveUI extends AbstractDesignApproveUI
 {
     private static final Logger logger = CoreUIObject.getLogger(DesignApproveUI.class);
-    
+          
     /**
      * output class constructor
      */
