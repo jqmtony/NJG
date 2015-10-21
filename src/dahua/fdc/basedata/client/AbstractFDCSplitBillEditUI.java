@@ -47,48 +47,48 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractFDCSplitBillEditUI.class);
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker dateAuditTime;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtCostBillNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer3;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtUnSplitAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer5;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtSplitedAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer6;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtCostBillName;
     public com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntrys;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer7;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox bizPromptLastUpdateUser;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer8;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox bizPromptCreator;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer9;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtDescription;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer10;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox bizPromptAuditor;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer11;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker dateCreateTime;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer12;
-    protected com.kingdee.bos.ctrl.swing.KDDatePicker dateLastUpdateTime;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer13;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtCompany;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer14;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker dateAuditTime;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtCostBillNumber;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtAmount;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtUnSplitAmount;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtSplitedAmount;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtCostBillName;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox bizPromptLastUpdateUser;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox bizPromptCreator;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtDescription;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox bizPromptAuditor;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker dateCreateTime;
+    protected com.kingdee.bos.ctrl.swing.KDDatePicker dateLastUpdateTime;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtCompany;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAcctSelect;
+    protected javax.swing.JToolBar.Separator separator4;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnSplitProj;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnSplitBotUp;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnSplitProd;
-    protected javax.swing.JToolBar.Separator separator4;
     protected javax.swing.JToolBar.Separator separator5;
-    protected javax.swing.JToolBar.Separator separator6;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnImpContrSplit;
+    protected javax.swing.JToolBar.Separator separator6;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewCostInfo;
+    protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemAcctSelect;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemSplitProj;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemSplitBotUp;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemSplitProd;
-    protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemAcctSelect;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemImpContrSplit;
-    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewCostInfo;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemViewCostInfo;
     protected com.kingdee.eas.fdc.basedata.FDCSplitBillInfo editData = null;
     protected ActionAcctSelect actionAcctSelect = null;
@@ -141,92 +141,92 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         getActionManager().registerAction("actionViewCostInfo", actionViewCostInfo);
          this.actionViewCostInfo.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.dateAuditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtCostBillNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDLabelContainer3 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtUnSplitAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.kDLabelContainer5 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtSplitedAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.kDLabelContainer6 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtCostBillName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kdtEntrys = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDLabelContainer7 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.bizPromptLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDLabelContainer8 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.bizPromptCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDLabelContainer9 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtDescription = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDLabelContainer10 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.bizPromptAuditor = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDLabelContainer11 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.dateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.kDLabelContainer12 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.dateLastUpdateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.kDLabelContainer13 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtCompany = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDLabelContainer14 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.dateAuditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.txtCostBillNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtUnSplitAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtSplitedAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtCostBillName = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.bizPromptLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.bizPromptCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.txtDescription = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.bizPromptAuditor = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.dateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.dateLastUpdateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.txtCompany = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.btnAcctSelect = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.separator4 = new javax.swing.JToolBar.Separator();
         this.btnSplitProj = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnSplitBotUp = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnSplitProd = new com.kingdee.bos.ctrl.swing.KDWorkButton();
-        this.separator4 = new javax.swing.JToolBar.Separator();
         this.separator5 = new javax.swing.JToolBar.Separator();
-        this.separator6 = new javax.swing.JToolBar.Separator();
         this.btnImpContrSplit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.separator6 = new javax.swing.JToolBar.Separator();
+        this.btnViewCostInfo = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.menuItemAcctSelect = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.menuItemSplitProj = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.menuItemSplitBotUp = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.menuItemSplitProd = new com.kingdee.bos.ctrl.swing.KDMenuItem();
-        this.menuItemAcctSelect = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.menuItemImpContrSplit = new com.kingdee.bos.ctrl.swing.KDMenuItem();
-        this.btnViewCostInfo = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.menuItemViewCostInfo = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.kDLabelContainer1.setName("kDLabelContainer1");
-        this.dateAuditTime.setName("dateAuditTime");
         this.kDLabelContainer2.setName("kDLabelContainer2");
-        this.txtCostBillNumber.setName("txtCostBillNumber");
         this.kDLabelContainer3.setName("kDLabelContainer3");
-        this.txtAmount.setName("txtAmount");
         this.kDLabelContainer4.setName("kDLabelContainer4");
-        this.txtUnSplitAmount.setName("txtUnSplitAmount");
         this.kDLabelContainer5.setName("kDLabelContainer5");
-        this.txtSplitedAmount.setName("txtSplitedAmount");
         this.kDLabelContainer6.setName("kDLabelContainer6");
-        this.txtCostBillName.setName("txtCostBillName");
         this.kdtEntrys.setName("kdtEntrys");
         this.kDLabelContainer7.setName("kDLabelContainer7");
-        this.bizPromptLastUpdateUser.setName("bizPromptLastUpdateUser");
         this.kDLabelContainer8.setName("kDLabelContainer8");
-        this.bizPromptCreator.setName("bizPromptCreator");
         this.kDLabelContainer9.setName("kDLabelContainer9");
-        this.txtDescription.setName("txtDescription");
         this.kDLabelContainer10.setName("kDLabelContainer10");
-        this.bizPromptAuditor.setName("bizPromptAuditor");
         this.kDLabelContainer11.setName("kDLabelContainer11");
-        this.dateCreateTime.setName("dateCreateTime");
         this.kDLabelContainer12.setName("kDLabelContainer12");
-        this.dateLastUpdateTime.setName("dateLastUpdateTime");
         this.kDLabelContainer13.setName("kDLabelContainer13");
-        this.txtCompany.setName("txtCompany");
         this.kDLabelContainer14.setName("kDLabelContainer14");
+        this.dateAuditTime.setName("dateAuditTime");
+        this.txtCostBillNumber.setName("txtCostBillNumber");
+        this.txtAmount.setName("txtAmount");
+        this.txtUnSplitAmount.setName("txtUnSplitAmount");
+        this.txtSplitedAmount.setName("txtSplitedAmount");
+        this.txtCostBillName.setName("txtCostBillName");
+        this.bizPromptLastUpdateUser.setName("bizPromptLastUpdateUser");
+        this.bizPromptCreator.setName("bizPromptCreator");
+        this.txtDescription.setName("txtDescription");
+        this.bizPromptAuditor.setName("bizPromptAuditor");
+        this.dateCreateTime.setName("dateCreateTime");
+        this.dateLastUpdateTime.setName("dateLastUpdateTime");
+        this.txtCompany.setName("txtCompany");
         this.txtNumber.setName("txtNumber");
         this.btnAcctSelect.setName("btnAcctSelect");
+        this.separator4.setName("separator4");
         this.btnSplitProj.setName("btnSplitProj");
         this.btnSplitBotUp.setName("btnSplitBotUp");
         this.btnSplitProd.setName("btnSplitProd");
-        this.separator4.setName("separator4");
         this.separator5.setName("separator5");
-        this.separator6.setName("separator6");
         this.btnImpContrSplit.setName("btnImpContrSplit");
+        this.separator6.setName("separator6");
+        this.btnViewCostInfo.setName("btnViewCostInfo");
+        this.menuItemAcctSelect.setName("menuItemAcctSelect");
         this.menuItemSplitProj.setName("menuItemSplitProj");
         this.menuItemSplitBotUp.setName("menuItemSplitBotUp");
         this.menuItemSplitProd.setName("menuItemSplitProd");
-        this.menuItemAcctSelect.setName("menuItemAcctSelect");
         this.menuItemImpContrSplit.setName("menuItemImpContrSplit");
-        this.btnViewCostInfo.setName("btnViewCostInfo");
         this.menuItemViewCostInfo.setName("menuItemViewCostInfo");
         // CoreUI		
         this.kDSeparator1.setVisible(false);		
@@ -270,92 +270,40 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         this.kDLabelContainer1.setBoundLabelText(resHelper.getString("kDLabelContainer1.boundLabelText"));		
         this.kDLabelContainer1.setBoundLabelLength(100);		
         this.kDLabelContainer1.setBoundLabelUnderline(true);
-        // dateAuditTime		
-        this.dateAuditTime.setEnabled(false);
         // kDLabelContainer2		
         this.kDLabelContainer2.setBoundLabelText(resHelper.getString("kDLabelContainer2.boundLabelText"));		
         this.kDLabelContainer2.setBoundLabelLength(100);		
         this.kDLabelContainer2.setBoundLabelUnderline(true);		
         this.kDLabelContainer2.setBoundLabelAlignment(7);		
         this.kDLabelContainer2.setVisible(true);
-        // txtCostBillNumber		
-        this.txtCostBillNumber.setMaxLength(80);		
-        this.txtCostBillNumber.setVisible(true);		
-        this.txtCostBillNumber.setEnabled(false);		
-        this.txtCostBillNumber.setHorizontalAlignment(2);		
-        this.txtCostBillNumber.setRequired(false);
         // kDLabelContainer3		
         this.kDLabelContainer3.setBoundLabelText(resHelper.getString("kDLabelContainer3.boundLabelText"));		
         this.kDLabelContainer3.setBoundLabelLength(100);		
         this.kDLabelContainer3.setBoundLabelUnderline(true);		
         this.kDLabelContainer3.setVisible(true);		
         this.kDLabelContainer3.setBoundLabelAlignment(7);
-        // txtAmount		
-        this.txtAmount.setVisible(true);		
-        this.txtAmount.setHorizontalAlignment(2);		
-        this.txtAmount.setDataType(1);		
-        this.txtAmount.setSupportedEmpty(true);		
-        this.txtAmount.setMinimumValue( new java.math.BigDecimal(-1.0E18));		
-        this.txtAmount.setMaximumValue( new java.math.BigDecimal(1.0E18));		
-        this.txtAmount.setPrecision(2);		
-        this.txtAmount.setRequired(true);		
-        this.txtAmount.setEnabled(false);
         // kDLabelContainer4		
         this.kDLabelContainer4.setBoundLabelText(resHelper.getString("kDLabelContainer4.boundLabelText"));		
         this.kDLabelContainer4.setBoundLabelLength(100);		
         this.kDLabelContainer4.setBoundLabelUnderline(true);		
         this.kDLabelContainer4.setVisible(true);		
         this.kDLabelContainer4.setBoundLabelAlignment(7);
-        // txtUnSplitAmount		
-        this.txtUnSplitAmount.setVisible(true);		
-        this.txtUnSplitAmount.setHorizontalAlignment(2);		
-        this.txtUnSplitAmount.setDataType(1);		
-        this.txtUnSplitAmount.setSupportedEmpty(true);		
-        this.txtUnSplitAmount.setMinimumValue( new java.math.BigDecimal(-1.0E18));		
-        this.txtUnSplitAmount.setMaximumValue( new java.math.BigDecimal(1.0E18));		
-        this.txtUnSplitAmount.setPrecision(2);		
-        this.txtUnSplitAmount.setRequired(true);		
-        this.txtUnSplitAmount.setEnabled(false);
         // kDLabelContainer5		
         this.kDLabelContainer5.setBoundLabelText(resHelper.getString("kDLabelContainer5.boundLabelText"));		
         this.kDLabelContainer5.setBoundLabelLength(100);		
         this.kDLabelContainer5.setBoundLabelUnderline(true);		
         this.kDLabelContainer5.setVisible(true);		
         this.kDLabelContainer5.setBoundLabelAlignment(7);
-        // txtSplitedAmount		
-        this.txtSplitedAmount.setVisible(true);		
-        this.txtSplitedAmount.setHorizontalAlignment(2);		
-        this.txtSplitedAmount.setDataType(1);		
-        this.txtSplitedAmount.setSupportedEmpty(true);		
-        this.txtSplitedAmount.setMinimumValue( new java.math.BigDecimal(-1.0E18));		
-        this.txtSplitedAmount.setMaximumValue( new java.math.BigDecimal(1.0E18));		
-        this.txtSplitedAmount.setPrecision(2);		
-        this.txtSplitedAmount.setRequired(true);		
-        this.txtSplitedAmount.setEnabled(false);
-        this.txtSplitedAmount.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
-            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
-                try {
-                    txtSplitedAmount_dataChanged(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
         // kDLabelContainer6		
         this.kDLabelContainer6.setBoundLabelText(resHelper.getString("kDLabelContainer6.boundLabelText"));		
         this.kDLabelContainer6.setBoundLabelLength(100);		
         this.kDLabelContainer6.setBoundLabelUnderline(true);		
         this.kDLabelContainer6.setVisible(true);		
         this.kDLabelContainer6.setBoundLabelAlignment(7);
-        // txtCostBillName		
-        this.txtCostBillName.setVisible(true);		
-        this.txtCostBillName.setHorizontalAlignment(2);		
-        this.txtCostBillName.setMaxLength(100);		
-        this.txtCostBillName.setRequired(false);		
-        this.txtCostBillName.setEnabled(false);
-        // kdtEntrys		
-        this.kdtEntrys.setFormatXml(resHelper.getString("kdtEntrys.formatXml"));
+        // kdtEntrys
+		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol1\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol8\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol9\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol10\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol12\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol14\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol15\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol16\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol17\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol18\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol19\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol20\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol21\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"costAccount.curProject.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol1\" /><t:Column t:key=\"costAccount.curProject.name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"costAccount.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"costAccount.name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"programming\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"standard\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"workLoad\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" t:styleID=\"sCol7\" /><t:Column t:key=\"price\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"splitScale\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" t:styleID=\"sCol9\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" t:styleID=\"sCol10\" /><t:Column t:key=\"product\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"costAccount.curProject.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" t:styleID=\"sCol12\" /><t:Column t:key=\"costAccount.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" t:styleID=\"sCol13\" /><t:Column t:key=\"level\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" t:styleID=\"sCol14\" /><t:Column t:key=\"splitType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" t:styleID=\"sCol15\" /><t:Column t:key=\"apportionType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" t:styleID=\"sCol16\" /><t:Column t:key=\"apportionValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" t:styleID=\"sCol17\" /><t:Column t:key=\"directAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"18\" t:styleID=\"sCol18\" /><t:Column t:key=\"apportionValueTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"19\" t:styleID=\"sCol19\" /><t:Column t:key=\"directAmountTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"20\" t:styleID=\"sCol20\" /><t:Column t:key=\"otherRatioTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"21\" t:styleID=\"sCol21\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{costAccount.curProject.number}</t:Cell><t:Cell>$Resource{costAccount.curProject.name}</t:Cell><t:Cell>$Resource{costAccount.number}</t:Cell><t:Cell>$Resource{costAccount.name}</t:Cell><t:Cell>$Resource{programming}</t:Cell><t:Cell>$Resource{standard}</t:Cell><t:Cell>$Resource{workLoad}</t:Cell><t:Cell>$Resource{price}</t:Cell><t:Cell>$Resource{splitScale}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{product}</t:Cell><t:Cell>$Resource{costAccount.curProject.id}</t:Cell><t:Cell>$Resource{costAccount.id}</t:Cell><t:Cell>$Resource{level}</t:Cell><t:Cell>$Resource{splitType}</t:Cell><t:Cell>$Resource{apportionType.name}</t:Cell><t:Cell>$Resource{apportionValue}</t:Cell><t:Cell>$Resource{directAmount}</t:Cell><t:Cell>$Resource{apportionValueTotal}</t:Cell><t:Cell>$Resource{directAmountTotal}</t:Cell><t:Cell>$Resource{otherRatioTotal}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
         this.kdtEntrys.addKDTActiveCellListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTActiveCellListener() {
             public void activeCellChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTActiveCellEvent e) {
                 try {
@@ -391,57 +339,27 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         this.kDLabelContainer7.setVisible(false);		
         this.kDLabelContainer7.setBoundLabelUnderline(true);		
         this.kDLabelContainer7.setBoundLabelAlignment(7);
-        // bizPromptLastUpdateUser		
-        this.bizPromptLastUpdateUser.setEnabled(false);		
-        this.bizPromptLastUpdateUser.setVisible(false);		
-        this.bizPromptLastUpdateUser.setEditable(true);		
-        this.bizPromptLastUpdateUser.setDisplayFormat("$name$");		
-        this.bizPromptLastUpdateUser.setEditFormat("$number$");		
-        this.bizPromptLastUpdateUser.setCommitFormat("$number$");
         // kDLabelContainer8		
         this.kDLabelContainer8.setBoundLabelText(resHelper.getString("kDLabelContainer8.boundLabelText"));		
         this.kDLabelContainer8.setBoundLabelLength(100);		
         this.kDLabelContainer8.setBoundLabelUnderline(true);		
         this.kDLabelContainer8.setBoundLabelAlignment(7);
-        // bizPromptCreator		
-        this.bizPromptCreator.setEnabled(false);		
-        this.bizPromptCreator.setVisible(true);		
-        this.bizPromptCreator.setEditable(true);		
-        this.bizPromptCreator.setDisplayFormat("$name$");		
-        this.bizPromptCreator.setEditFormat("$number$");		
-        this.bizPromptCreator.setCommitFormat("$number$");
         // kDLabelContainer9		
         this.kDLabelContainer9.setBoundLabelText(resHelper.getString("kDLabelContainer9.boundLabelText"));		
         this.kDLabelContainer9.setBoundLabelLength(100);		
         this.kDLabelContainer9.setBoundLabelUnderline(true);		
         this.kDLabelContainer9.setBoundLabelAlignment(7);		
         this.kDLabelContainer9.setVisible(false);
-        // txtDescription		
-        this.txtDescription.setMaxLength(80);		
-        this.txtDescription.setVisible(true);		
-        this.txtDescription.setEnabled(true);		
-        this.txtDescription.setHorizontalAlignment(2);		
-        this.txtDescription.setText(resHelper.getString("txtDescription.text"));
         // kDLabelContainer10		
         this.kDLabelContainer10.setBoundLabelText(resHelper.getString("kDLabelContainer10.boundLabelText"));		
         this.kDLabelContainer10.setBoundLabelLength(100);		
         this.kDLabelContainer10.setBoundLabelUnderline(true);		
         this.kDLabelContainer10.setBoundLabelAlignment(7);
-        // bizPromptAuditor		
-        this.bizPromptAuditor.setEnabled(false);		
-        this.bizPromptAuditor.setVisible(true);		
-        this.bizPromptAuditor.setEditable(true);		
-        this.bizPromptAuditor.setDisplayFormat("$name$");		
-        this.bizPromptAuditor.setEditFormat("$number$");		
-        this.bizPromptAuditor.setCommitFormat("$number$");
         // kDLabelContainer11		
         this.kDLabelContainer11.setBoundLabelText(resHelper.getString("kDLabelContainer11.boundLabelText"));		
         this.kDLabelContainer11.setBoundLabelLength(100);		
         this.kDLabelContainer11.setBoundLabelUnderline(true);		
         this.kDLabelContainer11.setBoundLabelAlignment(7);
-        // dateCreateTime		
-        this.dateCreateTime.setEnabled(false);		
-        this.dateCreateTime.setVisible(true);
         // kDLabelContainer12		
         this.kDLabelContainer12.setBoundLabelText(resHelper.getString("kDLabelContainer12.boundLabelText"));		
         this.kDLabelContainer12.setBoundLabelLength(100);		
@@ -449,26 +367,110 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         this.kDLabelContainer12.setBoundLabelUnderline(true);		
         this.kDLabelContainer12.setEnabled(false);		
         this.kDLabelContainer12.setBoundLabelAlignment(7);
-        // dateLastUpdateTime		
-        this.dateLastUpdateTime.setEnabled(false);		
-        this.dateLastUpdateTime.setVisible(false);
         // kDLabelContainer13		
         this.kDLabelContainer13.setBoundLabelText(resHelper.getString("kDLabelContainer13.boundLabelText"));		
         this.kDLabelContainer13.setBoundLabelLength(100);		
         this.kDLabelContainer13.setBoundLabelUnderline(true);		
         this.kDLabelContainer13.setBoundLabelAlignment(7);		
         this.kDLabelContainer13.setVisible(false);
-        // txtCompany		
-        this.txtCompany.setText(resHelper.getString("txtCompany.text"));		
-        this.txtCompany.setEnabled(false);		
-        this.txtCompany.setVisible(true);		
-        this.txtCompany.setHorizontalAlignment(2);
         // kDLabelContainer14		
         this.kDLabelContainer14.setBoundLabelText(resHelper.getString("kDLabelContainer14.boundLabelText"));		
         this.kDLabelContainer14.setBoundLabelLength(100);		
         this.kDLabelContainer14.setBoundLabelUnderline(true);		
         this.kDLabelContainer14.setBoundLabelAlignment(7);		
         this.kDLabelContainer14.setVisible(false);
+        // dateAuditTime		
+        this.dateAuditTime.setEnabled(false);
+        // txtCostBillNumber		
+        this.txtCostBillNumber.setMaxLength(80);		
+        this.txtCostBillNumber.setVisible(true);		
+        this.txtCostBillNumber.setEnabled(false);		
+        this.txtCostBillNumber.setHorizontalAlignment(2);		
+        this.txtCostBillNumber.setRequired(false);
+        // txtAmount		
+        this.txtAmount.setVisible(true);		
+        this.txtAmount.setHorizontalAlignment(2);		
+        this.txtAmount.setDataType(1);		
+        this.txtAmount.setSupportedEmpty(true);		
+        this.txtAmount.setMinimumValue( new java.math.BigDecimal(-1.0E18));		
+        this.txtAmount.setMaximumValue( new java.math.BigDecimal(1.0E18));		
+        this.txtAmount.setPrecision(2);		
+        this.txtAmount.setRequired(true);		
+        this.txtAmount.setEnabled(false);
+        // txtUnSplitAmount		
+        this.txtUnSplitAmount.setVisible(true);		
+        this.txtUnSplitAmount.setHorizontalAlignment(2);		
+        this.txtUnSplitAmount.setDataType(1);		
+        this.txtUnSplitAmount.setSupportedEmpty(true);		
+        this.txtUnSplitAmount.setMinimumValue( new java.math.BigDecimal(-1.0E18));		
+        this.txtUnSplitAmount.setMaximumValue( new java.math.BigDecimal(1.0E18));		
+        this.txtUnSplitAmount.setPrecision(2);		
+        this.txtUnSplitAmount.setRequired(true);		
+        this.txtUnSplitAmount.setEnabled(false);
+        // txtSplitedAmount		
+        this.txtSplitedAmount.setVisible(true);		
+        this.txtSplitedAmount.setHorizontalAlignment(2);		
+        this.txtSplitedAmount.setDataType(1);		
+        this.txtSplitedAmount.setSupportedEmpty(true);		
+        this.txtSplitedAmount.setMinimumValue( new java.math.BigDecimal(-1.0E18));		
+        this.txtSplitedAmount.setMaximumValue( new java.math.BigDecimal(1.0E18));		
+        this.txtSplitedAmount.setPrecision(2);		
+        this.txtSplitedAmount.setRequired(true);		
+        this.txtSplitedAmount.setEnabled(false);
+        this.txtSplitedAmount.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    txtSplitedAmount_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        // txtCostBillName		
+        this.txtCostBillName.setVisible(true);		
+        this.txtCostBillName.setHorizontalAlignment(2);		
+        this.txtCostBillName.setMaxLength(100);		
+        this.txtCostBillName.setRequired(false);		
+        this.txtCostBillName.setEnabled(false);
+        // bizPromptLastUpdateUser		
+        this.bizPromptLastUpdateUser.setEnabled(false);		
+        this.bizPromptLastUpdateUser.setVisible(false);		
+        this.bizPromptLastUpdateUser.setEditable(true);		
+        this.bizPromptLastUpdateUser.setDisplayFormat("$name$");		
+        this.bizPromptLastUpdateUser.setEditFormat("$number$");		
+        this.bizPromptLastUpdateUser.setCommitFormat("$number$");
+        // bizPromptCreator		
+        this.bizPromptCreator.setEnabled(false);		
+        this.bizPromptCreator.setVisible(true);		
+        this.bizPromptCreator.setEditable(true);		
+        this.bizPromptCreator.setDisplayFormat("$name$");		
+        this.bizPromptCreator.setEditFormat("$number$");		
+        this.bizPromptCreator.setCommitFormat("$number$");
+        // txtDescription		
+        this.txtDescription.setMaxLength(80);		
+        this.txtDescription.setVisible(true);		
+        this.txtDescription.setEnabled(true);		
+        this.txtDescription.setHorizontalAlignment(2);		
+        this.txtDescription.setText(resHelper.getString("txtDescription.text"));
+        // bizPromptAuditor		
+        this.bizPromptAuditor.setEnabled(false);		
+        this.bizPromptAuditor.setVisible(true);		
+        this.bizPromptAuditor.setEditable(true);		
+        this.bizPromptAuditor.setDisplayFormat("$name$");		
+        this.bizPromptAuditor.setEditFormat("$number$");		
+        this.bizPromptAuditor.setCommitFormat("$number$");
+        // dateCreateTime		
+        this.dateCreateTime.setEnabled(false);		
+        this.dateCreateTime.setVisible(true);
+        // dateLastUpdateTime		
+        this.dateLastUpdateTime.setEnabled(false);		
+        this.dateLastUpdateTime.setVisible(false);
+        // txtCompany		
+        this.txtCompany.setText(resHelper.getString("txtCompany.text"));		
+        this.txtCompany.setEnabled(false);		
+        this.txtCompany.setVisible(true);		
+        this.txtCompany.setHorizontalAlignment(2);
         // txtNumber		
         this.txtNumber.setMaxLength(80);		
         this.txtNumber.setVisible(true);		
@@ -479,6 +481,8 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         this.btnAcctSelect.setAction((IItemAction)ActionProxyFactory.getProxy(actionAcctSelect, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAcctSelect.setText(resHelper.getString("btnAcctSelect.text"));		
         this.btnAcctSelect.setToolTipText(resHelper.getString("btnAcctSelect.toolTipText"));
+        // separator4		
+        this.separator4.setOrientation(1);
         // btnSplitProj
         this.btnSplitProj.setAction((IItemAction)ActionProxyFactory.getProxy(actionSplitProj, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnSplitProj.setText(resHelper.getString("btnSplitProj.text"));		
@@ -491,17 +495,23 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         this.btnSplitProd.setAction((IItemAction)ActionProxyFactory.getProxy(actionSplitProd, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnSplitProd.setText(resHelper.getString("btnSplitProd.text"));		
         this.btnSplitProd.setToolTipText(resHelper.getString("btnSplitProd.toolTipText"));
-        // separator4		
-        this.separator4.setOrientation(1);
         // separator5		
         this.separator5.setOrientation(1);
-        // separator6		
-        this.separator6.setOrientation(1);
         // btnImpContrSplit
         this.btnImpContrSplit.setAction((IItemAction)ActionProxyFactory.getProxy(actionImpContrSplit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnImpContrSplit.setText(resHelper.getString("btnImpContrSplit.text"));		
         this.btnImpContrSplit.setToolTipText(resHelper.getString("btnImpContrSplit.toolTipText"));		
         this.btnImpContrSplit.setVisible(false);
+        // separator6		
+        this.separator6.setOrientation(1);
+        // btnViewCostInfo
+        this.btnViewCostInfo.setAction((IItemAction)ActionProxyFactory.getProxy(actionViewCostInfo, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnViewCostInfo.setText(resHelper.getString("btnViewCostInfo.text"));		
+        this.btnViewCostInfo.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_view"));
+        // menuItemAcctSelect
+        this.menuItemAcctSelect.setAction((IItemAction)ActionProxyFactory.getProxy(actionAcctSelect, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.menuItemAcctSelect.setText(resHelper.getString("menuItemAcctSelect.text"));		
+        this.menuItemAcctSelect.setToolTipText(resHelper.getString("menuItemAcctSelect.toolTipText"));
         // menuItemSplitProj
         this.menuItemSplitProj.setAction((IItemAction)ActionProxyFactory.getProxy(actionSplitProj, new Class[] { IItemAction.class }, getServiceContext()));		
         this.menuItemSplitProj.setText(resHelper.getString("menuItemSplitProj.text"));		
@@ -512,18 +522,10 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         // menuItemSplitProd
         this.menuItemSplitProd.setAction((IItemAction)ActionProxyFactory.getProxy(actionSplitProd, new Class[] { IItemAction.class }, getServiceContext()));		
         this.menuItemSplitProd.setText(resHelper.getString("menuItemSplitProd.text"));
-        // menuItemAcctSelect
-        this.menuItemAcctSelect.setAction((IItemAction)ActionProxyFactory.getProxy(actionAcctSelect, new Class[] { IItemAction.class }, getServiceContext()));		
-        this.menuItemAcctSelect.setText(resHelper.getString("menuItemAcctSelect.text"));		
-        this.menuItemAcctSelect.setToolTipText(resHelper.getString("menuItemAcctSelect.toolTipText"));
         // menuItemImpContrSplit
         this.menuItemImpContrSplit.setAction((IItemAction)ActionProxyFactory.getProxy(actionImpContrSplit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.menuItemImpContrSplit.setText(resHelper.getString("menuItemImpContrSplit.text"));		
         this.menuItemImpContrSplit.setToolTipText(resHelper.getString("menuItemImpContrSplit.toolTipText"));
-        // btnViewCostInfo
-        this.btnViewCostInfo.setAction((IItemAction)ActionProxyFactory.getProxy(actionViewCostInfo, new Class[] { IItemAction.class }, getServiceContext()));		
-        this.btnViewCostInfo.setText(resHelper.getString("btnViewCostInfo.text"));		
-        this.btnViewCostInfo.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_view"));
         // menuItemViewCostInfo		
         this.menuItemViewCostInfo.setText(resHelper.getString("menuItemViewCostInfo.text"));		
         this.menuItemViewCostInfo.setMnemonic(89);		
@@ -534,6 +536,18 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
 
 
     }
+
+	public com.kingdee.bos.ctrl.swing.KDToolBar[] getUIMultiToolBar(){
+		java.util.List list = new java.util.ArrayList();
+		com.kingdee.bos.ctrl.swing.KDToolBar[] bars = super.getUIMultiToolBar();
+		if (bars != null) {
+			list.addAll(java.util.Arrays.asList(bars));
+		}
+		return (com.kingdee.bos.ctrl.swing.KDToolBar[])list.toArray(new com.kingdee.bos.ctrl.swing.KDToolBar[list.size()]);
+	}
+
+
+
 
     /**
      * output initUIContentLayout method
@@ -612,6 +626,7 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
     {
         this.menuBar.add(menuFile);
         this.menuBar.add(menuEdit);
+        this.menuBar.add(MenuService);
         this.menuBar.add(menuView);
         this.menuBar.add(menuBiz);
         this.menuBar.add(menuTable1);
@@ -621,9 +636,13 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(kDSeparator1);
+        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemSave);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(menuItemSubmit);
+        menuFile.add(menuItemCloudShare);
         menuFile.add(menuSubmitOption);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(rMenuItemSubmit);
         menuFile.add(rMenuItemSubmitAndAddNew);
         menuFile.add(rMenuItemSubmitAndPrint);
@@ -633,6 +652,8 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         menuFile.add(menuItemPageSetup);
         menuFile.add(menuItemPrint);
         menuFile.add(menuItemPrintPreview);
+        menuFile.add(kDSeparator6);
+        menuFile.add(menuItemSendMail);
         menuFile.add(kDSeparator3);
         menuFile.add(menuItemExitCurrent);
         //menuSubmitOption
@@ -643,17 +664,24 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         menuEdit.add(menuItemEdit);
         menuEdit.add(menuItemRemove);
         menuEdit.add(kDSeparator4);
+        menuEdit.add(menuItemReset);
         menuEdit.add(separator1);
         menuEdit.add(menuItemCreateFrom);
         menuEdit.add(menuItemCopyFrom);
         menuEdit.add(menuItemCreateTo);
         menuEdit.add(separatorEdit1);
         menuEdit.add(separator2);
+        menuEdit.add(menuItemEnterToNextRow);
         menuEdit.add(menuItemAcctSelect);
         menuEdit.add(menuItemSplitProj);
         menuEdit.add(menuItemSplitBotUp);
         menuEdit.add(menuItemSplitProd);
         menuEdit.add(menuItemImpContrSplit);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
         //menuView
         menuView.add(menuItemFirst);
         menuView.add(menuItemPre);
@@ -662,6 +690,8 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         menuView.add(separator3);
         menuView.add(menuItemTraceUp);
         menuView.add(menuItemTraceDown);
+        menuView.add(kDSeparator7);
+        menuView.add(menuItemLocate);
         //menuBiz
         menuBiz.add(menuItemCancelCancel);
         menuBiz.add(menuItemCancel);
@@ -672,12 +702,14 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         menuBiz.add(menuItemViewCostInfo);
         //menuTable1
         menuTable1.add(menuItemAddLine);
+        menuTable1.add(menuItemCopyLine);
         menuTable1.add(menuItemInsertLine);
         menuTable1.add(menuItemRemoveLine);
         //menuTool
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemMsgFormat);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuWorkflow
         menuWorkflow.add(menuItemStartWorkFlow);
         menuWorkflow.add(separatorWF1);
@@ -709,7 +741,9 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
@@ -734,6 +768,7 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         this.toolBar.add(btnFirst);
         this.toolBar.add(btnSignature);
         this.toolBar.add(btnPre);
+        this.toolBar.add(btnNumberSign);
         this.toolBar.add(btnViewSignature);
         this.toolBar.add(btnNext);
         this.toolBar.add(btnLast);
@@ -741,6 +776,7 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         this.toolBar.add(btnTraceUp);
         this.toolBar.add(btnCreateTo);
         this.toolBar.add(btnTraceDown);
+        this.toolBar.add(btnCopyLine);
         this.toolBar.add(btnWorkFlowG);
         this.toolBar.add(separatorFW4);
         this.toolBar.add(separatorFW7);
@@ -764,6 +800,7 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
         this.toolBar.add(btnUnAudit);
         this.toolBar.add(btnCalculator);
         this.toolBar.add(btnViewCostInfo);
+
 
     }
 
@@ -852,13 +889,6 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
     }
 
     /**
-     * output txtSplitedAmount_dataChanged method
-     */
-    protected void txtSplitedAmount_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
-    {
-    }
-
-    /**
      * output kdtEntrys_editStopped method
      */
     protected void kdtEntrys_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
@@ -880,11 +910,22 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
     }
 
     /**
+     * output txtSplitedAmount_dataChanged method
+     */
+    protected void txtSplitedAmount_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+    }
+
+    /**
      * output getSelectors method
      */
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
         return sic;
     }        
     	
@@ -934,6 +975,72 @@ public abstract class AbstractFDCSplitBillEditUI extends com.kingdee.eas.fdc.bas
      */
     public void actionViewCostInfo_actionPerformed(ActionEvent e) throws Exception
     {
+    }
+	public RequestContext prepareActionAcctSelect(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionAcctSelect() {
+    	return false;
+    }
+	public RequestContext prepareActionSplitProj(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionSplitProj() {
+    	return false;
+    }
+	public RequestContext prepareActionSplitBotUp(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionSplitBotUp() {
+    	return false;
+    }
+	public RequestContext prepareActionSplitProd(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionSplitProd() {
+    	return false;
+    }
+	public RequestContext prepareActionImpContrSplit(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionImpContrSplit() {
+    	return false;
+    }
+	public RequestContext prepareActionViewCostInfo(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionViewCostInfo() {
+    	return false;
     }
 
     /**

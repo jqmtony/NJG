@@ -25,6 +25,7 @@ import javax.swing.KeyStroke;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.servertable.KDTStyleConstants;
 import com.kingdee.bos.ctrl.kdf.table.CellTreeNode;
 import com.kingdee.bos.ctrl.kdf.table.ICell;
@@ -63,6 +64,7 @@ import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.codingrule.CodingRuleException;
 import com.kingdee.eas.common.EASBizException;
@@ -108,6 +110,11 @@ import com.kingdee.eas.fdc.contract.SettlementCostSplitCollection;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitEntryFactory;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitFactory;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitInfo;
+import com.kingdee.eas.fdc.contract.programming.IProgrammingContracCost;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostInfo;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.finance.PaymentSplitCollection;
 import com.kingdee.eas.fdc.finance.PaymentSplitEntryInfo;
 import com.kingdee.eas.fdc.finance.PaymentSplitFacadeFactory;
@@ -729,7 +736,7 @@ public abstract class FDCSplitBillEditUI extends AbstractFDCSplitBillEditUI
 				kdtEntrys.getRow(k).getCell("directAmt").getStyleAttributes().setBackground(new Color(0xffffff));
 			}
 		}
-		
+		updateEntryProgramming();
 	}
     public void removeParentCostAccount(CostAccountCollection accts) {
     	try {
@@ -821,6 +828,7 @@ public abstract class FDCSplitBillEditUI extends AbstractFDCSplitBillEditUI
 	public void actionSplitBotUp_actionPerformed(ActionEvent arg0) throws Exception {
 		super.actionSplitBotUp_actionPerformed(arg0);
 		splitCost(CostSplitTypeEnum.BOTUPSPLIT);
+		updateEntryProgramming();
 	}
 
 	/* （非 Javadoc）
@@ -831,6 +839,7 @@ public abstract class FDCSplitBillEditUI extends AbstractFDCSplitBillEditUI
 		
 
 		splitCost(CostSplitTypeEnum.PRODSPLIT);
+		updateEntryProgramming();
 	}
 
 	/* （非 Javadoc）
@@ -840,6 +849,7 @@ public abstract class FDCSplitBillEditUI extends AbstractFDCSplitBillEditUI
 		super.actionSplitProj_actionPerformed(arg0);
 		
 		splitCost(CostSplitTypeEnum.PROJSPLIT);
+		updateEntryProgramming();
 	}
 	
 	
@@ -2254,7 +2264,9 @@ public abstract class FDCSplitBillEditUI extends AbstractFDCSplitBillEditUI
 		}
 		    	
     	importCostSplitContract();    	
-		setDisplay();		
+		setDisplay();
+		
+		updateEntryProgramming();
 	}
 	
 	public static KDTDefaultCellEditor getCellNumberEdit(){
@@ -3898,6 +3910,84 @@ public abstract class FDCSplitBillEditUI extends AbstractFDCSplitBillEditUI
 		
 		loadCostSplit(getCostSplitEntryColsBatchIds(getEnumContractIdsMap(),isMerge,entrySel,getSplitIdsMap(),getEnumEntrySelecMap(),createNewDetailData(this.kdtEntrys)));
 	}
+	
+	public void loadFields() {
+		super.loadFields();
+		
+		try {
+			updateEntryProgramming();
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+	}
+	
+    /**
+     * 
+    * <p>Title: </p>
+    * <p>Description: </p>
+    * <p>Company: </p> 
+    * @author 
+     * @throws BOSException 
+    * @date
+     */
+    public void updateEntryProgramming() throws BOSException{
+    	IProgrammingContracCost IProgrammingContracCost = ProgrammingContracCostFactory.getRemoteInstance();
+    	for (int i = 0; i < this.kdtEntrys.getRowCount(); i++) {
+			IRow row = this.kdtEntrys.getRow(i);
+			
+			Object value = row.getCell("costAccount.id").getValue();
+			if(UIRuleUtil.isNull(value)){
+				continue;
+			}
+			row.getCell("programming").getStyleAttributes().setBackground(row.getCell("costAccount.name").getStyleAttributes().getBackground());
+			if(UIRuleUtil.isNull(row.getCell("costAccount.curProject.number").getValue())){
+				row.getCell("programming").getStyleAttributes().setLocked(true);
+				row.getCell("programming").setValue("");
+			}else{
+				row.getCell("programming").getStyleAttributes().setBackground(Color.white);
+			}
+			String oql = "select contract.id,contract.name,contract.number where costAccount.id='"+value+"' and contract.programming.isLatest=1 and contract.programming.state='4AUDITTED'";
+			
+			Set<String> idset = new HashSet<String>();
+			idset.add("999");
+			ProgrammingContractInfo info = null;
+			ProgrammingContracCostCollection programmCostColl = IProgrammingContracCost.getProgrammingContracCostCollection(oql);
+			for (int j = 0; j < programmCostColl.size(); j++) {
+				ProgrammingContracCostInfo costInfo = programmCostColl.get(j);
+				ProgrammingContractInfo contract = costInfo.getContract();
+				
+				if(contract==null)
+					continue;
+				info = contract;
+				idset.add(info.getId().toString());
+			}
+			if(row.getCell("programming").getValue() instanceof ProgrammingContractInfo){
+				ProgrammingContractInfo value2 = (ProgrammingContractInfo)row.getCell("programming").getValue();
+				if(UIRuleUtil.isNull(value2)){
+					row.getCell("programming").setValue(info);
+				}else{
+					if(!idset.contains(value2.getId().toString()))
+						row.getCell("programming").setValue(null);
+				}
+			}
+			
+			EntityViewInfo view = new EntityViewInfo();
+			FilterInfo filInfo = new FilterInfo();
+			filInfo.getFilterItems().add(new FilterItemInfo("id",idset,CompareType.INCLUDE));
+			view.setFilter(filInfo);
+			
+			KDBizPromptBox kdtEntrys_programming_PromptBox = new KDBizPromptBox();
+			kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery");
+			kdtEntrys_programming_PromptBox.setVisible(true);
+			kdtEntrys_programming_PromptBox.setEditable(true);
+		    kdtEntrys_programming_PromptBox.setDisplayFormat("$number$");
+		    kdtEntrys_programming_PromptBox.setEditFormat("$number$");
+		    kdtEntrys_programming_PromptBox.setCommitFormat("$number$");
+		    kdtEntrys_programming_PromptBox.setEntityViewInfo(view);
+		    KDTDefaultCellEditor kdtEntrys_programming_CellEditor = new KDTDefaultCellEditor(kdtEntrys_programming_PromptBox);
+			row.getCell("programming").setEditor(kdtEntrys_programming_CellEditor);
+		}
+    }
 	
 	/**
 	 * 描述： 取得成本拆分分录集合

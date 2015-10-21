@@ -261,6 +261,17 @@ public class AbstractFDCSplitBillEntryInfo extends com.kingdee.eas.framework.Bil
     {
         setBigDecimal("splitScale", item);
     }
+    /**
+     * Object: 成本拆分分录 's 合约规划 property 
+     */
+    public com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo getProgrammings()
+    {
+        return (com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo)get("programmings");
+    }
+    public void setProgrammings(com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo item)
+    {
+        put("programmings", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("9BC2ACC4");

@@ -13,11 +13,11 @@ import com.kingdee.util.enums.IntEnum;
  */
 public class DataTypeEnum extends IntEnum
 {
-    public static final int DATE_VALUE = 10;
-    public static final int BOOL_VALUE = 20;
-    public static final int NUMBER_VALUE = 30;
-    public static final int STRING_VALUE = 40;
-    public static final int BASEDATA_VALUE = 50;
+    public static final int DATE_VALUE = 10;//alias=日期类型
+    public static final int BOOL_VALUE = 20;//alias=布尔类型
+    public static final int NUMBER_VALUE = 30;//alias=数值类型
+    public static final int STRING_VALUE = 40;//alias=字符类型
+    public static final int BASEDATA_VALUE = 50;//alias=基础资料
 
     public static final DataTypeEnum DATE = new DataTypeEnum("DATE", DATE_VALUE);
     public static final DataTypeEnum BOOL = new DataTypeEnum("BOOL", BOOL_VALUE);

@@ -1114,6 +1114,7 @@ public class FDCBillControllerBean extends AbstractFDCBillControllerBean {
 		if(curProjectInfo==null&&projectId != null) {
 			SelectorItemCollection selects = new SelectorItemCollection();
 			selects.add("*");
+			selects.add("isWholeAgeStage");
 			selects.add("parent.id");
 			selects.add("parent.number");
 			selects.add("parent.name");
