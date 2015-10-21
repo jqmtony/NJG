@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,6 +19,9 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.Action;
+import javax.swing.JTextField;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.NumberFormatter;
 
 import org.apache.log4j.Logger;
 
@@ -186,6 +190,17 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
     	
     	this.chkMenuItemSubmitAndAddNew.setSelected(false);
     	this.chkMenuItemSubmitAndAddNew.setEnabled(false);
+    	
+    	this.txtversion.setHorizontalAlignment(JTextField.RIGHT);
+    	this.txtamount.setHorizontalAlignment(JTextField.RIGHT);
+    	this.txtcontractAmount.setHorizontalAlignment(JTextField.RIGHT);
+    	this.txtChangeAmount.setHorizontalAlignment(JTextField.RIGHT);
+    	this.txtSplitedAmount.setHorizontalAlignment(JTextField.RIGHT);
+    	this.txtUnSplitAmount.setHorizontalAlignment(JTextField.RIGHT);
+    	this.txtBanane.setHorizontalAlignment(JTextField.RIGHT);
+//    	DecimalFormat df2 = new DecimalFormat("V###,##0.0");
+//    	this.txtversion.setFormatterFactory(new DefaultFormatterFactory(new NumberFormatter(df2)));
+    	
     }
     
     public void onShow() throws Exception {

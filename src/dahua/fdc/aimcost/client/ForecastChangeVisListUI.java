@@ -141,7 +141,7 @@ public class ForecastChangeVisListUI extends AbstractForecastChangeVisListUI
     	this.kDTree1.expandRow(0);
     	this.kDTree2.setSelectionRow(0);
     	this.kDTree2.expandRow(0);
-    	
+    	this.tblMain.getSelectManager().setSelectMode(KDTSelectManager.ROW_SELECT);
     	this.kDTable1.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
             public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
                 try {
