@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.contract.app</package>
+    <name>F7ProgrammingContractQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK />
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>ProgrammingContract</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].subObjects.subEntity[ProgrammingContract].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ProgrammingContract" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>programming</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].subObjects.subEntity[programming].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="Programming" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>project</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].subObjects.subEntity[project].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProject" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>de5e8701-0ef5-417b-a849-dbb78d4169b9</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingContract" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>78befb15-8cfe-413f-baf1-ccad36d00527</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingContract" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4a4c3091-ff7f-44da-b5e5-08f20c7918aa</key>
+                    <parentUnit>
+                        <key name="name" value="name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingContract" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>amount</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[amount].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>d4681409-0061-42c6-b733-77fa8a6f9e09</key>
+                    <parentUnit>
+                        <key name="name" value="amount" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingContract" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="amount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>balance</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[balance].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6c7802a4-7b3f-4f7a-883c-33c88ee7507c</key>
+                    <parentUnit>
+                        <key name="name" value="balance" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingContract" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="balance" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isCiting</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[isCiting].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>173a1edd-6a2b-4100-ad25-24d8a0d3bda7</key>
+                    <parentUnit>
+                        <key name="name" value="isCiting" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingContract" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isCiting" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>031b16f2-c1c9-41f2-82c9-dabac45ef1c6</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.propertyUnit[031b16f2-c1c9-41f2-82c9-dabac45ef1c6].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>5550b850-0913-4b49-8ac2-00e33b651c3f</key>
+                    <parentUnit>
+                        <key name="name" value="031b16f2-c1c9-41f2-82c9-dabac45ef1c6" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingContract" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="programming" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>d2a5a896-97b7-4a29-a627-dbf6e7c4ca55</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.propertyUnit[d2a5a896-97b7-4a29-a627-dbf6e7c4ca55].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>525077e6-8c41-49d8-9913-9e9e3a357834</key>
+                    <parentUnit>
+                        <key name="name" value="d2a5a896-97b7-4a29-a627-dbf6e7c4ca55" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="programming" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>programming.state</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[programming.state].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b247c5f6-b396-4c00-9e0b-57829ef33dc1</key>
+                    <parentUnit>
+                        <key name="name" value="programming.state" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="programming" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="state" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>programming.version</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[programming.version].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c47a6251-69f4-4887-88d1-71b5841d2f89</key>
+                    <parentUnit>
+                        <key name="name" value="programming.version" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="programming" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="version" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>programming.isLatest</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[programming.isLatest].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c91c4d46-92e1-4450-bcf3-6318f5bdc69a</key>
+                    <parentUnit>
+                        <key name="name" value="programming.isLatest" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="programming" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isLatest" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>66d0a849-d54e-4715-bcaf-c381babcfc6c</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.propertyUnit[66d0a849-d54e-4715-bcaf-c381babcfc6c].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>ae4261ce-8473-454a-9264-584e17bd95cc</key>
+                    <parentUnit>
+                        <key name="name" value="66d0a849-d54e-4715-bcaf-c381babcfc6c" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="programming" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="project" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>29c07250-e5de-45e0-987b-fd0189f123a1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.propertyUnit[29c07250-e5de-45e0-987b-fd0189f123a1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>48a437b8-19f7-4bf6-99b3-ae7e683474dc</key>
+                    <parentUnit>
+                        <key name="name" value="29c07250-e5de-45e0-987b-fd0189f123a1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>project.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[project.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>61bb412b-3801-4d0d-aa8a-2128b7f6191d</key>
+                    <parentUnit>
+                        <key name="name" value="project.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>isLeaf</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[isLeaf].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0302dfe2-912e-4ec5-b6a1-f07c2a5def0b</key>
+                    <parentUnit>
+                        <key name="name" value="isLeaf" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProgrammingContract" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isLeaf" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+            <key name="name" value="F7ProgrammingContractQuery" />
+        </query>
+    </defaultFilter>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>192f4a33-1e44-4e0d-bdc1-68f3ea04cf3b</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ProgrammingContract" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="programming" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>9be4c03e-4e02-412e-a6fb-62a4fec2d8a0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="031b16f2-c1c9-41f2-82c9-dabac45ef1c6" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="d2a5a896-97b7-4a29-a627-dbf6e7c4ca55" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="192f4a33-1e44-4e0d-bdc1-68f3ea04cf3b" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </join>
+        <join>
+            <name>e0326146-1953-4090-9ff3-2d2cbae9a295</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="programming" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="project" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>83987f0f-4c72-40a7-95cc-5062af7ebea7</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="66d0a849-d54e-4715-bcaf-c381babcfc6c" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="29c07250-e5de-45e0-987b-fd0189f123a1" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="e0326146-1953-4090-9ff3-2d2cbae9a295" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="F7ProgrammingContractQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约规划查询" />
+            <lang locale="zh_HK" value="合約規劃查詢" />
+            <lang locale="zh_TW" value="合約規劃查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].subObjects.subEntity[ProgrammingContract].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].subObjects.subEntity[programming].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].subObjects.subEntity[project].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.propertyUnit[031b16f2-c1c9-41f2-82c9-dabac45ef1c6].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.propertyUnit[29c07250-e5de-45e0-987b-fd0189f123a1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.propertyUnit[66d0a849-d54e-4715-bcaf-c381babcfc6c].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.propertyUnit[d2a5a896-97b7-4a29-a627-dbf6e7c4ca55].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[amount].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="规划金额" />
+            <lang locale="zh_HK" value="規劃金額" />
+            <lang locale="zh_TW" value="規劃金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[amount].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[balance].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="规划余额" />
+            <lang locale="zh_HK" value="規劃餘額" />
+            <lang locale="zh_TW" value="規劃餘額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[balance].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[isCiting].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否被引用" />
+            <lang locale="zh_HK" value="是否被引用" />
+            <lang locale="zh_TW" value="是否被引用" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[isLeaf].displayName">
+            <lang locale="en_US" value="" />
+            <lang locale="zh_CN" value="是否叶子节点" />
+            <lang locale="zh_HK" value="是否葉子節點" />
+            <lang locale="zh_TW" value="是否葉子節點" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[name].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[number].extendedProperty.colWidthInKDTable">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[programming.isLatest].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否最新版本" />
+            <lang locale="zh_HK" value="是否最新版本" />
+            <lang locale="zh_TW" value="是否最新版本" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[programming.state].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="状态" />
+            <lang locale="zh_HK" value="狀態" />
+            <lang locale="zh_TW" value="狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[programming.version].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="版本" />
+            <lang locale="zh_HK" value="版本" />
+            <lang locale="zh_TW" value="版本" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[project.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery].units.queryField[project.id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</joinQuery>
+

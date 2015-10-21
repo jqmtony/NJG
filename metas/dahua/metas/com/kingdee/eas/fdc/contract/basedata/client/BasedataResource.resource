@@ -17,6 +17,11 @@
             <value>i18nResource[com.kingdee.eas.fdc.contract.basedata.client.BasedataResource].resourceItems.resourceItem[RealDateRelQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>ProgrammingTempQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.fdc.contract.basedata.client.BasedataResource].resourceItems.resourceItem[ProgrammingTempQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.fdc.contract.basedata.client.BasedataResource].alias">
@@ -36,6 +41,12 @@
             <lang locale="zh_CN" value="部门类型" />
             <lang locale="zh_HK" value="部門類型" />
             <lang locale="zh_TW" value="部門類型" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.fdc.contract.basedata.client.BasedataResource].resourceItems.resourceItem[ProgrammingTempQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="规划余额扣减中间表(针对合同拆分、变更拆分、结算拆分)" />
+            <lang locale="zh_HK" value="規劃餘額扣減中間表(針對合同拆分、變更拆分、結算拆分)" />
+            <lang locale="zh_TW" value="規劃餘額扣減中間表(針對合同拆分、變更拆分、結算拆分)" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.fdc.contract.basedata.client.BasedataResource].resourceItems.resourceItem[RealDateRelQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
