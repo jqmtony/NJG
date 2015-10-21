@@ -141,6 +141,12 @@ public class SettlementCostSplitEditUI extends
 		setDisplay();
 		setAmtDisplay();
 		isMeasure=this.editData.getContractBill().isIsMeasureContract();
+		
+		try {
+			updateEntryProgramming();
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**

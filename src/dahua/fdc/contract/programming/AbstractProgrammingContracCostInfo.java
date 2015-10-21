@@ -18,7 +18,7 @@ public class AbstractProgrammingContracCostInfo extends com.kingdee.eas.framewor
         super(pkField);
     }
     /**
-     * Object: 框架合约成本构成 's 框架合约 property 
+     * Object: 成本构成 's 框架合约 property 
      */
     public com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo getContract()
     {
@@ -29,7 +29,7 @@ public class AbstractProgrammingContracCostInfo extends com.kingdee.eas.framewor
         put("contract", item);
     }
     /**
-     * Object: 框架合约成本构成 's 成本科目 property 
+     * Object: 成本构成 's 成本科目 property 
      */
     public com.kingdee.eas.fdc.basedata.CostAccountInfo getCostAccount()
     {
@@ -40,7 +40,7 @@ public class AbstractProgrammingContracCostInfo extends com.kingdee.eas.framewor
         put("costAccount", item);
     }
     /**
-     * Object:框架合约成本构成's 目标成本property 
+     * Object:成本构成's 目标成本property 
      */
     public java.math.BigDecimal getGoalCost()
     {
@@ -51,7 +51,7 @@ public class AbstractProgrammingContracCostInfo extends com.kingdee.eas.framewor
         setBigDecimal("goalCost", item);
     }
     /**
-     * Object:框架合约成本构成's 已分配property 
+     * Object:成本构成's 已分配property 
      */
     public java.math.BigDecimal getAssigned()
     {
@@ -62,7 +62,7 @@ public class AbstractProgrammingContracCostInfo extends com.kingdee.eas.framewor
         setBigDecimal("assigned", item);
     }
     /**
-     * Object:框架合约成本构成's 待分配property 
+     * Object:成本构成's 待分配property 
      */
     public java.math.BigDecimal getAssigning()
     {
@@ -73,7 +73,7 @@ public class AbstractProgrammingContracCostInfo extends com.kingdee.eas.framewor
         setBigDecimal("assigning", item);
     }
     /**
-     * Object:框架合约成本构成's 本合约分配property 
+     * Object:成本构成's 本合约分配property 
      */
     public java.math.BigDecimal getContractAssign()
     {
@@ -84,7 +84,7 @@ public class AbstractProgrammingContracCostInfo extends com.kingdee.eas.framewor
         setBigDecimal("contractAssign", item);
     }
     /**
-     * Object:框架合约成本构成's 备注property 
+     * Object:成本构成's 备注property 
      */
     public String getDescription()
     {
@@ -95,7 +95,7 @@ public class AbstractProgrammingContracCostInfo extends com.kingdee.eas.framewor
         setString("description", item);
     }
     /**
-     * Object:框架合约成本构成's 本合约分配比例property 
+     * Object:成本构成's 本合约分配比例property 
      */
     public java.math.BigDecimal getContractScale()
     {
@@ -106,7 +106,7 @@ public class AbstractProgrammingContracCostInfo extends com.kingdee.eas.framewor
         setBigDecimal("contractScale", item);
     }
     /**
-     * Object:框架合约成本构成's 目标成本IDproperty 
+     * Object:成本构成's 目标成本IDproperty 
      */
     public String getAimCostId()
     {

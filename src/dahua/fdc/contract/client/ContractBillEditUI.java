@@ -132,6 +132,7 @@ import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.aimcost.DynamicCostMap;
 import com.kingdee.eas.fdc.aimcost.FDCCostRptFacadeFactory;
+import com.kingdee.eas.fdc.basedata.ApportionTypeInfo;
 import com.kingdee.eas.fdc.basedata.ContractCodingTypeCollection;
 import com.kingdee.eas.fdc.basedata.ContractCodingTypeInfo;
 import com.kingdee.eas.fdc.basedata.ContractDetailDefCollection;
@@ -158,6 +159,7 @@ import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.IFDCBill;
 import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
+import com.kingdee.eas.fdc.basedata.ProjectStageEnum;
 import com.kingdee.eas.fdc.basedata.ProjectStatusInfo;
 import com.kingdee.eas.fdc.basedata.SourceTypeEnum;
 import com.kingdee.eas.fdc.basedata.client.AttachmentUtils;
@@ -947,6 +949,9 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			objectValue.setLandDeveloper(curProjectInfo.getLandDeveloper());
 
 		try {
+			BigDecimal buildArea = FDCHelper.getApportionValue(curProjectInfo.getId().toString(),ApportionTypeInfo.buildAreaType, ProjectStageEnum.AIMCOST);
+			objectValue.setContractPrice(FDCHelper.divide(objectValue.getAmount(), buildArea,2,4));
+			
 //			默认委托
 //			objectValue.setContractSourceId(ContractSourceFactory
 //					.getRemoteInstance().getContractSourceInfo(
@@ -1873,6 +1878,12 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 
 		this.initProgramControlMode();
 		
+		if(editData.getCurProject()!=null){
+			SelectorItemCollection sic = new SelectorItemCollection();
+			sic.add("isWholeAgeStage");
+			CurProjectInfo curInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(editData.getCurProject().getId()),sic);
+			this.prmtFwContract.setEnabled(!curInfo.isIsWholeAgeStage());
+		}
 	}
 
 	private void initCtn() {
@@ -2650,7 +2661,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		if (this.getOprtState().equals(OprtState.EDIT)) {
 			initProgrammingContract();
 		}
-		
 //		this.reSetMaxNum4AmountField();
 	}
 
@@ -3468,6 +3478,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		sic.add(new SelectorItemInfo("contractPropert"));
 		sic.add(new SelectorItemInfo("contractSourceId.*"));
 		sic.add(new SelectorItemInfo("partB.id"));
+		sic.add(new SelectorItemInfo("isContractor"));
+		sic.add(new SelectorItemInfo("contractPrice"));
 		sic.add(new SelectorItemInfo("partB.number"));
 		sic.add(new SelectorItemInfo("partB.name"));
 		sic.add(new SelectorItemInfo("partC.id"));
@@ -3559,6 +3571,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		sic.add(new SelectorItemInfo("curProject.displayName"));
 		sic.add(new SelectorItemInfo("curProject.fullOrgUnit.name"));
 		sic.add(new SelectorItemInfo("curProject.costCenter"));		// modified by zhaoqin for 建发 on 2013/10/10
+		sic.add(new SelectorItemInfo("curProject.isWholeAgeStage"));		// modified by zhaoqin for 建发 on 2013/10/10
 		
 		sic.add(new SelectorItemInfo("curProject.parent.id"));
 		sic.add(new SelectorItemInfo("curProject.parent.number"));
@@ -4179,7 +4192,12 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}
 		
 		this.btnProgram.setEnabled(true);
-		
+		if(editData.getCurProject()!=null){
+			SelectorItemCollection sic = new SelectorItemCollection();
+			sic.add("isWholeAgeStage");
+			CurProjectInfo curInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(editData.getCurProject().getId()),sic);
+			this.prmtFwContract.setEnabled(!curInfo.isIsWholeAgeStage());
+		}
 		ContractBillEntryCollection coll = editData.getEntrys();
 		if (coll == null || coll.size() == 0) {
 			return;
@@ -4479,6 +4497,13 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		calStampTaxAmt();
 		
 		calGrtAmt();
+		
+		try {
+			BigDecimal buildArea = FDCHelper.getApportionValue(editData.getCurProject().getId().toString(),ApportionTypeInfo.buildAreaType, ProjectStageEnum.AIMCOST);
+			this.txtcontractPrice.setValue(FDCHelper.divide(this.txtamount.getBigDecimalValue(), buildArea,2,4));
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -4678,7 +4703,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				isLonelyChanged(b);
 			}
 		}
-	
 	}
 	//签约金额原币
 	protected void ceremonyb_dataChanged(DataChangeEvent e){
@@ -4713,6 +4737,9 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		FDCClientVerifyHelper.verifyEmpty(this, prmtcontractType);
 		
 		this.verifyInputForContractDetail();
+		
+		BigDecimal buildArea = FDCHelper.getApportionValue(editData.getCurProject().getId().toString(),ApportionTypeInfo.buildAreaType, ProjectStageEnum.AIMCOST);
+		this.txtcontractPrice.setValue(FDCHelper.divide(this.txtamount.getBigDecimalValue(), buildArea,2,4));
 		
 		super.verifyInputForSave();
 
@@ -5753,8 +5780,15 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			ContractClientUtils.checkConRelatedTaskSubmit(this.editData);
 		}
 		
-		//校验合约规划
-//		 checkConProgram();
+		
+		if(editData.getCurProject()!=null){
+			SelectorItemCollection sic = new SelectorItemCollection();
+			sic.add("isWholeAgeStage");
+			CurProjectInfo curInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(editData.getCurProject().getId()),sic);
+			//校验合约规划
+			if(!curInfo.isIsWholeAgeStage())
+				checkConProgram();
+		}
 	}
 
 	/**

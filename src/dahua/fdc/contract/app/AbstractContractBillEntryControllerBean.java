@@ -50,10 +50,13 @@ public abstract class AbstractContractBillEntryControllerBean extends CoreBillEn
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-0020c0a813bc"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillEntryInfo retValue = (ContractBillEntryInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -72,10 +75,13 @@ public abstract class AbstractContractBillEntryControllerBean extends CoreBillEn
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-0021c0a813bc"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillEntryInfo retValue = (ContractBillEntryInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -94,10 +100,13 @@ public abstract class AbstractContractBillEntryControllerBean extends CoreBillEn
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-0022c0a813bc"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillEntryInfo retValue = (ContractBillEntryInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -116,10 +125,13 @@ public abstract class AbstractContractBillEntryControllerBean extends CoreBillEn
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-0023c0a813bc"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillEntryCollection retValue = (ContractBillEntryCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -136,10 +148,13 @@ public abstract class AbstractContractBillEntryControllerBean extends CoreBillEn
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-0024c0a813bc"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillEntryCollection retValue = (ContractBillEntryCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -156,10 +171,13 @@ public abstract class AbstractContractBillEntryControllerBean extends CoreBillEn
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-0025c0a813bc"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillEntryCollection retValue = (ContractBillEntryCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {

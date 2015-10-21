@@ -20,10 +20,14 @@ import javax.swing.KeyStroke;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.util.KDTableUtil;
+import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDMenuItem;
 import com.kingdee.bos.ctrl.swing.KDTextField;
@@ -43,6 +47,7 @@ import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.ItemAction;
 import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.uiframe.client.UIModelDialog;
 import com.kingdee.eas.common.EASBizException;
@@ -74,7 +79,11 @@ import com.kingdee.eas.fdc.contract.ContractWithProgramFactory;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.PayReqUtils;
 import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
+import com.kingdee.eas.fdc.contract.client.AbstractDesignChangeAuditEditUI.actionImpContrSplit;
+import com.kingdee.eas.fdc.contract.client.AbstractDesignChangeAuditEditUI.actionSplitProd;
+import com.kingdee.eas.fdc.contract.programming.IProgrammingContracCost;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
@@ -317,6 +326,7 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 	    		row.getCell("costAccount.id").setValue(acct.getCostAccount().getId());
 	    		row.getCell("costAccount.name").setValue(
 	    				acct.getCostAccount().getDisplayName().replace('_','\\'));
+	    		
 	    		if(tempCount == costEntries.size()){
 	    			if(acct.getContractAssign().compareTo(FDCHelper.ZERO) == 0 || allAssigned.compareTo(FDCHelper.ZERO) == 0 ){
 		    			row.getCell("splitScale").setValue(FDCHelper.ZERO);
@@ -365,7 +375,8 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 //	    	txtSplitedAmount.setValue(splitAmount);
 	    	isClearFlag = true;
 		}
-
+    	
+    	updateEntryProgramming();
     }
     private void checkProgSub(String checkIsExistProg) throws Exception {
 //    	FDCSplitBillEntryInfo entry=null;
@@ -796,6 +807,26 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 		 //设置 合同执行信息 按钮 和菜单图片.
 		 this.btnViewContract.setIcon(EASResource.getIcon("imgTbtn_execute"));
 		 this.menuViewContract.setIcon(EASResource.getIcon("imgTbtn_execute"));
+		 
+		 EntityViewInfo view = new EntityViewInfo();
+		 FilterInfo filInfo = new FilterInfo();
+		 filInfo.getFilterItems().add(new FilterItemInfo("project.id",editData.getCurProject().getId()));
+		 filInfo.getFilterItems().add(new FilterItemInfo("programming.isLatest","1"));
+		 view.setFilter(filInfo);
+		 
+		 final KDBizPromptBox kdtEntrys_programming_PromptBox = new KDBizPromptBox();
+		 kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery");
+		 kdtEntrys_programming_PromptBox.setVisible(true);
+		 kdtEntrys_programming_PromptBox.setEditable(true);
+	     kdtEntrys_programming_PromptBox.setDisplayFormat("$number$");
+	     kdtEntrys_programming_PromptBox.setEditFormat("$number$");
+	     kdtEntrys_programming_PromptBox.setCommitFormat("$number$");
+	     kdtEntrys_programming_PromptBox.setEntityViewInfo(view);
+	     KDTDefaultCellEditor kdtEntrys_programming_CellEditor = new KDTDefaultCellEditor(kdtEntrys_programming_PromptBox);
+	     this.kdtEntrys.getColumn("programming").setEditor(kdtEntrys_programming_CellEditor);
+	     ObjectValueRender tblEconItem_payType_OVR = new ObjectValueRender();
+	     tblEconItem_payType_OVR.setFormat(new BizDataFormat("$name$"));
+	     this.kdtEntrys.getColumn("programming").setRenderer(tblEconItem_payType_OVR);
 	}
 	
 	
@@ -839,6 +870,12 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 		//reCalSplitScale(); // modified by zhaoqin for R130905-0187 on 2013/09/16
 		
 		setDisplay();
+		
+		try {
+			updateEntryProgramming();
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/* （非 Javadoc）
@@ -1062,7 +1099,7 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
         KDTDefaultCellEditor editor = new KDTDefaultCellEditor(kdc);
         return editor;
 	}
-    public void actionAcctSelect_actionPerformed(ActionEvent arg0)
+    public void actionAcctSelect_actionPerformed(ActionEvent e)
 	throws Exception {
 //		if (isClearFlag) {
 //			int ret = MsgBox.showConfirm2(this,
@@ -1075,9 +1112,35 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 //				this.abort();
 //			}
 //		} else {
-			super.actionAcctSelect_actionPerformed(arg0);
+			super.actionAcctSelect_actionPerformed(e);
 //		}
 	}
+    
+    
+    
+
+    
+    protected void kdtEntrys_editStopped(KDTEditEvent e) throws Exception {
+    	super.kdtEntrys_editStopped(e);
+    	final IRow row = kdtEntrys.getRow(e.getRowIndex());
+		if (e.getColIndex()==kdtEntrys.getColumnIndex("programming")){
+			
+		}
+    }
+    
+    protected void verifyInput(ActionEvent e) throws Exception {
+    	super.verifyInput(e);
+    	for (int i = 0; i < this.kdtEntrys.getRowCount(); i++) {
+			IRow row = this.kdtEntrys.getRow(i);
+			if(UIRuleUtil.isNull(row.getCell("costAccount.curProject.number").getValue()))
+				continue;
+			if(UIRuleUtil.isNull(row.getCell("programming").getValue())){
+				FDCMsgBox.showWarning("合约规划不能为空！");
+				this.kdtEntrys.getEditManager().editCellAt(i,this.kdtEntrys.getColumnIndex("programming"));
+				SysUtil.abort();
+			}
+    	}
+    }
     
     /**
 	 * 描述：R130905-0187
@@ -1143,5 +1206,5 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 
 		return key;
 	}
-
+	
 }

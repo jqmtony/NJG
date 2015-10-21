@@ -46,6 +46,7 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractContractFullListUI extends com.kingdee.eas.framework.client.BillListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractContractFullListUI.class);
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnCostIndex;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAudit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAnitAudit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewContent;
@@ -68,6 +69,7 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
     protected ActionAddContractSettlement actionAddContractSettlement = null;
     protected ActionAddPayRequest actionAddPayRequest = null;
     protected ActionPaymentListUI actionPaymentListUI = null;
+    protected actionCostIndex actionCostIndex = null;
     /**
      * output class constructor
      */
@@ -120,6 +122,11 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
         this.actionPaymentListUI = new ActionPaymentListUI(this);
         getActionManager().registerAction("actionPaymentListUI", actionPaymentListUI);
          this.actionPaymentListUI.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionCostIndex
+        this.actionCostIndex = new actionCostIndex(this);
+        getActionManager().registerAction("actionCostIndex", actionCostIndex);
+         this.actionCostIndex.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        this.btnCostIndex = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnAnitAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnViewContent = new com.kingdee.bos.ctrl.swing.KDWorkButton();
@@ -134,6 +141,7 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
         this.menuItemAddConSettlement = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.menuItemAddPayRequest = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.menuItemPaymentListUI = new com.kingdee.bos.ctrl.swing.KDMenuItem();
+        this.btnCostIndex.setName("btnCostIndex");
         this.btnAudit.setName("btnAudit");
         this.btnAnitAudit.setName("btnAnitAudit");
         this.btnViewContent.setName("btnViewContent");
@@ -157,6 +165,10 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
 		
         this.menuEdit.setVisible(false);		
         this.menuBiz.setVisible(false);
+        // btnCostIndex
+        this.btnCostIndex.setAction((IItemAction)ActionProxyFactory.getProxy(actionCostIndex, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnCostIndex.setText(resHelper.getString("btnCostIndex.text"));		
+        this.btnCostIndex.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_cost"));
         // btnAudit
         this.btnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionAudit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAudit.setText(resHelper.getString("btnAudit.text"));		
@@ -240,6 +252,7 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
     {
         this.menuBar.add(menuFile);
         this.menuBar.add(menuEdit);
+        this.menuBar.add(MenuService);
         this.menuBar.add(menuView);
         this.menuBar.add(menuBiz);
         this.menuBar.add(menuTool);
@@ -249,10 +262,14 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(menuItemImportData);
+        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemExportData);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(separatorFile1);
+        menuFile.add(menuItemCloudShare);
         menuFile.add(MenuItemAttachment);
         menuFile.add(kDSeparator1);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(menuItemPageSetup);
         menuFile.add(menuItemPrint);
         menuFile.add(menuItemPrintPreview);
@@ -265,6 +282,11 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
         menuEdit.add(menuItemCreateTo);
         menuEdit.add(menuItemCopyTo);
         menuEdit.add(kDSeparator4);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
         //menuView
         menuView.add(menuItemView);
         menuView.add(menuItemLocate);
@@ -272,9 +294,11 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
         menuView.add(menuItemQuery);
         menuView.add(menuItemRefresh);
         menuView.add(separatorView1);
+        menuView.add(menuItemSwitchView);
         menuView.add(menuItemTraceUp);
         menuView.add(menuItemTraceDown);
         menuView.add(kDSeparator6);
+        menuView.add(menuItemQueryScheme);
         menuView.add(menuItemViewContent);
         //menuBiz
         menuBiz.add(menuItemCancelCancel);
@@ -289,6 +313,7 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
         //menuTool
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuWorkFlow
         menuWorkFlow.add(menuItemViewDoProccess);
         menuWorkFlow.add(menuItemMultiapprove);
@@ -325,7 +350,9 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(btnView);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnEdit);
         this.toolBar.add(btnRemove);
         this.toolBar.add(btnRefresh);
@@ -347,12 +374,14 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
         this.toolBar.add(separatorFW4);
         this.toolBar.add(btnVoucher);
         this.toolBar.add(btnWorkFlowList);
+        this.toolBar.add(btnNumberSign);
         this.toolBar.add(btnDelVoucher);
         this.toolBar.add(btnSignature);
         this.toolBar.add(btnMultiapprove);
         this.toolBar.add(btnViewSignature);
         this.toolBar.add(btnNextPerson);
         this.toolBar.add(btnAuditResult);
+        this.toolBar.add(btnCostIndex);
         this.toolBar.add(btnCancel);
         this.toolBar.add(btnCancelCancel);
         this.toolBar.add(btnWFViewdoProccess);
@@ -446,6 +475,10 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
         sic.add(new SelectorItemInfo("id"));
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("signDate"));
@@ -542,6 +575,14 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
     public void actionPaymentListUI_actionPerformed(ActionEvent e) throws Exception
     {
     }
+    	
+
+    /**
+     * output actionCostIndex_actionPerformed method
+     */
+    public void actionCostIndex_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionAudit(IItemAction itemAction) throws Exception {
 			RequestContext request = new RequestContext();		
 		if (request != null) {
@@ -628,6 +669,17 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
     }
 	
 	public boolean isPrepareActionPaymentListUI() {
+    	return false;
+    }
+	public RequestContext prepareactionCostIndex(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionCostIndex() {
     	return false;
     }
 
@@ -870,6 +922,37 @@ public abstract class AbstractContractFullListUI extends com.kingdee.eas.framewo
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractContractFullListUI.this, "ActionPaymentListUI", "actionPaymentListUI_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionCostIndex class
+     */     
+    protected class actionCostIndex extends ItemAction {     
+    
+        public actionCostIndex()
+        {
+            this(null);
+        }
+
+        public actionCostIndex(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionCostIndex.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionCostIndex.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionCostIndex.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractContractFullListUI.this, "actionCostIndex", "actionCostIndex_actionPerformed", e);
         }
     }
 

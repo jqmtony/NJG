@@ -451,6 +451,12 @@ public class ConChangeSplitEditUI extends AbstractConChangeSplitEditUI
 		setContractBillId(billID);
 //		this.txtChangeAmount.setEnabled(false);
     	setDisplay();
+    	
+    	try {
+			updateEntryProgramming();
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
     }
     
      //£¨·Ç Javadoc£©

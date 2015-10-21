@@ -57,10 +57,13 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-001ac0a813bc"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillCollection retValue = (ContractBillCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -77,10 +80,13 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-001bc0a813bc"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillCollection retValue = (ContractBillCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -97,10 +103,13 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-001cc0a813bc"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillCollection retValue = (ContractBillCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -117,10 +126,13 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-001dc0a813bc"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillInfo retValue = (ContractBillInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -139,10 +151,13 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-001ec0a813bc"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillInfo retValue = (ContractBillInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -161,10 +176,13 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-001fc0a813bc"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillInfo retValue = (ContractBillInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -183,10 +201,12 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("a420c75d-0110-1000-e000-00dec0a80eb6"), new Object[]{ctx, cbInfo, storeNumber});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_contractBillStore(ctx, cbInfo, storeNumber);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -204,10 +224,12 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("51f6506b-0117-1000-e000-001cc0a81297"), new Object[]{ctx, idMap});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             Map retValue = (Map)_getAmtByAmtWithoutCost(ctx, idMap);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return (Map)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -223,10 +245,12 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("27e15202-011a-1000-e000-0012c0a8129f"), new Object[]{ctx, idList});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_contractBillAntiStore(ctx, idList);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -244,10 +268,12 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("473dfbfc-011a-1000-e000-006dc0a8129f"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_isContractSplit(ctx, pk);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -263,7 +289,9 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("473dfbfc-011a-1000-e000-006fc0a8129f"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _split(ctx, pk);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -282,10 +310,12 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("dde21a89-011a-1000-e000-008cc0a8129f"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_autoDelSplit(ctx, pk);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -303,10 +333,12 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("dde21a89-011a-1000-e000-00a9c0a8129f"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             String retValue = (String)_getContractTypeNumber(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return (String)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -322,10 +354,12 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("901ab8a8-91bc-4193-93ca-cb7c423d82b0"), new Object[]{ctx, contractIds});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             Map retValue = (Map)_getOtherInfo(ctx, contractIds);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return (Map)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -343,10 +377,12 @@ public abstract class AbstractContractBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("5663a0d4-b0cb-4bcf-88d7-a5c2e2646f9d"), new Object[]{ctx, contractType, contractPropert, thirdType});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractCodingTypeCollection retValue = (ContractCodingTypeCollection)_getContractCodingType(ctx, contractType, contractPropert, thirdType);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return (ContractCodingTypeCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {

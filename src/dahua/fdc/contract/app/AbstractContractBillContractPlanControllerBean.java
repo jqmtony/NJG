@@ -52,10 +52,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01b0c0a813bc"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, pk);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -74,10 +77,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01b1c0a813bc"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, filter);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -96,10 +102,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01b2c0a813bc"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, oql);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -118,10 +127,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01b3c0a813bc"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillContractPlanInfo retValue = (ContractBillContractPlanInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillContractPlanInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -140,10 +152,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01b4c0a813bc"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillContractPlanInfo retValue = (ContractBillContractPlanInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillContractPlanInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -162,10 +177,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01b5c0a813bc"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillContractPlanInfo retValue = (ContractBillContractPlanInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillContractPlanInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -184,10 +202,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01b6c0a813bc"), new Object[]{ctx, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK retValue = (IObjectPK)_addnew(ctx, model);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -208,7 +229,9 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01b7c0a813bc"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _addnew(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -230,7 +253,9 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01b8c0a813bc"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _update(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -252,7 +277,9 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01b9c0a813bc"), new Object[]{ctx, model, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updatePartial(ctx, model, selector);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -274,7 +301,9 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01bac0a813bc"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updateBigObject(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -293,7 +322,9 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01bbc0a813bc"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, pk);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -315,10 +346,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01bcc0a813bc"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -337,10 +371,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01bdc0a813bc"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -359,10 +396,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01bec0a813bc"), new Object[]{ctx, filter, sorter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, filter, sorter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -381,10 +421,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01bfc0a813bc"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillContractPlanCollection retValue = (ContractBillContractPlanCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillContractPlanCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -401,10 +444,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01c0c0a813bc"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillContractPlanCollection retValue = (ContractBillContractPlanCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillContractPlanCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -421,10 +467,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01c1c0a813bc"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractBillContractPlanCollection retValue = (ContractBillContractPlanCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractBillContractPlanCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -441,10 +490,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01c2c0a813bc"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, filter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -465,10 +517,13 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01c3c0a813bc"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -489,7 +544,9 @@ public abstract class AbstractContractBillContractPlanControllerBean extends Cor
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7a0d85f0-010c-1000-e000-01c4c0a813bc"), new Object[]{ctx, arrayPK});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, arrayPK);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();

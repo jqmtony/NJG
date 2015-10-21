@@ -140,13 +140,13 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
         this.kDLabelContainer4.setBoundLabelText(resHelper.getString("kDLabelContainer4.boundLabelText"));		
         this.kDLabelContainer5.setBoundLabelText(resHelper.getString("kDLabelContainer5.boundLabelText"));		
         this.kDLabelContainer6.setBoundLabelText(resHelper.getString("kDLabelContainer6.boundLabelText"));
-		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol1\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol8\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol9\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol14\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol15\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol16\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol17\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol18\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol19\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol20\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"costAccount.curProject.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol1\" /><t:Column t:key=\"costAccount.curProject.name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"costAccount.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"costAccount.name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"workLoad\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" t:styleID=\"sCol5\" /><t:Column t:key=\"price\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"splitScale\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" t:styleID=\"sCol7\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"standard\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" t:styleID=\"sCol9\" /><t:Column t:key=\"product\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /><t:Column t:key=\"costAccount.curProject.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" t:styleID=\"sCol11\" /><t:Column t:key=\"costAccount.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" t:styleID=\"sCol12\" /><t:Column t:key=\"level\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" t:styleID=\"sCol13\" /><t:Column t:key=\"splitType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" t:styleID=\"sCol14\" /><t:Column t:key=\"apportionType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" t:styleID=\"sCol15\" /><t:Column t:key=\"apportionValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" t:styleID=\"sCol16\" /><t:Column t:key=\"directAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" t:styleID=\"sCol17\" /><t:Column t:key=\"apportionValueTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"18\" t:styleID=\"sCol18\" /><t:Column t:key=\"directAmountTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"19\" t:styleID=\"sCol19\" /><t:Column t:key=\"otherRatioTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"20\" t:styleID=\"sCol20\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{costAccount.curProject.number}</t:Cell><t:Cell>$Resource{costAccount.curProject.name}</t:Cell><t:Cell>$Resource{costAccount.number}</t:Cell><t:Cell>$Resource{costAccount.name}</t:Cell><t:Cell>$Resource{workLoad}</t:Cell><t:Cell>$Resource{price}</t:Cell><t:Cell>$Resource{splitScale}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{standard}</t:Cell><t:Cell>$Resource{product}</t:Cell><t:Cell>$Resource{costAccount.curProject.id}</t:Cell><t:Cell>$Resource{costAccount.id}</t:Cell><t:Cell>$Resource{level}</t:Cell><t:Cell>$Resource{splitType}</t:Cell><t:Cell>$Resource{apportionType.name}</t:Cell><t:Cell>$Resource{apportionValue}</t:Cell><t:Cell>$Resource{directAmount}</t:Cell><t:Cell>$Resource{apportionValueTotal}</t:Cell><t:Cell>$Resource{directAmountTotal}</t:Cell><t:Cell>$Resource{otherRatioTotal}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot> ";
+		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol1\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol8\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol9\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol10\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol14\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol15\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol16\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol17\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol18\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol19\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol20\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol21\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"costAccount.curProject.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol1\" /><t:Column t:key=\"costAccount.curProject.name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"costAccount.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"costAccount.name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"programming\" t:width=\"130\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"workLoad\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"price\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" t:styleID=\"sCol7\" /><t:Column t:key=\"splitScale\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" t:styleID=\"sCol9\" /><t:Column t:key=\"standard\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" t:styleID=\"sCol10\" /><t:Column t:key=\"product\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"costAccount.curProject.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" t:styleID=\"sCol12\" /><t:Column t:key=\"costAccount.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" t:styleID=\"sCol13\" /><t:Column t:key=\"level\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" t:styleID=\"sCol14\" /><t:Column t:key=\"splitType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" t:styleID=\"sCol15\" /><t:Column t:key=\"apportionType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" t:styleID=\"sCol16\" /><t:Column t:key=\"apportionValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" t:styleID=\"sCol17\" /><t:Column t:key=\"directAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"18\" t:styleID=\"sCol18\" /><t:Column t:key=\"apportionValueTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"19\" t:styleID=\"sCol19\" /><t:Column t:key=\"directAmountTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"20\" t:styleID=\"sCol20\" /><t:Column t:key=\"otherRatioTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"21\" t:styleID=\"sCol21\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{costAccount.curProject.number}</t:Cell><t:Cell>$Resource{costAccount.curProject.name}</t:Cell><t:Cell>$Resource{costAccount.number}</t:Cell><t:Cell>$Resource{costAccount.name}</t:Cell><t:Cell>$Resource{programming}</t:Cell><t:Cell>$Resource{workLoad}</t:Cell><t:Cell>$Resource{price}</t:Cell><t:Cell>$Resource{splitScale}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{standard}</t:Cell><t:Cell>$Resource{product}</t:Cell><t:Cell>$Resource{costAccount.curProject.id}</t:Cell><t:Cell>$Resource{costAccount.id}</t:Cell><t:Cell>$Resource{level}</t:Cell><t:Cell>$Resource{splitType}</t:Cell><t:Cell>$Resource{apportionType.name}</t:Cell><t:Cell>$Resource{apportionValue}</t:Cell><t:Cell>$Resource{directAmount}</t:Cell><t:Cell>$Resource{apportionValueTotal}</t:Cell><t:Cell>$Resource{directAmountTotal}</t:Cell><t:Cell>$Resource{otherRatioTotal}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
         this.kdtEntrys.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
         });
 
-                this.kdtEntrys.putBindContents("editData",new String[] {"id","","","","","workLoad","price","splitScale","amount","","product","costAccount.curProject.id","costAccount.id","level","splitType","apportionType","apportionValue","","apportionValueTotal","directAmountTotal","otherRatioTotal"});
+                this.kdtEntrys.putBindContents("editData",new String[] {"id","","","","","programmings","workLoad","price","splitScale","amount","","product","costAccount.curProject.id","costAccount.id","level","splitType","apportionType","apportionValue","","apportionValueTotal","directAmountTotal","otherRatioTotal"});
 
 
         // kDCheckBoxIsConfirm		
@@ -276,6 +276,7 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
     {
         this.menuBar.add(menuFile);
         this.menuBar.add(menuEdit);
+        this.menuBar.add(MenuService);
         this.menuBar.add(menuView);
         this.menuBar.add(menuBiz);
         this.menuBar.add(menuTable1);
@@ -285,9 +286,13 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(kDSeparator1);
+        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemSave);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(menuItemSubmit);
+        menuFile.add(menuItemCloudShare);
         menuFile.add(menuSubmitOption);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(rMenuItemSubmit);
         menuFile.add(rMenuItemSubmitAndAddNew);
         menuFile.add(rMenuItemSubmitAndPrint);
@@ -297,6 +302,8 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
         menuFile.add(menuItemPageSetup);
         menuFile.add(menuItemPrint);
         menuFile.add(menuItemPrintPreview);
+        menuFile.add(kDSeparator6);
+        menuFile.add(menuItemSendMail);
         menuFile.add(kDSeparator3);
         menuFile.add(menuItemExitCurrent);
         //menuSubmitOption
@@ -307,18 +314,25 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
         menuEdit.add(menuItemEdit);
         menuEdit.add(menuItemRemove);
         menuEdit.add(kDSeparator4);
+        menuEdit.add(menuItemReset);
         menuEdit.add(separator1);
         menuEdit.add(menuItemCreateFrom);
         menuEdit.add(menuItemCopyFrom);
         menuEdit.add(menuItemCreateTo);
         menuEdit.add(separatorEdit1);
         menuEdit.add(separator2);
+        menuEdit.add(menuItemEnterToNextRow);
         menuEdit.add(menuItemAcctSelect);
         menuEdit.add(menuItemProgrAcctSelect);
         menuEdit.add(menuItemSplitProj);
         menuEdit.add(menuItemSplitBotUp);
         menuEdit.add(menuItemSplitProd);
         menuEdit.add(menuItemImpContrSplit);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
         //menuView
         menuView.add(menuItemFirst);
         menuView.add(menuItemPre);
@@ -327,6 +341,8 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
         menuView.add(separator3);
         menuView.add(menuItemTraceUp);
         menuView.add(menuItemTraceDown);
+        menuView.add(kDSeparator7);
+        menuView.add(menuItemLocate);
         menuView.add(menuViewContract);
         //menuBiz
         menuBiz.add(menuItemCancelCancel);
@@ -338,12 +354,14 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
         menuBiz.add(menuItemViewCostInfo);
         //menuTable1
         menuTable1.add(menuItemAddLine);
+        menuTable1.add(menuItemCopyLine);
         menuTable1.add(menuItemInsertLine);
         menuTable1.add(menuItemRemoveLine);
         //menuTool
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemMsgFormat);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuWorkflow
         menuWorkflow.add(menuItemStartWorkFlow);
         menuWorkflow.add(separatorWF1);
@@ -375,7 +393,9 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
@@ -400,6 +420,7 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
         this.toolBar.add(separatorFW2);
         this.toolBar.add(btnFirst);
         this.toolBar.add(btnSignature);
+        this.toolBar.add(btnNumberSign);
         this.toolBar.add(btnPre);
         this.toolBar.add(btnViewSignature);
         this.toolBar.add(btnNext);
@@ -407,6 +428,7 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
         this.toolBar.add(separatorFW3);
         this.toolBar.add(btnTraceUp);
         this.toolBar.add(btnCreateTo);
+        this.toolBar.add(btnCopyLine);
         this.toolBar.add(btnTraceDown);
         this.toolBar.add(btnWorkFlowG);
         this.toolBar.add(separatorFW4);
@@ -438,11 +460,6 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
 
 	//Regiester control's property binding.
 	private void registerBindings(){
-		dataBinder.registerBinding("auditTime", java.util.Date.class, this.dateAuditTime, "value");
-		dataBinder.registerBinding("contractBill.number", String.class, this.txtCostBillNumber, "text");
-		dataBinder.registerBinding("contractBill.amount", java.math.BigDecimal.class, this.txtAmount, "value");
-		dataBinder.registerBinding("amount", java.math.BigDecimal.class, this.txtSplitedAmount, "value");
-		dataBinder.registerBinding("contractBill.name", String.class, this.txtCostBillName, "text");
 		dataBinder.registerBinding("entrys.id", com.kingdee.bos.util.BOSUuid.class, this.kdtEntrys, "id.text");
 		dataBinder.registerBinding("entrys", com.kingdee.eas.fdc.contract.ContractCostSplitEntryInfo.class, this.kdtEntrys, "userObject");
 		dataBinder.registerBinding("entrys.product", com.kingdee.eas.fdc.basedata.ProductTypeInfo.class, this.kdtEntrys, "product.text");
@@ -459,6 +476,12 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
 		dataBinder.registerBinding("entrys.workLoad", java.math.BigDecimal.class, this.kdtEntrys, "workLoad.text");
 		dataBinder.registerBinding("entrys.price", java.math.BigDecimal.class, this.kdtEntrys, "price.text");
 		dataBinder.registerBinding("entrys.splitScale", java.math.BigDecimal.class, this.kdtEntrys, "splitScale.text");
+		dataBinder.registerBinding("entrys.programmings", com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo.class, this.kdtEntrys, "programming.text");
+		dataBinder.registerBinding("auditTime", java.util.Date.class, this.dateAuditTime, "value");
+		dataBinder.registerBinding("contractBill.number", String.class, this.txtCostBillNumber, "text");
+		dataBinder.registerBinding("contractBill.amount", java.math.BigDecimal.class, this.txtAmount, "value");
+		dataBinder.registerBinding("amount", java.math.BigDecimal.class, this.txtSplitedAmount, "value");
+		dataBinder.registerBinding("contractBill.name", String.class, this.txtCostBillName, "text");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.bizPromptCreator, "data");
 		dataBinder.registerBinding("auditor", com.kingdee.eas.base.permission.UserInfo.class, this.bizPromptAuditor, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.dateCreateTime, "value");
@@ -522,11 +545,6 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
-		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("contractBill.number", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("contractBill.amount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("amount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("contractBill.name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.id", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.product", ValidateHelper.ON_SAVE);    
@@ -543,6 +561,12 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
 		getValidateHelper().registerBindProperty("entrys.workLoad", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.price", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.splitScale", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.programmings", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("contractBill.number", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("contractBill.amount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("amount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("contractBill.name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditor", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
@@ -577,32 +601,79 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
+    	sic.add(new SelectorItemInfo("entrys.id"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entrys.*"));
+		}
+		else{
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entrys.product.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entrys.product.id"));
+			sic.add(new SelectorItemInfo("entrys.product.name"));
+        	sic.add(new SelectorItemInfo("entrys.product.number"));
+		}
+    	sic.add(new SelectorItemInfo("entrys.costAccount.curProject.id"));
+    	sic.add(new SelectorItemInfo("entrys.costAccount.id"));
+    	sic.add(new SelectorItemInfo("entrys.level"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entrys.apportionType.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entrys.apportionType.id"));
+			sic.add(new SelectorItemInfo("entrys.apportionType.name"));
+        	sic.add(new SelectorItemInfo("entrys.apportionType.number"));
+		}
+    	sic.add(new SelectorItemInfo("entrys.apportionValue"));
+    	sic.add(new SelectorItemInfo("entrys.directAmountTotal"));
+    	sic.add(new SelectorItemInfo("entrys.apportionValueTotal"));
+    	sic.add(new SelectorItemInfo("entrys.otherRatioTotal"));
+    	sic.add(new SelectorItemInfo("entrys.amount"));
+    	sic.add(new SelectorItemInfo("entrys.splitType"));
+    	sic.add(new SelectorItemInfo("entrys.workLoad"));
+    	sic.add(new SelectorItemInfo("entrys.price"));
+    	sic.add(new SelectorItemInfo("entrys.splitScale"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entrys.programmings.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entrys.programmings.id"));
+			sic.add(new SelectorItemInfo("entrys.programmings.name"));
+        	sic.add(new SelectorItemInfo("entrys.programmings.number"));
+		}
         sic.add(new SelectorItemInfo("auditTime"));
         sic.add(new SelectorItemInfo("contractBill.number"));
         sic.add(new SelectorItemInfo("contractBill.amount"));
         sic.add(new SelectorItemInfo("amount"));
         sic.add(new SelectorItemInfo("contractBill.name"));
-    sic.add(new SelectorItemInfo("entrys.id"));
-        sic.add(new SelectorItemInfo("entrys.*"));
-//        sic.add(new SelectorItemInfo("entrys.number"));
-        sic.add(new SelectorItemInfo("entrys.product.*"));
-//        sic.add(new SelectorItemInfo("entrys.product.number"));
-    sic.add(new SelectorItemInfo("entrys.costAccount.curProject.id"));
-    sic.add(new SelectorItemInfo("entrys.costAccount.id"));
-    sic.add(new SelectorItemInfo("entrys.level"));
-        sic.add(new SelectorItemInfo("entrys.apportionType.*"));
-//        sic.add(new SelectorItemInfo("entrys.apportionType.number"));
-    sic.add(new SelectorItemInfo("entrys.apportionValue"));
-    sic.add(new SelectorItemInfo("entrys.directAmountTotal"));
-    sic.add(new SelectorItemInfo("entrys.apportionValueTotal"));
-    sic.add(new SelectorItemInfo("entrys.otherRatioTotal"));
-    sic.add(new SelectorItemInfo("entrys.amount"));
-    sic.add(new SelectorItemInfo("entrys.splitType"));
-    sic.add(new SelectorItemInfo("entrys.workLoad"));
-    sic.add(new SelectorItemInfo("entrys.price"));
-    sic.add(new SelectorItemInfo("entrys.splitScale"));
-        sic.add(new SelectorItemInfo("creator.*"));
-        sic.add(new SelectorItemInfo("auditor.*"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("creator.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("creator.id"));
+        	sic.add(new SelectorItemInfo("creator.number"));
+        	sic.add(new SelectorItemInfo("creator.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("auditor.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("auditor.id"));
+        	sic.add(new SelectorItemInfo("auditor.number"));
+        	sic.add(new SelectorItemInfo("auditor.name"));
+		}
         sic.add(new SelectorItemInfo("createTime"));
         sic.add(new SelectorItemInfo("isConfirm"));
         return sic;

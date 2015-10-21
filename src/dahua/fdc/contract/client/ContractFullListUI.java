@@ -136,6 +136,10 @@ public class ContractFullListUI extends AbstractContractFullListUI {
 //		super.refresh(e);
 		refreshTblMain(this.getMainQuery());
 	}
+	
+	public void actionCostIndex_actionPerformed(ActionEvent e) throws Exception {
+		super.actionCostIndex_actionPerformed(e);
+	}
 
 	/**
 	 * description		÷¥––≤È—Ø
@@ -798,6 +802,7 @@ public class ContractFullListUI extends AbstractContractFullListUI {
 		this.menuItemPaymentListUI.setIcon(EASResource.getIcon("imgTbtn_listfile"));
 		this.btnAuditResult.setEnabled(true);
         this.btnAuditResult.setVisible(true);
+        actionCostIndex.setEnabled(true);
 	}
 	protected void updateButtonStatus() {
 //		super.updateButtonStatus();

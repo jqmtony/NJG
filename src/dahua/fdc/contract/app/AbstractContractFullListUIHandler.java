@@ -54,4 +54,9 @@ public abstract class AbstractContractFullListUIHandler extends com.kingdee.eas.
 	}
 	protected void _handleActionPaymentListUI(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleactionCostIndex(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleactionCostIndex(request,response,context);
+	}
+	protected void _handleactionCostIndex(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

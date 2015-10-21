@@ -73,6 +73,7 @@ import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.CostSplitStateEnum;
+import com.kingdee.eas.fdc.basedata.CurProjectFactory;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
@@ -822,6 +823,21 @@ public class ContractBillListUI extends AbstractContractBillListUI {
 			}
 			uiContext.put("projectId", projId);
 			uiContext.put("contractTypeId", typeId);
+			
+			if(projId!=null){
+				try {
+					SelectorItemCollection sic = new SelectorItemCollection();
+					sic.add("isWholeAgeStage");
+					CurProjectInfo curInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(projId),sic);
+					if(curInfo.isIsWholeAgeStage()){
+						FDCMsgBox.showWarning("你当前选择的是全期项目，请注意， 谢谢！");
+					}
+				} catch (EASBizException e1) {
+					e1.printStackTrace();
+				} catch (BOSException e1) {
+					e1.printStackTrace();
+				}
+			}
 		}
 		uiContext.put("prjIds", getUIContext().get("prjIds"));
 		

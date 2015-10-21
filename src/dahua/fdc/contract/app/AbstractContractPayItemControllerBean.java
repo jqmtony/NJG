@@ -50,10 +50,13 @@ public abstract class AbstractContractPayItemControllerBean extends CoreBillEntr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("98fe4603-5874-47b4-86b1-aea4c6f89cc1"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractPayItemInfo retValue = (ContractPayItemInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractPayItemInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -72,10 +75,13 @@ public abstract class AbstractContractPayItemControllerBean extends CoreBillEntr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("97f2052e-a762-4914-a629-5af62932f844"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractPayItemInfo retValue = (ContractPayItemInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractPayItemInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -94,10 +100,13 @@ public abstract class AbstractContractPayItemControllerBean extends CoreBillEntr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("e6916a11-a616-4078-a7c6-d4400f49b315"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractPayItemInfo retValue = (ContractPayItemInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractPayItemInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -116,10 +125,13 @@ public abstract class AbstractContractPayItemControllerBean extends CoreBillEntr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("22f3a757-0915-405c-9028-22846710ad54"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractPayItemCollection retValue = (ContractPayItemCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractPayItemCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -136,10 +148,13 @@ public abstract class AbstractContractPayItemControllerBean extends CoreBillEntr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("fd586ea0-4f90-4184-b8a1-12184d1dde67"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractPayItemCollection retValue = (ContractPayItemCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractPayItemCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -156,10 +171,13 @@ public abstract class AbstractContractPayItemControllerBean extends CoreBillEntr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("78a47425-e3fe-4e03-bdd5-fe39576f611e"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ContractPayItemCollection retValue = (ContractPayItemCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ContractPayItemCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {

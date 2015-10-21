@@ -18,7 +18,7 @@ public class AbstractProgrammingContractEconomyInfo extends com.kingdee.eas.fram
         super(pkField);
     }
     /**
-     * Object: 框架合约经济条款 's 框架合约 property 
+     * Object: 经济条款 's 框架合约  property 
      */
     public com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo getContract()
     {
@@ -29,7 +29,7 @@ public class AbstractProgrammingContractEconomyInfo extends com.kingdee.eas.fram
         put("contract", item);
     }
     /**
-     * Object: 框架合约经济条款 's 付款类型 property 
+     * Object: 经济条款 's 付款类型 property 
      */
     public com.kingdee.eas.fdc.basedata.PaymentTypeInfo getPaymentType()
     {
@@ -40,7 +40,7 @@ public class AbstractProgrammingContractEconomyInfo extends com.kingdee.eas.fram
         put("paymentType", item);
     }
     /**
-     * Object:框架合约经济条款's 付款比例property 
+     * Object:经济条款's 付款比例property 
      */
     public java.math.BigDecimal getScale()
     {
@@ -51,7 +51,7 @@ public class AbstractProgrammingContractEconomyInfo extends com.kingdee.eas.fram
         setBigDecimal("scale", item);
     }
     /**
-     * Object:框架合约经济条款's 付款金额property 
+     * Object:经济条款's 付款金额property 
      */
     public java.math.BigDecimal getAmount()
     {
@@ -62,7 +62,7 @@ public class AbstractProgrammingContractEconomyInfo extends com.kingdee.eas.fram
         setBigDecimal("amount", item);
     }
     /**
-     * Object:框架合约经济条款's 付款条件property 
+     * Object:经济条款's 付款条件property 
      */
     public String getCondition()
     {
@@ -73,7 +73,7 @@ public class AbstractProgrammingContractEconomyInfo extends com.kingdee.eas.fram
         setString("condition", item);
     }
     /**
-     * Object:框架合约经济条款's 付款日期property 
+     * Object:经济条款's 付款日期property 
      */
     public java.sql.Timestamp getPaymentDate()
     {
@@ -84,7 +84,7 @@ public class AbstractProgrammingContractEconomyInfo extends com.kingdee.eas.fram
         setTimestamp("paymentDate", item);
     }
     /**
-     * Object:框架合约经济条款's 备注property 
+     * Object:经济条款's 备注property 
      */
     public String getDescription()
     {
@@ -95,7 +95,7 @@ public class AbstractProgrammingContractEconomyInfo extends com.kingdee.eas.fram
         setString("description", item);
     }
     /**
-     * Object:框架合约经济条款's 计划完成日期property 
+     * Object:经济条款's 计划完成日期property 
      */
     public java.util.Date getCompletedate()
     {
@@ -106,7 +106,7 @@ public class AbstractProgrammingContractEconomyInfo extends com.kingdee.eas.fram
         setDate("completedate", item);
     }
     /**
-     * Object:框架合约经济条款's 延迟天数property 
+     * Object:经济条款's 延迟天数property 
      */
     public int getDelaydays()
     {
@@ -117,7 +117,7 @@ public class AbstractProgrammingContractEconomyInfo extends com.kingdee.eas.fram
         setInt("delaydays", item);
     }
     /**
-     * Object: 框架合约经济条款 's 相关任务项  property 
+     * Object: 经济条款 's 相关任务项 property 
      */
     public com.kingdee.eas.fdc.schedule.FDCScheduleTaskInfo getScheduletask()
     {

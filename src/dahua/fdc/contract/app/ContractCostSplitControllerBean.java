@@ -1,9 +1,13 @@
 package com.kingdee.eas.fdc.contract.app;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
+import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
@@ -20,6 +24,7 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.basedata.assistant.PeriodInfo;
 import com.kingdee.eas.common.EASBizException;
@@ -29,6 +34,7 @@ import com.kingdee.eas.fdc.basedata.CostSplitStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
 import com.kingdee.eas.fdc.basedata.FDCCostSplit;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.FDCSplitBillEntryCollection;
 import com.kingdee.eas.fdc.basedata.FDCSplitBillEntryInfo;
@@ -36,14 +42,20 @@ import com.kingdee.eas.fdc.basedata.util.FdcObjectCollectionUtil;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractCostSplitCollection;
+import com.kingdee.eas.fdc.contract.ContractCostSplitEntryCollection;
 import com.kingdee.eas.fdc.contract.ContractCostSplitEntryFactory;
+import com.kingdee.eas.fdc.contract.ContractCostSplitEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractCostSplitFactory;
 import com.kingdee.eas.fdc.contract.ContractCostSplitInfo;
 import com.kingdee.eas.fdc.contract.ContractException;
 import com.kingdee.eas.fdc.contract.FDCUtils;
+import com.kingdee.eas.fdc.contract.programming.IProgrammingContract;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.invite.app.ContractCostSplitInviteHelper;
 import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.jdbc.rowset.IRowSet;
+import com.kingdee.util.NumericExceptionSubItem;
 
 public class ContractCostSplitControllerBean extends AbstractContractCostSplitControllerBean
 {
@@ -74,11 +86,15 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 	protected IObjectPK _save(Context ctx, IObjectValue model) throws BOSException, EASBizException {
 		// TODO 自动生成方法存根
 		//return super._save(ctx, model);
-
 		ContractCostSplitInfo info = (ContractCostSplitInfo)model;
 		//是否量价合同
 		boolean isMeasureContract=info.getBoolean("isMeasureContract");
 		info.setIslastVerThisPeriod(true);
+		
+		
+		if(info.getId()!=null){
+			synUpdateBillByRelation(ctx, info.getId(), false);
+		}
 		IObjectPK pk=super._save(ctx, info);
 		ContractCostSplitInfo splitBillInfo=null;
 		SelectorItemCollection selectorGet = new SelectorItemCollection();
@@ -185,6 +201,7 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 		//拆分保存更新对应招标立项下对应的招标预先拆分的状态为已拆分
 		ContractCostSplitInviteHelper.setInvitePreSplitState(ctx, pk, true);
 		
+		synUpdateBillByRelation(ctx, info.getId(), true);
 		return pk;
 	}
 
@@ -217,6 +234,8 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 	protected void _delete(Context ctx, IObjectPK pk) throws BOSException, EASBizException {
 		//基类已实现调用 _delete(Context ctx, IObjectPK[] arrayPK)
 		ContractCostSplitInviteHelper.setInvitePreSplitState(ctx, pk, false);
+		ContractCostSplitInfo info = getContractCostSplitInfo(ctx, pk);
+		synUpdateBillByRelation(ctx, info.getId(), true);
 		super._delete(ctx, pk);
 	}
 
@@ -286,7 +305,12 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 	 */
 	protected void _save(Context ctx, IObjectPK pk, IObjectValue model) throws BOSException, EASBizException {
 		// TODO 自动生成方法存根
+		ContractCostSplitInfo info = (ContractCostSplitInfo)model;
+		if(info.getId()!=null){
+			synUpdateBillByRelation(ctx, info.getId(), false);
+		}
 		super._save(ctx, pk, model);	
+		synUpdateBillByRelation(ctx, info.getId(), true);
 		
 		//拆分保存更新对应招标立项下对应的招标预先拆分的状态为已拆分
 		ContractCostSplitInviteHelper.setInvitePreSplitState(ctx, pk, true);
@@ -514,4 +538,142 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 		}
 		return temp;
     }
+    
+    
+	/**
+	 * 1 .当合同未结算时(无最终结算或最终结算未审批)，规划余额=规划金额-（签约金额+变更金额），控制余额=控制金额-签约金额 2
+	 * .当合同已结算时(最终结算已审批)，规划余额=规划金额-结算金额，控制余额=控制金额-结算金额 3
+	 * .反写时点在合同单据审批通过时、变更签证申请审批通过时、变更签证确认结算时、合同结算审批通过时。 4.
+	 * 合同修订审批后，规划余额=规划金额-（修订后的签约金额+变更金额），控制余额=控制金额-修订后的签约金额。
+	 * 
+	 * @param ctx
+	 * @param billId
+	 * @param flag 为真 则扣减余额
+	 * @throws EASBizException 
+	 * @throws EASBizException
+	 * @throws BOSException 
+	 * @throws BOSException
+	 * @throws SQLException
+	 * @throws SQLException
+	 */
+	private void synUpdateBillByRelation(Context ctx, BOSUuid billId, boolean flag) throws EASBizException, BOSException{
+		SelectorItemCollection sic = new SelectorItemCollection();
+		sic.add("contractBill.curProject.isWholeAgeStage"); 
+		sic.add("contractBill.programmingContract.id"); 
+		ContractCostSplitInfo conCostSplitInfo = ContractCostSplitFactory.getLocalInstance(ctx).getContractCostSplitInfo(new ObjectUuidPK(billId),sic);
+		if(!conCostSplitInfo.getContractBill().getCurProject().isIsWholeAgeStage()||conCostSplitInfo.getContractBill().getProgrammingContract()!=null)
+			return;
+		
+		String oql = "select programmings.id,amount where parent.id='"+billId+"'";
+		IProgrammingContract service = ProgrammingContractFactory.getLocalInstance(ctx);
+		
+		ContractCostSplitEntryCollection coll = ContractCostSplitEntryFactory.getLocalInstance(ctx).getContractCostSplitEntryCollection(oql);
+		Map<String, BigDecimal> VALUEMAP = new HashMap<String, BigDecimal>();
+		for (int i = 0; i < coll.size(); i++) {
+			ContractCostSplitEntryInfo entryInfo = coll.get(i);
+			
+			if(entryInfo.getProgrammings()==null)
+				continue;
+			entryInfo.getProgrammings();
+			
+			String progId = entryInfo.getProgrammings().getId().toString();
+			if(VALUEMAP.get(progId)==null)
+				VALUEMAP.put(progId,UIRuleUtil.getBigDecimal(entryInfo.getAmount()));
+			else
+				VALUEMAP.put(progId,FDCHelper.add(VALUEMAP.get(progId), entryInfo.getAmount()));
+		}
+		
+		Iterator<Entry<String, BigDecimal>> iterator = VALUEMAP.entrySet().iterator();
+		while(iterator.hasNext()){
+			Entry<String, BigDecimal> entity = iterator.next();
+			
+			String key = entity.getKey();
+			BigDecimal value = entity.getValue();
+			
+			SelectorItemCollection sict = new SelectorItemCollection();
+			sict.add("name");
+			sict.add("balance");
+			ProgrammingContractInfo progInfo = service.getProgrammingContractInfo(new ObjectUuidPK(key),sict);
+			BigDecimal banlance = UIRuleUtil.getBigDecimal(progInfo.getBalance());
+			
+			if(banlance.compareTo(value)==-1){
+				throw new EASBizException(new NumericExceptionSubItem("1","["+progInfo.getName()+"] 余额不足。\n余额："+banlance+"\n本次累计拆分："+value));
+			}
+		}
+		SelectorItemCollection sict = new SelectorItemCollection();
+		sict.add("balance");
+		sict.add("controlBalance");
+		sict.add("signUpAmount");
+		sict.add("changeAmount");
+		sict.add("settleAmount");
+		sict.add("srcId");
+		
+		
+		iterator = VALUEMAP.entrySet().iterator();
+//		while(iterator.hasNext()){
+//			Entry<String, BigDecimal> entity = iterator.next();
+//			
+//			String key = entity.getKey();
+//			BigDecimal value = entity.getValue();
+//			
+//			ProgrammingContractInfo pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(key),sict);
+//			
+//			// 规划余额
+//			BigDecimal balanceAmt = pcInfo.getBalance();
+//			// 控制余额
+//			BigDecimal controlBalanceAmt = pcInfo.getControlBalance();
+//			// 合同签约金额
+//			BigDecimal signAmount = value;
+//			// 框架合约签约金额
+//			BigDecimal signUpAmount = pcInfo.getSignUpAmount();
+//			// 差额
+//			BigDecimal otherSignUpAmount = FDCHelper.ZERO;
+//			if (flag) {
+//				pcInfo.setBalance(FDCHelper.subtract(balanceAmt, signAmount));
+//				pcInfo.setControlBalance(FDCHelper.subtract(controlBalanceAmt, signAmount));
+//				pcInfo.setSignUpAmount(FDCHelper.add(signUpAmount, signAmount));
+//				otherSignUpAmount = FDCHelper.subtract(FDCHelper.add(signUpAmount, signAmount), signUpAmount);
+//			} else {
+//				pcInfo.setBalance(FDCHelper.add(balanceAmt, signAmount));
+//				pcInfo.setControlBalance(FDCHelper.add(controlBalanceAmt, signAmount));
+//				pcInfo.setSignUpAmount(FDCHelper.subtract(signUpAmount, signAmount));
+//				otherSignUpAmount = FDCHelper.subtract(FDCHelper.subtract(signUpAmount, signAmount), signUpAmount);
+//			}
+//			service.updatePartial(pcInfo, sict);
+//			// 更新其他的合约规划版本金额
+//			String progId = pcInfo.getId().toString();
+//			while (progId != null) {
+//				String nextVersionProgId = getNextVersionProg(ctx, progId);
+//				if (nextVersionProgId != null) {
+//					pcInfo = ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(nextVersionProgId), sict);
+//					pcInfo.setBalance(FDCHelper.subtract(pcInfo.getBalance(), otherSignUpAmount));
+//					pcInfo.setControlBalance(FDCHelper.subtract(pcInfo.getControlBalance(), otherSignUpAmount));
+//					pcInfo.setSignUpAmount(FDCHelper.add(pcInfo.getSignUpAmount(), otherSignUpAmount));
+//					service.updatePartial(pcInfo, sict);
+//					progId = pcInfo.getId().toString();
+//				} else {
+//					progId = null;
+//				}
+//			}
+//		}
+	}
+
+	private String getNextVersionProg(Context ctx, String nextProgId){
+		String tempId = null;
+		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
+		builder.appendSql(" select fid from t_con_programmingContract where  ");
+		builder.appendParam("FSrcId", nextProgId);
+		try {
+			IRowSet rowSet = builder.executeQuery();
+			while (rowSet.next()) {
+				tempId = rowSet.getString("fid");
+			}
+		} catch (BOSException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return tempId;
+	}
+    
 }
