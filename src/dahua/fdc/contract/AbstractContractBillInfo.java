@@ -1013,6 +1013,28 @@ public class AbstractContractBillInfo extends com.kingdee.eas.fdc.basedata.FDCBi
     {
         setString("entrustReason", item);
     }
+    /**
+     * Object:合同单据's 是否总包合同property 
+     */
+    public boolean isIsContractor()
+    {
+        return getBoolean("isContractor");
+    }
+    public void setIsContractor(boolean item)
+    {
+        setBoolean("isContractor", item);
+    }
+    /**
+     * Object:合同单据's 合同单价property 
+     */
+    public java.math.BigDecimal getContractPrice()
+    {
+        return getBigDecimal("contractPrice");
+    }
+    public void setContractPrice(java.math.BigDecimal item)
+    {
+        setBigDecimal("contractPrice", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("0D6DD1F4");
