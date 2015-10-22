@@ -53,4 +53,5 @@ public interface YearInvestPlanController extends XRBillBaseController
     public void updateBigObject(Context ctx, IObjectPK pk, YearInvestPlanInfo model) throws BOSException, RemoteException;
     public void updatePartial(Context ctx, YearInvestPlanInfo model, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public String getBindingProperty(Context ctx) throws BOSException, RemoteException;
+    public void creatProjectBase(Context ctx, IObjectPK pk) throws BOSException, EASBizException, RemoteException;
 }

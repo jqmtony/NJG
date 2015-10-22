@@ -92,7 +92,9 @@ public class OpenRegistrationEditUI extends AbstractOpenRegistrationEditUI
     	
     	this.pkopDate.setTimeEnabled(true);
     	this.pkopDate.setDatePattern("yyyy-MM-dd HH:mm");
-    	pkopDate.setValue(new Date());
+    	if(OprtState.ADDNEW.equals(getOprtState())){
+	    	pkopDate.setValue(new Date());
+    	}
     }
     private void initConpoment() {
     	chkcancel.setEnabled(false);

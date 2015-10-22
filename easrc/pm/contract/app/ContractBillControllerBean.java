@@ -241,6 +241,12 @@ public class ContractBillControllerBean extends AbstractContractBillControllerBe
 		PositionInfo positionInfo = new PositionInfo();
 		positionInfo.setId(BOSUuid.read(positionId));
 		contractBillInfo.setCreatorPosition(positionInfo);
+		
+//		try {
+//			contractBillInfo.setContractType(ContractTypeFactory.getLocalInstance(ctx).getContractTypeCollection().get(0));
+//		} catch (BOSException e) {
+//			e.printStackTrace();
+//		}
 	}
 
     

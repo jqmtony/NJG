@@ -394,6 +394,17 @@ public class AbstractInviteReportInfo extends com.kingdee.eas.xr.XRBillBaseInfo 
     {
         setString("evaluaMethod", item);
     }
+    /**
+     * Object:招标方案申报's 最低价为基准价property 
+     */
+    public boolean isLowestprice()
+    {
+        return getBoolean("lowestprice");
+    }
+    public void setLowestprice(boolean item)
+    {
+        setBoolean("lowestprice", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("CE1E4966");

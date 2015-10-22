@@ -7,7 +7,6 @@ import java.awt.event.*;
 import java.util.HashSet;
 import java.util.Set;
 
-
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.ContextUtils;
@@ -58,6 +57,9 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
     	// TODO Auto-generated method stub
     	dataBinder.registerBinding("project", com.kingdee.eas.basedata.assistant.Project.class, this.prmtproject, "data");
     	initConpoment();
+    	txtplanName.setBoundLabelText("标段名称");
+    	contstartDate.setBoundLabelText("计划招标时间");
+    	contresponse.setBoundLabelText("联系人");
     	super.onLoad();
     	initFilter();
     	
@@ -76,6 +78,13 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
     	prmtdepartment.setEnabled(false);
     	prmtdepartment.setRequired(true);
     	prmtresponse.setRequired(true);
+    	chkShortlistedInv.setVisible(false);
+    	contendDate.setVisible(false);
+    	contscalingTime.setVisible(false);
+    	contopeningBidTime.setVisible(false);
+    	contSendOutTime.setVisible(false);
+    	contBusinessFinish.setVisible(false);
+    	continDate.setVisible(false);
     }
     private void initFilter() throws Exception{
     	//根据组织长编码过滤人员
@@ -106,11 +115,11 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
     protected void verifyInput(ActionEvent actionevent) throws Exception {
     	// TODO Auto-generated method stub
     	if("".equals(txtplanName.getText().trim())) {
-    		MsgBox.showWarning("计划名称不能为空");
+    		MsgBox.showWarning("标段名称不能为空");
     		SysUtil.abort();
     	}
     	if(prmtresponse.getValue() == null) {
-    		MsgBox.showWarning("负责人不能为空");
+    		MsgBox.showWarning("联系人不能为空");
     		SysUtil.abort();
     	}
     	if(prmtproject.getValue() == null) {
@@ -121,21 +130,21 @@ public class InvitePlanEditUI extends AbstractInvitePlanEditUI
     		MsgBox.showWarning("招标方式不能为空");
     		SysUtil.abort();
     	}
-    	if(editData.getStartDate() != null && editData.getEndDate() != null && editData.getStartDate().after(editData.getEndDate()))
-    	{
-    		MsgBox.showWarning("计划结束日期不能早于计划开始时间");
-    		SysUtil.abort();
-    	}
-    	if(editData.getStartDate() != null && editData.getInDate() != null && editData.getInDate().before(editData.getStartDate()))
-    	{
-    		MsgBox.showWarning("进场日期不能早于计划开始时间");
-    		SysUtil.abort();
-    	}
-    	if(editData.getInDate() != null && editData.getEndDate() != null && editData.getInDate().after(editData.getEndDate()))
-    	{
-    		MsgBox.showWarning("进场日期不能晚于计划结束时间");
-    		SysUtil.abort();
-    	}
+//    	if(editData.getStartDate() != null && editData.getEndDate() != null && editData.getStartDate().after(editData.getEndDate()))
+//    	{
+//    		MsgBox.showWarning("计划结束日期不能早于计划开始时间");
+//    		SysUtil.abort();
+//    	}
+//    	if(editData.getStartDate() != null && editData.getInDate() != null && editData.getInDate().before(editData.getStartDate()))
+//    	{
+//    		MsgBox.showWarning("进场日期不能早于计划开始时间");
+//    		SysUtil.abort();
+//    	}
+//    	if(editData.getInDate() != null && editData.getEndDate() != null && editData.getInDate().after(editData.getEndDate()))
+//    	{
+//    		MsgBox.showWarning("进场日期不能晚于计划结束时间");
+//    		SysUtil.abort();
+//    	}
     	super.verifyInput(actionevent);
     }
     /**

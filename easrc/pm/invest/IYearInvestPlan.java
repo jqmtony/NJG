@@ -48,4 +48,5 @@ public interface IYearInvestPlan extends IXRBillBase
     public void updateBigObject(IObjectPK pk, YearInvestPlanInfo model) throws BOSException;
     public void updatePartial(YearInvestPlanInfo model, SelectorItemCollection selector) throws BOSException, EASBizException;
     public String getBindingProperty() throws BOSException;
+    public void creatProjectBase(IObjectPK pk) throws BOSException, EASBizException;
 }

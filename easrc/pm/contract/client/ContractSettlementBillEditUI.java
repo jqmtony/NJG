@@ -791,6 +791,7 @@ public class ContractSettlementBillEditUI extends
 		ContractBillInfo contractBillInfo = contractBill;
 
 		objectValue.setContractBill(contractBillInfo);
+		objectValue.setName(contractBillInfo.getName());
 		objectValue.setCurProject(this.curProject);
 
 		objectValue.setCurrency(contractBill.getCurrency());
@@ -962,9 +963,9 @@ public class ContractSettlementBillEditUI extends
 					.getGrtRate());
 
 			// 如果是新增,合同是外币,那么重新取汇率
-			if (!this.baseCurrency.getId().equals(editData.getCurrency().getId())) {
-				setExchangeRate(editData.getCurrency().getId());
-			}
+//			if (!this.baseCurrency.getId().equals(editData.getCurrency().getId())) {
+//				setExchangeRate(editData.getCurrency().getId());
+//			}
 		}
 
 		// 应客户要求，合同编码和合同名称可用CTRL+C复制

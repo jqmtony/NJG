@@ -88,6 +88,13 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 	ProgrammingEditUI programmingEditUI = null;
 	public void onLoad() throws Exception {
 		super.onLoad();
+		//自动定位到审批信息页签
+		if(getUIContext().get("viewAuditResult")!=null)
+		{
+//			this.toolBar.setVisible(false);
+			this.toolBar.removeAllToolBarComponents();  
+			this.kDTabbedPane1.setSelectedComponent(this.kDPanel4);
+		}
 		if(getUIContext().get("projectInfo-Adjuest")!=null && !"".equals(getUIContext().get("projectInfo-Adjuest")))
 			planType.setSelectedItem(PlanTypeEnum.adjust);
 		if(getUIContext().get("projectInfo-Change")!=null && !"".equals(getUIContext().get("projectInfo-Change"))){
@@ -154,6 +161,11 @@ public class YearInvestPlanEditUI extends AbstractYearInvestPlanEditUI {
 			comboStatus.setSelectedItem(XRBillStatusEnum.TEMPORARILYSAVED);
 		}
 		setPortProject(null);
+		if(editData.getPlanType().equals(PlanTypeEnum.yearPlan)){
+			editData.setObjectState(editData.getObjectState().declared);
+		}else{
+			editData.setObjectState(editData.getObjectState().approval);
+		}
 		
 	}
 	

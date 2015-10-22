@@ -210,6 +210,7 @@ public class ContractChangeSettleBillEditUI extends AbstractContractChangeSettle
 		
 		if(contractChangeInfo != null){
 			info.setContractBill(contractChangeInfo);
+			info.setName(contractChangeInfo.getName());
 			info.setCurProject(contractChangeInfo.getCurProject());
 			info.setSupplier(contractChangeInfo.getPartB());
 			info.setResponsibleStyle(ResponsibleStyleEnum.AllContain);

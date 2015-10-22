@@ -149,10 +149,6 @@ public class OpenRegistrationListUI extends AbstractOpenRegistrationListUI
     protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo viewInfo) {
     	EntityViewInfo newViewInfo = (EntityViewInfo) viewInfo.clone();
     	FilterInfo filInfo = new FilterInfo();
-    	if(getUIContext().get("reportId")!=null)
-    	{
-    		filInfo.getFilterItems().add(new FilterItemInfo("reportName.id",(String)getUIContext().get("reportId")));
-    	}
     	DefaultKingdeeTreeNode treeNode = (DefaultKingdeeTreeNode)this.kDTree1.getLastSelectedPathComponent();
     	if(treeNode!=null)
     	{
@@ -176,6 +172,14 @@ public class OpenRegistrationListUI extends AbstractOpenRegistrationListUI
 			{
 				newViewInfo.setFilter(filInfo);
 			}
+			
+			if(getUIContext().get("reportId")!=null)
+	    	{
+				newViewInfo = new EntityViewInfo();
+				FilterInfo filterInfo = new FilterInfo();
+				filterInfo.getFilterItems().add(new FilterItemInfo("reportName.id",(String)getUIContext().get("reportId")));
+	    		newViewInfo.setFilter(filterInfo);
+	    	}
 		} 
     	catch (BOSException e) {
 			e.printStackTrace();

@@ -85,6 +85,7 @@ import com.kingdee.eas.port.pm.invite.JudgesComfirmFactory;
 import com.kingdee.eas.port.pm.invite.JudgesComfirmInfo;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationCollection;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationEntryCollection;
+import com.kingdee.eas.port.pm.invite.OpenRegistrationEntryFactory;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationEntryInfo;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationFactory;
 import com.kingdee.eas.port.pm.invite.OpenRegistrationInfo;
@@ -225,8 +226,8 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
             
     		for(int i = 0; i < openRegEntrycoll.size(); i++) {
     			OpenRegistrationEntryInfo entryInfo = openRegEntrycoll.get(i);
-    			if(!entryInfo.isIsPresent()||!entryInfo.isIsQualified())
-    				continue;
+//    			if(!entryInfo.isIsPresent()||!entryInfo.isIsQualified())
+//    				continue;
     			MarketSupplierStockInfo supplierInfo = entryInfo.getSupplierName();
     			supplierInfo = isupplier.getMarketSupplierStockInfo(new ObjectUuidPK(supplierInfo.getId()));
     			col = this.kDTable1.addColumn();
@@ -264,13 +265,33 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		for(int i = 0; i < kDTable1.getRowCount(); i += evaTmpEntryColl.size()+1) {
     			kDTable1.getMergeManager().mergeBlock(i, 0, evaTmpEntryColl.size()+i, 0);
     		}
+    		String oql1 = "where reportName.id='" + reportInfo.getId() + "'";
+			OpenRegistrationInfo openInfo = OpenRegistrationFactory.getRemoteInstance().getOpenRegistrationInfo(oql1);
+			OpenRegistrationEntryCollection  coll = openInfo.getEntry();
+			Map dcMap = new HashMap();//
+			for (int k = 0; k < coll.size(); k++) {
+				MarketSupplierStockInfo supplierInfo = coll.get(k).getSupplierName();
+    			supplierInfo = isupplier.getMarketSupplierStockInfo(new ObjectUuidPK(supplierInfo.getId()));
+    			String supName = supplierInfo.getSupplierName();
+				dcMap.put(supName, coll.get(k).isIsPresent());
+			}
     		//设置单元格checkBox默认值为false
     		for(int i = 0; i < this.kDTable1.getRowCount(); i++) {
     			for(int j = 2; j < this.kDTable1.getColumnCount(); j++) {
 //    	            this.kDTable1.getColumn(j).setEditor(valid_CellEditor);
-    				if(!this.kDTable1.getColumnKey(j).equals("remake"))
-    					this.kDTable1.getRow(i).getCell(j).setValue(Boolean.TRUE);
-    			}
+    				if(!this.kDTable1.getColumnKey(j).equals("remake")){
+    		    		if(this.kDTable1.getHeadRow(0).getCell("Unit"+(j-2))!=null){
+    		    			String supName = this.kDTable1.getHeadRow(0).getCell("Unit"+(j-2)).getValue().toString();
+    		    			boolean isdc = Boolean.parseBoolean(dcMap.get(supName).toString());
+    		    			if(isdc)
+    		    				this.kDTable1.getRow(i).getCell(j).setValue(Boolean.TRUE);
+    		    			else
+    		    				this.kDTable1.getRow(i).getCell(j).setValue(Boolean.FALSE);
+    		    		}
+    					
+    					}
+    			   }
+    		    
     		}
     		
     		//设置打分分录
@@ -281,6 +302,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     			BigDecimal techScore = new BigDecimal(reportInfo.getTechScore());
     			//构建展示分录表头
         		this.kDTable2.addHeadRow(0);
+        		kDTable2.getHeadRow(0).setHeight(100);
         		IColumn column = this.kDTable2.addColumn();
         		column.setKey("Judges");
         		column.getStyleAttributes().setLocked(true);
@@ -304,15 +326,15 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     			TextField.setDataType(1);
     			TextField.setMinimumValue(new java.math.BigDecimal("-1.0E18"));
     			TextField.setMaximumValue(new java.math.BigDecimal("1.0E18"));
-    			TextField.setPrecision(4);
-    			TextField.setValue(0);
+    			TextField.setPrecision(2);
+//    			TextField.setValue(0);
     	        KDTDefaultCellEditor CellEditor = new KDTDefaultCellEditor(TextField);
         		//构建表头公司名称
 //        		IMarketSupplierStock isupplier = MarketSupplierStockFactory.getRemoteInstance();
         		for(int i = 0; i < openRegEntrycoll.size(); i++) {
         			OpenRegistrationEntryInfo entryInfo = openRegEntrycoll.get(i);
-        			if(!entryInfo.isIsPresent()||!entryInfo.isIsQualified())
-        				continue;
+//        			if(!entryInfo.isIsPresent()||!entryInfo.isIsQualified())
+//        				continue;
         			MarketSupplierStockInfo supplierInfo = entryInfo.getSupplierName();
         			supplierInfo = isupplier.getMarketSupplierStockInfo(new ObjectUuidPK(supplierInfo.getId()));
         			column = this.kDTable2.addColumn();
@@ -320,6 +342,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
         			column.setWidth(220);
         			column.setEditor(CellEditor);
         			this.kDTable2.getHeadRow(0).getCell("Unit"+i).setValue(supplierInfo.getSupplierName());
+        			this.kDTable2.getHeadRow(0).setHeight(100);
         		}
         		
 //        		for(int j = 3; j < kDTable2.getColumnCount(); j++) {
@@ -356,6 +379,8 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
         			for(int j = 3; j < kDTable2.getColumnCount(); j++) 
         				kDTable2.getRow(i).getCell(j).setValue(0);
         		}
+        		
+        		
     		}
     		
     		//构建总分
@@ -369,8 +394,8 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     		//构建表头公司名称
     		for(int i = 0; i < openRegEntrycoll.size(); i++) {
     			OpenRegistrationEntryInfo entryInfo = openRegEntrycoll.get(i);
-    			if(!entryInfo.isIsPresent()||!entryInfo.isIsQualified())
-    				continue;
+//    			if(!entryInfo.isIsPresent()||!entryInfo.isIsQualified())
+//    				continue;
     			MarketSupplierStockInfo supplierInfo = entryInfo.getSupplierName();
     			supplierInfo = isupplier.getMarketSupplierStockInfo(new ObjectUuidPK(supplierInfo.getId()));
     			col = this.kDTable3.addColumn();
@@ -772,7 +797,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
 			OpenRegistrationEntryInfo openRegEntryInfo = openRegEntryColl.get(i);
 			if(!openRegEntryInfo.isIsPresent()||!openRegEntryInfo.isIsQualified()){
 				wdc++;
-				continue;
+//				continue;
 			}
 			celIndex +=1;
 			this.kDTable3.getRow(0).getCell(celIndex).setValue(openRegEntryInfo.getQuotedPrice());
@@ -814,36 +839,48 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     			kDTable3.getRow(2).getCell(c-2).setValue((fullscore.divide(new BigDecimal(jucount), 10, BigDecimal.ROUND_HALF_UP).multiply(TechScoreQz).divide(sumweight, 10, BigDecimal.ROUND_HALF_UP).multiply(new BigDecimal("100"))).setScale(2, 4).toString());
     		}
     		//计算评标基准价
-    		ArrayList<String> price = new ArrayList<String>();//存放有效报价(通过符合性审查的)
+    		ArrayList price = new ArrayList();//存放有效报价(通过符合性审查的)
     		IRow rowPrice = this.kDTable3.getRow(0);//总分分录报价行
 			IRow rowValid = this.kDTable3.getRow(1);//总分分录符合性审查结果行
 			BigDecimal coefficient = reportInfo.getCoefficient()!=null?reportInfo.getCoefficient():BigDecimal.ZERO;
 			int a = 0;
     		for(int i = 1; i < this.kDTable3.getColumnCount(); i++) {
     			if("合格".equals(rowValid.getCell(i).getValue().toString().trim()))
-    				price.add(rowPrice.getCell(i).getValue().toString().trim());
-    			else
+    				price.add(UIRuleUtil.getBigDecimal(rowPrice.getCell(i).getValue()).intValue());
+    			else{
     				a+=1;
+    				price.add(0);//不合格供应商，报价为0
+    			}
     		}
-
-    		Collections.sort(price);
-    		BigDecimal basePrice = new BigDecimal(0);
-    		int rmLow = Integer.parseInt(reportInfo.getRmlow());//去除几个最低
-    		int rmHigh = Integer.parseInt(reportInfo.getRmhigh());//去除几个最高
-    		if(rmLow-wdc < 0)
-    			rmLow = 0;
-    		else
-    			rmLow = rmLow-wdc;
-    		if(rmHigh-wdc < 0)
-    			rmHigh = 0;
-    		else
-    			rmHigh = rmHigh-wdc;
     		
-    		int validCount = price.size() - (rmLow+rmHigh-a);
+    		Collections.sort(price);//报价排序 ，由底到高
+    		BigDecimal basePrice = new BigDecimal(0);
+    		int rmLow = Integer.parseInt(reportInfo.getRmlow())+a;//去除几个最低，不合格报价，其实等同于去掉这个最低
+    		int rmHigh = 0;
+    		if(Integer.parseInt(reportInfo.getRmhigh()) >0){
+    			 rmHigh = Integer.parseInt(reportInfo.getRmhigh())-a;//去除几个最高数，要减去不合格报价
+    		}else{
+    			 rmHigh = 0;
+    		}
+    		
+//    		if(rmLow-wdc < 0)
+//    			rmLow = 0;
+//    		else
+//    			rmLow = rmLow-wdc;
+//    		if(rmHigh-wdc < 0)
+//    			rmHigh = 0;
+//    		else
+//    			rmHigh = rmHigh;
+    		StringBuffer sb = new StringBuffer();
+    		for (int i = 0; i < price.size(); i++) {
+    			sb.append("\n"+price.get(i));
+			}
+    		com.kingdee.eas.util.client.MsgBox.showInfo("报价由低到高顺序："+sb);
+    		int validCount = price.size() - (rmLow+rmHigh);
     		if(validCount > 0) {
 	    		basePrice = new BigDecimal(0);
-	    		for(int i = rmLow; i < price.size()-(rmHigh-a); i++) {
-	    			basePrice = basePrice.add(new BigDecimal(price.get(i)));
+	    		for(int i = rmLow; i < price.size()-(rmHigh); i++) {
+	    			basePrice = basePrice.add(UIRuleUtil.getBigDecimal(price.get(i)));
 	    		}
 	    		basePrice = basePrice.divide(new BigDecimal(validCount), 2, BigDecimal.ROUND_HALF_UP).multiply(coefficient);;
 	    	    this.txtbasePrice.setValue(basePrice);
@@ -855,7 +892,7 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
 	    		for(int c = 1; c < this.kDTable3.getColumnCount(); c++) {
 	    			BigDecimal techScore = new BigDecimal(this.kDTable3.getRow(2).getCell(c).getValue().toString());//技术分
 	    			BigDecimal score = new BigDecimal(reportInfo.getBusinessScore());//商务分满分
-	    			BigDecimal evaprice = new BigDecimal(kDTable3.getRow(0).getCell(c).getValue().toString());//获得报价
+	    			BigDecimal evaprice = UIRuleUtil.getBigDecimal(kDTable3.getRow(0).getCell(c).getValue());//获得报价
 	    			BigDecimal sub = evaprice.subtract(basePrice);//报价基准价之差
 	    			if(sub.compareTo(new BigDecimal(0)) > 0) {
 	    				score = score.subtract(sub.abs().divide(basePrice, 4,4).multiply(new BigDecimal(100))
@@ -1568,7 +1605,13 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
 	public void actionPrintFHX_actionPerformed(ActionEvent e) throws Exception {
 		super.actionPrintFHX_actionPerformed(e);
 		HeadFootModel header = new HeadFootModel();
-    	String text = this.txtprjName.getText()+"总分汇总";
+		String name = null;
+		if(prmtinviteReport.getValue() !=null){
+			String id = ((InviteReportInfo)prmtinviteReport.getData()).getId().toString();
+			InviteReportInfo irInfo = InviteReportFactory.getRemoteInstance().getInviteReportInfo(new ObjectUuidPK(id));
+			name = irInfo.getReportName();
+		}
+    	String text = name+"符合性审查汇总表";
 //    	String text2 = "left&|right";
     	
     	KDTable taleView = new KDTable();
@@ -1609,7 +1652,13 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
 	public void actionPrintPFXX_actionPerformed(ActionEvent e) throws Exception {
 		super.actionPrintPFXX_actionPerformed(e);
 		HeadFootModel header = new HeadFootModel();
-    	String text = this.txtprjName.getText()+"总分汇总";
+		String name = null;
+		if(prmtinviteReport.getValue() !=null){
+			String id = ((InviteReportInfo)prmtinviteReport.getData()).getId().toString();
+			InviteReportInfo irInfo = InviteReportFactory.getRemoteInstance().getInviteReportInfo(new ObjectUuidPK(id));
+			name = irInfo.getReportName();
+		}
+    	String text = name+"技术评分总分汇总表";
 //    	String text2 = "left&|right";
     	
     	KDTable taleView = new KDTable();
@@ -1650,7 +1699,13 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
 	public void actionPrintZF_actionPerformed(ActionEvent e) throws Exception {
 		super.actionPrintZF_actionPerformed(e);
     	HeadFootModel header = new HeadFootModel();
-    	String text = this.txtprjName.getText()+"总分汇总";
+    	String name = null;
+		if(prmtinviteReport.getValue() !=null){
+			String id = ((InviteReportInfo)prmtinviteReport.getData()).getId().toString();
+			InviteReportInfo irInfo = InviteReportFactory.getRemoteInstance().getInviteReportInfo(new ObjectUuidPK(id));
+			name = irInfo.getReportName();
+		}
+    	String text = name+"总分汇总";
 //    	String text2 = "left&|right";
     	
     	KDTable taleView = new KDTable();
@@ -1670,26 +1725,31 @@ public class EvaluationEditUI extends AbstractEvaluationEditUI
     	SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd");
     	String time1 = time.format(this.pkevaDate.getValue());
     	HeadFootModel footer = new HeadFootModel();
-    	String text3 = "专家签字：&| ";
+//    	String text3 = "专家签字：&| ";
+    	String text4 = "评委签字：&| ";
+    	String text5 = "项目组签字：&| ";
+    	String text6 = "招标办签字：&| ";
+    	String text7 = "纪检签字：&| ";
     	String textDate = "&|&|评标日期："+time1;
 //    	StyleAttributes sa2 = new StyleAttributes(Style.getDefaultAttributes());
 //    	sa2.getInterior().setBackground(Color.red);
-    	footer.addRow(text3, sa1); 
-    	footer.addRow("", sa1);
-    	footer.addRow("", sa1); 
-    	footer.addRow("", sa1);
-    	footer.addRow("", sa1);
-    	footer.addRow("", sa1);
-    	footer.addRow("", sa1);
+//    	footer.addRow(text3, sa1); 
+//    	footer.addRow("", sa1);
+//    	footer.addRow("", sa1);
+//    	footer.addRow("", sa1);
+    	footer.addRow(text4, sa1); 
     	footer.addRow("", sa1);
     	footer.addRow("", sa1);
     	footer.addRow("", sa1);
-    	footer.addRow("", sa1); 
+    	footer.addRow(text5, sa1);
     	footer.addRow("", sa1);
     	footer.addRow("", sa1);
     	footer.addRow("", sa1);
+    	footer.addRow(text6, sa1);
     	footer.addRow("", sa1);
     	footer.addRow("", sa1);
+    	footer.addRow("", sa1);
+    	footer.addRow(text7, sa1);
     	footer.addRow("", sa1);
     	footer.addRow("", sa1); 
     	footer.addRow("", sa1);

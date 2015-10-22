@@ -26,6 +26,7 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.permission.UserInfo;
 import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
@@ -39,6 +40,7 @@ import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.port.pm.base.CompanyPropertyFactory;
 import com.kingdee.eas.port.pm.base.CompanyPropertyInfo;
 import com.kingdee.eas.port.pm.base.CompanySetupEntryCollection;
@@ -61,6 +63,7 @@ import com.kingdee.eas.port.pm.invest.investplan.IProgramming;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
 import com.kingdee.eas.port.pm.invest.investplan.client.ProgrammingEditUI;
+import com.kingdee.eas.port.pm.invite.client.WinInviteReportEditUI;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.eas.xr.helper.PersonXRHelper;
@@ -89,6 +92,7 @@ public class ProjectStartRequestEditUI extends AbstractProjectStartRequestEditUI
         this.attachListeners();
     }
 
+    
     /**
      * output storeFields method
      */
@@ -345,4 +349,16 @@ public class ProjectStartRequestEditUI extends AbstractProjectStartRequestEditUI
 		super.verifyInput(e);
 	}
 	
+	protected void btnViewProject_actionPerformed(ActionEvent e)throws Exception {
+		super.btnViewProject_actionPerformed(e);
+		ProjectInfo proInfo = (ProjectInfo)prmtprojectName.getValue();
+		
+		if(proInfo==null||proInfo.getNJGyearInvest()==null)
+			return ;
+		UIContext context = new UIContext(this);
+		context.put("ID", proInfo.getNJGyearInvest().getId());
+		context.put("viewAuditResult","viewAuditResult");
+		UIFactory.createUIFactory(UIFactoryName.MODEL).create(YearInvestPlanEditUI.class.getName(), context, null,OprtState.VIEW).show();
+	
+	}
 }

@@ -149,6 +149,7 @@ public class InvitePlanListUI extends AbstractInvitePlanListUI
 		EntityViewInfo entityView = new EntityViewInfo();
 		FilterInfo filter = new FilterInfo();
 		filter.getFilterItems().add(new FilterItemInfo("longNumber", project.getLongNumber() + "%", CompareType.LIKE));
+		filter.getFilterItems().add(new FilterItemInfo("project.isSysCreate", 1, CompareType.EQUALS));
 		entityView.setFilter(filter);
 		IProject iproject = ProjectFactory.getRemoteInstance();
 		ProjectCollection projectColl = iproject.getProjectCollection(entityView);

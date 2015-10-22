@@ -125,10 +125,7 @@ public class EvaluationListUI extends AbstractEvaluationListUI
     	// TODO Auto-generated method stub
     	EntityViewInfo newViewInfo = (EntityViewInfo) viewInfo.clone();
     	FilterInfo filterInfo = new FilterInfo();
-    	if(getUIContext().get("reportId")!=null)
-    	{
-    		filterInfo.getFilterItems().add(new FilterItemInfo("inviteReport.id",(String)getUIContext().get("reportId")));
-    	}
+    	
     	DefaultKingdeeTreeNode treeNode = (DefaultKingdeeTreeNode)this.kDTree1.getLastSelectedPathComponent();
     	if(treeNode!=null)
     	{
@@ -153,6 +150,15 @@ public class EvaluationListUI extends AbstractEvaluationListUI
 			{
 				newViewInfo.setFilter(filterInfo);
 			}
+			
+			if(getUIContext().get("reportId")!=null)
+	    	{
+				newViewInfo = new EntityViewInfo();
+	    		filterInfo = new FilterInfo();
+	    		filterInfo.getFilterItems().add(new FilterItemInfo("inviteReport.id",(String)getUIContext().get("reportId")));
+	    		
+	    		newViewInfo.setFilter(filterInfo);
+	    	}
 		} 
     	catch (BOSException e) {
 			e.printStackTrace();

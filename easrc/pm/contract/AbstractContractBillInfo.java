@@ -1003,6 +1003,17 @@ public class AbstractContractBillInfo extends com.kingdee.eas.fdc.basedata.FDCBi
     {
         put("winInvitedBill", item);
     }
+    /**
+     * Object:项目合同's 付款方式property 
+     */
+    public String getFkfs()
+    {
+        return getString("fkfs");
+    }
+    public void setFkfs(String item)
+    {
+        setString("fkfs", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("7936D359");

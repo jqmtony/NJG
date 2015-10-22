@@ -3,6 +3,7 @@
  */
 package com.kingdee.eas.port.pm.invite.client;
 
+import java.awt.Color;
 import java.awt.event.*;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -21,8 +22,12 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTDataFillListener;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTDataRequestEvent;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
+import com.kingdee.bos.dao.IObjectCollection;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
@@ -58,6 +63,19 @@ public class WinInviteReportListUI extends AbstractWinInviteReportListUI
     	return UIFactoryName.NEWTAB;
     }
     public void onLoad() throws Exception {
+    	tblMain.addKDTDataFillListener(new KDTDataFillListener() {
+            public void afterDataFill(KDTDataRequestEvent e)
+            {
+                try
+                {
+                    tblMain_afterDataFill(e);
+                }
+                catch(Exception exc)
+                {
+                    handUIException(exc);
+                }
+            }
+        });
     	super.onLoad();
     	buildProjectTree();
     	if(getUIContext().get("IDSET") != null)
@@ -71,6 +89,19 @@ public class WinInviteReportListUI extends AbstractWinInviteReportListUI
     		kDSplitPane1.remove(kDTree1);
     		kDSplitPane1.remove(kDTreeView1);
 		}
+    	
+    	setDAPTrans(true);
+    }
+
+    private void tblMain_afterDataFill(KDTDataRequestEvent e){
+        for (int i = e.getFirstRow(); i <= e.getLastRow(); i++)
+        {
+        	String id = UIRuleUtil.getString(this.tblMain.getRow(i).getCell("id").getValue());
+        }
+    }
+    
+    public void beforeTransform(IObjectCollection iobjectcollection, String s) {
+    	super.beforeTransform(iobjectcollection, s);
     }
     
     protected Set authorizedOrgs = null;

@@ -269,6 +269,11 @@ public class YIPlanAccredControllerBean extends AbstractYIPlanAccredControllerBe
     	for (int i = 0; i < Info.getE1().size(); i++) 
     	{
     		YIPlanAccredE1Info e1Info = Info.getE1().get(i);
+    		// add by shilei .,否决的项目不生成项目
+    		if(e1Info.getAccredResu().equals(ObjectStateEnum.veto)){
+    			continue;
+    		}
+    		
     		String yearPlanId = e1Info.getProjectName().getId().toString();
     		String oql = "select id,number,projectName,PlanType,planStartDate,planEndDate,portProject.id,projectType.name,buildType.name,year.number" +
     						",cu.id where id='"+yearPlanId+"'";

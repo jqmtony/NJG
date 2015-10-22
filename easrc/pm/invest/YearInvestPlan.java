@@ -387,4 +387,17 @@ public class YearInvestPlan extends XRBillBase implements IYearInvestPlan
             throw new EJBRemoteException(err);
         }
     }
+    /**
+     *生成项目-User defined method
+     *@param pk 主键
+     */
+    public void creatProjectBase(IObjectPK pk) throws BOSException, EASBizException
+    {
+        try {
+            getController().creatProjectBase(getContext(), pk);
+        }
+        catch(RemoteException err) {
+            throw new EJBRemoteException(err);
+        }
+    }
 }

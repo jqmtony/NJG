@@ -116,6 +116,17 @@ public class AbstractInviteReportEntry4Info extends com.kingdee.eas.framework.Co
     {
         setString("budgetName", item);
     }
+    /**
+     * Object: 招标预算费用信息 's 项目 property 
+     */
+    public com.kingdee.eas.basedata.assistant.ProjectInfo getEntryProject()
+    {
+        return (com.kingdee.eas.basedata.assistant.ProjectInfo)get("entryProject");
+    }
+    public void setEntryProject(com.kingdee.eas.basedata.assistant.ProjectInfo item)
+    {
+        put("entryProject", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("76421708");

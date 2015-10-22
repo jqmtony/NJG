@@ -640,6 +640,30 @@ public abstract class AbstractYearInvestPlanControllerBean extends XRBillBaseCon
         }
     }
 
+    public void creatProjectBase(Context ctx, IObjectPK pk) throws BOSException, EASBizException
+    {
+        try {
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("a52c4b6a-ff81-49cf-958d-0c4cff96837a"), new Object[]{ctx, pk});
+            invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
+            _creatProjectBase(ctx, pk);
+            }
+            invokeServiceAfter(svcCtx);
+        } catch (BOSException ex) {
+            this.setRollbackOnly();
+            throw ex;
+        } catch (EASBizException ex0) {
+            this.setRollbackOnly();
+            throw ex0;
+        } finally {
+            super.cleanUpServiceState();
+        }
+    }
+    protected void _creatProjectBase(Context ctx, IObjectPK pk) throws BOSException, EASBizException
+    {    	
+        return;
+    }
+
 					protected IObjectPK _addnew(Context ctx , IObjectValue model) throws BOSException , EASBizException {
 			if (model instanceof com.kingdee.eas.framework.ObjectBaseInfo) {
 				setAutoNumberByOrg(ctx,(com.kingdee.eas.framework.ObjectBaseInfo)model,"NONE");

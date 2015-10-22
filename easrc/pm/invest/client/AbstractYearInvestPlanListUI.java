@@ -423,7 +423,6 @@ public abstract class AbstractYearInvestPlanListUI extends com.kingdee.eas.xr.cl
         sic.add(new SelectorItemInfo("seq"));
         sic.add(new SelectorItemInfo("projectType.name"));
         sic.add(new SelectorItemInfo("projectName"));
-        sic.add(new SelectorItemInfo("BIMUDF0027"));
         sic.add(new SelectorItemInfo("amount"));
         sic.add(new SelectorItemInfo("investAmount"));
         sic.add(new SelectorItemInfo("scheme"));
@@ -445,6 +444,7 @@ public abstract class AbstractYearInvestPlanListUI extends com.kingdee.eas.xr.cl
         sic.add(new SelectorItemInfo("project.name"));
         sic.add(new SelectorItemInfo("CU.id"));
         sic.add(new SelectorItemInfo("id"));
+        sic.add(new SelectorItemInfo("BIMUDF0027"));
         return sic;
     }            protected java.util.List getQuerySorterFields() 
     { 

@@ -131,6 +131,8 @@ import com.kingdee.eas.basedata.master.cssp.SupplierFactory;
 import com.kingdee.eas.basedata.master.cssp.SupplierInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitFactory;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.CtrlUnitCollection;
+import com.kingdee.eas.basedata.org.CtrlUnitFactory;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.basedata.org.PositionMemberCollection;
@@ -550,8 +552,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		txtOrgAmtBig.setHorizontalAlignment(JTextField.RIGHT);
 
 		BigDecimal localAmt = FDCHelper.toBigDecimal(txtLocalAmount.getBigDecimalValue());
-		txtAmtBig.setText(FDCClientHelper.getChineseFormat(localAmt, false));
-		txtAmtBig.setHorizontalAlignment(JTextField.RIGHT);
+//		txtAmtBig.setText(FDCClientHelper.getChineseFormat(localAmt, false));
+//		txtAmtBig.setHorizontalAlignment(JTextField.RIGHT);
 	}
 	
 	/*
@@ -783,6 +785,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 
 		ProjectInfo curProjectInfo = curProject;
 		objectValue.setCurProject(curProjectInfo);
+		objectValue.setName(curProjectInfo.getName());
 		try {
 			EntityViewInfo evi = new EntityViewInfo();
 			FilterInfo filter = new FilterInfo();
@@ -1508,7 +1511,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			isUseAmtWithoutCost = false;
 			// 清除主合同框架合约
 			prmtFwContractTemp.setValue(null);
-			textFwContract.setText(null);
+//			textFwContract.setText(null);
 		} else {
 			// 将关联框架按钮恢复
 			cell.getStyleAttributes().setLocked(false);
@@ -1703,6 +1706,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		comboAttachmentNameList.setEnabled(true);
 		comboAttachmentNameList.setEditable(true);
 		
+		this.txtDes.setMaxLength(2000);
 		//设置容器不可收缩
 		kDContainer1.setContainerType(KDContainer.DISEXTENDSIBLE_STYLE);
 		contPayItem.setContainerType(KDContainer.DISEXTENDSIBLE_STYLE);
@@ -1736,6 +1740,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			winInviteId = ((WinInviteReportInfo)prmtwinInvitedBill.getValue()).getId().toString();
 			addTab(this.kDTabbedPane1, WinInviteReportListUI.class.getName(), winInviteId, "中标信息");
 		}
+		
+		txtCompanyNo.setEnabled(true);
 	}
 	
 	/*
@@ -1796,7 +1802,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		if(colIndex==tblEconItem.getColumn("payType").getColumnIndex()){
 			//添加付款类型F7
 			KDBizPromptBox bizPayTypeBox = new KDBizPromptBox();
-			bizPayTypeBox.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7PaymentTypeQuery");
+			bizPayTypeBox.setQueryInfo("com.kingdee.eas.fdc.contract.app.PayContentTypeQuery");
 			KDTDefaultCellEditor payTypeEditor=new KDTDefaultCellEditor(bizPayTypeBox);
 			tblEconItem.getColumn("payType").setEditor(payTypeEditor);
 		}
@@ -1885,6 +1891,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		FDCHelper.formatTableDate(tblInvite, "createDate");
 		FDCHelper.formatTableDate(tblInvite, "auditDate");
 		tblInvite.getColumn("respDept").getStyleAttributes().setHided(true);
+        this.kdtBudgetEntry.getColumn("sourceBillID").getStyleAttributes().setHided(true);
 		//2008-12-30 暂时屏蔽新功能 复制分录
 		actionCopyLine.setVisible(false);
 		actionCopyLine.setEnabled(false);
@@ -1990,6 +1997,22 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		txtcontractName.setMaxLength(200);//此句代码必须在super之前,否则在加载保存好的数据的时候只会截取前80个字符显示 by Cassiel_peng
 		
 		super.onLoad();
+		
+		
+		 KDBizPromptBox kdtE1_equNameOne_PromptBox = new KDBizPromptBox();
+	        kdtE1_equNameOne_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.app.PayContentTypeQuery");
+	        kdtE1_equNameOne_PromptBox.setVisible(true);
+	        kdtE1_equNameOne_PromptBox.setEditable(true);
+	        kdtE1_equNameOne_PromptBox.setDisplayFormat("$number$");
+	        kdtE1_equNameOne_PromptBox.setEditFormat("$number$");
+	        kdtE1_equNameOne_PromptBox.setCommitFormat("$number$");
+	        KDTDefaultCellEditor kdtE1_equNameOne_CellEditor = new KDTDefaultCellEditor(kdtE1_equNameOne_PromptBox);
+	        this.tblEconItem.getColumn("payType").setEditor(kdtE1_equNameOne_CellEditor);
+	        ObjectValueRender kdtE1_equNameOne_OVR = new ObjectValueRender();
+	        kdtE1_equNameOne_OVR.setFormat(new BizDataFormat("$name$"));
+	        this.tblEconItem.getColumn("payType").setRenderer(kdtE1_equNameOne_OVR);
+		 
+		
 		if(editData.getCU()==null){
 			copy_createnewData();
 		}
@@ -2019,12 +2042,27 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		HashSet set=new HashSet();
 		set.add(OrgConstants.SYS_CU_ID);
 		set.add(cuId);
+		
+		CtrlUnitCollection ctrlColl = CtrlUnitFactory.getRemoteInstance().getCtrlUnitCollection();
+		for (int i = 0; i < ctrlColl.size(); i++) 
+			set.add(ctrlColl.get(i).getId().toString());
 		filter1.getFilterItems().add(new FilterItemInfo("CU.id",set,CompareType.INCLUDE));
 
 		view1.setFilter(filter1);
+		
 		prmtlandDeveloper.setEntityViewInfo(view1);
+		
+		view1 = new EntityViewInfo();
+		filter1 = new FilterInfo();
+		set=new HashSet();
+		set.add(OrgConstants.SYS_CU_ID);
+		set.add(cuId);
+		view1.setFilter(filter1);
+		filter1.getFilterItems().add(new FilterItemInfo("isEnabled", Boolean.TRUE));
+		filter1.getFilterItems().add(new FilterItemInfo("CU.id",set,CompareType.INCLUDE));
 		prmtlandDeveloper.setValue(LandDeveloperFactory.getRemoteInstance().getLandDeveloperCollection(view1).get(0));
 
+		
 		FDCClientUtils.setRespDeptF7(prmtRespDept, this,canSelectOtherOrgPerson ? null : cuId);
 		FDCClientUtils.setRespDeptF7(prmtCreateOrg, this,canSelectOtherOrgPerson ? null : cuId);
 		FDCClientUtils.setPersonF7(prmtRespPerson, this,canSelectOtherOrgPerson ? null : cuId);
@@ -2208,7 +2246,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			cbOrgType.setEnabled(false);
 		}
 		prmtpartB.setAccessAuthority(CtrlCommonConstant.AUTHORITY_COMMON);
-		prmtlandDeveloper.setAccessAuthority(CtrlCommonConstant.AUTHORITY_COMMON);
+//		prmtlandDeveloper.setAccessAuthority(CtrlCommonConstant.AUTHORITY_COMMON);
 		if(ContractPropertyEnum.SUPPLY.equals(contractPropert.getSelectedItem())){
 			prmtpartB.setEnabled(false);
 			prmtlandDeveloper.setEnabled(false);
@@ -3354,7 +3392,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		info.setContractType(editData.getContractType());
 		info.setIsArchived(false);
 		
-		textFwContract.setText(null);
+//		textFwContract.setText(null);
 	}
 
 	/*

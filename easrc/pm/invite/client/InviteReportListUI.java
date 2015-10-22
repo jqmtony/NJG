@@ -147,10 +147,6 @@ public class InviteReportListUI extends AbstractInviteReportListUI
     	EntityViewInfo newViewInfo = (EntityViewInfo) entityViewInfo.clone();
     	FilterInfo filterInfo = new FilterInfo();
     	DefaultKingdeeTreeNode treeNode = (DefaultKingdeeTreeNode)this.kDTree1.getLastSelectedPathComponent();
-    	if(getUIContext().get("reportId")!=null)
-    	{
-    		filterInfo.getFilterItems().add(new FilterItemInfo("id",(String)getUIContext().get("reportId")));
-    	}
     	if(treeNode!=null)
     	{
     		if(treeNode !=null && treeNode.getUserObject() instanceof OrgStructureInfo){
@@ -179,6 +175,15 @@ public class InviteReportListUI extends AbstractInviteReportListUI
 			{
 				newViewInfo.setFilter(filterInfo);
 			}
+			
+			if(getUIContext().get("reportId")!=null)
+	    	{
+				newViewInfo = new EntityViewInfo();
+	    		filterInfo = new FilterInfo();
+	    		filterInfo.getFilterItems().add(new FilterItemInfo("id",(String)getUIContext().get("reportId")));
+	    		
+	    		newViewInfo.setFilter(filterInfo);
+	    	}
 		} 
     	catch (BOSException e) {
 			e.printStackTrace();

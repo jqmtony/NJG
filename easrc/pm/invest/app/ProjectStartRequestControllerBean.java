@@ -1,45 +1,31 @@
 package com.kingdee.eas.port.pm.invest.app;
 
 import org.apache.log4j.Logger;
-import javax.ejb.*;
-import java.rmi.RemoteException;
-import com.kingdee.bos.*;
-import com.kingdee.bos.util.BOSObjectType;
-import com.kingdee.bos.util.BOSUuid;
-import com.kingdee.bos.metadata.IMetaDataPK;
-import com.kingdee.bos.metadata.rule.RuleExecutor;
-import com.kingdee.bos.metadata.MetaDataPK;
-//import com.kingdee.bos.metadata.entity.EntityViewInfo;
-import com.kingdee.bos.framework.ejb.AbstractEntityControllerBean;
-import com.kingdee.bos.framework.ejb.AbstractBizControllerBean;
-//import com.kingdee.bos.dao.IObjectPK;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.bos.dao.IObjectCollection;
-import com.kingdee.bos.service.ServiceContext;
-import com.kingdee.bos.service.IServiceContext;
 
-import java.lang.String;
-import com.kingdee.eas.common.EASBizException;
-import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.Context;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
-import com.kingdee.bos.metadata.entity.SelectorItemCollection;
-import com.kingdee.bos.metadata.entity.SorterItemCollection;
-import com.kingdee.eas.framework.CoreBaseCollection;
-import com.kingdee.eas.xr.XRBillBaseCollection;
 import com.kingdee.bos.metadata.entity.FilterInfo;
-import com.kingdee.eas.xr.app.XRBillBaseControllerBean;
-import com.kingdee.eas.framework.CoreBillBaseCollection;
-import com.kingdee.eas.framework.CoreBaseInfo;
-import com.kingdee.eas.framework.ObjectBaseCollection;
-import com.kingdee.eas.port.pm.invest.ProjectStartRequestCollection;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.eas.basedata.assistant.IProject;
+import com.kingdee.eas.basedata.assistant.ProjectFactory;
+import com.kingdee.eas.basedata.org.OrgConstants;
+import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.port.pm.base.IInviteType;
+import com.kingdee.eas.port.pm.base.InviteTypeFactory;
+import com.kingdee.eas.port.pm.invest.ProjectStartRequestEntryInfo;
 import com.kingdee.eas.port.pm.invest.ProjectStartRequestFactory;
 import com.kingdee.eas.port.pm.invest.ProjectStartRequestInfo;
-import com.kingdee.eas.port.pm.invest.client.YIPlanAccredEditUI;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingCollection;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingEntryInfo;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingFactory;
 import com.kingdee.eas.port.pm.invest.investplan.ProgrammingInfo;
+import com.kingdee.eas.port.pm.invite.IInvitePlan;
+import com.kingdee.eas.port.pm.invite.InvitePlanFactory;
+import com.kingdee.eas.port.pm.invite.InvitePlanInfo;
+import com.kingdee.eas.xr.app.XRBillStatusEnum;
+import com.kingdee.eas.xr.helper.SysPlatformXRHelper;
 
 public class ProjectStartRequestControllerBean extends AbstractProjectStartRequestControllerBean
 {
@@ -64,6 +50,37 @@ public class ProjectStartRequestControllerBean extends AbstractProjectStartReque
 				}
 				ProgrammingFactory.getLocalInstance(ctx).update(new ObjectUuidPK(info.getId()), info);
 			}
+			
+			//自动生成招标计划
+			
+			IInvitePlan IInvitePlan = InvitePlanFactory.getLocalInstance(ctx);
+			FilterInfo filInfo = new FilterInfo();
+			filInfo.getFilterItems().add(new FilterItemInfo("sourceBillId",pk.toString()));
+			
+			if(!IInvitePlan.exists(filInfo)){
+				IProject IProject = ProjectFactory.getLocalInstance(ctx);
+				IInviteType IInviteType = InviteTypeFactory.getLocalInstance(ctx);
+				for (int i = 0; i < reqInfo.getEntry().size(); i++) {
+					ProjectStartRequestEntryInfo entryInfo = reqInfo.getEntry().get(i);
+					InvitePlanInfo planInfo = new InvitePlanInfo();
+					planInfo.setNumber(SysPlatformXRHelper.getBillNumber(ctx, planInfo,OrgConstants.DEF_CU_ID));
+					planInfo.setSourceBillId(reqInfo.getId().toString());
+					
+					if(entryInfo.getType()!=null)
+						planInfo.setInviteType(IInviteType.getInviteTypeInfo(new ObjectUuidPK(entryInfo.getType().getId())));
+					
+					if(reqInfo.getProjectName()!=null)
+						planInfo.setProject(IProject.getProjectInfo(new ObjectUuidPK(reqInfo.getProjectName().getId())));
+					
+					planInfo.setPlanName(entryInfo.getInviteName());
+					planInfo.setBidAmount(entryInfo.getAmount());
+					planInfo.setStartDate(entryInfo.getPlanDate());
+					planInfo.setStatus(XRBillStatusEnum.TEMPORARILYSAVED);
+					planInfo.setBIMUDF0009(entryInfo.getBeizhu());
+					
+					IInvitePlan.addnew(planInfo);
+				}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -87,6 +104,10 @@ public class ProjectStartRequestControllerBean extends AbstractProjectStartReque
 				}
 				ProgrammingFactory.getLocalInstance(ctx).update(new ObjectUuidPK(info.getId()), info);
 			}
+			
+			FilterInfo filInfo = new FilterInfo();
+			filInfo.getFilterItems().add(new FilterItemInfo("sourceBillId",pk.toString()));
+			InvitePlanFactory.getLocalInstance(ctx).delete(filInfo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

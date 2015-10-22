@@ -215,6 +215,17 @@ public class AbstractCompleteAcceptE1Info extends com.kingdee.eas.framework.Core
     {
         put("measureUnit", item);
     }
+    /**
+     * Object: 工程竣工验收证明单 's 设备 property 
+     */
+    public com.kingdee.eas.port.equipment.record.EquIdInfo getEqu()
+    {
+        return (com.kingdee.eas.port.equipment.record.EquIdInfo)get("equ");
+    }
+    public void setEqu(com.kingdee.eas.port.equipment.record.EquIdInfo item)
+    {
+        put("equ", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("046CA528");
