@@ -26,14 +26,11 @@ import com.kingdee.eas.fdc.basedata.FDCBillInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
-import com.kingdee.eas.fdc.contract.ConChangeSplitEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBillCollection;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
-import com.kingdee.eas.fdc.contract.ContractCostSplitEntryFactory;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.IContractBill;
-import com.kingdee.eas.fdc.contract.SettlementCostSplitEntryFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostInfo;
@@ -506,18 +503,6 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 		checkSQL.appendSql(sql_Query);
 		IRowSet rs = checkSQL.executeQuery();
 		try {
-			//TODO by shilei ，这里我也加上拆分的判断，真是蛋疼的需求
-			FilterInfo filInfo = new FilterInfo();
-			filInfo.getFilterItems().add(new FilterItemInfo("programmings.programming.id",billId));
-			if(ContractCostSplitEntryFactory.getLocalInstance(ctx).exists(filInfo)){
-				throw new EASBizException(new NumericExceptionSubItem("1", "存在已经被合同拆分引用的框架合约，不允许反审批！"));
-			}
-			if(ConChangeSplitEntryFactory.getLocalInstance(ctx).exists(filInfo)){
-				throw new EASBizException(new NumericExceptionSubItem("1", "存在已经被变更拆分引用的框架合约，不允许反审批！"));
-			}
-			if(SettlementCostSplitEntryFactory.getLocalInstance(ctx).exists(filInfo)){
-				throw new EASBizException(new NumericExceptionSubItem("1", "存在已经被结算拆分引用的框架合约，不允许反审批！"));
-			}
 			if(rs.next()){
 				throw new EASBizException(new NumericExceptionSubItem("1", "存在已经被引用的框架合约，不允许反审批！"));
 			}

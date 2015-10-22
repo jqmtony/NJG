@@ -82,6 +82,9 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contEstimateAwardEndDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contInviteMode;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contJobType;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer13;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer14;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer15;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtParentLongName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtName;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtAmount;
@@ -93,6 +96,12 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkEstimateAwardEndDate;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtInviteMode;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtJobType;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane kDScrollPane3;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtContractContUI;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane kDScrollPane4;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtAttContract;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane kDScrollPane5;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtAttachWork;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtfxbd;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnSave;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAttachment;
@@ -162,6 +171,9 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         this.contEstimateAwardEndDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contInviteMode = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contJobType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer13 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer14 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer15 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtParentLongName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
@@ -173,6 +185,12 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         this.pkEstimateAwardEndDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtInviteMode = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtJobType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.kDScrollPane3 = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtContractContUI = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.kDScrollPane4 = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtAttContract = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.kDScrollPane5 = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtAttachWork = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.kdtfxbd = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.btnSave = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnAttachment = new com.kingdee.bos.ctrl.swing.KDWorkButton();
@@ -212,6 +230,9 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         this.contEstimateAwardEndDate.setName("contEstimateAwardEndDate");
         this.contInviteMode.setName("contInviteMode");
         this.contJobType.setName("contJobType");
+        this.kDLabelContainer13.setName("kDLabelContainer13");
+        this.kDLabelContainer14.setName("kDLabelContainer14");
+        this.kDLabelContainer15.setName("kDLabelContainer15");
         this.txtParentLongName.setName("txtParentLongName");
         this.txtName.setName("txtName");
         this.txtAmount.setName("txtAmount");
@@ -223,6 +244,12 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         this.pkEstimateAwardEndDate.setName("pkEstimateAwardEndDate");
         this.prmtInviteMode.setName("prmtInviteMode");
         this.prmtJobType.setName("prmtJobType");
+        this.kDScrollPane3.setName("kDScrollPane3");
+        this.txtContractContUI.setName("txtContractContUI");
+        this.kDScrollPane4.setName("kDScrollPane4");
+        this.txtAttContract.setName("txtAttContract");
+        this.kDScrollPane5.setName("kDScrollPane5");
+        this.txtAttachWork.setName("txtAttachWork");
         this.kdtfxbd.setName("kdtfxbd");
         this.btnSave.setName("btnSave");
         this.btnAttachment.setName("btnAttachment");
@@ -426,6 +453,18 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         // contJobType		
         this.contJobType.setBoundLabelText(resHelper.getString("contJobType.boundLabelText"));		
         this.contJobType.setVisible(false);
+        // kDLabelContainer13		
+        this.kDLabelContainer13.setBoundLabelText(resHelper.getString("kDLabelContainer13.boundLabelText"));		
+        this.kDLabelContainer13.setBoundLabelLength(100);		
+        this.kDLabelContainer13.setBoundLabelUnderline(true);
+        // kDLabelContainer14		
+        this.kDLabelContainer14.setBoundLabelText(resHelper.getString("kDLabelContainer14.boundLabelText"));		
+        this.kDLabelContainer14.setBoundLabelLength(100);		
+        this.kDLabelContainer14.setBoundLabelUnderline(true);
+        // kDLabelContainer15		
+        this.kDLabelContainer15.setBoundLabelText(resHelper.getString("kDLabelContainer15.boundLabelText"));		
+        this.kDLabelContainer15.setBoundLabelLength(100);		
+        this.kDLabelContainer15.setBoundLabelUnderline(true);
         // txtParentLongName		
         this.txtParentLongName.setEditable(false);
         // txtName		
@@ -486,6 +525,15 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         this.prmtJobType.setEditFormat("$number$");		
         this.prmtJobType.setDisplayFormat("$name$");		
         this.prmtJobType.setQueryInfo("com.kingdee.eas.fdc.basedata.app.JobTypeQuery");
+        // kDScrollPane3
+        // txtContractContUI		
+        this.txtContractContUI.setMaxLength(1024);
+        // kDScrollPane4
+        // txtAttContract		
+        this.txtAttContract.setMaxLength(1024);
+        // kDScrollPane5
+        // txtAttachWork		
+        this.txtAttachWork.setMaxLength(1024);
         // kdtfxbd
 		String kdtfxbdStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles /><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup /><t:Head /></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -565,10 +613,10 @@ public abstract class AbstractProgrammingContractEditUI extends com.kingdee.eas.
         kdtpMain.add(kDContainer1fx, resHelper.getString("kDContainer1fx.constraints"));
         //kdplContract
         kdplContract.setLayout(new KDLayout());
-        kdplContract.putClientProperty("OriginalBounds", new Rectangle(0, 0, 799, 567));        kDTabbedPane1.setBounds(new Rectangle(0, 199, 800, 370));
-        kdplContract.add(kDTabbedPane1, new KDLayout.Constraints(0, 199, 800, 370, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDPanel1.setBounds(new Rectangle(0, 6, 800, 186));
-        kdplContract.add(kDPanel1, new KDLayout.Constraints(0, 6, 800, 186, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kdplContract.putClientProperty("OriginalBounds", new Rectangle(0, 0, 799, 567));        kDTabbedPane1.setBounds(new Rectangle(0, 257, 787, 308));
+        kdplContract.add(kDTabbedPane1, new KDLayout.Constraints(0, 257, 787, 308, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDPanel1.setBounds(new Rectangle(0, 6, 791, 248));
+        kdplContract.add(kDPanel1, new KDLayout.Constraints(0, 6, 791, 248, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //kDTabbedPane1
         kDTabbedPane1.add(kdContainerCost, resHelper.getString("kdContainerCost.constraints"));
         kDTabbedPane1.add(kDContainerEconomy, resHelper.getString("kDContainerEconomy.constraints"));
@@ -578,30 +626,36 @@ kdContainerCost.getContentPane().setLayout(new BorderLayout(0, 0));        kdCon
 kDContainerEconomy.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainerEconomy.getContentPane().add(kdtEconomy, BorderLayout.CENTER);
         //kDPanel1
         kDPanel1.setLayout(new KDLayout());
-        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 6, 800, 186));        kDLabelContainer1.setBounds(new Rectangle(350, 5, 300, 20));
-        kDPanel1.add(kDLabelContainer1, new KDLayout.Constraints(350, 5, 300, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer3.setBounds(new Rectangle(5, 5, 300, 20));
-        kDPanel1.add(kDLabelContainer3, new KDLayout.Constraints(5, 5, 300, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer4.setBounds(new Rectangle(450, 5, 300, 19));
-        kDPanel1.add(kDLabelContainer4, new KDLayout.Constraints(450, 5, 300, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDLabelContainer5.setBounds(new Rectangle(450, 33, 300, 20));
-        kDPanel1.add(kDLabelContainer5, new KDLayout.Constraints(450, 33, 300, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDLabelContainer6.setBounds(new Rectangle(5, 63, 740, 60));
-        kDPanel1.add(kDLabelContainer6, new KDLayout.Constraints(5, 63, 740, 60, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        pnlAttachment.setBounds(new Rectangle(106, 160, 640, 22));
-        kDPanel1.add(pnlAttachment, new KDLayout.Constraints(106, 160, 640, 22, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        lblAttachment.setBounds(new Rectangle(5, 164, 100, 19));
-        kDPanel1.add(lblAttachment, new KDLayout.Constraints(5, 164, 100, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer12.setBounds(new Rectangle(5, 36, 300, 20));
-        kDPanel1.add(kDLabelContainer12, new KDLayout.Constraints(5, 36, 300, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contEstimateAwardStartDate.setBounds(new Rectangle(5, 130, 180, 20));
-        kDPanel1.add(contEstimateAwardStartDate, new KDLayout.Constraints(5, 130, 180, 20, 0));
-        contEstimateAwardEndDate.setBounds(new Rectangle(200, 130, 180, 20));
-        kDPanel1.add(contEstimateAwardEndDate, new KDLayout.Constraints(200, 130, 180, 20, 0));
-        contInviteMode.setBounds(new Rectangle(400, 130, 120, 20));
-        kDPanel1.add(contInviteMode, new KDLayout.Constraints(400, 130, 120, 20, 0));
-        contJobType.setBounds(new Rectangle(550, 130, 120, 20));
-        kDPanel1.add(contJobType, new KDLayout.Constraints(550, 130, 120, 20, 0));
+        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 6, 791, 248));        kDLabelContainer1.setBounds(new Rectangle(803, 130, 205, 20));
+        kDPanel1.add(kDLabelContainer1, new KDLayout.Constraints(803, 130, 205, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer3.setBounds(new Rectangle(5, 3, 300, 20));
+        kDPanel1.add(kDLabelContainer3, new KDLayout.Constraints(5, 3, 300, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer4.setBounds(new Rectangle(450, 3, 300, 19));
+        kDPanel1.add(kDLabelContainer4, new KDLayout.Constraints(450, 3, 300, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDLabelContainer5.setBounds(new Rectangle(450, 25, 300, 20));
+        kDPanel1.add(kDLabelContainer5, new KDLayout.Constraints(450, 25, 300, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDLabelContainer6.setBounds(new Rectangle(5, 49, 746, 40));
+        kDPanel1.add(kDLabelContainer6, new KDLayout.Constraints(5, 49, 746, 40, 0));
+        pnlAttachment.setBounds(new Rectangle(106, 220, 640, 22));
+        kDPanel1.add(pnlAttachment, new KDLayout.Constraints(106, 220, 640, 22, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        lblAttachment.setBounds(new Rectangle(5, 224, 100, 19));
+        kDPanel1.add(lblAttachment, new KDLayout.Constraints(5, 224, 100, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer12.setBounds(new Rectangle(5, 26, 300, 20));
+        kDPanel1.add(kDLabelContainer12, new KDLayout.Constraints(5, 26, 300, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contEstimateAwardStartDate.setBounds(new Rectangle(801, 131, 180, 20));
+        kDPanel1.add(contEstimateAwardStartDate, new KDLayout.Constraints(801, 131, 180, 20, 0));
+        contEstimateAwardEndDate.setBounds(new Rectangle(801, 125, 180, 20));
+        kDPanel1.add(contEstimateAwardEndDate, new KDLayout.Constraints(801, 125, 180, 20, 0));
+        contInviteMode.setBounds(new Rectangle(800, 124, 120, 20));
+        kDPanel1.add(contInviteMode, new KDLayout.Constraints(800, 124, 120, 20, 0));
+        contJobType.setBounds(new Rectangle(800, 132, 120, 20));
+        kDPanel1.add(contJobType, new KDLayout.Constraints(800, 132, 120, 20, 0));
+        kDLabelContainer13.setBounds(new Rectangle(5, 92, 746, 40));
+        kDPanel1.add(kDLabelContainer13, new KDLayout.Constraints(5, 92, 746, 40, 0));
+        kDLabelContainer14.setBounds(new Rectangle(5, 178, 746, 40));
+        kDPanel1.add(kDLabelContainer14, new KDLayout.Constraints(5, 178, 746, 40, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDLabelContainer15.setBounds(new Rectangle(5, 135, 746, 40));
+        kDPanel1.add(kDLabelContainer15, new KDLayout.Constraints(5, 135, 746, 40, 0));
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtParentLongName);
         //kDLabelContainer3
@@ -624,6 +678,18 @@ kDContainerEconomy.getContentPane().setLayout(new BorderLayout(0, 0));        kD
         contInviteMode.setBoundEditor(prmtInviteMode);
         //contJobType
         contJobType.setBoundEditor(prmtJobType);
+        //kDLabelContainer13
+        kDLabelContainer13.setBoundEditor(kDScrollPane3);
+        //kDScrollPane3
+        kDScrollPane3.getViewport().add(txtContractContUI, null);
+        //kDLabelContainer14
+        kDLabelContainer14.setBoundEditor(kDScrollPane4);
+        //kDScrollPane4
+        kDScrollPane4.getViewport().add(txtAttContract, null);
+        //kDLabelContainer15
+        kDLabelContainer15.setBoundEditor(kDScrollPane5);
+        //kDScrollPane5
+        kDScrollPane5.getViewport().add(txtAttachWork, null);
         kdplPayPlan.setLayout(null);        //kDContainer1fx
 kDContainer1fx.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer1fx.getContentPane().add(kdtfxbd, BorderLayout.CENTER);
 

@@ -57,10 +57,19 @@ public abstract class AbstractPTEEditUI extends com.kingdee.eas.framework.client
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
     protected com.kingdee.bos.ctrl.swing.KDLabel lblAttachment;
     protected com.kingdee.bos.ctrl.swing.KDPanel pnlAttachment;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer8;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer9;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer10;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtConstract;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtConstractName;
     protected com.kingdee.bos.ctrl.swing.KDScrollPane kDScrollPane2;
     protected com.kingdee.bos.ctrl.swing.KDTextArea txtScope;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane kDScrollPane3;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtAttachWork;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane kDScrollPane4;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtContractContUI;
+    protected com.kingdee.bos.ctrl.swing.KDScrollPane kDScrollPane5;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtAttContract;
     protected com.kingdee.bos.ctrl.swing.KDContainer kdcCost;
     protected com.kingdee.bos.ctrl.swing.KDContainer kdcEconomy;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtCostEntries;
@@ -117,10 +126,19 @@ public abstract class AbstractPTEEditUI extends com.kingdee.eas.framework.client
         this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.lblAttachment = new com.kingdee.bos.ctrl.swing.KDLabel();
         this.pnlAttachment = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.kDLabelContainer8 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer9 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer10 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtConstract = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtConstractName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDScrollPane2 = new com.kingdee.bos.ctrl.swing.KDScrollPane();
         this.txtScope = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.kDScrollPane3 = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtAttachWork = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.kDScrollPane4 = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtContractContUI = new com.kingdee.bos.ctrl.swing.KDTextArea();
+        this.kDScrollPane5 = new com.kingdee.bos.ctrl.swing.KDScrollPane();
+        this.txtAttContract = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.kdcCost = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kdcEconomy = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kdtCostEntries = new com.kingdee.bos.ctrl.kdf.table.KDTable();
@@ -147,10 +165,19 @@ public abstract class AbstractPTEEditUI extends com.kingdee.eas.framework.client
         this.kDLabelContainer4.setName("kDLabelContainer4");
         this.lblAttachment.setName("lblAttachment");
         this.pnlAttachment.setName("pnlAttachment");
+        this.kDLabelContainer8.setName("kDLabelContainer8");
+        this.kDLabelContainer9.setName("kDLabelContainer9");
+        this.kDLabelContainer10.setName("kDLabelContainer10");
         this.txtConstract.setName("txtConstract");
         this.txtConstractName.setName("txtConstractName");
         this.kDScrollPane2.setName("kDScrollPane2");
         this.txtScope.setName("txtScope");
+        this.kDScrollPane3.setName("kDScrollPane3");
+        this.txtAttachWork.setName("txtAttachWork");
+        this.kDScrollPane4.setName("kDScrollPane4");
+        this.txtContractContUI.setName("txtContractContUI");
+        this.kDScrollPane5.setName("kDScrollPane5");
+        this.txtAttContract.setName("txtAttContract");
         this.kdcCost.setName("kdcCost");
         this.kdcEconomy.setName("kdcEconomy");
         this.kdtCostEntries.setName("kdtCostEntries");
@@ -167,7 +194,7 @@ public abstract class AbstractPTEEditUI extends com.kingdee.eas.framework.client
         this.bntSubmit.setName("bntSubmit");
         this.btnAttachment.setName("btnAttachment");
         // CoreUI		
-        this.setPreferredSize(new Dimension(1024,768));
+        this.setPreferredSize(new Dimension(880,715));
         // kDTabbedPane2		
         this.kDTabbedPane2.setPreferredSize(new Dimension(766,1022));
         // pnlHIde		
@@ -193,6 +220,21 @@ public abstract class AbstractPTEEditUI extends com.kingdee.eas.framework.client
         // lblAttachment		
         this.lblAttachment.setText(resHelper.getString("lblAttachment.text"));
         // pnlAttachment
+        // kDLabelContainer8		
+        this.kDLabelContainer8.setBoundLabelText(resHelper.getString("kDLabelContainer8.boundLabelText"));		
+        this.kDLabelContainer8.setBoundLabelUnderline(true);		
+        this.kDLabelContainer8.setBoundLabelLength(100);		
+        this.kDLabelContainer8.setAutoscrolls(true);
+        // kDLabelContainer9		
+        this.kDLabelContainer9.setBoundLabelText(resHelper.getString("kDLabelContainer9.boundLabelText"));		
+        this.kDLabelContainer9.setBoundLabelUnderline(true);		
+        this.kDLabelContainer9.setBoundLabelLength(100);		
+        this.kDLabelContainer9.setAutoscrolls(true);
+        // kDLabelContainer10		
+        this.kDLabelContainer10.setBoundLabelText(resHelper.getString("kDLabelContainer10.boundLabelText"));		
+        this.kDLabelContainer10.setBoundLabelUnderline(true);		
+        this.kDLabelContainer10.setBoundLabelLength(100);		
+        this.kDLabelContainer10.setAutoscrolls(true);
         // txtConstract		
         this.txtConstract.setMaxLength(80);		
         this.txtConstract.setEditable(false);		
@@ -205,13 +247,27 @@ public abstract class AbstractPTEEditUI extends com.kingdee.eas.framework.client
         this.txtScope.setMaxLength(1024);		
         this.txtScope.setRows(3);		
         this.txtScope.setText(resHelper.getString("txtScope.text"));
+        // kDScrollPane3
+        // txtAttachWork		
+        this.txtAttachWork.setMaxLength(1024);		
+        this.txtAttachWork.setRows(3);
+        // kDScrollPane4
+        // txtContractContUI		
+        this.txtContractContUI.setMaxLength(1024);		
+        this.txtContractContUI.setRows(3);
+        // kDScrollPane5
+        // txtAttContract		
+        this.txtAttContract.setMaxLength(1024);		
+        this.txtAttContract.setRows(3);
         // kdcCost		
         this.kdcCost.setTitle(resHelper.getString("kdcCost.title"));
         // kdcEconomy		
         this.kdcEconomy.setTitle(resHelper.getString("kdcEconomy.title"));		
         this.kdcEconomy.setVisible(false);
-        // kdtCostEntries		
-        this.kdtCostEntries.setFormatXml(resHelper.getString("kdtCostEntries.formatXml"));
+        // kdtCostEntries
+		String kdtCostEntriesStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol1\"><c:Protection locked=\"true\" hidden=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /><c:Alignment horizontal=\"center\" /></c:Style><c:Style id=\"sCol4\"><c:Alignment horizontal=\"center\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"costAccountNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"-1\" t:styleID=\"sCol1\" /><t:Column t:key=\"costAccount\" t:width=\"120\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"-1\" /><t:Column t:key=\"assignScale\" t:width=\"120\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"contractScale\" t:width=\"120\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"description\" t:width=\"255\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{costAccountNumber}</t:Cell><t:Cell>$Resource{costAccount}</t:Cell><t:Cell>$Resource{assignScale}</t:Cell><t:Cell>$Resource{contractScale}</t:Cell><t:Cell>$Resource{description}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot> ";
+		
+        this.kdtCostEntries.setFormatXml(resHelper.translateString("kdtCostEntries",kdtCostEntriesStrXML));
         this.kdtCostEntries.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
             public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
                 try {
@@ -283,8 +339,10 @@ public abstract class AbstractPTEEditUI extends com.kingdee.eas.framework.client
                 this.kdtCostEntries.putBindContents("editData",new String[] {"id","costAccount.longNumber","costAccount.name","assignScale","contractScale","description"});
 
 
-        // kdtEconomyEntriese		
-        this.kdtEconomyEntriese.setFormatXml(resHelper.getString("kdtEconomyEntriese.formatXml"));		
+        // kdtEconomyEntriese
+		String kdtEconomyEntrieseStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Alignment horizontal=\"center\" /></c:Style><c:Style id=\"sCol1\"><c:Alignment horizontal=\"center\" /></c:Style><c:Style id=\"sCol3\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"paymentType\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"0\" t:styleID=\"sCol0\" /><t:Column t:key=\"scale\" t:width=\"100\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"1\" t:styleID=\"sCol1\" /><t:Column t:key=\"condition\" t:width=\"365\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" t:styleID=\"sCol3\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" t:styleID=\"sCol4\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{paymentType}</t:Cell><t:Cell>$Resource{scale}</t:Cell><t:Cell>$Resource{condition}</t:Cell><t:Cell>$Resource{description}</t:Cell><t:Cell>$Resource{id}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot> ";
+		
+        this.kdtEconomyEntriese.setFormatXml(resHelper.translateString("kdtEconomyEntriese",kdtEconomyEntrieseStrXML));		
         this.kdtEconomyEntriese.setVisible(false);
         this.kdtEconomyEntriese.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
             public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
@@ -455,32 +513,38 @@ public abstract class AbstractPTEEditUI extends com.kingdee.eas.framework.client
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(10, 10, 1024, 768));
+        this.setBounds(new Rectangle(10, 10, 880, 715));
         this.setLayout(new KDLayout());
-        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1024, 768));
-        kDTabbedPane2.setBounds(new Rectangle(1, 1, 1023, 766));
-        this.add(kDTabbedPane2, new KDLayout.Constraints(1, 1, 1023, 766, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 880, 715));
+        kDTabbedPane2.setBounds(new Rectangle(1, 1, 877, 712));
+        this.add(kDTabbedPane2, new KDLayout.Constraints(1, 1, 877, 712, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         pnlHIde.setBounds(new Rectangle(1025, 137, 750, 186));
         this.add(pnlHIde, new KDLayout.Constraints(1025, 137, 750, 186, 0));
         //kDTabbedPane2
         kDTabbedPane2.add(kdplContract, resHelper.getString("kdplContract.constraints"));
         kDTabbedPane2.add(kdplPayPlan, resHelper.getString("kdplPayPlan.constraints"));
         //kdplContract
-        kdplContract.setLayout(null);        kdpConstract.setBounds(new Rectangle(5, 5, 1000, 135));
+        kdplContract.setLayout(null);        kdpConstract.setBounds(new Rectangle(5, 1, 863, 265));
         kdplContract.add(kdpConstract, null);
-        kDTabbedPane1.setBounds(new Rectangle(10, 145, 1000, 580));
+        kDTabbedPane1.setBounds(new Rectangle(10, 269, 856, 406));
         kdplContract.add(kDTabbedPane1, null);
         //kdpConstract
-        kdpConstract.setLayout(null);        kDLabelContainer1.setBounds(new Rectangle(5, 5, 300, 20));
+        kdpConstract.setLayout(null);        kDLabelContainer1.setBounds(new Rectangle(5, 2, 300, 20));
         kdpConstract.add(kDLabelContainer1, null);
-        kDLabelContainer3.setBounds(new Rectangle(555, 5, 300, 20));
+        kDLabelContainer3.setBounds(new Rectangle(555, 2, 300, 20));
         kdpConstract.add(kDLabelContainer3, null);
-        kDLabelContainer4.setBounds(new Rectangle(4, 30, 852, 70));
+        kDLabelContainer4.setBounds(new Rectangle(5, 27, 852, 48));
         kdpConstract.add(kDLabelContainer4, null);
-        lblAttachment.setBounds(new Rectangle(5, 109, 100, 19));
+        lblAttachment.setBounds(new Rectangle(5, 243, 100, 19));
         kdpConstract.add(lblAttachment, null);
-        pnlAttachment.setBounds(new Rectangle(104, 105, 753, 22));
+        pnlAttachment.setBounds(new Rectangle(104, 239, 753, 22));
         kdpConstract.add(pnlAttachment, null);
+        kDLabelContainer8.setBounds(new Rectangle(5, 130, 852, 51));
+        kdpConstract.add(kDLabelContainer8, null);
+        kDLabelContainer9.setBounds(new Rectangle(5, 79, 852, 48));
+        kdpConstract.add(kDLabelContainer9, null);
+        kDLabelContainer10.setBounds(new Rectangle(5, 186, 852, 51));
+        kdpConstract.add(kDLabelContainer10, null);
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtConstract);
         //kDLabelContainer3
@@ -489,7 +553,19 @@ public abstract class AbstractPTEEditUI extends com.kingdee.eas.framework.client
         kDLabelContainer4.setBoundEditor(kDScrollPane2);
         //kDScrollPane2
         kDScrollPane2.getViewport().add(txtScope, null);
-        pnlAttachment.setLayout(null);        //kDTabbedPane1
+        pnlAttachment.setLayout(null);        //kDLabelContainer8
+        kDLabelContainer8.setBoundEditor(kDScrollPane3);
+        //kDScrollPane3
+        kDScrollPane3.getViewport().add(txtAttachWork, null);
+        //kDLabelContainer9
+        kDLabelContainer9.setBoundEditor(kDScrollPane4);
+        //kDScrollPane4
+        kDScrollPane4.getViewport().add(txtContractContUI, null);
+        //kDLabelContainer10
+        kDLabelContainer10.setBoundEditor(kDScrollPane5);
+        //kDScrollPane5
+        kDScrollPane5.getViewport().add(txtAttContract, null);
+        //kDTabbedPane1
         kDTabbedPane1.add(kdcCost, resHelper.getString("kdcCost.constraints"));
         kDTabbedPane1.add(kdcEconomy, resHelper.getString("kdcEconomy.constraints"));
         //kdcCost
@@ -526,14 +602,25 @@ kdcEconomy.getContentPane().setLayout(new BorderLayout(0, 0));        kdcEconomy
     {
         this.menuBar.add(menuFile);
         this.menuBar.add(menuTool);
+        this.menuBar.add(MenuService);
         this.menuBar.add(menuHelp);
         //menuFile
         menuFile.add(menuItemPageSetup);
         menuFile.add(kDSeparator1);
+        menuFile.add(menuItemCloudFeed);
+        menuFile.add(menuItemCloudScreen);
+        menuFile.add(menuItemCloudShare);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(menuItemExitCurrent);
         //menuTool
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
         //menuHelp
         menuHelp.add(menuItemHelp);
         menuHelp.add(kDSeparator12);
@@ -552,7 +639,9 @@ kdcEconomy.getContentPane().setLayout(new BorderLayout(0, 0));        kdcEconomy
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnPageSetup);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(bntSubmit);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnAttachment);
 
 
@@ -563,6 +652,9 @@ kdcEconomy.getContentPane().setLayout(new BorderLayout(0, 0));        kdcEconomy
 		dataBinder.registerBinding("parent.longNumber", String.class, this.txtConstract, "text");
 		dataBinder.registerBinding("name", String.class, this.txtConstractName, "text");
 		dataBinder.registerBinding("scope", String.class, this.txtScope, "text");
+		dataBinder.registerBinding("attachWork", String.class, this.txtAttachWork, "text");
+		dataBinder.registerBinding("contractContUI", String.class, this.txtContractContUI, "text");
+		dataBinder.registerBinding("attContract", String.class, this.txtAttContract, "text");
 		dataBinder.registerBinding("pteCost.id", com.kingdee.bos.util.BOSUuid.class, this.kdtCostEntries, "id.text");
 		dataBinder.registerBinding("pteCost.costAccount.longNumber", String.class, this.kdtCostEntries, "costAccountNumber.text");
 		dataBinder.registerBinding("pteCost.assignScale", java.math.BigDecimal.class, this.kdtCostEntries, "assignScale.text");
@@ -642,6 +734,9 @@ kdcEconomy.getContentPane().setLayout(new BorderLayout(0, 0));        kdcEconomy
 		getValidateHelper().registerBindProperty("parent.longNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("scope", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("attachWork", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("contractContUI", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("attContract", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("pteCost.id", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("pteCost.costAccount.longNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("pteCost.assignScale", ValidateHelper.ON_SAVE);    
@@ -817,24 +912,39 @@ kdcEconomy.getContentPane().setLayout(new BorderLayout(0, 0));        kdcEconomy
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
         sic.add(new SelectorItemInfo("parent.longNumber"));
         sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("scope"));
-    sic.add(new SelectorItemInfo("pteCost.id"));
-    sic.add(new SelectorItemInfo("pteCost.costAccount.longNumber"));
-    sic.add(new SelectorItemInfo("pteCost.assignScale"));
-    sic.add(new SelectorItemInfo("pteCost.contractScale"));
-    sic.add(new SelectorItemInfo("pteCost.description"));
-        sic.add(new SelectorItemInfo("pteCost.*"));
-//        sic.add(new SelectorItemInfo("pteCost.number"));
-    sic.add(new SelectorItemInfo("pteCost.costAccount.name"));
-    sic.add(new SelectorItemInfo("pteEnonomy.id"));
-    sic.add(new SelectorItemInfo("pteEnonomy.paymentType.name"));
-    sic.add(new SelectorItemInfo("pteEnonomy.scale"));
-    sic.add(new SelectorItemInfo("pteEnonomy.condition"));
-    sic.add(new SelectorItemInfo("pteEnonomy.description"));
-        sic.add(new SelectorItemInfo("pteEnonomy.*"));
-//        sic.add(new SelectorItemInfo("pteEnonomy.number"));
+        sic.add(new SelectorItemInfo("attachWork"));
+        sic.add(new SelectorItemInfo("contractContUI"));
+        sic.add(new SelectorItemInfo("attContract"));
+    	sic.add(new SelectorItemInfo("pteCost.id"));
+    	sic.add(new SelectorItemInfo("pteCost.costAccount.longNumber"));
+    	sic.add(new SelectorItemInfo("pteCost.assignScale"));
+    	sic.add(new SelectorItemInfo("pteCost.contractScale"));
+    	sic.add(new SelectorItemInfo("pteCost.description"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("pteCost.*"));
+		}
+		else{
+		}
+    	sic.add(new SelectorItemInfo("pteCost.costAccount.name"));
+    	sic.add(new SelectorItemInfo("pteEnonomy.id"));
+    	sic.add(new SelectorItemInfo("pteEnonomy.paymentType.name"));
+    	sic.add(new SelectorItemInfo("pteEnonomy.scale"));
+    	sic.add(new SelectorItemInfo("pteEnonomy.condition"));
+    	sic.add(new SelectorItemInfo("pteEnonomy.description"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("pteEnonomy.*"));
+		}
+		else{
+		}
         sic.add(new SelectorItemInfo("problem"));
         sic.add(new SelectorItemInfo("description"));
         sic.add(new SelectorItemInfo("number"));
@@ -856,6 +966,28 @@ kdcEconomy.getContentPane().setLayout(new BorderLayout(0, 0));        kdcEconomy
      */
     public void actionAttachment_actionPerformed(ActionEvent e) throws Exception
     {
+    }
+	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionSubmit() {
+    	return false;
+    }
+	public RequestContext prepareActionAttachment(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionAttachment() {
+    	return false;
     }
 
     /**

@@ -456,6 +456,7 @@ public class ProgrammingTemplateUI extends AbstractProgrammingTemplateUI {
 		KDTextField kdtf = (KDTextField) cellEditor.getComponent();
 		kdtf.setMaxLength(255);
 		kdtEntires.getColumn(REMARK).setEditor(cellEditor);
+		kdtEntires.getColumn("costAccount").getStyleAttributes().setLocked(true);
 
 		// kdtEntires.getColumn("sortNumber").getStyleAttributes().setHided(false);
 		// kdtEntires.getColumn(HEADNUMBER).getStyleAttributes().setHided(false);
@@ -1678,7 +1679,10 @@ public class ProgrammingTemplateUI extends AbstractProgrammingTemplateUI {
 		rowObject.setLevel(level);
 		rowObject.setNumber((String) kdtEntires.getCell(rowIndex, "number").getValue());// ±àÂë
 		rowObject.setName(getCellValue(kdtEntires, rowIndex, "name"));// Ãû³Æ
-		rowObject.setDescription((String) kdtEntires.getCell(rowIndex, "remark").getValue());// ±¸×¢
+		rowObject.setDescription((String)kdtEntires.getCell(rowIndex, "remark").getValue());// ±¸×¢
+//		rowObject.setContractContUI((String)kdtEntires.getCell(rowIndex, "contractContUI").getValue());
+//		rowObject.setAttachWork((String)kdtEntires.getCell(rowIndex, "attachWork").getValue());
+//		rowObject.setAttContract((String)kdtEntires.getCell(rowIndex, "attContract").getValue());
 	}
 
 	private void setNameDisplay() {
@@ -2069,7 +2073,10 @@ public class ProgrammingTemplateUI extends AbstractProgrammingTemplateUI {
 		sic.add(new SelectorItemInfo("Entires.head.longNumber"));
 		sic.add(new SelectorItemInfo("Entires.attachment"));
 		sic.add(new SelectorItemInfo("Entires.displayName"));
+		sic.add(new SelectorItemInfo("Entires.contractContUI"));
 		sic.add(new SelectorItemInfo("Entires.sortNumber"));
+		sic.add(new SelectorItemInfo("Entires.attachWork"));
+		sic.add(new SelectorItemInfo("Entires.attContract"));
 		sic.add(new SelectorItemInfo("number"));
 		return sic;
 	}

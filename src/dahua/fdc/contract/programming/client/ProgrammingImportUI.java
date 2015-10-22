@@ -192,7 +192,7 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		Map idCostAccountAmtMap = ProgrammingContractUtil.getGoalCostByAimCost(aimCost);
 		Map returnMap = getPayPlanTempMap(project,templateEntryCollection);
 		Map payPlanTempMap = (Map) returnMap.get("payPlanTem");
-		Map tempTaskMap = (Map) returnMap.get("tempTaskMap");
+//		Map tempTaskMap = (Map) returnMap.get("tempTaskMap");
 		
 		ProgrammingContractCollection entries = programming.getEntries();
 		entries.clear();
@@ -209,10 +209,12 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 			initEntryOtherAmout(programmingEntry);
 			entries.add(programmingEntry);
 			programmingEntry.setBalance(programmingEntry.getAmount());
-			
+			programmingEntry.setContractContUI(templateEntry.getContractContUI());
+			programmingEntry.setAttachWork(templateEntry.getAttachWork());
+			programmingEntry.setAttContract(templateEntry.getAttContract());
 			programmingEntry.setWorkContent(templateEntry.getScope());	// modified by zhaoqin on 2013/11/08
 			// modify by yxl 20150914 暂时不导入付款规划页签
-//			payPlanImport(programming, templateEntry, programmingEntry, project,payPlanTempMap,tempTaskMap);
+			payPlanImport(programming, templateEntry, programmingEntry, project,payPlanTempMap,null);
 		}
 
 		//批量添加附件关联
@@ -228,8 +230,8 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		
 		Map returnMap = new HashMap();
 		Set tempSet = new HashSet();
-		Set tempTask = new HashSet();
-		Map tempTaskMap = new HashMap();
+//		Set tempTask = new HashSet();
+//		Map tempTaskMap = new HashMap();
 		Map payPlanTem = new HashMap();
 		for(int i=0;i<templateEntryCollection.size();i++){
 			tempSet.add(templateEntryCollection.get(i).getId().toString());
@@ -251,21 +253,21 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 			PayPlanTemplateInfo payPlanTemplateInfo = tColl.get(i);
 			payPlanTem.put(payPlanTemplateInfo.getProgrammingTemplate().getId().toString(), payPlanTemplateInfo);
 			
-			for(int j=0;j<payPlanTemplateInfo.getBySchedule().size();j++){
-				RESchTemplateTaskInfo templateTask = payPlanTemplateInfo.getBySchedule().get(j).getTemplateTask();
-				if(templateTask!=null){
-					tempTask.add(templateTask.getId().toString());
-				}
-			}
+//			for(int j=0;j<payPlanTemplateInfo.getBySchedule().size();j++){
+//				RESchTemplateTaskInfo templateTask = payPlanTemplateInfo.getBySchedule().get(j).getTemplateTask();
+//				if(templateTask!=null){
+//					tempTask.add(templateTask.getId().toString());
+//				}
+//			}
 		}
 		returnMap.put("payPlanTem", payPlanTem);
 		
-		EntityViewInfo view = new EntityViewInfo();
-		FilterInfo f = new FilterInfo();
-		f.getFilterItems().add(new FilterItemInfo("schTemplateTask", tempTask,CompareType.INCLUDE));
-		f.getFilterItems().add(new FilterItemInfo("schedule.isLatestVer", Boolean.TRUE));
-		f.getFilterItems().add(new FilterItemInfo("schedule.project.id", project.getId().toString()));
-		view.setFilter(f);
+//		EntityViewInfo view = new EntityViewInfo();
+//		FilterInfo f = new FilterInfo();
+//		f.getFilterItems().add(new FilterItemInfo("schTemplateTask", tempTask,CompareType.INCLUDE));
+//		f.getFilterItems().add(new FilterItemInfo("schedule.isLatestVer", Boolean.TRUE));
+//		f.getFilterItems().add(new FilterItemInfo("schedule.project.id", project.getId().toString()));
+//		view.setFilter(f);
 		// yxl 20150811
 //		FDCScheduleTaskCollection col = FDCScheduleTaskFactory.getRemoteInstance().getFDCScheduleTaskCollection(view);
 //		for(int i=0;i<col.size();i++){
@@ -274,7 +276,7 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 //			}
 //		}
 		
-		returnMap.put("tempTaskMap", tempTaskMap);
+//		returnMap.put("tempTaskMap", tempTaskMap);
 		
 		return returnMap;
 	}
@@ -289,7 +291,6 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 	private void payPlanImport(ProgrammingInfo programming, ProgrammingTemplateEntireInfo templateEntry,
 			ProgrammingContractInfo programmingEntry, CurProjectInfo project,Map payPlanTem, Map tempTaskMap) throws BOSException {
 
-
 			PayPlanTemplateInfo tInfo = (PayPlanTemplateInfo) payPlanTem.get(templateEntry.getId().toString());
 			if(tInfo==null){
 				return;
@@ -300,7 +301,7 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 			pInfo.putAll(tInfo);
 			pInfo.setId(null);
 
-			pInfo.put("ByMonth", new PayPlanNewByMonthCollection());
+//			pInfo.put("ByMonth", new PayPlanNewByMonthCollection());
 			pInfo.put("BySchedule", new PayPlanNewByScheduleCollection());
 
 			for (int i = 0; i < tInfo.getBySchedule().size(); i++) {
@@ -309,33 +310,33 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 				psInfo.putAll(tsInfo);
 				psInfo.setId(null);
 				psInfo.setSrcID(tsInfo.getId());
-				RESchTemplateTaskInfo templateTask = tsInfo.getTemplateTask();
-				if (templateTask != null) {
-//					EntityViewInfo view = new EntityViewInfo();
-//					FilterInfo f = new FilterInfo();
-//					f.getFilterItems().add(new FilterItemInfo("schTemplateTask", templateTask.getId().toString()));
-//					f.getFilterItems().add(new FilterItemInfo("schedule.isLatestVer", Boolean.TRUE));
-//					f.getFilterItems().add(new FilterItemInfo("schedule.project.id", project.getId().toString()));
-//					view.setFilter(f);
-					FDCScheduleTaskInfo info = (FDCScheduleTaskInfo) tempTaskMap.get(templateTask.getId().toString());
-					if(info!=null){
-						Date beginDate = null;
-						Date endDate = null;
-						psInfo.put("Task", new PayPlanNewByScheduleTaskCollection());
-						PayPlanNewByScheduleTaskInfo item = new PayPlanNewByScheduleTaskInfo();
-						FDCScheduleTaskInfo taskInfo = info;
-						item.setTask(taskInfo);
-						psInfo.getTask().add(item);
-						
-						beginDate = taskInfo.getStart();
-						endDate = taskInfo.getEnd();
-						
-						
-						psInfo.setBeginDate(beginDate);
-						psInfo.setEndDate(endDate);
-					}
-				}
-
+				
+//				RESchTemplateTaskInfo templateTask = tsInfo.getTemplateTask();
+//				if (templateTask != null) {
+////					EntityViewInfo view = new EntityViewInfo();
+////					FilterInfo f = new FilterInfo();
+////					f.getFilterItems().add(new FilterItemInfo("schTemplateTask", templateTask.getId().toString()));
+////					f.getFilterItems().add(new FilterItemInfo("schedule.isLatestVer", Boolean.TRUE));
+////					f.getFilterItems().add(new FilterItemInfo("schedule.project.id", project.getId().toString()));
+////					view.setFilter(f);
+//					FDCScheduleTaskInfo info = (FDCScheduleTaskInfo) tempTaskMap.get(templateTask.getId().toString());
+//					if(info!=null){
+//						Date beginDate = null;
+//						Date endDate = null;
+//						psInfo.put("Task", new PayPlanNewByScheduleTaskCollection());
+//						PayPlanNewByScheduleTaskInfo item = new PayPlanNewByScheduleTaskInfo();
+//						FDCScheduleTaskInfo taskInfo = info;
+//						item.setTask(taskInfo);
+//						psInfo.getTask().add(item);
+//						
+//						beginDate = taskInfo.getStart();
+//						endDate = taskInfo.getEnd();
+//						
+//						
+//						psInfo.setBeginDate(beginDate);
+//						psInfo.setEndDate(endDate);
+//					}
+//				}
 				pInfo.getBySchedule().add(psInfo);
 			}
 
@@ -595,10 +596,11 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		}
 
 		programmingEntry.setAmount(planAmountTotal);
+		
 		programmingEntry.setControlAmount(FDCHelper.ZERO);
 		// 模板中经济条款
-		PTEEnonomyCollection pteEnonomyCollection = templateEntry.getPteEnonomy();
-		enonomyImport(programmingEntry, pteEnonomyCollection);
+//		PTEEnonomyCollection pteEnonomyCollection = templateEntry.getPteEnonomy();
+//		enonomyImport(programmingEntry, pteEnonomyCollection);
 	}
 	
 	/**
@@ -796,13 +798,13 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		sic.add("pteCost.costAccount.longNumber");
 		sic.add("pteCost.assignScale");
 		sic.add("pteCost.contractScale");
-		sic.add("pteEnonomy.scale");
-		sic.add("pteEnonomy.condition");
-		sic.add("pteEnonomy.description");
-		sic.add("pteEnonomy.parent");
-		sic.add("pteEnonomy.paymentType");
-		sic.add("pteEnonomy.paymentType.name");
-		sic.add("pteEnonomy.paymentType.number");
+//		sic.add("pteEnonomy.scale");
+//		sic.add("pteEnonomy.condition");
+//		sic.add("pteEnonomy.description");
+//		sic.add("pteEnonomy.parent");
+//		sic.add("pteEnonomy.paymentType");
+//		sic.add("pteEnonomy.paymentType.name");
+//		sic.add("pteEnonomy.paymentType.number");
 		sic.add("name");
 		sic.add("number");
 		sic.add("description");
@@ -818,6 +820,9 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		sic.add("hyType.sendContWay");
 		sic.add("hyType.priceWay");
 		sic.add("contractRange");
+		sic.add("contractContUI");
+		sic.add("attachWork");
+		sic.add("attContract");
 		return sic;
 	}
 

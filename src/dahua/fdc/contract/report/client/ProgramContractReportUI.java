@@ -69,6 +69,7 @@ public class ProgramContractReportUI extends AbstractProgramContractReportUI
 //        tblMain.getDataRequestManager().addDataRequestListener(this);
         tblMain.getDataRequestManager().setDataRequestMode(KDTDataRequestManager.REAL_MODE);
         enableExportExcel(tblMain);
+        setUITitle("合约规划跟踪单");
      // treeMain
        
     }

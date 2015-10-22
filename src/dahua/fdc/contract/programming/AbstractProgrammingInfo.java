@@ -114,15 +114,48 @@ public class AbstractProgrammingInfo extends com.kingdee.eas.fdc.basedata.FDCBil
         setInt("yjDays", item);
     }
     /**
-     * Object: 合约规划 's 预警人员 property 
+     * Object: 合约规划 's 成本预警 property 
      */
-    public com.kingdee.eas.basedata.person.PersonInfo getYjPerson()
+    public com.kingdee.eas.basedata.org.PositionInfo getYjCost()
     {
-        return (com.kingdee.eas.basedata.person.PersonInfo)get("yjPerson");
+        return (com.kingdee.eas.basedata.org.PositionInfo)get("yjCost");
     }
-    public void setYjPerson(com.kingdee.eas.basedata.person.PersonInfo item)
+    public void setYjCost(com.kingdee.eas.basedata.org.PositionInfo item)
     {
-        put("yjPerson", item);
+        put("yjCost", item);
+    }
+    /**
+     * Object: 合约规划 's 设计部预警 property 
+     */
+    public com.kingdee.eas.basedata.org.PositionInfo getYjDesign()
+    {
+        return (com.kingdee.eas.basedata.org.PositionInfo)get("yjDesign");
+    }
+    public void setYjDesign(com.kingdee.eas.basedata.org.PositionInfo item)
+    {
+        put("yjDesign", item);
+    }
+    /**
+     * Object: 合约规划 's 材料管理预警 property 
+     */
+    public com.kingdee.eas.basedata.org.PositionInfo getYjMaterial()
+    {
+        return (com.kingdee.eas.basedata.org.PositionInfo)get("yjMaterial");
+    }
+    public void setYjMaterial(com.kingdee.eas.basedata.org.PositionInfo item)
+    {
+        put("yjMaterial", item);
+    }
+    /**
+     * Object: 合约规划 's 工程部预警 property 
+     */
+    public com.kingdee.eas.basedata.org.PositionInfo getYjProject()
+    {
+        return (com.kingdee.eas.basedata.org.PositionInfo)get("yjProject");
+    }
+    public void setYjProject(com.kingdee.eas.basedata.org.PositionInfo item)
+    {
+        put("yjProject", item);
     }
     public BOSObjectType getBOSType()
     {

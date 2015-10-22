@@ -43,13 +43,16 @@ import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTStyleConstants;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.util.editor.ICellEditor;
+import com.kingdee.bos.ctrl.kdf.util.render.CellCheckBoxRenderer;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
+import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.ctrl.swing.KDContainer;
 import com.kingdee.bos.ctrl.swing.KDDatePicker;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
@@ -151,8 +154,8 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	private ProgrammingContractFxbdEntryCollection fxcoll=null;
 
 	private ProgrammingContractInfo oldPcInfo;
-	private ProgrammingContractCollection pcCollection;
 
+	private ProgrammingContractCollection pcCollection;
 	private BigDecimal oldAmount;
 	private BigDecimal oldControlAmount;
 	private BigDecimal oldbalance;
@@ -319,6 +322,9 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		editData.setControlAmount((BigDecimal) txtControlAmount.getValue());// 采购控制金额
 		editData.setReservedChangeRate(FDCHelper.toBigDecimal(txtReservedChangeRate.getValue()));// 采购控制金额
 		editData.setWorkContent(txtWorkContent.getText());// 工作内容
+		editData.setContractContUI(txtContractContUI.getText());
+		editData.setAttachWork(txtAttachWork.getText());
+		editData.setAttContract(txtAttContract.getText());
 		if (editData.getWorkContent() != null && editData.getWorkContent().equals(DEFAULT_WORK_CONTENT)) {
 			editData.setWorkContent("");
 		}
@@ -489,13 +495,21 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		editData.getFxbdEntry().clear();
 		ProgrammingContractFxbdEntryInfo fxbdinfo = null;
 		String number = null;
-		for (int k = 0; k < kdtfxbd.getColumnCount(); k=k+2) {
+		for (int k = 1; k < kdtfxbd.getColumnCount(); k=k+3) {
 			number = kdtfxbd.getColumnKey(k).substring(0,3);
 			for (int j = kdtfxbd.getRowCount3()-1; j >=0; j--) {
 				fxbdinfo = new ProgrammingContractFxbdEntryInfo();
 				fxbdinfo.setItemName((String)kdtfxbd.getCell(j,k).getValue());
 				fxbdinfo.setPlanDate((Date)kdtfxbd.getCell(j,number+"date").getValue());
+				if(kdtfxbd.getCell(j,number+"yj").getValue() == null)
+					fxbdinfo.setIsYj(false);
+				else
+					fxbdinfo.setIsYj((Boolean)kdtfxbd.getCell(j,number+"yj").getValue());
 				fxbdinfo.setRecordSeq(number+j);
+				if(kdtfxbd.getCell(j,0).getValue() == null)
+					fxbdinfo.setIsNew(false);
+				else
+					fxbdinfo.setIsNew((Boolean)kdtfxbd.getCell(j,0).getValue());
 				if(ptentrys.get(number+j) != null)
 					fxbdinfo.setDepType(ptentrys.get(number+j).getDepType());
 				editData.getFxbdEntry().add(fxbdinfo);
@@ -608,9 +622,15 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 			String key = null;
 			int columnIndex = -1;
 			int maxSize = 0;
-			KDDatePicker ywDate_DatePicker = new KDDatePicker();
-		    KDTDefaultCellEditor ywDate_CellEditor = new KDTDefaultCellEditor(ywDate_DatePicker);
+		    KDTDefaultCellEditor ywDate_CellEditor = new KDTDefaultCellEditor(new KDDatePicker());
+		    KDTDefaultCellEditor boxeditor = new KDTDefaultCellEditor(new KDCheckBox());
+		    CellCheckBoxRenderer boxrender = new CellCheckBoxRenderer();
 		    String name = null;
+		    icol = kdtfxbd.addColumn();
+		    icol.setKey("isNew");
+		    icol.setEditor(boxeditor);
+			icol.setRenderer(boxrender);
+			icol.getStyleAttributes().setHided(true);
 			for(Iterator<String> it=depIds.keySet().iterator(); it.hasNext();){
 				key = it.next();
 				if(maxSize < depIds.get(key)){
@@ -620,7 +640,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 				icol = kdtfxbd.addColumn();
 				icol.setKey(key+"name");
 				columnIndex = icol.getColumnIndex();
-				icol.getStyleAttributes().setLocked(true);
+//				icol.getStyleAttributes().setLocked(true);
 				row0.getCell(columnIndex).setValue(name);
 				row1.getCell(columnIndex).setValue("关键工作及其计划完成时间");
 				row2.getCell(columnIndex).setValue("事项名称");
@@ -632,38 +652,52 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 				row0.getCell(columnIndex).setValue(name);
 				row1.getCell(columnIndex).setValue("关键工作及其计划完成时间");
 				row2.getCell(columnIndex).setValue("完成时间");
-				kdmm.mergeBlock(0,columnIndex-1,0,columnIndex);
-				kdmm.mergeBlock(1,columnIndex-1,1,columnIndex);
+				//增加是否预警
+				icol = kdtfxbd.addColumn();
+				icol.setEditor(boxeditor);
+				icol.setRenderer(boxrender);
+				icol.setKey(key+"yj");
+				columnIndex = icol.getColumnIndex();
+				row0.getCell(columnIndex).setValue(name);
+				row1.getCell(columnIndex).setValue("关键工作及其计划完成时间");
+				row2.getCell(columnIndex).setValue("是否预警");
+				kdmm.mergeBlock(0,columnIndex-2,0,columnIndex);
+				kdmm.mergeBlock(1,columnIndex-2,1,columnIndex);
 			}
-			
 			ckDates.put("SGT",editData.getSgtDate());
 			ckDates.put("CSD",editData.getContSignDate());
 			ckDates.put("SWD",editData.getStartDate());
 			ckDates.put("EWD",editData.getEndDate());
 			ckDates.put("CSED",editData.getCsendDate());
-			
 //			fxcoll=ProgrammingContractFxbdEntryFactory.getRemoteInstance().getProgrammingContractFxbdEntryCollection("where parent1.id='"+editData.getId().toString()+"'");
 			fxcoll = editData.getFxbdEntry();
-			
 			if(fxcoll.size() > 0){
 				ProgrammingContractFxbdEntryInfo feinfo = null;
 				Map<String,ProgrammingContractFxbdEntryInfo> fxentrys = new HashMap<String,ProgrammingContractFxbdEntryInfo>();
+				maxSize = 0;
 				for (int i = 0; i < fxcoll.size(); i++) {
 					feinfo = fxcoll.get(i);
 					fxentrys.put(feinfo.getRecordSeq(),feinfo);
+					if(maxSize < Integer.parseInt(feinfo.getRecordSeq().substring(3)))
+						maxSize = Integer.parseInt(feinfo.getRecordSeq().substring(3));
 				}
-				for(int i=0; i<maxSize; i++){
+				for(int i=0; i<=maxSize; i++){
 					row0 = kdtfxbd.addRow();
 					for(Iterator<String> it=depIds.keySet().iterator(); it.hasNext();){
 						key = it.next();
 						feinfo = fxentrys.get(key+row0.getRowIndex());
 						if(feinfo != null){
+							row0.getCell("isNew").setValue(feinfo.isIsNew());
 							if(feinfo.getItemName() != null){
 								row0.getCell(key+"name").setValue(feinfo.getItemName());
 								row0.getCell(key+"date").setValue(feinfo.getPlanDate());
-							}else
+								row0.getCell(key+"yj").setValue(feinfo.isIsYj());
+							}else if(!feinfo.isIsNew()){
 								row0.getCell(key+"date").getStyleAttributes().setLocked(true);
-							
+								row0.getCell(key+"yj").getStyleAttributes().setLocked(true);
+							}
+							if(!feinfo.isIsNew())
+								row0.getCell(key+"name").getStyleAttributes().setLocked(true);
 						}
 					}
 				}
@@ -672,11 +706,14 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 				Calendar c1 = Calendar.getInstance();
 				for(int i=0; i<maxSize; i++){
 					row0 = kdtfxbd.addRow();
+					row0.getCell("isNew").setValue(Boolean.FALSE);
 					for(Iterator<String> it=depIds.keySet().iterator(); it.hasNext();){
 						key = it.next();
 						einfo = ptentrys.get(key+row0.getRowIndex());
+						row0.getCell(key+"name").getStyleAttributes().setLocked(true);
 						if(einfo != null){
 							row0.getCell(key+"name").setValue(einfo.getFieldName());
+							row0.getCell(key+"yj").setValue(Boolean.FALSE);
 							if(einfo.getCkDate()!=null && ckDates.get(einfo.getCkDate().getName())!=null){
 								c1.setTime(ckDates.get(einfo.getCkDate().getName()));
 								c1.add(Calendar.DATE,-einfo.getTqDays());
@@ -684,6 +721,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 							}
 						}else{
 							row0.getCell(key+"date").getStyleAttributes().setLocked(true);
+							row0.getCell(key+"yj").getStyleAttributes().setLocked(true);
 						}
 					}
 				}
@@ -694,6 +732,8 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 					kdtfxbd_editStopped(e);
 				}
 			});
+			initFxbdButton();
+			kdtfxbd.getSelectManager().setSelectMode(KDTSelectManager.CELL_SELECT);
 		}
 	}
 	
@@ -723,7 +763,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	private void setFxbdBg(){
 		Calendar c1 = Calendar.getInstance();
 		String number = null;
-		for (int k = 0; k < kdtfxbd.getColumnCount(); k=k+2) {
+		for (int k = 1; k < kdtfxbd.getColumnCount(); k=k+3) {
 			number = kdtfxbd.getColumnKey(k).substring(0,3);
 			for (int j = kdtfxbd.getRowCount3()-1; j >=0; j--) {
 				if(isDateChange(number+j,(Date)kdtfxbd.getCell(j,number+"date").getValue(),c1)){
@@ -736,13 +776,15 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	private void kdtfxbd_editStopped(KDTEditEvent e){
 		int rowIndex = e.getRowIndex();
 		int colIndex = e.getColIndex();
+		if(kdtfxbd.getColumnKey(colIndex).endsWith("yj") || kdtfxbd.getColumnKey(colIndex).endsWith("name"))
+			return;
 		if(kdtfxbd.getCell(rowIndex,colIndex).getValue() == null){
 			kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.white);
 			return;
 		}
 		String ckey = kdtfxbd.getColumnKey(colIndex).substring(0,3);
 		PcTypeEntryInfo pinfo = ptentrys.get(ckey+rowIndex);
-		if(pinfo.getCkDate()!=null && ckDates.get(pinfo.getCkDate().getName())!=null){
+		if(pinfo!=null && pinfo.getCkDate()!=null && ckDates.get(pinfo.getCkDate().getName())!=null){
 			Calendar c1 = Calendar.getInstance();
 			c1.setTime(ckDates.get(pinfo.getCkDate().getName()));
 			c1.add(Calendar.DATE,-pinfo.getTqDays());
@@ -763,20 +805,20 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	
 	private void initFxbdButton(){
 		KDWorkButton addLine = new KDWorkButton("新增行");
-		KDWorkButton insetLine = new KDWorkButton("插入行");
+//		KDWorkButton insetLine = new KDWorkButton("插入行");
 		KDWorkButton removeLine = new KDWorkButton("删除行");
 		addLine.setName("addLine");
-		insetLine.setName("insetLine");
+//		insetLine.setName("insetLine");
 		removeLine.setName("removeLine");
 		addLine.setIcon(EASResource.getIcon("imgTbtn_addline"));
-		insetLine.setIcon(EASResource.getIcon("imgTbtn_insert"));
+//		insetLine.setIcon(EASResource.getIcon("imgTbtn_insert"));
 		removeLine.setIcon(EASResource.getIcon("imgTbtn_deleteline"));
 		kDContainer1fx.addButton(addLine);
 		kDContainer1fx.addButton(removeLine);
-		kDContainer1fx.addButton(insetLine);
-		MyActionListener myal = new MyActionListener();
+//		kDContainer1fx.addButton(insetLine);
+		MyActionListener myal = new MyActionListener(kdtfxbd);
 		addLine.addActionListener(myal);
-		insetLine.addActionListener(myal);
+//		insetLine.addActionListener(myal);
 		removeLine.addActionListener(myal);
 	}
 	
@@ -793,6 +835,13 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
     		IRow row = null;
     		if("addLine".equals(type)){
     			row = table.addRow();
+//    			row.getStyleAttributes().setBackground(Color.GRAY);
+    			for(int i = table.getColumnCount()-1; i >= 0; i--) {
+					if(table.getColumnKey(i).endsWith("yj"))
+						row.getCell(i).setValue(Boolean.FALSE);
+					else if("isNew".equals(table.getColumnKey(i)))
+						row.getCell(i).setValue(Boolean.TRUE);
+				}
     		}else if("insetLine".equals(type)){
     			if(table.getSelectManager().size() > 0) {
     	            int top = table.getSelectManager().get().getTop();
@@ -813,8 +862,12 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
     	            MsgBox.showInfo(EASResource.getString("com.kingdee.eas.framework.FrameWorkResource.Msg_NoneEntry"));
     	            return;
     	        }
-    	        table.removeRow(top);
-//    	        kdtEntrys.removeRow(getEntrysRowIndex(table.getName()+top));
+    	        if(!(Boolean)table.getRow(top).getCell("isNew").getValue()){
+    	        	 MsgBox.showInfo("该行数据不是用户新增，不能进行删除操作！");
+    	        	 return;
+    	        }
+    	        if(FDCMsgBox.OK == FDCMsgBox.showConfirm2("是否确认删除数据？"))
+    	        	table.removeRow(top);
     		}
     		if(row != null){
 //    			row.getCell("strongControl").setValue(Boolean.FALSE);
@@ -951,8 +1004,8 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	private void setButtionEnable(boolean isEnable) {
 		btnAddnewLine_cost.setEnabled(isEnable);
 		btnRemoveLines_cost.setEnabled(isEnable);
-		btnAddnewLine_economy.setEnabled(isEnable);
-		btnRemoveLines_economy.setEnabled(isEnable);
+//		btnAddnewLine_economy.setEnabled(isEnable);
+//		btnRemoveLines_economy.setEnabled(isEnable);
 	}
 
 	protected void actionAddnewLine_cost_actionPerformed(ActionEvent e) {
@@ -962,7 +1015,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		CurProjectInfo project = (CurProjectInfo) this.getUIContext().get("project");
 		row.getCell(COST_ID).setValue(BOSUuid.create("9E6FDD26"));
 		row.getCell(PROJECT).setValue(project);
-		projectF7();
+//		projectF7();
 		costAccountCellF7(project, rowIndex, kdtCost.getColumnIndex(COSTACCOUNT));
 		
 		// modified by zhaoqin for R130828-0384 on 2013/9/29
@@ -1138,6 +1191,8 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		kdftf.setSupportedEmpty(true);
 		kdftf.setMinimumValue(FDCHelper.ZERO);
 		kdtCost.getColumn(CONTRACTASSIGN).setEditor(cellEditor0);
+		kdtCost.getHeadRow(0).getCell(CONSTRACTSCALE).setValue("本合约占成本科目的比例");
+		kdtCost.getColumn(CONSTRACTSCALE).setWidth(160);
 		//本合约比例
 		KDTDefaultCellEditor cellEditor2 = new KDTDefaultCellEditor(new KDFormattedTextField());
 		KDFormattedTextField kdftf2 = (KDFormattedTextField) cellEditor2.getComponent();
@@ -1153,30 +1208,25 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		KDTextField kdtfDes = (KDTextField) cellEditorDes.getComponent();
 		kdtfDes.setMaxLength(80);
 		this.kdtCost.getColumn(COST_DES).setEditor(cellEditorDes);
-
+		projectF7();
 		/* 经济条款 */
 		//added by shangjing 初始化经济条款分录的设置
-		kDContainerEconomy.setTitle("经济条款列表");
-
-		kdtEconomy.getColumn("description").setWidth(0);
-
-		KDFormattedTextField formattedTextField1 = new KDFormattedTextField(KDFormattedTextField.INTEGER_TYPE);
-		ICellEditor integerEditor = new KDTDefaultCellEditor(formattedTextField1);
-		kdtEconomy.getColumn("delaydays").setEditor(integerEditor);
-
-		kdtEconomy.getColumn("completedate").getStyleAttributes().setLocked(true);
-		kdtEconomy.getColumn("delaydays").getStyleAttributes().setLocked(true);
-		scheduleTaskF7();
-		//
-
-		this.kdtEconomy.checkParsed();
-		// 付款日期
-		this.kdtEconomy.getColumn(PAYMENTDATE).getStyleAttributes().setNumberFormat("yyyy-MM-dd");
-		// 付款条件 -----长度不能超过80个字符
-		KDTDefaultCellEditor cellEditor = new KDTDefaultCellEditor(new KDTextField());
-		KDTextField kdtf = (KDTextField) cellEditor.getComponent();
-		kdtf.setMaxLength(80);
-		this.kdtEconomy.getColumn(CONDITION).setEditor(cellEditor);
+//		kDContainerEconomy.setTitle("经济条款列表");
+//		kdtEconomy.getColumn("description").setWidth(0);
+//		KDFormattedTextField formattedTextField1 = new KDFormattedTextField(KDFormattedTextField.INTEGER_TYPE);
+//		ICellEditor integerEditor = new KDTDefaultCellEditor(formattedTextField1);
+//		kdtEconomy.getColumn("delaydays").setEditor(integerEditor);
+//		kdtEconomy.getColumn("completedate").getStyleAttributes().setLocked(true);
+//		kdtEconomy.getColumn("delaydays").getStyleAttributes().setLocked(true);
+//		scheduleTaskF7();
+//		this.kdtEconomy.checkParsed();
+//		// 付款日期
+//		this.kdtEconomy.getColumn(PAYMENTDATE).getStyleAttributes().setNumberFormat("yyyy-MM-dd");
+//		// 付款条件 -----长度不能超过80个字符
+//		KDTDefaultCellEditor cellEditor = new KDTDefaultCellEditor(new KDTextField());
+//		KDTextField kdtf = (KDTextField) cellEditor.getComponent();
+//		kdtf.setMaxLength(80);
+//		this.kdtEconomy.getColumn(CONDITION).setEditor(cellEditor);
 	}
 
 	/**
@@ -1219,6 +1269,9 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		txtReservedChangeRate.setEditable(isEditable);
 
 		txtWorkContent.setEditable(isEditable);
+		txtContractContUI.setEditable(isEditable);
+		txtAttachWork.setEditable(isEditable);
+		txtAttContract.setEditable(isEditable);
 		txtSupMaterial.setEditable(isEditable);
 		txtDescription.setEditable(isEditable);
 		kdcInviteWay.setEditable(isEditable);
@@ -1294,7 +1347,8 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 //			return true;
 		if(isFxbdModified())
 			return true;
-		
+		if(payPlanNewUI.verifyTabIsModify())
+			return true;
 		return false;
 	}
 
@@ -1369,6 +1423,32 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		}
 		if (!FDCHelper.isEmpty(txtWorkContent.getText()) & !FDCHelper.isEmpty(oldPcInfo.getWorkContent())) {
 			if (!txtWorkContent.getText().equals(oldPcInfo.getWorkContent())) {
+				return true;
+			}
+		}
+		if (FDCHelper.isEmpty(txtContractContUI.getText()) ^ FDCHelper.isEmpty(oldPcInfo.getContractContUI())) {
+			return true;
+		}
+		if (!FDCHelper.isEmpty(txtContractContUI.getText()) & !FDCHelper.isEmpty(oldPcInfo.getContractContUI())) {
+			if (!txtContractContUI.getText().equals(oldPcInfo.getContractContUI())) {
+				return true;
+			}
+		}
+		// aat work
+		if (FDCHelper.isEmpty(txtAttachWork.getText()) ^ FDCHelper.isEmpty(oldPcInfo.getAttachWork())) {
+			return true;
+		}
+		if (!FDCHelper.isEmpty(txtAttachWork.getText()) & !FDCHelper.isEmpty(oldPcInfo.getAttachWork())) {
+			if (!txtAttachWork.getText().equals(oldPcInfo.getAttachWork())) {
+				return true;
+			}
+		}
+		//aa cont
+		if (FDCHelper.isEmpty(txtAttContract.getText()) ^ FDCHelper.isEmpty(oldPcInfo.getAttContract())) {
+			return true;
+		}
+		if (!FDCHelper.isEmpty(txtAttContract.getText()) & !FDCHelper.isEmpty(oldPcInfo.getAttContract())) {
+			if (!txtAttContract.getText().equals(oldPcInfo.getAttContract())) {
 				return true;
 			}
 		}
@@ -1478,6 +1558,8 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	//modify by yxl 20150814  check fxbd is modify
 	private boolean isFxbdModified() {
 		if(fxcoll == null)
+			return false;
+		if(kdtfxbd.getRowCount3() == 0)
 			return false;
 		if(fxcoll.size()==0 && kdtfxbd.getRowCount3()>0)
 			return true;
@@ -1636,19 +1718,24 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		}
 		lockUIComponent();
 		kdtfxbd.setEditable(false);
+		kdtCost.setEditable(false);
 		actionSubmit.setEnabled(false);
 		btnSave.setEnabled(false);
 		setButtionEnable(false);
+		txtContractContUI.setEnabled(false);
+		txtAttachWork.setEnabled(false);
+		txtAttContract.setEnabled(false);
+		txtWorkContent.setEnabled(false);
 		// destroyWindow();
 
 		// /////////////////////////////////////////////////////////////////////
 		// start，厦门建发，合约规划的详细内容及列表界面加入4个字段“发包方式”、“招投标方式”、“预计发包开始时间”、“预计发包结束时间”等四个字段
 		// by skyiter_wang 20131009
 		// /////////////////////////////////////////////////////////////////////
-		editData.setEstimateAwardStartDate((Date) pkEstimateAwardStartDate.getValue());
-		editData.setEstimateAwardEndDate((Date) pkEstimateAwardEndDate.getValue());
-		editData.setInviteMode((InviteModeInfo) prmtInviteMode.getData());
-		editData.setJobType((JobTypeInfo) prmtJobType.getData());
+//		editData.setEstimateAwardStartDate((Date) pkEstimateAwardStartDate.getValue());
+//		editData.setEstimateAwardEndDate((Date) pkEstimateAwardEndDate.getValue());
+//		editData.setInviteMode((InviteModeInfo) prmtInviteMode.getData());
+//		editData.setJobType((JobTypeInfo) prmtJobType.getData());
 
 		// /////////////////////////////////////////////////////////////////////
 		// end
@@ -2299,7 +2386,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 							tmpRowIndex = row.getRowIndex();
 							row.getCell(COST_ID).setValue(BOSUuid.create("9E6FDD26"));
 							row.getCell(PROJECT).setValue(project);
-							projectF7();
+//							projectF7();
 							costAccountCellF7(project, tmpRowIndex, kdtCost.getColumnIndex(COSTACCOUNT));
 						}
 						kdtCost.getCell(tmpRowIndex, COSTACCOUNT).setValue(newCostAccountInfo);
@@ -3097,24 +3184,24 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		txtAmount.setValue(editData.getAmount(), false);// 规划金额
 		txtControlAmount.setValue(editData.getControlAmount(), false);// 采购控制金额   
 		txtReservedChangeRate.setValue(editData.getReservedChangeRate(), false);// 采购控制金额   
-		kdcInviteWay.setSelectedItem(editData.getInviteWay());// 招标方式
-		if (this.oprtState.equals(OprtState.VIEW)) {
-			if (editData.getInviteOrg() != null) {
-				CostCenterOrgUnitInfo orgUnitInfo = null;
-				try {
-
-					orgUnitInfo = CostCenterOrgUnitFactory.getRemoteInstance().getCostCenterOrgUnitInfo(
-							new ObjectUuidPK(editData.getInviteOrg().getId()));
-				} catch (EASBizException e) {
-					handUIExceptionAndAbort(e);
-				} catch (BOSException e) {
-					handUIExceptionAndAbort(e);
-				}
-				prmtInviteOrg.setData(orgUnitInfo);
-			}
-		} else {
-			prmtInviteOrg.setData(editData.getInviteOrg());// 招标组织
-		}
+//		kdcInviteWay.setSelectedItem(editData.getInviteWay());// 招标方式
+//		if (this.oprtState.equals(OprtState.VIEW)) {
+//			if (editData.getInviteOrg() != null) {
+//				CostCenterOrgUnitInfo orgUnitInfo = null;
+//				try {
+//
+//					orgUnitInfo = CostCenterOrgUnitFactory.getRemoteInstance().getCostCenterOrgUnitInfo(
+//							new ObjectUuidPK(editData.getInviteOrg().getId()));
+//				} catch (EASBizException e) {
+//					handUIExceptionAndAbort(e);
+//				} catch (BOSException e) {
+//					handUIExceptionAndAbort(e);
+//				}
+//				prmtInviteOrg.setData(orgUnitInfo);
+//			}
+//		} else {
+//			prmtInviteOrg.setData(editData.getInviteOrg());// 招标组织
+//		}
 
 		if (editData.getWorkContent() == null || editData.getWorkContent().trim().length() == 0) {
 			this.txtWorkContent.setText(DEFAULT_WORK_CONTENT);// 工作内容
@@ -3123,9 +3210,12 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 			this.txtWorkContent.setText(editData.getWorkContent().trim());// 工作内容
 			txtWorkContent.setCustomForegroundColor(Color.BLACK);
 		}
-		txtSupMaterial.setText(editData.getSupMaterial());// 甲供及甲指材设
-		txtDescription.setText(editData.getDescription());// 备注
-		txtDescription.setToolTipText(editData.getDescription());
+		txtContractContUI.setText(editData.getContractContUI());
+		txtAttachWork.setText(editData.getAttachWork());
+		txtAttContract.setText(editData.getAttContract());
+//		txtSupMaterial.setText(editData.getSupMaterial());// 甲供及甲指材设
+//		txtDescription.setText(editData.getDescription());// 备注
+//		txtDescription.setToolTipText(editData.getDescription());
 		txtAttachment.setText(getAllAttachmentName(editData.getId().toString()).toString());// 附件
 		processAttachments(editData.getId().toString());
 //		ObjectValueRender render_scale = new ObjectValueRender();
@@ -3173,33 +3263,33 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		// start，厦门建发，合约规划的详细内容及列表界面加入4个字段“发包方式”、“招投标方式”、“预计发包开始时间”、“预计发包结束时间”等四个字段
 		// by skyiter_wang 20131009
 		// /////////////////////////////////////////////////////////////////////
+//
+//		try {
+//			if (null != editData.getInviteMode()) {
+//				IObjectPK inviteModePk = new ObjectUuidPK(editData.getInviteMode().getId());
+//				InviteModeInfo inviteModeInfo = InviteModeFactory.getRemoteInstance().getInviteModeInfo(inviteModePk);
+//
+//				if (null != inviteModeInfo) {
+//					editData.setInviteMode(inviteModeInfo);
+//				}
+//			}
+//			if (null != editData.getJobType()) {
+//				IObjectPK jobTypePk = new ObjectUuidPK(editData.getJobType().getId());
+//				JobTypeInfo jobTypeInfo = JobTypeFactory.getRemoteInstance().getJobTypeInfo(jobTypePk);
+//
+//				if (null != jobTypeInfo) {
+//					editData.setJobType(jobTypeInfo);
+//				}
+//			}
+//		} catch (Exception e) {
+//			logger.equals(e);
+//			this.handUIExceptionAndAbort(e);
+//		}
 
-		try {
-			if (null != editData.getInviteMode()) {
-				IObjectPK inviteModePk = new ObjectUuidPK(editData.getInviteMode().getId());
-				InviteModeInfo inviteModeInfo = InviteModeFactory.getRemoteInstance().getInviteModeInfo(inviteModePk);
-
-				if (null != inviteModeInfo) {
-					editData.setInviteMode(inviteModeInfo);
-				}
-			}
-			if (null != editData.getJobType()) {
-				IObjectPK jobTypePk = new ObjectUuidPK(editData.getJobType().getId());
-				JobTypeInfo jobTypeInfo = JobTypeFactory.getRemoteInstance().getJobTypeInfo(jobTypePk);
-
-				if (null != jobTypeInfo) {
-					editData.setJobType(jobTypeInfo);
-				}
-			}
-		} catch (Exception e) {
-			logger.equals(e);
-			this.handUIExceptionAndAbort(e);
-		}
-
-		pkEstimateAwardStartDate.setValue(editData.getEstimateAwardStartDate());
-		pkEstimateAwardEndDate.setValue(editData.getEstimateAwardEndDate());
-		prmtInviteMode.setData(editData.getInviteMode());
-		prmtJobType.setData(editData.getJobType());
+//		pkEstimateAwardStartDate.setValue(editData.getEstimateAwardStartDate());
+//		pkEstimateAwardEndDate.setValue(editData.getEstimateAwardEndDate());
+//		prmtInviteMode.setData(editData.getInviteMode());
+//		prmtJobType.setData(editData.getJobType());
 
 		// /////////////////////////////////////////////////////////////////////
 		// end
@@ -3212,7 +3302,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	 * @param table
 	 */
 	private void addCostLine(KDTable table) {
-		projectF7();
+//		projectF7();
 		if (editData.getCostEntries().size() > 0) {
 			IRow row;
 			List cachList = new ArrayList();
@@ -3559,8 +3649,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	 */
 	private void projectF7() {
 		KDBizPromptBox projectPromptBox = new KDBizPromptBox();
-		projectPromptBox
-				.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7ProjectQuery");
+		projectPromptBox.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7ProjectQuery");
 		projectPromptBox.setVisible(true);
 		projectPromptBox.setEditable(true);
 		projectPromptBox.setDisplayFormat("$number$");
@@ -3579,22 +3668,29 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		try {
 			// 当前用户具有权限的所有成本组织
 			UserInfo user = SysContext.getSysContext().getCurrentUserInfo();
-			SelectorItemCollection selectors = new SelectorItemCollection();
-			selectors.add("id");
-			selectors.add("user.id");
-			selectors.add("org.id");
-			EntityViewInfo v = new EntityViewInfo();
-			FilterInfo f = new FilterInfo();
-			f.getFilterItems().add(new FilterItemInfo("user.id", user.getId().toString()));
-			f.getFilterItems().add(new FilterItemInfo("org.isCostOrgUnit", Boolean.TRUE));
-			v.setFilter(f);
-			v.setSelector(selectors);
-			OrgRangeIncludeSubOrgCollection orisos = OrgRangeIncludeSubOrgFactory.getRemoteInstance().getOrgRangeIncludeSubOrgCollection(v);
+//			SelectorItemCollection selectors = new SelectorItemCollection();
+//			selectors.add("id");
+//			selectors.add("user.id");
+//			selectors.add("org.id");
+//			EntityViewInfo v = new EntityViewInfo();
+//			FilterInfo f = new FilterInfo();
+//			f.getFilterItems().add(new FilterItemInfo("user.id", user.getId().toString()));
+//			f.getFilterItems().add(new FilterItemInfo("org.isCostOrgUnit", Boolean.TRUE));
+//			v.setFilter(f);
+//			v.setSelector(selectors);
+//			OrgRangeIncludeSubOrgCollection orisos = OrgRangeIncludeSubOrgFactory.getRemoteInstance().getOrgRangeIncludeSubOrgCollection(v);
+			FDCSQLBuilder builder = new FDCSQLBuilder();
+			builder.appendSql("select a.forgid from T_PM_OrgRangeIncludeSubOrg a left join T_ORG_BaseUnit c on c.fid=a.forgid where c.fisCostOrgUnit=1 and a.fuserid='"+user.getId().toString()+"'");
+			IRowSet rs = builder.executeQuery();
 			Set orgs = new HashSet();
-			if(null != orisos) {
-				for(int i = 0; i < orisos.size(); i++)
-					orgs.add(orisos.get(i).getOrg().getId().toString());
+			// 4252
+			while(rs.next()){
+				orgs.add(rs.getString(1));
 			}
+//			if(null != orisos) {
+//				for(int i = 0; i < orisos.size(); i++)
+//					orgs.add(orisos.get(i).getOrg().getId().toString());
+//			}
 			filterInfo.getFilterItems().add(new FilterItemInfo("costCenter.id", orgs, CompareType.INCLUDE));
 			filterInfo.getFilterItems().add(new FilterItemInfo("isEnabled", Boolean.TRUE));
 		} catch (Exception e) {

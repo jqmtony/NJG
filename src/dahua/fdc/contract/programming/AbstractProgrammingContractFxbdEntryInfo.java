@@ -83,6 +83,28 @@ public class AbstractProgrammingContractFxbdEntryInfo extends com.kingdee.eas.fr
     {
         setString("recordSeq", item);
     }
+    /**
+     * Object:副项表单's 是否预警property 
+     */
+    public boolean isIsYj()
+    {
+        return getBoolean("isYj");
+    }
+    public void setIsYj(boolean item)
+    {
+        setBoolean("isYj", item);
+    }
+    /**
+     * Object:副项表单's 是否新增property 
+     */
+    public boolean isIsNew()
+    {
+        return getBoolean("isNew");
+    }
+    public void setIsNew(boolean item)
+    {
+        setBoolean("isNew", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("6B7634A3");

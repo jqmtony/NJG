@@ -121,6 +121,39 @@ public class AbstractProgrammingTemplateEntireInfo extends com.kingdee.eas.frame
     {
         put("hyType", item);
     }
+    /**
+     * Object:合约框架's 合同内容及界面property 
+     */
+    public String getContractContUI()
+    {
+        return getString("contractContUI");
+    }
+    public void setContractContUI(String item)
+    {
+        setString("contractContUI", item);
+    }
+    /**
+     * Object:合约框架's 关联工作property 
+     */
+    public String getAttachWork()
+    {
+        return getString("attachWork");
+    }
+    public void setAttachWork(String item)
+    {
+        setString("attachWork", item);
+    }
+    /**
+     * Object:合约框架's 其他关联合同property 
+     */
+    public String getAttContract()
+    {
+        return getString("attContract");
+    }
+    public void setAttContract(String item)
+    {
+        setString("attContract", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("B9EEC6B4");

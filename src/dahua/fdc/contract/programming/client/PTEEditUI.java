@@ -135,8 +135,9 @@ public class PTEEditUI extends AbstractPTEEditUI implements REAutoCompletionData
 		}
 		this.kdtCostEntries.setEditable(!this.isParent.booleanValue());
 		
-		
+		//将合约规划模板中的付款规划页签隐藏
 		initPayPlan();
+//		kDTabbedPane2.remove(kdplPayPlan);
 	}
 
 	protected void initPayPlan() throws UIException {
@@ -245,7 +246,8 @@ public class PTEEditUI extends AbstractPTEEditUI implements REAutoCompletionData
 		
 		// modified by zhaoqin for R131216-0523 on 2013/12/20
 		this.kdtCostEntries.getColumn(CONSTRACTSCALE).getStyleAttributes().setNumberFormat(FDCHelper.strPropFormat2);
-		
+		kdtCostEntries.getHeadRow(0).getCell(CONSTRACTSCALE).setValue("本合约占成本科目的比例");
+		kdtCostEntries.getColumn(CONSTRACTSCALE).setWidth(150);
 		
 		// 备注
 		KDTDefaultCellEditor cellEditor1 = new KDTDefaultCellEditor(new KDTextField());
@@ -319,6 +321,9 @@ public class PTEEditUI extends AbstractPTEEditUI implements REAutoCompletionData
 		if (pteInfo.getScope() != null && pteInfo.getScope().equals(DEFAULT_WORK_CONTENT)) {
 			pteInfo.setScope("");
 		}
+		pteInfo.setContractContUI(txtContractContUI.getText());
+		pteInfo.setAttachWork(txtAttachWork.getText());
+		pteInfo.setAttContract(txtAttContract.getText());
 		pteInfo.setProblem(txtProblem.getText());// 常见问题
 		pteInfo.setDescription(txtDescription.getText());// 备注
 		if (FDCHelper.isEmpty(txtAttachment.getText())) {
@@ -444,6 +449,34 @@ public class PTEEditUI extends AbstractPTEEditUI implements REAutoCompletionData
 					return true;
 				}
 			}
+			
+			if (FDCHelper.isEmpty(txtContractContUI.getText()) ^ FDCHelper.isEmpty(oldPteInfo.getContractContUI())) {
+				return true;
+			}
+			if (!FDCHelper.isEmpty(txtContractContUI.getText()) & !FDCHelper.isEmpty(oldPteInfo.getContractContUI())) {
+				if (!txtContractContUI.getText().equals(oldPteInfo.getContractContUI())) {
+					return true;
+				}
+			}
+			// aat work
+			if (FDCHelper.isEmpty(txtAttachWork.getText()) ^ FDCHelper.isEmpty(oldPteInfo.getAttachWork())) {
+				return true;
+			}
+			if (!FDCHelper.isEmpty(txtAttachWork.getText()) & !FDCHelper.isEmpty(oldPteInfo.getAttachWork())) {
+				if (!txtAttachWork.getText().equals(oldPteInfo.getAttachWork())) {
+					return true;
+				}
+			}
+			//aa cont
+			if (FDCHelper.isEmpty(txtAttContract.getText()) ^ FDCHelper.isEmpty(oldPteInfo.getAttContract())) {
+				return true;
+			}
+			if (!FDCHelper.isEmpty(txtAttContract.getText()) & !FDCHelper.isEmpty(oldPteInfo.getAttContract())) {
+				if (!txtAttContract.getText().equals(oldPteInfo.getAttContract())) {
+					return true;
+				}
+			}
+			
 			// 常见问题
 			if (FDCHelper.isEmpty(txtProblem.getText()) ^ FDCHelper.isEmpty(oldPteInfo.getProblem())) {
 				return true;
@@ -645,6 +678,9 @@ public class PTEEditUI extends AbstractPTEEditUI implements REAutoCompletionData
 		txtScope.setEditable(isEditable);
 		txtProblem.setEditable(isEditable);
 		txtDescription.setEditable(isEditable);
+		txtContractContUI.setEditable(isEditable);
+		txtAttachWork.setEditable(isEditable);
+		txtAttContract.setEditable(isEditable);
 		//分录
 		kdtCostEntries.setEditable(isEditable);
 		kdtEconomyEntriese.setEditable(isEditable);
@@ -782,7 +818,9 @@ public class PTEEditUI extends AbstractPTEEditUI implements REAutoCompletionData
 			txtScope.setCustomForegroundColor(Color.BLACK);
 			this.txtScope.setText(pteInfo.getScope().trim());// 主要范围
 		}
-
+		txtContractContUI.setText(pteInfo.getContractContUI());
+		txtAttContract.setText(pteInfo.getAttContract());
+		txtAttachWork.setText(pteInfo.getAttachWork());
 		this.txtProblem.setText(pteInfo.getProblem());// 常见问题
 		this.txtDescription.setText(pteInfo.getDescription());// 备注
 		this.txtDescription.setToolTipText(pteInfo.getDescription());

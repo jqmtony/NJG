@@ -151,50 +151,41 @@ public class ProgrammingExportUI extends AbstractProgrammingExportUI
 		SelectorItemCollection sic = new SelectorItemCollection();
 		sic.add("*");
 		sic.add("BySchedule.*");
-		sic.add("BySchedule.costAccount.number");
-		sic.add("BySchedule.costAccount.name");
-		sic.add("BySchedule.costAccount.longNumber");
+//		sic.add("BySchedule.costAccount.number");
+//		sic.add("BySchedule.costAccount.name");
+//		sic.add("BySchedule.costAccount.longNumber");
 		sic.add("BySchedule.paymentType.number");
 		sic.add("BySchedule.paymentType.name");
-		sic.add("ByMonth.*");
-		sic.add("ByMonth.costAccount.number");
-		sic.add("ByMonth.costAccount.name");
-		sic.add("ByMonth.costAccount.longNumber");
+//		sic.add("ByMonth.*");
+//		sic.add("ByMonth.costAccount.number");
+//		sic.add("ByMonth.costAccount.name");
+//		sic.add("ByMonth.costAccount.longNumber");
 		evi.setSelector(sic);
-
 		PayPlanNewCollection tColl = PayPlanNewFactory.getRemoteInstance().getPayPlanNewCollection(evi);
-
 		if (tColl != null && tColl.size() > 0) {
 			PayPlanNewInfo tInfo = tColl.get(0);
-
 			PayPlanTemplateInfo pInfo = new PayPlanTemplateInfo();
-
 			pInfo.putAll(tInfo);
 			pInfo.setId(null);
-
-			pInfo.put("ByMonth", new PayPlanTemplateByMonthCollection());
+//			pInfo.put("ByMonth", new PayPlanTemplateByMonthCollection());
 			pInfo.put("BySchedule", new PayPlanTemplateByScheduleCollection());
-
 
 			for (int i = 0; i < tInfo.getBySchedule().size(); i++) {
 				PayPlanNewByScheduleInfo tsInfo = tInfo.getBySchedule().get(i);
-				CostAccountInfo pteCostAccount = tsInfo.getCostAccount(); // 模板中成本科目
-				if (pteCostAccount != null) {
-					CostAccountInfo costAccount = getOrgCostAccountInfo(pteCostAccount);
-					if (costAccount != null) {
-						tsInfo.setCostAccount(costAccount);
-					}
-				}
+//				CostAccountInfo pteCostAccount = tsInfo.getCostAccount(); // 模板中成本科目
+//				if (pteCostAccount != null) {
+//					CostAccountInfo costAccount = getOrgCostAccountInfo(pteCostAccount);
+//					if (costAccount != null) {
+//						tsInfo.setCostAccount(costAccount);
+//					}
+//				}
 				PayPlanTemplateByScheduleInfo psInfo = new PayPlanTemplateByScheduleInfo();
 				psInfo.putAll(tsInfo);
 				psInfo.setId(null);
 				pInfo.getBySchedule().add(psInfo);
 			}
-
 			ptInfo.put("PayPlan", pInfo);
-
 		}
-
 	}
 
 	/**
@@ -252,6 +243,9 @@ public class ProgrammingExportUI extends AbstractProgrammingExportUI
 		getAttachmentForCopy(proTempInfo , proInfo);
 		proTempInfo.setAttachment(proInfo.getAttachment());
 		proTempInfo.setDescription(proInfo.getDescription());
+		proTempInfo.setContractContUI(proInfo.getContractContUI());
+		proTempInfo.setAttachWork(proInfo.getAttachWork());
+		proTempInfo.setAttContract(proInfo.getAttContract());
 		PTECostCollection pteCostCol = proTempInfo.getPteCost();
 		ProgrammingContracCostCollection  proCostCol = proInfo.getCostEntries();
 		addCostEntries(proTempInfo, pteCostCol, proCostCol);
@@ -261,7 +255,7 @@ public class ProgrammingExportUI extends AbstractProgrammingExportUI
 //		PTEEnonomyCollection pteEnonomyCol = proTempInfo.getPteEnonomy();
 //		ProgrammingContractEconomyCollection economyInfoCol = proInfo.getEconomyEntries();
 //		addEnonomyEntries(proTempInfo, pteEnonomyCol, economyInfoCol);
-//		addPayPlanTemplate(proTempInfo, proInfo);
+		addPayPlanTemplate(proTempInfo, proInfo);
 		return proTempInfo;
 	}
 

@@ -45,28 +45,34 @@ public class ProgramContractReportFacadeControllerBean extends AbstractProgramCo
 	    initColoum(header,col,"sgtDate",100,false);
 	    initColoum(header,col,"sgtRealDate",120,false);
 	    initColoum(header,col,"sgtOverdue",70,false);
+	    initColoum(header,col,"sgtPlanDate",100,false);
 	    initColoum(header,col,"csDate",100,false);
 	    initColoum(header,col,"csRealDate",110,false);
 	    initColoum(header,col,"csOverdue",70,false);
+	    initColoum(header,col,"csPlanDate",100,false);
 	    initColoum(header,col,"startDate",80,false);
 	    initColoum(header,col,"startRealDate",80,false);
 	    initColoum(header,col,"startOverdue",70,false);
+	    initColoum(header,col,"startPlanDate",80,false);
 	    initColoum(header,col,"endDate",80,false);
 	    initColoum(header,col,"endRealDate",80,false);
 	    initColoum(header,col,"endOverdue",70,false);
+	    initColoum(header,col,"endPlanDate",80,false);
 	    initColoum(header,col,"csendDate",110,false);
 	    initColoum(header,col,"csendRealDate",120,false);
 	    initColoum(header,col,"csendOverdue",70,false);
+	    initColoum(header,col,"csendPlanDate",110,false);
 	    header.setLabels(new Object[][]{ 
 	    		{
 	    			"id","level","longNumber","headNumber","规划合同名称","合约类型","规划金额","预留变更率","采购控制金额","业务主办部门/单位","业务主办部门/单位","业务主办部门/单位","业务主办部门/单位","业务主办部门/单位",
 	    			"业务主办部门/单位","业务主办部门/单位","业务主办部门/单位","业务主办部门/单位","业务主办部门/单位","业务主办部门/单位","业务主办部门/单位","业务主办部门/单位","业务主办部门/单位","业务主办部门/单位"
+	    			,"业务主办部门/单位","业务主办部门/单位","业务主办部门/单位","业务主办部门/单位","业务主办部门/单位"
 	    		},{
-	    			"id","level","longNumber","headNumber","规划合同名称","合约类型","规划金额","预留变更率","采购控制金额","设计部","设计部","设计部",
-	    			"成本管理部/组","成本管理部/组","成本管理部/组","工程部","工程部","工程部","工程部","工程部","工程部","材料管理公司","材料管理公司","材料管理公司"
+	    			"id","level","longNumber","headNumber","规划合同名称","合约类型","规划金额","预留变更率","采购控制金额","设计部","设计部","设计部","设计部","成本管理部/组",
+	    			"成本管理部/组","成本管理部/组","成本管理部/组","工程部","工程部","工程部","工程部","工程部","工程部","工程部","工程部","材料管理公司","材料管理公司","材料管理公司","材料管理公司"
 	    		},{
-	    			"id","level","longNumber","headNumber","规划合同名称","合约类型","规划金额","预留变更率","采购控制金额","施工图交接时间","实际施工图交接时间","是否逾期",
-	    			"合同签订时间","实际合同签订时间","是否逾期","开工时间","实际开工时间","是否逾期","竣工时间","实际竣工时间","是否逾期","合同签订完成时间","实际合同签订完成时间","是否逾期"
+	    			"id","level","longNumber","headNumber","规划合同名称","合约类型","规划金额","预留变更率","采购控制金额","施工图交接时间","实际施工图交接时间","是否逾期","计划施工图交接时间","合同签订时间","实际合同签订时间",
+	    			"是否逾期","计划合同签订时间","开工时间","实际开工时间","是否逾期","计划开工时间","竣工时间","实际竣工时间","是否逾期","计划竣工时间","合同签订完成时间","实际合同签订完成时间","是否逾期","计划合同签订完成时间"
 	    		}
 	    },true);
 	    params.setObject("header", header);

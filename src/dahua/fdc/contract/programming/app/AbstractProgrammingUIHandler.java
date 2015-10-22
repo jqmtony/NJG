@@ -39,4 +39,9 @@ public abstract class AbstractProgrammingUIHandler extends com.kingdee.eas.fdc.b
 	}
 	protected void _handleActionHistoryVersion(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleActioinImportProject(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActioinImportProject(request,response,context);
+	}
+	protected void _handleActioinImportProject(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

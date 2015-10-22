@@ -56,8 +56,11 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer labelState;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer labelDisplayVersion;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer6;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer7;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer8;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer11;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer12;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer13;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer14;
     protected com.kingdee.bos.ctrl.swing.KDContainer conProgramming;
     protected com.kingdee.bos.ctrl.swing.KDContainer pnlCostAccount;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntries;
@@ -67,8 +70,11 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
     protected com.kingdee.bos.ctrl.swing.KDTextField txtState;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtDisplayVersion;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtYjDays;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtYjPerson;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtCostVersionInfo;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtYjDesign;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtYjCost;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtYjProject;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtYjMaterial;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
@@ -94,6 +100,7 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnModify;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnRefresh;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnImport;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnImportProject;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnExport;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewHistoryList;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemRefresh;
@@ -106,6 +113,7 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
     protected ActionRefresh actionRefresh = null;
     protected ActionModify actionModify = null;
     protected ActionHistoryVersion actionHistoryVersion = null;
+    protected ActioinImportProject actioinImportProject = null;
     /**
      * output class constructor
      */
@@ -163,6 +171,10 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.actionHistoryVersion = new ActionHistoryVersion(this);
         getActionManager().registerAction("actionHistoryVersion", actionHistoryVersion);
          this.actionHistoryVersion.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actioinImportProject
+        this.actioinImportProject = new ActioinImportProject(this);
+        getActionManager().registerAction("actioinImportProject", actioinImportProject);
+         this.actioinImportProject.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.kDSplitPane1 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
         this.pnlHide = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.treeMainView = new com.kingdee.bos.ctrl.swing.KDTreeView();
@@ -173,8 +185,11 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.labelState = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.labelDisplayVersion = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer6 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kDLabelContainer7 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer8 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer11 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer12 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer13 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer14 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conProgramming = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.pnlCostAccount = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kdtEntries = new com.kingdee.bos.ctrl.kdf.table.KDTable();
@@ -184,8 +199,11 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.txtState = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtDisplayVersion = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtYjDays = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
-        this.prmtYjPerson = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtCostVersionInfo = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.prmtYjDesign = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtYjCost = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtYjProject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtYjMaterial = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -211,6 +229,7 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.btnModify = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnRefresh = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnImport = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnImportProject = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnExport = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnViewHistoryList = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.menuItemRefresh = new com.kingdee.bos.ctrl.swing.KDMenuItem();
@@ -227,8 +246,11 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.labelState.setName("labelState");
         this.labelDisplayVersion.setName("labelDisplayVersion");
         this.kDLabelContainer6.setName("kDLabelContainer6");
-        this.kDLabelContainer7.setName("kDLabelContainer7");
         this.kDLabelContainer8.setName("kDLabelContainer8");
+        this.kDLabelContainer11.setName("kDLabelContainer11");
+        this.kDLabelContainer12.setName("kDLabelContainer12");
+        this.kDLabelContainer13.setName("kDLabelContainer13");
+        this.kDLabelContainer14.setName("kDLabelContainer14");
         this.conProgramming.setName("conProgramming");
         this.pnlCostAccount.setName("pnlCostAccount");
         this.kdtEntries.setName("kdtEntries");
@@ -238,8 +260,11 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.txtState.setName("txtState");
         this.txtDisplayVersion.setName("txtDisplayVersion");
         this.txtYjDays.setName("txtYjDays");
-        this.prmtYjPerson.setName("prmtYjPerson");
         this.txtCostVersionInfo.setName("txtCostVersionInfo");
+        this.prmtYjDesign.setName("prmtYjDesign");
+        this.prmtYjCost.setName("prmtYjCost");
+        this.prmtYjProject.setName("prmtYjProject");
+        this.prmtYjMaterial.setName("prmtYjMaterial");
         this.kDLabelContainer2.setName("kDLabelContainer2");
         this.contNumber.setName("contNumber");
         this.kDLabelContainer1.setName("kDLabelContainer1");
@@ -265,6 +290,7 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.btnModify.setName("btnModify");
         this.btnRefresh.setName("btnRefresh");
         this.btnImport.setName("btnImport");
+        this.btnImportProject.setName("btnImportProject");
         this.btnExport.setName("btnExport");
         this.btnViewHistoryList.setName("btnViewHistoryList");
         this.menuItemRefresh.setName("menuItemRefresh");
@@ -377,14 +403,26 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.kDLabelContainer6.setBoundLabelText(resHelper.getString("kDLabelContainer6.boundLabelText"));		
         this.kDLabelContainer6.setBoundLabelLength(100);		
         this.kDLabelContainer6.setBoundLabelUnderline(true);
-        // kDLabelContainer7		
-        this.kDLabelContainer7.setBoundLabelText(resHelper.getString("kDLabelContainer7.boundLabelText"));		
-        this.kDLabelContainer7.setBoundLabelLength(100);		
-        this.kDLabelContainer7.setBoundLabelUnderline(true);
         // kDLabelContainer8		
         this.kDLabelContainer8.setBoundLabelText(resHelper.getString("kDLabelContainer8.boundLabelText"));		
         this.kDLabelContainer8.setBoundLabelLength(100);		
         this.kDLabelContainer8.setBoundLabelUnderline(true);
+        // kDLabelContainer11		
+        this.kDLabelContainer11.setBoundLabelText(resHelper.getString("kDLabelContainer11.boundLabelText"));		
+        this.kDLabelContainer11.setBoundLabelLength(100);		
+        this.kDLabelContainer11.setBoundLabelUnderline(true);
+        // kDLabelContainer12		
+        this.kDLabelContainer12.setBoundLabelText(resHelper.getString("kDLabelContainer12.boundLabelText"));		
+        this.kDLabelContainer12.setBoundLabelLength(100);		
+        this.kDLabelContainer12.setBoundLabelUnderline(true);
+        // kDLabelContainer13		
+        this.kDLabelContainer13.setBoundLabelText(resHelper.getString("kDLabelContainer13.boundLabelText"));		
+        this.kDLabelContainer13.setBoundLabelLength(100);		
+        this.kDLabelContainer13.setBoundLabelUnderline(true);
+        // kDLabelContainer14		
+        this.kDLabelContainer14.setBoundLabelText(resHelper.getString("kDLabelContainer14.boundLabelText"));		
+        this.kDLabelContainer14.setBoundLabelLength(100);		
+        this.kDLabelContainer14.setBoundLabelUnderline(true);
         // conProgramming		
         this.conProgramming.setTitle(resHelper.getString("conProgramming.title"));
         // pnlCostAccount		
@@ -466,13 +504,28 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         // txtDisplayVersion		
         this.txtDisplayVersion.setEnabled(false);
         // txtYjDays
-        // prmtYjPerson		
-        this.prmtYjPerson.setDisplayFormat("$name$");		
-        this.prmtYjPerson.setEditFormat("$number$");		
-        this.prmtYjPerson.setCommitFormat("$number$");		
-        this.prmtYjPerson.setQueryInfo("com.kingdee.eas.cp.base.app.PersonF7Query");
         // txtCostVersionInfo		
         this.txtCostVersionInfo.setEnabled(false);
+        // prmtYjDesign		
+        this.prmtYjDesign.setDisplayFormat("$name$");		
+        this.prmtYjDesign.setEditFormat("$number$");		
+        this.prmtYjDesign.setCommitFormat("$number$");		
+        this.prmtYjDesign.setQueryInfo("com.kingdee.eas.basedata.org.app.PositionQuery");
+        // prmtYjCost		
+        this.prmtYjCost.setCommitFormat("$number$");		
+        this.prmtYjCost.setEditFormat("$number$");		
+        this.prmtYjCost.setDisplayFormat("$name$");		
+        this.prmtYjCost.setQueryInfo("com.kingdee.eas.basedata.org.app.PositionQuery");
+        // prmtYjProject		
+        this.prmtYjProject.setQueryInfo("com.kingdee.eas.basedata.org.app.PositionQuery");		
+        this.prmtYjProject.setCommitFormat("$number$");		
+        this.prmtYjProject.setDisplayFormat("$name$");		
+        this.prmtYjProject.setEditFormat("$number$");
+        // prmtYjMaterial		
+        this.prmtYjMaterial.setDisplayFormat("$name$");		
+        this.prmtYjMaterial.setEditFormat("$number$");		
+        this.prmtYjMaterial.setQueryInfo("com.kingdee.eas.basedata.org.app.PositionQuery");		
+        this.prmtYjMaterial.setCommitFormat("$number$");
         // kDLabelContainer2		
         this.kDLabelContainer2.setBoundLabelText(resHelper.getString("kDLabelContainer2.boundLabelText"));		
         this.kDLabelContainer2.setEnabled(false);		
@@ -580,6 +633,10 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         this.btnImport.setAction((IItemAction)ActionProxyFactory.getProxy(actionImport, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnImport.setText(resHelper.getString("btnImport.text"));		
         this.btnImport.setToolTipText(resHelper.getString("btnImport.toolTipText"));
+        // btnImportProject
+        this.btnImportProject.setAction((IItemAction)ActionProxyFactory.getProxy(actioinImportProject, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnImportProject.setText(resHelper.getString("btnImportProject.text"));		
+        this.btnImportProject.setToolTipText(resHelper.getString("btnImportProject.toolTipText"));
         // btnExport
         this.btnExport.setAction((IItemAction)ActionProxyFactory.getProxy(actionExportPro, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnExport.setText(resHelper.getString("btnExport.text"));		
@@ -640,20 +697,26 @@ public abstract class AbstractProgrammingUI extends com.kingdee.eas.fdc.basedata
         treeMainView.setTree(treeMain);
         //kDPanel1
         kDPanel1.setLayout(new KDLayout());
-        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 742, 618));        kDTabbedPane1.setBounds(new Rectangle(4, 54, 735, 561));
-        kDPanel1.add(kDTabbedPane1, new KDLayout.Constraints(4, 54, 735, 561, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contProject.setBounds(new Rectangle(6, 7, 220, 19));
-        kDPanel1.add(contProject, new KDLayout.Constraints(6, 7, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        labelState.setBounds(new Rectangle(518, 7, 220, 19));
-        kDPanel1.add(labelState, new KDLayout.Constraints(518, 7, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        labelDisplayVersion.setBounds(new Rectangle(262, 8, 220, 19));
-        kDPanel1.add(labelDisplayVersion, new KDLayout.Constraints(262, 8, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer6.setBounds(new Rectangle(262, 30, 220, 19));
-        kDPanel1.add(kDLabelContainer6, new KDLayout.Constraints(262, 30, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer7.setBounds(new Rectangle(518, 29, 220, 19));
-        kDPanel1.add(kDLabelContainer7, new KDLayout.Constraints(518, 29, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDLabelContainer8.setBounds(new Rectangle(6, 30, 220, 19));
-        kDPanel1.add(kDLabelContainer8, new KDLayout.Constraints(6, 30, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 742, 618));        kDTabbedPane1.setBounds(new Rectangle(4, 70, 735, 545));
+        kDPanel1.add(kDTabbedPane1, new KDLayout.Constraints(4, 70, 735, 545, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contProject.setBounds(new Rectangle(6, 2, 220, 19));
+        kDPanel1.add(contProject, new KDLayout.Constraints(6, 2, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        labelState.setBounds(new Rectangle(518, 2, 220, 19));
+        kDPanel1.add(labelState, new KDLayout.Constraints(518, 2, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        labelDisplayVersion.setBounds(new Rectangle(262, 3, 220, 19));
+        kDPanel1.add(labelDisplayVersion, new KDLayout.Constraints(262, 3, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer6.setBounds(new Rectangle(262, 25, 220, 19));
+        kDPanel1.add(kDLabelContainer6, new KDLayout.Constraints(262, 25, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer8.setBounds(new Rectangle(6, 25, 220, 19));
+        kDPanel1.add(kDLabelContainer8, new KDLayout.Constraints(6, 25, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer11.setBounds(new Rectangle(518, 24, 220, 19));
+        kDPanel1.add(kDLabelContainer11, new KDLayout.Constraints(518, 24, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDLabelContainer12.setBounds(new Rectangle(6, 47, 220, 19));
+        kDPanel1.add(kDLabelContainer12, new KDLayout.Constraints(6, 47, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer13.setBounds(new Rectangle(262, 47, 220, 19));
+        kDPanel1.add(kDLabelContainer13, new KDLayout.Constraints(262, 47, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer14.setBounds(new Rectangle(518, 47, 220, 19));
+        kDPanel1.add(kDLabelContainer14, new KDLayout.Constraints(518, 47, 220, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //kDTabbedPane1
         kDTabbedPane1.add(conProgramming, resHelper.getString("conProgramming.constraints"));
         kDTabbedPane1.add(pnlCostAccount, resHelper.getString("pnlCostAccount.constraints"));
@@ -670,10 +733,16 @@ pnlCostAccount.getContentPane().setLayout(new BorderLayout(0, 0));        pnlCos
         labelDisplayVersion.setBoundEditor(txtDisplayVersion);
         //kDLabelContainer6
         kDLabelContainer6.setBoundEditor(txtYjDays);
-        //kDLabelContainer7
-        kDLabelContainer7.setBoundEditor(prmtYjPerson);
         //kDLabelContainer8
         kDLabelContainer8.setBoundEditor(txtCostVersionInfo);
+        //kDLabelContainer11
+        kDLabelContainer11.setBoundEditor(prmtYjDesign);
+        //kDLabelContainer12
+        kDLabelContainer12.setBoundEditor(prmtYjCost);
+        //kDLabelContainer13
+        kDLabelContainer13.setBoundEditor(prmtYjProject);
+        //kDLabelContainer14
+        kDLabelContainer14.setBoundEditor(prmtYjMaterial);
         //pnlHide
         pnlHide.setLayout(null);        kDLabelContainer2.setBounds(new Rectangle(14, 7, 270, 19));
         pnlHide.add(kDLabelContainer2, null);
@@ -860,6 +929,7 @@ pnlCostAccount.getContentPane().setLayout(new BorderLayout(0, 0));        pnlCos
         this.toolBar.add(btnPrint);
         this.toolBar.add(btnPrintPreview);
         this.toolBar.add(btnImport);
+        this.toolBar.add(btnImportProject);
         this.toolBar.add(btnExport);
         this.toolBar.add(separatorFW2);
         this.toolBar.add(btnFirst);
@@ -949,7 +1019,10 @@ pnlCostAccount.getContentPane().setLayout(new BorderLayout(0, 0));        pnlCos
 		dataBinder.registerBinding("project.name", String.class, this.txtProjectName, "text");
 		dataBinder.registerBinding("state", com.kingdee.eas.fdc.basedata.FDCBillStateEnum.class, this.txtState, "text");
 		dataBinder.registerBinding("yjDays", int.class, this.txtYjDays, "value");
-		dataBinder.registerBinding("yjPerson", com.kingdee.eas.basedata.person.PersonInfo.class, this.prmtYjPerson, "data");
+		dataBinder.registerBinding("yjDesign", com.kingdee.eas.basedata.org.PositionInfo.class, this.prmtYjDesign, "data");
+		dataBinder.registerBinding("yjCost", com.kingdee.eas.basedata.org.PositionInfo.class, this.prmtYjCost, "data");
+		dataBinder.registerBinding("yjProject", com.kingdee.eas.basedata.org.PositionInfo.class, this.prmtYjProject, "data");
+		dataBinder.registerBinding("yjMaterial", com.kingdee.eas.basedata.org.PositionInfo.class, this.prmtYjMaterial, "data");
 		dataBinder.registerBinding("lastUpdateTime", java.sql.Timestamp.class, this.kDDatePicker2, "value");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.kDDatePicker1, "value");
@@ -1061,7 +1134,10 @@ pnlCostAccount.getContentPane().setLayout(new BorderLayout(0, 0));        pnlCos
 		getValidateHelper().registerBindProperty("project.name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("state", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("yjDays", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("yjPerson", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("yjDesign", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("yjCost", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("yjProject", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("yjMaterial", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
@@ -1243,12 +1319,39 @@ pnlCostAccount.getContentPane().setLayout(new BorderLayout(0, 0));        pnlCos
         sic.add(new SelectorItemInfo("yjDays"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
-			sic.add(new SelectorItemInfo("yjPerson.*"));
+			sic.add(new SelectorItemInfo("yjDesign.*"));
 		}
 		else{
-        	sic.add(new SelectorItemInfo("yjPerson.id"));
-        	sic.add(new SelectorItemInfo("yjPerson.number"));
-        	sic.add(new SelectorItemInfo("yjPerson.name"));
+        	sic.add(new SelectorItemInfo("yjDesign.id"));
+        	sic.add(new SelectorItemInfo("yjDesign.number"));
+        	sic.add(new SelectorItemInfo("yjDesign.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("yjCost.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("yjCost.id"));
+        	sic.add(new SelectorItemInfo("yjCost.number"));
+        	sic.add(new SelectorItemInfo("yjCost.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("yjProject.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("yjProject.id"));
+        	sic.add(new SelectorItemInfo("yjProject.number"));
+        	sic.add(new SelectorItemInfo("yjProject.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("yjMaterial.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("yjMaterial.id"));
+        	sic.add(new SelectorItemInfo("yjMaterial.number"));
+        	sic.add(new SelectorItemInfo("yjMaterial.name"));
 		}
         sic.add(new SelectorItemInfo("lastUpdateTime"));
         sic.add(new SelectorItemInfo("number"));
@@ -1317,6 +1420,14 @@ pnlCostAccount.getContentPane().setLayout(new BorderLayout(0, 0));        pnlCos
     public void actionHistoryVersion_actionPerformed(ActionEvent e) throws Exception
     {
     }
+    	
+
+    /**
+     * output actioinImportProject_actionPerformed method
+     */
+    public void actioinImportProject_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1381,6 +1492,17 @@ pnlCostAccount.getContentPane().setLayout(new BorderLayout(0, 0));        pnlCos
     }
 	
 	public boolean isPrepareActionHistoryVersion() {
+    	return false;
+    }
+	public RequestContext prepareActioinImportProject(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActioinImportProject() {
     	return false;
     }
 
@@ -1533,6 +1655,36 @@ pnlCostAccount.getContentPane().setLayout(new BorderLayout(0, 0));        pnlCos
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractProgrammingUI.this, "ActionHistoryVersion", "actionHistoryVersion_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActioinImportProject class
+     */     
+    protected class ActioinImportProject extends ItemAction {     
+    
+        public ActioinImportProject()
+        {
+            this(null);
+        }
+
+        public ActioinImportProject(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActioinImportProject.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActioinImportProject.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActioinImportProject.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractProgrammingUI.this, "ActioinImportProject", "actioinImportProject_actionPerformed", e);
         }
     }
 
