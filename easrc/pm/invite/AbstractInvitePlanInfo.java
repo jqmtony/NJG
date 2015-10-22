@@ -171,6 +171,30 @@ public class AbstractInvitePlanInfo extends com.kingdee.eas.xr.XRBillBaseInfo im
     {
         setDate("scalingTime", item);
     }
+    /**
+     * Object:招标计划's 评标办法property 
+     */
+    public com.kingdee.eas.port.pm.invite.judgeSolution getEvaMethod()
+    {
+        return com.kingdee.eas.port.pm.invite.judgeSolution.getEnum(getString("evaMethod"));
+    }
+    public void setEvaMethod(com.kingdee.eas.port.pm.invite.judgeSolution item)
+    {
+		if (item != null) {
+        setString("evaMethod", item.getValue());
+		}
+    }
+    /**
+     * Object:招标计划's 标段金额property 
+     */
+    public java.math.BigDecimal getBidAmount()
+    {
+        return getBigDecimal("bidAmount");
+    }
+    public void setBidAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("bidAmount", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("61F9E3DB");
