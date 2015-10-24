@@ -93,7 +93,13 @@ public class ConChangeSplitControllerBean extends AbstractConChangeSplitControll
 		//return super._save(ctx, model);
     	ConChangeSplitInfo info = (ConChangeSplitInfo)model;
     	info.setIslastVerThisPeriod(true);
+    	
+    	if(info.getId()!=null){
+    		ContractCostSplitControllerBean.synUpdateBillByRelation(ctx, info.getId(), false);
+		}
     	IObjectPK pk=super._save(ctx, info);
+    	ContractCostSplitControllerBean.synUpdateBillByRelation(ctx, info.getId(), true);
+    	
     	ConChangeSplitInfo splitBillInfo=null;
 		SelectorItemCollection selectorGet = new SelectorItemCollection();
 		selectorGet.add("id");
@@ -201,6 +207,10 @@ public class ConChangeSplitControllerBean extends AbstractConChangeSplitControll
 		builder.addParam(CostSplitStateEnum.NOSPLIT_VALUE);
 		builder.appendParam("fid", idSet.toArray());
 		builder.execute();
+		
+		for(int i=0;i<arrayPK.length;i++){
+			ContractCostSplitControllerBean.synUpdateBillByRelation(ctx, BOSUuid.read(arrayPK[i].toString()), false);
+		}
 		super._delete(ctx, arrayPK);
 	}
     

@@ -3965,10 +3965,11 @@ public abstract class FDCSplitBillEditUI extends AbstractFDCSplitBillEditUI
 				ProgrammingContractInfo value2 = (ProgrammingContractInfo)row.getCell("programming").getValue();
 				if(UIRuleUtil.isNull(value2)){
 					row.getCell("programming").setValue(info);
-				}else{
-					if(!idset.contains(value2.getId().toString()))
-						row.getCell("programming").setValue(null);
 				}
+//				else{
+//					if(!idset.contains(value2.getId().toString()))
+//						row.getCell("programming").setValue(null);
+//				}
 			}
 			
 			EntityViewInfo view = new EntityViewInfo();

@@ -127,6 +127,7 @@ public class SettlementCostSplitEditUI extends
         params.put(FDCConstants.FDC_PARAM_IMPORTCONSPLIT, comPK);
         params = ParamControlFactory.getRemoteInstance().getParamHashMap((HashMap)params);
         
+        this.kdtEntrys.getColumn("programming").getStyleAttributes().setHided(true);
 	}
 	
 	/**

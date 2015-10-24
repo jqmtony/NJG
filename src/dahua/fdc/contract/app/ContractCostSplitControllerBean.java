@@ -39,6 +39,11 @@ import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.FDCSplitBillEntryCollection;
 import com.kingdee.eas.fdc.basedata.FDCSplitBillEntryInfo;
 import com.kingdee.eas.fdc.basedata.util.FdcObjectCollectionUtil;
+import com.kingdee.eas.fdc.contract.ConChangeSplitEntryCollection;
+import com.kingdee.eas.fdc.contract.ConChangeSplitEntryFactory;
+import com.kingdee.eas.fdc.contract.ConChangeSplitEntryInfo;
+import com.kingdee.eas.fdc.contract.ConChangeSplitFactory;
+import com.kingdee.eas.fdc.contract.ConChangeSplitInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractCostSplitCollection;
@@ -49,6 +54,10 @@ import com.kingdee.eas.fdc.contract.ContractCostSplitFactory;
 import com.kingdee.eas.fdc.contract.ContractCostSplitInfo;
 import com.kingdee.eas.fdc.contract.ContractException;
 import com.kingdee.eas.fdc.contract.FDCUtils;
+import com.kingdee.eas.fdc.contract.basedata.IProgrammingTemp;
+import com.kingdee.eas.fdc.contract.basedata.ProgrammingTempCollection;
+import com.kingdee.eas.fdc.contract.basedata.ProgrammingTempFactory;
+import com.kingdee.eas.fdc.contract.basedata.ProgrammingTempInfo;
 import com.kingdee.eas.fdc.contract.programming.IProgrammingContract;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
@@ -235,7 +244,7 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 		//基类已实现调用 _delete(Context ctx, IObjectPK[] arrayPK)
 		ContractCostSplitInviteHelper.setInvitePreSplitState(ctx, pk, false);
 		ContractCostSplitInfo info = getContractCostSplitInfo(ctx, pk);
-		synUpdateBillByRelation(ctx, info.getId(), true);
+		synUpdateBillByRelation(ctx, info.getId(), false);
 		super._delete(ctx, pk);
 	}
 
@@ -280,6 +289,9 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 		builder.appendParam("fid",set.toArray());
 		builder.execute();
 		
+		for(int i=0;i<arrayPK.length;i++){
+			synUpdateBillByRelation(ctx, BOSUuid.read(arrayPK[i].toString()), false);
+		}
 		super._delete(ctx, arrayPK);
 	}
 
@@ -548,7 +560,7 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 	 * 
 	 * @param ctx
 	 * @param billId
-	 * @param flag 为真 则扣减余额
+	 * @param flag 为真 则扣减余额,为false 则返还金额
 	 * @throws EASBizException 
 	 * @throws EASBizException
 	 * @throws BOSException 
@@ -556,31 +568,55 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 	 * @throws SQLException
 	 * @throws SQLException
 	 */
-	private void synUpdateBillByRelation(Context ctx, BOSUuid billId, boolean flag) throws EASBizException, BOSException{
+	public static void synUpdateBillByRelation(Context ctx, BOSUuid billId, boolean flag) throws EASBizException, BOSException{
 		SelectorItemCollection sic = new SelectorItemCollection();
 		sic.add("contractBill.curProject.isWholeAgeStage"); 
 		sic.add("contractBill.programmingContract.id"); 
-		ContractCostSplitInfo conCostSplitInfo = ContractCostSplitFactory.getLocalInstance(ctx).getContractCostSplitInfo(new ObjectUuidPK(billId),sic);
-		if(!conCostSplitInfo.getContractBill().getCurProject().isIsWholeAgeStage()||conCostSplitInfo.getContractBill().getProgrammingContract()!=null)
-			return;
 		
-		String oql = "select programmings.id,amount where parent.id='"+billId+"'";
-		IProgrammingContract service = ProgrammingContractFactory.getLocalInstance(ctx);
-		
-		ContractCostSplitEntryCollection coll = ContractCostSplitEntryFactory.getLocalInstance(ctx).getContractCostSplitEntryCollection(oql);
 		Map<String, BigDecimal> VALUEMAP = new HashMap<String, BigDecimal>();
-		for (int i = 0; i < coll.size(); i++) {
-			ContractCostSplitEntryInfo entryInfo = coll.get(i);
+		IProgrammingContract service = ProgrammingContractFactory.getLocalInstance(ctx);
+		IProgrammingTemp Itemp = ProgrammingTempFactory.getLocalInstance(ctx);
+		String oql = "select programmings.id,amount where parent.id='"+billId+"'";
+		
+		if(billId.getType().equals(new ContractCostSplitInfo().getBOSType())){
+			ContractCostSplitInfo conCostSplitInfo = ContractCostSplitFactory.getLocalInstance(ctx).getContractCostSplitInfo(new ObjectUuidPK(billId),sic);
+			if(!conCostSplitInfo.getContractBill().getCurProject().isIsWholeAgeStage()||conCostSplitInfo.getContractBill().getProgrammingContract()!=null)
+				return;
 			
-			if(entryInfo.getProgrammings()==null)
-				continue;
-			entryInfo.getProgrammings();
-			
-			String progId = entryInfo.getProgrammings().getId().toString();
-			if(VALUEMAP.get(progId)==null)
-				VALUEMAP.put(progId,UIRuleUtil.getBigDecimal(entryInfo.getAmount()));
-			else
-				VALUEMAP.put(progId,FDCHelper.add(VALUEMAP.get(progId), entryInfo.getAmount()));
+			ContractCostSplitEntryCollection coll = ContractCostSplitEntryFactory.getLocalInstance(ctx).getContractCostSplitEntryCollection(oql);
+			for (int i = 0; i < coll.size(); i++) {
+				ContractCostSplitEntryInfo entryInfo = coll.get(i);
+				
+				if(entryInfo.getProgrammings()==null)
+					continue;
+				entryInfo.getProgrammings();
+				
+				String progId = entryInfo.getProgrammings().getId().toString();
+				if(VALUEMAP.get(progId)==null)
+					VALUEMAP.put(progId,UIRuleUtil.getBigDecimal(entryInfo.getAmount()));
+				else
+					VALUEMAP.put(progId,FDCHelper.add(VALUEMAP.get(progId), entryInfo.getAmount()));
+			}
+		}else if(billId.getType().equals(new ConChangeSplitInfo().getBOSType())){
+			ConChangeSplitInfo conCostSplitInfo = ConChangeSplitFactory.getLocalInstance(ctx).getConChangeSplitInfo(new ObjectUuidPK(billId),sic);
+			if(!conCostSplitInfo.getContractBill().getCurProject().isIsWholeAgeStage()||conCostSplitInfo.getContractBill().getProgrammingContract()!=null)
+				return;
+			ConChangeSplitEntryCollection coll = ConChangeSplitEntryFactory.getLocalInstance(ctx).getConChangeSplitEntryCollection(oql);
+			for (int i = 0; i < coll.size(); i++) {
+				ConChangeSplitEntryInfo entryInfo = coll.get(i);
+				
+				if(entryInfo.getProgrammings()==null)
+					continue;
+				entryInfo.getProgrammings();
+				
+				String progId = entryInfo.getProgrammings().getId().toString();
+				if(VALUEMAP.get(progId)==null)
+					VALUEMAP.put(progId,UIRuleUtil.getBigDecimal(entryInfo.getAmount()));
+				else
+					VALUEMAP.put(progId,FDCHelper.add(VALUEMAP.get(progId), entryInfo.getAmount()));
+			}
+		}else{
+			return;
 		}
 		
 		Iterator<Entry<String, BigDecimal>> iterator = VALUEMAP.entrySet().iterator();
@@ -596,8 +632,8 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 			ProgrammingContractInfo progInfo = service.getProgrammingContractInfo(new ObjectUuidPK(key),sict);
 			BigDecimal banlance = UIRuleUtil.getBigDecimal(progInfo.getBalance());
 			
-			if(banlance.compareTo(value)==-1){
-				throw new EASBizException(new NumericExceptionSubItem("1","["+progInfo.getName()+"] 余额不足。\n余额："+banlance+"\n本次累计拆分："+value));
+			if(flag&&banlance.compareTo(value)==-1){
+//				throw new EASBizException(new NumericExceptionSubItem("100","["+progInfo.getName()+"] 余额不足。\n余额："+banlance+"\n本次累计拆分："+value));
 			}
 		}
 		SelectorItemCollection sict = new SelectorItemCollection();
@@ -610,70 +646,110 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 		
 		
 		iterator = VALUEMAP.entrySet().iterator();
-//		while(iterator.hasNext()){
-//			Entry<String, BigDecimal> entity = iterator.next();
-//			
-//			String key = entity.getKey();
-//			BigDecimal value = entity.getValue();
-//			
-//			ProgrammingContractInfo pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(key),sict);
-//			
-//			// 规划余额
-//			BigDecimal balanceAmt = pcInfo.getBalance();
-//			// 控制余额
-//			BigDecimal controlBalanceAmt = pcInfo.getControlBalance();
-//			// 合同签约金额
-//			BigDecimal signAmount = value;
-//			// 框架合约签约金额
-//			BigDecimal signUpAmount = pcInfo.getSignUpAmount();
-//			// 差额
-//			BigDecimal otherSignUpAmount = FDCHelper.ZERO;
-//			if (flag) {
-//				pcInfo.setBalance(FDCHelper.subtract(balanceAmt, signAmount));
-//				pcInfo.setControlBalance(FDCHelper.subtract(controlBalanceAmt, signAmount));
-//				pcInfo.setSignUpAmount(FDCHelper.add(signUpAmount, signAmount));
-//				otherSignUpAmount = FDCHelper.subtract(FDCHelper.add(signUpAmount, signAmount), signUpAmount);
-//			} else {
-//				pcInfo.setBalance(FDCHelper.add(balanceAmt, signAmount));
-//				pcInfo.setControlBalance(FDCHelper.add(controlBalanceAmt, signAmount));
-//				pcInfo.setSignUpAmount(FDCHelper.subtract(signUpAmount, signAmount));
-//				otherSignUpAmount = FDCHelper.subtract(FDCHelper.subtract(signUpAmount, signAmount), signUpAmount);
-//			}
-//			service.updatePartial(pcInfo, sict);
-//			// 更新其他的合约规划版本金额
-//			String progId = pcInfo.getId().toString();
-//			while (progId != null) {
-//				String nextVersionProgId = getNextVersionProg(ctx, progId);
-//				if (nextVersionProgId != null) {
-//					pcInfo = ProgrammingContractFactory.getLocalInstance(ctx).getProgrammingContractInfo(new ObjectUuidPK(nextVersionProgId), sict);
-//					pcInfo.setBalance(FDCHelper.subtract(pcInfo.getBalance(), otherSignUpAmount));
-//					pcInfo.setControlBalance(FDCHelper.subtract(pcInfo.getControlBalance(), otherSignUpAmount));
-//					pcInfo.setSignUpAmount(FDCHelper.add(pcInfo.getSignUpAmount(), otherSignUpAmount));
-//					service.updatePartial(pcInfo, sict);
-//					progId = pcInfo.getId().toString();
-//				} else {
-//					progId = null;
-//				}
-//			}
-//		}
+		while(iterator.hasNext()){
+			Entry<String, BigDecimal> entity = iterator.next();
+			
+			String key = entity.getKey();
+			BigDecimal value = entity.getValue();
+			
+			ProgrammingContractInfo pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(key),sict);
+			
+			// 规划余额
+			BigDecimal balanceAmt = pcInfo.getBalance();
+			// 框架合约签约金额
+			BigDecimal signUpAmount = pcInfo.getSignUpAmount();
+			BigDecimal otherSignUpAmount = FDCHelper.ZERO;
+			if (flag) {
+				pcInfo.setBalance(FDCHelper.subtract(balanceAmt, value));
+				otherSignUpAmount = FDCHelper.subtract(FDCHelper.add(signUpAmount, value), signUpAmount);
+				
+				ProgrammingTempInfo tempInfo = new ProgrammingTempInfo();
+				tempInfo.setSubAmount(value);
+				tempInfo.setProgrammingId(key);
+				tempInfo.setNumber(billId.toString());
+				
+				Itemp.addnew(tempInfo);
+				
+			} else {
+				String deleteOql = "select subAmount where number='"+billId+"' and programmingId='"+key+"'";
+				ProgrammingTempCollection programmingColl = Itemp.getProgrammingTempCollection(deleteOql);
+				
+				if(programmingColl.size()>0){
+					ProgrammingTempInfo tempInfo = programmingColl.get(0);
+					
+					BigDecimal amount = UIRuleUtil.getBigDecimal(tempInfo.getSubAmount());
+					
+					pcInfo.setBalance(FDCHelper.add(balanceAmt, amount));
+					otherSignUpAmount = FDCHelper.subtract(FDCHelper.subtract(signUpAmount, amount), signUpAmount);
+				}
+				Itemp.delete("where number='"+billId+"' and programmingId='"+key+"'");
+			}
+			service.updatePartial(pcInfo, sict);
+			
+			// 更新其他的合约规划版本金额
+			String progId = pcInfo.getId().toString();
+			
+			Set<String> idSet = new HashSet<String>();
+			getNewVersionAllProgId(ctx,idSet, progId);
+			Iterator<String> iterator2 = idSet.iterator();
+			while(iterator2.hasNext()){
+				String nextVersionProgId = iterator2.next();
+				pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(nextVersionProgId), sict);
+				pcInfo.setBalance(FDCHelper.subtract(pcInfo.getBalance(), otherSignUpAmount));
+				service.updatePartial(pcInfo, sict);
+			}
+		}
 	}
+	
+	
+	public static FDCSQLBuilder builder = null;
 
-	private String getNextVersionProg(Context ctx, String nextProgId){
+	public static void getNewVersionAllProgId(Context ctx,Set<String> idSet,String progId){
+		if(builder==null)
+			builder = new FDCSQLBuilder(ctx);
+		builder.clear();
 		String tempId = null;
 		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
 		builder.appendSql(" select fid from t_con_programmingContract where  ");
-		builder.appendParam("FSrcId", nextProgId);
+		builder.appendParam("FSrcId", progId);
 		try {
 			IRowSet rowSet = builder.executeQuery();
 			while (rowSet.next()) {
 				tempId = rowSet.getString("fid");
+				if(UIRuleUtil.isNotNull(tempId))
+					idSet.add(tempId);
 			}
 		} catch (BOSException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return tempId;
+		if(tempId!=null)
+			getNewVersionAllProgId(ctx, idSet, tempId);
+	}
+	
+	public static void getAfterVersionAllProgId(Context ctx,Set<String> idSet,String progId){
+		if(builder==null)
+			builder = new FDCSQLBuilder(ctx);
+		builder.clear();
+		String tempId = null;
+		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
+		builder.appendSql(" select FSrcId from t_con_programmingContract where  ");
+		builder.appendParam("fid", progId);
+		try {
+			IRowSet rowSet = builder.executeQuery();
+			while (rowSet.next()) {
+				tempId = rowSet.getString("fid");
+				if(UIRuleUtil.isNotNull(tempId))
+					idSet.add(tempId);
+			}
+		} catch (BOSException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if(tempId!=null)
+			getAfterVersionAllProgId(ctx, idSet, progId);
 	}
     
 }
