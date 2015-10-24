@@ -197,7 +197,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -214,6 +214,34 @@
             <defaultValue />
             <sqlType>INT</sqlType>
             <length>1</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFStatus</name>
+            <alias>dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[CFStatus].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[CFStatus].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFAuditDate</name>
+            <alias>dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[CFAuditDate].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[CFAuditDate].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>DATETIME</sqlType>
+            <length>8</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -332,161 +360,216 @@
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="快照审批" />
-            <lang locale="zh_TW" value="多分錄基礎單據範本" />
+            <lang locale="zh_HK" value="快照審批" />
+            <lang locale="zh_TW" value="快照審批" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[CFAuditDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批日期" />
+            <lang locale="zh_HK" value="審批日期" />
+            <lang locale="zh_TW" value="審批日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[CFAuditDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="日期" />
+            <lang locale="zh_HK" value="日期" />
+            <lang locale="zh_TW" value="日期" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[CFStatus].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[CFStatus].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FAuditorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FAuditorID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FBizDate].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
             <lang locale="zh_TW" value="業務日期" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FBizDate].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
             <lang locale="zh_TW" value="業務日期" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FControlUnitID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
+            <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FControlUnitID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
+            <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FCreateTime].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FCreateTime].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FCreatorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FCreatorID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FDescription].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="参考信息" />
+            <lang locale="zh_HK" value="參考信息" />
+            <lang locale="zh_TW" value="參考信息" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FDescription].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="参考信息" />
+            <lang locale="zh_HK" value="參考信息" />
+            <lang locale="zh_TW" value="參考信息" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FFivouchered].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="是否生成凭证" />
+            <lang locale="zh_HK" value="是否生成憑證" />
             <lang locale="zh_TW" value="是否生成憑證" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FFivouchered].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="是否生成凭证" />
+            <lang locale="zh_HK" value="是否生成憑證" />
             <lang locale="zh_TW" value="是否生成憑證" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FHandlerID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="经手人" />
+            <lang locale="zh_HK" value="經手人" />
+            <lang locale="zh_TW" value="經手人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FHandlerID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="经手人" />
+            <lang locale="zh_HK" value="經手人" />
+            <lang locale="zh_TW" value="經手人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FHasEffected].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="是否曾经生效" />
+            <lang locale="zh_HK" value="是否曾經生效" />
+            <lang locale="zh_TW" value="是否曾經生效" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FHasEffected].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="是否曾经生效" />
+            <lang locale="zh_HK" value="是否曾經生效" />
+            <lang locale="zh_TW" value="是否曾經生效" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FLastUpdateTime].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FLastUpdateTime].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FLastUpdateUserID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FLastUpdateUserID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FNumber].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FNumber].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FSourceBillID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="原始单据ID" />
+            <lang locale="zh_HK" value="原始單據ID" />
+            <lang locale="zh_TW" value="原始單據ID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FSourceBillID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="原始单据ID" />
+            <lang locale="zh_HK" value="原始單據ID" />
+            <lang locale="zh_TW" value="原始單據ID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FSourceFunction].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="来源功能" />
+            <lang locale="zh_HK" value="來源功能" />
+            <lang locale="zh_TW" value="來源功能" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].columns.column[FSourceFunction].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="来源功能" />
+            <lang locale="zh_HK" value="來源功能" />
+            <lang locale="zh_TW" value="來源功能" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.photomanager.app.CT_PHO_PhotoAudit].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="多分录基础单据模板" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="多分錄基礎單據範本" />
         </rs>
     </resource>

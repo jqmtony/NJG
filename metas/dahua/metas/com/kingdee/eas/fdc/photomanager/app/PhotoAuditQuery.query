@@ -926,6 +926,68 @@
                 <key name="name" value="PhotoAuditQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>status</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[status].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>35cc7fd9-7ce7-46e5-b965-55ff9e570ef1</key>
+                    <parentUnit>
+                        <key name="name" value="status" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PhotoAudit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="status" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.photomanager.app" />
+                <key name="name" value="PhotoAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>AuditDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[AuditDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>449e35d7-08d3-4138-ae16-54730f5f4198</key>
+                    <parentUnit>
+                        <key name="name" value="AuditDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PhotoAudit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="AuditDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.photomanager.app" />
+                <key name="name" value="PhotoAuditQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1127,7 +1189,8 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="快照审批" />
-            <lang locale="zh_TW" value="多分錄基礎單據查詢" />
+            <lang locale="zh_HK" value="快照審批" />
+            <lang locale="zh_TW" value="快照審批" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
             <lang locale="en_US" value="多分录基础单据模板" />
@@ -1137,6 +1200,7 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="多分录基础单据查询" />
+            <lang locale="zh_HK" value="多分錄基礎單據查詢" />
             <lang locale="zh_TW" value="多分錄基礎單據查詢" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].extendedProperty.F7WindowTitle">
@@ -1152,96 +1216,131 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].queryPK[QueryPK].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].queryPK[QueryPK].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].subObjects.subEntity[PhotoAudit].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].subObjects.subEntity[auditor].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].subObjects.subEntity[creator].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].subObjects.subEntity[entrys].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].subObjects.subEntity[handler].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].subObjects.subEntity[lastUpdateUser].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.propertyUnit[NewUnit0].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.propertyUnit[NewUnit1].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.propertyUnit[NewUnit2].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.propertyUnit[NewUnit3].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.propertyUnit[NewUnit4].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.propertyUnit[NewUnit5].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.propertyUnit[NewUnit6].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.propertyUnit[NewUnit7].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.propertyUnit[NewUnit8].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.propertyUnit[NewUnit9].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[AuditDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批日期" />
+            <lang locale="zh_HK" value="審批日期" />
+            <lang locale="zh_TW" value="審批日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[AuditDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[AuditDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[Fivouchered].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="是否生成凭证" />
+            <lang locale="zh_HK" value="是否生成憑證" />
             <lang locale="zh_TW" value="是否生成憑證" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[Fivouchered].extendedProperty.isCommonQueryFilter">
@@ -1257,16 +1356,19 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[auditor.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
             <lang locale="zh_TW" value="別名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[auditor.number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
             <lang locale="zh_TW" value="用戶名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[bizDate].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
             <lang locale="zh_TW" value="業務日期" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[bizDate].extendedProperty.isCommonQueryFilter">
@@ -1282,67 +1384,146 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[createTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
             <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[creator.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
             <lang locale="zh_TW" value="別名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[creator.number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
             <lang locale="zh_TW" value="用戶名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[description].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="参考信息" />
+            <lang locale="zh_HK" value="參考信息" />
             <lang locale="zh_TW" value="參考信息" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[description].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[description].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[entrys.id].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[entrys.seq].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
             <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[entrys.seq].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[entrys.seq].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[handler.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
             <lang locale="zh_TW" value="別名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[handler.number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
             <lang locale="zh_TW" value="用戶名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[id].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[lastUpdateTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
             <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[lastUpdateUser.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
             <lang locale="zh_TW" value="別名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[lastUpdateUser.number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
             <lang locale="zh_TW" value="用戶名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
             <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[status].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[status].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[status].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
     </resource>
 </joinQuery>

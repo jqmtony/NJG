@@ -43,26 +43,102 @@
                 <key name="name" value="PhotoAudit" />
             </entityObjectRef>
         </operation>
+        <operation>
+            <name>audit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[audit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[audit].description</description>
+            <reverseOperation />
+            <eventMethod>c43faff1-d59b-4d72-b356-f7139b1aeddc</eventMethod>
+            <event>auditEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>513b99a2-b88d-498b-84fc-cb81f230bb27uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.photomanager.client" />
+                    <key name="name" value="PhotoAuditEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionAudit</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.photomanager.app" />
+                <key name="name" value="PhotoAudit" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>unAudit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[unAudit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[unAudit].description</description>
+            <reverseOperation />
+            <eventMethod>237e5cea-4185-4bf4-8479-b31d3676efab</eventMethod>
+            <event>unAuditEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>c25bf3de-61d2-4cb8-aea0-6fc00fa183c2uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.photomanager.client" />
+                    <key name="name" value="PhotoAuditEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionUnAudit</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[unAudit].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[unAudit].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.photomanager.app" />
+                <key name="name" value="PhotoAudit" />
+            </entityObjectRef>
+        </operation>
     </operations>
     <resource>
         <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].alias">
             <lang locale="en_US" value="多分录基础单据编辑界面业务功能" />
             <lang locale="zh_CN" value="快照审批编辑功能" />
-            <lang locale="zh_TW" value="多分錄基礎單據編輯介面業務功能" />
+            <lang locale="zh_HK" value="快照審批編輯功能" />
+            <lang locale="zh_TW" value="快照審批編輯功能" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].description">
             <lang locale="en_US" value="多分录基础单据编辑界面业务功能" />
             <lang locale="zh_CN" value="多分录基础单据编辑界面业务功能" />
+            <lang locale="zh_HK" value="多分錄基礎單據編輯介面業務功能" />
             <lang locale="zh_TW" value="多分錄基礎單據編輯介面業務功能" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[ActionSubmit].alias">
             <lang locale="en_US" value="提交" />
             <lang locale="zh_CN" value="提交" />
+            <lang locale="zh_HK" value="提交" />
             <lang locale="zh_TW" value="提交" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[ActionSubmit].description">
             <lang locale="en_US" value="提交" />
             <lang locale="zh_CN" value="提交" />
+            <lang locale="zh_HK" value="提交" />
             <lang locale="zh_TW" value="提交" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[ActionSubmit].extendedProperty.userDefined">
@@ -73,11 +149,71 @@
         <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[ActionSubmit].uiActionRef.parameters.parameter[billID].alias">
             <lang locale="en_US" value="单据内码" />
             <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
             <lang locale="zh_TW" value="單據內碼" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[ActionSubmit].uiActionRef.parameters.parameter[billID].description">
             <lang locale="en_US" value="单据内码" />
             <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[audit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批" />
+            <lang locale="zh_HK" value="審批" />
+            <lang locale="zh_TW" value="審批" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[audit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[audit].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[unAudit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审批" />
+            <lang locale="zh_HK" value="反審批" />
+            <lang locale="zh_TW" value="反審批" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[unAudit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[unAudit].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[unAudit].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.photomanager.app.PhotoAuditEditUIFunction].operations.operation[unAudit].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
             <lang locale="zh_TW" value="單據內碼" />
         </rs>
     </resource>

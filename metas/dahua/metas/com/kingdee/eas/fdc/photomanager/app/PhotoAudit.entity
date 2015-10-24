@@ -166,6 +166,58 @@
             </parameters>
             <configured>false</configured>
         </method>
+        <method>
+            <name>audit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[audit].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[audit].description</description>
+            <innerID>c43faff1-d59b-4d72-b356-f7139b1aeddc</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[audit].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[audit].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.photomanager.app.PhotoAudit</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>unAudit</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[unAudit].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[unAudit].description</description>
+            <innerID>237e5cea-4185-4bf4-8479-b31d3676efab</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[unAudit].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[unAudit].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.photomanager.app.PhotoAudit</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
     </methods>
     <isAbstract>false</isAbstract>
     <bizUnitPK>com.kingdee.eas.fdc.photomanager.PhotoAudit</bizUnitPK>
@@ -207,6 +259,46 @@
             <displayFormat />
             <mappingField>
                 <key name="name" value="FFivouchered" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>status</name>
+            <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Enum</dataType>
+            <metadataRef>com.kingdee.eas.fdc.basedata.FDCBillStateEnum</metadataRef>
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>80</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFStatus" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>AuditDate</name>
+            <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Date</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>8</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFAuditDate" />
             </mappingField>
         </ownProperty>
     </properties>
@@ -433,6 +525,90 @@
                 </formalParameter>
             </formalParameters>
         </event>
+        <event>
+            <name>auditEvent</name>
+            <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>c43faff1-d59b-4d72-b356-f7139b1aeddc</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].eventMethods.eventMethod[c43faff1-d59b-4d72-b356-f7139b1aeddc].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].eventMethods.eventMethod[c43faff1-d59b-4d72-b356-f7139b1aeddc].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="audit" />
+                        <key name="innerID" value="c43faff1-d59b-4d72-b356-f7139b1aeddc" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].eventMethods.eventMethod[c43faff1-d59b-4d72-b356-f7139b1aeddc].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].eventMethods.eventMethod[c43faff1-d59b-4d72-b356-f7139b1aeddc].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>9bad8325-d234-4a27-b9c4-0979e55691beevfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>9bad8325-d234-4a27-b9c4-0979e55691beevfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.fdc.photomanager.app.PhotoAudit</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
+        <event>
+            <name>unAuditEvent</name>
+            <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].description</description>
+            <userDefined>true</userDefined>
+            <eventMethods>
+                <eventMethod>
+                    <name>237e5cea-4185-4bf4-8479-b31d3676efab</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].eventMethods.eventMethod[237e5cea-4185-4bf4-8479-b31d3676efab].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].eventMethods.eventMethod[237e5cea-4185-4bf4-8479-b31d3676efab].description</description>
+                    <entityMethodRef>
+                        <key name="name" value="unAudit" />
+                        <key name="innerID" value="237e5cea-4185-4bf4-8479-b31d3676efab" />
+                    </entityMethodRef>
+                    <parameterMappings>
+                        <parameterMapping>
+                            <name />
+                            <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].eventMethods.eventMethod[237e5cea-4185-4bf4-8479-b31d3676efab].parameterMappings.parameterMappingalias</alias>
+                            <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].eventMethods.eventMethod[237e5cea-4185-4bf4-8479-b31d3676efab].parameterMappings.parameterMappingdescription</description>
+                            <formalParameterInnerID>69bfc7c6-7b16-4330-9bd0-fd72be62b3a8evfp</formalParameterInnerID>
+                            <actualParameterIndex>0</actualParameterIndex>
+                            <isBOPK>true</isBOPK>
+                        </parameterMapping>
+                    </parameterMappings>
+                </eventMethod>
+            </eventMethods>
+            <formalParameters>
+                <formalParameter>
+                    <innerID>69bfc7c6-7b16-4330-9bd0-fd72be62b3a8evfp</innerID>
+                    <userDefined>true</userDefined>
+                    <parameter>
+                        <name>model</name>
+                        <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].formalParameters.formalParameter.parameter[model].alias</alias>
+                        <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].formalParameters.formalParameter.parameter[model].description</description>
+                        <direction>in</direction>
+                        <dataType>ObjectValue</dataType>
+                        <metadataRef>com.kingdee.eas.fdc.photomanager.app.PhotoAudit</metadataRef>
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </formalParameter>
+            </formalParameters>
+        </event>
     </events>
     <defaultView>
         <name />
@@ -446,7 +622,8 @@
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="快照审批" />
-            <lang locale="zh_TW" value="多分錄基礎單據範本" />
+            <lang locale="zh_HK" value="快照審批" />
+            <lang locale="zh_TW" value="快照審批" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].defaultView.filterextendedProperty.codingRuleEnabled">
             <lang locale="en_US" value="true" />
@@ -456,11 +633,13 @@
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].defaultViewalias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].defaultViewdescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].defaultViewextendedProperty.codingRuleEnabled">
@@ -470,102 +649,169 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="多分录基础单据模板" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="多分錄基礎單據範本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批事件" />
+            <lang locale="zh_HK" value="審批事件" />
+            <lang locale="zh_TW" value="審批事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].eventMethods.eventMethod[c43faff1-d59b-4d72-b356-f7139b1aeddc].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].eventMethods.eventMethod[c43faff1-d59b-4d72-b356-f7139b1aeddc].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].eventMethods.eventMethod[c43faff1-d59b-4d72-b356-f7139b1aeddc].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].eventMethods.eventMethod[c43faff1-d59b-4d72-b356-f7139b1aeddc].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[auditEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[deleteEvent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="删除事件" />
+            <lang locale="zh_HK" value="刪除事件" />
             <lang locale="zh_TW" value="刪除事件" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[deleteEvent].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="删除事件" />
+            <lang locale="zh_HK" value="刪除事件" />
             <lang locale="zh_TW" value="刪除事件" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[deleteEvent].eventMethods.eventMethod[be5779dd-00fe-1000-e000-0007c0a813a9].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[deleteEvent].eventMethods.eventMethod[be5779dd-00fe-1000-e000-0007c0a813a9].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[deleteEvent].eventMethods.eventMethod[be5779dd-00fe-1000-e000-0007c0a813a9].parameterMappings.parameterMappingalias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[deleteEvent].eventMethods.eventMethod[be5779dd-00fe-1000-e000-0007c0a813a9].parameterMappings.parameterMappingdescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[deleteEvent].formalParameters.formalParameter.parameter[pk].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="主键" />
+            <lang locale="zh_HK" value="主鍵" />
             <lang locale="zh_TW" value="主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[passAuditEvent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="审核通过事件" />
+            <lang locale="zh_HK" value="審核通過事件" />
             <lang locale="zh_TW" value="審核通過事件" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[passAuditEvent].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="审核通过事件" />
+            <lang locale="zh_HK" value="審核通過事件" />
             <lang locale="zh_TW" value="審核通過事件" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[passAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000ec0a813e6].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[passAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000ec0a813e6].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[passAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000ec0a813e6].parameterMappings.parameterMappingalias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[passAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000ec0a813e6].parameterMappings.parameterMappingdescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[passAuditEvent].formalParameters.formalParameter.parameter[model].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
             <lang locale="zh_TW" value="值對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[passAuditEvent].formalParameters.formalParameter.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
             <lang locale="zh_TW" value="值對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="对象主键" />
+            <lang locale="zh_HK" value="對象主鍵" />
             <lang locale="zh_TW" value="對象主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[passAuditEvent].formalParameters.formalParameter.parameter[pk].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="对象主键" />
+            <lang locale="zh_HK" value="對象主鍵" />
             <lang locale="zh_TW" value="對象主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[submitEvent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="提交" />
+            <lang locale="zh_HK" value="提交" />
             <lang locale="zh_TW" value="提交" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[submitEvent].description">
@@ -576,81 +822,145 @@
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingalias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[submitEvent].eventMethods.eventMethod[dfd2c083-00fa-1000-e000-001fc0a813e6].parameterMappings.parameterMappingdescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[submitEvent].formalParameters.formalParameter.parameter[model].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
             <lang locale="zh_TW" value="值對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[submitEvent].formalParameters.formalParameter.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审批事件" />
+            <lang locale="zh_HK" value="反審批事件" />
+            <lang locale="zh_TW" value="反審批事件" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].eventMethods.eventMethod[237e5cea-4185-4bf4-8479-b31d3676efab].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].eventMethods.eventMethod[237e5cea-4185-4bf4-8479-b31d3676efab].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].eventMethods.eventMethod[237e5cea-4185-4bf4-8479-b31d3676efab].parameterMappings.parameterMappingalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].eventMethods.eventMethod[237e5cea-4185-4bf4-8479-b31d3676efab].parameterMappings.parameterMappingdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].formalParameters.formalParameter.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unAuditEvent].formalParameters.formalParameter.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unpassAuditEvent].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="反审核事件" />
+            <lang locale="zh_HK" value="反審核事件" />
             <lang locale="zh_TW" value="反審核事件" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unpassAuditEvent].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="反审核事件" />
+            <lang locale="zh_HK" value="反審核事件" />
             <lang locale="zh_TW" value="反審核事件" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unpassAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000fc0a813e6].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unpassAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000fc0a813e6].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unpassAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000fc0a813e6].parameterMappings.parameterMappingalias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unpassAuditEvent].eventMethods.eventMethod[bbce8906-00fa-1000-e000-000fc0a813e6].parameterMappings.parameterMappingdescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[model].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
             <lang locale="zh_TW" value="值對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[model].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="值对象" />
+            <lang locale="zh_HK" value="值對象" />
             <lang locale="zh_TW" value="值對象" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="对象主键" />
+            <lang locale="zh_HK" value="對象主鍵" />
             <lang locale="zh_TW" value="對象主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].events.event[unpassAuditEvent].formalParameters.formalParameter.parameter[pk].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="对象主键" />
+            <lang locale="zh_HK" value="對象主鍵" />
             <lang locale="zh_TW" value="對象主鍵" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].extendedProperty.OrgType">
@@ -662,6 +972,11 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.photomanager.app.PhotoAuditControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.photomanager.app.PhotoAuditControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.photomanager.app.PhotoAuditControllerBeanEx" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].extendedProperty.defaultDisplayField">
             <lang locale="en_US" value="" />
@@ -678,6 +993,16 @@
             <lang locale="zh_CN" value="com.kingdee.eas.fdc.photomanager.client.PhotoAuditEditUI" />
             <lang locale="zh_TW" value="com.kingdee.eas.fdc.photomanager.client.PhotoAuditEditUI" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].extendedProperty.genBusinessImplCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].extendedProperty.isParamObject">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
@@ -691,86 +1016,151 @@
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].logicalKey[id].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].logicalKey[id].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[audit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批" />
+            <lang locale="zh_HK" value="審批" />
+            <lang locale="zh_TW" value="審批" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[audit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[audit].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[audit].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getCollection].alias">
             <lang locale="en_US" value="getCollection" />
             <lang locale="zh_CN" value="取集合" />
+            <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getCollection].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getCollection].parameters.parameter[oql].alias">
             <lang locale="en_US" value="getCollection" />
             <lang locale="zh_CN" value="取集合" />
+            <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getCollection].parameters.parameter[oql].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getCollection].parameters.parameter[view].alias">
             <lang locale="en_US" value="getCollection" />
             <lang locale="zh_CN" value="取集合" />
+            <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getCollection].parameters.parameter[view].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getValue].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getValue].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getValue].parameters.parameter[oql].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getValue].parameters.parameter[oql].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getValue].parameters.parameter[pk].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getValue].parameters.parameter[pk].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getValue].parameters.parameter[selector].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[getValue].parameters.parameter[selector].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[unAudit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审批" />
+            <lang locale="zh_HK" value="反審批" />
+            <lang locale="zh_TW" value="反審批" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[unAudit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[unAudit].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].methods.method[unAudit].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.linkProperty[entrys].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="分录" />
+            <lang locale="zh_HK" value="分錄" />
             <lang locale="zh_TW" value="分錄" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.linkProperty[entrys].description">
@@ -778,19 +1168,85 @@
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批日期" />
+            <lang locale="zh_HK" value="審批日期" />
+            <lang locale="zh_TW" value="審批日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="日期" />
+            <lang locale="zh_HK" value="日期" />
+            <lang locale="zh_TW" value="日期" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DATE" />
+            <lang locale="zh_CN" value="DATE" />
+            <lang locale="zh_TW" value="DATE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[AuditDate].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[Fivouchered].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="是否生成凭证" />
+            <lang locale="zh_HK" value="是否生成憑證" />
             <lang locale="zh_TW" value="是否生成憑證" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[Fivouchered].defaultValue">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[Fivouchered].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="是否生成凭证" />
+            <lang locale="zh_HK" value="是否生成憑證" />
             <lang locale="zh_TW" value="是否生成憑證" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[Fivouchered].extendedProperty.ColWidthInKDTable">
@@ -802,6 +1258,11 @@
             <lang locale="en_US" value="BOOLEAN" />
             <lang locale="zh_CN" value="BOOLEAN" />
             <lang locale="zh_TW" value="BOOLEAN" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[Fivouchered].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[Fivouchered].extendedProperty.isForGrouping">
             <lang locale="en_US" value="false" />
@@ -829,6 +1290,74 @@
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[Fivouchered].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据状态" />
+            <lang locale="zh_HK" value="單據狀態" />
+            <lang locale="zh_TW" value="單據狀態" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="SAVED" />
+            <lang locale="zh_HK" value="SAVED" />
+            <lang locale="zh_TW" value="SAVED" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].extendedProperty.bizDataType">
+            <lang locale="en_US" value="ENUM" />
+            <lang locale="zh_CN" value="ENUM" />
+            <lang locale="zh_TW" value="ENUM" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].extendedProperty.defaultValue">
+            <lang locale="en_US" value="SAVED" />
+            <lang locale="zh_CN" value="SAVED" />
+            <lang locale="zh_TW" value="SAVED" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoAudit].properties.ownProperty[status].extendedProperty.isVisibleForKDTable">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
