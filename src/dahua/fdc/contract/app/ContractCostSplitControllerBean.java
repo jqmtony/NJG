@@ -633,7 +633,7 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 			BigDecimal banlance = UIRuleUtil.getBigDecimal(progInfo.getBalance());
 			
 			if(flag&&banlance.compareTo(value)==-1){
-//				throw new EASBizException(new NumericExceptionSubItem("100","["+progInfo.getName()+"] 余额不足。\n余额："+banlance+"\n本次累计拆分："+value));
+				throw new EASBizException(new NumericExceptionSubItem("100","["+progInfo.getName()+"] 余额不足。\n余额："+banlance+"\n本次累计拆分："+value));
 			}
 		}
 		SelectorItemCollection sict = new SelectorItemCollection();
@@ -670,37 +670,52 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 				
 				Itemp.addnew(tempInfo);
 				
-			} else {
-				String deleteOql = "select subAmount where number='"+billId+"' and programmingId='"+key+"'";
-				ProgrammingTempCollection programmingColl = Itemp.getProgrammingTempCollection(deleteOql);
-				
-				if(programmingColl.size()>0){
-					ProgrammingTempInfo tempInfo = programmingColl.get(0);
-					
-					BigDecimal amount = UIRuleUtil.getBigDecimal(tempInfo.getSubAmount());
-					
-					pcInfo.setBalance(FDCHelper.add(balanceAmt, amount));
-					otherSignUpAmount = FDCHelper.subtract(FDCHelper.subtract(signUpAmount, amount), signUpAmount);
-				}
-				Itemp.delete("where number='"+billId+"' and programmingId='"+key+"'");
-			}
-			service.updatePartial(pcInfo, sict);
-			
-			// 更新其他的合约规划版本金额
-			String progId = pcInfo.getId().toString();
-			
-			Set<String> idSet = new HashSet<String>();
-			getNewVersionAllProgId(ctx,idSet, progId);
-			Iterator<String> iterator2 = idSet.iterator();
-			while(iterator2.hasNext()){
-				String nextVersionProgId = iterator2.next();
-				pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(nextVersionProgId), sict);
-				pcInfo.setBalance(FDCHelper.subtract(pcInfo.getBalance(), otherSignUpAmount));
 				service.updatePartial(pcInfo, sict);
+				
+				updateHisVersionAmount(ctx, service, pcInfo.getId().toString(), sict, otherSignUpAmount);
+			} else {
+				reqSubAmount(ctx, service, Itemp, sict, billId);
 			}
 		}
 	}
 	
+	public static void reqSubAmount(Context ctx,IProgrammingContract service,IProgrammingTemp Itemp,SelectorItemCollection sict,BOSUuid billId) throws EASBizException, BOSException{
+		String deleteOql = "select programmingId,subAmount where number='"+billId+"'";
+		ProgrammingTempCollection programmingColl = Itemp.getProgrammingTempCollection(deleteOql);
+		
+		for (int i = 0; i < programmingColl.size(); i++) {
+			ProgrammingTempInfo tempInfo = programmingColl.get(0);
+			
+			ProgrammingContractInfo pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(tempInfo.getProgrammingId()), sict);
+			// 规划余额
+			BigDecimal balanceAmt = pcInfo.getBalance();
+			// 框架合约签约金额
+			BigDecimal signUpAmount = pcInfo.getSignUpAmount();
+			BigDecimal otherSignUpAmount = FDCHelper.ZERO;
+			
+			BigDecimal amount = UIRuleUtil.getBigDecimal(tempInfo.getSubAmount());
+			
+			pcInfo.setBalance(FDCHelper.add(balanceAmt, amount));
+			
+			service.updatePartial(pcInfo, sict);
+			otherSignUpAmount = FDCHelper.subtract(FDCHelper.subtract(signUpAmount, amount), signUpAmount);			
+			Itemp.delete("where number='"+billId+"' and programmingId='"+tempInfo.getProgrammingId()+"'");
+			
+			updateHisVersionAmount(ctx, service, pcInfo.getId().toString(), sict, otherSignUpAmount);
+		}
+	}
+	
+	public static void updateHisVersionAmount(Context ctx,IProgrammingContract service,String progId,SelectorItemCollection sict,BigDecimal otherSignUpAmount) throws EASBizException, BOSException{
+		Set<String> idSet = new HashSet<String>();
+		getNewVersionAllProgId(ctx,idSet, progId);
+		Iterator<String> iterator2 = idSet.iterator();
+		while(iterator2.hasNext()){
+			String nextVersionProgId = iterator2.next();
+			ProgrammingContractInfo pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(nextVersionProgId), sict);
+			pcInfo.setBalance(FDCHelper.subtract(pcInfo.getBalance(), otherSignUpAmount));
+			service.updatePartial(pcInfo, sict);
+		}
+	}
 	
 	public static FDCSQLBuilder builder = null;
 
