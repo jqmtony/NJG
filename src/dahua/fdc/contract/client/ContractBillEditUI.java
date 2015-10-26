@@ -13,12 +13,14 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.EventListener;
 import java.util.HashMap;
@@ -210,6 +212,13 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.contract.programming.client.ContractBillLinkProgContEditUI;
 import com.kingdee.eas.fdc.contract.programming.client.ProgrammingContractEditUI;
 import com.kingdee.eas.fdc.contract.programming.client.ProgrammingContractF7UI;
+import com.kingdee.eas.fdc.costindexdb.client.BuildPriceIndexEditUI;
+import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleCollection;
+import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleInfo;
+import com.kingdee.eas.fdc.finance.PayPlanNewCollection;
+import com.kingdee.eas.fdc.finance.PayPlanNewDataInfo;
+import com.kingdee.eas.fdc.finance.PayPlanNewFactory;
+import com.kingdee.eas.fdc.finance.PayPlanTemplateByScheduleInfo;
 import com.kingdee.eas.fdc.finance.client.ContractPayPlanEditUI;
 import com.kingdee.eas.fdc.invite.AcceptanceLetterCollection;
 import com.kingdee.eas.fdc.invite.AcceptanceLetterFactory;
@@ -226,7 +235,6 @@ import com.kingdee.eas.fdc.invite.news.client.StrategyPactEditUI;
 import com.kingdee.eas.fdc.invite.news.client.TenderDiscusstionEditUI;
 import com.kingdee.eas.fdc.invite.supplier.SupplierStockFactory;
 import com.kingdee.eas.fdc.invite.supplier.SupplierStockInfo;
-import com.kingdee.eas.fdc.tenancy.OperateState;
 import com.kingdee.eas.fi.gl.GlUtils;
 import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.eas.framework.CoreBaseInfo;
@@ -1949,6 +1957,28 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		btnRemove2.setRequestFocusEnabled(false);
 		btnAdd2.setIcon(EASResource.getIcon("imgTbtn_addline"));
 		btnRemove2.setIcon(EASResource.getIcon("imgTbtn_deleteline"));
+	}
+	
+	//modify by yxl 20151022 点击成本指标库按钮跳转到成本指标库编辑界面
+	protected void btnBuildPriceIndex_actionPerformed(ActionEvent e) throws Exception {
+		if(editData.getId() == null){
+			MsgBox.showInfo("请先保存合同单据！");
+		}else{
+			UIContext uiContext = new UIContext(this);
+			uiContext.put("contractInfo", editData);
+			String state = OprtState.ADDNEW;
+			FDCSQLBuilder builder = new FDCSQLBuilder();
+			builder.appendSql("select fid from CT_COS_BuildPriceIndex where CFContractId='"+editData.getId().toString()+"'");
+			IRowSet rs = builder.executeQuery();
+			if(rs.next() && rs.getString(1) != null){
+				state = OprtState.VIEW;
+				uiContext.put("ID", rs.getString(1));
+			}
+			IUIWindow uiWindow = UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(
+					BuildPriceIndexEditUI.class.getName(), uiContext, null,state);
+			uiWindow.show();
+		}
+		
 	}
 	
 	/**
@@ -7303,28 +7333,98 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			//					.compareTo(new BigDecimal(0)) == 1 ? controlAmount
 			//					.toString() : new BigDecimal(0).toString());
 			//得到合约规划的经济条款 
-			ProgrammingContractEconomyCollection pcEconomyCollection = contractInfo.getEconomyEntries();
-			ProgrammingContractEconomyInfo economyInfo = null;
-			PaymentTypeInfo typeInfo = null;
-			//为合同中合同经济条款添加 合约规划的经济条款
-			tblEconItem.removeRows();
-			if (pcEconomyCollection.size() > 0) {
-				for (int i = 0; i < pcEconomyCollection.size(); i++) {
-					economyInfo = pcEconomyCollection.get(i);
-					economyInfo = ProgrammingContractEconomyFactory.getRemoteInstance().getProgrammingContractEconomyInfo(
-							new ObjectUuidPK(economyInfo.getId()));
-					IRow row = tblEconItem.addRow();
-					row.getCell("date").setValue(economyInfo.getPaymentDate());
-					if (economyInfo.getPaymentType() != null) {
-						typeInfo = PaymentTypeFactory.getRemoteInstance().getPaymentTypeInfo(
-								new ObjectUuidPK(economyInfo.getPaymentType().getId()));
+//			ProgrammingContractEconomyCollection pcEconomyCollection = contractInfo.getEconomyEntries();
+//			ProgrammingContractEconomyInfo economyInfo = null;
+			//得到合约规划的付款规划   modify by yxl 20151022
+			EntityViewInfo evi = new EntityViewInfo();
+			FilterInfo filter = new FilterInfo();
+			filter.getFilterItems().add(new FilterItemInfo("programming.id", contractInfo.getId().toString()));
+			evi.setFilter(filter);
+			SelectorItemCollection sic = new SelectorItemCollection();
+			sic.add("*");
+			sic.add("BySchedule.*");
+			sic.add("BySchedule.paymentType.number");
+			sic.add("BySchedule.paymentType.name");
+			sic.add("BySchedule.paymentType.id");
+			evi.setSelector(sic);
+			PayPlanNewCollection tColl = PayPlanNewFactory.getRemoteInstance().getPayPlanNewCollection(evi);
+			if(tColl.size() > 0) {
+				PayPlanNewByScheduleCollection ppbcoll = tColl.get(0).getBySchedule();
+				PayPlanNewByScheduleInfo tsInfo = null;
+				BigDecimal contractAmount = ceremonyb.getBigDecimalValue()==null?BigDecimal.ZERO:ceremonyb.getBigDecimalValue();
+				Calendar calendar = Calendar.getInstance();
+				List<Integer> months = new ArrayList<Integer>();
+				Date beginDate = null;
+				Date endDate = null;
+				BigDecimal scale = null;
+				BigDecimal amount = null;
+				IRow row = null;
+				tblEconItem.removeRows();
+				DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+				for(int i = 0; i < ppbcoll.size(); i++) {
+					tsInfo = ppbcoll.get(i);
+					beginDate = tsInfo.getBeginDate();
+					endDate = tsInfo.getEndDate();
+					scale = tsInfo.getPayScale();
+					amount = contractAmount.multiply(scale);
+					if(beginDate!=null && endDate!=null){
+						months.clear();
+						while(beginDate.compareTo(endDate) <= 0) {
+							calendar.setTime(beginDate);
+							months.add(new Integer(calendar.get(Calendar.YEAR)*100+calendar.get(Calendar.MONTH)+1));
+							calendar.add(Calendar.MONTH, 1);
+							beginDate = calendar.getTime();
+						}
+						amount = amount.divide(new BigDecimal(months.size()),2,RoundingMode.HALF_UP);
+						scale = scale.divide(new BigDecimal(months.size()),2,RoundingMode.HALF_UP);
+						for (int j = 0; j < months.size(); j++) {
+							row = tblEconItem.addRow();
+							row.getCell("payType").setValue(tsInfo.getPaymentType());
+							row.getCell("payCondition").setValue(tsInfo.getScheduleName());
+							row.getCell("payRate").setValue(scale);
+							row.getCell("payAmount").setValue(amount);
+							row.getCell("date").setValue(dateFormat.parse(months.get(j)+"18"));
+						}
+					}else if(beginDate!=null && endDate==null){
+						calendar.setTime(beginDate);
+						row = tblEconItem.addRow();
+						row.getCell("payType").setValue(tsInfo.getPaymentType());
+						row.getCell("payCondition").setValue(tsInfo.getScheduleName());
+						row.getCell("payRate").setValue(scale);
+						row.getCell("payAmount").setValue(amount);
+						row.getCell("date").setValue(dateFormat.parse(new Integer(calendar.get(Calendar.YEAR)*100+calendar.get(Calendar.MONTH)+1)+"18"));
+					}else if(beginDate==null && endDate!=null){
+						calendar.setTime(endDate);
+						row = tblEconItem.addRow();
+						row.getCell("payType").setValue(tsInfo.getPaymentType());
+						row.getCell("payCondition").setValue(tsInfo.getScheduleName());
+						row.getCell("payRate").setValue(scale);
+						row.getCell("payAmount").setValue(amount);
+						row.getCell("date").setValue(dateFormat.parse(new Integer(calendar.get(Calendar.YEAR)*100+calendar.get(Calendar.MONTH)+1)+"18"));
 					}
-					row.getCell("payType").setValue(typeInfo);
-					row.getCell("payCondition").setValue(economyInfo.getCondition());
-					row.getCell("payRate").setValue(economyInfo.getScale());
-					row.getCell("payAmount").setValue(economyInfo.getAmount());
 				}
 			}
+			
+//			PaymentTypeInfo typeInfo = null;
+			//为合同中合同经济条款添加 合约规划的经济条款
+			
+//			if (pcEconomyCollection.size() > 0) {
+//				for (int i = 0; i < pcEconomyCollection.size(); i++) {
+//					economyInfo = pcEconomyCollection.get(i);
+//					economyInfo = ProgrammingContractEconomyFactory.getRemoteInstance().getProgrammingContractEconomyInfo(
+//							new ObjectUuidPK(economyInfo.getId()));
+//					IRow row = tblEconItem.addRow();
+//					row.getCell("date").setValue(economyInfo.getPaymentDate());
+//					if (economyInfo.getPaymentType() != null) {
+//						typeInfo = PaymentTypeFactory.getRemoteInstance().getPaymentTypeInfo(
+//								new ObjectUuidPK(economyInfo.getPaymentType().getId()));
+//					}
+//					row.getCell("payType").setValue(typeInfo);
+//					row.getCell("payCondition").setValue(economyInfo.getCondition());
+//					row.getCell("payRate").setValue(economyInfo.getScale());
+//					row.getCell("payAmount").setValue(economyInfo.getAmount());
+//				}
+//			}
 		} else {
 			tblEconItem.removeRows();
 			txtControlAmount.setNumberValue(FDCHelper.toBigDecimal(controlAmount, 2));
