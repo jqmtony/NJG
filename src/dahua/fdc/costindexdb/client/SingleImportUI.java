@@ -86,6 +86,7 @@ public class SingleImportUI extends AbstractSingleImportUI
     		row.getCell("baseUnit").setValue(beinfo.getBaseUnit());
     		row.getCell("costAccount").setValue(beinfo.getCostAcount());
     		row.getCell("isModel").setValue(Boolean.FALSE);
+    		row.getCell("isCombo").setValue(Boolean.FALSE);
 		}
     	MsgBox.showInfo(this, "导入成功");
 		disposeUIWindow();

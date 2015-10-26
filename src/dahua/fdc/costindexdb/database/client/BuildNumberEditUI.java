@@ -23,6 +23,11 @@ public class BuildNumberEditUI extends AbstractBuildNumberEditUI
     {
         super();
     }
+    public void onLoad() throws Exception {
+    	// TODO Auto-generated method stub
+    	super.onLoad();
+    }
+    
     /**
      * output loadFields method
      */

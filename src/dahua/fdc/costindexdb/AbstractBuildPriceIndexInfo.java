@@ -17,6 +17,7 @@ public class AbstractBuildPriceIndexInfo extends com.kingdee.eas.framework.CoreB
     {
         super(pkField);
         put("entrys", new com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryCollection());
+        put("EindexData", new com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataCollection());
     }
     /**
      * Object: 造价指标库 's 分录 property 
@@ -96,6 +97,35 @@ public class AbstractBuildPriceIndexInfo extends com.kingdee.eas.framework.CoreB
 		if (item != null) {
         setString("contractStation", item.getValue());
 		}
+    }
+    /**
+     * Object: 造价指标库 's 指标数据 property 
+     */
+    public com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataCollection getEindexData()
+    {
+        return (com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataCollection)get("EindexData");
+    }
+    /**
+     * Object:造价指标库's 项目IDproperty 
+     */
+    public String getProjectId()
+    {
+        return getString("projectId");
+    }
+    public void setProjectId(String item)
+    {
+        setString("projectId", item);
+    }
+    /**
+     * Object:造价指标库's 合同IDproperty 
+     */
+    public String getContractId()
+    {
+        return getString("contractId");
+    }
+    public void setContractId(String item)
+    {
+        setString("contractId", item);
     }
     public BOSObjectType getBOSType()
     {

@@ -7,10 +7,20 @@ import java.awt.event.ActionEvent;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
+import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
+import com.kingdee.eas.fdc.contract.programming.client.CostAccountPromptBox;
 
 /**
  * output class name
@@ -40,13 +50,40 @@ public class SinglePointTempEditUI extends AbstractSinglePointTempEditUI
     			kdtEntry_editStopped(e);
     		}
     	});
+    	
+    	//rebuild costaccount
+    	CostAccountPromptBox selector = new CostAccountPromptBox(this);
+		KDBizPromptBox prmtCostAccount = new KDBizPromptBox() {
+			protected String valueToString(Object o) {
+				String str = null;
+				if (o != null && o instanceof CostAccountInfo) {
+					str = ((CostAccountInfo) o).getLongNumber().replace('!', '.');
+				}
+				return str;
+			}
+		};
+		prmtCostAccount.setSelector(selector);
+		prmtCostAccount.setEnabledMultiSelection(false);
+		prmtCostAccount.setDisplayFormat("$longNumber$");
+		prmtCostAccount.setEditFormat("$longNumber$");
+		prmtCostAccount.setCommitFormat("$longNumber$");
+		KDTDefaultCellEditor caEditor = new KDTDefaultCellEditor(prmtCostAccount);
+		EntityViewInfo entityView = new EntityViewInfo();
+		FilterInfo filter = new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("fullOrgUnit.id", OrgConstants.DEF_CU_ID, CompareType.EQUALS));
+		entityView.setFilter(filter);
+		prmtCostAccount.setEntityViewInfo(entityView);
+		kdtEntry.getColumn("costAcount").setEditor(caEditor);
+		ObjectValueRender kdtCostEntries_costAccount_OVR = new ObjectValueRender();
+		kdtCostEntries_costAccount_OVR.setFormat(new BizDataFormat("$name$"));
+		kdtEntry.getColumn("costAcount").setRenderer(kdtCostEntries_costAccount_OVR);
     }  
     
     public void kdtEntry_editStopped(KDTEditEvent e) {
     	if(e.getColIndex() == kdtEntry.getColumnIndex("costAcount")){
     		CostAccountInfo cainfo=(CostAccountInfo)kdtEntry.getCell(e.getRowIndex(),e.getColIndex()).getValue();
     		if(cainfo != null) {
-    			kdtEntry.getCell(e.getRowIndex(),"accouNumber").setValue(cainfo.getCodingNumber());
+    			kdtEntry.getCell(e.getRowIndex(),"accouNumber").setValue(cainfo.getLongNumber().replace('!', '.'));
     		}
     	}
     }

@@ -12,6 +12,7 @@ import com.kingdee.eas.common.SysContextConstant;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointInfo;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.app.DbUtil;
 
 public class BaseAndSinglePointControllerBean extends AbstractBaseAndSinglePointControllerBean
 {
@@ -27,6 +28,7 @@ public class BaseAndSinglePointControllerBean extends AbstractBaseAndSinglePoint
 			abinfo.setAudiTime(SysUtil.getAppServerTime(ctx));
 			abinfo.setIsLatest(true);
 			update(ctx,new ObjectUuidPK(abinfo.getId()),abinfo);
+			DbUtil.execute(ctx,"update CT_COS_BaseAndSinglePoint set CFIsLatest='0' where CFPointBillStatus='4AUDITTED' and CFProjectId='"+abinfo.getProjectId()+"' and fid<>'"+abinfo.getId().toString()+"'");
 		} catch (EASBizException e) {
 			e.printStackTrace();
 		}

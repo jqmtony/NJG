@@ -18,6 +18,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
@@ -28,7 +29,6 @@ import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
 import com.kingdee.eas.fdc.basedata.IFDCBill;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
-import com.kingdee.eas.fdc.contract.IContractBill;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexCollection;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexFactory;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexInfo;
@@ -71,7 +71,7 @@ public class BuildPriceIndexListUI extends AbstractBuildPriceIndexListUI
     
     protected void fetchInitData() throws Exception {
 		Map param = new HashMap();
-		Map initData = ((IFDCBill)getRemoteInterface()).fetchInitData(param);
+		Map initData = ((IFDCBill)ContractBillFactory.getRemoteInstance()).fetchInitData(param);
 		//获得当前组织
 		orgUnit = (FullOrgUnitInfo)initData.get(FDCConstants.FDC_INIT_ORGUNIT);
 	}
@@ -123,12 +123,13 @@ public class BuildPriceIndexListUI extends AbstractBuildPriceIndexListUI
     		MsgBox.showInfo("请选择相应的合同！");
     		return;
     	}
-//    	String contractId = (String)tblMain.getCell(rowIndex,getKeyFieldName()).getValue();
+    	String contractId = (String)tblMain.getCell(rowIndex,getKeyFieldName()).getValue();
 //    	IContractBill icbill = (IContractBill)getRemoteInterface();
 //    	icbill.getContractBillCollection("select number,name");
-    	getUIContext().put("contractId",tblMain.getCell(rowIndex,getKeyFieldName()).getValue());
-    	getUIContext().put("contractNumber",tblMain.getCell(rowIndex,"number").getValue());
-    	getUIContext().put("contractName",tblMain.getCell(rowIndex,"contractName").getValue());
+//    	ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(contractId));
+    	getUIContext().put("contractInfo",ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(contractId)));
+//    	getUIContext().put("contractNumber",tblMain.getCell(rowIndex,"number").getValue());
+//    	getUIContext().put("contractName",tblMain.getCell(rowIndex,"contractName").getValue());
     	super.actionAddNew_actionPerformed(e);
     }
 
@@ -194,7 +195,7 @@ public class BuildPriceIndexListUI extends AbstractBuildPriceIndexListUI
     	String contractId = (String)getMainTable().getCell(top,getKeyFieldName()).getValue();
     	EntityViewInfo view = new EntityViewInfo();
     	FilterInfo filter = new FilterInfo();
-    	filter.getFilterItems().add(new FilterItemInfo("sourceBillId", contractId));
+    	filter.getFilterItems().add(new FilterItemInfo("contractId", contractId));
     	view.setFilter(filter);
     	SelectorItemCollection selectors = genBillQuerySelector();
     	if(selectors != null && selectors.size() > 0) {
@@ -252,9 +253,14 @@ public class BuildPriceIndexListUI extends AbstractBuildPriceIndexListUI
 
 	@Override
 	protected ICoreBillBase getRemoteInterface() throws BOSException {
-		return ContractBillFactory.getRemoteInstance();
+		return BuildPriceIndexFactory.getRemoteInstance();
 	}
-
+	
+	@Override
+	protected String getBillStatePropertyName() {
+		return "buildPriceBillStatus";
+	}
+	
 	@Override
 	protected void unAudit(List ids) throws Exception {
 		

@@ -3,12 +3,14 @@
  */
 package com.kingdee.eas.fdc.costindexdb.client;
 
+import java.awt.Component;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.TreePath;
 
@@ -19,20 +21,25 @@ import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
-import com.kingdee.bos.framework.cache.ActionCache;
 import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.eas.base.permission.PermissionFactory;
-import com.kingdee.eas.basedata.org.OrgType;
-import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
+import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointFactory;
 import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointInfo;
+import com.kingdee.eas.fdc.costindexdb.IBaseAndSinglePoint;
+import com.kingdee.eas.framework.batchHandler.UtilRequest;
 import com.kingdee.eas.util.client.MsgBox;
 
 /**
@@ -42,7 +49,7 @@ public class BaseAndSinglePointListUI extends AbstractBaseAndSinglePointListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(BaseAndSinglePointListUI.class);
     // 获取有权限的组织
-	protected Set authorizedOrgs = null;
+//	protected Set authorizedOrgs = null;
 	private static final String TREE_SELECTED_OBJ = "treeSelectedObj";
 	private static final String ORG_OBJ = "treeOrg";
 	private Set ids = new HashSet();
@@ -125,12 +132,18 @@ public class BaseAndSinglePointListUI extends AbstractBaseAndSinglePointListUI
     	if(isSelectedProjectNode()) {
 			getUIContext().put(TREE_SELECTED_OBJ,projectNode.getUserObject());
 			//根据选中的工程项目展示列表 mainQuery
+			refreshList();
+			if(tblMain.getRowCount3() > 0)
+				actionAddNew.setEnabled(false);
+			else
+				actionAddNew.setEnabled(true);
     	}else{
     		getUIContext().put(TREE_SELECTED_OBJ,null);
     		getUIContext().put(ORG_OBJ,getTreeNode(e.getNewLeadSelectionPath()));
     		//展示所有列表
+    		refreshList();
+    		actionAddNew.setEnabled(false);
     	}
-    	refreshList();
     }
     
     private boolean isSelectedProjectNode() {
@@ -744,8 +757,20 @@ public class BaseAndSinglePointListUI extends AbstractBaseAndSinglePointListUI
      */
     public void actionAudit_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionAudit_actionPerformed(e);
+    	if(getSelectedKeyValue() == null){
+    		MsgBox.showInfo("请选择一条记录！");
+    		return;
+    	}
+//        super.actionAudit_actionPerformed(e);
+    	IBaseAndSinglePoint ibp = BaseAndSinglePointFactory.getRemoteInstance();
+    	BaseAndSinglePointInfo info = ibp.getBaseAndSinglePointInfo(new ObjectUuidPK(getSelectedKeyValue()));
+    	if(!FDCBillStateEnum.SUBMITTED.equals(info.getPointBillStatus())){
+    		MsgBox.showInfo("已提交的单据才能进行审核操作！");
+    		return;
+    	}
+    	ibp.audit(info);
         refreshList();
+        MsgBox.showInfo("审核成功！");
     }
 
     /**
@@ -756,14 +781,91 @@ public class BaseAndSinglePointListUI extends AbstractBaseAndSinglePointListUI
         super.actionUnAdudit_actionPerformed(e);
     }
 
-    /**
+    /**修订功能
      * output actionRefix_actionPerformed
      */
     public void actionRefix_actionPerformed(ActionEvent e) throws Exception
     {
-        super.actionRefix_actionPerformed(e);
+    	if(getSelectedKeyValue() == null){
+    		MsgBox.showInfo("请选择一条记录！");
+    		return;
+    	}
+    	BaseAndSinglePointInfo info=BaseAndSinglePointFactory.getRemoteInstance().getBaseAndSinglePointInfo(new ObjectUuidPK(getSelectedKeyValue()),getBPSelectors());
+    	if(!FDCBillStateEnum.AUDITTED.equals(info.getPointBillStatus())){
+    		MsgBox.showInfo("非审批单据不能修订！");
+    		return;
+    	}
+    	if(!info.isIsLatest()){
+    		MsgBox.showInfo("非最新版本不能修订！");
+    		return;
+    	}
+    	UIContext uiContext = new UIContext(this);
+		uiContext.put("info", info);
+//		prepareUIContext(uiContext, new ActionEvent(btnAddNew, 1001, btnAddNew.getActionCommand()));
+//		getUIContext().putAll(uiContext);
+		
+		IUIWindow ui = UIFactory.createUIFactory(getEditUIModal()).create(getEditUIName(), uiContext, null,	OprtState.ADDNEW);
+		ui.show();
+		Window win = SwingUtilities.getWindowAncestor((Component)ui.getUIObject());
+        if(!win.isActive() && (win instanceof JFrame) && ((JFrame)win).getExtendedState() == 1)
+            ((JFrame)win).setExtendedState(0);
+        if(ui != null && isDoRefresh(ui)){
+            if(UtilRequest.isPrepare("ActionRefresh", this))
+                prepareRefresh(null).callHandler();
+            refresh(e);
+            setPreSelecteRow();
+        }
     }
 
+    public SelectorItemCollection getBPSelectors(){
+        SelectorItemCollection sic = new SelectorItemCollection();
+        sic.add(new SelectorItemInfo("isLatest"));
+        sic.add(new SelectorItemInfo("number"));
+        sic.add(new SelectorItemInfo("bizDate"));
+        sic.add(new SelectorItemInfo("projectName"));
+        sic.add(new SelectorItemInfo("projectId"));
+        sic.add(new SelectorItemInfo("version"));
+        sic.add(new SelectorItemInfo("pointBillStatus"));
+        sic.add(new SelectorItemInfo("beizhu"));
+    	sic.add(new SelectorItemInfo("entrys.id"));
+    	sic.add(new SelectorItemInfo("entrys.pointName"));
+    	sic.add(new SelectorItemInfo("entrys.pointValue"));
+	    sic.add(new SelectorItemInfo("entrys.baseUnit.id"));
+		sic.add(new SelectorItemInfo("entrys.baseUnit.name"));
+        sic.add(new SelectorItemInfo("entrys.baseUnit.number"));
+    	sic.add(new SelectorItemInfo("entrys.isCombo"));
+	    sic.add(new SelectorItemInfo("entrys.productType.id"));
+		sic.add(new SelectorItemInfo("entrys.productType.name"));
+        sic.add(new SelectorItemInfo("entrys.productType.number"));
+    	sic.add(new SelectorItemInfo("entrys.isModel"));
+    	sic.add(new SelectorItemInfo("entrys.buildValue"));
+    	sic.add(new SelectorItemInfo("entrys.beizhu"));
+	    sic.add(new SelectorItemInfo("entrys.buildNo.id"));
+		sic.add(new SelectorItemInfo("entrys.buildNo.name"));
+        sic.add(new SelectorItemInfo("entrys.buildNo.number"));
+    	sic.add(new SelectorItemInfo("Ecost.id"));
+	    sic.add(new SelectorItemInfo("Ecost.costAccount.id"));
+		sic.add(new SelectorItemInfo("Ecost.costAccount.name"));
+        sic.add(new SelectorItemInfo("Ecost.costAccount.number"));
+    	sic.add(new SelectorItemInfo("Ecost.pointName"));
+    	sic.add(new SelectorItemInfo("Ecost.pointValue"));
+	    sic.add(new SelectorItemInfo("Ecost.baseUnit.id"));
+		sic.add(new SelectorItemInfo("Ecost.baseUnit.name"));
+        sic.add(new SelectorItemInfo("Ecost.baseUnit.number"));
+    	sic.add(new SelectorItemInfo("Ecost.isCombo"));
+	    sic.add(new SelectorItemInfo("Ecost.productType.id"));
+		sic.add(new SelectorItemInfo("Ecost.productType.name"));
+        sic.add(new SelectorItemInfo("Ecost.productType.number"));
+    	sic.add(new SelectorItemInfo("Ecost.isModel"));
+    	sic.add(new SelectorItemInfo("Ecost.buildValue"));
+    	sic.add(new SelectorItemInfo("Ecost.beizhu"));
+	    sic.add(new SelectorItemInfo("Ecost.buildNo.id"));
+		sic.add(new SelectorItemInfo("Ecost.buildNo.name"));
+        sic.add(new SelectorItemInfo("Ecost.buildNo.number"));
+        
+        return sic;
+    }   
+    
     /**
      * output getBizInterface method
      */

@@ -54,14 +54,14 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contBizDate;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contDescription;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditor;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntrys;
-	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntrys_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contorgName;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcontractInfo;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbeizhu;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contbuildPriceBillStatus;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contprojectStation;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcontractStation;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
+    protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker kDDateCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -77,6 +77,8 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
     protected com.kingdee.bos.ctrl.swing.KDComboBox buildPriceBillStatus;
     protected com.kingdee.bos.ctrl.swing.KDComboBox projectStation;
     protected com.kingdee.bos.ctrl.swing.KDComboBox contractStation;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntrys;
+	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntrys_detailPanel = null;
     protected com.kingdee.eas.fdc.costindexdb.BuildPriceIndexInfo editData = null;
     /**
      * output class constructor
@@ -149,13 +151,14 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.contBizDate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contDescription = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contAuditor = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.kdtEntrys = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.contorgName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contcontractInfo = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contbeizhu = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contbuildPriceBillStatus = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contprojectStation = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contcontractStation = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
+        this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDDateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -171,6 +174,7 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.buildPriceBillStatus = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.projectStation = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.contractStation = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.kdtEntrys = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -179,13 +183,14 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.contBizDate.setName("contBizDate");
         this.contDescription.setName("contDescription");
         this.contAuditor.setName("contAuditor");
-        this.kdtEntrys.setName("kdtEntrys");
         this.contorgName.setName("contorgName");
         this.contcontractInfo.setName("contcontractInfo");
         this.contbeizhu.setName("contbeizhu");
         this.contbuildPriceBillStatus.setName("contbuildPriceBillStatus");
         this.contprojectStation.setName("contprojectStation");
         this.contcontractStation.setName("contcontractStation");
+        this.kDContainer1.setName("kDContainer1");
+        this.kDTabbedPane1.setName("kDTabbedPane1");
         this.prmtCreator.setName("prmtCreator");
         this.kDDateCreateTime.setName("kDDateCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -201,6 +206,7 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.buildPriceBillStatus.setName("buildPriceBillStatus");
         this.projectStation.setName("projectStation");
         this.contractStation.setName("contractStation");
+        this.kdtEntrys.setName("kdtEntrys");
         // CoreUI		
         this.btnAddLine.setVisible(false);		
         this.btnCopyLine.setVisible(false);		
@@ -237,8 +243,7 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.contLastUpdateUser.setBoundLabelText(resHelper.getString("contLastUpdateUser.boundLabelText"));		
         this.contLastUpdateUser.setBoundLabelLength(100);		
         this.contLastUpdateUser.setBoundLabelUnderline(true);		
-        this.contLastUpdateUser.setEnabled(false);		
-        this.contLastUpdateUser.setVisible(false);
+        this.contLastUpdateUser.setEnabled(false);
         // contLastUpdateTime		
         this.contLastUpdateTime.setBoundLabelText(resHelper.getString("contLastUpdateTime.boundLabelText"));		
         this.contLastUpdateTime.setBoundLabelLength(100);		
@@ -264,36 +269,6 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.contAuditor.setBoundLabelLength(100);		
         this.contAuditor.setBoundLabelUnderline(true);		
         this.contAuditor.setVisible(false);
-        // kdtEntrys
-		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"accountNumber\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accountName\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isInput\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{accountNumber}</t:Cell><t:Cell>$Resource{accountName}</t:Cell><t:Cell>$Resource{isInput}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
-		
-        this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
-
-                this.kdtEntrys.putBindContents("editData",new String[] {"id","accountNumber","accountName","isInput"});
-
-
-        this.kdtEntrys.checkParsed();
-        final KDBizPromptBox kdtEntrys_accountNumber_PromptBox = new KDBizPromptBox();
-        kdtEntrys_accountNumber_PromptBox.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7CostAccountQuery");
-        kdtEntrys_accountNumber_PromptBox.setVisible(true);
-        kdtEntrys_accountNumber_PromptBox.setEditable(true);
-        kdtEntrys_accountNumber_PromptBox.setDisplayFormat("$number$");
-        kdtEntrys_accountNumber_PromptBox.setEditFormat("$number$");
-        kdtEntrys_accountNumber_PromptBox.setCommitFormat("$number$");
-        KDTDefaultCellEditor kdtEntrys_accountNumber_CellEditor = new KDTDefaultCellEditor(kdtEntrys_accountNumber_PromptBox);
-        this.kdtEntrys.getColumn("accountNumber").setEditor(kdtEntrys_accountNumber_CellEditor);
-        ObjectValueRender kdtEntrys_accountNumber_OVR = new ObjectValueRender();
-        kdtEntrys_accountNumber_OVR.setFormat(new BizDataFormat("$codingNumber$"));
-        this.kdtEntrys.getColumn("accountNumber").setRenderer(kdtEntrys_accountNumber_OVR);
-        KDTextField kdtEntrys_accountName_TextField = new KDTextField();
-        kdtEntrys_accountName_TextField.setName("kdtEntrys_accountName_TextField");
-        kdtEntrys_accountName_TextField.setMaxLength(100);
-        KDTDefaultCellEditor kdtEntrys_accountName_CellEditor = new KDTDefaultCellEditor(kdtEntrys_accountName_TextField);
-        this.kdtEntrys.getColumn("accountName").setEditor(kdtEntrys_accountName_CellEditor);
-        KDCheckBox kdtEntrys_isInput_CheckBox = new KDCheckBox();
-        kdtEntrys_isInput_CheckBox.setName("kdtEntrys_isInput_CheckBox");
-        KDTDefaultCellEditor kdtEntrys_isInput_CellEditor = new KDTDefaultCellEditor(kdtEntrys_isInput_CheckBox);
-        this.kdtEntrys.getColumn("isInput").setEditor(kdtEntrys_isInput_CellEditor);
         // contorgName		
         this.contorgName.setBoundLabelText(resHelper.getString("contorgName.boundLabelText"));		
         this.contorgName.setBoundLabelLength(100);		
@@ -325,6 +300,8 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.contcontractStation.setBoundLabelLength(100);		
         this.contcontractStation.setBoundLabelUnderline(true);		
         this.contcontractStation.setVisible(true);
+        // kDContainer1
+        // kDTabbedPane1
         // prmtCreator		
         this.prmtCreator.setEnabled(false);
         // kDDateCreateTime		
@@ -376,7 +353,37 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.contractStation.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.costindexdb.ContractStationEnum").toArray());		
         this.contractStation.setRequired(false);		
         this.contractStation.setEnabled(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtorgName,txtcontractInfo,txtbeizhu,buildPriceBillStatus,projectStation,contractStation}));
+        // kdtEntrys
+		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"accountNumber\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accountName\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isInput\" t:width=\"120\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{accountNumber}</t:Cell><t:Cell>$Resource{accountName}</t:Cell><t:Cell>$Resource{isInput}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
+
+                this.kdtEntrys.putBindContents("editData",new String[] {"id","accountNumber","accountName","isInput"});
+
+
+        this.kdtEntrys.checkParsed();
+        final KDBizPromptBox kdtEntrys_accountNumber_PromptBox = new KDBizPromptBox();
+        kdtEntrys_accountNumber_PromptBox.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7CostAccountQuery");
+        kdtEntrys_accountNumber_PromptBox.setVisible(true);
+        kdtEntrys_accountNumber_PromptBox.setEditable(true);
+        kdtEntrys_accountNumber_PromptBox.setDisplayFormat("$number$");
+        kdtEntrys_accountNumber_PromptBox.setEditFormat("$number$");
+        kdtEntrys_accountNumber_PromptBox.setCommitFormat("$number$");
+        KDTDefaultCellEditor kdtEntrys_accountNumber_CellEditor = new KDTDefaultCellEditor(kdtEntrys_accountNumber_PromptBox);
+        this.kdtEntrys.getColumn("accountNumber").setEditor(kdtEntrys_accountNumber_CellEditor);
+        ObjectValueRender kdtEntrys_accountNumber_OVR = new ObjectValueRender();
+        kdtEntrys_accountNumber_OVR.setFormat(new BizDataFormat("$codingNumber$"));
+        this.kdtEntrys.getColumn("accountNumber").setRenderer(kdtEntrys_accountNumber_OVR);
+        KDTextField kdtEntrys_accountName_TextField = new KDTextField();
+        kdtEntrys_accountName_TextField.setName("kdtEntrys_accountName_TextField");
+        kdtEntrys_accountName_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtEntrys_accountName_CellEditor = new KDTDefaultCellEditor(kdtEntrys_accountName_TextField);
+        this.kdtEntrys.getColumn("accountName").setEditor(kdtEntrys_accountName_CellEditor);
+        KDCheckBox kdtEntrys_isInput_CheckBox = new KDCheckBox();
+        kdtEntrys_isInput_CheckBox.setName("kdtEntrys_isInput_CheckBox");
+        KDTDefaultCellEditor kdtEntrys_isInput_CellEditor = new KDTDefaultCellEditor(kdtEntrys_isInput_CheckBox);
+        this.kdtEntrys.getColumn("isInput").setEditor(kdtEntrys_isInput_CellEditor);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtorgName,txtcontractInfo,txtbeizhu,buildPriceBillStatus,projectStation,contractStation,kDDateLastUpdateTime,prmtLastUpdateUser,kDDateCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,kdtEntrys}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -403,38 +410,40 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
     public void initUIContentLayout()
     {
         this.setBounds(new Rectangle(0, 0, 1013, 629));
-        this.setLayout(null);
+        this.setLayout(new KDLayout());
+        this.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1013, 629));
         contCreator.setBounds(new Rectangle(364, 578, 270, 19));
-        this.add(contCreator, null);
-        contCreateTime.setBounds(new Rectangle(736, 570, 270, 19));
-        this.add(contCreateTime, null);
+        this.add(contCreator, new KDLayout.Constraints(364, 578, 270, 19, 0));
+        contCreateTime.setBounds(new Rectangle(736, 576, 270, 19));
+        this.add(contCreateTime, new KDLayout.Constraints(736, 576, 270, 19, 0));
         contLastUpdateUser.setBounds(new Rectangle(364, 603, 270, 19));
-        this.add(contLastUpdateUser, null);
+        this.add(contLastUpdateUser, new KDLayout.Constraints(364, 603, 270, 19, 0));
         contLastUpdateTime.setBounds(new Rectangle(736, 601, 270, 19));
-        this.add(contLastUpdateTime, null);
+        this.add(contLastUpdateTime, new KDLayout.Constraints(736, 601, 270, 19, 0));
         contNumber.setBounds(new Rectangle(8, 7, 270, 19));
-        this.add(contNumber, null);
+        this.add(contNumber, new KDLayout.Constraints(8, 7, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contBizDate.setBounds(new Rectangle(18, 605, 270, 19));
-        this.add(contBizDate, null);
+        this.add(contBizDate, new KDLayout.Constraints(18, 605, 270, 19, 0));
         contDescription.setBounds(new Rectangle(14, 589, 270, 19));
-        this.add(contDescription, null);
+        this.add(contDescription, new KDLayout.Constraints(14, 589, 270, 19, 0));
         contAuditor.setBounds(new Rectangle(18, 570, 270, 19));
-        this.add(contAuditor, null);
-        kdtEntrys.setBounds(new Rectangle(107, 116, 611, 229));
-        kdtEntrys_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntrys,new com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryInfo(),null,false);
-        this.add(kdtEntrys_detailPanel, null);
-        contorgName.setBounds(new Rectangle(397, 7, 270, 19));
-        this.add(contorgName, null);
-        contcontractInfo.setBounds(new Rectangle(8, 31, 270, 19));
-        this.add(contcontractInfo, null);
-        contbeizhu.setBounds(new Rectangle(8, 57, 1001, 51));
-        this.add(contbeizhu, null);
-        contbuildPriceBillStatus.setBounds(new Rectangle(738, 7, 270, 19));
-        this.add(contbuildPriceBillStatus, null);
-        contprojectStation.setBounds(new Rectangle(740, 31, 270, 19));
-        this.add(contprojectStation, null);
-        contcontractStation.setBounds(new Rectangle(398, 31, 270, 19));
-        this.add(contcontractStation, null);
+        this.add(contAuditor, new KDLayout.Constraints(18, 570, 270, 19, 0));
+        contorgName.setBounds(new Rectangle(8, 54, 635, 19));
+        this.add(contorgName, new KDLayout.Constraints(8, 54, 635, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contcontractInfo.setBounds(new Rectangle(8, 30, 635, 19));
+        this.add(contcontractInfo, new KDLayout.Constraints(8, 30, 635, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contbeizhu.setBounds(new Rectangle(8, 77, 1001, 37));
+        this.add(contbeizhu, new KDLayout.Constraints(8, 77, 1001, 37, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contbuildPriceBillStatus.setBounds(new Rectangle(740, 7, 270, 19));
+        this.add(contbuildPriceBillStatus, new KDLayout.Constraints(740, 7, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contprojectStation.setBounds(new Rectangle(740, 30, 270, 19));
+        this.add(contprojectStation, new KDLayout.Constraints(740, 30, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contcontractStation.setBounds(new Rectangle(373, 7, 270, 19));
+        this.add(contcontractStation, new KDLayout.Constraints(373, 7, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDContainer1.setBounds(new Rectangle(8, 118, 633, 213));
+        this.add(kDContainer1, new KDLayout.Constraints(8, 118, 633, 213, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDTabbedPane1.setBounds(new Rectangle(8, 337, 999, 230));
+        this.add(kDTabbedPane1, new KDLayout.Constraints(8, 337, 999, 230, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -465,6 +474,9 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         contprojectStation.setBoundEditor(projectStation);
         //contcontractStation
         contcontractStation.setBoundEditor(contractStation);
+        //kDContainer1
+kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntrys_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntrys,new com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryInfo(),null,false);
+        kDContainer1.getContentPane().add(kdtEntrys_detailPanel, BorderLayout.CENTER);
 
     }
 
@@ -636,11 +648,6 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
 
 	//Regiester control's property binding.
 	private void registerBindings(){
-		dataBinder.registerBinding("entrys.id", com.kingdee.bos.util.BOSUuid.class, this.kdtEntrys, "id.text");
-		dataBinder.registerBinding("entrys", com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryInfo.class, this.kdtEntrys, "userObject");
-		dataBinder.registerBinding("entrys.accountNumber", java.lang.Object.class, this.kdtEntrys, "accountNumber.text");
-		dataBinder.registerBinding("entrys.accountName", String.class, this.kdtEntrys, "accountName.text");
-		dataBinder.registerBinding("entrys.isInput", boolean.class, this.kdtEntrys, "isInput.text");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.kDDateCreateTime, "value");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
@@ -654,7 +661,12 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
 		dataBinder.registerBinding("beizhu", String.class, this.txtbeizhu, "text");
 		dataBinder.registerBinding("buildPriceBillStatus", com.kingdee.eas.fdc.basedata.FDCBillStateEnum.class, this.buildPriceBillStatus, "selectedItem");
 		dataBinder.registerBinding("projectStation", com.kingdee.eas.fdc.costindexdb.ProjectStationEnum.class, this.projectStation, "selectedItem");
-		dataBinder.registerBinding("contractStation", com.kingdee.eas.fdc.costindexdb.ContractStationEnum.class, this.contractStation, "selectedItem");		
+		dataBinder.registerBinding("contractStation", com.kingdee.eas.fdc.costindexdb.ContractStationEnum.class, this.contractStation, "selectedItem");
+		dataBinder.registerBinding("entrys.id", com.kingdee.bos.util.BOSUuid.class, this.kdtEntrys, "id.text");
+		dataBinder.registerBinding("entrys", com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryInfo.class, this.kdtEntrys, "userObject");
+		dataBinder.registerBinding("entrys.accountNumber", java.lang.Object.class, this.kdtEntrys, "accountNumber.text");
+		dataBinder.registerBinding("entrys.accountName", String.class, this.kdtEntrys, "accountName.text");
+		dataBinder.registerBinding("entrys.isInput", boolean.class, this.kdtEntrys, "isInput.text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -789,11 +801,6 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
-		getValidateHelper().registerBindProperty("entrys.id", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("entrys", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("entrys.accountNumber", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("entrys.accountName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("entrys.isInput", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
@@ -807,7 +814,12 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
 		getValidateHelper().registerBindProperty("beizhu", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("buildPriceBillStatus", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("projectStation", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("contractStation", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("contractStation", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.id", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.accountNumber", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.accountName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.isInput", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -835,25 +847,6 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
-    	sic.add(new SelectorItemInfo("entrys.id"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("entrys.*"));
-		}
-		else{
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("entrys.accountNumber.*"));
-		}
-		else{
-	    	sic.add(new SelectorItemInfo("entrys.accountNumber.id"));
-			sic.add(new SelectorItemInfo("entrys.accountNumber.codingNumber"));
-			sic.add(new SelectorItemInfo("entrys.accountNumber.name"));
-        	sic.add(new SelectorItemInfo("entrys.accountNumber.number"));
-		}
-    	sic.add(new SelectorItemInfo("entrys.accountName"));
-    	sic.add(new SelectorItemInfo("entrys.isInput"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));
@@ -892,6 +885,25 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         sic.add(new SelectorItemInfo("buildPriceBillStatus"));
         sic.add(new SelectorItemInfo("projectStation"));
         sic.add(new SelectorItemInfo("contractStation"));
+    	sic.add(new SelectorItemInfo("entrys.id"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entrys.*"));
+		}
+		else{
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entrys.accountNumber.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entrys.accountNumber.id"));
+			sic.add(new SelectorItemInfo("entrys.accountNumber.codingNumber"));
+			sic.add(new SelectorItemInfo("entrys.accountNumber.name"));
+        	sic.add(new SelectorItemInfo("entrys.accountNumber.number"));
+		}
+    	sic.add(new SelectorItemInfo("entrys.accountName"));
+    	sic.add(new SelectorItemInfo("entrys.isInput"));
         return sic;
     }        
     	
