@@ -4,7 +4,9 @@
 package com.kingdee.eas.fdc.wfui;
 
 import java.awt.event.*;
+import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
@@ -12,10 +14,18 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
+import com.kingdee.bos.ctrl.kdf.table.KDTableHelper;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.fdc.basedata.ApportionTypeInfo;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.basedata.ProjectStageEnum;
+import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
 import com.kingdee.eas.framework.*;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
  * 设计变更申请单审批界面
@@ -35,12 +45,16 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
 
     
     public void onLoad() throws Exception {
-    	super.onLoad();
     	
+    	super.onLoad();
+    	this.kDTable1.getStyleAttributes().setWrapText(true);
     	initUI();
+    	
+    	KDTableHelper.autoFitRowHeight(this.kDTable1, 4);
     }
    
     private void initUI() throws BOSException, SQLException{
+    	
     	this.kDTable1.addColumns(13);
     	KDTMergeManager mergeManager = kDTable1.getMergeManager();
     	
@@ -72,7 +86,12 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	addRowthree.getCell(7).setValue("XX");
     	addRowthree.getCell(8).setValue("销售部");
     	addRowthree.getCell(9).setValue("XX");
-    	addRowthree.getCell(10).setValue("其他");    	
+    	addRowthree.getCell(10).setValue("其他");    
+    	addRowthree.getCell(2).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowthree.getCell(4).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowthree.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowthree.getCell(8).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowthree.getCell(10).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(2, 0, 3, 0);
     	mergeManager.mergeBlock(2, 10,2, 12);
@@ -83,21 +102,26 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	IRow addRowfour = this.kDTable1.addRow();
     	addRowfour.getCell(0).setValue("提出方");
     	addRowfour.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
-    	addRowfour.getCell(1).setValue("经办人:人员");
-    	addRowfour.getCell(4).setValue("审核人:人员:");   
-    	addRowfour.getCell(7).setValue("提出时间:");
-    	addRowfour.getCell(7).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowfour.getCell(2).setValue("经办人:");
+    	addRowfour.getCell(3).setValue("人员");
+    	addRowfour.getCell(6).setValue("审核人:");   
+    	addRowfour.getCell(7).setValue("人员");   
+    	addRowfour.getCell(10).setValue("提出时间:");
+    	addRowfour.getCell(2).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowfour.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowfour.getCell(10).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
-    	mergeManager.mergeBlock(3, 1, 3, 3);
-    	mergeManager.mergeBlock(3, 4, 3, 6);
-    	mergeManager.mergeBlock(3, 7, 3, 8);
-    	mergeManager.mergeBlock(3, 9, 3, 12);
+//    	mergeManager.mergeBlock(3, 1, 3, 3);
+    	mergeManager.mergeBlock(3, 3, 3, 5);
+    	mergeManager.mergeBlock(3, 7, 3, 9);
+    	mergeManager.mergeBlock(3, 11, 3, 12);
     	mergeManager.mergeBlock(2, 0, 3, 0);
 
     	//第五行
     	IRow addRowfive = this.kDTable1.addRow();
     	addRowfive.getCell(0).setValue("变更原因及建议方案");
     	addRowfive.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(4, 1, 4, 12);
 
@@ -123,9 +147,9 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	addRowseven.getCell(0).setValue("部门意见");
     	addRowseven.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowseven.getCell(1).setValue("设计部");
-    	addRowseven.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowseven.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowseven.getCell(2).setValue("产品品质");
-    	addRowseven.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowseven.getCell(2).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowseven.getCell(3).setValue("XX");
     	addRowseven.getCell(4).setValue("提高");
     	addRowseven.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
@@ -134,7 +158,7 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	addRowseven.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowseven.getCell(7).setValue("XX");
     	addRowseven.getCell(8).setValue("无影响");
-    	addRowseven.getCell(8).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowseven.getCell(8).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(6, 8, 6, 10);
     	mergeManager.mergeBlock(5, 0, 10, 0);
@@ -156,10 +180,10 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	addRoweight.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRoweight.getCell(7).setValue("XX");
     	addRoweight.getCell(8).setValue("需返工");
-    	addRoweight.getCell(8).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRoweight.getCell(8).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRoweight.getCell(9).setValue("XX");
     	addRoweight.getCell(10).setValue("无需返工");
-    	addRoweight.getCell(10).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRoweight.getCell(10).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(7, 5, 7, 6);
     	mergeManager.mergeBlock(5, 0, 10, 0);
@@ -181,7 +205,7 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	addRownine.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRownine.getCell(7).setValue("XX");
     	addRownine.getCell(8).setValue("无影响");
-    	addRownine.getCell(8).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRownine.getCell(8).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(8, 8, 8, 10);
     	mergeManager.mergeBlock(5, 0, 10, 0);
@@ -207,17 +231,16 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	addRowelev.getCell(2).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowelev.getCell(3).setValue("XX");
     	addRowelev.getCell(4).setValue("增加");
-    	addRowelev.getCell(4).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowelev.getCell(4).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowelev.getCell(5).setValue("XX");
-    	addRowelev.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowelev.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowelev.getCell(6).setValue("减少");
-    	addRowelev.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowelev.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowelev.getCell(7).setValue("XX");
     	addRowelev.getCell(8).setValue("零");
-    	addRowelev.getCell(8).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowelev.getCell(9).setValue("费用估价：");
+    	addRowelev.getCell(9).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowelev.getCell(10).setValue("万元");
-    	addRoweight.getCell(10).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(5, 0, 10, 0);
 
@@ -268,16 +291,65 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	
     	
     	this.kDTable1.getColumn(0).setWidth(100);
-    	this.kDTable1.getColumn(1).setWidth(120);
-    	this.kDTable1.getColumn(2).setWidth(50);
-    	this.kDTable1.getColumn(3).setWidth(75);
-    	this.kDTable1.getColumn(4).setWidth(80);
-    	this.kDTable1.getColumn(5).setWidth(75);
+    	this.kDTable1.getColumn(1).setWidth(70);
+    	this.kDTable1.getColumn(2).setWidth(60);
+    	this.kDTable1.getColumn(3).setWidth(40);
+    	this.kDTable1.getColumn(4).setWidth(45);
+    	this.kDTable1.getColumn(5).setWidth(40);
     	this.kDTable1.getColumn(6).setWidth(75);
-    	this.kDTable1.getColumn(7).setWidth(50);
-    	this.kDTable1.getColumn(8).setWidth(50);
-    	this.kDTable1.getColumn(9).setWidth(50);
+    	this.kDTable1.getColumn(7).setWidth(40);
+    	this.kDTable1.getColumn(8).setWidth(70);
+    	this.kDTable1.getColumn(9).setWidth(70);
+    	this.kDTable1.getColumn(10).setWidth(70);
+    	this.kDTable1.getColumn(11).setWidth(72);
     	this.kDTable1.getIndexColumn().getStyleAttributes().setHided(true);
+    	
+    	
+    	
+
+    	String billId = "FrYcumfRTUq/iL87J1M2VXARYRc=";
+//    	StringBuffer sb = new StringBuffer();
+//    	sb.append("  select ChangeAB.FCurProjectName ,ChangeAB.FNumber ,ChangeAB.Fname ,BaseU.Fname_l2 ,");
+//    	sb.append(" ChangeAB.Freadesc ,ChangeAB.CFQuality ,ChangeAB.CFTimeLi ,ChangeAB.CFSale ,CFCost ");
+//    	sb.append("  from T_CON_ChangeAuditBill ChangeAB ");
+//    	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
+//    	sb.append(" where ChangeAB.fid = '").append(billId).append("'");
+//    	
+//    	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
+//    	while(rowset.next()){
+//    		this.kDTextField1.setText(rowset.getString(1));
+//    		this.kDTextField2.setText(rowset.getString(2));
+//    		this.kDTable1.getCell(0, 1).setValue(rowset.getString(3));
+//    	}
+    	
+    	//工作流审批意见
+    	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
+    	this.kDTable1.getCell(3, 3).setValue(apporveResultForMap.get("提出方经办人;审核人"));
+    	this.kDTable1.getCell(3, 7).setValue(apporveResultForMap.get("提出方审核人;审核人"));
+    	this.kDTable1.getCell(3, 11).setValue(apporveResultForMap.get("提出时间;审核时间"));
+    	this.kDTable1.getCell(6, 11).setValue(apporveResultForMap.get("设计部负责人;审核人"));
+    	this.kDTable1.getCell(6, 12).setValue(apporveResultForMap.get("设计部日期"));
+    	this.kDTable1.getCell(7, 11).setValue(apporveResultForMap.get("工程部负责人;审核人"));
+    	this.kDTable1.getCell(7, 12).setValue(apporveResultForMap.get("工程部日期"));
+    	this.kDTable1.getCell(8, 11).setValue(apporveResultForMap.get("销售部负责人;审核人"));
+    	this.kDTable1.getCell(8, 12).setValue(apporveResultForMap.get("销售部日期"));
+    	this.kDTable1.getCell(9, 11).setValue(apporveResultForMap.get("前期配套部负责人;审核人"));
+    	this.kDTable1.getCell(9, 12).setValue(apporveResultForMap.get("前期配套部日期"));
+    	this.kDTable1.getCell(10, 11).setValue(apporveResultForMap.get("合约部负责人;审核人"));
+    	this.kDTable1.getCell(10, 12).setValue(apporveResultForMap.get("合约部日期"));
+    	this.kDTable1.getCell(11, 1).setValue(apporveResultForMap.get("公司第一负责人;意见"));
+    	this.kDTable1.getCell(12, 3).setValue(apporveResultForMap.get("公司第一负责人;签字"));
+    	this.kDTable1.getCell(12, 12).setValue(apporveResultForMap.get("公司第一负责人;日期"));
+    	this.kDTable1.getCell(13, 1).setValue(apporveResultForMap.get("城市公司或地区总部第一负责人;意见"));
+    	this.kDTable1.getCell(14, 3).setValue(apporveResultForMap.get("城市公司或地区总部第一负责人;签字"));
+    	this.kDTable1.getCell(14, 12).setValue(apporveResultForMap.get("城市公司或地区总部第一负责人;日期"));
+    	
+    	
+    }
+    
+    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
+    	super.kDTable1_tableClicked(e);
+    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
     }
 
   

@@ -47,10 +47,14 @@ public abstract class AbstractTechnicalverificationApproveUI extends com.kingdee
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractTechnicalverificationApproveUI.class);
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable2;
+    protected com.kingdee.bos.ctrl.swing.KDTextField kDTextField1;
+    protected com.kingdee.bos.ctrl.swing.KDTextField kDTextField2;
     protected com.kingdee.eas.fdc.contract.ChangeAuditBillInfo editData = null;
     /**
      * output class constructor
@@ -72,15 +76,23 @@ public abstract class AbstractTechnicalverificationApproveUI extends com.kingdee
         this.resHelper = new ResourceBundleHelper(AbstractTechnicalverificationApproveUI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
+        this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDTable2 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.kDTextField1 = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.kDTextField2 = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDTabbedPane1.setName("kDTabbedPane1");
+        this.kDLabelContainer1.setName("kDLabelContainer1");
+        this.kDLabelContainer2.setName("kDLabelContainer2");
         this.kDPanel1.setName("kDPanel1");
         this.kDPanel2.setName("kDPanel2");
         this.kDTable1.setName("kDTable1");
         this.kDTable2.setName("kDTable2");
+        this.kDTextField1.setName("kDTextField1");
+        this.kDTextField2.setName("kDTextField2");
         // CoreUI		
         this.btnPageSetup.setVisible(false);		
         this.btnCloud.setVisible(false);		
@@ -107,16 +119,44 @@ public abstract class AbstractTechnicalverificationApproveUI extends com.kingdee
         this.menuItemReset.setEnabled(false);		
         this.menuItemReset.setVisible(false);
         // kDTabbedPane1
+        // kDLabelContainer1		
+        this.kDLabelContainer1.setBoundLabelText(resHelper.getString("kDLabelContainer1.boundLabelText"));		
+        this.kDLabelContainer1.setBoundLabelLength(80);
+        // kDLabelContainer2		
+        this.kDLabelContainer2.setBoundLabelText(resHelper.getString("kDLabelContainer2.boundLabelText"));		
+        this.kDLabelContainer2.setBoundLabelLength(80);
         // kDPanel1
         // kDPanel2
         // kDTable1
+        this.kDTable1.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
+            public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
+                try {
+                    kDTable1_tableClicked(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
 
         
 
         // kDTable2
+        this.kDTable2.addKDTMouseListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener() {
+            public void tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) {
+                try {
+                    kDTable2_tableClicked(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
 
         
 
+        // kDTextField1
+        // kDTextField2
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -146,6 +186,10 @@ public abstract class AbstractTechnicalverificationApproveUI extends com.kingdee
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
         kDTabbedPane1.setBounds(new Rectangle(191, 43, 603, 581));
         this.add(kDTabbedPane1, new KDLayout.Constraints(191, 43, 603, 581, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer1.setBounds(new Rectangle(191, 11, 200, 19));
+        this.add(kDLabelContainer1, new KDLayout.Constraints(191, 11, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer2.setBounds(new Rectangle(594, 11, 200, 19));
+        this.add(kDLabelContainer2, new KDLayout.Constraints(594, 11, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //kDTabbedPane1
         kDTabbedPane1.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
         kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
@@ -157,6 +201,10 @@ public abstract class AbstractTechnicalverificationApproveUI extends com.kingdee
         kDPanel2.setLayout(new KDLayout());
         kDPanel2.putClientProperty("OriginalBounds", new Rectangle(0, 0, 602, 548));        kDTable2.setBounds(new Rectangle(0, -2, 599, 549));
         kDPanel2.add(kDTable2, new KDLayout.Constraints(0, -2, 599, 549, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        //kDLabelContainer1
+        kDLabelContainer1.setBoundEditor(kDTextField1);
+        //kDLabelContainer2
+        kDLabelContainer2.setBoundEditor(kDTextField2);
 
     }
 
@@ -339,6 +387,20 @@ public abstract class AbstractTechnicalverificationApproveUI extends com.kingdee
         } else if (STATUS_EDIT.equals(this.oprtState)) {
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output kDTable1_tableClicked method
+     */
+    protected void kDTable1_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output kDTable2_tableClicked method
+     */
+    protected void kDTable2_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
+    {
     }
 
     /**
