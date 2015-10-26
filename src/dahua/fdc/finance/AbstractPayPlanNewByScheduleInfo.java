@@ -129,6 +129,17 @@ public class AbstractPayPlanNewByScheduleInfo extends com.kingdee.eas.fdc.financ
     {
         put("scheduleTask", item);
     }
+    /**
+     * Object:按节点支付's 支付节点property 
+     */
+    public String getScheduleName()
+    {
+        return getString("scheduleName");
+    }
+    public void setScheduleName(String item)
+    {
+        setString("scheduleName", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("DE24E4EC");

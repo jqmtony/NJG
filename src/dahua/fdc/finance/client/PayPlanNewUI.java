@@ -16,9 +16,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
 
@@ -27,8 +29,8 @@ import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IColumn;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
-import com.kingdee.bos.ctrl.kdf.table.KDTableHelper;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.render.RenderObject;
@@ -36,6 +38,8 @@ import com.kingdee.bos.ctrl.kdf.table.util.KDTableUtil;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.kdf.util.render.TextIconRender;
 import com.kingdee.bos.ctrl.kdf.util.style.Style;
+import com.kingdee.bos.ctrl.kdf.util.style.StyleAttributes;
+import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.ctrl.swing.KDComboBox;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
@@ -94,6 +98,7 @@ import com.kingdee.eas.fdc.finance.PayPlanNewInfo;
 import com.kingdee.eas.fdc.finance.PrepayWriteOffEnum;
 import com.kingdee.eas.fdc.finance.client.util.PayPlanClientUtil;
 import com.kingdee.eas.fdc.schedule.FDCScheduleTaskInfo;
+import com.kingdee.eas.fm.common.client.FMClientHelper;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.framework.client.FrameWorkClientUtils;
 import com.kingdee.eas.util.SysUtil;
@@ -136,13 +141,15 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 	private static final String COL_END_DATE = "endDate";
 
 	private static final String COL_BEGIN_DATE = "beginDate";
-
+	private Color bgc = new Color(213,241,224);
+	private Map<String,PayPlanNewDataInfo> dataMap = new HashMap<String,PayPlanNewDataInfo>();
 	private static final Logger logger = CoreUIObject.getLogger(PayPlanNewUI.class);
 
 	public KDWorkButton btnAddnewLine;
 	public KDWorkButton btnInsertLine;
 	public KDWorkButton btnRemoveLines;
 	public KDWorkButton btnCopyLines;
+	public KDWorkButton btnCalAmount;
 
 	//合约规划
 	private ProgrammingContractInfo pInfo;
@@ -176,11 +183,12 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 		actionUpdateBySchedule.setVisible(false);
 		String id = (String) getUIContext().get("programmingId");
 		if(id != null){
-			DahuaScheduleEntryCollection dscoll = null;
-			dscoll=DahuaScheduleEntryFactory.getRemoteInstance().getDahuaScheduleEntryCollection(" where progamming='"+id+"'");
+			DahuaScheduleEntryCollection dscoll = null;//" where progamming.id='"+id+"'"
+			dscoll=DahuaScheduleEntryFactory.getRemoteInstance().getDahuaScheduleEntryCollection();
 			if(dscoll.size() > 0)
 				dsInfo = dscoll.get(0);
 		}
+		contPayPlanLst.setTitle("付款明细");
 	}
 	/**
 	 * @see com.kingdee.eas.framework.client.EditUI#actionEdit_actionPerformed(java.awt.event.ActionEvent)
@@ -190,6 +198,7 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 		btnAddnewLine.setEnabled(true);
 		btnRemoveLines.setEnabled(true);
 		btnInsertLine.setEnabled(true);
+		btnCalAmount.setEnabled(true);
 	}
 	
 	protected void queryData() throws Exception {
@@ -444,6 +453,11 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 		}
 	}
 	
+	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+		
+		super.actionSubmit_actionPerformed(e);
+	}
+	
 	public void updateAmount(BigDecimal amount){
 		planAmount = amount;
 		BigDecimal sumAmount = FDCHelper.ZERO;
@@ -454,10 +468,10 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 				continue;
 			scale = scale.multiply(planAmount).divide(FDCHelper.ONE_HUNDRED);
 			row.getCell(COL_PLAN_PAY_AMOUNT).setValue(scale);
-			Date beginDate = (Date)row.getCell(COL_BEGIN_DATE).getValue();
-			Date endDate = (Date)row.getCell(COL_END_DATE).getValue();
-			if(beginDate!=null && endDate!=null)
-				calMonthAmount(beginDate,endDate,scale);
+//			Date beginDate = (Date)row.getCell(COL_BEGIN_DATE).getValue();
+//			Date endDate = (Date)row.getCell(COL_END_DATE).getValue();
+//			if(beginDate!=null && endDate!=null)
+//				calMonthAmount(beginDate,endDate,scale);
 //			BigDecimal planPayAmount = FDCHelper.divide(
 //					FDCHelper.multiply(amount, row.getCell(COL_PAY_SCALE).getValue()),
 //					FDCHelper.ONE_HUNDRED);
@@ -535,10 +549,11 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 					Date endDate = (Date)row.getCell(COL_END_DATE).getValue();
 					if(beginDate.compareTo(endDate) > 0){
 						FDCMsgBox.showInfo("开始日期应在结束日期之前");
+						row.getCell(colIndex).setValue(null);
 						return;
 					}
-					if(row.getCell(COL_PLAN_PAY_AMOUNT).getValue()!=null)
-						calMonthAmount(beginDate,endDate,(BigDecimal)row.getCell(COL_PLAN_PAY_AMOUNT).getValue());
+//					if(row.getCell(COL_PLAN_PAY_AMOUNT).getValue()!=null)
+//						calMonthAmount(beginDate,endDate,(BigDecimal)row.getCell(COL_PLAN_PAY_AMOUNT).getValue());
 				}
 			}
 			
@@ -551,42 +566,44 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 					Date endDate = (Date)row.getCell(colIndex).getValue();
 					if(beginDate.compareTo(endDate) > 0){
 						FDCMsgBox.showInfo("开始日期应在结束日期之前");
+						row.getCell(colIndex).setValue(null);
 						return;
 					}
-					if(row.getCell(COL_PLAN_PAY_AMOUNT).getValue()!=null)
-						calMonthAmount(beginDate,endDate,(BigDecimal)row.getCell(COL_PLAN_PAY_AMOUNT).getValue());
+//					if(row.getCell(COL_PLAN_PAY_AMOUNT).getValue()!=null)
+//						calMonthAmount(beginDate,endDate,(BigDecimal)row.getCell(COL_PLAN_PAY_AMOUNT).getValue());
 				}
 			}
 		} else if(colIndex==tblBySchedule.getColumnIndex(COL_PLAN_PAY_AMOUNT) && row.getCell(colIndex).getValue()!=null){
 			BigDecimal amount = (BigDecimal)row.getCell(colIndex).getValue();
 			row.getCell(COL_PAY_SCALE).setValue(amount.multiply(FDCHelper.ONE_HUNDRED).divide(planAmount,2,RoundingMode.HALF_UP));
-			Date beginDate = (Date)row.getCell(COL_BEGIN_DATE).getValue();
-			Date endDate = (Date)row.getCell(COL_END_DATE).getValue();
-			if(beginDate!=null && endDate!=null)
-				calMonthAmount(beginDate,endDate,(BigDecimal)row.getCell(colIndex).getValue());
+//			Date beginDate = (Date)row.getCell(COL_BEGIN_DATE).getValue();
+//			Date endDate = (Date)row.getCell(COL_END_DATE).getValue();
+//			if(beginDate!=null && endDate!=null)
+//				calMonthAmount(beginDate,endDate,(BigDecimal)row.getCell(colIndex).getValue());
 		} else if(colIndex==tblBySchedule.getColumnIndex(COL_PAY_SCALE) && row.getCell(colIndex).getValue()!=null){
 			BigDecimal scale = (BigDecimal)row.getCell(colIndex).getValue();
 			scale = scale.multiply(planAmount).divide(FDCHelper.ONE_HUNDRED);
 			row.getCell(COL_PLAN_PAY_AMOUNT).setValue(scale);
-			Date beginDate = (Date)row.getCell(COL_BEGIN_DATE).getValue();
-			Date endDate = (Date)row.getCell(COL_END_DATE).getValue();
-			if(beginDate!=null && endDate!=null)
-				calMonthAmount(beginDate,endDate,scale);
-		} else if(colIndex==tblBySchedule.getColumnIndex(COL_SCHEDULE) && row.getCell(colIndex).getValue()!=null){
-			DahuaScheduleEntryInfo sdeinfo = (DahuaScheduleEntryInfo)row.getCell(colIndex).getValue();
-			if(row.getCell(COL_PAYMENT_TYPE).getValue() == null){
-				row.getCell(COL_BEGIN_DATE).setValue(sdeinfo.getStartDate());
-				row.getCell(COL_END_DATE).setValue(sdeinfo.getEndDate());
-			}else{
-				PaymentTypeInfo pInfo = (PaymentTypeInfo)row.getCell(COL_PAYMENT_TYPE).getValue();
-				if("02".equals(pInfo.getNumber())){
-					row.getCell(COL_BEGIN_DATE).setValue(sdeinfo.getStartDate());
-					row.getCell(COL_END_DATE).setValue(sdeinfo.getEndDate());
-				}else{
-					row.getCell(COL_BEGIN_DATE).setValue(sdeinfo.getStartDate());
-				}
-			}
-		}
+//			Date beginDate = (Date)row.getCell(COL_BEGIN_DATE).getValue();
+//			Date endDate = (Date)row.getCell(COL_END_DATE).getValue();
+//			if(beginDate!=null && endDate!=null)
+//				calMonthAmount(beginDate,endDate,scale);
+		} 
+//		else if(colIndex==tblBySchedule.getColumnIndex(COL_SCHEDULE) && row.getCell(colIndex).getValue()!=null){
+//			DahuaScheduleEntryInfo sdeinfo = (DahuaScheduleEntryInfo)row.getCell(colIndex).getValue();
+//			if(row.getCell(COL_PAYMENT_TYPE).getValue() == null){
+//				row.getCell(COL_BEGIN_DATE).setValue(sdeinfo.getStartDate());
+//				row.getCell(COL_END_DATE).setValue(sdeinfo.getEndDate());
+//			}else{
+//				PaymentTypeInfo pInfo = (PaymentTypeInfo)row.getCell(COL_PAYMENT_TYPE).getValue();
+//				if("02".equals(pInfo.getNumber())){
+//					row.getCell(COL_BEGIN_DATE).setValue(sdeinfo.getStartDate());
+//					row.getCell(COL_END_DATE).setValue(sdeinfo.getEndDate());
+//				}else{
+//					row.getCell(COL_BEGIN_DATE).setValue(sdeinfo.getStartDate());
+//				}
+//			}
+//		}
 		
 //			BigDecimal planPayAmount = FDCHelper.divide(FDCHelper.multiply(pInfo.getAmount(), row.getCell(COL_PAY_SCALE).getValue()),
 //					FDCHelper.ONE_HUNDRED);
@@ -782,7 +799,16 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 		conInfo.setAmount(pInfo.getAmount());
 		conInfo.setIsLeaf(pInfo.isIsLeaf());
 		editData.put("uiInfo", conInfo);
-		
+		//modify by yxl 20150924
+//		PayPlanNewDataInfo info = null;
+//		for(int i = 1; i < tblPayPlanLst.getRowCount(); i=i+2) {
+//			for (int j = 2; j < tblPayPlanLst.getColumnCount(); j++) {
+//				info = dataMap.get((String)tblPayPlanLst.getCell(i,"rowIndex").getValue()+"!"+tblPayPlanLst.getColumnKey(j));
+//				if(info!=null && info.getPayAmount().compareTo((BigDecimal)tblPayPlanLst.getCell(i,j).getValue())!=0){
+//					info.setPayAmount((BigDecimal)tblPayPlanLst.getCell(i,j).getValue());
+//				}
+//			}
+//		}
 
 	}
 	
@@ -802,34 +828,172 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 		return map;
 	}
 	
+	/**
+	 * 判断单据是否已做修改
+	 * @return	   true表示已修改过，false表示未做修改
+	 */
+	public boolean verifyTabIsModify() {
+		if(oprtState.equals(OprtState.VIEW)) {
+			return false;
+		}
+		// 界面状态不是EDIT并且也不是ADDNEW时，返回false
+		if(!oprtState.equals(OprtState.EDIT) && !oprtState.equals(OprtState.ADDNEW)) {
+			return false;
+		}
+		PayPlanNewDataInfo info = null;
+		boolean flag = false;
+		for(int i = 1; i < tblPayPlanLst.getRowCount(); i=i+2) {
+			if(flag)
+				break;
+			for (int j = 2; j < tblPayPlanLst.getColumnCount(); j++) {
+				info = dataMap.get((String)tblPayPlanLst.getCell(i,"rowIndex").getValue()+"!"+tblPayPlanLst.getColumnKey(j));
+				if(info!=null && info.getPayAmount().compareTo((BigDecimal)tblPayPlanLst.getCell(i,j).getValue())!=0){
+					flag = true;
+					break;
+				}
+			}
+		}
+		return flag;
+	}
 	
 	protected void loadDataTable() {
 		tblPayPlanLst.removeColumns();
 		tblPayPlanLst.checkParsed();
 		PayPlanNewDataCollection datas = editData.getData();
 		if(datas != null && datas.size() > 0){
-			String[] columnKeys = new String[datas.size() + 1];
-			Object[] head = new Object[datas.size() + 1];
-			Object[][] body = new Object[1][datas.size() + 1];
-			for(int i = 1; i <= datas.size();i ++){
-				PayPlanNewDataInfo info = datas.get(i - 1);
-				columnKeys[i] = "" + info.getPayMonth();
-				head[i] = "" + info.getPayMonth()/100 + "年" + info.getPayMonth()%100 + "月"+"18日";
-				body[0][i] = info.getPayAmount();
+			// （javax.swing.plaf.ColorUIResource） javax.swing.plaf.ColorUIResource[r=213,g=241,b=224]
+			IRow row = tblPayPlanLst.addHeadRow();
+			IColumn icol = null;
+			icol = tblPayPlanLst.addColumn();
+			icol.setKey("rowIndex");
+			icol.getStyleAttributes().setHided(true);
+			icol = tblPayPlanLst.addColumn();
+			icol.setKey("payType");
+			icol.getStyleAttributes().setLocked(true);
+			icol = tblPayPlanLst.addColumn();
+			icol.setKey("payNode");
+			icol.getStyleAttributes().setLocked(true);
+			icol = tblPayPlanLst.addColumn();
+			icol.setKey("payDate");
+			icol.getStyleAttributes().setLocked(true);
+			icol = tblPayPlanLst.addColumn();
+			icol.setKey("payAmount");
+			KDFormattedTextField formatField = new KDFormattedTextField(KDFormattedTextField.BIGDECIMAL_TYPE);
+			formatField.setPrecision(2);
+			FMClientHelper.initCurrencyField(formatField);
+			KDTDefaultCellEditor editor = new KDTDefaultCellEditor(formatField);
+			icol.setEditor(editor);
+			String numberFormat = PayPlanClientUtil.getKDTCurrencyFormat(2);
+			icol.getStyleAttributes().setNumberFormat(numberFormat);
+			icol.getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
+			row.getCell("payType").setValue("付款类型");
+			row.getCell("payNode").setValue("支付节点");
+			row.getCell("payDate").setValue("付款时间");
+			row.getCell("payAmount").setValue("付款金额");
+			String recordSeq = null;
+			String rowKey = null;
+			PayPlanNewDataInfo info = null;
+			for(int i = 0; i < datas.size(); i++) {
+				info = datas.get(i);
+				recordSeq = info.getRecordSeq();
+				rowKey = recordSeq.substring(0,recordSeq.indexOf("!"));
+				row = tblPayPlanLst.addRow();
+				row.getCell("rowIndex").setValue(rowKey);
+				PaymentTypeInfo pinfo = (PaymentTypeInfo)tblBySchedule.getCell(Integer.parseInt(rowKey),COL_PAYMENT_TYPE).getValue();
+				if(pinfo != null)
+					row.getCell("payType").setValue(pinfo.getName());
+				row.getCell("payNode").setValue(tblBySchedule.getCell(Integer.parseInt(rowKey),"scheduleName").getValue());
+				row.getCell("payDate").setValue(info.getPayMonth()/100+"年"+info.getPayMonth()%100+"月18日");
+				row.getCell("payAmount").setValue(info.getPayAmount());
 			}
-			columnKeys[0] = "payMonth";
-			head[0] = "付款时间";
-			body[0][0] = "付款金额";
 			
-			KDTableHelper.initTable(tblPayPlanLst, columnKeys, head, body);
-			for(int i = 1; i <= datas.size();i ++){
-				PayPlanClientUtil.initFormattedTextCell(tblPayPlanLst,columnKeys[i], 2);
-			}
-			tblPayPlanLst.getStyleAttributes().setLocked(true);
-
+//			dataMap.clear();
+//			Map<String,Integer> rowCols = new TreeMap<String,Integer>();
+//			String recordSeq = null;
+//			String rowKey = null;
+//			PayPlanNewDataInfo info = null;
+//			for(int i = datas.size()-1; i >=0; i--) {
+//				info = datas.get(i);
+//				recordSeq = info.getRecordSeq();
+//				dataMap.put(recordSeq,info);
+//				rowKey = recordSeq.substring(0,recordSeq.indexOf("!"));
+//				if(rowCols.containsKey(rowKey)){
+//					rowCols.put(rowKey,1+rowCols.get(rowKey));
+//				}else{
+//					rowCols.put(rowKey,1);
+//				}
+//			}
+//			int cols = 0;
+//			IColumn icol = null;
+//			for(Iterator<String> it = rowCols.keySet().iterator(); it.hasNext();) {
+//				rowKey = it.next();
+//				if(cols < rowCols.get(rowKey))
+//					cols = rowCols.get(rowKey);
+//			}
+//			icol = tblPayPlanLst.addColumn();
+//			icol = tblPayPlanLst.addColumn();
+//			icol.setKey("rowIndex");
+//			icol.getStyleAttributes().setHided(true);
+//			for(int i = 1; i <= cols; i++) {
+//				icol = tblPayPlanLst.addColumn();
+//				icol.setKey(i+"");
+//			}
+//			IRow row1 = null;
+//			IRow row2 = null;
+//			StyleAttributes sab = null;
+//			KDFormattedTextField formatField = new KDFormattedTextField(KDFormattedTextField.BIGDECIMAL_TYPE);
+//			formatField.setPrecision(2);
+//			FMClientHelper.initCurrencyField(formatField);
+//			KDTDefaultCellEditor editor = new KDTDefaultCellEditor(formatField);
+//			String numberFormat = PayPlanClientUtil.getKDTCurrencyFormat(2);
+//			for(Iterator<String> it = rowCols.keySet().iterator(); it.hasNext();) {
+//				rowKey = it.next();
+//				row1 = tblPayPlanLst.addRow();
+//				row2 = tblPayPlanLst.addRow();
+//				row1.getCell(0).setValue("付款时间");
+//				row2.getCell(0).setValue("付款金额");
+//				row1.getCell("rowIndex").setValue(rowKey);
+//				row2.getCell("rowIndex").setValue(rowKey);
+//				sab = row1.getCell(0).getStyleAttributes();
+//				sab.setLocked(true);
+//				sab.setBackground(bgc);
+//				row2.getCell(0).getStyleAttributes().setLocked(true);
+//				for(int i = 1; i <= rowCols.get(rowKey); i++) {
+//					info = dataMap.get(rowKey+"!"+i);
+//					row1.getCell(i+"").setValue(info.getPayMonth()/100+"年"+info.getPayMonth()%100+"月18日");
+//					sab = row1.getCell(i+"").getStyleAttributes();
+//					sab.setLocked(true);
+//					sab.setBackground(bgc);
+//					row2.getCell(i+"").setEditor(editor);
+//					sab = row2.getCell(i+"").getStyleAttributes();
+//					sab.setNumberFormat(numberFormat);
+//					sab.setHorizontalAlign(HorizontalAlignment.RIGHT);
+//					row2.getCell(i+"").setValue(info.getPayAmount());
+//				}
+//			}
 		}
 		tblPayPlanLst.reLayoutAndPaint();
-
+//		if(datas != null && datas.size() > 0){
+//			String[] columnKeys = new String[datas.size() + 1];
+//			Object[] head = new Object[datas.size() + 1];
+//			Object[][] body = new Object[1][datas.size() + 1];
+//			for(int i = 1; i <= datas.size();i ++){
+//				PayPlanNewDataInfo info = datas.get(i - 1);
+//				columnKeys[i] = "" + info.getPayMonth();
+//				head[i] = "" + info.getPayMonth()/100 + "年" + info.getPayMonth()%100 + "月"+"18日";
+//				body[0][i] = info.getPayAmount();
+//			}
+//			columnKeys[0] = "payMonth";
+//			head[0] = "付款时间";
+//			body[0][0] = "付款金额";
+//			
+//			KDTableHelper.initTable(tblPayPlanLst, columnKeys, head, body);
+//			for(int i = 1; i <= datas.size();i ++){
+//				PayPlanClientUtil.initFormattedTextCell(tblPayPlanLst,columnKeys[i], 2);
+//			}
+//			tblPayPlanLst.getStyleAttributes().setLocked(true);
+//
+//		}
 	}
 
 	protected boolean isContinueAddNew() {
@@ -980,11 +1144,11 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 		SelectorItemCollection sic = super.getSelectors();
 		sic.add("*");
 		sic.add("Data.*");
-		sic.add("BySchedule.Task.task.name");
-		sic.add("BySchedule.Task.task.longNumber");
-		sic.add("BySchedule.Task.task.start");
-		sic.add("BySchedule.Task.task.end");
-		sic.add("BySchedule.TaskName.*");
+//		sic.add("BySchedule.Task.task.name");
+//		sic.add("BySchedule.Task.task.longNumber");
+//		sic.add("BySchedule.Task.task.start");
+//		sic.add("BySchedule.Task.task.end");
+//		sic.add("BySchedule.TaskName.*");
 		sic.add("BySchedule.Dataz.*");
 		return sic;
 	}
@@ -1023,6 +1187,7 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 		btnAddnewLine.setEnabled(false);
 		btnRemoveLines.setEnabled(false);
 		btnInsertLine.setEnabled(false);
+		btnCalAmount.setEnabled(false);
 
 		return new ObjectUuidPK(editData.getId());
 	}
@@ -1039,14 +1204,12 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 
 	protected void initWorkButton() {
 		super.initWorkButton();
-
 		chkMenuItemSubmitAndAddNew.setVisible(false);
-
 		btnAddnewLine = new KDWorkButton();
 		btnInsertLine = new KDWorkButton();
 		btnRemoveLines = new KDWorkButton();
 		btnCopyLines = new KDWorkButton();
-
+		btnCalAmount = new KDWorkButton();
 		btnAddnewLine.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -1088,7 +1251,18 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 				}
 			}
 		});
+		
+		btnCalAmount.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					actionCalAmount_actionPerformed(e);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
 
+		setButtonStyle(btnCalAmount, "计算金额", "imgTbtn_compute");
 		setButtonStyle(btnAddnewLine, "新增行", "imgTbtn_addline");
 		setButtonStyle(btnRemoveLines, "删除行", "imgTbtn_deleteline");
 		setButtonStyle(btnInsertLine, "插入行", "imgTbtn_insert");
@@ -1101,6 +1275,7 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 			btnCopyLines.setEnabled(false);
 			btnBySchedule.setEnabled(false);
 			btnByMonth.setEnabled(false);
+			btnCalAmount.setEnabled(false);
 		}
 		
 	}
@@ -1112,7 +1287,58 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 		button.setIcon(EASResource.getIcon(icon));
 		contProgramming.addButton(button);
 	}
-
+	
+	public void actionCalAmount_actionPerformed(ActionEvent e){
+		tblBySchedule.getHeadRow(0).getStyleAttributes().getBackground();
+		PayPlanNewDataCollection ppdcoll = editData.getData();
+//		PayPlanNewDataCollection ppdcoll = new PayPlanNewDataCollection();
+		ppdcoll.clear();
+		Calendar calendar = Calendar.getInstance();
+		List<Integer> months = new ArrayList<Integer>();
+		Date beginDate = null;
+		Date endDate = null;
+		PayPlanNewDataInfo ppdinfo = null;
+		BigDecimal amount = null;
+		for(int i = 0; i < tblBySchedule.getRowCount(); i++) {
+			beginDate = (Date)tblBySchedule.getCell(i,COL_BEGIN_DATE).getValue();
+			endDate = (Date)tblBySchedule.getCell(i,COL_END_DATE).getValue();
+			amount = (BigDecimal)tblBySchedule.getCell(i,COL_PLAN_PAY_AMOUNT).getValue();
+			if(beginDate!=null && endDate!=null && amount!=null){
+				months.clear();
+				while(beginDate.compareTo(endDate) <= 0) {
+					calendar.setTime(beginDate);
+					months.add(new Integer(calendar.get(Calendar.YEAR)*100+calendar.get(Calendar.MONTH)+1));
+					calendar.add(Calendar.MONTH, 1);
+					beginDate = calendar.getTime();
+				}
+				amount = amount.divide(new BigDecimal(months.size()),2,RoundingMode.HALF_UP);
+				for (int j = 0; j < months.size(); j++) {
+					ppdinfo = new PayPlanNewDataInfo();
+					ppdinfo.setPayAmount(amount);
+					ppdinfo.setPayMonth(months.get(j));
+					ppdinfo.setRecordSeq(i+"!"+(j+1));
+					ppdcoll.add(ppdinfo);
+				}
+			}else if(beginDate!=null && endDate==null && amount!=null){
+				calendar.setTime(beginDate);
+				ppdinfo = new PayPlanNewDataInfo();
+				ppdinfo.setPayAmount(amount);
+				ppdinfo.setPayMonth(new Integer(calendar.get(Calendar.YEAR)*100+calendar.get(Calendar.MONTH)+1));
+				ppdinfo.setRecordSeq(i+"!"+1);
+				ppdcoll.add(ppdinfo);
+			}else if(beginDate==null && endDate!=null && amount!=null){
+				calendar.setTime(endDate);
+				ppdinfo = new PayPlanNewDataInfo();
+				ppdinfo.setPayAmount(amount);
+				ppdinfo.setPayMonth(new Integer(calendar.get(Calendar.YEAR)*100+calendar.get(Calendar.MONTH)+1));
+				ppdinfo.setRecordSeq(i+"!"+1);
+				ppdcoll.add(ppdinfo);
+			}
+		}
+		editData.put("Data",ppdcoll);
+		loadDataTable();
+	}
+	
 	public void actionCopyLine_actionPerformed(ActionEvent e) {
 		KDTable tblMain = getTable();
 
@@ -1161,11 +1387,24 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 //		}
 		
 		
-		if(FDCMsgBox.isOk(FDCMsgBox.showConfirm2("确认删除？"))){
+		if(FDCMsgBox.isOk(FDCMsgBox.showConfirm2("确认删除？删除后付款明细将重新计算！"))){
 			int i = selectRows.length;
 			for(;i>=0;i--){
 				int index = selectRows[i-1];
 				tblMain.removeRow(index);
+				while(true){
+					int count = 0;
+					for (int j = 0; j < tblPayPlanLst.getRowCount(); j++) {
+						String rowIndex = (String)tblPayPlanLst.getCell(j,"rowIndex").getValue();
+						if(rowIndex.equals(index+"")){
+							tblPayPlanLst.removeRow(j);
+							break;
+						}
+						count++;
+					}
+					if(count == tblPayPlanLst.getRowCount())
+						break;
+				}
 			}
 		}
 	}
@@ -1322,6 +1561,7 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 				FDCMsgBox.showWarning("总比例不等于100%，不能保存！");
 				abort();
 			}
+			//保存时校验付款时间详细列表中的金额与付款列表中金额是否相等
 		}
 	}
 	

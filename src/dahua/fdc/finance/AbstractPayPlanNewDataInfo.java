@@ -28,6 +28,17 @@ public class AbstractPayPlanNewDataInfo extends com.kingdee.eas.fdc.finance.PayP
     {
         put("parent0", item);
     }
+    /**
+     * Object:付款数据's 行记录property 
+     */
+    public String getRecordSeq()
+    {
+        return getString("recordSeq");
+    }
+    public void setRecordSeq(String item)
+    {
+        setString("recordSeq", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("802C9708");

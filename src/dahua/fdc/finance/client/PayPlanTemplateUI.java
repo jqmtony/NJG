@@ -164,7 +164,7 @@ public class PayPlanTemplateUI extends AbstractPayPlanTemplateUI {
 				}
 			}
 			if(FDCHelper.compareTo(payScale, FDCHelper.ONE_HUNDRED)!=0){
-				FDCMsgBox.showWarning("约定支付比例不等于100%，不能保存！");
+				FDCMsgBox.showWarning("支付比例不等于100%，不能保存！");
 				abort();
 			}
 		}
@@ -180,17 +180,23 @@ public class PayPlanTemplateUI extends AbstractPayPlanTemplateUI {
 		tblBySchedule.checkParsed();
 		tblBySchedule.getColumn(COL_CAL_STANDARD).getStyleAttributes().setHided(true);
 		tblBySchedule.getColumn(COL_COST_ACCOUNT).getStyleAttributes().setHided(true);
+		tblBySchedule.getColumn(COL_CAL_TYPE).getStyleAttributes().setHided(true);
+		tblBySchedule.getColumn(COL_WRITE_OFF_TYPE).getStyleAttributes().setHided(true);
+		tblBySchedule.getColumn(COL_DELAY_DAY).getStyleAttributes().setHided(true);
+		tblBySchedule.getColumn(COL_TEMPLATE_TASK).getStyleAttributes().setHided(true);
+		tblBySchedule.getColumn("description").getStyleAttributes().setHided(true);
+		tblBySchedule.getHeadRow(0).getCell(COL_PAY_SCALE).setValue("支付比例(%)");
 		
-		KDComboBox combo = PayPlanClientUtil.initComboBoxCell(tblBySchedule, COL_CAL_TYPE);
-		combo.addItems(CalTypeEnum.getEnumList().toArray());
+//		KDComboBox combo = PayPlanClientUtil.initComboBoxCell(tblBySchedule, COL_CAL_TYPE);
+//		combo.addItems(CalTypeEnum.getEnumList().toArray());
+//
+//		combo = PayPlanClientUtil.initComboBoxCell(tblBySchedule, COL_CAL_STANDARD);
+//		combo.addItems(CalStandardEnum.getEnumList().toArray());
+//
+//		combo = PayPlanClientUtil.initComboBoxCell(tblBySchedule, COL_WRITE_OFF_TYPE);
+//		combo.addItems(PrepayWriteOffEnum.getEnumList().toArray());
 
-		combo = PayPlanClientUtil.initComboBoxCell(tblBySchedule, COL_CAL_STANDARD);
-		combo.addItems(CalStandardEnum.getEnumList().toArray());
-
-		combo = PayPlanClientUtil.initComboBoxCell(tblBySchedule, COL_WRITE_OFF_TYPE);
-		combo.addItems(PrepayWriteOffEnum.getEnumList().toArray());
-
-		combo = PayPlanClientUtil.initComboBoxCell(tblBySchedule, COL_PAYMENT_TYPE);
+		KDComboBox combo = PayPlanClientUtil.initComboBoxCell(tblBySchedule, COL_PAYMENT_TYPE);
 		PaymentTypeCollection coll = PaymentTypeFactory.getRemoteInstance().getPaymentTypeCollection("order by number");
 		combo.addItems(coll.toArray());
 
@@ -200,10 +206,10 @@ public class PayPlanTemplateUI extends AbstractPayPlanTemplateUI {
 		txt.setNegatived(false);
 		txt.setDataType(BigDecimal.class);
 
-		txt = PayPlanClientUtil.initFormattedTextCell(tblBySchedule, COL_DELAY_DAY, 0);
-		txt.setMinimumValue(new Integer(0));
-		txt.setDataType(Integer.class);
-		tblBySchedule.getColumn(COL_DELAY_DAY).setRenderer(new DelayDateCellRender());
+//		txt = PayPlanClientUtil.initFormattedTextCell(tblBySchedule, COL_DELAY_DAY, 0);
+//		txt.setMinimumValue(new Integer(0));
+//		txt.setDataType(Integer.class);
+//		tblBySchedule.getColumn(COL_DELAY_DAY).setRenderer(new DelayDateCellRender());
 
 		prmtCostAccountBySchedule = PayPlanClientUtil.initF7Cell(tblBySchedule, COL_COST_ACCOUNT);
 		CostAccountPromptBox selector = new CostAccountPromptBox(this);
@@ -226,26 +232,26 @@ public class PayPlanTemplateUI extends AbstractPayPlanTemplateUI {
 			}
 		});
 
-		tblBySchedule.getColumn(COL_PAYMENT_TYPE).setMergeable(true);
-		tblBySchedule.getColumn(COL_PAYMENT_TYPE).setGroup(true);
-		tblBySchedule.getMergeManager().setMergeMode(KDTMergeManager.SPECIFY_MERGE);
-		tblBySchedule.getMergeManager().setDataMode(KDTMergeManager.DATA_UNIFY);
+//		tblBySchedule.getColumn(COL_PAYMENT_TYPE).setMergeable(true);
+//		tblBySchedule.getColumn(COL_PAYMENT_TYPE).setGroup(true);
+//		tblBySchedule.getMergeManager().setMergeMode(KDTMergeManager.SPECIFY_MERGE);
+//		tblBySchedule.getMergeManager().setDataMode(KDTMergeManager.DATA_UNIFY);
 
-		KDBizPromptBox prmtTempalteTask = PayPlanClientUtil.initF7Cell(tblBySchedule, COL_TEMPLATE_TASK);
-		prmtTempalteTask.setDisplayFormat("$name$");
-		prmtTempalteTask.setEditFormat("$name$");
-		prmtTempalteTask.setCommitFormat("$id$");
-		prmtTempalteTask.setSelector(new F7RESchTemplateTaskPromptBox());
+//		KDBizPromptBox prmtTempalteTask = PayPlanClientUtil.initF7Cell(tblBySchedule, COL_TEMPLATE_TASK);
+//		prmtTempalteTask.setDisplayFormat("$name$");
+//		prmtTempalteTask.setEditFormat("$name$");
+//		prmtTempalteTask.setCommitFormat("$id$");
+//		prmtTempalteTask.setSelector(new F7RESchTemplateTaskPromptBox());
 
 		tblBySchedule.addKDTEditListener(new KDTEditAdapter() {
 
 			public void editStopped(KDTEditEvent e) {
-				final KDTEditEvent evt = e;
-				SwingUtilities.invokeLater(new Runnable() {
-					public void run() {
-						PayPlanClientUtil.doAutoMerge(tblBySchedule, COL_PAYMENT_TYPE, evt);
-					}
-				});
+//				final KDTEditEvent evt = e;
+//				SwingUtilities.invokeLater(new Runnable() {
+//					public void run() {
+//						PayPlanClientUtil.doAutoMerge(tblBySchedule, COL_PAYMENT_TYPE, evt);
+//					}
+//				});
 			}
 		});
 	}
@@ -391,23 +397,23 @@ public class PayPlanTemplateUI extends AbstractPayPlanTemplateUI {
 			btnByMonth.setSelected(true);
 		}
 
-		if (tblBySchedule.getRowCount() > 0) {
-			PayPlanClientUtil.doAutoMerge(tblBySchedule, COL_PAYMENT_TYPE, new KDTEditEvent(tblBySchedule, null, tblBySchedule.getRow(0)
-					.getCell(COL_PAYMENT_TYPE).getValue(), 0, tblBySchedule.getColumnIndex(COL_PAYMENT_TYPE), false,
-					KDTStyleConstants.BODY_ROW));
+//		if (tblBySchedule.getRowCount() > 0) {
+//			PayPlanClientUtil.doAutoMerge(tblBySchedule, COL_PAYMENT_TYPE, new KDTEditEvent(tblBySchedule, null, tblBySchedule.getRow(0)
+//					.getCell(COL_PAYMENT_TYPE).getValue(), 0, tblBySchedule.getColumnIndex(COL_PAYMENT_TYPE), false,
+//					KDTStyleConstants.BODY_ROW));
 			
-			for (int i = 0; i < tblBySchedule.getRowCount(); i++) {
-				IRow row = tblBySchedule.getRow(i);
-				Object pObj = row.getCell(COL_PAYMENT_TYPE).getValue();
-				if (pObj instanceof PaymentTypeInfo) {
-					PaymentTypeInfo pInfo = (PaymentTypeInfo) pObj;
-					if (!pInfo.isPreType()) {
-						row.getCell(COL_WRITE_OFF_TYPE).setValue(null);
-					}
-				}
-			}
+//			for (int i = 0; i < tblBySchedule.getRowCount(); i++) {
+//				IRow row = tblBySchedule.getRow(i);
+//				Object pObj = row.getCell(COL_PAYMENT_TYPE).getValue();
+//				if (pObj instanceof PaymentTypeInfo) {
+//					PaymentTypeInfo pInfo = (PaymentTypeInfo) pObj;
+//					if (!pInfo.isPreType()) {
+//						row.getCell(COL_WRITE_OFF_TYPE).setValue(null);
+//					}
+//				}
+//			}
 
-		}
+//		}
 		
 
 		updateTable();
@@ -440,8 +446,8 @@ public class PayPlanTemplateUI extends AbstractPayPlanTemplateUI {
 
 		} else if (btnBySchedule.isSelected()) {
 			PayPlanTemplateByScheduleInfo info = new PayPlanTemplateByScheduleInfo();
-			info.setCalStandard(CalStandardEnum.CONTRACTAMOUNT);
-			info.setCalType(CalTypeEnum.TIME);
+//			info.setCalStandard(CalStandardEnum.CONTRACTAMOUNT);
+//			info.setCalType(CalTypeEnum.TIME);
 			return info;
 		}
 
