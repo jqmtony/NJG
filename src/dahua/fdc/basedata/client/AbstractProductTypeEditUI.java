@@ -48,11 +48,13 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
     private static final Logger logger = CoreUIObject.getLogger(AbstractProductTypeEditUI.class);
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contName;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkIsEnabled;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangArea bizDescription;
     protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel1;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contPlanIndexType;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox bizName;
+    protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
+    protected com.kingdee.bos.ctrl.swing.KDComboBox PlanIndexType;
     protected com.kingdee.eas.fdc.basedata.ProductTypeInfo editData = null;
     /**
      * output class constructor
@@ -404,18 +406,22 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
          this.actionSubmitOption.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.contName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.chkIsEnabled = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.bizDescription = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangArea();
         this.kDLabel1 = new com.kingdee.bos.ctrl.swing.KDLabel();
+        this.contPlanIndexType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.bizName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
+        this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.PlanIndexType = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.contName.setName("contName");
         this.contNumber.setName("contNumber");
-        this.txtNumber.setName("txtNumber");
         this.chkIsEnabled.setName("chkIsEnabled");
         this.bizDescription.setName("bizDescription");
         this.kDLabel1.setName("kDLabel1");
+        this.contPlanIndexType.setName("contPlanIndexType");
         this.bizName.setName("bizName");
+        this.txtNumber.setName("txtNumber");
+        this.PlanIndexType.setName("PlanIndexType");
         // CoreUI
         this.btnPageSetup.setAction((IItemAction)ActionProxyFactory.getProxy(actionPageSetup, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnPageSetup.setText(resHelper.getString("btnPageSetup.text"));		
@@ -433,16 +439,6 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
         this.menuItemExitCurrent.setText(resHelper.getString("menuItemExitCurrent.text"));		
         this.menuItemExitCurrent.setToolTipText(resHelper.getString("menuItemExitCurrent.toolTipText"));		
         this.menuItemExitCurrent.setMnemonic(88);		
-        this.menuHelp.setText(resHelper.getString("menuHelp.text"));		
-        this.menuHelp.setMnemonic(72);
-        this.menuItemHelp.setAction((IItemAction)ActionProxyFactory.getProxy(actionHelp, new Class[] { IItemAction.class }, getServiceContext()));		
-        this.menuItemHelp.setText(resHelper.getString("menuItemHelp.text"));		
-        this.menuItemHelp.setToolTipText(resHelper.getString("menuItemHelp.toolTipText"));		
-        this.menuItemHelp.setMnemonic(72);
-        this.menuItemAbout.setAction((IItemAction)ActionProxyFactory.getProxy(actionAbout, new Class[] { IItemAction.class }, getServiceContext()));		
-        this.menuItemAbout.setText(resHelper.getString("menuItemAbout.text"));		
-        this.menuItemAbout.setToolTipText(resHelper.getString("menuItemAbout.toolTipText"));		
-        this.menuItemAbout.setMnemonic(65);		
         this.menuTool.setText(resHelper.getString("menuTool.text"));		
         this.menuTool.setToolTipText(resHelper.getString("menuTool.toolTipText"));		
         this.menuTool.setMnemonic(84);
@@ -452,7 +448,17 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
         this.menuItemSendMessage.setMnemonic(77);
         this.menuItemCalculator.setAction((IItemAction)ActionProxyFactory.getProxy(actionCalculator, new Class[] { IItemAction.class }, getServiceContext()));		
         this.menuItemCalculator.setText(resHelper.getString("menuItemCalculator.text"));		
-        this.menuItemCalculator.setVisible(false);
+        this.menuItemCalculator.setVisible(false);		
+        this.menuHelp.setText(resHelper.getString("menuHelp.text"));		
+        this.menuHelp.setMnemonic(72);
+        this.menuItemHelp.setAction((IItemAction)ActionProxyFactory.getProxy(actionHelp, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.menuItemHelp.setText(resHelper.getString("menuItemHelp.text"));		
+        this.menuItemHelp.setToolTipText(resHelper.getString("menuItemHelp.toolTipText"));		
+        this.menuItemHelp.setMnemonic(72);
+        this.menuItemAbout.setAction((IItemAction)ActionProxyFactory.getProxy(actionAbout, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.menuItemAbout.setText(resHelper.getString("menuItemAbout.text"));		
+        this.menuItemAbout.setToolTipText(resHelper.getString("menuItemAbout.toolTipText"));		
+        this.menuItemAbout.setMnemonic(65);
         this.btnAddNew.setAction((IItemAction)ActionProxyFactory.getProxy(actionAddNew, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAddNew.setText(resHelper.getString("btnAddNew.text"));		
         this.btnAddNew.setToolTipText(resHelper.getString("btnAddNew.toolTipText"));
@@ -608,9 +614,6 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
         this.contNumber.setBoundLabelText(resHelper.getString("contNumber.boundLabelText"));		
         this.contNumber.setBoundLabelLength(100);		
         this.contNumber.setBoundLabelUnderline(true);
-        // txtNumber		
-        this.txtNumber.setRequired(true);		
-        this.txtNumber.setMaxLength(80);
         // chkIsEnabled		
         this.chkIsEnabled.setText(resHelper.getString("chkIsEnabled.text"));		
         this.chkIsEnabled.setVisible(false);
@@ -618,9 +621,21 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
         this.bizDescription.setMaxLength(200);
         // kDLabel1		
         this.kDLabel1.setText(resHelper.getString("kDLabel1.text"));
+        // contPlanIndexType		
+        this.contPlanIndexType.setBoundLabelText(resHelper.getString("contPlanIndexType.boundLabelText"));		
+        this.contPlanIndexType.setBoundLabelLength(100);		
+        this.contPlanIndexType.setBoundLabelUnderline(true);		
+        this.contPlanIndexType.setVisible(true);
         // bizName		
         this.bizName.setRequired(true);		
         this.bizName.setMaxLength(80);
+        // txtNumber		
+        this.txtNumber.setRequired(true);		
+        this.txtNumber.setMaxLength(80);
+        // PlanIndexType		
+        this.PlanIndexType.setVisible(true);		
+        this.PlanIndexType.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.aimcost.PlanIndexTypeEnum").toArray());		
+        this.PlanIndexType.setRequired(false);
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -628,27 +643,43 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
 
     }
 
+	public com.kingdee.bos.ctrl.swing.KDToolBar[] getUIMultiToolBar(){
+		java.util.List list = new java.util.ArrayList();
+		com.kingdee.bos.ctrl.swing.KDToolBar[] bars = super.getUIMultiToolBar();
+		if (bars != null) {
+			list.addAll(java.util.Arrays.asList(bars));
+		}
+		return (com.kingdee.bos.ctrl.swing.KDToolBar[])list.toArray(new com.kingdee.bos.ctrl.swing.KDToolBar[list.size()]);
+	}
+
+
+
+
     /**
      * output initUIContentLayout method
      */
     public void initUIContentLayout()
     {
-        this.setBounds(new Rectangle(10, 10, 290, 180));
+        this.setBounds(new Rectangle(10, 10, 290, 208));
         this.setLayout(null);
         contName.setBounds(new Rectangle(10, 40, 270, 19));
         this.add(contName, null);
         contNumber.setBounds(new Rectangle(10, 10, 270, 19));
         this.add(contNumber, null);
-        chkIsEnabled.setBounds(new Rectangle(235, 70, 140, 19));
+        chkIsEnabled.setBounds(new Rectangle(235, 98, 140, 19));
         this.add(chkIsEnabled, null);
-        bizDescription.setBounds(new Rectangle(10, 100, 270, 70));
+        bizDescription.setBounds(new Rectangle(10, 126, 270, 70));
         this.add(bizDescription, null);
-        kDLabel1.setBounds(new Rectangle(10, 70, 100, 19));
+        kDLabel1.setBounds(new Rectangle(10, 98, 100, 19));
         this.add(kDLabel1, null);
+        contPlanIndexType.setBounds(new Rectangle(10, 69, 270, 19));
+        this.add(contPlanIndexType, null);
         //contName
         contName.setBoundEditor(bizName);
         //contNumber
         contNumber.setBoundEditor(txtNumber);
+        //contPlanIndexType
+        contPlanIndexType.setBoundEditor(PlanIndexType);
 
     }
 
@@ -660,6 +691,7 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
     {
         this.menuBar.add(menuFile);
         this.menuBar.add(menuEdit);
+        this.menuBar.add(MenuService);
         this.menuBar.add(menuView);
         this.menuBar.add(menuBiz);
         this.menuBar.add(menuTool);
@@ -667,9 +699,13 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(kDSeparator1);
+        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemSave);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(menuItemSubmit);
+        menuFile.add(menuItemCloudShare);
         menuFile.add(menuSubmitOption);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(rMenuItemSubmit);
         menuFile.add(rMenuItemSubmitAndAddNew);
         menuFile.add(rMenuItemSubmitAndPrint);
@@ -689,6 +725,12 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
         menuEdit.add(menuItemEdit);
         menuEdit.add(menuItemRemove);
         menuEdit.add(kDSeparator4);
+        menuEdit.add(menuItemReset);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
         //menuView
         menuView.add(menuItemFirst);
         menuView.add(menuItemPre);
@@ -701,11 +743,12 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemMsgFormat);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuHelp
         menuHelp.add(menuItemHelp);
         menuHelp.add(kDSeparator12);
-        menuHelp.add(menuItemAbout);
         menuHelp.add(menuItemRegPro);
+        menuHelp.add(menuItemAbout);
         menuHelp.add(menuItemPersonalSite);
         menuHelp.add(helpseparatorDiv);
         menuHelp.add(menuitemProductval);
@@ -719,7 +762,9 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
@@ -739,14 +784,16 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
         this.toolBar.add(btnCancelCancel);
         this.toolBar.add(btnCancel);
 
+
     }
 
 	//Regiester control's property binding.
 	private void registerBindings(){
-		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("isEnabled", boolean.class, this.chkIsEnabled, "selected");
 		dataBinder.registerBinding("description", String.class, this.bizDescription, "_multiLangItem");
-		dataBinder.registerBinding("name", String.class, this.bizName, "_multiLangItem");		
+		dataBinder.registerBinding("name", String.class, this.bizName, "_multiLangItem");
+		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
+		dataBinder.registerBinding("PlanIndexType", com.kingdee.eas.fdc.aimcost.PlanIndexTypeEnum.class, this.PlanIndexType, "selectedItem");		
 	}
 	//Regiester UI State
 	private void registerUIState(){					 	        		
@@ -797,10 +844,6 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
         super.setDataObject(ov);
         this.editData = (com.kingdee.eas.fdc.basedata.ProductTypeInfo)ov;
     }
-			protected com.kingdee.eas.basedata.org.OrgType getMainBizOrgType() {
-			return com.kingdee.eas.basedata.org.OrgType.getEnum("CostCenter");
-		}
-
 
     /**
      * output loadFields method
@@ -811,7 +854,7 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
     }
 		protected void setOrgF7(KDBizPromptBox f7,com.kingdee.eas.basedata.org.OrgType orgType) throws Exception
 		{
-			com.kingdee.bos.ctrl.extendcontrols.ext.OrgUnitFilterInfoProducer oufip=(com.kingdee.bos.ctrl.extendcontrols.ext.OrgUnitFilterInfoProducer)com.kingdee.bos.ctrl.extendcontrols.ext.FilterInfoProducerFactory.getOrgUnitFilterInfoProducer(orgType);
+			com.kingdee.eas.basedata.org.client.f7.NewOrgUnitFilterInfoProducer oufip = new com.kingdee.eas.basedata.org.client.f7.NewOrgUnitFilterInfoProducer(orgType);
 			oufip.getModel().setIsCUFilter(true);
 			f7.setFilterInfoProducer(oufip);
 		}
@@ -829,10 +872,11 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
-		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("isEnabled", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("PlanIndexType", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -867,10 +911,15 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
-        sic.add(new SelectorItemInfo("number"));
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
         sic.add(new SelectorItemInfo("isEnabled"));
         sic.add(new SelectorItemInfo("description"));
         sic.add(new SelectorItemInfo("name"));
+        sic.add(new SelectorItemInfo("number"));
+        sic.add(new SelectorItemInfo("PlanIndexType"));
         return sic;
     }        
     	
@@ -1098,6 +1147,281 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
     {
         super.actionSubmitOption_actionPerformed(e);
     }
+	public RequestContext prepareActionPageSetup(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionPageSetup(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionPageSetup() {
+    	return false;
+    }
+	public RequestContext prepareActionExitCurrent(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionExitCurrent(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExitCurrent() {
+    	return false;
+    }
+	public RequestContext prepareActionHelp(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionHelp(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionHelp() {
+    	return false;
+    }
+	public RequestContext prepareActionAbout(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionAbout(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionAbout() {
+    	return false;
+    }
+	public RequestContext prepareActionOnLoad(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionOnLoad(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionOnLoad() {
+    	return false;
+    }
+	public RequestContext prepareActionSendMessage(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionSendMessage(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionSendMessage() {
+    	return false;
+    }
+	public RequestContext prepareActionCalculator(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionCalculator(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionCalculator() {
+    	return false;
+    }
+	public RequestContext prepareActionExport(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionExport(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExport() {
+    	return false;
+    }
+	public RequestContext prepareActionExportSelected(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionExportSelected(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExportSelected() {
+    	return false;
+    }
+	public RequestContext prepareActionSave(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionSave(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionSave() {
+    	return false;
+    }
+	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionSubmit(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionSubmit() {
+    	return false;
+    }
+	public RequestContext prepareActionCancel(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionCancel(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionCancel() {
+    	return false;
+    }
+	public RequestContext prepareActionCancelCancel(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionCancelCancel(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionCancelCancel() {
+    	return false;
+    }
+	public RequestContext prepareActionFirst(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionFirst(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionFirst() {
+    	return false;
+    }
+	public RequestContext prepareActionPre(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionPre(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionPre() {
+    	return false;
+    }
+	public RequestContext prepareActionNext(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionNext(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionNext() {
+    	return false;
+    }
+	public RequestContext prepareActionLast(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionLast(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionLast() {
+    	return false;
+    }
+	public RequestContext prepareActionPrint(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionPrint(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionPrint() {
+    	return false;
+    }
+	public RequestContext prepareActionPrintPreview(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionPrintPreview(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionPrintPreview() {
+    	return false;
+    }
+	public RequestContext prepareActionCopy(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionCopy(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionCopy() {
+    	return false;
+    }
+	public RequestContext prepareActionAddNew(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionAddNew(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionAddNew() {
+    	return false;
+    }
+	public RequestContext prepareActionEdit(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionEdit(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionEdit() {
+    	return false;
+    }
+	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionRemove(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionRemove() {
+    	return false;
+    }
+	public RequestContext prepareActionAttachment(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionAttachment(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionAttachment() {
+    	return false;
+    }
+	public RequestContext prepareActionSubmitOption(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionSubmitOption(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionSubmitOption() {
+    	return false;
+    }
 
     /**
      * output getMetaDataPK method
@@ -1145,6 +1469,8 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
      * output applyDefaultValue method
      */
     protected void applyDefaultValue(IObjectValue vo) {        
+		vo.put("PlanIndexType","1house");
+        
     }        
 	protected void setFieldsNull(com.kingdee.bos.dao.AbstractObjectValue arg0) {
 		super.setFieldsNull(arg0);

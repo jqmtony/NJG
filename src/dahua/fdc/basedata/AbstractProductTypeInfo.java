@@ -17,6 +17,19 @@ public class AbstractProductTypeInfo extends com.kingdee.eas.fdc.basedata.FDCDat
     {
         super(pkField);
     }
+    /**
+     * Object:产品类型's 指标类型property 
+     */
+    public com.kingdee.eas.fdc.aimcost.PlanIndexTypeEnum getPlanIndexType()
+    {
+        return com.kingdee.eas.fdc.aimcost.PlanIndexTypeEnum.getEnum(getString("PlanIndexType"));
+    }
+    public void setPlanIndexType(com.kingdee.eas.fdc.aimcost.PlanIndexTypeEnum item)
+    {
+		if (item != null) {
+        setString("PlanIndexType", item.getValue());
+		}
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("E1203E97");

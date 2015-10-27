@@ -53,10 +53,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0141c0a813bb"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, pk);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -75,10 +78,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0142c0a813bb"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, filter);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -97,10 +103,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0143c0a813bb"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, oql);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -119,10 +128,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0144c0a813bb"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProductTypeInfo retValue = (ProductTypeInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProductTypeInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -141,10 +153,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0145c0a813bb"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProductTypeInfo retValue = (ProductTypeInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProductTypeInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -163,10 +178,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0146c0a813bb"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProductTypeInfo retValue = (ProductTypeInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProductTypeInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -185,10 +203,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0147c0a813bb"), new Object[]{ctx, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK retValue = (IObjectPK)_addnew(ctx, model);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -209,7 +230,9 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0148c0a813bb"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _addnew(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -231,7 +254,9 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0149c0a813bb"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _update(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -253,7 +278,9 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-014ac0a813bb"), new Object[]{ctx, model, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updatePartial(ctx, model, selector);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -275,7 +302,9 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-014bc0a813bb"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updateBigObject(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -294,7 +323,9 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-014cc0a813bb"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, pk);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -316,10 +347,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-014dc0a813bb"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -338,10 +372,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-014ec0a813bb"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -360,10 +397,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-014fc0a813bb"), new Object[]{ctx, filter, sorter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, filter, sorter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -382,10 +422,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0150c0a813bb"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProductTypeCollection retValue = (ProductTypeCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProductTypeCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -402,10 +445,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0151c0a813bb"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProductTypeCollection retValue = (ProductTypeCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProductTypeCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -422,10 +468,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0152c0a813bb"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProductTypeCollection retValue = (ProductTypeCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProductTypeCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -442,10 +491,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0153c0a813bb"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, filter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -466,10 +518,13 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0154c0a813bb"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -490,7 +545,9 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("416f74ec-010c-1000-e000-0155c0a813bb"), new Object[]{ctx, arrayPK});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, arrayPK);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -512,10 +569,12 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("330e5cd1-0110-1000-e000-002fc0a80eb6"), new Object[]{ctx, ctPK});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_enabled(ctx, ctPK);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -533,10 +592,12 @@ public abstract class AbstractProductTypeControllerBean extends FDCDataBaseContr
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("330e5cd1-0110-1000-e000-0030c0a80eb6"), new Object[]{ctx, ctPK});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_disEnabled(ctx, ctPK);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;

@@ -415,16 +415,6 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
         this.menuItemExitCurrent.setText(resHelper.getString("menuItemExitCurrent.text"));		
         this.menuItemExitCurrent.setToolTipText(resHelper.getString("menuItemExitCurrent.toolTipText"));		
         this.menuItemExitCurrent.setMnemonic(88);		
-        this.menuHelp.setText(resHelper.getString("menuHelp.text"));		
-        this.menuHelp.setMnemonic(72);
-        this.menuItemHelp.setAction((IItemAction)ActionProxyFactory.getProxy(actionHelp, new Class[] { IItemAction.class }, getServiceContext()));		
-        this.menuItemHelp.setText(resHelper.getString("menuItemHelp.text"));		
-        this.menuItemHelp.setToolTipText(resHelper.getString("menuItemHelp.toolTipText"));		
-        this.menuItemHelp.setMnemonic(72);
-        this.menuItemAbout.setAction((IItemAction)ActionProxyFactory.getProxy(actionAbout, new Class[] { IItemAction.class }, getServiceContext()));		
-        this.menuItemAbout.setText(resHelper.getString("menuItemAbout.text"));		
-        this.menuItemAbout.setToolTipText(resHelper.getString("menuItemAbout.toolTipText"));		
-        this.menuItemAbout.setMnemonic(65);		
         this.menuTool.setText(resHelper.getString("menuTool.text"));		
         this.menuTool.setToolTipText(resHelper.getString("menuTool.toolTipText"));		
         this.menuTool.setMnemonic(84);
@@ -435,7 +425,19 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
         this.menuItemCalculator.setAction((IItemAction)ActionProxyFactory.getProxy(actionCalculator, new Class[] { IItemAction.class }, getServiceContext()));		
         this.menuItemCalculator.setText(resHelper.getString("menuItemCalculator.text"));		
         this.menuItemCalculator.setVisible(false);		
-        this.tblMain.setFormatXml(resHelper.getString("tblMain.formatXml"));
+        this.menuHelp.setText(resHelper.getString("menuHelp.text"));		
+        this.menuHelp.setMnemonic(72);
+        this.menuItemHelp.setAction((IItemAction)ActionProxyFactory.getProxy(actionHelp, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.menuItemHelp.setText(resHelper.getString("menuItemHelp.text"));		
+        this.menuItemHelp.setToolTipText(resHelper.getString("menuItemHelp.toolTipText"));		
+        this.menuItemHelp.setMnemonic(72);
+        this.menuItemAbout.setAction((IItemAction)ActionProxyFactory.getProxy(actionAbout, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.menuItemAbout.setText(resHelper.getString("menuItemAbout.text"));		
+        this.menuItemAbout.setToolTipText(resHelper.getString("menuItemAbout.toolTipText"));		
+        this.menuItemAbout.setMnemonic(65);
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol4\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isEnabled\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"CU.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"PlanIndexType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{isEnabled}</t:Cell><t:Cell>$Resource{description}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{CU.id}</t:Cell><t:Cell>$Resource{PlanIndexType}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
         this.tblMain.addKDTSelectListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTSelectListener() {
             public void tableSelectChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent e) {
                 try {
@@ -446,7 +448,7 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
                 }
             }
         });
-                this.tblMain.putBindContents("mainQuery",new String[] {"number","name","isEnabled","description","id","CU.id"});
+                this.tblMain.putBindContents("mainQuery",new String[] {"number","name","isEnabled","description","id","CU.id","PlanIndexType"});
 
 
         this.tblMain.checkParsed();
@@ -584,6 +586,18 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
 
     }
 
+	public com.kingdee.bos.ctrl.swing.KDToolBar[] getUIMultiToolBar(){
+		java.util.List list = new java.util.ArrayList();
+		com.kingdee.bos.ctrl.swing.KDToolBar[] bars = super.getUIMultiToolBar();
+		if (bars != null) {
+			list.addAll(java.util.Arrays.asList(bars));
+		}
+		return (com.kingdee.bos.ctrl.swing.KDToolBar[])list.toArray(new com.kingdee.bos.ctrl.swing.KDToolBar[list.size()]);
+	}
+
+
+
+
     /**
      * output initUIContentLayout method
      */
@@ -605,6 +619,7 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
     {
         this.menuBar.add(menuFile);
         this.menuBar.add(menuEdit);
+        this.menuBar.add(MenuService);
         this.menuBar.add(menuView);
         this.menuBar.add(menuBiz);
         this.menuBar.add(menuTool);
@@ -613,10 +628,14 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(menuItemImportData);
+        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemExportData);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(separatorFile1);
+        menuFile.add(menuItemCloudShare);
         menuFile.add(MenuItemAttachment);
         menuFile.add(kDSeparator1);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(menuItemPageSetup);
         menuFile.add(menuItemPrint);
         menuFile.add(menuItemPrintPreview);
@@ -625,18 +644,25 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
         //menuEdit
         menuEdit.add(menuItemEdit);
         menuEdit.add(menuItemRemove);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
         //menuView
         menuView.add(menuItemView);
         menuView.add(menuItemLocate);
         menuView.add(separatorView1);
         menuView.add(menuItemQuery);
         menuView.add(menuItemRefresh);
+        menuView.add(menuItemQueryScheme);
         //menuBiz
         menuBiz.add(menuItemCancelCancel);
         menuBiz.add(menuItemCancel);
         //menuTool
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuTools
         menuTools.add(menuMail);
         menuTools.add(menuItemStartWorkFlow);
@@ -648,8 +674,8 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
         //menuHelp
         menuHelp.add(menuItemHelp);
         menuHelp.add(kDSeparator12);
-        menuHelp.add(menuItemAbout);
         menuHelp.add(menuItemRegPro);
+        menuHelp.add(menuItemAbout);
         menuHelp.add(menuItemPersonalSite);
         menuHelp.add(helpseparatorDiv);
         menuHelp.add(menuitemProductval);
@@ -663,7 +689,9 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(btnView);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnEdit);
         this.toolBar.add(btnRemove);
         this.toolBar.add(btnRefresh);
@@ -678,6 +706,7 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
         this.toolBar.add(btnCancelCancel);
         this.toolBar.add(btnCancel);
         this.toolBar.add(btnQueryScheme);
+
 
     }
 
@@ -747,10 +776,6 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
             }
         }
     }
-			protected com.kingdee.eas.basedata.org.OrgType getMainBizOrgType() {
-			return com.kingdee.eas.basedata.org.OrgType.getEnum("CostCenter");
-		}
-
 
     /**
      * output loadFields method
@@ -798,14 +823,10 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
     {
     }
 
-			public SelectorItemCollection getBOTPSelectors() {
+	public SelectorItemCollection getBOTPSelectors() {
 			SelectorItemCollection sic = new SelectorItemCollection();
-			sic.add(new SelectorItemInfo("*"));
-			sic.add(new SelectorItemInfo("creator.*"));
-			sic.add(new SelectorItemInfo("lastUpdateUser.*"));
-			sic.add(new SelectorItemInfo("CU.*"));
 			return sic;
-		}
+	}
 
     /**
      * output getSelectors method
@@ -813,14 +834,30 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("isEnabled"));
         sic.add(new SelectorItemInfo("description"));
         sic.add(new SelectorItemInfo("id"));
         sic.add(new SelectorItemInfo("CU.id"));
+        sic.add(new SelectorItemInfo("PlanIndexType"));
         return sic;
-    }        
+    }            protected java.util.List getQuerySorterFields() 
+    { 
+        java.util.List sorterFieldList = new ArrayList(); 
+        sorterFieldList.add("number"); 
+        return sorterFieldList; 
+    } 
+    protected java.util.List getQueryPKFields() 
+    { 
+        java.util.List pkList = new ArrayList(); 
+        pkList.add("id"); 
+        return pkList;
+    }
     	
 
     /**
@@ -1054,6 +1091,292 @@ public abstract class AbstractProductTypeListUI extends com.kingdee.eas.fdc.base
     public void actionCancelCancel_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionCancelCancel_actionPerformed(e);
+    }
+	public RequestContext prepareActionPageSetup(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionPageSetup(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionPageSetup() {
+    	return false;
+    }
+	public RequestContext prepareActionExitCurrent(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionExitCurrent(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExitCurrent() {
+    	return false;
+    }
+	public RequestContext prepareActionHelp(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionHelp(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionHelp() {
+    	return false;
+    }
+	public RequestContext prepareActionAbout(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionAbout(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionAbout() {
+    	return false;
+    }
+	public RequestContext prepareActionOnLoad(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionOnLoad(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionOnLoad() {
+    	return false;
+    }
+	public RequestContext prepareActionSendMessage(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionSendMessage(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionSendMessage() {
+    	return false;
+    }
+	public RequestContext prepareActionCalculator(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionCalculator(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionCalculator() {
+    	return false;
+    }
+	public RequestContext prepareActionExport(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionExport(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExport() {
+    	return false;
+    }
+	public RequestContext prepareActionExportSelected(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionExportSelected(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExportSelected() {
+    	return false;
+    }
+	public RequestContext prepareActionAddNew(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionAddNew(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionAddNew() {
+    	return false;
+    }
+	public RequestContext prepareActionView(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionView(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionView() {
+    	return false;
+    }
+	public RequestContext prepareActionEdit(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionEdit(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionEdit() {
+    	return false;
+    }
+	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionRemove(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionRemove() {
+    	return false;
+    }
+	public RequestContext prepareActionRefresh(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionRefresh(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionRefresh() {
+    	return false;
+    }
+	public RequestContext prepareActionPrint(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionPrint(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionPrint() {
+    	return false;
+    }
+	public RequestContext prepareActionPrintPreview(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionPrintPreview(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionPrintPreview() {
+    	return false;
+    }
+	public RequestContext prepareActionLocate(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionLocate(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionLocate() {
+    	return false;
+    }
+	public RequestContext prepareActionQuery(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionQuery(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionQuery() {
+    	return false;
+    }
+	public RequestContext prepareActionImportData(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionImportData(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionImportData() {
+    	return false;
+    }
+	public RequestContext prepareActionAttachment(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionAttachment(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionAttachment() {
+    	return false;
+    }
+	public RequestContext prepareActionExportData(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionExportData(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionExportData() {
+    	return false;
+    }
+	public RequestContext prepareActionToExcel(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionToExcel(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionToExcel() {
+    	return false;
+    }
+	public RequestContext prepareActionStartWorkFlow(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionStartWorkFlow(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionStartWorkFlow() {
+    	return false;
+    }
+	public RequestContext prepareActionPublishReport(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionPublishReport(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionPublishReport() {
+    	return false;
+    }
+	public RequestContext prepareActionCancel(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionCancel(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionCancel() {
+    	return false;
+    }
+	public RequestContext prepareActionCancelCancel(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionCancelCancel(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionCancelCancel() {
+    	return false;
     }
 
     /**
