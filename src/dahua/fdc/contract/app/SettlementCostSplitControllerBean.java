@@ -244,16 +244,17 @@ public class SettlementCostSplitControllerBean extends AbstractSettlementCostSpl
 		
 		Set<String> curProjectSet = new HashSet<String>();
 		Set<String> productSet = new HashSet<String>();
+		Set<String> accountSet = new HashSet<String>();
 		for (int i = 0; i <conCostSplitInfo.getEntrys().size(); i++) {
 			SettlementCostSplitEntryInfo entryInfo = conCostSplitInfo.getEntrys().get(i);
-			if(entryInfo.getCostAccount()==null||entryInfo.getCostAccount().getCurProject()==null)
-				continue;
-			curProjectSet.add(entryInfo.getCostAccount().getCurProject().getId().toString());
-			if(entryInfo.getProduct()==null)
-				continue;
-			productSet.add(entryInfo.getProduct().getId().toString());
+			if(entryInfo.getCostAccount()!=null)
+				accountSet.add(entryInfo.getCostAccount().getId().toString());
+			if(entryInfo.getCostAccount()!=null&&entryInfo.getCostAccount().getCurProject()!=null)
+				curProjectSet.add(entryInfo.getCostAccount().getCurProject().getId().toString());
+			if(entryInfo.getProduct()!=null)
+				productSet.add(entryInfo.getProduct().getId().toString());
 		}
-		conCostSplitInfo.setIsCostSplit(conCostSplitInfo.getEntrys().size()>=2?true:false);
+		conCostSplitInfo.setIsCostSplit(accountSet.size()>=2?true:false);
 		conCostSplitInfo.setIsTeamSplit(curProjectSet.size()>=2?true:false);
 		conCostSplitInfo.setIsProductSplit(productSet.size()>0?true:false);
 		ISettlementCostSplit.updatePartial(conCostSplitInfo, sic);
