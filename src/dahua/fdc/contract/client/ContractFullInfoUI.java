@@ -31,6 +31,8 @@ import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.contract.ConChangeSplitCollection;
+import com.kingdee.eas.fdc.contract.ConChangeSplitFactory;
 import com.kingdee.eas.fdc.contract.ConNoCostSplitCollection;
 import com.kingdee.eas.fdc.contract.ConNoCostSplitFactory;
 import com.kingdee.eas.fdc.contract.ConNoCostSplitInfo;
@@ -41,6 +43,8 @@ import com.kingdee.eas.fdc.contract.ContractCostSplitInfo;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillCollection;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillFactory;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillInfo;
+import com.kingdee.eas.fdc.contract.SettlementCostSplitCollection;
+import com.kingdee.eas.fdc.contract.SettlementCostSplitFactory;
 import com.kingdee.eas.fdc.finance.client.DeductBillInfoUI;
 import com.kingdee.eas.fdc.finance.client.PaymentBillEditUI;
 import com.kingdee.eas.framework.ICoreBase;
@@ -82,6 +86,28 @@ public class ContractFullInfoUI extends AbstractContractFullInfoUI {
 			ContractCostSplitInfo info = contractCostSplitCollection.get(0);
 			return info.getId().toString();
 		}
+		return null;
+	}
+	
+	private String getConChangeSplitId(String contractId)throws BOSException {
+		EntityViewInfo view=new EntityViewInfo();
+		view.setFilter(new FilterInfo());
+		view.getFilter().appendFilterItem("contractBill.id", contractId);
+		view.getFilter().getFilterItems().add(new FilterItemInfo("state", FDCBillStateEnum.INVALID_VALUE,CompareType.NOTEQUALS));
+		ConChangeSplitCollection  concoll = ConChangeSplitFactory.getRemoteInstance().getConChangeSplitCollection(view);
+		if(concoll.size() > 0)
+			return concoll.get(0).getId().toString();
+		return null;
+	}
+	
+	private String getSettlementCostSplitId(String contractId)throws BOSException {
+		EntityViewInfo view=new EntityViewInfo();
+		view.setFilter(new FilterInfo());
+		view.getFilter().appendFilterItem("contractBill.id", contractId);
+		view.getFilter().getFilterItems().add(new FilterItemInfo("state", FDCBillStateEnum.INVALID_VALUE,CompareType.NOTEQUALS));
+		SettlementCostSplitCollection sccoll = SettlementCostSplitFactory.getRemoteInstance().getSettlementCostSplitCollection(view);
+		if(sccoll.size() > 0)
+			return sccoll.get(0).getId().toString();
 		return null;
 	}
 
@@ -200,26 +226,30 @@ public class ContractFullInfoUI extends AbstractContractFullInfoUI {
 		// //////////////////////////////////////////////////////////////////////////
 
 		// addPanel(contractId, ContractDetailFullInfoUI.class.getName(), this.getResouce("billInfo"));
+		//合同信息
 		addPanel(contractId, ContractBillEditUI.class.getName(), this.getResouce("billInfo"));
+		//拆分信息  this.getResouce("splitInfo")
 		if (isCoseSplit) {
-			addPanel(this.getSplitId(contractId), ContractCostSplitEditUI.class
-					.getName(), this.getResouce("splitInfo"));
+			addPanel(this.getSplitId(contractId), ContractCostSplitEditUI.class.getName(), "合同拆分");
 		} else {
-			addPanel(this.getNoSplitId(contractId), ConNoCostSplitEditUI.class
-					.getName(), this.getResouce("splitInfo"));
+			addPanel(this.getNoSplitId(contractId), ConNoCostSplitEditUI.class.getName(), "合同拆分");
 		}
-		Object obj = getUIContext().get("addSettlePanel");
-		//结算单加载汇总信息时不加载自身
-		if(obj==null||obj.equals(Boolean.TRUE)){
-			addPanel(this.getSettleId(contractId),
-				ContractSettlementBillEditUI.class.getName(), this.getResouce("settleInfo"));
-		}
+		//变更信息  成本信息  付款信息
 		addPanel(contractId, ContractChangeFullUI.class.getName(), this.getResouce("changeInfo"));
+		addPanel(getConChangeSplitId(contractId), ConChangeSplitEditUI.class.getName(), "变更拆分");
+		//结算单加载汇总信息时不加载自身 (暂时放出来，不根据参数进行判断)
+//		Object obj = getUIContext().get("addSettlePanel");
+//		if(obj==null||obj.equals(Boolean.TRUE)){
+//			addPanel(this.getSettleId(contractId),ContractSettlementBillEditUI.class.getName(), this.getResouce("settleInfo"));
+//		}
+		addPanel(getSettleId(contractId),ContractSettlementBillEditUI.class.getName(), this.getResouce("settleInfo"));
+		addPanel(getSettlementCostSplitId(contractId), SettlementCostSplitEditUI.class.getName(), "结算拆分");
 		addPanel(contractId, ContractCostFullInfoUI.class.getName(), this.getResouce("costInfo"));
 		addPanel(contractId, PaymentFullInfoUI.class.getName(), this.getResouce("payInfo"));
 		
 		//合同执行信息里面的那个“付款计划”页签暂时屏蔽
 		//		addPanel(contractId, ContractPayPlanEditUI.class.getName(), this.getResouce("payPlan"));
+		//付款申请   交底信息
 		addPanel(contractId, PayRequestFullInfoUI.class.getName(), this.getResouce("payRequest"));
 		addPanel(contractId, ContractMoveHistoryListUI.class.getName(), this.getResouce("bakInfo"));
 		//关联合同页签

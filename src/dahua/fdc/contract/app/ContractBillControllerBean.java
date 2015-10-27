@@ -639,25 +639,25 @@ public class ContractBillControllerBean extends
 		ContractBaseDataHelper.synToContractBaseData(ctx, false, pk.toString());
 		
 		/**
-		 * 导入合同付款计划
+		 * 导入合同付款计划  modify by yxl 20151027  根据选择的合约框架自动带出了付款计划，不需要再合同保存时进行导入
 		 */
-		ContractBillInfo info = (ContractBillInfo) model;
-		if(ContractPropertyEnum.DIRECT.equals(info.getContractPropert())){
-			ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(pk.toString(),false);
-		}else if(ContractPropertyEnum.SUPPLY.equals(info.getContractPropert())){
-			if(info.isIsAmtWithoutCost()){
-				ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(pk.toString(),false);
-			}else{
-				ContractBillEntryCollection entrys = info.getEntrys();
-				for(int i=0;i<entrys.size();i++){
-					ContractBillEntryInfo contractBillEntryInfo = entrys.get(i);
-					if("nu".equals(contractBillEntryInfo.getRowKey())){
-						ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(contractBillEntryInfo.getContent(),false);
-						break;
-					}
-				}
-			}
-		}
+//		ContractBillInfo info = (ContractBillInfo) model;
+//		if(ContractPropertyEnum.DIRECT.equals(info.getContractPropert())){
+//			ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(pk.toString(),false);
+//		}else if(ContractPropertyEnum.SUPPLY.equals(info.getContractPropert())){
+//			if(info.isIsAmtWithoutCost()){
+//				ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(pk.toString(),false);
+//			}else{
+//				ContractBillEntryCollection entrys = info.getEntrys();
+//				for(int i=0;i<entrys.size();i++){
+//					ContractBillEntryInfo contractBillEntryInfo = entrys.get(i);
+//					if("nu".equals(contractBillEntryInfo.getRowKey())){
+//						ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(contractBillEntryInfo.getContent(),false);
+//						break;
+//					}
+//				}
+//			}
+//		}
 	}
 
 	/*
@@ -1232,22 +1232,22 @@ public class ContractBillControllerBean extends
 		/**
 		 * 导入合同付款计划
 		 */
-		if(ContractPropertyEnum.DIRECT.equals(contractBillInfo.getContractPropert())){
-			ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(billId.toString(),false);
-		}else if(ContractPropertyEnum.SUPPLY.equals(contractBillInfo.getContractPropert())){
-			if(contractBillInfo.isIsAmtWithoutCost()){
-				ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(billId.toString(),false);
-			}else{
-				ContractBillEntryCollection entrys = contractBillInfo.getEntrys();
-				for(int i=0;i<entrys.size();i++){
-					ContractBillEntryInfo contractBillEntryInfo = entrys.get(i);
-					if("nu".equals(contractBillEntryInfo.getRowKey())){
-						ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(contractBillEntryInfo.getContent(),false);
-						break;
-					}
-				}
-			}
-		}
+//		if(ContractPropertyEnum.DIRECT.equals(contractBillInfo.getContractPropert())){
+//			ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(billId.toString(),false);
+//		}else if(ContractPropertyEnum.SUPPLY.equals(contractBillInfo.getContractPropert())){
+//			if(contractBillInfo.isIsAmtWithoutCost()){
+//				ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(billId.toString(),false);
+//			}else{
+//				ContractBillEntryCollection entrys = contractBillInfo.getEntrys();
+//				for(int i=0;i<entrys.size();i++){
+//					ContractBillEntryInfo contractBillEntryInfo = entrys.get(i);
+//					if("nu".equals(contractBillEntryInfo.getRowKey())){
+//						ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(contractBillEntryInfo.getContent(),false);
+//						break;
+//					}
+//				}
+//			}
+//		}
 	}
 	
 	/**
@@ -2042,22 +2042,22 @@ public class ContractBillControllerBean extends
 		/**
 		 * 导入合同付款计划
 		 */
-		if(ContractPropertyEnum.DIRECT.equals(info.getContractPropert())){
-			ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(objectPK.toString(),false);
-		}else if(ContractPropertyEnum.SUPPLY.equals(info.getContractPropert())){
-			if(info.isIsAmtWithoutCost()){
-				ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(objectPK.toString(),false);
-			}else{
-				ContractBillEntryCollection entrys = info.getEntrys();
-				for(int i=0;i<entrys.size();i++){
-					ContractBillEntryInfo contractBillEntryInfo = entrys.get(i);
-					if("nu".equals(contractBillEntryInfo.getRowKey())){
-						ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(contractBillEntryInfo.getContent(),false);
-						break;
-					}
-				}
-			}
-		}
+//		if(ContractPropertyEnum.DIRECT.equals(info.getContractPropert())){
+//			ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(objectPK.toString(),false);
+//		}else if(ContractPropertyEnum.SUPPLY.equals(info.getContractPropert())){
+//			if(info.isIsAmtWithoutCost()){
+//				ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(objectPK.toString(),false);
+//			}else{
+//				ContractBillEntryCollection entrys = info.getEntrys();
+//				for(int i=0;i<entrys.size();i++){
+//					ContractBillEntryInfo contractBillEntryInfo = entrys.get(i);
+//					if("nu".equals(contractBillEntryInfo.getRowKey())){
+//						ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(contractBillEntryInfo.getContent(),false);
+//						break;
+//					}
+//				}
+//			}
+//		}
 		return objectPK;
 		/**添加反写ContractBaseDataID的代码**/
 	}

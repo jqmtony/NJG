@@ -1035,6 +1035,28 @@ public class AbstractContractBillInfo extends com.kingdee.eas.fdc.basedata.FDCBi
     {
         setBigDecimal("contractPrice", item);
     }
+    /**
+     * Object:合同单据's 是否五大类合同property 
+     */
+    public boolean isIsFiveClass()
+    {
+        return getBoolean("isFiveClass");
+    }
+    public void setIsFiveClass(boolean item)
+    {
+        setBoolean("isFiveClass", item);
+    }
+    /**
+     * Object:合同单据's 平米面积指标property 
+     */
+    public String getMIndexType()
+    {
+        return getString("mIndexType");
+    }
+    public void setMIndexType(String item)
+    {
+        setString("mIndexType", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("0D6DD1F4");
