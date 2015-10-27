@@ -159,8 +159,6 @@ import com.kingdee.eas.fdc.basedata.FDCNumberConstants;
 import com.kingdee.eas.fdc.basedata.FDCNumberHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.IFDCBill;
-import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
-import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
 import com.kingdee.eas.fdc.basedata.ProjectStageEnum;
 import com.kingdee.eas.fdc.basedata.ProjectStatusInfo;
 import com.kingdee.eas.fdc.basedata.SourceTypeEnum;
@@ -204,9 +202,6 @@ import com.kingdee.eas.fdc.contract.CostPropertyEnum;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.ForWriteMarkHelper;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyCollection;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyFactory;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.contract.programming.client.ContractBillLinkProgContEditUI;
@@ -216,9 +211,7 @@ import com.kingdee.eas.fdc.costindexdb.client.BuildPriceIndexEditUI;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleInfo;
 import com.kingdee.eas.fdc.finance.PayPlanNewCollection;
-import com.kingdee.eas.fdc.finance.PayPlanNewDataInfo;
 import com.kingdee.eas.fdc.finance.PayPlanNewFactory;
-import com.kingdee.eas.fdc.finance.PayPlanTemplateByScheduleInfo;
 import com.kingdee.eas.fdc.finance.client.ContractPayPlanEditUI;
 import com.kingdee.eas.fdc.invite.AcceptanceLetterCollection;
 import com.kingdee.eas.fdc.invite.AcceptanceLetterFactory;
@@ -1966,9 +1959,10 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}else{
 			UIContext uiContext = new UIContext(this);
 			uiContext.put("contractInfo", editData);
+			uiContext.put("contractStationType", "sign");
 			String state = OprtState.ADDNEW;
 			FDCSQLBuilder builder = new FDCSQLBuilder();
-			builder.appendSql("select fid from CT_COS_BuildPriceIndex where CFContractId='"+editData.getId().toString()+"'");
+			builder.appendSql("select fid from CT_COS_BuildPriceIndex where CFContractId='"+editData.getId().toString()+"' and CFContractStation='10'");
 			IRowSet rs = builder.executeQuery();
 			if(rs.next() && rs.getString(1) != null){
 				state = OprtState.VIEW;
@@ -5819,6 +5813,15 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			//校验合约规划
 			if(!curInfo.isIsWholeAgeStage())
 				checkConProgram();
+		}
+		//modify by yxl 20151027  提交时检验面平米指标，五大类合同
+		if(FDCHelper.isEmpty(txtMIndexType.getText())){
+			FDCMsgBox.showError("平米面积指标不能为空！");
+			txtMIndexType.grabFocus();
+			abort();
+		}
+		if(!chkFiveClass.isSelected() && FDCMsgBox.showConfirm2("该合同不是五大类合同，继续提交吗？") != 0){
+			abort();
 		}
 	}
 

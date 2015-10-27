@@ -44,6 +44,8 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.AttachmentInfo;
 import com.kingdee.eas.base.attachment.BoAttchAssoCollection;
@@ -63,6 +65,8 @@ import com.kingdee.eas.basedata.org.OrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBasedataException;
 import com.kingdee.eas.fdc.basedata.FDCBillInfo;
@@ -96,6 +100,7 @@ import com.kingdee.eas.fdc.contract.GuerdonBillInfo;
 import com.kingdee.eas.fdc.contract.IContractSettlementBill;
 import com.kingdee.eas.fdc.contract.SettNoCostSplitFactory;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitFactory;
+import com.kingdee.eas.fdc.costindexdb.client.BuildPriceIndexEditUI;
 import com.kingdee.eas.fdc.finance.DeductBillEntryInfo;
 import com.kingdee.eas.fdc.finance.WorkLoadConfirmBillCollection;
 import com.kingdee.eas.fdc.finance.WorkLoadConfirmBillInfo;
@@ -284,6 +289,28 @@ public class ContractSettlementBillEditUI extends
 
 			totalAmount = (BigDecimal) totalSettleMap.get("OriginalAmount");
 			txtTotalOriginalAmount.setValue(totalAmount.add(originalAmt));
+		}
+	}
+	
+	//成本指标库按钮功能
+	protected void btnCostIndex_actionPerformed(ActionEvent e) throws Exception {
+		if(editData.getId() == null){
+			MsgBox.showInfo("请先保存单据！");
+		}else{
+			UIContext uiContext = new UIContext(this);
+			uiContext.put("contractInfo", contractBill);
+			uiContext.put("contractStationType", "settle");
+			String state = OprtState.ADDNEW;
+			FDCSQLBuilder builder = new FDCSQLBuilder();
+			builder.appendSql("select fid from CT_COS_BuildPriceIndex where CFContractId='"+editData.getId().toString()+"' and CFContractStation='30'");
+			IRowSet rs = builder.executeQuery();
+			if(rs.next() && rs.getString(1) != null){
+				state = OprtState.VIEW;
+				uiContext.put("ID", rs.getString(1));
+			}
+			IUIWindow uiWindow = UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(
+					BuildPriceIndexEditUI.class.getName(), uiContext, null,state);
+			uiWindow.show();
 		}
 	}
 

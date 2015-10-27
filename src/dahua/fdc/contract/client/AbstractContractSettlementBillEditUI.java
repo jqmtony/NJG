@@ -80,6 +80,7 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contConstructPrice;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conAttenTwo;
     protected com.kingdee.bos.ctrl.swing.KDButton viewAttenTwo;
+    protected com.kingdee.bos.ctrl.swing.KDButton btnCostIndex;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker dateCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox bizPromptAuditor;
@@ -301,6 +302,7 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.contConstructPrice = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.conAttenTwo = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.viewAttenTwo = new com.kingdee.bos.ctrl.swing.KDButton();
+        this.btnCostIndex = new com.kingdee.bos.ctrl.swing.KDButton();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.dateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.bizPromptAuditor = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -380,6 +382,7 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.contConstructPrice.setName("contConstructPrice");
         this.conAttenTwo.setName("conAttenTwo");
         this.viewAttenTwo.setName("viewAttenTwo");
+        this.btnCostIndex.setName("btnCostIndex");
         this.txtNumber.setName("txtNumber");
         this.dateCreateTime.setName("dateCreateTime");
         this.bizPromptAuditor.setName("bizPromptAuditor");
@@ -430,14 +433,12 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.btnCopy.setVisible(false);		
         this.menuItemCopy.setVisible(false);		
         this.menuSubmitOption.setVisible(false);		
-        this.btnTraceUp.setVisible(false);		
-        this.btnTraceDown.setVisible(false);		
-        this.separatorFW7.setVisible(false);		
-        this.btnCreateFrom.setVisible(false);		
-        this.separatorFW8.setVisible(false);		
         this.btnAddLine.setVisible(false);		
         this.btnInsertLine.setVisible(false);		
         this.btnRemoveLine.setVisible(false);		
+        this.btnCreateFrom.setVisible(false);		
+        this.btnTraceUp.setVisible(false);		
+        this.btnTraceDown.setVisible(false);		
         this.menuItemCreateFrom.setVisible(false);		
         this.menuItemCopyFrom.setVisible(false);		
         this.separator2.setVisible(false);		
@@ -447,7 +448,9 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.menuTable1.setVisible(false);		
         this.menuItemAddLine.setVisible(false);		
         this.menuItemInsertLine.setVisible(false);		
-        this.menuItemRemoveLine.setVisible(false);
+        this.menuItemRemoveLine.setVisible(false);		
+        this.separatorFW8.setVisible(false);		
+        this.separatorFW7.setVisible(false);
         this.btnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionAudit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAudit.setText(resHelper.getString("btnAudit.text"));		
         this.btnAudit.setToolTipText(resHelper.getString("btnAudit.toolTipText"));
@@ -627,6 +630,20 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         // viewAttenTwo
         this.viewAttenTwo.setAction((IItemAction)ActionProxyFactory.getProxy(actionViewTwo, new Class[] { IItemAction.class }, getServiceContext()));		
         this.viewAttenTwo.setText(resHelper.getString("viewAttenTwo.text"));
+        // btnCostIndex		
+        this.btnCostIndex.setText(resHelper.getString("btnCostIndex.text"));
+        this.btnCostIndex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    btnCostIndex_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // txtNumber		
         this.txtNumber.setMaxLength(80);		
         this.txtNumber.setVisible(true);		
@@ -977,6 +994,8 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.add(conAttenTwo, new KDLayout.Constraints(13, 248, 531, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         viewAttenTwo.setBounds(new Rectangle(559, 248, 83, 21));
         this.add(viewAttenTwo, new KDLayout.Constraints(559, 248, 83, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        btnCostIndex.setBounds(new Rectangle(456, 10, 100, 21));
+        this.add(btnCostIndex, new KDLayout.Constraints(456, 10, 100, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtNumber);
         //kDLabelContainer4
@@ -1179,7 +1198,6 @@ panelSettlementbill.setLayout(new BorderLayout(0, 0));        panelSettlementbil
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        
         this.toolBar.add(btnSave);
         this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnReset);
@@ -1436,6 +1454,14 @@ panelSettlementbill.setLayout(new BorderLayout(0, 0));        panelSettlementbil
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output btnCostIndex_actionPerformed method
+     */
+    protected void btnCostIndex_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+        //write your code here  aa
     }
 
     /**
