@@ -294,7 +294,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
-            <constraints>9,429,993,183,325</constraints>
+            <constraints>9,476,993,136,325</constraints>
             <tabIndex>30</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1686,7 +1686,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>12,374,987,47,261</constraints>
+            <constraints>10,421,987,49,261</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -2527,6 +2527,48 @@
                     <value>uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[kdLplanState].properties.property[enabled].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>kDLabelContainer8</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[kDLabelContainer8].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>10,379,983,37,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[kDLabelContainer8].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[kDLabelContainer8].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[kDLabelContainer8].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
                 </property>
             </properties>
             <parent>
@@ -5223,6 +5265,38 @@
             </propertyBindings>
         </component>
         <component>
+            <name>textKxnr</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[textKxnr].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextArea</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDLabelContainer8" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>Kxnr</bindingField>
+                    <fieldType>char</fieldType>
+                    <accessType />
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
             <name>btnAddNew</name>
             <alias>uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[btnAddNew].alias</alias>
             <userDefined>false</userDefined>
@@ -7897,7 +7971,7 @@
             <default />
             <description>uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].statuses.status[ADDNEW].description</description>
             <herited>false</herited>
-            <userDefined>false</userDefined>
+            <userDefined>true</userDefined>
             <statusItems>
                 <statusItem>
                     <name>actionAdjustDeduct</name>
@@ -7922,7 +7996,7 @@
             <default />
             <description>uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].statuses.status[EDIT].description</description>
             <herited>false</herited>
-            <userDefined>false</userDefined>
+            <userDefined>true</userDefined>
             <statusItems>
                 <statusItem>
                     <name>actionAttachment</name>
@@ -7940,7 +8014,7 @@
             <default />
             <description>uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].statuses.status[VIEW].description</description>
             <herited>false</herited>
-            <userDefined>false</userDefined>
+            <userDefined>true</userDefined>
             <statusItems>
                 <statusItem>
                     <name>actionCopy</name>
@@ -7972,7 +8046,7 @@
             <default />
             <description>uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].statuses.status[FINDVIEW].description</description>
             <herited>false</herited>
-            <userDefined>false</userDefined>
+            <userDefined>true</userDefined>
             <statusItems>
                 <statusItem>
                     <name>btnAudit</name>
@@ -11012,6 +11086,30 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[kDLabelContainer8].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[kDLabelContainer8].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[kDLabelContainer8].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="款项内容" />
+            <lang locale="zh_HK" value="款項內容" />
+            <lang locale="zh_TW" value="款項內容" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[kDLabelContainer8].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[kDSeparator1].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -12097,6 +12195,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[separatorFile1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.PayRequestBillEditUI].components.component[textKxnr].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
