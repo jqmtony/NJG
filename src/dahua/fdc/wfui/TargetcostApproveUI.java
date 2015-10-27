@@ -4,7 +4,9 @@
 package com.kingdee.eas.fdc.wfui;
 
 import java.awt.event.*;
+import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
@@ -12,10 +14,14 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
 import com.kingdee.eas.framework.*;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
  * 目标成本调整审批单审批界面
@@ -243,6 +249,61 @@ public class TargetcostApproveUI extends AbstractTargetcostApproveUI
     	this.kDTable1.getColumn(8).setWidth(50);
     	this.kDTable1.getColumn(9).setWidth(50);
     	this.kDTable1.getIndexColumn().getStyleAttributes().setHided(true);
+    	
+    	
+    	String billId = "7v36HV4ES6+HQ7TfX3B27QTHsvM=";
+    	StringBuffer sb = new StringBuffer();
+    	sb.append(" select distinct fdc.Fname_l2,org.Fname_l2,try.FChangeReason,try.FAdjustAmt,try.FDescription from T_AIM_AimAimCostAdjust atm ");
+    	sb.append(" left join T_FDC_CurProject fdc on fdc.fid =atm.FCurProjectID ");
+    	sb.append(" left join T_ORG_BaseUnit org on org.fid = fdc.FFullOrgUnit  ");
+    	sb.append(" left join T_AIM_AimAimCostAdjustEntry try on try.FParentID = atm.fid ");
+    	sb.append(" where atm.fid = '").append(billId).append("'");
+    	
+    	
+    	//sql取值付给变量
+    	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
+    	StringBuffer yuanYin = new StringBuffer();
+    	BigDecimal sum = BigDecimal.ZERO;
+    	StringBuffer beiZu = new StringBuffer();
+    	while(rowset.next()){
+    		this.kDTable1.getCell(0, 1).setValue(rowset.getString(1));
+    		this.kDTable1.getCell(1, 1).setValue(rowset.getString(2));
+    		yuanYin.append(rowset.getString(3)+"\n");
+    		sum= sum.add(rowset.getBigDecimal(4));
+    		beiZu.append(rowset.getString(5)+"\n");
+    	}  	
+    	this.kDTable1.getCell(2, 1).setValue(yuanYin.toString());
+    	this.kDTable1.getCell(2, 1).getStyleAttributes().setWrapText(true);
+    	this.kDTable1.getCell(5, 1).setValue(sum);
+    	this.kDTable1.getCell(16, 1).setValue(beiZu.toString());
+    	this.kDTable1.getCell(16, 1).getStyleAttributes().setWrapText(true);
+    	
+    	
+
+ 		//工作流审批意见
+    	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
+    	this.kDTable1.getCell(7, 3).setValue(apporveResultForMap.get("营销部经办人"));
+    	this.kDTable1.getCell(8, 3).setValue(apporveResultForMap.get("营销部"));
+    	this.kDTable1.getCell(8, 6).setValue(apporveResultForMap.get("成本管理部"));
+    	this.kDTable1.getCell(9, 3).setValue(apporveResultForMap.get("设计部"));
+    	this.kDTable1.getCell(9, 6).setValue(apporveResultForMap.get("财务部"));
+    	this.kDTable1.getCell(10, 3).setValue(apporveResultForMap.get("项目公司第一负责人"));
+    	this.kDTable1.getCell(10, 6).setValue(apporveResultForMap.get("地区总部第一负责人"));
+    	this.kDTable1.getCell(11, 3).setValue(apporveResultForMap.get("营销管理中心"));
+    	this.kDTable1.getCell(11, 7).setValue(apporveResultForMap.get("成本管理中心"));
+    	this.kDTable1.getCell(12, 3).setValue(apporveResultForMap.get("设计管理中心"));
+    	this.kDTable1.getCell(12, 7).setValue(apporveResultForMap.get("财务管理中心"));
+    	this.kDTable1.getCell(13, 3).setValue(apporveResultForMap.get("工程成本副总裁"));
+    	this.kDTable1.getCell(14, 3).setValue(apporveResultForMap.get("执行副总裁"));
+    	this.kDTable1.getCell(15, 3).setValue(apporveResultForMap.get("总裁"));
+    	
+    	
+    	this.kDTable1.getRow(16).setHeight(50);
+    }
+    
+    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
+    	super.kDTable1_tableClicked(e);
+    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
     }
 
 

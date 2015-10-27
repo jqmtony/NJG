@@ -3,25 +3,29 @@
  */
 package com.kingdee.eas.fdc.wfui;
 
-import java.awt.event.*;
 import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
-import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
+import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
+import com.kingdee.bos.ctrl.swing.KDCheckBox;
+import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.fdc.basedata.ApportionTypeInfo;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.ProjectStageEnum;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
-import com.kingdee.eas.framework.*;
+import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
@@ -215,14 +219,31 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	IRow addRowsist= this.kDTable1.addRow();
     	addRowsist.getCell(0).setValue("履约保证金");
     	addRowsist.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
-    	addRowsist.getCell(3).setValue("xx;");
+    	//新增布尔控件
+    	KDCheckBox cb = new KDCheckBox();
+    	//容器控件
+    	KDTDefaultCellEditor editor = new KDTDefaultCellEditor(cb);
+    	addRowsist.getCell(3).setEditor(editor);
+    	addRowsist.getCell(3).setValue(Boolean.FALSE);
+//    	addRowsist.getCell(3).getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
     	addRowsist.getCell(4).setValue("不收取;");
-    	addRowsist.getCell(5).setValue("xx:");
+    	addRowsist.getCell(5).setEditor(editor);
+    	addRowsist.getCell(5).setValue(Boolean.FALSE);
     	addRowsist.getCell(6).setValue("收取:");
-    	addRowsist.getCell(7).setValue("元。");
+    	//单元格设定只输入数字
+    	KDFormattedTextField kdtEntrys_pointValue_TextField = new KDFormattedTextField();
+		kdtEntrys_pointValue_TextField.setHorizontalAlignment(2);
+        kdtEntrys_pointValue_TextField.setDataType(1);
+        kdtEntrys_pointValue_TextField.setMinimumValue(new BigDecimal("-1.0E26"));
+    	kdtEntrys_pointValue_TextField.setMaximumValue(new BigDecimal("1.0E26"));
+    	kdtEntrys_pointValue_TextField.setPrecision(2);
+    	KDTDefaultCellEditor kdtEntrys_pointValue_CellEditor = new KDTDefaultCellEditor(kdtEntrys_pointValue_TextField);
+    	addRowsist.getCell(7).setEditor(kdtEntrys_pointValue_CellEditor);
+
+    	addRowsist.getCell(9).setValue("元。");
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(15, 0, 15, 2);
-    	mergeManager.mergeBlock(15, 7, 15, 9);
+    	mergeManager.mergeBlock(15, 8, 15, 9);
 
     	
     	//第十七行
@@ -258,7 +279,6 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	
     	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
     	while(rowset.next()){
-    		BigDecimal buildArea = FDCHelper.getApportionValue(rowset.getString("FCurProjectID"),ApportionTypeInfo.buildAreaType, ProjectStageEnum.AIMCOST);
     		this.kDTable1.getCell(0, 1).setValue(rowset.getString(1));
     		this.kDTable1.getCell(0, 4).setValue(rowset.getString(2));
     		this.kDTable1.getCell(1, 1).setValue(rowset.getString(3));
@@ -267,10 +287,28 @@ public class ContractApproveUI extends AbstractContractApproveUI
     		this.kDTable1.getCell(2, 4).setValue(rowset.getString(6));
     		this.kDTable1.getCell(3, 1).setValue(rowset.getString(7));
         	//获取目标成本总建筑面积金额
+    		BigDecimal buildArea = FDCHelper.getApportionValue(rowset.getString("FCurProjectID"),ApportionTypeInfo.buildAreaType, ProjectStageEnum.AIMCOST);
     		this.kDTable1.getCell(3, 5).setValue(FDCHelper.divide(buildArea, this.kDTable1.getCell(2, 4).getValue()));//单价
     		this.kDTable1.getCell(15, 7).setValue(rowset.getString(9));
     		this.kDTable1.getCell(16, 3).setValue(rowset.getString(10));
     	}
+    	
+    	
+
+ 		//工作流审批意见
+    	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
+    	this.kDTable1.getCell(5, 3).setValue(apporveResultForMap.get("成本部"));
+    	this.kDTable1.getCell(6, 3).setValue(apporveResultForMap.get("工程部"));
+    	this.kDTable1.getCell(7, 3).setValue(apporveResultForMap.get("财务部"));
+    	this.kDTable1.getCell(8, 3).setValue(apporveResultForMap.get("项目公司第一负责人"));
+    	this.kDTable1.getCell(9, 3).setValue(apporveResultForMap.get("地区第一负责人"));
+    	this.kDTable1.getCell(10, 3).setValue(apporveResultForMap.get("合约审算部"));
+    	this.kDTable1.getCell(11, 3).setValue(apporveResultForMap.get("第一负责人"));
+    	this.kDTable1.getCell(12, 3).setValue(apporveResultForMap.get("工程成本副总裁"));
+    	this.kDTable1.getCell(13, 3).setValue(apporveResultForMap.get("执行副总裁"));
+    	this.kDTable1.getCell(14, 3).setValue(apporveResultForMap.get("总裁"));
+    	
+    	
     }
     
     protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
