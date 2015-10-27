@@ -572,6 +572,11 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 		SelectorItemCollection sic = new SelectorItemCollection();
 		sic.add("contractBill.curProject.isWholeAgeStage"); 
 		sic.add("contractBill.programmingContract.id"); 
+		sic.add("entrys.product.id"); 
+		sic.add("entrys.costAccount.curProject.id"); 
+		sic.add("isCostSplit"); 
+		sic.add("isTeamSplit"); 
+		sic.add("isProductSplit"); 
 		
 		Map<String, BigDecimal> VALUEMAP = new HashMap<String, BigDecimal>();
 		IProgrammingContract service = ProgrammingContractFactory.getLocalInstance(ctx);
@@ -580,7 +585,23 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 		
 		if(billId.getType().equals(new ContractCostSplitInfo().getBOSType())){
 			ContractCostSplitInfo conCostSplitInfo = ContractCostSplitFactory.getLocalInstance(ctx).getContractCostSplitInfo(new ObjectUuidPK(billId),sic);
-			if(!conCostSplitInfo.getContractBill().getCurProject().isIsWholeAgeStage()||conCostSplitInfo.getContractBill().getProgrammingContract()!=null)
+			boolean IsWholeAgeStage = conCostSplitInfo.getContractBill().getCurProject().isIsWholeAgeStage();
+			Set<String> curProjectSet = new HashSet<String>();
+			Set<String> productSet = new HashSet<String>();
+			for (int i = 0; i <conCostSplitInfo.getEntrys().size(); i++) {
+				ContractCostSplitEntryInfo entryInfo = conCostSplitInfo.getEntrys().get(i);
+				if(entryInfo.getCostAccount()==null||entryInfo.getCostAccount().getCurProject()==null)
+					continue;
+				curProjectSet.add(entryInfo.getCostAccount().getCurProject().getId().toString());
+				if(entryInfo.getProduct()==null)
+					continue;
+				productSet.add(entryInfo.getProduct().getId().toString());
+			}
+			conCostSplitInfo.setIsCostSplit(conCostSplitInfo.getEntrys().size()>=2?true:false);
+			conCostSplitInfo.setIsTeamSplit(curProjectSet.size()>=2?true:false);
+			conCostSplitInfo.setIsProductSplit(productSet.size()>0?true:false);
+			ContractCostSplitFactory.getLocalInstance(ctx).updatePartial(conCostSplitInfo, sic);
+			if(!IsWholeAgeStage||conCostSplitInfo.getContractBill().getProgrammingContract()!=null)
 				return;
 			
 			ContractCostSplitEntryCollection coll = ContractCostSplitEntryFactory.getLocalInstance(ctx).getContractCostSplitEntryCollection(oql);
@@ -599,7 +620,24 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 			}
 		}else if(billId.getType().equals(new ConChangeSplitInfo().getBOSType())){
 			ConChangeSplitInfo conCostSplitInfo = ConChangeSplitFactory.getLocalInstance(ctx).getConChangeSplitInfo(new ObjectUuidPK(billId),sic);
-			if(!conCostSplitInfo.getContractBill().getCurProject().isIsWholeAgeStage()||conCostSplitInfo.getContractBill().getProgrammingContract()!=null)
+			boolean IsWholeAgeStage = conCostSplitInfo.getContractBill().getCurProject().isIsWholeAgeStage();
+			Set<String> curProjectSet = new HashSet<String>();
+			Set<String> productSet = new HashSet<String>();
+			for (int i = 0; i <conCostSplitInfo.getEntrys().size(); i++) {
+				ConChangeSplitEntryInfo entryInfo = conCostSplitInfo.getEntrys().get(i);
+				if(entryInfo.getCostAccount()==null||entryInfo.getCostAccount().getCurProject()==null)
+					continue;
+				curProjectSet.add(entryInfo.getCostAccount().getCurProject().getId().toString());
+				if(entryInfo.getProduct()==null)
+					continue;
+				productSet.add(entryInfo.getProduct().getId().toString());
+			}
+			conCostSplitInfo.setIsCostSplit(conCostSplitInfo.getEntrys().size()>=2?true:false);
+			conCostSplitInfo.setIsTeamSplit(curProjectSet.size()>=2?true:false);
+			conCostSplitInfo.setIsProductSplit(productSet.size()>0?true:false);
+			ConChangeSplitFactory.getLocalInstance(ctx).updatePartial(conCostSplitInfo, sic);
+			
+			if(!IsWholeAgeStage||conCostSplitInfo.getContractBill().getProgrammingContract()!=null)
 				return;
 			ConChangeSplitEntryCollection coll = ConChangeSplitEntryFactory.getLocalInstance(ctx).getConChangeSplitEntryCollection(oql);
 			for (int i = 0; i < coll.size(); i++) {

@@ -96,6 +96,39 @@ public class AbstractFDCSplitBillInfo extends com.kingdee.eas.fdc.basedata.FDCBi
     {
         put("curProject", item);
     }
+    /**
+     * Object:成本拆分's 跨科目拆分property 
+     */
+    public boolean isIsCostSplit()
+    {
+        return getBoolean("isCostSplit");
+    }
+    public void setIsCostSplit(boolean item)
+    {
+        setBoolean("isCostSplit", item);
+    }
+    /**
+     * Object:成本拆分's 跨组团拆分property 
+     */
+    public boolean isIsTeamSplit()
+    {
+        return getBoolean("isTeamSplit");
+    }
+    public void setIsTeamSplit(boolean item)
+    {
+        setBoolean("isTeamSplit", item);
+    }
+    /**
+     * Object:成本拆分's 产品拆分property 
+     */
+    public boolean isIsProductSplit()
+    {
+        return getBoolean("isProductSplit");
+    }
+    public void setIsProductSplit(boolean item)
+    {
+        setBoolean("isProductSplit", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("234AEC4E");

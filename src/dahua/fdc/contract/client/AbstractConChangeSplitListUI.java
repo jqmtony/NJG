@@ -46,9 +46,9 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 public abstract class AbstractConChangeSplitListUI extends com.kingdee.eas.fdc.basedata.client.FDCSplitBillListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractConChangeSplitListUI.class);
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnClearSplit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewInvalid;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemViewInvalid;
-    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnClearSplit;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemClearSplit;
     protected ActionViewInvalid actionViewInvalid = null;
     protected ActionClearSplit actionClearSplit = null;
@@ -80,21 +80,25 @@ public abstract class AbstractConChangeSplitListUI extends com.kingdee.eas.fdc.b
         this.actionClearSplit = new ActionClearSplit(this);
         getActionManager().registerAction("actionClearSplit", actionClearSplit);
          this.actionClearSplit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        this.btnClearSplit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnViewInvalid = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.menuItemViewInvalid = new com.kingdee.bos.ctrl.swing.KDMenuItem();
-        this.btnClearSplit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.menuItemClearSplit = new com.kingdee.bos.ctrl.swing.KDMenuItem();
+        this.btnClearSplit.setName("btnClearSplit");
         this.btnViewInvalid.setName("btnViewInvalid");
         this.menuItemViewInvalid.setName("menuItemViewInvalid");
-        this.btnClearSplit.setName("btnClearSplit");
         this.menuItemClearSplit.setName("menuItemClearSplit");
         // CoreUI
-		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol2\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol14\"><c:NumberFormat>YYYY-MM-DD</c:NumberFormat></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>YYYY-MM-DD</c:NumberFormat></c:Style><c:Style id=\"sCol18\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol20\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"isCostSplit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplit.splitState\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplit.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"changeType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractBill.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"conductTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"conductDept.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"settleTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"changeReason.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplitCreator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplit.createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol14\" /><t:Column t:key=\"costSplitAuditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplit.auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol18\" /><t:Column t:key=\"costSplit.state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"curProject.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol20\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{isCostSplit}</t:Cell><t:Cell>$Resource{costSplit.splitState}</t:Cell><t:Cell>$Resource{costSplit.id}</t:Cell><t:Cell>$Resource{changeType.name}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{contractBill.number}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{conductTime}</t:Cell><t:Cell>$Resource{conductDept.name}</t:Cell><t:Cell>$Resource{settleTime}</t:Cell><t:Cell>$Resource{changeReason.name}</t:Cell><t:Cell>$Resource{description}</t:Cell><t:Cell>$Resource{costSplitCreator.name}</t:Cell><t:Cell>$Resource{costSplit.createTime}</t:Cell><t:Cell>$Resource{costSplitAuditor.name}</t:Cell><t:Cell>$Resource{costSplit.auditTime}</t:Cell><t:Cell>$Resource{state}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{costSplit.state}</t:Cell><t:Cell>$Resource{curProject.id}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot> ";
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol2\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol14\"><c:NumberFormat>YYYY-MM-DD</c:NumberFormat></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>YYYY-MM-DD</c:NumberFormat></c:Style><c:Style id=\"sCol18\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol20\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"isCostSplit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplit.splitState\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplit.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"changeType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractBill.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"conductTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"conductDept.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"settleTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"changeReason.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplitCreator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplit.createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol14\" /><t:Column t:key=\"costSplitAuditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplit.auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol18\" /><t:Column t:key=\"costSplit.state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"curProject.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol20\" /><t:Column t:key=\"isCostSplitWHE\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isTeamSplit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isProductSplit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{isCostSplit}</t:Cell><t:Cell>$Resource{costSplit.splitState}</t:Cell><t:Cell>$Resource{costSplit.id}</t:Cell><t:Cell>$Resource{changeType.name}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{contractBill.number}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{conductTime}</t:Cell><t:Cell>$Resource{conductDept.name}</t:Cell><t:Cell>$Resource{settleTime}</t:Cell><t:Cell>$Resource{changeReason.name}</t:Cell><t:Cell>$Resource{description}</t:Cell><t:Cell>$Resource{costSplitCreator.name}</t:Cell><t:Cell>$Resource{costSplit.createTime}</t:Cell><t:Cell>$Resource{costSplitAuditor.name}</t:Cell><t:Cell>$Resource{costSplit.auditTime}</t:Cell><t:Cell>$Resource{state}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{costSplit.state}</t:Cell><t:Cell>$Resource{curProject.id}</t:Cell><t:Cell>$Resource{isCostSplitWHE}</t:Cell><t:Cell>$Resource{isTeamSplit}</t:Cell><t:Cell>$Resource{isProductSplit}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
-                this.tblMain.putBindContents("mainQuery",new String[] {"contractBill.isCoseSplit","costSplit.splitState","costSplit.id","changeType.name","number","name","contractBill.number","amount","conductTime","conductDept.name","settleTime","changeReason.name","description","costSplitCreator.name","costSplit.createTime","costSplitAuditor.name","costSplit.auditTime","state","id","costSplit.state","curProject.id"});
+                this.tblMain.putBindContents("mainQuery",new String[] {"contractBill.isCoseSplit","costSplit.splitState","costSplit.id","changeType.name","number","name","contractBill.number","amount","conductTime","conductDept.name","settleTime","changeReason.name","description","costSplitCreator.name","costSplit.createTime","costSplitAuditor.name","costSplit.auditTime","state","id","costSplit.state","curProject.id","costSplit.isCostSplit","costSplit.isTeamSplit","costSplit.isProductSplit"});
 
 
+        // btnClearSplit
+        this.btnClearSplit.setAction((IItemAction)ActionProxyFactory.getProxy(actionClearSplit, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnClearSplit.setText(resHelper.getString("btnClearSplit.text"));		
+        this.btnClearSplit.setToolTipText(resHelper.getString("btnClearSplit.toolTipText"));
         // btnViewInvalid
         this.btnViewInvalid.setAction((IItemAction)ActionProxyFactory.getProxy(actionViewInvalid, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnViewInvalid.setText(resHelper.getString("btnViewInvalid.text"));		
@@ -103,10 +107,6 @@ public abstract class AbstractConChangeSplitListUI extends com.kingdee.eas.fdc.b
         this.menuItemViewInvalid.setAction((IItemAction)ActionProxyFactory.getProxy(actionViewInvalid, new Class[] { IItemAction.class }, getServiceContext()));		
         this.menuItemViewInvalid.setText(resHelper.getString("menuItemViewInvalid.text"));		
         this.menuItemViewInvalid.setToolTipText(resHelper.getString("menuItemViewInvalid.toolTipText"));
-        // btnClearSplit
-        this.btnClearSplit.setAction((IItemAction)ActionProxyFactory.getProxy(actionClearSplit, new Class[] { IItemAction.class }, getServiceContext()));		
-        this.btnClearSplit.setText(resHelper.getString("btnClearSplit.text"));		
-        this.btnClearSplit.setToolTipText(resHelper.getString("btnClearSplit.toolTipText"));
         // menuItemClearSplit
         this.menuItemClearSplit.setAction((IItemAction)ActionProxyFactory.getProxy(actionClearSplit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.menuItemClearSplit.setText(resHelper.getString("menuItemClearSplit.text"));		
@@ -157,6 +157,7 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
     {
         this.menuBar.add(menuFile);
         this.menuBar.add(menuEdit);
+        this.menuBar.add(MenuService);
         this.menuBar.add(menuView);
         this.menuBar.add(menuBiz);
         this.menuBar.add(menuTool);
@@ -166,10 +167,14 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(menuItemImportData);
+        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemExportData);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(separatorFile1);
+        menuFile.add(menuItemCloudShare);
         menuFile.add(MenuItemAttachment);
         menuFile.add(kDSeparator1);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(menuItemPageSetup);
         menuFile.add(menuItemPrint);
         menuFile.add(menuItemPrintPreview);
@@ -183,15 +188,22 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
         menuEdit.add(menuItemCreateTo);
         menuEdit.add(menuItemCopyTo);
         menuEdit.add(kDSeparator4);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
         //menuView
         menuView.add(menuItemView);
         menuView.add(menuItemLocate);
         menuView.add(kDSeparator5);
         menuView.add(menuItemQuery);
         menuView.add(menuItemRefresh);
+        menuView.add(menuItemSwitchView);
         menuView.add(separatorView1);
         menuView.add(menuItemTraceUp);
         menuView.add(menuItemTraceDown);
+        menuView.add(menuItemQueryScheme);
         menuView.add(kDSeparator6);
         //menuBiz
         menuBiz.add(menuItemCancelCancel);
@@ -205,6 +217,7 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
         //menuTool
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuWorkFlow
         menuWorkFlow.add(menuItemViewDoProccess);
         menuWorkFlow.add(menuItemMultiapprove);
@@ -241,7 +254,9 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(btnView);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnCostSplit);
         this.toolBar.add(btnEdit);
         this.toolBar.add(btnRemove);
@@ -268,6 +283,7 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
         this.toolBar.add(btnTraceUp);
         this.toolBar.add(btnViewSignature);
         this.toolBar.add(btnWorkFlowG);
+        this.toolBar.add(btnNumberSign);
         this.toolBar.add(btnTraceDown);
         this.toolBar.add(separatorFW4);
         this.toolBar.add(btnWFViewdoProccess);
@@ -362,6 +378,10 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
         sic.add(new SelectorItemInfo("id"));
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("amount"));
@@ -381,6 +401,9 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
         sic.add(new SelectorItemInfo("costSplitAuditor.name"));
         sic.add(new SelectorItemInfo("costSplit.auditTime"));
         sic.add(new SelectorItemInfo("costSplit.state"));
+        sic.add(new SelectorItemInfo("costSplit.isTeamSplit"));
+        sic.add(new SelectorItemInfo("costSplit.isProductSplit"));
+        sic.add(new SelectorItemInfo("costSplit.isCostSplit"));
         sic.add(new SelectorItemInfo("contractBill.isCoseSplit"));
         return sic;
     }        

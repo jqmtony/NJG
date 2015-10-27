@@ -48,10 +48,10 @@ public abstract class AbstractContractCostSplitListUI extends com.kingdee.eas.fd
     private static final Logger logger = CoreUIObject.getLogger(AbstractContractCostSplitListUI.class);
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnClearSplit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewInvalid;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnMeasureSplit;
+    protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemMeasureSplit;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemClearSplit;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemViewInvalid;
-    protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemMeasureSplit;
-    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnMeasureSplit;
     protected ActionClearSplit actionClearSplit = null;
     protected ActionViewInvalid actionViewInvalid = null;
     protected ActionMeasureSplit actionMeasureSplit = null;
@@ -89,21 +89,21 @@ public abstract class AbstractContractCostSplitListUI extends com.kingdee.eas.fd
          this.actionMeasureSplit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.btnClearSplit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnViewInvalid = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnMeasureSplit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.menuItemMeasureSplit = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.menuItemClearSplit = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.menuItemViewInvalid = new com.kingdee.bos.ctrl.swing.KDMenuItem();
-        this.menuItemMeasureSplit = new com.kingdee.bos.ctrl.swing.KDMenuItem();
-        this.btnMeasureSplit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnClearSplit.setName("btnClearSplit");
         this.btnViewInvalid.setName("btnViewInvalid");
+        this.btnMeasureSplit.setName("btnMeasureSplit");
+        this.menuItemMeasureSplit.setName("menuItemMeasureSplit");
         this.menuItemClearSplit.setName("menuItemClearSplit");
         this.menuItemViewInvalid.setName("menuItemViewInvalid");
-        this.menuItemMeasureSplit.setName("menuItemMeasureSplit");
-        this.btnMeasureSplit.setName("btnMeasureSplit");
         // CoreUI
-		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:NumberFormat>#,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>#,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol20\"><c:NumberFormat>YYYY-MM-DD</c:NumberFormat></c:Style><c:Style id=\"sCol21\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"costSplit.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"isCostSplit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplit.splitState\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"contractType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"partB.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractSource\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"signDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"landDeveloper.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"partC.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costProperty\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"hasSettled\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"settleAmt\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"contractPropert\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplit.state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isConfirm\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"splitTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"20\" t:styleID=\"sCol20\" /><t:Column t:key=\"curProject.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"21\" t:styleID=\"sCol21\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{costSplit.id}</t:Cell><t:Cell>$Resource{isCostSplit}</t:Cell><t:Cell>$Resource{costSplit.splitState}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{contractType.name}</t:Cell><t:Cell>$Resource{state}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{partB.name}</t:Cell><t:Cell>$Resource{contractSource}</t:Cell><t:Cell>$Resource{signDate}</t:Cell><t:Cell>$Resource{landDeveloper.name}</t:Cell><t:Cell>$Resource{partC.name}</t:Cell><t:Cell>$Resource{costProperty}</t:Cell><t:Cell>$Resource{hasSettled}</t:Cell><t:Cell>$Resource{settleAmt}</t:Cell><t:Cell>$Resource{contractPropert}</t:Cell><t:Cell>$Resource{costSplit.state}</t:Cell><t:Cell>$Resource{isConfirm}</t:Cell><t:Cell>$Resource{splitTime}</t:Cell><t:Cell>$Resource{curProject.id}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot> ";
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:NumberFormat>#,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol16\"><c:NumberFormat>#,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol20\"><c:NumberFormat>YYYY-MM-DD</c:NumberFormat></c:Style><c:Style id=\"sCol21\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"costSplit.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"isCostSplit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplit.splitState\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"contractType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"partB.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"contractSource\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"signDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"landDeveloper.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"partC.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costProperty\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"hasSettled\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"settleAmt\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol16\" /><t:Column t:key=\"contractPropert\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costSplit.state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isConfirm\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"splitTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"20\" t:styleID=\"sCol20\" /><t:Column t:key=\"curProject.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"21\" t:styleID=\"sCol21\" /><t:Column t:key=\"isCostSplitWHE\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isTeamSplit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isProductSplit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{costSplit.id}</t:Cell><t:Cell>$Resource{isCostSplit}</t:Cell><t:Cell>$Resource{costSplit.splitState}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{contractType.name}</t:Cell><t:Cell>$Resource{state}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{partB.name}</t:Cell><t:Cell>$Resource{contractSource}</t:Cell><t:Cell>$Resource{signDate}</t:Cell><t:Cell>$Resource{landDeveloper.name}</t:Cell><t:Cell>$Resource{partC.name}</t:Cell><t:Cell>$Resource{costProperty}</t:Cell><t:Cell>$Resource{hasSettled}</t:Cell><t:Cell>$Resource{settleAmt}</t:Cell><t:Cell>$Resource{contractPropert}</t:Cell><t:Cell>$Resource{costSplit.state}</t:Cell><t:Cell>$Resource{isConfirm}</t:Cell><t:Cell>$Resource{splitTime}</t:Cell><t:Cell>$Resource{curProject.id}</t:Cell><t:Cell>$Resource{isCostSplitWHE}</t:Cell><t:Cell>$Resource{isTeamSplit}</t:Cell><t:Cell>$Resource{isProductSplit}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
-                this.tblMain.putBindContents("mainQuery",new String[] {"costSplit.id","isCostSplit","costSplit.splitState","id","contractType.name","state","number","name","amount","partB.name","contractSourceId.name","signDate","landDeveloper.name","partC.name","costProperty","hasSettled","settleAmt","contractPropert","costSplit.state","isConfirm","costSplit.createTime","curProject.id"});
+                this.tblMain.putBindContents("mainQuery",new String[] {"costSplit.id","isCostSplit","costSplit.splitState","id","contractType.name","state","number","name","amount","partB.name","contractSourceId.name","signDate","landDeveloper.name","partC.name","costProperty","hasSettled","settleAmt","contractPropert","costSplit.state","isConfirm","costSplit.createTime","curProject.id","costSplit.isCostSplit","costSplit.isTeamSplit","costSplit.isProductSplit"});
 
 
         // btnClearSplit
@@ -113,6 +113,13 @@ public abstract class AbstractContractCostSplitListUI extends com.kingdee.eas.fd
         // btnViewInvalid
         this.btnViewInvalid.setAction((IItemAction)ActionProxyFactory.getProxy(actionViewInvalid, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnViewInvalid.setText(resHelper.getString("btnViewInvalid.text"));
+        // btnMeasureSplit
+        this.btnMeasureSplit.setAction((IItemAction)ActionProxyFactory.getProxy(actionMeasureSplit, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnMeasureSplit.setText(resHelper.getString("btnMeasureSplit.text"));
+        // menuItemMeasureSplit
+        this.menuItemMeasureSplit.setAction((IItemAction)ActionProxyFactory.getProxy(actionMeasureSplit, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.menuItemMeasureSplit.setText(resHelper.getString("menuItemMeasureSplit.text"));		
+        this.menuItemMeasureSplit.setMnemonic(77);
         // menuItemClearSplit
         this.menuItemClearSplit.setAction((IItemAction)ActionProxyFactory.getProxy(actionClearSplit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.menuItemClearSplit.setText(resHelper.getString("menuItemClearSplit.text"));		
@@ -121,13 +128,6 @@ public abstract class AbstractContractCostSplitListUI extends com.kingdee.eas.fd
         this.menuItemViewInvalid.setAction((IItemAction)ActionProxyFactory.getProxy(actionViewInvalid, new Class[] { IItemAction.class }, getServiceContext()));		
         this.menuItemViewInvalid.setText(resHelper.getString("menuItemViewInvalid.text"));		
         this.menuItemViewInvalid.setToolTipText(resHelper.getString("menuItemViewInvalid.toolTipText"));
-        // menuItemMeasureSplit
-        this.menuItemMeasureSplit.setAction((IItemAction)ActionProxyFactory.getProxy(actionMeasureSplit, new Class[] { IItemAction.class }, getServiceContext()));		
-        this.menuItemMeasureSplit.setText(resHelper.getString("menuItemMeasureSplit.text"));		
-        this.menuItemMeasureSplit.setMnemonic(77);
-        // btnMeasureSplit
-        this.btnMeasureSplit.setAction((IItemAction)ActionProxyFactory.getProxy(actionMeasureSplit, new Class[] { IItemAction.class }, getServiceContext()));		
-        this.btnMeasureSplit.setText(resHelper.getString("btnMeasureSplit.text"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -174,6 +174,7 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
     {
         this.menuBar.add(menuFile);
         this.menuBar.add(menuEdit);
+        this.menuBar.add(MenuService);
         this.menuBar.add(menuView);
         this.menuBar.add(menuBiz);
         this.menuBar.add(menuTool);
@@ -183,10 +184,14 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(menuItemImportData);
+        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemExportData);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(separatorFile1);
+        menuFile.add(menuItemCloudShare);
         menuFile.add(MenuItemAttachment);
         menuFile.add(kDSeparator1);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(menuItemPageSetup);
         menuFile.add(menuItemPrint);
         menuFile.add(menuItemPrintPreview);
@@ -201,15 +206,22 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
         menuEdit.add(menuItemCopyTo);
         menuEdit.add(kDSeparator4);
         menuEdit.add(menuItemMeasureSplit);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
         //menuView
         menuView.add(menuItemView);
         menuView.add(menuItemLocate);
         menuView.add(kDSeparator5);
         menuView.add(menuItemQuery);
         menuView.add(menuItemRefresh);
+        menuView.add(menuItemSwitchView);
         menuView.add(separatorView1);
         menuView.add(menuItemTraceUp);
         menuView.add(menuItemTraceDown);
+        menuView.add(menuItemQueryScheme);
         menuView.add(kDSeparator6);
         //menuBiz
         menuBiz.add(menuItemCancelCancel);
@@ -223,6 +235,7 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
         //menuTool
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuWorkFlow
         menuWorkFlow.add(menuItemViewDoProccess);
         menuWorkFlow.add(menuItemMultiapprove);
@@ -259,7 +272,9 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(btnView);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnCostSplit);
         this.toolBar.add(btnEdit);
         this.toolBar.add(btnRemove);
@@ -282,6 +297,7 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
         this.toolBar.add(btnCreateTo);
         this.toolBar.add(btnWorkFlowList);
         this.toolBar.add(btnCopyTo);
+        this.toolBar.add(btnNumberSign);
         this.toolBar.add(btnSignature);
         this.toolBar.add(btnTraceUp);
         this.toolBar.add(btnViewSignature);
@@ -381,6 +397,10 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
         sic.add(new SelectorItemInfo("id"));
         sic.add(new SelectorItemInfo("contractType.name"));
         sic.add(new SelectorItemInfo("number"));
@@ -399,9 +419,12 @@ mainPanel.setLayout(new BorderLayout(0, 0));        mainPanel.add(tblMain, Borde
         sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("hasSettled"));
         sic.add(new SelectorItemInfo("costSplit.state"));
-        sic.add(new SelectorItemInfo("isCostSplit"));
         sic.add(new SelectorItemInfo("isConfirm"));
         sic.add(new SelectorItemInfo("costSplit.createTime"));
+        sic.add(new SelectorItemInfo("costSplit.isTeamSplit"));
+        sic.add(new SelectorItemInfo("costSplit.isProductSplit"));
+        sic.add(new SelectorItemInfo("costSplit.isCostSplit"));
+        sic.add(new SelectorItemInfo("isCostSplit"));
         return sic;
     }        
     	

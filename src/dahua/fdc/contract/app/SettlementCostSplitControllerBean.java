@@ -52,17 +52,21 @@ import com.kingdee.eas.fdc.contract.ConChangeSplitEntryFactory;
 import com.kingdee.eas.fdc.contract.ConChangeSplitFactory;
 import com.kingdee.eas.fdc.contract.ConChangeSplitInfo;
 import com.kingdee.eas.fdc.contract.ContractCostSplitEntryFactory;
+import com.kingdee.eas.fdc.contract.ContractCostSplitEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillFactory;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillInfo;
 import com.kingdee.eas.fdc.contract.FDCUtils;
+import com.kingdee.eas.fdc.contract.ISettlementCostSplit;
 import com.kingdee.eas.fdc.contract.ISettlementCostSplitEntry;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitCollection;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitEntryCollection;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitEntryFactory;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitEntryInfo;
+import com.kingdee.eas.fdc.contract.SettlementCostSplitFactory;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitInfo;
 import com.kingdee.eas.fdc.finance.PaymentSplitException;
 import com.kingdee.eas.framework.AbstractBillEntryBaseInfo;
+import com.kingdee.eas.framework.Result;
 import com.kingdee.eas.util.app.ContextUtil;
 
 public class SettlementCostSplitControllerBean extends AbstractSettlementCostSplitControllerBean
@@ -110,6 +114,14 @@ public class SettlementCostSplitControllerBean extends AbstractSettlementCostSpl
 		}
 		
 	}
+    
+    
+    protected void _submit(Context ctx, IObjectPK pk, IObjectValue model)
+    		throws BOSException, EASBizException {
+    	super._submit(ctx, pk, model);
+    	updateIS(ctx, new ObjectUuidPK(pk.toString()));
+    }
+    
     protected void _unAudit(Context ctx, BOSUuid billId)throws BOSException, EASBizException
     {
     	super._unAudit(ctx, billId);
@@ -208,9 +220,44 @@ public class SettlementCostSplitControllerBean extends AbstractSettlementCostSpl
 		builder.execute();
 		
 		//驱动拆分工作流
-		// ContractSettlementBillFactory.getLocalInstance(ctx).split(new ObjectUuidPK(costBillId));	// modified by zhaoqin for R130812-0006		
+		// ContractSettlementBillFactory.getLocalInstance(ctx).split(new ObjectUuidPK(costBillId));	// modified by zhaoqin for R130812-0006	
+		
+		
+		
+		//TODO 暂时这样玩
+		updateIS(ctx, new ObjectUuidPK(pk.toString()));
+		
 		return pk;
 	}
+    
+    private void updateIS(Context ctx,ObjectUuidPK pk) throws EASBizException, BOSException{
+    	ISettlementCostSplit ISettlementCostSplit = SettlementCostSplitFactory.getLocalInstance(ctx);
+		SelectorItemCollection sic = new SelectorItemCollection();
+		sic.add("contractBill.curProject.isWholeAgeStage"); 
+		sic.add("contractBill.programmingContract.id"); 
+		sic.add("entrys.product.id"); 
+		sic.add("entrys.costAccount.curProject.id"); 
+		sic.add("isCostSplit"); 
+		sic.add("isTeamSplit"); 
+		sic.add("isProductSplit"); 
+		SettlementCostSplitInfo conCostSplitInfo = ISettlementCostSplit.getSettlementCostSplitInfo(pk, sic);
+		
+		Set<String> curProjectSet = new HashSet<String>();
+		Set<String> productSet = new HashSet<String>();
+		for (int i = 0; i <conCostSplitInfo.getEntrys().size(); i++) {
+			SettlementCostSplitEntryInfo entryInfo = conCostSplitInfo.getEntrys().get(i);
+			if(entryInfo.getCostAccount()==null||entryInfo.getCostAccount().getCurProject()==null)
+				continue;
+			curProjectSet.add(entryInfo.getCostAccount().getCurProject().getId().toString());
+			if(entryInfo.getProduct()==null)
+				continue;
+			productSet.add(entryInfo.getProduct().getId().toString());
+		}
+		conCostSplitInfo.setIsCostSplit(conCostSplitInfo.getEntrys().size()>=2?true:false);
+		conCostSplitInfo.setIsTeamSplit(curProjectSet.size()>=2?true:false);
+		conCostSplitInfo.setIsProductSplit(productSet.size()>0?true:false);
+		ISettlementCostSplit.updatePartial(conCostSplitInfo, sic);
+    }
     /**
 	 * @see com.kingdee.eas.fdc.basedata.app.FDCBillControllerBean#_submit(com.kingdee.bos.Context, com.kingdee.bos.dao.IObjectValue)
 	 */
@@ -294,6 +341,8 @@ public class SettlementCostSplitControllerBean extends AbstractSettlementCostSpl
 
 		//驱动拆分工作流
 		ContractSettlementBillFactory.getLocalInstance(ctx).split(new ObjectUuidPK(costBillId));
+		
+		updateIS(ctx, new ObjectUuidPK(pk.toString()));
 		return pk;
 	}
     protected IObjectPK _addnew(Context ctx, IObjectValue model) throws BOSException, EASBizException

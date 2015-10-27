@@ -54,10 +54,13 @@ public abstract class AbstractFDCSplitBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("bf28270e-010d-1000-e000-00a2c0a813e4"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             FDCSplitBillInfo retValue = (FDCSplitBillInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (FDCSplitBillInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -76,10 +79,13 @@ public abstract class AbstractFDCSplitBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("bf28270e-010d-1000-e000-00a3c0a813e4"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             FDCSplitBillInfo retValue = (FDCSplitBillInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (FDCSplitBillInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -98,10 +104,13 @@ public abstract class AbstractFDCSplitBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("bf28270e-010d-1000-e000-00a4c0a813e4"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             FDCSplitBillInfo retValue = (FDCSplitBillInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (FDCSplitBillInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -120,10 +129,13 @@ public abstract class AbstractFDCSplitBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("bf28270e-010d-1000-e000-00a5c0a813e4"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             FDCSplitBillCollection retValue = (FDCSplitBillCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (FDCSplitBillCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -140,10 +152,13 @@ public abstract class AbstractFDCSplitBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("bf28270e-010d-1000-e000-00a6c0a813e4"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             FDCSplitBillCollection retValue = (FDCSplitBillCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (FDCSplitBillCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -160,10 +175,13 @@ public abstract class AbstractFDCSplitBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("bf28270e-010d-1000-e000-00a7c0a813e4"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             FDCSplitBillCollection retValue = (FDCSplitBillCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (FDCSplitBillCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -180,7 +198,9 @@ public abstract class AbstractFDCSplitBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("9cf78130-010e-1000-e000-0067c0a80eb7"), new Object[]{ctx, billId});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _audit(ctx, billId);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -198,7 +218,9 @@ public abstract class AbstractFDCSplitBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("9cf78130-010e-1000-e000-0068c0a80eb7"), new Object[]{ctx, billId});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _unAudit(ctx, billId);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -216,7 +238,9 @@ public abstract class AbstractFDCSplitBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("9cf78130-010e-1000-e000-008ac0a80eb7"), new Object[]{ctx, idList});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _audit(ctx, idList);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -234,7 +258,9 @@ public abstract class AbstractFDCSplitBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("9cf78130-010e-1000-e000-008bc0a80eb7"), new Object[]{ctx, idList});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _unAudit(ctx, idList);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -252,10 +278,12 @@ public abstract class AbstractFDCSplitBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7c3dbbd7-ba16-4ea2-bf4d-1d9568dea6b1"), new Object[]{ctx, param});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             FDCSplitBillInfo retValue = (FDCSplitBillInfo)_getNewData(ctx, param);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return (FDCSplitBillInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -271,10 +299,12 @@ public abstract class AbstractFDCSplitBillControllerBean extends FDCBillControll
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("e17dabb5-a04a-437d-b138-4dd18ad1be53"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             Map retValue = (Map)_fetchInitParam(ctx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+            return (Map)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {

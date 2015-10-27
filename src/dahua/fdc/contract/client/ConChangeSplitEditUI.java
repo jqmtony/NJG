@@ -38,6 +38,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.ItemAction;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.param.ParamControlFactory;
 import com.kingdee.eas.common.EASBizException;
@@ -121,6 +122,20 @@ public class ConChangeSplitEditUI extends AbstractConChangeSplitEditUI
         
 //    	btnSubmit.doClick();
 //    	ContractChangeBillFactory.getRemoteInstance().costChangeSplit(editData.getId());
+    }
+    
+    protected void verifyInput(ActionEvent e) throws Exception {
+    	super.verifyInput(e);
+    	for (int i = 0; i < this.kdtEntrys.getRowCount(); i++) {
+			IRow row = this.kdtEntrys.getRow(i);
+			if(UIRuleUtil.isNull(row.getCell("costAccount.curProject.number").getValue()))
+				continue;
+			if(UIRuleUtil.isNull(row.getCell("programming").getValue())){
+				FDCMsgBox.showWarning("合约规划不能为空！");
+				this.kdtEntrys.getEditManager().editCellAt(i,this.kdtEntrys.getColumnIndex("programming"));
+				SysUtil.abort();
+			}
+    	}
     }
     
     /**
