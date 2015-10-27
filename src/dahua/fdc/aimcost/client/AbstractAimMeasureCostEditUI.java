@@ -53,11 +53,13 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contMeasureStage;
     protected com.kingdee.bos.ctrl.swing.KDButton btnAll;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtVersionNumber;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtVersionName;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtProject;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtProjectType;
     protected com.kingdee.bos.ctrl.swing.KDComboBox comboMeasureStage;
+    protected com.kingdee.bos.ctrl.swing.KDTextField kDTextField1;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnImportTemplate;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnImport;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnExportAll;
@@ -216,11 +218,13 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
         this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contMeasureStage = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.btnAll = new com.kingdee.bos.ctrl.swing.KDButton();
+        this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtVersionNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtVersionName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtProject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtProjectType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.comboMeasureStage = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.kDTextField1 = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.btnImportTemplate = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnImport = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnExportAll = new com.kingdee.bos.ctrl.swing.KDWorkButton();
@@ -239,11 +243,13 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
         this.kDLabelContainer1.setName("kDLabelContainer1");
         this.contMeasureStage.setName("contMeasureStage");
         this.btnAll.setName("btnAll");
+        this.kDLabelContainer4.setName("kDLabelContainer4");
         this.txtVersionNumber.setName("txtVersionNumber");
         this.txtVersionName.setName("txtVersionName");
         this.prmtProject.setName("prmtProject");
         this.prmtProjectType.setName("prmtProjectType");
         this.comboMeasureStage.setName("comboMeasureStage");
+        this.kDTextField1.setName("kDTextField1");
         this.btnImportTemplate.setName("btnImportTemplate");
         this.btnImport.setName("btnImport");
         this.btnExportAll.setName("btnExportAll");
@@ -306,6 +312,10 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
         // btnAll
         this.btnAll.setAction((IItemAction)ActionProxyFactory.getProxy(actionAll, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAll.setText(resHelper.getString("btnAll.text"));
+        // kDLabelContainer4		
+        this.kDLabelContainer4.setBoundLabelText(resHelper.getString("kDLabelContainer4.boundLabelText"));		
+        this.kDLabelContainer4.setBoundLabelLength(100);		
+        this.kDLabelContainer4.setBoundLabelUnderline(true);
         // txtVersionNumber
         // txtVersionName		
         this.txtVersionName.setRequired(true);
@@ -332,6 +342,7 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
                 }
             }
         });
+        // kDTextField1
         // btnImportTemplate
         this.btnImportTemplate.setAction((IItemAction)ActionProxyFactory.getProxy(actionImportTemplate, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnImportTemplate.setText(resHelper.getString("btnImportTemplate.text"));		
@@ -401,8 +412,8 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        plTables.setBounds(new Rectangle(10, 69, 995, 551));
-        this.add(plTables, new KDLayout.Constraints(10, 69, 995, 551, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        plTables.setBounds(new Rectangle(10, 98, 995, 522));
+        this.add(plTables, new KDLayout.Constraints(10, 98, 995, 522, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contVersionNumber.setBounds(new Rectangle(355, 12, 270, 19));
         this.add(contVersionNumber, new KDLayout.Constraints(355, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer2.setBounds(new Rectangle(698, 12, 270, 19));
@@ -415,6 +426,8 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
         this.add(contMeasureStage, new KDLayout.Constraints(10, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         btnAll.setBounds(new Rectangle(698, 40, 110, 21));
         this.add(btnAll, new KDLayout.Constraints(698, 40, 110, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDLabelContainer4.setBounds(new Rectangle(11, 68, 270, 19));
+        this.add(kDLabelContainer4, new KDLayout.Constraints(11, 68, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contVersionNumber
         contVersionNumber.setBoundEditor(txtVersionNumber);
         //kDLabelContainer2
@@ -425,6 +438,8 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
         kDLabelContainer1.setBoundEditor(prmtProjectType);
         //contMeasureStage
         contMeasureStage.setBoundEditor(comboMeasureStage);
+        //kDLabelContainer4
+        kDLabelContainer4.setBoundEditor(kDTextField1);
 
     }
 
@@ -436,6 +451,7 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
     {
         this.menuBar.add(menuFile);
         this.menuBar.add(menuEdit);
+        this.menuBar.add(MenuService);
         this.menuBar.add(menuView);
         this.menuBar.add(menuBiz);
         this.menuBar.add(menuTable1);
@@ -445,9 +461,13 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(kDSeparator1);
+        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemSave);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(menuItemSubmit);
+        menuFile.add(menuItemCloudShare);
         menuFile.add(menuItemImportData);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(menuItemExportAll);
         menuFile.add(menuSubmitOption);
         menuFile.add(rMenuItemSubmit);
@@ -458,7 +478,9 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
         menuFile.add(kDSeparator2);
         menuFile.add(menuItemPageSetup);
         menuFile.add(menuItemPrint);
+        menuFile.add(kDSeparator6);
         menuFile.add(menuItemPrintPreview);
+        menuFile.add(menuItemSendMail);
         menuFile.add(kDSeparator3);
         menuFile.add(menuItemExitCurrent);
         //menuSubmitOption
@@ -470,6 +492,7 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
         menuEdit.add(menuItemEdit);
         menuEdit.add(menuItemRemove);
         menuEdit.add(kDSeparator4);
+        menuEdit.add(menuItemReset);
         menuEdit.add(separator1);
         menuEdit.add(menuItemCreateFrom);
         menuEdit.add(menuItemAddRow);
@@ -477,7 +500,13 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
         menuEdit.add(menuItemDeleteRow);
         menuEdit.add(menuItemCopyFrom);
         menuEdit.add(separatorEdit1);
+        menuEdit.add(menuItemEnterToNextRow);
         menuEdit.add(separator2);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
         //menuView
         menuView.add(menuItemFirst);
         menuView.add(menuItemPre);
@@ -486,6 +515,8 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
         menuView.add(separator3);
         menuView.add(menuItemTraceUp);
         menuView.add(menuItemTraceDown);
+        menuView.add(kDSeparator7);
+        menuView.add(menuItemLocate);
         //menuBiz
         menuBiz.add(menuItemCancelCancel);
         menuBiz.add(menuItemCancel);
@@ -493,12 +524,14 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
         menuBiz.add(menuItemDelVoucher);
         //menuTable1
         menuTable1.add(menuItemAddLine);
+        menuTable1.add(menuItemCopyLine);
         menuTable1.add(menuItemInsertLine);
         menuTable1.add(menuItemRemoveLine);
         //menuTool
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemMsgFormat);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuWorkflow
         menuWorkflow.add(menuItemStartWorkFlow);
         menuWorkflow.add(separatorWF1);
@@ -530,7 +563,9 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(btnImportTemplate);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnEdit);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSave);
@@ -549,25 +584,27 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
         this.toolBar.add(btnPre);
         this.toolBar.add(btnNext);
         this.toolBar.add(btnLast);
-        this.toolBar.add(btnTraceUp);
         this.toolBar.add(separatorFW3);
-        this.toolBar.add(btnTraceDown);
+        this.toolBar.add(btnTraceUp);
         this.toolBar.add(btnCancelCancel);
-        this.toolBar.add(btnWorkFlowG);
+        this.toolBar.add(btnTraceDown);
         this.toolBar.add(btnCancel);
+        this.toolBar.add(btnWorkFlowG);
         this.toolBar.add(btnSignature);
-        this.toolBar.add(btnViewSignature);
         this.toolBar.add(btnAddRow);
-        this.toolBar.add(separatorFW4);
+        this.toolBar.add(btnViewSignature);
         this.toolBar.add(btnDeleteRow);
-        this.toolBar.add(separatorFW7);
+        this.toolBar.add(separatorFW4);
+        this.toolBar.add(btnNumberSign);
         this.toolBar.add(btnImportApportion);
+        this.toolBar.add(separatorFW7);
         this.toolBar.add(btnCreateFrom);
         this.toolBar.add(btnCopyFrom);
         this.toolBar.add(btnCreateTo);
         this.toolBar.add(separatorFW5);
         this.toolBar.add(separatorFW8);
         this.toolBar.add(btnAddLine);
+        this.toolBar.add(btnCopyLine);
         this.toolBar.add(btnInsertLine);
         this.toolBar.add(btnRemoveLine);
         this.toolBar.add(separatorFW6);
@@ -682,6 +719,10 @@ public abstract class AbstractAimMeasureCostEditUI extends com.kingdee.eas.frame
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
         return sic;
     }        
     	

@@ -185,7 +185,11 @@ public class CQGSEditUI extends AbstractCQGSEditUI
 			if(productInfo==null || map.get(productInfo.getNumber()) != null) { //集合不为空跳出循环（不可重复选）
 				continue;
 			}
-			if(productInfo.getNumber().startsWith("01")){ //编码以01开头
+			String number = productInfo.getNumber();
+			if(number.indexOf(".") != -1)
+				number = number.substring(0,number.indexOf(".")); 	//	截取到小数点的整数
+			
+			if(Integer.parseInt(number)<=10199){ //判断小于010199   Integer.parseInt 字符串转为int型
 				IRow addRow = kdtEntrys.addRow(0); //获取行对象
 				addRow.getCell("BuildingName").setValue(productTypeArr[i]);//将集合值塞进BuildingName
 			}else{

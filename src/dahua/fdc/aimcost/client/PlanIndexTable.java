@@ -346,7 +346,7 @@ public class PlanIndexTable {
 		table.getCell(8, 1).setValue("产品类型");
 		table.getCell(8, 2).setValue("占地面积");
 		table.getCell(8, 3).setValue("容积率");
-		table.getCell(8, 4).setValue("规划建筑面积");
+		table.getCell(8, 4).setValue("地上面积");
 		table.getCell(8, 5).setValue("建筑面积");
 		table.getCell(8, 6).setValue("可售面积");
 		table.getCell(8, 7).setValue("产品比例");
@@ -433,7 +433,7 @@ public class PlanIndexTable {
 					mm.mergeBlock(rows, 0, rows, 1);
 					row.getCell(2).setValue("占地面积");
 					row.getCell(3).setValue("车位数");
-					row.getCell(4).setValue("规划建筑面积");//jf
+					row.getCell(4).setValue("地上面积");//jf
 					row.getCell(5).setValue("实际建造面积");
 					row.getCell(6).setValue("可售面积");
 					StyleAttributes sa = row.getStyleAttributes();
@@ -1511,7 +1511,7 @@ public class PlanIndexTable {
 		totalContainAreaCell=table.getCell(0, 2);
 		buildAreaCell=table.getCell(0, 5);	
 		totalBuildAreaCell=table.getCell(0, 7);	
-		buildContailAreaCell=table.getCell(1, 2);	
+		buildContailAreaCell=table.getCell(1, 2);	  
 		publicSetHouseCell=table.getCell(1, 5);
 		greenAreaRateCell=table.getCell(1, 7);
 		cubageRateAreaCell=table.getCell(2, 2);

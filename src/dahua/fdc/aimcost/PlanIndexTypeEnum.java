@@ -13,10 +13,10 @@ import com.kingdee.util.enums.StringEnum;
  */
 public class PlanIndexTypeEnum extends StringEnum
 {
-    public static final String HOUSE_VALUE = "1house";
-    public static final String PUBLICBUILD_VALUE = "2publicBuild";
-    public static final String PARKING_VALUE = "3parking";
-    public static final String BUSINESS_VALUE = "2business";
+    public static final String HOUSE_VALUE = "1house";//alias=住宅
+    public static final String PUBLICBUILD_VALUE = "2publicBuild";//alias=公共配套建筑
+    public static final String PARKING_VALUE = "3parking";//alias=停车
+    public static final String BUSINESS_VALUE = "2business";//alias=商业
 
     public static final PlanIndexTypeEnum house = new PlanIndexTypeEnum("house", HOUSE_VALUE);
     public static final PlanIndexTypeEnum publicBuild = new PlanIndexTypeEnum("publicBuild", PUBLICBUILD_VALUE);

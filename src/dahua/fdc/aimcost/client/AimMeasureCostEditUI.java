@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.Map.Entry;
 
 import javax.swing.Action;
 import javax.swing.JComponent;
@@ -115,10 +116,16 @@ import com.kingdee.eas.fdc.aimcost.PlanIndexCollection;
 import com.kingdee.eas.fdc.aimcost.PlanIndexEntryInfo;
 import com.kingdee.eas.fdc.aimcost.PlanIndexFactory;
 import com.kingdee.eas.fdc.aimcost.PlanIndexInfo;
+import com.kingdee.eas.fdc.aimcost.PlanIndexTypeEnum;
 import com.kingdee.eas.fdc.aimcost.TemplateMeasureCostCollection;
 import com.kingdee.eas.fdc.aimcost.TemplateMeasureEntryCollection;
 import com.kingdee.eas.fdc.aimcost.TemplateMeasureEntryFactory;
 import com.kingdee.eas.fdc.aimcost.TemplateMeasureEntryInfo;
+import com.kingdee.eas.fdc.aimcost.costkf.CQGSCollection;
+import com.kingdee.eas.fdc.aimcost.costkf.CQGSEntryInfo;
+import com.kingdee.eas.fdc.aimcost.costkf.CQGSFactory;
+import com.kingdee.eas.fdc.aimcost.costkf.CQGSInfo;
+import com.kingdee.eas.fdc.aimcost.costkf.ICQGS;
 import com.kingdee.eas.fdc.aimcost.util.FDCSplitBillUtil;
 import com.kingdee.eas.fdc.basedata.AccountStageCollection;
 import com.kingdee.eas.fdc.basedata.AccountStageFactory;
@@ -295,6 +302,7 @@ public class AimMeasureCostEditUI extends AbstractAimMeasureCostEditUI {
 		}
 		cost.setVersionName(this.txtVersionName.getText());
 		cost.setVersionNumber(this.txtVersionNumber.getText());
+		cost.setAddress(kDTextField1.getText());   //字段绑定控件
 		Object objPrj = prmtProject.getValue();
 		if (cost.getProject() == null && objPrj instanceof CurProjectInfo) {
 			cost.setProject((CurProjectInfo) objPrj);
@@ -1683,7 +1691,122 @@ public class AimMeasureCostEditUI extends AbstractAimMeasureCostEditUI {
 		}
 		
 		loadUserConfigToTable();
+		
+		//add by libin
+		MeasureCostInfo cost = (MeasureCostInfo) editData;
+		if(getOprtState().equals(OprtState.ADDNEW)&&cost.getProject()!=null&&planIndexTable!=null)
+			initDefCQGS(planIndexTable,cost.getProject().getId());
 	}
+	
+	private void initDefCQGS(PlanIndexTable planIndexTable,BOSUuid projectId) throws BOSException, EASBizException{
+		KDTable table = planIndexTable.getTable();
+		if(table==null)
+			return;
+		String oql = "select id where ProjectName.id='"+projectId+"' and lasted=1";  	//匹配项目名称
+		ICQGS ICQGS = CQGSFactory.getRemoteInstance();
+		CQGSCollection coll = ICQGS.getCQGSCollection(oql);  	//分录集合
+		
+		BOSUuid id = coll.size()>0?coll.get(0).getId():null;
+		
+		if(id==null)
+			return;
+		CQGSInfo info = ICQGS.getCQGSInfo(new ObjectUuidPK(id),getCQGSSelectors());
+		
+		Map<PlanIndexTypeEnum,Set<CQGSEntryInfo>> valueMap = new HashMap<PlanIndexTypeEnum, Set<CQGSEntryInfo>>(); //泛型，容器
+		for (int i = 0; i < info.getEntrys().size(); i++) {
+			CQGSEntryInfo entryInfo = info.getEntrys().get(i);
+			ProductTypeInfo typeInfo = entryInfo.getBuildingName();
+			
+			if(typeInfo==null||typeInfo.getPlanIndexType()==null)
+				continue;
+			
+			Set<CQGSEntryInfo> set2 = valueMap.get(typeInfo.getPlanIndexType());
+			if(set2==null){//如果为空，怎将分录对象塞入set
+				Set<CQGSEntryInfo> set = new HashSet<CQGSEntryInfo>();
+				set.add(entryInfo);
+				valueMap.put(typeInfo.getPlanIndexType(), set);
+			}else{//如果不为空，则将对象塞入set2
+				set2.add(entryInfo);
+				valueMap.put(typeInfo.getPlanIndexType(), set2);
+			}
+		}
+		
+		Iterator<Entry<PlanIndexTypeEnum, Set<CQGSEntryInfo>>> iterator = valueMap.entrySet().iterator();  	//迭代器
+		
+		int colIndex = 0;
+		int rowIndex = 0;
+		while(iterator.hasNext()){
+			Entry<PlanIndexTypeEnum, Set<CQGSEntryInfo>> next = iterator.next();
+			
+			PlanIndexTypeEnum key = next.getKey();  //key 产品类型
+			Set<CQGSEntryInfo> value = next.getValue();
+			
+			int insertRow = getInsertRow(table,key);//住宅
+			if(insertRow==-1)
+				continue;
+			
+			Iterator<CQGSEntryInfo> iterator2 = value.iterator();
+			
+			int runIndex = 0;
+			while(iterator2.hasNext()){
+				CQGSEntryInfo entryInfo = iterator2.next();
+				
+				table.getSelectManager().select(insertRow, 1);
+				if(runIndex>0){
+					runIndex +=1;
+					planIndexTable.addRow(null);
+				}else{
+					runIndex +=1;
+				}
+				IRow addRow = table.getRow(insertRow+runIndex-1);
+				addRow.getCell(1).setValue(entryInfo.getBuildingName());
+				addRow.getCell(2).setValue(entryInfo.getBuildingFloorArea());
+				addRow.getCell(5).setValue(entryInfo.getBuidlingArea());
+				addRow.getCell(6).setValue(entryInfo.getSaleArea());
+			}
+			
+			colIndex = 2;
+			rowIndex = insertRow;
+		}
+		
+		if(valueMap.size()>0){
+			KDTEditEvent e = new KDTEditEvent(table);
+			e.setColIndex(colIndex);
+			e.setRowIndex(rowIndex);
+			e.setOldValue(-2);
+			e.setValue(table.getCell(rowIndex, colIndex).getValue());
+			planIndexTable.table_editStopped(e);
+		}
+	}
+	
+	private int getInsertRow(KDTable table,PlanIndexTypeEnum type){
+		int rowIndex = -1;
+		for (int i = 0; i < table.getRowCount(); i++) {
+			IRow row = table.getRow(i);
+			if(row.getCell(0).getValue() instanceof PlanIndexTypeEnum &&((PlanIndexTypeEnum)row.getCell(0).getValue()).getValue().equals(type.getValue())){
+				rowIndex = i;
+				break;
+			}
+		}
+		return rowIndex;
+	}
+	
+    public SelectorItemCollection getCQGSSelectors()
+    {
+        SelectorItemCollection sic = new SelectorItemCollection();
+		sic.add(new SelectorItemInfo("entrys.BuildingName.id"));
+		sic.add(new SelectorItemInfo("entrys.BuildingName.name"));
+		sic.add(new SelectorItemInfo("entrys.BuildingName.number"));
+		sic.add(new SelectorItemInfo("entrys.BuildingName.PlanIndexType"));
+    	sic.add(new SelectorItemInfo("entrys.BuidlingArea"));
+    	sic.add(new SelectorItemInfo("entrys.SaleArea"));
+    	sic.add(new SelectorItemInfo("entrys.BuildingFloorArea"));
+    	sic.add(new SelectorItemInfo("entrys.Use"));
+    	sic.add(new SelectorItemInfo("entrys.PropertyRight.id"));
+    	sic.add(new SelectorItemInfo("entrys.PropertyRight.name"));
+    	sic.add(new SelectorItemInfo("entrys.PropertyRight.number"));
+        return sic;
+    }        
 	
 	// 子类可以重载
 	protected void fetchInitParam() throws Exception {
@@ -1871,6 +1994,7 @@ public class AimMeasureCostEditUI extends AbstractAimMeasureCostEditUI {
 			SysUtil.abort();
 		}
 		this.txtVersionName.setText(cost.getVersionName());
+		kDTextField1.setText(cost.getAddress());   //读取
 		measureCostMap.clear();
 		if (OprtState.ADDNEW.equals(this.getOprtState()) && !importFlag) {
 			meaStaInfo = (MeasureStageInfo) comboMeasureStage.getSelectedItem();

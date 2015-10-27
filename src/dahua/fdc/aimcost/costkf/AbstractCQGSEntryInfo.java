@@ -84,15 +84,15 @@ public class AbstractCQGSEntryInfo extends com.kingdee.eas.framework.CoreBillEnt
         setString("Use", item);
     }
     /**
-     * Object:分录's 产权归属property 
+     * Object: 分录 's 产权归属 property 
      */
-    public String getPropertyRight()
+    public com.kingdee.eas.fdc.aimcost.costkf.CqgsBaseInfo getPropertyRight()
     {
-        return getString("PropertyRight");
+        return (com.kingdee.eas.fdc.aimcost.costkf.CqgsBaseInfo)get("PropertyRight");
     }
-    public void setPropertyRight(String item)
+    public void setPropertyRight(com.kingdee.eas.fdc.aimcost.costkf.CqgsBaseInfo item)
     {
-        setString("PropertyRight", item);
+        put("PropertyRight", item);
     }
     public BOSObjectType getBOSType()
     {

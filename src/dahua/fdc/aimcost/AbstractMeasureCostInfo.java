@@ -154,6 +154,17 @@ public class AbstractMeasureCostInfo extends com.kingdee.eas.fdc.basedata.FDCBil
     {
         return (com.kingdee.eas.fdc.aimcost.ConstructPlanIndexEntryCollection)get("constrEntrys");
     }
+    /**
+     * Object:成本测算's 工程地址property 
+     */
+    public String getAddress()
+    {
+        return getString("address");
+    }
+    public void setAddress(String item)
+    {
+        setString("address", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("99193494");
