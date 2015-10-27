@@ -67,6 +67,7 @@ import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataEtextDataInfo;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataInfo;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryCollection;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryInfo;
+import com.kingdee.eas.fdc.costindexdb.ContractStationEnum;
 import com.kingdee.eas.fdc.costindexdb.database.BuildNumberInfo;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexCollection;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexEntryCollection;
@@ -672,9 +673,12 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
 //        Map ctx = getUIContext();
         ContractBillInfo cbinfo = (ContractBillInfo)getUIContext().get("contractInfo");
+        //合同阶段    “合同签订“”合同变更”“合同结算”
+        String contractStationType = (String)getUIContext().get("contractStationType");
         objectValue.setContractId(cbinfo.getId().toString());
         objectValue.setProjectId(cbinfo.getCurProject().getId().toString());
         objectValue.setContractInfo(cbinfo.getNumber()+" "+cbinfo.getName());
+//        objectValue.setContractStation()
         //RPC从response获取
         Map param = new HashMap();
 		param.put("contractBillId",cbinfo.getId().toString());
@@ -696,28 +700,34 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 			orgUnitInfo = SysContext.getSysContext().getCurrentOrgUnit().castToFullOrgUnitInfo();
 		}
 		objectValue.setOrgName(orgUnitInfo.getDisplayName());
-		//“合同签订”“合同变更”时，带出合约规划科目，“合同结算”时，带出合同拆分科目加变更拆分科目
-		if(cbinfo.isHasSettled()){
-			
-		}else{
-			try {
-				ICostAccount ica = CostAccountFactory.getRemoteInstance();
-				String oql="where id in(select a.FCostAccountID from T_CON_ProgrammingContracCost a left join T_CON_ProgrammingContract b on a.FcontractId=b.Fid" +
-				" left join t_con_contractbill c on c.FProgrammingContract=b.Fid where c.Fid='"+cbinfo.getId().toString()+"')";
-				CostAccountCollection cacoll=ica.getCostAccountCollection(oql);
-				if(cacoll.size() > 0){
-					BuildPriceIndexEntryInfo entryInfo = null;
-					for(int i = 0; i < cacoll.size(); i++) {
-						entryInfo = new BuildPriceIndexEntryInfo();
-						entryInfo.setAccountNumber(cacoll.get(i));
-						entryInfo.setAccountName(cacoll.get(i).getName());
-						objectValue.getEntrys().add(entryInfo);
-					}
-				}
-			} catch (BOSException e) {
-				handUIException(e);
-			}
+		//签订带出合同拆分的科目，变更带出变更拆分的科目，结算带出结算拆分的科目
+		if("sign".equals(contractStationType)){
+			objectValue.setContractStation(ContractStationEnum.contractSign);
+		}else if("settle".equals(contractStationType)){
+			objectValue.setContractStation(ContractStationEnum.contractEnd);
 		}
+		//“合同签订”“合同变更”时，带出合约规划科目，“合同结算”时，带出合同拆分科目加变更拆分科目
+//		if(cbinfo.isHasSettled()){
+//			
+//		}else{
+//			try {
+//				ICostAccount ica = CostAccountFactory.getRemoteInstance();
+//				String oql="where id in(select a.FCostAccountID from T_CON_ProgrammingContracCost a left join T_CON_ProgrammingContract b on a.FcontractId=b.Fid" +
+//				" left join t_con_contractbill c on c.FProgrammingContract=b.Fid where c.Fid='"+cbinfo.getId().toString()+"')";
+//				CostAccountCollection cacoll=ica.getCostAccountCollection(oql);
+//				if(cacoll.size() > 0){
+//					BuildPriceIndexEntryInfo entryInfo = null;
+//					for(int i = 0; i < cacoll.size(); i++) {
+//						entryInfo = new BuildPriceIndexEntryInfo();
+//						entryInfo.setAccountNumber(cacoll.get(i));
+//						entryInfo.setAccountName(cacoll.get(i).getName());
+//						objectValue.getEntrys().add(entryInfo);
+//					}
+//				}
+//			} catch (BOSException e) {
+//				handUIException(e);
+//			}
+//		}
         return objectValue;
     }
 
