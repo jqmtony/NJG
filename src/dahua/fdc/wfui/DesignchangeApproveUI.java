@@ -308,24 +308,24 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	
 
     	String billId = "FrYcumfRTUq/iL87J1M2VXARYRc=";
-//    	StringBuffer sb = new StringBuffer();
-//    	sb.append("  select ChangeAB.FCurProjectName ,ChangeAB.FNumber ,ChangeAB.Fname ,BaseU.Fname_l2 ,");
-//    	sb.append(" ChangeAB.Freadesc ,ChangeAB.CFQuality ,ChangeAB.CFTimeLi ,ChangeAB.CFSale ,CFCost ");
-//    	sb.append("  from T_CON_ChangeAuditBill ChangeAB ");
-//    	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
-//    	sb.append(" where ChangeAB.fid = '").append(billId).append("'");
-//    	
-//    	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
-//    	while(rowset.next()){
-//    		this.kDTextField1.setText(rowset.getString(1));
-//    		this.kDTextField2.setText(rowset.getString(2));
-//    		this.kDTable1.getCell(0, 1).setValue(rowset.getString(3));
-//    	}
+    	StringBuffer sb = new StringBuffer();
+    	sb.append(" select ChangeAB.FCurProjectName 项目名称 ,ChangeAB.FNumber 申请编号 ,ChangeAB.Fname 事项名称,BaseU.Fname_l2 提出部门 , ");
+    	sb.append(" ChangeAB.Freadesc 适用范围 ,ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
+    	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
+    	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
+    	sb.append(" where ChangeAB.fid = '").append(billId).append("'");
+    	
+    	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
+    	while(rowset.next()){
+    		this.kDTextField1.setText(rowset.getString(1));
+    		this.kDTextField2.setText(rowset.getString(2));
+    		this.kDTable1.getCell(0, 1).setValue(rowset.getString(3));
+    	}
     	
     	//工作流审批意见
     	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
-    	this.kDTable1.getCell(3, 3).setValue(apporveResultForMap.get("提出方经办人;审核人"));
-    	this.kDTable1.getCell(3, 7).setValue(apporveResultForMap.get("提出方审核人;审核人"));
+    	this.kDTable1.getCell(3, 3).setValue(apporveResultForMap.get("提出方经办人"));
+    	this.kDTable1.getCell(3, 7).setValue(apporveResultForMap.get("提出方审核人"));
     	this.kDTable1.getCell(3, 11).setValue(apporveResultForMap.get("提出时间;审核时间"));
     	this.kDTable1.getCell(6, 11).setValue(apporveResultForMap.get("设计部负责人;审核人"));
     	this.kDTable1.getCell(6, 12).setValue(apporveResultForMap.get("设计部日期"));
