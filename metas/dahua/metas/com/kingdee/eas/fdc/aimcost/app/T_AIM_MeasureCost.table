@@ -15,7 +15,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -483,6 +483,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFaddress</name>
+            <alias>dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[CFaddress].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[CFaddress].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_MeasureCost</name>
@@ -520,406 +534,418 @@
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[CFaddress].alias">
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程地址" />
+            <lang locale="zh_HK" value="工程地址" />
+            <lang locale="zh_TW" value="工程地址" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[CFaddress].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程地址" />
+            <lang locale="zh_HK" value="工程地址" />
+            <lang locale="zh_TW" value="工程地址" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FAmount].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FAmount].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FAuditTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FAuditTime].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FAuditorID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FAuditorID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FBizDate].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FBizDate].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FBookedDate].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FBookedDate].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FControlUnitID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FControlUnitID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FCreateTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FCreateTime].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FCreatorID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FCreatorID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FDescription].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FDescription].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FHandlerID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FHandlerID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FHasEffected].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FHasEffected].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FIsAimMeasure].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FIsAimMeasure].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FIsLastVersion].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FIsLastVersion].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FIsRespite].alias">
-            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="zh_HK" value="是否暫緩" />
             <lang locale="zh_TW" value="是否暫緩" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FIsRespite].description">
-            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="zh_HK" value="是否暫緩" />
             <lang locale="zh_TW" value="是否暫緩" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FLastUpdateTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FLastUpdateTime].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FLastUpdateUserID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FLastUpdateUserID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FMainVerNo].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FMainVerNo].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FMeasureStageID].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FMeasureStageID].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FName].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FName].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FNumber].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FNumber].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FOrgUnitID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FOrgUnitID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FOriginalAmount].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FOriginalAmount].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FPeriodId].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FPeriodId].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FProjectID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FProjectID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FProjectTypeID].alias">
-            <lang locale="zh_CN" value="FProjectTypeID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="FProjectTypeID" />
             <lang locale="zh_HK" value="FProjectTypeID" />
             <lang locale="zh_TW" value="FProjectTypeID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FProjectTypeID].description">
-            <lang locale="zh_CN" value="FProjectTypeID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="FProjectTypeID" />
             <lang locale="zh_HK" value="FProjectTypeID" />
             <lang locale="zh_TW" value="FProjectTypeID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FRecenseDate].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FRecenseDate].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FSourceBillID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FSourceBillID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FSourceFunction].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FSourceFunction].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FSrcMeasureCostID].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FSrcMeasureCostID].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FState].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FState].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FSubVerNo].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FSubVerNo].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FVersionName].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FVersionName].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FVersionNumber].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].columns.column[FVersionNumber].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_MeasureCost].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
     </resource>
 </dataTable>
