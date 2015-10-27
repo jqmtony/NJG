@@ -47,6 +47,7 @@ public class TargetApproveUI extends AbstractTargetApproveUI
     	//第一行
     	IRow addRow = this.kDTable1.addRow();
     	addRow.getCell(0).setValue("成本简介:");
+    	addRow.getCell(0).getStyleAttributes().setLocked(true);
     	addRow.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRow.getCell(1).setValue("营业收入:");
     	addRow.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
