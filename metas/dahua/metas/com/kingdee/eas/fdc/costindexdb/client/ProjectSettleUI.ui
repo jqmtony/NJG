@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.costindexdb.client</package>
+    <name>ProjectSettleUI</name>
+    <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].alias</alias>
+    <description>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].description</description>
+    <userDefined>true</userDefined>
+    <releasePackage>com.kingdee.eas.fdc.costindexdb.client</releasePackage>
+    <releaseClass>ProjectSettleUI</releaseClass>
+    <title>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].title</title>
+    <uitype />
+    <defaultbutton />
+    <bizUnitPK />
+    <parent>
+        <key name="package" value="com.kingdee.eas.framework.client" />
+        <key name="name" value="CoreUI" />
+    </parent>
+    <components>
+        <component>
+            <name>CoreUI</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[CoreUI].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
+            <isContainer>true</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>kDLayout1</name>
+                <type>KDLayout</type>
+                <value />
+            </layoutInfo>
+        </component>
+        <component>
+            <name>kDSplitPane1</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kDSplitPane1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSplitPane</classType>
+            <isContainer>true</isContainer>
+            <constraints>3,5,1006,618,15</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>SplitLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>dividerLocation</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kDSplitPane1].properties.property[dividerLocation].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>dividerSize</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kDSplitPane1].properties.property[dividerSize].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>kDContainer1</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kDContainer1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>right</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>kDLayout2</name>
+                <type>KDLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDSplitPane1" />
+            </parent>
+        </component>
+        <component>
+            <name>treeView</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[treeView].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTreeView</classType>
+            <isContainer>true</isContainer>
+            <constraints>left</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>TreeViewLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>showButton</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[treeView].properties.property[showButton].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>title</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[treeView].properties.property[title].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDSplitPane1" />
+            </parent>
+        </component>
+        <component>
+            <name>btnProjectClose</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[btnProjectClose].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>48,261,90,30,387</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[btnProjectClose].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDContainer1" />
+            </parent>
+        </component>
+        <component>
+            <name>txtContent</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[txtContent].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextArea</classType>
+            <isContainer>false</isContainer>
+            <constraints>156,221,472,101,387</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDContainer1" />
+            </parent>
+        </component>
+        <component>
+            <name>treeMain</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[treeMain].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTree</classType>
+            <isContainer>false</isContainer>
+            <constraints>2</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="treeView" />
+            </parent>
+        </component>
+        <component>
+            <name>btnPageSetup</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[btnPageSetup].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[btnPageSetup].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>btnCloud</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[btnCloud].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[btnCloud].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>kDSeparatorCloud</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kDSeparatorCloud].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSeparator</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kDSeparatorCloud].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>menuItemPageSetup</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemPageSetup].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDMenuItem</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemPageSetup].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>menuItemCloudFeed</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudFeed].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDMenuItem</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudFeed].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>menuItemCloudScreen</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudScreen].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDMenuItem</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>enabled</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudScreen].properties.property[enabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudScreen].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>menuItemCloudShare</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudShare].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDMenuItem</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudShare].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+        <component>
+            <name>kdSeparatorFWFile1</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kdSeparatorFWFile1].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDSeparator</classType>
+            <isContainer>false</isContainer>
+            <constraints />
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kdSeparatorFWFile1].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>false</userDefined>
+                </property>
+            </properties>
+        </component>
+    </components>
+    <resource>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目结算" />
+            <lang locale="zh_HK" value="項目結算" />
+            <lang locale="zh_TW" value="項目結算" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[CoreUI].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[btnCloud].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[btnCloud].properties.property[visible].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[btnPageSetup].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[btnPageSetup].properties.property[visible].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[btnProjectClose].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[btnProjectClose].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目结算" />
+            <lang locale="zh_HK" value="項目結算" />
+            <lang locale="zh_TW" value="項目結算" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kDContainer1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kDSeparatorCloud].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kDSeparatorCloud].properties.property[visible].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kDSplitPane1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kDSplitPane1].properties.property[dividerLocation].value">
+            <lang locale="en_US" value="300" />
+            <lang locale="zh_CN" value="300" />
+            <lang locale="zh_HK" value="300" />
+            <lang locale="zh_TW" value="300" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kDSplitPane1].properties.property[dividerSize].value">
+            <lang locale="en_US" value="5" />
+            <lang locale="zh_CN" value="5" />
+            <lang locale="zh_HK" value="5" />
+            <lang locale="zh_TW" value="5" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kdSeparatorFWFile1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[kdSeparatorFWFile1].properties.property[visible].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudFeed].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudFeed].properties.property[visible].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudScreen].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudScreen].properties.property[enabled].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudScreen].properties.property[visible].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudShare].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemCloudShare].properties.property[visible].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemPageSetup].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[menuItemPageSetup].properties.property[visible].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[treeMain].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[treeView].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[treeView].properties.property[showButton].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[treeView].properties.property[title].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].components.component[txtContent].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目结算" />
+            <lang locale="zh_HK" value="項目結算" />
+            <lang locale="zh_TW" value="項目結算" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.client.ProjectSettleUI].title">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目结算" />
+            <lang locale="zh_HK" value="項目結算" />
+            <lang locale="zh_TW" value="項目結算" />
+        </rs>
+    </resource>
+</uiObject>
+

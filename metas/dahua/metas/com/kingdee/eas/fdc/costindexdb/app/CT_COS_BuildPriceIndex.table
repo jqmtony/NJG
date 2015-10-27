@@ -197,7 +197,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -284,6 +284,34 @@
             <defaultValue />
             <sqlType>VARCHAR</sqlType>
             <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFProjectId</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BuildPriceIndex].columns.column[CFProjectId].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BuildPriceIndex].columns.column[CFProjectId].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFContractId</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BuildPriceIndex].columns.column[CFContractId].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BuildPriceIndex].columns.column[CFContractId].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -429,6 +457,18 @@
             <lang locale="zh_HK" value="單據狀態" />
             <lang locale="zh_TW" value="單據狀態" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BuildPriceIndex].columns.column[CFContractId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同ID" />
+            <lang locale="zh_HK" value="合同ID" />
+            <lang locale="zh_TW" value="合同ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BuildPriceIndex].columns.column[CFContractId].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同ID" />
+            <lang locale="zh_HK" value="合同ID" />
+            <lang locale="zh_TW" value="合同ID" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BuildPriceIndex].columns.column[CFContractInfo].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="合同信息" />
@@ -464,6 +504,18 @@
             <lang locale="zh_CN" value="所属组织" />
             <lang locale="zh_HK" value="所屬組織" />
             <lang locale="zh_TW" value="所屬組織" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BuildPriceIndex].columns.column[CFProjectId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目ID" />
+            <lang locale="zh_HK" value="項目ID" />
+            <lang locale="zh_TW" value="項目ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BuildPriceIndex].columns.column[CFProjectId].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目ID" />
+            <lang locale="zh_HK" value="項目ID" />
+            <lang locale="zh_TW" value="項目ID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.app.CT_COS_BuildPriceIndex].columns.column[CFProjectStation].alias">
             <lang locale="en_US" value="null" />

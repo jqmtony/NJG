@@ -2445,6 +2445,68 @@
                 <key name="name" value="ContractBillQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>isFiveClass</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractBillQuery].units.queryField[isFiveClass].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>675c08b6-5c76-4d63-9a01-ccaa808e3c1d</key>
+                    <parentUnit>
+                        <key name="name" value="isFiveClass" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ContractBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isFiveClass" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractBillQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>mIndexType</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.ContractBillQuery].units.queryField[mIndexType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>aa178b10-69e0-48e1-be69-a0278c67a48c</key>
+                    <parentUnit>
+                        <key name="name" value="mIndexType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ContractBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="mIndexType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="ContractBillQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -3720,6 +3782,22 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractBillQuery].units.queryField[isFiveClass].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否五大类合同" />
+            <lang locale="zh_HK" value="是否五大類合同" />
+            <lang locale="zh_TW" value="是否五大類合同" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractBillQuery].units.queryField[isFiveClass].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractBillQuery].units.queryField[isFiveClass].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractBillQuery].units.queryField[isRespite].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="是否暂缓" />
@@ -3776,6 +3854,22 @@
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractBillQuery].units.queryField[mIndexType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="平米面积指标" />
+            <lang locale="zh_HK" value="平米面積指標" />
+            <lang locale="zh_TW" value="平米面積指標" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractBillQuery].units.queryField[mIndexType].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractBillQuery].units.queryField[mIndexType].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.ContractBillQuery].units.queryField[mainContractNumber].displayName">
             <lang locale="en_US" value="null" />

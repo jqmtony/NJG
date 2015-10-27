@@ -309,6 +309,57 @@
                 <key name="name" value="CFContractStation" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>EindexData</name>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.linkProperty[EindexData].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.linkProperty[EindexData].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.app" />
+                <key name="name" value="R_BuildPriceIndex_BuildPriceIndexEindexData" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>projectId</name>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[projectId].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[projectId].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>44</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[projectId].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFProjectId" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>contractId</name>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[contractId].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[contractId].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>44</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[contractId].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFContractId" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -826,6 +877,11 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].extendedProperty.isUseCodeRule">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].extendedProperty.listUI">
             <lang locale="en_US" value="com.kingdee.eas.fdc.costindexdb.client.BuildPriceIndexListUI" />
             <lang locale="zh_CN" value="com.kingdee.eas.fdc.costindexdb.client.BuildPriceIndexListUI" />
@@ -925,6 +981,17 @@
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.linkProperty[EindexData].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标数据" />
+            <lang locale="zh_HK" value="指標數據" />
+            <lang locale="zh_TW" value="指標數據" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.linkProperty[EindexData].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.linkProperty[entrys].alias">
@@ -1068,6 +1135,23 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[contractId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同ID" />
+            <lang locale="zh_HK" value="合同ID" />
+            <lang locale="zh_TW" value="合同ID" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[contractId].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[contractId].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[contractInfo].alias">
             <lang locale="en_US" value="null" />
@@ -1262,6 +1346,23 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[projectId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目ID" />
+            <lang locale="zh_HK" value="項目ID" />
+            <lang locale="zh_TW" value="項目ID" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[projectId].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[projectId].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndex].properties.ownProperty[projectStation].alias">
             <lang locale="en_US" value="null" />

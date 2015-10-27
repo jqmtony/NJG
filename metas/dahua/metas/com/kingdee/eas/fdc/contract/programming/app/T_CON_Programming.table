@@ -393,7 +393,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -442,9 +442,51 @@
             <precision>10</precision>
         </column>
         <column>
-            <name>CFYjPersonID</name>
-            <alias>dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFYjPersonID].alias</alias>
-            <description>dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFYjPersonID].description</description>
+            <name>CFyjCostID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjCostID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjCostID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFyjDesignID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjDesignID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjDesignID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFyjProjectID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjProjectID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjProjectID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFyjMaterialID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjMaterialID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjMaterialID].description</description>
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
@@ -642,11 +684,11 @@
             </fkColumnPairs>
         </foreignKey>
         <foreignKey>
-            <name>CFK_CON_PrgrmngJ9g</name>
+            <name>CFK_CON_YJdesign</name>
             <userDefined>true</userDefined>
             <refTable>
-                <key name="package" value="com.kingdee.eas.basedata.person" />
-                <key name="name" value="T_BD_Person" />
+                <key name="package" value="com.kingdee.eas.basedata.org" />
+                <key name="name" value="T_ORG_Position" />
             </refTable>
             <fkColumnPairs>
                 <fkColumnPair>
@@ -655,7 +697,64 @@
                         <key name="name" value="FID" />
                     </refColumn>
                     <fkColumn>
-                        <key name="name" value="CFYjPersonID" />
+                        <key name="name" value="CFyjDesignID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_CON_YJcost</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.org" />
+                <key name="name" value="T_ORG_Position" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFyjCostID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_CON_YJProject</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.org" />
+                <key name="name" value="T_ORG_Position" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFyjProjectID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_CON_YJMaterial</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.basedata.org" />
+                <key name="name" value="T_ORG_Position" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFyjMaterialID" />
                     </fkColumn>
                 </fkColumnPair>
             </fkColumnPairs>
@@ -680,17 +779,53 @@
             <lang locale="zh_HK" value="預警天數" />
             <lang locale="zh_TW" value="預警天數" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFYjPersonID].alias">
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjCostID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="预警人员" />
-            <lang locale="zh_HK" value="預警人員" />
-            <lang locale="zh_TW" value="預警人員" />
+            <lang locale="zh_CN" value="成本预警职位" />
+            <lang locale="zh_HK" value="成本預警職位" />
+            <lang locale="zh_TW" value="成本預警職位" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFYjPersonID].description">
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjCostID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="预警人员" />
-            <lang locale="zh_HK" value="預警人員" />
-            <lang locale="zh_TW" value="預警人員" />
+            <lang locale="zh_CN" value="成本预警职位" />
+            <lang locale="zh_HK" value="成本預警職位" />
+            <lang locale="zh_TW" value="成本預警職位" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjDesignID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设计部预警" />
+            <lang locale="zh_HK" value="設計部預警" />
+            <lang locale="zh_TW" value="設計部預警" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjDesignID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设计部预警" />
+            <lang locale="zh_HK" value="設計部預警" />
+            <lang locale="zh_TW" value="設計部預警" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjMaterialID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="材料管理预警" />
+            <lang locale="zh_HK" value="材料管理預警" />
+            <lang locale="zh_TW" value="材料管理預警" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjMaterialID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="材料管理预警" />
+            <lang locale="zh_HK" value="材料管理預警" />
+            <lang locale="zh_TW" value="材料管理預警" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjProjectID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程部预警" />
+            <lang locale="zh_HK" value="工程部預警" />
+            <lang locale="zh_TW" value="工程部預警" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[CFyjProjectID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程部预警" />
+            <lang locale="zh_HK" value="工程部預警" />
+            <lang locale="zh_TW" value="工程部預警" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.programming.app.T_CON_Programming].columns.column[FAimCostID].alias">
             <lang locale="en_US" value="null" />
