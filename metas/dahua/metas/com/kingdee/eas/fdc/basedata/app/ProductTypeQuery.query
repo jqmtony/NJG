@@ -285,6 +285,37 @@
                 <key name="name" value="ProductTypeQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>PlanIndexType</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[PlanIndexType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>113214b0-6beb-47d3-96a6-ddd60fe431d9</key>
+                    <parentUnit>
+                        <key name="name" value="PlanIndexType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProductType" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="PlanIndexType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="ProductTypeQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -351,133 +382,164 @@
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].alias">
-            <lang locale="zh_CN" value="产品类型查询" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="产品类型查询" />
             <lang locale="zh_HK" value="產品類型查詢" />
             <lang locale="zh_TW" value="產品類型查詢" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.ProductType" />
             <lang locale="zh_CN" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.ProductType" />
             <lang locale="zh_TW" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.ProductType" />
-            <lang locale="en_US" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.ProductType" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].extendedProperty.f7WindowTitle">
-            <lang locale="zh_CN" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.ProductType" />
-            <lang locale="zh_TW" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.ProductType" />
-            <lang locale="en_US" value="com.kingdee.eas.fdc.basedata.FDCBaseDataResource.ProductType" />
+            <lang locale="en_US" value="产品类型" />
+            <lang locale="zh_CN" value="产品类型" />
+            <lang locale="zh_TW" value="产品类型" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].queryPK[QueryPK].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].queryPK[QueryPK].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].subObjects.subEntity[CU].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].subObjects.subEntity[ProductType].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.propertyUnit[NewUnit0].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.propertyUnit[NewUnit1].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[CU.id].displayName">
-            <lang locale="zh_CN" value="ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[CU.id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
-            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[PlanIndexType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标类型" />
+            <lang locale="zh_HK" value="指標類型" />
+            <lang locale="zh_TW" value="指標類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[PlanIndexType].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[PlanIndexType].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[description].displayName">
-            <lang locale="zh_CN" value="描述" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="描述" />
             <lang locale="zh_HK" value="描述" />
             <lang locale="zh_TW" value="描述" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[description].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[description].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[id].displayName">
-            <lang locale="zh_CN" value="ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
-            <lang locale="en_US" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[isEnabled].displayName">
-            <lang locale="zh_CN" value="启用" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="启用" />
             <lang locale="zh_HK" value="啟用" />
             <lang locale="zh_TW" value="啟用" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[isEnabled].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
-            <lang locale="en_US" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[isEnabled].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[name].displayName">
-            <lang locale="zh_CN" value="名称" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
             <lang locale="zh_HK" value="名稱" />
             <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
-            <lang locale="en_US" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
-            <lang locale="en_US" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[number].displayName">
-            <lang locale="zh_CN" value="编码" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="编码" />
             <lang locale="zh_HK" value="編碼" />
             <lang locale="zh_TW" value="編碼" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
-            <lang locale="en_US" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.ProductTypeQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
-            <lang locale="en_US" value="true" />
         </rs>
     </resource>
 </joinQuery>

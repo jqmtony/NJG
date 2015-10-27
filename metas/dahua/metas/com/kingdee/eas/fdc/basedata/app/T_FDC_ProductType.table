@@ -161,6 +161,20 @@
             <scale>0</scale>
             <precision>8</precision>
         </column>
+        <column>
+            <name>CFPlanIndexType</name>
+            <alias>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[CFPlanIndexType].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[CFPlanIndexType].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>100</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_FDC_ProductType</name>
@@ -178,118 +192,153 @@
     <resource>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="产品类型" />
+            <lang locale="zh_HK" value="產品類型" />
+            <lang locale="zh_TW" value="產品類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[CFPlanIndexType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="指标类型" />
+            <lang locale="zh_HK" value="指標類型" />
+            <lang locale="zh_TW" value="指標類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[CFPlanIndexType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FControlUnitID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
+            <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FControlUnitID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
+            <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FCreateTime].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FCreateTime].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FCreatorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FCreatorID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FDescription].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
+            <lang locale="zh_TW" value="描述" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FDescription].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
+            <lang locale="zh_TW" value="描述" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FIsEnabled].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="启用" />
+            <lang locale="zh_HK" value="啟用" />
+            <lang locale="zh_TW" value="啟用" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FIsEnabled].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="启用" />
+            <lang locale="zh_HK" value="啟用" />
+            <lang locale="zh_TW" value="啟用" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FLastUpdateTime].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FLastUpdateTime].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FLastUpdateUserID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FLastUpdateUserID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FName].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FNumber].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FNumber].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FSimpleName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
+            <lang locale="zh_TW" value="簡稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].columns.column[FSimpleName].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
+            <lang locale="zh_TW" value="簡稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.basedata.app.T_FDC_ProductType].description">
             <lang locale="en_US" value="null" />
