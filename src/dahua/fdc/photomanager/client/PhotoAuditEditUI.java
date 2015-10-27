@@ -76,7 +76,7 @@ public class PhotoAuditEditUI extends AbstractPhotoAuditEditUI
     	this.btnAudit.setIcon(FDCClientHelper.ICON_AUDIT);
 		this.btnUnAudit.setIcon(FDCClientHelper.ICON_UNAUDIT);
 		
-		ForecastChangeVisEditUI.setEnableAcion(new ItemAction[]{actionAddNew,actionCreateTo,actionCopy,actionLast,actionFirst,actionNext,actionPre});
+		ForecastChangeVisEditUI.setEnableAcion(new ItemAction[]{actionPrint,actionPrintPreview,actionCreateTo,actionCreateFrom,actionAddNew,actionCreateTo,actionCopy,actionLast,actionFirst,actionNext,actionPre});
     }
     
     private void initControl() throws SnapshotException, UIException{

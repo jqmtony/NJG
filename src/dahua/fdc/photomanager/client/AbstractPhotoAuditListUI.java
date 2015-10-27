@@ -51,12 +51,16 @@ public abstract class AbstractPhotoAuditListUI extends com.kingdee.eas.framework
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.swing.KDTree kDTree1;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnOutput;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAudit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnAudit;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnShare;
     protected ActionTDPrint actionTDPrint = null;
     protected ActionTDPrintPreview actionTDPrintPreview = null;
     protected ActionAudit actionAudit = null;
     protected ActionUnAudit actionUnAudit = null;
+    protected actionShareAction actionShareAction = null;
+    protected actionOutPut actionOutPut = null;
     public final static String STATUS_VIEW = "VIEW";
     /**
      * output class constructor
@@ -118,20 +122,32 @@ public abstract class AbstractPhotoAuditListUI extends com.kingdee.eas.framework
         this.actionUnAudit.setExtendProperty("isObjectUpdateLock", "false");
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionShareAction
+        this.actionShareAction = new actionShareAction(this);
+        getActionManager().registerAction("actionShareAction", actionShareAction);
+         this.actionShareAction.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionOutPut
+        this.actionOutPut = new actionOutPut(this);
+        getActionManager().registerAction("actionOutPut", actionOutPut);
+         this.actionOutPut.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.kDSplitPane1 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
         this.kDTreeView1 = new com.kingdee.bos.ctrl.swing.KDTreeView();
         this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kDTree1 = new com.kingdee.bos.ctrl.swing.KDTree();
         this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.btnOutput = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnUnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnShare = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.kDSplitPane1.setName("kDSplitPane1");
         this.kDTreeView1.setName("kDTreeView1");
         this.kDContainer1.setName("kDContainer1");
         this.kDTree1.setName("kDTree1");
         this.kDTable1.setName("kDTable1");
+        this.btnOutput.setName("btnOutput");
         this.btnAudit.setName("btnAudit");
         this.btnUnAudit.setName("btnUnAudit");
+        this.btnShare.setName("btnShare");
         // CoreUI
 		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol6\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol8\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol10\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol14\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol15\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol17\"><c:NumberFormat>&amp;date</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"description\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /><t:Column t:key=\"auditor.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol10\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol11\" /><t:Column t:key=\"entrys.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol12\" /><t:Column t:key=\"handler.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol13\" /><t:Column t:key=\"handler.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol14\" /><t:Column t:key=\"entrys.seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol15\" /><t:Column t:key=\"status\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"AuditDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol17\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{description}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{auditor.number}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{creator.number}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{lastUpdateUser.number}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{entrys.id}</t:Cell><t:Cell>$Resource{handler.number}</t:Cell><t:Cell>$Resource{handler.name}</t:Cell><t:Cell>$Resource{entrys.seq}</t:Cell><t:Cell>$Resource{status}</t:Cell><t:Cell>$Resource{AuditDate}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
@@ -182,12 +198,20 @@ public abstract class AbstractPhotoAuditListUI extends com.kingdee.eas.framework
 
         this.kDTable1.checkParsed();
         this.kDTable1.getGroupManager().setGroup(true);
+        // btnOutput
+        this.btnOutput.setAction((IItemAction)ActionProxyFactory.getProxy(actionOutPut, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnOutput.setText(resHelper.getString("btnOutput.text"));		
+        this.btnOutput.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_addcollection"));
         // btnAudit
         this.btnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionAudit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAudit.setText(resHelper.getString("btnAudit.text"));
         // btnUnAudit
         this.btnUnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionUnAudit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnUnAudit.setText(resHelper.getString("btnUnAudit.text"));
+        // btnShare
+        this.btnShare.setAction((IItemAction)ActionProxyFactory.getProxy(actionShareAction, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnShare.setText(resHelper.getString("btnShare.text"));		
+        this.btnShare.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_send"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -345,6 +369,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         this.toolBar.add(separatorFW2);
         this.toolBar.add(btnCreateTo);
         this.toolBar.add(btnCopyTo);
+        this.toolBar.add(btnOutput);
         this.toolBar.add(btnQueryScheme);
         this.toolBar.add(separatorFW3);
         this.toolBar.add(btnTraceUp);
@@ -365,6 +390,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         this.toolBar.add(btnCancel);
         this.toolBar.add(btnCancelCancel);
         this.toolBar.add(btnWFViewdoProccess);
+        this.toolBar.add(btnShare);
 
 
     }
@@ -593,6 +619,22 @@ com.kingdee.eas.fdc.photomanager.PhotoAuditFactory.getRemoteInstance().audit(edi
 com.kingdee.eas.fdc.photomanager.PhotoAuditInfo editData = (com.kingdee.eas.fdc.photomanager.PhotoAuditInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
 com.kingdee.eas.fdc.photomanager.PhotoAuditFactory.getRemoteInstance().unAudit(editData);
     }
+    	
+
+    /**
+     * output actionShareAction_actionPerformed method
+     */
+    public void actionShareAction_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
+    	
+
+    /**
+     * output actionOutPut_actionPerformed method
+     */
+    public void actionOutPut_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionRemove(itemAction);		
 		if (request != null) {
@@ -646,6 +688,28 @@ com.kingdee.eas.fdc.photomanager.PhotoAuditFactory.getRemoteInstance().unAudit(e
     }
 	
 	public boolean isPrepareActionUnAudit() {
+    	return false;
+    }
+	public RequestContext prepareactionShareAction(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionShareAction() {
+    	return false;
+    }
+	public RequestContext prepareactionOutPut(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionOutPut() {
     	return false;
     }
 
@@ -766,6 +830,68 @@ com.kingdee.eas.fdc.photomanager.PhotoAuditFactory.getRemoteInstance().unAudit(e
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractPhotoAuditListUI.this, "ActionUnAudit", "actionUnAudit_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionShareAction class
+     */     
+    protected class actionShareAction extends ItemAction {     
+    
+        public actionShareAction()
+        {
+            this(null);
+        }
+
+        public actionShareAction(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionShareAction.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionShareAction.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionShareAction.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractPhotoAuditListUI.this, "actionShareAction", "actionShareAction_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionOutPut class
+     */     
+    protected class actionOutPut extends ItemAction {     
+    
+        public actionOutPut()
+        {
+            this(null);
+        }
+
+        public actionOutPut(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionOutPut.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionOutPut.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionOutPut.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractPhotoAuditListUI.this, "actionOutPut", "actionOutPut_actionPerformed", e);
         }
     }
 

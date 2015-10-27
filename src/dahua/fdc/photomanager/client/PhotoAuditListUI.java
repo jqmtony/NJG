@@ -6,20 +6,25 @@ package com.kingdee.eas.fdc.photomanager.client;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 import javax.swing.Icon;
+import javax.swing.SwingUtilities;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreeNode;
 
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.common.layout.table2.TableLayout2;
 import com.kingdee.bos.ctrl.common.ui.textfield.SearchTextField;
+import com.kingdee.bos.ctrl.common.util.StringUtil;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.util.style.LineStyle;
@@ -31,17 +36,20 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.ItemAction;
-import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
-import com.kingdee.eas.base.uiframe.client.UINewFrameFactory;
+import com.kingdee.bos.workflow.ProcessInstInfo;
+import com.kingdee.bos.workflow.monitor.client.BasicWorkFlowMonitorPanel;
+import com.kingdee.bos.workflow.monitor.client.ProcessRunningListUI;
+import com.kingdee.bos.workflow.service.ormrpc.EnactmentServiceFactory;
+import com.kingdee.bos.workflow.service.ormrpc.IEnactmentService;
+import com.kingdee.eas.base.multiapprove.client.MultiApproveUtil;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
-import com.kingdee.eas.fdc.aimcost.ForecastChangeVisFactory;
 import com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
@@ -53,17 +61,29 @@ import com.kingdee.eas.fdc.photomanager.PhotoAuditCollection;
 import com.kingdee.eas.fdc.photomanager.PhotoAuditFactory;
 import com.kingdee.eas.fdc.photomanager.PhotoAuditInfo;
 import com.kingdee.eas.framework.client.tree.KDTreeNode;
+import com.kingdee.eas.rpts.ctrlreport.adapter.TableManager;
 import com.kingdee.eas.rpts.snapshot.manage.client.SnapshotRunUI;
 import com.kingdee.eas.rpts.snapshot.manage.client.icon.SSIcons;
 import com.kingdee.eas.rpts.snapshot.manage.client.mview.MViewUIConfig;
+import com.kingdee.eas.rpts.snapshot.manage.client.mview.action.ui.FavoriteSnapshotUI;
+import com.kingdee.eas.rpts.snapshot.manage.client.mview.action.ui.NameConflictTreatmentUI;
+import com.kingdee.eas.rpts.snapshot.manage.client.mview.action.ui.ShortcutExpressDeliveryUI;
+import com.kingdee.eas.rpts.snapshot.manage.consta.SnapshotSourceType;
+import com.kingdee.eas.rpts.snapshot.manage.exception.ShortcutMailboxException;
 import com.kingdee.eas.rpts.snapshot.manage.exception.SnapshotException;
+import com.kingdee.eas.rpts.snapshot.manage.pojo.PhantomSnapshot;
+import com.kingdee.eas.rpts.snapshot.manage.pojo.so.BridgeItem;
 import com.kingdee.eas.rpts.snapshot.manage.service.ISnapshotRelativeService;
 import com.kingdee.eas.rpts.snapshot.manage.service.SnapshotRelativeService;
+import com.kingdee.eas.rpts.snapshot.manage.service.mailbox.ISSExpressDeliveryService;
+import com.kingdee.eas.rpts.snapshot.manage.service.mailbox.SSExpressDeliveryService;
+import com.kingdee.eas.rpts.sumreport.util.EASUtil;
 import com.kingdee.eas.rpts.sumreport.util.ExtMsgBox;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
+import com.kingdee.util.StringUtils;
 
 /**
  * output class name
@@ -138,6 +158,10 @@ public class PhotoAuditListUI extends AbstractPhotoAuditListUI
     	this.btnAddNew.setToolTipText("发起流程");
     	this.actionAudit.setVisible(false);
     	this.actionUnAudit.setVisible(false);
+    	this.actionAttachment.setVisible(false);
+    	
+    	this.actionRefresh.setVisible(true);
+    	this.btnShare.setIcon(SSIcons.createIcon("tbtn_sendmail.png"));
     	
     	initSearch();
     	
@@ -155,13 +179,267 @@ public class PhotoAuditListUI extends AbstractPhotoAuditListUI
         kDContainer1.getContentPane().add(_panel, BorderLayout.CENTER);
     }
     
+    public void actionShareAction_actionPerformed(ActionEvent e)throws Exception {
+    	super.actionShareAction_actionPerformed(e);
+    	String type = getSelectTreeType();
+    	if(type==null)
+    		return;
+    	java.util.List data = getBridge(type).getDatas();
+        if(data ==null||data.size() == 0)
+        {
+            ExtMsgBox.showInfo("\u8BF7\u9009\u62E9\u4E00\u6761\u5FEB\u7167\u8BB0\u5F55");
+        } else{
+            ShortcutExpressDeliveryUI deliveryUI = new ShortcutExpressDeliveryUI(PhantomSnapshot.cloneList(data, false), (Frame)SwingUtilities.getWindowAncestor(this));
+            deliveryUI.setLocationRelativeTo(null);
+            deliveryUI.setVisible(true);
+        }
+    }
+    
+    public void actionOutPut_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionOutPut_actionPerformed(e);
+    	String type = getSelectTreeType();
+    	if(type==null)
+    		return;
+    	java.util.List data = getBridge(type).getDatas();
+        if(data ==null||data.size() == 0)
+        {
+            ExtMsgBox.showInfo("\u8BF7\u9009\u62E9\u4E00\u6761\u5FEB\u7167\u8BB0\u5F55");
+            return;
+        } 
+       boolean mailBox = type.equals("收件箱")?true:false;
+        FavoriteSnapshotUI favoriteUI = new FavoriteSnapshotUI(PhantomSnapshot.cloneList(data, true), (Frame)SwingUtilities.getWindowAncestor(this),mailBox);
+        favoriteUI.setLocationRelativeTo(null);
+        favoriteUI.setVisible(true);
+        if(favoriteUI.isCancel())
+            return;
+        com.kingdee.eas.rpts.snapshot.manage.client.mview.action.ui.FavoriteSnapshotUI.Result result;
+        result = favoriteUI.getResult();
+        if(StringUtil.isEmptyString(result._folder))
+            return ;
+        java.util.List conflictLst = result._lst;
+        conflictLst = _serv.findNameConflictByUser(conflictLst, result._folder, EASUtil.getCurrentUserID());
+        if(conflictLst != null && conflictLst.size() > 0)
+        {
+        	 NameConflictTreatmentUI conflictUI = new NameConflictTreatmentUI(conflictLst, (Frame)SwingUtilities.getWindowAncestor(this));
+             conflictUI.setLocationRelativeTo(null);
+             conflictUI.setVisible(true);
+             if(conflictUI.isCancel())
+            	 return;
+             Map map = conflictUI.getResult();
+             java.util.List updateNameLst = new ArrayList();
+             for(int i = result._lst.size() - 1; i >= 0; i--)
+             {
+                 PhantomSnapshot ps = (PhantomSnapshot)result._lst.get(i);
+                 if(!map.containsKey(ps.getId()))
+                     continue;
+                 PhantomSnapshot newNamePS = (PhantomSnapshot)map.get(ps.getId());
+                 if(newNamePS == null)
+                 {
+                     result._lst.remove(i);
+                 } else
+                 {
+                     ps.setName(newNamePS.getName());
+                     updateNameLst.add(newNamePS);
+                 }
+             }
+
+             conflictLst = updateNameLst;
+        }
+        if(mailBox)
+        {
+            favoriteMails(result._lst, result._folder, favoriteUI.isFavoriteAndDel());
+            return;
+        }
+        _serv.favoriteSnapshots(result._lst, result._folder);
+        if(conflictLst != null && conflictLst.size() > 0){
+        	ExtMsgBox.showError(this, "\u68C0\u67E5\u547D\u540D\u51B2\u7A81\u5F02\u5E38", e.toString());
+        }
+    }
+    
+    private String getSelectTreeType(){
+    	DefaultKingdeeTreeNode node = getSelectedTreeNode();
+    	if(node==null)
+    		return null;
+    	String type = null;
+    	if(node.getText().equals("收件箱")||(node.getParent()!=null&&node.getParent().toString().equals("收件箱")))
+    		type = "收件箱";
+    	if(node.getText().equals("个人文件夹")||(node.getParent()!=null&&node.getParent().toString().equals("个人文件夹")))
+    		type = "个人文件夹";
+    	if(node.getText().equals("公共文件夹")||(node.getParent()!=null&&node.getParent().toString().equals("公共文件夹"))||(node.getParent()!=null&&node.getParent().toString().indexOf("审批")>=0))
+    		type = "公共文件夹";
+    	
+    	return type;
+    }
+    
+    protected void favoriteMails(java.util.List mails, String locationPath, boolean deleteOrignal)
+    {
+        try
+        {
+            ISSExpressDeliveryService mailService = SSExpressDeliveryService.getInst();
+            mailService.favoriteMails(mails, locationPath, deleteOrignal);
+//            if(deleteOrignal)
+//            {
+//                BridgeItem item = new BridgeItem();
+//                item.setDatas(mails);
+//                ((AbstractManageView)this.getManageView()).deleteRows(item);
+//                if(_mainUI.getTreeMgr() != null)
+//                    _mainUI.getTreeMgr().getMailUINode().setOut2Date(true);
+//            }
+        }
+        catch(ShortcutMailboxException e)
+        {
+            ExtMsgBox.showError(this, "\u6536\u85CF\u5FEB\u7167\u6536\u4EF6\u5931\u8D25", e.toString());
+        }
+    }
+    
+    public BridgeItem getBridge(String type) throws EASBizException
+    {
+    	Date appServerTime = SysUtil.getAppServerTime(null);
+        int lst[] = TableManager.getSelectedTableIndexs2(this.kDTable1);
+        BridgeItem item = new BridgeItem();
+        java.util.List phantoms = new ArrayList();
+        java.util.List reports = new ArrayList();
+        for(int i = 0; i < lst.length; i++)
+        {
+            IRow row = kDTable1.getRow(lst[i]);
+            PhantomSnapshot obj = getMailsByReportGroupID(UIRuleUtil.getString(row.getCell(0).getValue()),type);
+            if(obj!=null)
+            	phantoms.add(obj);
+        }
+        item.setDatas(phantoms);
+        return item;
+    }
+    
+    /**
+    * @author 
+    * @date
+     */
+    private PhantomSnapshot getMailsByReportGroupID(String shoipId,String type){
+    	StringBuffer buf = new StringBuffer();
+    	PhantomSnapshot item = null;
+    	try {
+    		if(type.equals("收件箱")){
+        		buf.append("Select top ").append(6);
+                buf.append(" S.Fid,S.Fname,S.Fcreatorid,S.Fcreatetime,S.FsourceType,S.Freportperiod,S.Fweekbegin,S.Fbegindate,S.Fenddate,");
+                buf.append("U.Fname_l2 As UserName, S.Freportid, S.FSharetime,S.FSnapshotID,S.Fread,S.FsenderID,S.forgid From T_ext_ssshortcutsbox S");
+                buf.append(" LEFT OUTER JOIN T_pm_user U On S.FsenderID = U.Fid Left Outer Join T_Org_BaseUnit O On S.ForgID = O.Fid WHERE S.Fid='").append(shoipId).append("'");
+                buf.append(" Order by S.fShareTime desc");
+                IRowSet rs = new FDCSQLBuilder().appendSql(buf.toString()).executeQuery();
+    			while(rs.next()){
+    	        	item = new PhantomSnapshot();
+    	        	item.setId(rs.getString("fid"));
+    	        	item.setName(rs.getString("fname"));
+    	        	item.setCreatorID(rs.getString("fcreatorid"));
+    	        	item.setCreateTime(rs.getTimestamp("fcreatetime"));
+    	        	item.setReportPeriod(rs.getInt("freportperiod"));
+    	        	item.setBeginDate(rs.getTimestamp("fbegindate"));
+    	        	item.setEndDate(rs.getTimestamp("fenddate"));
+    	        	item.setWeekBegin(rs.getInt("fweekbegin"));
+    	        	item.setSourceType(rs.getInt("fsourceType"));
+    	        	item.setSnapshotId(rs.getString("fsnapshotid"));
+    	        	item.setReportId(rs.getString("freportid"));
+    	        	item.setSenderName(rs.getString("username"));
+    	        	item.setSendTime(rs.getTimestamp("fsharetime"));
+    	        	item.setReadState(rs.getInt("fread"));
+    	        	item.setSender(rs.getString("fsenderid"));
+    	        	item.setFake(true);
+    	        	item.setOrgID(rs.getString("forgid"));
+    	        }
+        	}
+        	if(type.equals("个人文件夹")){
+        		buf = new StringBuffer();
+        	    buf.append("SELECT top ").append(6);
+        	    buf.append("* FROM ((Select S.Fid,S.Fname,S.Fcreatorid,S.Fcreatetime,S.Freportperiod,S.Fweekbegin,S.Fbegindate,S.Fenddate,");
+        	    buf.append("U.Fname_l2 As Name, -5 As Type,S.Freportid, '' As Fsnapshotid,S.forgid, O.fname_l2 as orgName, ");
+        	    buf.append(" S.Fcreatetime as sendTime, O.fname_l2 as sender, S.FLASTUPDATETIME As updateTime ");
+        	    buf.append("From T_ext_sssnapshot S Left Outer Join T_pm_user U On S.Fcreatorid = U.Fid Left Outer Join T_Org_BaseUnit O On S.ForgID = O.Fid");
+        	    buf.append(" WHERE S.Fid='"+shoipId+"' And S.FlocationType = 0 And s.FlocationPath = ?");
+        	    buf.append(")Union All(");
+        	    buf.append("Select Sc.Fid, Sc.Fname, Sc.Fcreatorid,Sc.Fcollectiontime As Fcreatetime,Sc.Freportperiod,Sc.Fweekbegin,Sc.Fbegindate,Sc.Fenddate,");
+        	    buf.append("U.Fname_l2 As Name, sc.FsourceType As Type,Sc.Freportid,Sc.Fsnapshotid, Sc.forgid,O.fname_l2 as orgName,");
+        	    buf.append(" Sc.Fsendtime as sendTime, U2.fname_l2 as sender, FSendTime as updateTime ");
+        	    buf.append(" From T_ext_ssshortcut Sc Left Outer Join T_pm_user U On Sc.Fcreatorid = U.Fid ");
+        	    buf.append(" Left Outer Join T_Org_BaseUnit O On Sc.ForgID = O.Fid ");
+        	    buf.append(" Left Outer Join T_pm_user U2 On Sc.Fsenderid = U2.Fid ");
+        	    buf.append(" WHERE Sc.Fid='"+shoipId+"' And Sc.FlocationType = 0 And Sc.FlocationPath = ?");
+        	    buf.append(")) TT Order By TT.Fcreatetime Desc");
+        	    IRowSet rs = new FDCSQLBuilder().appendSql(buf.toString()).executeQuery();
+    			while(rs.next()){
+    				item = new PhantomSnapshot();
+                    item.setId(rs.getString("fid"));
+                    item.setName(rs.getString("fname"));
+                    item.setCreatorID(rs.getString("fcreatorid"));
+                    item.setCreateTime(rs.getTimestamp("fcreatetime"));
+                    item.setReportPeriod(rs.getInt("freportperiod"));
+                    item.setBeginDate(rs.getTimestamp("fbegindate"));
+                    item.setEndDate(rs.getTimestamp("fenddate"));
+                    item.setWeekBegin(rs.getInt("fweekbegin"));
+                    int types = rs.getInt("type");
+                    item.setFake(types != -5);
+                    types = types != -5 ? types : SnapshotSourceType.SNAPSHOT_CENTER_REAL;
+                    item.setSourceType(types);
+                    if(item.isFake())
+                    {
+                        item.setSnapshotId(rs.getString("fsnapshotid"));
+                        item.setSender(rs.getString("sender"));
+                        item.setSendTime(rs.getTimestamp("sendTime"));
+                    } else
+                    {
+                        item.setSnapshotId(item.getId());
+                        item.setUpdateTime(rs.getTimestamp("updateTime"));
+                    }
+                    item.setReportId(rs.getString("freportid"));
+                    item.setUserName(rs.getString("name"));
+                    item.setOrgID(rs.getString("forgid"));
+                    item.setOrgName(rs.getString("orgName"));
+    			}
+        	}
+        	if(type.equals("公共文件夹")){
+        		buf.append("Select top ").append(6);
+        	    buf.append(" S.Fid as cFid, S.Fname as shotname, S.Fcreatorid as creatorid, S.Fcreatetime as createtime, S.Freportperiod as reportperiod, S.Fweekbegin as weekbegin, S.Fbegindate as begindate, S.Fenddate enddate,");
+        	    buf.append(" O.fname_l2 as orgname, U.Fname_l2 As Name,S.Freportid as reportid, S.flastupdateuserid As updatorId, U1.fname_l2 as updator, S.FLASTUPDATETIME As updateTime");
+        	    buf.append(" From T_ext_sssnapshot S LEFT outer JOIN T_pm_user U On S.Fcreatorid = U.Fid  left outer join T_pm_user U1 on S.flastupdateuserid = U1.fid LEFT OUTER JOIN T_Org_BaseUnit O On S.ForgId = O.fid ");
+        	    buf.append(" WHERE S.Fid='"+shoipId+"' And S.FlocationType = 1  Order by createtime desc");
+        	    IRowSet rs = new FDCSQLBuilder().appendSql(buf.toString()).executeQuery();
+    			while(rs.next()){
+    				item = new PhantomSnapshot();
+                    item.setId(rs.getString("cFid"));
+                    item.setName(rs.getString("shotname"));
+                    item.setCreatorID(rs.getString("creatorid"));
+                    item.setCreateTime(rs.getTimestamp("createtime"));
+                    item.setReportPeriod(rs.getInt("reportperiod"));
+                    item.setBeginDate(rs.getTimestamp("begindate"));
+                    item.setEndDate(rs.getTimestamp("enddate"));
+                    item.setWeekBegin(rs.getInt("weekbegin"));
+                    item.setSourceType(SnapshotSourceType.SNAPSHOT_CENTER_REAL);
+                    item.setSnapshotId(rs.getString("cFid"));
+                    item.setReportId(rs.getString("reportid"));
+                    item.setUserName(rs.getString("Name"));
+                    item.setOrgID(EASUtil.getCurrentOrgID());
+                    item.setOrgName(rs.getString("orgname"));
+                    item.setFake(false);
+                    item.setUpdator(rs.getString("updator"));
+                    item.setUpdateTime(rs.getTimestamp("updateTime"));
+    			}
+        	}
+		} catch (BOSException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return item;
+    }
+    
     protected void initWorkButton() {
     	super.initWorkButton();
     	this.btnAudit.setIcon(FDCClientHelper.ICON_AUDIT);
 		this.btnUnAudit.setIcon(FDCClientHelper.ICON_UNAUDIT);
-		ForecastChangeVisEditUI.setEnableAcion(new ItemAction[]{actionEdit,actionLocate,actionQuery,actionAttachment,actionRefresh,actionCreateTo,actionTraceDown,actionTraceUp,actionPrint,actionPrintPreview});
+		ForecastChangeVisEditUI.setEnableAcion(new ItemAction[]{actionEdit,actionLocate,actionQuery,actionAttachment,actionCreateTo,actionTraceDown,actionTraceUp,actionPrint,actionPrintPreview});
 		actionAttachment.setVisible(false);
 		btnAttachment.setVisible(false);
+		
+		this.actionOutPut.setEnabled(true);
+		this.actionShareAction.setEnabled(true);
     }
     
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
@@ -188,9 +466,76 @@ public class PhotoAuditListUI extends AbstractPhotoAuditListUI
     }
     
     public void actionRemove_actionPerformed(ActionEvent e) throws Exception {
-    	PhotoAuditInfo info = getSelectInfo();
-    	checkBeforeEditOrRemove(info,CANTEDIT);
-    	super.actionRemove_actionPerformed(e);
+    	PhotoAuditInfo info = getPhotoAuditInfo();
+    	if(info!=null){
+    		FDCClientUtils.checkBillInWorkflow(this, info.getId().toString());
+    		if(info.getStatus().equals(FDCBillStateEnum.AUDITTED)){
+    			FDCMsgBox.showWarning("当前所选快照已审批！");
+    			SysUtil.abort();
+    		}
+    	}
+    	if(FDCMsgBox.showConfirm2(this, "确认删除快照！")!=0)
+    		return;
+    	int selectIndex = this.kDTable1.getSelectManager().getActiveRowIndex();
+    	_serv.deleteSnapshots(new String[]{this.kDTable1.getCell(selectIndex, 0).getValue().toString()});
+    	actionRefresh_actionPerformed(null);
+    }
+    
+    public void actionRefresh_actionPerformed(ActionEvent e) throws Exception {
+    	kDTree1_valueChanged(null);
+    }
+    
+    public void actionWorkFlowG_actionPerformed(ActionEvent e) throws Exception {
+    	PhotoAuditInfo info = getPhotoAuditInfo();
+    	if(info==null)
+    		return;
+    	String id = info.getId().toString();
+        IEnactmentService service = EnactmentServiceFactory.createRemoteEnactService();
+        ProcessInstInfo processInstInfo = null;
+        ProcessInstInfo procInsts[] = service.getProcessInstanceByHoldedObjectId(id);
+        int i = 0;
+        for(int n = procInsts.length; i < n; i++)
+            if(procInsts[i].getState().startsWith("open"))
+                processInstInfo = procInsts[i];
+
+        if(processInstInfo == null)
+        {
+            procInsts = service.getAllProcessInstancesByBizobjId(id);
+            if(procInsts == null || procInsts.length <= 0)
+                MsgBox.showInfo(this, EASResource.getString("com.kingdee.eas.framework.FrameWorkResource.Msg_WFHasNotInstance"));
+            else
+            if(procInsts.length == 1)
+            {
+                showWorkflowDiagram(procInsts[0]);
+            } else
+            {
+                UIContext uiContext = new UIContext(this);
+                uiContext.put("procInsts", procInsts);
+                String className = ProcessRunningListUI.class.getName();
+                IUIWindow uiWindow = UIFactory.createUIFactory("com.kingdee.eas.base.uiframe.client.UIModelDialogFactory").create(className, uiContext);
+                uiWindow.show();
+            }
+        } else
+        {
+            showWorkflowDiagram(processInstInfo);
+        }
+    }
+    
+    private void showWorkflowDiagram(ProcessInstInfo processInstInfo)throws Exception
+	{
+	    UIContext uiContext = new UIContext(this);
+	    uiContext.put("id", processInstInfo.getProcInstId());
+	    uiContext.put("processInstInfo", processInstInfo);
+	    BasicWorkFlowMonitorPanel.Show(uiContext);
+	}
+    
+    public void actionAuditResult_actionPerformed(ActionEvent e)throws Exception {
+    	PhotoAuditInfo info = getPhotoAuditInfo();
+    	if(info==null)
+    		return;
+    	String id = info.getId().toString();
+        if(!StringUtils.isEmpty(id))
+        	 MultiApproveUtil.showApproveHis(BOSUuid.read(id), "com.kingdee.eas.base.uiframe.client.UIModelDialogFactory", this);
     }
     
     private void checkBeforeEditOrRemove(PhotoAuditInfo info,String warning) throws BOSException {
@@ -240,6 +585,7 @@ public class PhotoAuditListUI extends AbstractPhotoAuditListUI
 		if(index !=-1)
 			openUI(index);
 	}
+	
     
 	protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
 		super.kDTable1_tableClicked(e);
@@ -312,7 +658,6 @@ public class PhotoAuditListUI extends AbstractPhotoAuditListUI
 	}
     
     protected void kDTree1_valueChanged(TreeSelectionEvent e) throws Exception {
-    	super.kDTree1_valueChanged(e);
     	DefaultKingdeeTreeNode node = getSelectedTreeNode();
     	if(node==null)
     		return;
@@ -602,7 +947,30 @@ public class PhotoAuditListUI extends AbstractPhotoAuditListUI
     }
     
     public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {
+    	PhotoAuditInfo info = getPhotoAuditInfo();
+    	if(info!=null){
+    		FDCClientUtils.checkBillInWorkflow(this, info.getId().toString());
+    		if(info.getStatus().equals(FDCBillStateEnum.AUDITTED)){
+    			FDCMsgBox.showWarning("当前所选快照已审批！");
+    			SysUtil.abort();
+    		}
+    	}
     	super.actionAddNew_actionPerformed(e);
+    }
+    
+    private PhotoAuditInfo getPhotoAuditInfo() throws BOSException{
+    	int selectIndex = this.kDTable1.getSelectManager().getActiveRowIndex();
+		if(selectIndex==-1)
+		{
+			MsgBox.showWarning("请先选择要发起流程的快照！");
+			SysUtil.abort();
+		}
+		String snapshotID = this.kDTable1.getCell(selectIndex, 0).getValue().toString();
+		
+		String oql = "select status,id,sourceBillId where sourceBillId='"+snapshotID+"'";
+    	PhotoAuditCollection photoAuditCollection = PhotoAuditFactory.getRemoteInstance().getPhotoAuditCollection(oql);
+    	PhotoAuditInfo info = photoAuditCollection.size()>0?photoAuditCollection.get(0):null;
+    	return info;
     }
     
     protected void prepareUIContext(UIContext uiContext, ActionEvent e) {//提前过滤界面

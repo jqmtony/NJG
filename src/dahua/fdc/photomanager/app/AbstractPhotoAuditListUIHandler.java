@@ -34,4 +34,14 @@ public abstract class AbstractPhotoAuditListUIHandler extends com.kingdee.eas.fr
 	}
 	protected void _handleActionUnAudit(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleactionShareAction(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleactionShareAction(request,response,context);
+	}
+	protected void _handleactionShareAction(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
+	public void handleactionOutPut(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleactionOutPut(request,response,context);
+	}
+	protected void _handleactionOutPut(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }
