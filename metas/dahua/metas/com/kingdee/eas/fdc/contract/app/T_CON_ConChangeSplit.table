@@ -15,7 +15,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -365,7 +365,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>0</defaultValue>
             <sqlType>INT</sqlType>
             <length>4</length>
             <scale>0</scale>
@@ -441,6 +441,48 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFisCostSplit</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[CFisCostSplit].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[CFisCostSplit].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFisTeamSplit</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[CFisTeamSplit].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[CFisTeamSplit].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFisProductSplit</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[CFisProductSplit].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[CFisProductSplit].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_ConChaCost</name>
@@ -457,368 +499,404 @@
     </primaryKey>
     <resource>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].alias">
-            <lang locale="zh_CN" value="变更拆分表" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更拆分表" />
             <lang locale="zh_HK" value="變更拆分表" />
             <lang locale="zh_TW" value="變更拆分表" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FAmount].alias">
-            <lang locale="zh_CN" value="null" />
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[CFisCostSplit].alias">
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="跨科目拆分" />
+            <lang locale="zh_HK" value="跨科目拆分" />
+            <lang locale="zh_TW" value="跨科目拆分" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[CFisCostSplit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="跨科目拆分" />
+            <lang locale="zh_HK" value="跨科目拆分" />
+            <lang locale="zh_TW" value="跨科目拆分" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[CFisProductSplit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="产品拆分" />
+            <lang locale="zh_HK" value="產品拆分" />
+            <lang locale="zh_TW" value="產品拆分" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[CFisProductSplit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="产品拆分" />
+            <lang locale="zh_HK" value="產品拆分" />
+            <lang locale="zh_TW" value="產品拆分" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[CFisTeamSplit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="跨组团拆分" />
+            <lang locale="zh_HK" value="跨組團拆分" />
+            <lang locale="zh_TW" value="跨組團拆分" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[CFisTeamSplit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="跨组团拆分" />
+            <lang locale="zh_HK" value="跨組團拆分" />
+            <lang locale="zh_TW" value="跨組團拆分" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FAmount].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FAuditTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FAuditTime].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FAuditorID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FAuditorID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FBizDate].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FBizDate].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FBookedDate].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FBookedDate].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FContractBillID].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FContractBillID].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FContractChangeID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FContractChangeID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FControlUnitID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FControlUnitID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FCreateTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FCreateTime].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FCreatorID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FCreatorID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FCurProjectID].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FCurProjectID].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FDescription].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FDescription].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FFivouchered].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FFivouchered].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FHandlerID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FHandlerID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FHasEffected].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FHasEffected].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FHasInitIdx].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FHasInitIdx].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FIsInvalid].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FIsInvalid].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FIsRespite].alias">
-            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="zh_HK" value="是否暫緩" />
             <lang locale="zh_TW" value="是否暫緩" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FIsRespite].description">
-            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="zh_HK" value="是否暫緩" />
             <lang locale="zh_TW" value="是否暫緩" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FIslastVerThisPeriod].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FIslastVerThisPeriod].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FLastUpdateTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FLastUpdateTime].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FLastUpdateUserID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FLastUpdateUserID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FName].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FName].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FNumber].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FNumber].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FOrgUnitID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FOrgUnitID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FOriginalAmount].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FOriginalAmount].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FPeriodId].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FPeriodId].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FSourceBillID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FSourceBillID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FSourceFunction].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FSourceFunction].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FSplitState].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FSplitState].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FState].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].columns.column[FState].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ConChangeSplit].description">
-            <lang locale="zh_CN" value="变更拆分表" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="变更拆分表" />
             <lang locale="zh_HK" value="變更拆分表" />
             <lang locale="zh_TW" value="變更拆分表" />
         </rs>

@@ -15,7 +15,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -441,6 +441,48 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFisCostSplit</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[CFisCostSplit].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[CFisCostSplit].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFisTeamSplit</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[CFisTeamSplit].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[CFisTeamSplit].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFisProductSplit</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[CFisProductSplit].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[CFisProductSplit].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_ConPayPlanSplit</name>
@@ -457,382 +499,412 @@
     </primaryKey>
     <resource>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[CFisCostSplit].alias">
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[CFisCostSplit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[CFisProductSplit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[CFisProductSplit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[CFisTeamSplit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[CFisTeamSplit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FAmount].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FAmount].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FAuditTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FAuditTime].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FAuditorID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FAuditorID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FBillId].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FBillId].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FBizDate].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FBizDate].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FBookedDate].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FBookedDate].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FContractBillId].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FContractBillId].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FControlUnitID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FControlUnitID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FCreateTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FCreateTime].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FCreatorID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FCreatorID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FCurProjectId].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FCurProjectId].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FDescription].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FDescription].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FFivouchered].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FFivouchered].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FHandlerID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FHandlerID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FHasEffected].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FHasEffected].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FHasInitIdx].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FHasInitIdx].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FIsInvalid].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FIsInvalid].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FIsRespite].alias">
-            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="zh_HK" value="是否暫緩" />
             <lang locale="zh_TW" value="是否暫緩" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FIsRespite].description">
-            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="zh_HK" value="是否暫緩" />
             <lang locale="zh_TW" value="是否暫緩" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FIslastVerThisPeriod].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FIslastVerThisPeriod].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FLastUpdateTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FLastUpdateTime].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FLastUpdateUserID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FLastUpdateUserID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FName].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FName].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FNumber].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FNumber].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FOrgUnitID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FOrgUnitID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FOriginalAmount].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FOriginalAmount].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FPeriodId].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FPeriodId].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FSourceBillID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FSourceBillID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FSourceFunction].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FSourceFunction].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FSplitState].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FSplitState].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FState].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].columns.column[FState].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ConPayPlanSplit].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
     </resource>
 </dataTable>
