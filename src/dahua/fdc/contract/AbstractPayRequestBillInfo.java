@@ -1021,6 +1021,17 @@ public class AbstractPayRequestBillInfo extends com.kingdee.eas.fdc.basedata.FDC
         setString("extEnumField02", item.getValue());
 		}
     }
+    /**
+     * Object:付款申请单's 款项内容property 
+     */
+    public char getKxnr()
+    {
+        return ((Character)get("Kxnr")).charValue();
+    }
+    public void setKxnr(char item)
+    {
+        put("Kxnr", new Character(item));
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("C9A5A869");

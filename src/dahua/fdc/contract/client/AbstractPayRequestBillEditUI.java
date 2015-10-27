@@ -97,6 +97,7 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtAllInvoiceAmt;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contInvoiceOriAmt;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kdLplanState;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer8;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker dateCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox bizPromptAuditor;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtDesc;
@@ -142,6 +143,7 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtPlanUnCon;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtInvoiceOriAmt;
     protected com.kingdee.bos.ctrl.swing.KDComboBox kdDepPlanState;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea textKxnr;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnTaoPrint;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnCalc;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnPaymentPlan;
@@ -374,6 +376,7 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
         this.txtAllInvoiceAmt = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.contInvoiceOriAmt = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kdLplanState = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer8 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.dateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.bizPromptAuditor = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtDesc = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -419,6 +422,7 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
         this.prmtPlanUnCon = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtInvoiceOriAmt = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.kdDepPlanState = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.textKxnr = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.btnTaoPrint = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnCalc = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnPaymentPlan = new com.kingdee.bos.ctrl.swing.KDWorkButton();
@@ -493,6 +497,7 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
         this.txtAllInvoiceAmt.setName("txtAllInvoiceAmt");
         this.contInvoiceOriAmt.setName("contInvoiceOriAmt");
         this.kdLplanState.setName("kdLplanState");
+        this.kDLabelContainer8.setName("kDLabelContainer8");
         this.dateCreateTime.setName("dateCreateTime");
         this.bizPromptAuditor.setName("bizPromptAuditor");
         this.prmtDesc.setName("prmtDesc");
@@ -538,6 +543,7 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
         this.prmtPlanUnCon.setName("prmtPlanUnCon");
         this.txtInvoiceOriAmt.setName("txtInvoiceOriAmt");
         this.kdDepPlanState.setName("kdDepPlanState");
+        this.textKxnr.setName("textKxnr");
         this.btnTaoPrint.setName("btnTaoPrint");
         this.btnCalc.setName("btnCalc");
         this.btnPaymentPlan.setName("btnPaymentPlan");
@@ -844,6 +850,10 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
         this.kdLplanState.setBoundLabelLength(80);		
         this.kdLplanState.setBoundLabelUnderline(true);		
         this.kdLplanState.setEnabled(false);
+        // kDLabelContainer8		
+        this.kDLabelContainer8.setBoundLabelText(resHelper.getString("kDLabelContainer8.boundLabelText"));		
+        this.kDLabelContainer8.setBoundLabelLength(100);		
+        this.kDLabelContainer8.setBoundLabelUnderline(true);
         // dateCreateTime		
         this.dateCreateTime.setEnabled(false);		
         this.dateCreateTime.setVisible(true);
@@ -1213,6 +1223,7 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
         // kdDepPlanState		
         this.kdDepPlanState.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.contract.DepPlanStateEnum").toArray());		
         this.kdDepPlanState.setEnabled(false);
+        // textKxnr
         // btnTaoPrint
         this.btnTaoPrint.setAction((IItemAction)ActionProxyFactory.getProxy(actionTaoPrint, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnTaoPrint.setText(resHelper.getString("btnTaoPrint.text"));		
@@ -1339,8 +1350,8 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
         this.add(contDescription, new KDLayout.Constraints(12, 142, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCreator.setBounds(new Rectangle(10, 617, 470, 19));
         this.add(contCreator, new KDLayout.Constraints(10, 617, 470, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kdtEntrys.setBounds(new Rectangle(9, 429, 993, 183));
-        this.add(kdtEntrys, new KDLayout.Constraints(9, 429, 993, 183, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kdtEntrys.setBounds(new Rectangle(9, 476, 993, 136));
+        this.add(kdtEntrys, new KDLayout.Constraints(9, 476, 993, 136, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contuseDepartment.setBounds(new Rectangle(533, 35, 470, 19));
         this.add(contuseDepartment, new KDLayout.Constraints(533, 35, 470, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contpayDate.setBounds(new Rectangle(730, 67, 270, 19));
@@ -1393,8 +1404,8 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
         this.add(kDLabelContainer2, new KDLayout.Constraints(12, 92, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         chkIsPay.setBounds(new Rectangle(920, 242, 80, 19));
         this.add(chkIsPay, new KDLayout.Constraints(920, 242, 80, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDLabelContainer3.setBounds(new Rectangle(12, 374, 987, 47));
-        this.add(kDLabelContainer3, new KDLayout.Constraints(12, 374, 987, 47, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer3.setBounds(new Rectangle(10, 421, 987, 49));
+        this.add(kDLabelContainer3, new KDLayout.Constraints(10, 421, 987, 49, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer4.setBounds(new Rectangle(730, 242, 157, 19));
         this.add(kDLabelContainer4, new KDLayout.Constraints(730, 242, 157, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer5.setBounds(new Rectangle(731, 92, 270, 19));
@@ -1433,6 +1444,8 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
         this.add(contInvoiceOriAmt, new KDLayout.Constraints(380, 267, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kdLplanState.setBounds(new Rectangle(730, 319, 167, 19));
         this.add(kdLplanState, new KDLayout.Constraints(730, 319, 167, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer8.setBounds(new Rectangle(10, 379, 983, 37));
+        this.add(kDLabelContainer8, new KDLayout.Constraints(10, 379, 983, 37, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreateTime
         contCreateTime.setBoundEditor(dateCreateTime);
         //contAuditor
@@ -1523,6 +1536,8 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
         contInvoiceOriAmt.setBoundEditor(txtInvoiceOriAmt);
         //kdLplanState
         kdLplanState.setBoundEditor(kdDepPlanState);
+        //kDLabelContainer8
+        kDLabelContainer8.setBoundEditor(textKxnr);
 
     }
 
@@ -1656,9 +1671,8 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        
-        this.toolBar.add(btnSave);
         this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);
@@ -1681,8 +1695,8 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
         this.toolBar.add(btnWorkFlowG);
         this.toolBar.add(separatorFW4);
         this.toolBar.add(btnSignature);
-        this.toolBar.add(btnNumberSign);
         this.toolBar.add(separatorFW7);
+        this.toolBar.add(btnNumberSign);
         this.toolBar.add(btnViewSignature);
         this.toolBar.add(btnCreateFrom);
         this.toolBar.add(btnCopyFrom);
@@ -1761,7 +1775,8 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
 		dataBinder.registerBinding("planHasCon", com.kingdee.eas.fdc.finance.FDCDepConPayPlanContractInfo.class, this.prmtPlanHasCon, "data");
 		dataBinder.registerBinding("planUnCon", com.kingdee.eas.fdc.finance.FDCDepConPayPlanUnsettledConInfo.class, this.prmtPlanUnCon, "data");
 		dataBinder.registerBinding("invoiceOriAmt", java.math.BigDecimal.class, this.txtInvoiceOriAmt, "value");
-		dataBinder.registerBinding("depPlanState", com.kingdee.eas.fdc.contract.DepPlanStateEnum.class, this.kdDepPlanState, "selectedItem");		
+		dataBinder.registerBinding("depPlanState", com.kingdee.eas.fdc.contract.DepPlanStateEnum.class, this.kdDepPlanState, "selectedItem");
+		dataBinder.registerBinding("Kxnr", char.class, this.textKxnr, "text");		
 	}
 	//Regiester UI State
 	private void registerUIState(){
@@ -1944,7 +1959,8 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
 		getValidateHelper().registerBindProperty("planHasCon", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("planUnCon", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("invoiceOriAmt", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("depPlanState", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("depPlanState", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Kxnr", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -2360,6 +2376,7 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
 		}
         sic.add(new SelectorItemInfo("invoiceOriAmt"));
         sic.add(new SelectorItemInfo("depPlanState"));
+        sic.add(new SelectorItemInfo("Kxnr"));
         return sic;
     }        
     	
