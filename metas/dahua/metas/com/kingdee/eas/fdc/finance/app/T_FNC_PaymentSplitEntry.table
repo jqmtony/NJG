@@ -15,7 +15,7 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
@@ -581,6 +581,20 @@
             <scale>10</scale>
             <precision>28</precision>
         </column>
+        <column>
+            <name>CFProgrammingID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[CFProgrammingID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[CFProgrammingID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_PaymentSplitEnt</name>
@@ -618,468 +632,478 @@
     </foreignKeys>
     <resource>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="分錄" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[CFProgrammingID].alias">
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[CFProgrammingID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FAccountViewID].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FAccountViewID].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FAmount].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FAmount].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FApportionTotal].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FApportionTotal].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FApportionTypeID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FApportionTypeID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FApportionValue].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FApportionValue].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FChangeAmt].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FChangeAmt].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FContractAmt].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FContractAmt].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FCostAccountID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FCostAccountID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FCostAmt].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FCostAmt].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FCostBillID].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FCostBillID].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FCostWorkLoad].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FCostWorkLoad].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FDirectAmount].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FDirectAmount].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FDirectAmt].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FDirectAmt].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FDirectInvoiceAmt].alias">
-            <lang locale="zh_CN" value="直接发票金额" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="直接发票金额" />
             <lang locale="zh_HK" value="直接發票金額" />
             <lang locale="zh_TW" value="直接發票金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FDirectInvoiceAmt].description">
-            <lang locale="zh_CN" value="直接发票金额" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="直接发票金额" />
             <lang locale="zh_HK" value="直接發票金額" />
             <lang locale="zh_TW" value="直接發票金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FDirectPayedAmt].alias">
-            <lang locale="zh_CN" value="直接付款金额" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="直接付款金额" />
             <lang locale="zh_HK" value="直接付款金額" />
             <lang locale="zh_TW" value="直接付款金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FDirectPayedAmt].description">
-            <lang locale="zh_CN" value="直接付款金额" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="直接付款金额" />
             <lang locale="zh_HK" value="直接付款金額" />
             <lang locale="zh_TW" value="直接付款金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FDirectTotal].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FDirectTotal].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FIdxApportionID].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FIdxApportionID].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FIndex].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FIndex].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FInvoiceAmt].alias">
-            <lang locale="zh_CN" value="归属发票金额" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="归属发票金额" />
             <lang locale="zh_HK" value="歸屬發票金額" />
             <lang locale="zh_TW" value="歸屬發票金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FInvoiceAmt].description">
-            <lang locale="zh_CN" value="归属发票金额" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="归属发票金额" />
             <lang locale="zh_HK" value="歸屬發票金額" />
             <lang locale="zh_TW" value="歸屬發票金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FIsAddlAccount].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FIsAddlAccount].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FIsApportion].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FIsApportion].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FIsLeaf].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FIsLeaf].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FLevel].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FLevel].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FOtherRatioTotal].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FOtherRatioTotal].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FOtherRatio].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FOtherRatio].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FParentID].alias">
-            <lang locale="zh_CN" value="父ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="父ID" />
             <lang locale="zh_HK" value="父ID" />
             <lang locale="zh_TW" value="父ID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FParentID].description">
-            <lang locale="zh_CN" value="单据头ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据头ID" />
             <lang locale="zh_HK" value="單據頭ID" />
             <lang locale="zh_TW" value="單據頭ID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FPayedAmt].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FPayedAmt].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FPrice].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FPrice].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FProductID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FProductID].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FQualityAmount].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FQualityAmount].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSeq].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSeq].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FShouldPayAmt].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FShouldPayAmt].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitBillId].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitBillId].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitQualityAmt].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitQualityAmt].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitScale].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitScale].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitType].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitType].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitedCostAmt].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitedCostAmt].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitedInvoiceAmt].alias">
-            <lang locale="zh_CN" value="已拆分发票金额" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已拆分发票金额" />
             <lang locale="zh_HK" value="已拆分發票金額" />
             <lang locale="zh_TW" value="已拆分發票金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitedInvoiceAmt].description">
-            <lang locale="zh_CN" value="已拆分发票金额" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已拆分发票金额" />
             <lang locale="zh_HK" value="已拆分發票金額" />
             <lang locale="zh_TW" value="已拆分發票金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitedPayedAmt].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FSplitedPayedAmt].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FWorkLoad].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].columns.column[FWorkLoad].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_PaymentSplitEntry].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="分錄" />
-            <lang locale="en_US" value="null" />
         </rs>
     </resource>
 </dataTable>
