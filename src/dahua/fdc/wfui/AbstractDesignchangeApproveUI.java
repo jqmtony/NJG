@@ -157,8 +157,8 @@ public abstract class AbstractDesignchangeApproveUI extends com.kingdee.eas.fram
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
         kDTable1.setBounds(new Rectangle(186, 47, 619, 574));
         this.add(kDTable1, new KDLayout.Constraints(186, 47, 619, 574, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer1.setBounds(new Rectangle(183, 16, 270, 19));
-        this.add(kDLabelContainer1, new KDLayout.Constraints(183, 16, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer1.setBounds(new Rectangle(186, 16, 270, 19));
+        this.add(kDLabelContainer1, new KDLayout.Constraints(186, 16, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer2.setBounds(new Rectangle(536, 15, 270, 19));
         this.add(kDLabelContainer2, new KDLayout.Constraints(536, 15, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //kDLabelContainer1

@@ -12,12 +12,16 @@ import org.apache.log4j.Logger;
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
+import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
 import com.kingdee.eas.framework.*;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
  * 工程指令单审批界面
@@ -43,30 +47,27 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     
     private void initUI() throws BOSException, SQLException{
     	
+    	//新增布尔控件
+    	KDCheckBox cb = new KDCheckBox();
+    	KDTDefaultCellEditor editor = new KDTDefaultCellEditor(cb);
+    	
     	this.kDTable1.addColumns(4);
     	KDTMergeManager mergeManager = kDTable1.getMergeManager();
     	IRow addRow1 = this.kDTable1.addRow();
     	addRow1.getCell(0).setValue("项目名称");
-    	addRow1.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRow1.getCell(2).setValue("核定编号");
-    	addRow1.getCell(2).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	
     	IRow addRow2 = this.kDTable1.addRow();
     	addRow2.getCell(0).setValue("合同编号");
-    	addRow2.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	mergeManager.mergeBlock(1, 1, 1, 3);
     	
     	IRow addRow3 = this.kDTable1.addRow();
     	addRow3.getCell(0).setValue("建设单位");
-    	addRow3.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRow3.getCell(2).setValue("工程图纸编号");
-    	addRow3.getCell(2).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	
     	IRow addRow4 = this.kDTable1.addRow();
     	addRow4.getCell(0).setValue("主送");
-    	addRow4.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRow4.getCell(2).setValue("抄送");
-    	addRow4.getCell(2).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	
     	IRow addRow5 = this.kDTable1.addRow();
     	addRow5.getCell(0).setValue("内容");
@@ -80,13 +81,10 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	
     	IRow addRow9 = this.kDTable1.addRow();
     	addRow9.getCell(2).setValue("工程部印章：");
-    	addRow9.getCell(2).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	IRow addRow10 = this.kDTable1.addRow();
     	
     	addRow10.getCell(0).setValue("经办人");
-    	addRow10.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRow10.getCell(2).setValue("工程部经理");
-    	addRow10.getCell(2).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	
     	
     	this.kDTable1.getColumn(0).setWidth(201);
@@ -100,56 +98,62 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	
     	IRow addRow21 = this.kDTable2.addRow();
     	addRow21.getCell(0).setValue("合同名称");
-    	addRow21.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	mergeManager2.mergeBlock(0, 2, 0, 9);
     	mergeManager2.mergeBlock(0, 0, 0, 1);
     	
     	IRow addRow22 = this.kDTable2.addRow();
     	addRow22.getCell(0).setValue("合同编号");
-    	addRow22.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	mergeManager2.mergeBlock(1, 2, 1, 9);
     	mergeManager2.mergeBlock(1, 0, 1, 1);
+    	addRow22.getCell(10).setValue("提出时间");
     	
     	IRow addRow23 = this.kDTable2.addRow();
     	addRow23.getCell(0).setValue("提出方");
-    	addRow23.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	mergeManager2.mergeBlock(2, 0, 2, 1);
-    	
-    	addRow23.getCell(2).setValue("XX");
+    	addRow23.getCell(2).setEditor(editor);
+    	addRow23.getCell(2).setValue(Boolean.FALSE);
     	mergeManager2.mergeBlock(2, 2, 2, 3);
+    	
     	addRow23.getCell(4).setValue("设计部");
-    	addRow23.getCell(4).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
-    	addRow23.getCell(5).setValue("XX");
+//    	addRow23.getCell(5).setValue("XX");
+    	addRow23.getCell(5).setEditor(editor);
+    	addRow23.getCell(5).setValue(Boolean.FALSE);
     	addRow23.getCell(6).setValue("工程部");
-    	addRow23.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
-    	addRow23.getCell(7).setValue("XX");
+//    	addRow23.getCell(7).setValue("XX");
+    	addRow23.getCell(7).setEditor(editor);
+    	addRow23.getCell(7).setValue(Boolean.FALSE);
     	addRow23.getCell(8).setValue("前期配套部");
-    	addRow23.getCell(8).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
-    	addRow23.getCell(9).setValue("XX");
+//    	addRow23.getCell(9).setValue("XX");
+    	addRow23.getCell(9).setEditor(editor);
+    	addRow23.getCell(9).setValue(Boolean.FALSE);
     	addRow23.getCell(10).setValue("销售部");
-    	addRow23.getCell(10).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
-    	addRow23.getCell(11).setValue("XX");
+//    	addRow23.getCell(11).setValue("XX");
+    	addRow23.getCell(11).setEditor(editor);
+    	addRow23.getCell(11).setValue(Boolean.FALSE);
     	addRow23.getCell(12).setValue("其他");
-    	addRow23.getCell(12).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	
     	IRow addRow24 = this.kDTable2.addRow();
     	addRow24.getCell(0).setValue("工程部");
     	addRow24.getCell(2).setValue("发起原因及内容：");
-    	mergeManager2.mergeBlock(3, 0, 5, 1);
-    	mergeManager2.mergeBlock(3, 2, 5, 12);
     	IRow addRow25 = this.kDTable2.addRow();
-    	mergeManager2.mergeBlock(3, 0, 5, 1);
-    	mergeManager2.mergeBlock(3, 2, 5, 12);
     	IRow addRow26 = this.kDTable2.addRow();
+    	addRow26.getCell(2).setValue("是否影响二级及以上节点：");
+    	mergeManager2.mergeBlock(5, 2, 5, 4);
+    	addRow26.getCell(5).setEditor(editor);
+    	addRow26.getCell(5).setValue(Boolean.FALSE);
+    	addRow26.getCell(6).setValue("是");
+    	addRow26.getCell(7).setEditor(editor);
+    	addRow26.getCell(7).setValue(Boolean.FALSE);
+    	addRow26.getCell(8).setValue("否");
+    	mergeManager2.mergeBlock(5, 8, 5, 12);
+    	
     	mergeManager2.mergeBlock(3, 0, 5, 1);
-    	mergeManager2.mergeBlock(3, 2, 5, 12);
+    	mergeManager2.mergeBlock(3, 2, 4, 12);
     	
     	IRow addRow27 = this.kDTable2.addRow();
     	addRow27.getCell(0).setValue("部门意见");
-    	addRow27.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRow27.getCell(2).setValue("部门");
     	mergeManager2.mergeBlock(6, 2, 6, 3);
-    	mergeManager2.mergeBlock(6, 0, 16, 1);
     	addRow27.getCell(4).setValue("预估产生影响");
     	mergeManager2.mergeBlock(6, 4, 6, 10);
     	addRow27.getCell(11).setValue("负责人");
@@ -158,141 +162,205 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	IRow addRow28 = this.kDTable2.addRow();
     	addRow28.getCell(2).setValue("设计部");
     	addRow28.getCell(4).setValue("产品品质：");
-    	addRow28.getCell(5).setValue("XX");
+//    	addRow28.getCell(5).setValue("XX");
+    	addRow28.getCell(5).setEditor(editor);
+    	addRow28.getCell(5).setValue(Boolean.FALSE);
     	addRow28.getCell(6).setValue("提高");
-    	addRow28.getCell(7).setValue("XX");
+//    	addRow28.getCell(7).setValue("XX");
+    	addRow28.getCell(7).setEditor(editor);
+    	addRow28.getCell(7).setValue(Boolean.FALSE);
     	addRow28.getCell(8).setValue("降低");
-    	addRow28.getCell(9).setValue("XX");
+//    	addRow28.getCell(9).setValue("XX");
+    	addRow28.getCell(9).setEditor(editor);
+    	addRow28.getCell(9).setValue(Boolean.FALSE);
     	addRow28.getCell(10).setValue("无影响");
-    	mergeManager2.mergeBlock(6, 0, 16, 1);
     	mergeManager2.mergeBlock(7, 2, 7, 3);
     	IRow addRow29 = this.kDTable2.addRow();//--
     	addRow29.getCell(2).setValue("工程部");
-    	addRow29.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRow29.getCell(4).setValue("工期：");
-    	addRow29.getCell(5).setValue("XX");
+//    	addRow29.getCell(5).setValue("XX");
+    	addRow29.getCell(5).setEditor(editor);
+    	addRow29.getCell(5).setValue(Boolean.FALSE);
     	addRow29.getCell(6).setValue("缩短");
-    	addRow29.getCell(7).setValue("XX");
+//    	addRow29.getCell(7).setValue("XX");
+    	addRow29.getCell(7).setEditor(editor);
+    	addRow29.getCell(7).setValue(Boolean.FALSE);
     	addRow29.getCell(8).setValue("延长");
-    	addRow29.getCell(9).setValue("XX");
+//    	addRow29.getCell(9).setValue("XX");
+    	addRow29.getCell(9).setEditor(editor);
+    	addRow29.getCell(9).setValue(Boolean.FALSE);
     	addRow29.getCell(10).setValue("无影响");
-    	mergeManager2.mergeBlock(6, 0, 16, 1);
-    	mergeManager2.mergeBlock(8, 2, 9, 2);
-    	mergeManager2.mergeBlock(8, 3, 9, 3);
+    	mergeManager2.mergeBlock(8, 2, 9, 3);
     	IRow addRow210 = this.kDTable2.addRow();
     	addRow210.getCell(4).setValue("是否返工：");
-    	addRow210.getCell(5).setValue("XX");
+//    	addRow210.getCell(5).setValue("XX");
+    	addRow210.getCell(5).setEditor(editor);
+    	addRow210.getCell(5).setValue(Boolean.FALSE);
     	addRow210.getCell(6).setValue("需要返工");
-    	addRow210.getCell(7).setValue("XX");
+//    	addRow210.getCell(7).setValue("XX");
+    	addRow210.getCell(7).setEditor(editor);
+    	addRow210.getCell(7).setValue(Boolean.FALSE);
     	addRow210.getCell(8).setValue("不需要返工");
-    	mergeManager2.mergeBlock(6, 0, 16, 1);
-    	mergeManager2.mergeBlock(8, 2, 9, 2);
-    	mergeManager2.mergeBlock(8, 3, 9, 3);
+    	mergeManager2.mergeBlock(8, 2, 9, 3);
+    	
     	IRow addRow211 = this.kDTable2.addRow();
     	addRow211.getCell(2).setValue("销售部");
     	addRow211.getCell(4).setValue("销售：");
-    	addRow211.getCell(5).setValue("XX");
+//    	addRow211.getCell(5).setValue("XX");
+    	addRow211.getCell(5).setEditor(editor);
+    	addRow211.getCell(5).setValue(Boolean.FALSE);
     	addRow211.getCell(6).setValue("有利");
     	addRow211.getCell(7).setValue("XX");
+    	addRow211.getCell(7).setEditor(editor);
+    	addRow211.getCell(7).setValue(Boolean.FALSE);
     	addRow211.getCell(8).setValue("不利");
-    	addRow211.getCell(9).setValue("XX");
-    	addRow211.getCell(10).setValue("无影响");
-    	mergeManager2.mergeBlock(6, 0, 16, 0);
-    	mergeManager2.mergeBlock(6, 1, 16, 1);
     	mergeManager2.mergeBlock(10, 2, 10, 3);
+    	
     	IRow addRow212 = this.kDTable2.addRow();
-    	addRow212.getCell(2).setValue("前期配套部");
-    	mergeManager2.mergeBlock(6, 0, 16, 0);
-    	mergeManager2.mergeBlock(6, 1, 16, 1);
-    	mergeManager2.mergeBlock(11, 2, 11, 3);
+    	addRow212.getCell(4).setValue("销售承诺");
+    	addRow212.getCell(5).setEditor(editor);
+    	addRow212.getCell(5).setValue(Boolean.FALSE);
+    	addRow212.getCell(6).setValue("影响");
+    	addRow212.getCell(7).setEditor(editor);
+    	addRow212.getCell(7).setValue(Boolean.FALSE);
+    	addRow212.getCell(8).setValue("无影响");
+    	
+    	
+
+    	mergeManager2.mergeBlock(10, 2, 11, 3);
     	
     	IRow addRow213 = this.kDTable2.addRow();
-    	addRow213.getCell(2).setValue("合约部");
-    	addRow213.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
-    	mergeManager2.mergeBlock(6, 0, 16, 0);
-    	mergeManager2.mergeBlock(6, 1, 16, 1);
-    	mergeManager2.mergeBlock(12, 2, 16, 2);
-    	mergeManager2.mergeBlock(12, 3, 16, 3);
-    	addRow213.getCell(4).setValue("估算工程费增减总价：");
-    	addRow213.getCell(10).setValue("万元");
-    	mergeManager2.mergeBlock(12, 4, 12, 8);
+    	
+    	addRow213.getCell(2).setValue("前期配套部");
+    	addRow213.getCell(4).setValue("报建指标");
+    	addRow213.getCell(5).setEditor(editor);
+    	addRow213.getCell(5).setValue(Boolean.FALSE);
+    	addRow213.getCell(6).setValue("影响");
+    	addRow213.getCell(7).setEditor(editor);
+    	addRow213.getCell(7).setValue(Boolean.FALSE);
+    	addRow213.getCell(8).setValue("无影响");
+    	mergeManager2.mergeBlock(12, 2, 12, 3);
+    	
+    	
     	IRow addRow214 = this.kDTable2.addRow();
-    	mergeManager2.mergeBlock(6, 0, 16, 0);
-    	mergeManager2.mergeBlock(6, 1, 16, 1);
-    	mergeManager2.mergeBlock(12, 2, 16, 2);
-    	mergeManager2.mergeBlock(12, 3, 16, 3);
-    	addRow214.getCell(4).setValue("其中返工造成的签证费用估算：");
+    	addRow214.getCell(2).setValue("成 本 部");
+    	addRow214.getCell(4).setValue("估算工程费增减总价：");
     	addRow214.getCell(10).setValue("万元");
     	mergeManager2.mergeBlock(13, 4, 13, 8);
+    	
+    	
+    	
     	IRow addRow215 = this.kDTable2.addRow();
-    	mergeManager2.mergeBlock(6, 0, 16, 0);
-    	mergeManager2.mergeBlock(6, 1, 16, 1);
-    	mergeManager2.mergeBlock(12, 2, 16, 2);
-    	mergeManager2.mergeBlock(12, 3, 16, 3);
-    	addRow215.getCell(4).setValue("本次变更累计占合同价的百分比");
-    	addRow215.getCell(10).setValue("%");
+    	addRow215.getCell(4).setValue("其中返工造成的签证费用估算：");
+    	addRow215.getCell(10).setValue("万元");
     	mergeManager2.mergeBlock(14, 4, 14, 8);
     	IRow addRow216 = this.kDTable2.addRow();
-    	mergeManager2.mergeBlock(6, 0, 16, 0);
-    	mergeManager2.mergeBlock(6, 1, 16, 1);
-    	mergeManager2.mergeBlock(12, 2, 16, 2);
-    	mergeManager2.mergeBlock(12, 3, 16, 3);
-    	addRow216.getCell(4).setValue("截至目前变更累计占合同价百分比");
+    	addRow216.getCell(4).setValue("本次变更累计占合同价的百分比");
     	addRow216.getCell(10).setValue("%");
     	mergeManager2.mergeBlock(15, 4, 15, 8);
+    	
     	IRow addRow217 = this.kDTable2.addRow();
-    	mergeManager2.mergeBlock(6, 0, 16, 0);
-    	mergeManager2.mergeBlock(6, 1, 16, 1);
-    	mergeManager2.mergeBlock(12, 2, 16, 2);
-    	mergeManager2.mergeBlock(12, 3, 16, 3);
-    	addRow217.getCell(4).setValue("变更后合同金额是否超出目标成本限额");
-    	addRow217.getCell(9).setValue("XX");
+    	addRow217.getCell(4).setValue("截至目前变更累计占合同价百分比");
+    	addRow217.getCell(10).setValue("%");
     	mergeManager2.mergeBlock(16, 4, 16, 8);
     	
     	IRow addRow218 = this.kDTable2.addRow();
-    	addRow218.getCell(0).setValue("公司第一负责人：");
-    	addRow218.getCell(2).setValue("（项目公司负责人意见）");
-    	mergeManager2.mergeBlock(17, 2, 17, 12);
-//    	mergeManager2.mergeBlock(17, 0, 18, 1);
-    	IRow addRow219 = this.kDTable2.addRow();
+    	addRow218.getCell(4).setValue("变更后合同金额是否超出目标成本限额");
+    	addRow218.getCell(7).setEditor(editor);
+    	addRow218.getCell(7).setValue(Boolean.FALSE);
+    	addRow218.getCell(8).setValue("是");
+    	addRow218.getCell(9).setEditor(editor);
+    	addRow218.getCell(9).setValue(Boolean.FALSE);
+    	addRow218.getCell(10).setValue("否");
+    	mergeManager2.mergeBlock(17, 4, 17, 6);
     	
-    	mergeManager2.mergeBlock(17, 0, 18, 1);
-    	addRow219.getCell(2).setValue("第一负责人签字：");
-    	mergeManager2.mergeBlock(18, 2, 18, 3);
-    	mergeManager2.mergeBlock(18, 4, 18, 10);
-    	addRow219.getCell(11).setValue("日期：");
+    	mergeManager2.mergeBlock(13, 2, 17, 3);
+    	mergeManager2.mergeBlock(6, 0, 17, 1);
+    	
+    	
+    	
+    	IRow addRow219 = this.kDTable2.addRow();
+    	addRow219.getCell(0).setValue("公司第一负责人:");
     	
     	IRow addRow220 = this.kDTable2.addRow();
-    	addRow220.getCell(0).setValue("第一负责人签字：");
-    	addRow220.getCell(2).setValue("工程管理部：");
-    	mergeManager2.mergeBlock(19, 2, 19, 3);
-    	mergeManager2.mergeBlock(19, 4, 19, 10);
-    	addRow220.getCell(11).setValue("合约审算部：");
+    	mergeManager2.mergeBlock(18, 2, 19, 12);
+    	
     	IRow addRow221 = this.kDTable2.addRow();
-    	mergeManager2.mergeBlock(19, 0, 20, 1);
-    	addRow221.getCell(2).setValue("中心负责人：");
-    	mergeManager2.mergeBlock(20, 2, 20, 3);
-    	mergeManager2.mergeBlock(20, 4, 20, 10);
-    	addRow221.getCell(11).setValue("分管副总裁审批：");
+    	
+    	addRow221.getCell(8).setValue("第一负责人签字:");
+    	addRow221.getCell(11).setValue("日期");
+    	
+    	mergeManager2.mergeBlock(20, 2, 20, 7);
+    	mergeManager2.mergeBlock(20, 8, 20, 9);
+    	mergeManager2.mergeBlock(18, 0, 20, 1);
+//    	
+    	IRow addRow222 = this.kDTable2.addRow();
+    	addRow222.getCell(2).setValue("工程管理中心");
+    	mergeManager2.mergeBlock(21, 4, 21, 12);
+    	IRow addRow223 = this.kDTable2.addRow();
+    	addRow223.getCell(2).setValue("成本管理中心");
+    	mergeManager2.mergeBlock(22, 4, 22, 12);
+    	IRow addRow224 = this.kDTable2.addRow();
+    	addRow224.getCell(2).setValue("营销管理中心");
+    	mergeManager2.mergeBlock(23, 4, 23, 12);
+    	IRow addRow225 = this.kDTable2.addRow();
+    	addRow225.getCell(2).setValue("商业管理中心");
+    	mergeManager2.mergeBlock(24, 4, 24, 12);
+    	IRow addRow226 = this.kDTable2.addRow();
+    	addRow226.getCell(0).setValue("审阅栏");
+    	addRow226.getCell(2).setValue("运营管理中心");
+    	mergeManager2.mergeBlock(25, 4, 25, 12);
+    	mergeManager2.mergeBlock(21, 0, 25, 1);
+    	
+    	IRow addRow227 = this.kDTable2.addRow();
+    	addRow227.getCell(2).setValue("工程成本副总裁");
+    	mergeManager2.mergeBlock(26, 4, 26, 12);
+    	IRow addRow228 = this.kDTable2.addRow();
+    	addRow228.getCell(2).setValue("执行副总裁");
+    	mergeManager2.mergeBlock(27, 4, 27, 12);
+    	IRow addRow229 = this.kDTable2.addRow();
+    	addRow229.getCell(0).setValue("审批栏");
+    	addRow229.getCell(2).setValue("总裁");
+    	mergeManager2.mergeBlock(28, 4, 28, 12);
+    	mergeManager2.mergeBlock(26, 0, 28, 1);
+    	
+    	
     	
     	this.kDTable2.getColumn(0).setWidth(70);
     	this.kDTable2.getColumn(1).setWidth(20);
-    	this.kDTable2.getColumn(2).setWidth(85);
-    	this.kDTable2.getColumn(3).setWidth(20);
-    	this.kDTable2.getColumn(4).setWidth(70);
+    	this.kDTable2.getColumn(2).setWidth(90);
+    	this.kDTable2.getColumn(3).setWidth(1);
+    	this.kDTable2.getColumn(4).setWidth(80);
     	this.kDTable2.getColumn(5).setWidth(50);
-    	this.kDTable2.getColumn(6).setWidth(70);
+    	this.kDTable2.getColumn(6).setWidth(80);
     	this.kDTable2.getColumn(7).setWidth(50);
     	this.kDTable2.getColumn(8).setWidth(70);
     	this.kDTable2.getColumn(9).setWidth(50);
-    	this.kDTable2.getColumn(10).setWidth(70);
-    	this.kDTable2.getColumn(11).setWidth(110);
+    	this.kDTable2.getColumn(10).setWidth(75);
+    	this.kDTable2.getColumn(11).setWidth(70);
     	this.kDTable2.getColumn(12).setWidth(75);
     	this.kDTable2.getIndexColumn().getStyleAttributes().setHided(true);
     	
-    	String billId = "FrYcumfRTUq/iL87J1M2VXARYRc=";
-//    	StringBuffer sb = new StringBuffer();
-//    	sb.append("  select ChangeAB.FCurProjectName ,ChangeAB.FNumber ,ChangeAB.Fname ,BaseU.Fname_l2 ,");
+    	String billId = "NuDk97fJRYGlkjRCTg9zcnARYRc=";
+    	StringBuffer sb = new StringBuffer();
+    	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 申请编号2 ,ChangeAB.CFPutForwardTime 提出时间, ChangeAB.Freadesc 事由,BaseU.Fname_l2 提出部门,");
+    	sb.append(" contractB.fname 合同名称6,contractB.fnumber 合同编号7,ChangeAB.FAuditTypeID 变更类型,");
+    	sb.append(" ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
+    	sb.append(" from T_CON_ChangeAuditBill ChangeAB");
+    	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
+    	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
+    	sb.append(" left join T_CON_ChangeSupplierEntry ChangeSE on ChangeAB.fid=ChangeSE.FParentID");
+    	sb.append(" left join T_CON_ContractBill contractB on contractB.fid=ChangeSE.FContractBillID");
+    	sb.append(" where ChangeAB.fid = '").append(billId).append("'");
+    	
+    	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
+    	while(rowset.next()){
+    		this.kDTable1.getCell(0, 1).setValue(rowset.getString(1));
+    		this.kDTable1.getCell(0, 3).setValue(rowset.getString(2));
+    		this.kDTable1.getCell(1, 1).setValue(rowset.getString(7));
+    		this.kDTable2.getCell(0, 2).setValue(rowset.getString(6));
+    		this.kDTable2.getCell(1, 2).setValue(rowset.getString(7));
+    	}
     	
     	
     	//工作流审批意见
