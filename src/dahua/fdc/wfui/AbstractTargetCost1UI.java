@@ -43,15 +43,15 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 /**
  * output class name
  */
-public abstract class AbstractTargetCostUI extends com.kingdee.eas.framework.client.EditUI
+public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.client.EditUI
 {
-    private static final Logger logger = CoreUIObject.getLogger(AbstractTargetCostUI.class);
+    private static final Logger logger = CoreUIObject.getLogger(AbstractTargetCost1UI.class);
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
-    protected com.kingdee.eas.fdc.aimcost.AimCostInfo editData = null;
+    protected com.kingdee.eas.framework.CoreBaseInfo editData = null;
     /**
      * output class constructor
      */
-    public AbstractTargetCostUI() throws Exception
+    public AbstractTargetCost1UI() throws Exception
     {
         super();
         this.defaultObjectName = "editData";
@@ -65,7 +65,7 @@ public abstract class AbstractTargetCostUI extends com.kingdee.eas.framework.cli
      */
     private void jbInit() throws Exception
     {
-        this.resHelper = new ResourceBundleHelper(AbstractTargetCostUI.class.getName());
+        this.resHelper = new ResourceBundleHelper(AbstractTargetCost1UI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
         this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDTable1.setName("kDTable1");
@@ -125,8 +125,8 @@ public abstract class AbstractTargetCostUI extends com.kingdee.eas.framework.cli
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        kDTable1.setBounds(new Rectangle(143, 2, 759, 628));
-        this.add(kDTable1, new KDLayout.Constraints(143, 2, 759, 628, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDTable1.setBounds(new Rectangle(187, 0, 655, 630));
+        this.add(kDTable1, new KDLayout.Constraints(187, 0, 655, 630, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
 
     }
 
@@ -241,7 +241,7 @@ public abstract class AbstractTargetCostUI extends com.kingdee.eas.framework.cli
 	private void registerUIState(){		
 	}
 	public String getUIHandlerClassName() {
-	    return "com.kingdee.eas.fdc.wfui.TargetCostUIHandler";
+	    return "com.kingdee.eas.fdc.wfui.TargetCost1UIHandler";
 	}
 	public IUIActionPostman prepareInit() {
 		IUIActionPostman clientHanlder = super.prepareInit();
@@ -272,7 +272,7 @@ public abstract class AbstractTargetCostUI extends com.kingdee.eas.framework.cli
     {
         IObjectValue ov = dataObject;        	    	
         super.setDataObject(ov);
-        this.editData = (com.kingdee.eas.fdc.aimcost.AimCostInfo)ov;
+        this.editData = (com.kingdee.eas.framework.CoreBaseInfo)ov;
     }
 
     /**
@@ -329,7 +329,7 @@ public abstract class AbstractTargetCostUI extends com.kingdee.eas.framework.cli
      */
     public IMetaDataPK getMetaDataPK()
     {
-        return new MetaDataPK("com.kingdee.eas.fdc.wfui", "TargetCostUI");
+        return new MetaDataPK("com.kingdee.eas.fdc.wfui", "TargetCost1UI");
     }
 
 

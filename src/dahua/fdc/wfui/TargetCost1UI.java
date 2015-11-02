@@ -13,26 +13,24 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
-import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
 import com.kingdee.eas.framework.*;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
- * 目标成本单审批界面（方案版）
+ * 目标成本单审批界面（执行版）
  * output class name
  */
-public class TargetCostUI extends AbstractTargetCostUI
+public class TargetCost1UI extends AbstractTargetCost1UI
 {
-    private static final Logger logger = CoreUIObject.getLogger(TargetCostUI.class);
+    private static final Logger logger = CoreUIObject.getLogger(TargetCost1UI.class);
     
     /**
      * output class constructor
      */
-    public TargetCostUI() throws Exception
+    public TargetCost1UI() throws Exception
     {
         super();
     }
@@ -63,15 +61,9 @@ public class TargetCostUI extends AbstractTargetCostUI
     	addrow1.getCell(1).setValue("营业收入:");
     	addrow1.getCell(1).getStyleAttributes().setLocked(true);
     	addrow1.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
-    	addrow1.getCell(3).setValue("项目利润总额:");
+    	addrow1.getCell(3).setValue("项目开发成本:");
     	addrow1.getCell(3).getStyleAttributes().setLocked(true);
     	addrow1.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
-    	addrow1.getCell(5).setValue("企业所得税:");
-    	addrow1.getCell(5).getStyleAttributes().setLocked(true);
-    	addrow1.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
-    	addrow1.getCell(7).setValue("项目净利润:");
-    	addrow1.getCell(7).getStyleAttributes().setLocked(true);
-    	addrow1.getCell(7).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	
     	//第二行
     	IRow addrow2 = kDTable1.addRow();
@@ -159,13 +151,13 @@ public class TargetCostUI extends AbstractTargetCostUI
     	addrow9.getCell(0).setValue("集团审核部门:");
     	addrow9.getCell(0).getStyleAttributes().setLocked(true);
     	addrow9.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
-    	addrow9.getCell(1).setValue("成本管理中心:");
+    	addrow9.getCell(1).setValue("设计管理中心:");
     	addrow9.getCell(1).getStyleAttributes().setLocked(true);
     	addrow9.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
-    	addrow9.getCell(3).setValue("设计管理中心:");
+    	addrow9.getCell(3).setValue("营销管理中心:");
     	addrow9.getCell(3).getStyleAttributes().setLocked(true);
     	addrow9.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
-    	addrow9.getCell(5).setValue("营销管理中心:");
+    	addrow9.getCell(5).setValue("工程管理中心:");
     	addrow9.getCell(5).getStyleAttributes().setLocked(true);
     	addrow9.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	mergeManager.mergeBlock(8, 0, 9, 0);  //第六行到第九行融合
@@ -175,7 +167,7 @@ public class TargetCostUI extends AbstractTargetCostUI
     	addrow10.getCell(0).setValue("集团审核部门:");
     	addrow10.getCell(0).getStyleAttributes().setLocked(true);
     	addrow10.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
-    	addrow10.getCell(1).setValue("工程管理中心:");
+    	addrow10.getCell(1).setValue("成本管理中心:");
     	addrow10.getCell(1).getStyleAttributes().setLocked(true);
     	addrow10.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow10.getCell(3).setValue("运营管理中心:");
@@ -197,6 +189,9 @@ public class TargetCostUI extends AbstractTargetCostUI
     	addrow11.getCell(3).setValue("执行副总裁:");
     	addrow11.getCell(3).getStyleAttributes().setLocked(true);
     	addrow11.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+    	addrow11.getCell(5).setValue("总裁:");
+    	addrow11.getCell(5).getStyleAttributes().setLocked(true);
+    	addrow11.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	//第十一行
     	IRow addrow12 = kDTable1.addRow();
     	mergeManager.mergeBlock(11, 0, 11, 8);  //第1列到第九列融合
@@ -236,16 +231,18 @@ public class TargetCostUI extends AbstractTargetCostUI
     	this.kDTable1.getCell(7, 2).setValue(apporveResultForMap.get("公司负责人"));
     	this.kDTable1.getCell(7, 4).setValue(apporveResultForMap.get("城市公司负责人"));
     	this.kDTable1.getCell(7, 6).setValue(apporveResultForMap.get("地区总部负责人"));
-    	this.kDTable1.getCell(8, 2).setValue(apporveResultForMap.get("成本管理中心"));
-    	this.kDTable1.getCell(8, 4).setValue(apporveResultForMap.get("设计管理中心"));
-    	this.kDTable1.getCell(8, 6).setValue(apporveResultForMap.get("营销管理中心"));
-    	this.kDTable1.getCell(9, 2).setValue(apporveResultForMap.get("工程管理中心"));
+    	this.kDTable1.getCell(8, 2).setValue(apporveResultForMap.get("设计管理中心"));
+    	this.kDTable1.getCell(8, 4).setValue(apporveResultForMap.get("营销管理中心"));
+    	this.kDTable1.getCell(8, 6).setValue(apporveResultForMap.get("工程管理中心"));
+    	this.kDTable1.getCell(9, 2).setValue(apporveResultForMap.get("成本管理中心"));
     	this.kDTable1.getCell(9, 4).setValue(apporveResultForMap.get("运营管理中心"));
     	this.kDTable1.getCell(9, 6).setValue(apporveResultForMap.get("财务管理中心"));
     	this.kDTable1.getCell(10, 2).setValue(apporveResultForMap.get("工程成本副总裁"));
-    	this.kDTable1.getCell(10, 4).setValue(apporveResultForMap.get("执行副总裁"));
-    	this.kDTable1.getCell(11, 1).setValue(apporveResultForMap.get("业务日期"));
+    	this.kDTable1.getCell(10, 4).setValue(apporveResultForMap.get("执行"));
+    	this.kDTable1.getCell(11, 1).setValue(apporveResultForMap.get("业务副总裁"));
+    	this.kDTable1.getCell(10, 6).setValue(apporveResultForMap.get("总裁日期"));
 	}
+
 
     /**
      * output actionPageSetup_actionPerformed
