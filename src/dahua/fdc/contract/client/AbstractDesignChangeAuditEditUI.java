@@ -76,6 +76,7 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer conttotalChangeAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contdesignChangeAmount;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contchangeEstimate;
+    protected com.kingdee.bos.ctrl.swing.KDButton btnCostIndex;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
@@ -353,6 +354,7 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.conttotalChangeAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contdesignChangeAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contchangeEstimate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.btnCostIndex = new com.kingdee.bos.ctrl.swing.KDButton();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -465,6 +467,7 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.conttotalChangeAmount.setName("conttotalChangeAmount");
         this.contdesignChangeAmount.setName("contdesignChangeAmount");
         this.contchangeEstimate.setName("contchangeEstimate");
+        this.btnCostIndex.setName("btnCostIndex");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.txtNumber.setName("txtNumber");
@@ -686,6 +689,20 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.contchangeEstimate.setBoundLabelText(resHelper.getString("contchangeEstimate.boundLabelText"));		
         this.contchangeEstimate.setBoundLabelLength(100);		
         this.contchangeEstimate.setBoundLabelUnderline(true);
+        // btnCostIndex		
+        this.btnCostIndex.setText(resHelper.getString("btnCostIndex.text"));
+        this.btnCostIndex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    btnCostIndex_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setDisplayFormat("$name$");		
@@ -1150,8 +1167,8 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.add(contName, new KDLayout.Constraints(377, 36, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAuditTime.setBounds(new Rectangle(377, 563, 270, 19));
         this.add(contAuditTime, new KDLayout.Constraints(377, 563, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCurProject.setBounds(new Rectangle(520, 12, 480, 19));
-        this.add(contCurProject, new KDLayout.Constraints(520, 12, 480, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contCurProject.setBounds(new Rectangle(730, 12, 270, 19));
+        this.add(contCurProject, new KDLayout.Constraints(730, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contAuditType.setBounds(new Rectangle(377, 60, 270, 19));
         this.add(contAuditType, new KDLayout.Constraints(377, 60, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contChangeReason.setBounds(new Rectangle(12, 208, 270, 19));
@@ -1198,6 +1215,8 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.add(contdesignChangeAmount, new KDLayout.Constraints(12, 133, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contchangeEstimate.setBounds(new Rectangle(730, 108, 270, 19));
         this.add(contchangeEstimate, new KDLayout.Constraints(730, 108, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        btnCostIndex.setBounds(new Rectangle(547, 10, 100, 21));
+        this.add(btnCostIndex, new KDLayout.Constraints(547, 10, 100, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1720,6 +1739,14 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
 		            this.actionAddSupp.setEnabled(false);
 		            this.actionDelSupp.setEnabled(false);
         }
+    }
+
+    /**
+     * output btnCostIndex_actionPerformed method
+     */
+    protected void btnCostIndex_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+        //write your code hereaa
     }
 
     /**

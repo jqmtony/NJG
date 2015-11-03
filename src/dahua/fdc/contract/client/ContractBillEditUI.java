@@ -67,6 +67,7 @@ import com.kingdee.bos.ctrl.swing.KDDatePicker;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDLayout;
 import com.kingdee.bos.ctrl.swing.KDPromptSelector;
+import com.kingdee.bos.ctrl.swing.KDScrollPane;
 import com.kingdee.bos.ctrl.swing.KDTextArea;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.NumberFormatterEx;
@@ -119,6 +120,7 @@ import com.kingdee.eas.base.codingrule.ICodingRuleManager;
 import com.kingdee.eas.base.codingrule.client.CodingRuleIntermilNOBox;
 import com.kingdee.eas.base.commonquery.BooleanEnum;
 import com.kingdee.eas.base.param.ParamControlFactory;
+import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
 import com.kingdee.eas.basedata.assistant.CurrencyInfo;
 import com.kingdee.eas.basedata.assistant.ExchangeRateInfo;
 import com.kingdee.eas.basedata.master.cssp.SupplierFactory;
@@ -192,6 +194,7 @@ import com.kingdee.eas.fdc.contract.ContractCostSplitEntryCollection;
 import com.kingdee.eas.fdc.contract.ContractCostSplitEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractCostSplitEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractCostSplitFactory;
+import com.kingdee.eas.fdc.contract.ContractCostSplitInfo;
 import com.kingdee.eas.fdc.contract.ContractFacadeFactory;
 import com.kingdee.eas.fdc.contract.ContractModelFactory;
 import com.kingdee.eas.fdc.contract.ContractModelInfo;
@@ -340,6 +343,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 	private String mainContractId = null;
 
 	private BigDecimal detailAmount = FDCHelper.ZERO;
+	private ContractCostSplitEditUI conSplitUI = null;
 	
 	public ContractBillEditUI() throws Exception {
 		super();
@@ -1045,7 +1049,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		ContractBailInfo contractBail=new ContractBailInfo();
 		contractBail.setId(BOSUuid.create(contractBail.getBOSType()));
 		objectValue.setBail(contractBail);
-		
+		objectValue.setIsFiveClass(false);
 		return objectValue;
 	}
 
@@ -1885,6 +1889,63 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			CurProjectInfo curInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(editData.getCurProject().getId()),sic);
 			this.prmtFwContract.setEnabled(!curInfo.isIsWholeAgeStage());
 		}
+		//modify by yxl 20151103 界面加载时增加一个合同拆分页签
+		if(editData.getId() == null)
+			editData.setId(BOSUuid.create(editData.getBOSType()));
+		addContSplitTab(getSplitId(editData.getId().toString()),ContractCostSplitEditUI.class.getName(), "合同拆分");
+		tabPanel.addChangeListener(new ChangeListener(){
+			public void stateChanged(ChangeEvent e) {
+				reloadPanel();
+			}
+		});
+	}
+	
+	private void reloadPanel(){
+		if(tabPanel.getSelectedIndex() == tabPanel.indexOfTab("合同拆分")){
+			if("ADDNEW".equals(getOprtState()) || "EDIT".equals(getOprtState()) ){
+				Object[] objs = new Object[3];
+				objs[0] = txtNumber.getText();
+				objs[1] = txtcontractName.getText();
+				objs[2] = ceremonyb.getBigDecimalValue();
+				conSplitUI.reloadCompoent(objs);
+			}
+		}
+	}
+	
+	private void addContSplitTab(String id, String uiClass, String title){
+		try {
+			KDScrollPane scrollPane=new KDScrollPane();
+			tabPanel.add(scrollPane,title);
+			UIContext uiContext = new UIContext(this);
+			String state = null;
+			if(id == null){
+				state = "ADDNEW";
+				uiContext.put("fromContractNew",editData);
+			}else{
+				uiContext.put(UIContext.ID, id);
+				state = "EDIT";
+			}
+			CoreUIObject plUI = (CoreUIObject)UIFactoryHelper.initUIObject(uiClass, uiContext,null,state);
+			scrollPane.setViewportView(plUI);
+			scrollPane.setKeyBoardControl(true);
+			conSplitUI = (ContractCostSplitEditUI)plUI;
+		} catch (UIException e) {
+			handUIException(e);
+		}
+	}
+	
+	private String getSplitId(String contractId) throws BOSException {
+		EntityViewInfo view=new EntityViewInfo();
+		view.setFilter(new FilterInfo());
+		view.getFilter().appendFilterItem("contractBill.id", contractId);
+		view.getFilter().getFilterItems().add(new FilterItemInfo("state", FDCBillStateEnum.INVALID_VALUE,CompareType.NOTEQUALS));
+		ContractCostSplitCollection contractCostSplitCollection = ContractCostSplitFactory
+				.getRemoteInstance().getContractCostSplitCollection(view);
+		if (contractCostSplitCollection.size() > 0) {
+			ContractCostSplitInfo info = contractCostSplitCollection.get(0);
+			return info.getId().toString();
+		}
+		return null;
 	}
 
 	private void initCtn() {
@@ -3667,6 +3728,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		sic.add(new SelectorItemInfo("srcProID"));
 		sic.add(new SelectorItemInfo("contractModel"));
 		sic.add(new SelectorItemInfo("entrustReason"));
+		sic.add(new SelectorItemInfo("mIndexType"));
+		sic.add(new SelectorItemInfo("isFiveClass"));
 		return sic;
 	}
 
@@ -6314,6 +6377,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			}
 		}
 		ContractCodingTypeInfo codingTypeInfo = this.editData.getCodeType();
+		conSplitUI.actionSave_actionPerformed(e);
 		super.actionSave_actionPerformed(e);
 		this.editData.setCodeType(codingTypeInfo);
 		EcoItemHelper.setPayItemRowBackColor(this.tblEconItem);
@@ -6331,6 +6395,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		prmtModel.setEnabled(true);
 		btnViewContrnt.setEnabled(true);
 		comboModel.setEnabled(true);
+		
 	}
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
 		// 保存前反写所关联的框架合约“是否引用”字段
@@ -6359,7 +6424,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				ceremonyb.setValue(getDetailInfoTable().getRow(getRowIndexByRowKey(AM_ROW)).getCell(CONTENT_COL).getValue());
 			}
 		}
-		
+		conSplitUI.actionSave_actionPerformed(e);
 		super.actionSubmit_actionPerformed(e);
 		// 保存后反写写所关联的框架合约状态
 		updateNewProg();
@@ -6387,6 +6452,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		comboModel.setEnabled(true);
 		
 		setNumberByCodingRule();
+		
 	}
 
 	// 提交时，控制预算余额

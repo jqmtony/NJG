@@ -47,6 +47,7 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractContractCostSplitEditUI.class);
     protected com.kingdee.bos.ctrl.swing.KDCheckBox kDCheckBoxIsConfirm;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnProgrAcctSelect;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewContract;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemProgrAcctSelect;
@@ -115,11 +116,13 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
         getActionManager().registerAction("actionCostContractView", actionCostContractView);
          this.actionCostContractView.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.kDCheckBoxIsConfirm = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.btnProgrAcctSelect = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnViewContract = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.menuItemProgrAcctSelect = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.menuViewContract = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.kDCheckBoxIsConfirm.setName("kDCheckBoxIsConfirm");
+        this.kDContainer1.setName("kDContainer1");
         this.btnProgrAcctSelect.setName("btnProgrAcctSelect");
         this.btnViewContract.setName("btnViewContract");
         this.menuItemProgrAcctSelect.setName("menuItemProgrAcctSelect");
@@ -151,6 +154,7 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
 
         // kDCheckBoxIsConfirm		
         this.kDCheckBoxIsConfirm.setText(resHelper.getString("kDCheckBoxIsConfirm.text"));
+        // kDContainer1
         // btnProgrAcctSelect
         this.btnProgrAcctSelect.setAction((IItemAction)ActionProxyFactory.getProxy(actionProgrAcctSelect, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnProgrAcctSelect.setText(resHelper.getString("btnProgrAcctSelect.text"));		
@@ -217,8 +221,6 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
         this.add(kDLabelContainer5, new KDLayout.Constraints(311, 32, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer6.setBounds(new Rectangle(311, 10, 692, 19));
         this.add(kDLabelContainer6, new KDLayout.Constraints(311, 10, 692, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kdtEntrys.setBounds(new Rectangle(10, 59, 993, 482));
-        this.add(kdtEntrys, new KDLayout.Constraints(10, 59, 993, 482, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         kDLabelContainer7.setBounds(new Rectangle(729, 527, 225, 19));
         this.add(kDLabelContainer7, new KDLayout.Constraints(729, 527, 225, 19, 0));
         kDLabelContainer8.setBounds(new Rectangle(10, 549, 270, 19));
@@ -237,6 +239,8 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
         this.add(kDLabelContainer14, new KDLayout.Constraints(10, 490, 270, 19, 0));
         kDCheckBoxIsConfirm.setBounds(new Rectangle(896, 32, 107, 19));
         this.add(kDCheckBoxIsConfirm, new KDLayout.Constraints(896, 32, 107, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDContainer1.setBounds(new Rectangle(10, 59, 993, 484));
+        this.add(kDContainer1, new KDLayout.Constraints(10, 59, 993, 484, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(dateAuditTime);
         //kDLabelContainer2
@@ -265,6 +269,8 @@ public abstract class AbstractContractCostSplitEditUI extends com.kingdee.eas.fd
         kDLabelContainer13.setBoundEditor(txtCompany);
         //kDLabelContainer14
         kDLabelContainer14.setBoundEditor(txtNumber);
+        //kDContainer1
+kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer1.getContentPane().add(kdtEntrys, BorderLayout.CENTER);
 
     }
 
