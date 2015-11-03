@@ -225,11 +225,25 @@
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>false</isNullable>
-            <defaultValue />
+            <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
             <scale>0</scale>
             <precision>44</precision>
+        </column>
+        <column>
+            <name>FPayType</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FPayType].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FPayType].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
         </column>
     </columns>
     <primaryKey>
@@ -289,32 +303,38 @@
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="项目月度付款计划汇总明细分录" />
+            <lang locale="zh_HK" value="項目月度付款計畫匯總明細分錄" />
             <lang locale="zh_TW" value="項目月度付款計畫匯總明細分錄" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FAmount].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="计划支付" />
+            <lang locale="zh_HK" value="計畫支付" />
             <lang locale="zh_TW" value="計畫支付" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FAmount].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="计划支付" />
+            <lang locale="zh_HK" value="計畫支付" />
             <lang locale="zh_TW" value="計畫支付" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FBgItemId].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FBgItemId].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="预算项目" />
+            <lang locale="zh_HK" value="預算項目" />
             <lang locale="zh_TW" value="預算項目" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FBusinessTicket].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="商票" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_HK" value="商票" />
+            <lang locale="zh_TW" value="商票" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FBusinessTicket].description">
             <lang locale="en_US" value="null" />
@@ -324,7 +344,8 @@
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FCashPayment].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="现金支付（含支票）" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_HK" value="現金支付（含支票）" />
+            <lang locale="zh_TW" value="現金支付（含支票）" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FCashPayment].description">
             <lang locale="en_US" value="null" />
@@ -334,37 +355,44 @@
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FExecuteAmount].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="核定金额" />
+            <lang locale="zh_HK" value="核定金額" />
             <lang locale="zh_TW" value="核定金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FExecuteAmount].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="核定金额" />
+            <lang locale="zh_HK" value="核定金額" />
             <lang locale="zh_TW" value="核定金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FHeadEntryId].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FHeadEntryId].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="项目年度付款计划分录" />
+            <lang locale="zh_HK" value="項目年度付款計畫分錄" />
             <lang locale="zh_TW" value="項目年度付款計畫分錄" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FHouseAmount].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="抵房金额" />
+            <lang locale="zh_HK" value="抵房金額" />
             <lang locale="zh_TW" value="抵房金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FHouseAmount].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="抵房金额" />
+            <lang locale="zh_HK" value="抵房金額" />
             <lang locale="zh_TW" value="抵房金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="ID" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FID].description">
             <lang locale="en_US" value="null" />
@@ -374,76 +402,102 @@
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FMonth].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="月份" />
+            <lang locale="zh_HK" value="月份" />
             <lang locale="zh_TW" value="月份" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FMonth].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="月份" />
+            <lang locale="zh_HK" value="月份" />
             <lang locale="zh_TW" value="月份" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FOtherTx].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="其他" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_HK" value="其他" />
+            <lang locale="zh_TW" value="其他" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FOtherTx].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FPayType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="付款类型" />
+            <lang locale="zh_HK" value="付款類型" />
+            <lang locale="zh_TW" value="付款類型" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FPayType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="付款类型" />
+            <lang locale="zh_HK" value="付款類型" />
+            <lang locale="zh_TW" value="付款類型" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FPromissoryNote].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="期票" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_HK" value="期票" />
+            <lang locale="zh_TW" value="期票" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FPromissoryNote].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FRemark].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="用款说明" />
+            <lang locale="zh_HK" value="用款說明" />
             <lang locale="zh_TW" value="用款說明" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FRemark].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="用款说明" />
+            <lang locale="zh_HK" value="用款說明" />
             <lang locale="zh_TW" value="用款說明" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FReportAmount].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="上报金额" />
+            <lang locale="zh_HK" value="上報金額" />
             <lang locale="zh_TW" value="上報金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FReportAmount].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="上报金额" />
+            <lang locale="zh_HK" value="上報金額" />
             <lang locale="zh_TW" value="上報金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FSeq].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据分录序列号" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FSeq].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单据分录序列号（定义为序列属性即使用{seq}）" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_HK" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+            <lang locale="zh_TW" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FUseType].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="用款类型" />
+            <lang locale="zh_HK" value="用款類型" />
             <lang locale="zh_TW" value="用款類型" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FUseType].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="用款类型" />
+            <lang locale="zh_HK" value="用款類型" />
             <lang locale="zh_TW" value="用款類型" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FYear].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="年份" />
+            <lang locale="zh_HK" value="年份" />
             <lang locale="zh_TW" value="年份" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].columns.column[FYear].description">
@@ -454,6 +508,7 @@
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectMonthPGDateEntry].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="项目月度付款计划汇总明细分录" />
+            <lang locale="zh_HK" value="項目月度付款計畫匯總明細分錄" />
             <lang locale="zh_TW" value="項目月度付款計畫匯總明細分錄" />
         </rs>
     </resource>
