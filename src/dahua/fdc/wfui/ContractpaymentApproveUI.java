@@ -64,6 +64,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     {
         super();
     }
+    
     public void onLoad() throws Exception {
     	super.onLoad();
     	kDLabel1.setText("");
@@ -338,7 +339,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	
     	String billId = "++7pgRwQRf2paClUcxTBtsmlqGk=";
     	StringBuffer sb = new StringBuffer();
-    	sb.append(" select org.Fname_l2,bill.FBizDate,bill.FNumber,min.Fname_l2,try.FOriginalAmount,ier.Fname_l2, ject.Fname_l2,bill.FContractName,bill.FContractNo,con.FOriginalAmount,try.FAmount");
+    	sb.append(" select org.Fname_l2,bill.FBizDate,bill.FNumber,min.Fname_l2,try.FOriginalAmount,ier.Fname_l2, ject.Fname_l2,bill.FContractName,bill.FContractNo,bill.CFkxnr,con.FOriginalAmount,try.FAmount");
     	sb.append(" from T_CON_PayRequestBill bill  ");
     	sb.append(" left join T_FDC_CurProject ject on ject.fid = bill.FCurProjectID  ");
     	sb.append(" left join T_ORG_BaseUnit org on org.fid = ject.FFullOrgUnit ");
@@ -367,14 +368,15 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     		this.kDTable1.getCell(2, 1).setValue(rowset.getString(7));
     		this.kDTable1.getCell(3, 1).setValue(rowset.getString(8));
     		this.kDTable1.getCell(4, 1).setValue(rowset.getString(9));
+    		this.kDTable1.getCell(5, 1).setValue(rowset.getString(10));
     		//合同总价
-    		this.kDTable1.getCell(6, 7).setValue(rowset.getString(10));
+    		this.kDTable1.getCell(6, 7).setValue(rowset.getString(11));
     		BigDecimal Htzj = UIRuleUtil.getBigDecimal(this.kDTable1.getCell(6, 7).getValue()) ;
     		//变更金额
     		BigDecimal Bgje = UIRuleUtil.getBigDecimal(this.kDTable1.getCell(6, 7).getValue());
     		this.kDTable1.getCell(6, 1).setValue(FDCClientHelper.getChineseFormat(Bgje,false));
     		//本次核定付款金额
-    		this.kDTable1.getCell(9, 7).setValue(rowset.getString(11));
+    		this.kDTable1.getCell(9, 7).setValue(rowset.getString(12));
     		BigDecimal Bchdje = UIRuleUtil.getBigDecimal(this.kDTable1.getCell(9, 7).getValue());
     		this.kDTable1.getCell(9, 1).setValue(FDCClientHelper.getChineseFormat(Bgje,false));
 
