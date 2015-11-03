@@ -29,4 +29,9 @@ public abstract class AbstractContractPayPlanEditUIHandler extends com.kingdee.e
 	}
 	protected void _handleActionRLine(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleActionModify(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionModify(request,response,context);
+	}
+	protected void _handleActionModify(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }
