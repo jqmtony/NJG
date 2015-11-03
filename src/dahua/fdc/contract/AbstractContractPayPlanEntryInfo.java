@@ -118,6 +118,17 @@ public class AbstractContractPayPlanEntryInfo extends com.kingdee.eas.framework.
         setString("useType", item.getValue());
 		}
     }
+    /**
+     * Object:合同付款计划分录's 支付节点property 
+     */
+    public String getPayNode()
+    {
+        return getString("payNode");
+    }
+    public void setPayNode(String item)
+    {
+        setString("payNode", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("13073BEE");
