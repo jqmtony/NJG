@@ -439,7 +439,7 @@ public class ProgrammingControllerBean extends AbstractProgrammingControllerBean
 					contract.setSrcProID(progContractId);
 					contract.setProgrammingContract(currentEntry);
 					contractService.updatePartial(contract, getresetSic());
-					ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(contract.getId().toString(),false);
+//					ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(contract.getId().toString(),false);
 				}
 			}
 		}

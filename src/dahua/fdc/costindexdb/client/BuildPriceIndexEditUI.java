@@ -104,6 +104,19 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 				initIndexTable(indexEntrys.get(i).getAccountNumber());
 		}
     	loadIndexData();
+    	if("ADDNEW".equals(getOprtState())){
+    		String contractStationType = (String)getUIContext().get("contractStationType");
+    		if("sign".equals(contractStationType)){
+//    			objectValue.setContractStation(ContractStationEnum.contractSign);
+    			contractStation.setSelectedItem(ContractStationEnum.contractSign);
+    		}else if("settle".equals(contractStationType)){
+//    			objectValue.setContractStation(ContractStationEnum.contractEnd);
+    			contractStation.setSelectedItem(ContractStationEnum.contractEnd);
+    		}else if("change".equals(contractStationType)){
+//    			objectValue.setContractStation(ContractStationEnum.contractChange);
+    			contractStation.setSelectedItem(ContractStationEnum.contractChange);
+    		}
+    	}
     }
 
 	private void initEntrys() {
@@ -705,6 +718,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 			objectValue.setContractStation(ContractStationEnum.contractSign);
 		}else if("settle".equals(contractStationType)){
 			objectValue.setContractStation(ContractStationEnum.contractEnd);
+		}else if("change".equals(contractStationType)){
+			objectValue.setContractStation(ContractStationEnum.contractChange);
 		}
 		//“合同签订”“合同变更”时，带出合约规划科目，“合同结算”时，带出合同拆分科目加变更拆分科目
 //		if(cbinfo.isHasSettled()){

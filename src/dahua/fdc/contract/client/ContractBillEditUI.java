@@ -6377,7 +6377,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			}
 		}
 		ContractCodingTypeInfo codingTypeInfo = this.editData.getCodeType();
-		conSplitUI.actionSave_actionPerformed(e);
+		
 		super.actionSave_actionPerformed(e);
 		this.editData.setCodeType(codingTypeInfo);
 		EcoItemHelper.setPayItemRowBackColor(this.tblEconItem);
@@ -6395,7 +6395,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		prmtModel.setEnabled(true);
 		btnViewContrnt.setEnabled(true);
 		comboModel.setEnabled(true);
-		
+		conSplitUI.actionSave_actionPerformed(e);
 	}
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
 		// 保存前反写所关联的框架合约“是否引用”字段
@@ -6424,7 +6424,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				ceremonyb.setValue(getDetailInfoTable().getRow(getRowIndexByRowKey(AM_ROW)).getCell(CONTENT_COL).getValue());
 			}
 		}
-		conSplitUI.actionSave_actionPerformed(e);
+		
 		super.actionSubmit_actionPerformed(e);
 		// 保存后反写写所关联的框架合约状态
 		updateNewProg();
@@ -6452,7 +6452,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		comboModel.setEnabled(true);
 		
 		setNumberByCodingRule();
-		
+		conSplitUI.actionSave_actionPerformed(e);
 	}
 
 	// 提交时，控制预算余额

@@ -5414,7 +5414,10 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			for (int j = 0; j < costEntries.size(); j++) {
 				costEntries.get(j).setId(BOSUuid.create(costEntries.get(j).getBOSType()));
 			}
-			
+			ProgrammingContractFxbdEntryCollection fxdbColl = pc.getFxbdEntry();
+			for (int j = 0; j < fxdbColl.size(); j++) {
+				fxdbColl.get(j).setId(BOSUuid.create(fxdbColl.get(j).getBOSType()));
+			}
 			copyPayPlanNew(pc, oldKey.toString());
 		}
 		// modify by lihaiou,2013.07.31,一次性查出所有的附件
