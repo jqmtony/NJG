@@ -52,10 +52,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("146b6957-6774-4ff7-b9cd-23ce83d33c5c"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, pk);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -74,10 +77,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("c74977fc-8e85-4999-9d8f-2f9cb962b12e"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, filter);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -96,10 +102,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("535aee68-1d7c-4812-83bc-833db4e7f8bb"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, oql);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -118,10 +127,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("3f05703a-b663-4e3d-9863-64e99150e163"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProjectMonthPlanProDateEntryInfo retValue = (ProjectMonthPlanProDateEntryInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProjectMonthPlanProDateEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -140,10 +152,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("a21e9c7d-906c-4fa1-a7dd-059ed9296282"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProjectMonthPlanProDateEntryInfo retValue = (ProjectMonthPlanProDateEntryInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProjectMonthPlanProDateEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -162,10 +177,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("ff739d46-90f5-4f0f-a2ae-e70c6d43687a"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProjectMonthPlanProDateEntryInfo retValue = (ProjectMonthPlanProDateEntryInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProjectMonthPlanProDateEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -184,10 +202,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("5d678b79-7805-4cdc-b92b-673839cb36c0"), new Object[]{ctx, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK retValue = (IObjectPK)_addnew(ctx, model);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -208,7 +229,9 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7321446c-eb65-458d-9e1a-b0048934b2d3"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _addnew(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -230,7 +253,9 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("43dc9e25-0363-4b01-8495-4dcbb092f70b"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _update(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -252,7 +277,9 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("a4f9528b-7e79-4191-9458-89b573092f16"), new Object[]{ctx, model, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updatePartial(ctx, model, selector);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -274,7 +301,9 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("e8cc43d1-d164-4797-a98c-58aac6943132"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updateBigObject(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -293,7 +322,9 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("f228b36e-436a-4607-be64-63072c10b965"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, pk);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -315,10 +346,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("c68f6f9e-a467-46ad-a3bc-08d018befa53"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -337,10 +371,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("ab13cad2-6b31-4cbc-b751-d583d8ee0d81"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -359,10 +396,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("013636b2-5e6f-4b4a-9a73-c723072e72d3"), new Object[]{ctx, filter, sorter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, filter, sorter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -381,10 +421,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("f10bd52c-7119-42a6-ba96-73b266ec99a5"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProjectMonthPlanProDateEntryCollection retValue = (ProjectMonthPlanProDateEntryCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProjectMonthPlanProDateEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -401,10 +444,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("eef32ad3-5870-4540-b00b-06931f868175"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProjectMonthPlanProDateEntryCollection retValue = (ProjectMonthPlanProDateEntryCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProjectMonthPlanProDateEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -421,10 +467,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("4ab7a4e9-edd6-43e6-a600-c46d73a1b2cd"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProjectMonthPlanProDateEntryCollection retValue = (ProjectMonthPlanProDateEntryCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProjectMonthPlanProDateEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -441,10 +490,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("f256a195-13d3-4144-8530-041469cf68d1"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, filter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -465,10 +517,13 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("36f25a91-a0b7-4411-b234-04ec2e375885"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -489,7 +544,9 @@ public abstract class AbstractProjectMonthPlanProDateEntryControllerBean extends
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("3eb922df-f642-43ad-aed9-fa77e51f3ef3"), new Object[]{ctx, arrayPK});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, arrayPK);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();

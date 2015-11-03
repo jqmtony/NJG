@@ -33,6 +33,8 @@ import com.kingdee.bos.metadata.entity.SorterItemCollection;
 import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
@@ -49,9 +51,11 @@ import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.ctrl.swing.KDComboBox;
 import com.kingdee.bos.ctrl.swing.KDContainer;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
+import com.kingdee.bos.ctrl.swing.KDPromptSelector;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
+import com.kingdee.bos.ctrl.swing.event.DataChangeListener;
 import com.kingdee.bos.ctrl.swing.event.SelectorEvent;
 import com.kingdee.bos.ctrl.swing.event.SelectorListener;
 import com.kingdee.bos.ctrl.swing.util.CtrlCommonConstant;
@@ -69,7 +73,9 @@ import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.cp.arcm.UesDocNumEnum;
+import com.kingdee.eas.cp.bc.BizCollUtil;
 import com.kingdee.eas.fdc.basecrm.CRMHelper;
 import com.kingdee.eas.fdc.basecrm.client.CRMClientHelper;
 import com.kingdee.eas.fdc.basedata.ContractTypeFactory;
@@ -84,6 +90,7 @@ import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.PayPlanCycleFactory;
 import com.kingdee.eas.fdc.basedata.PayPlanCycleInfo;
+import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
 import com.kingdee.eas.fdc.basedata.client.ContractTypePromptSelector;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCClientVerifyHelper;
@@ -95,11 +102,13 @@ import com.kingdee.eas.fdc.contract.ContractPayPlanEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractPropertyEnum;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.UseTypeEnum;
+import com.kingdee.eas.fdc.contract.client.ContractBillEditUI;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractEconomyInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
+import com.kingdee.eas.fdc.contract.programming.client.ProgrammingContractF7UI;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanProCollection;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanProDateEntryInfo;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanProEntryCollection;
@@ -129,7 +138,8 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
     private Boolean isLoad=false;
     private int year_old = 0;
 	private int month_old =0;
-	private Boolean isPro=null;
+//	private Boolean isPro=null;
+	private Boolean isPro=true;
     public ProjectMonthPlanProEditUI() throws Exception
     {
         super();
@@ -281,22 +291,22 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 		super.storeFields();
 	}
 	public void loadFields() {
-		if(isPro==null){
-			HashMap hmParamIn = new HashMap();
-			hmParamIn.put("CIFI_PROJECTPLANPRO", this.editData.getOrgUnit().getId().toString());
-			try {
-				HashMap hmAllParam = ParamControlFactory.getRemoteInstance().getParamHashMap(hmParamIn);
-				if(hmAllParam.get("CIFI_PROJECTPLANPRO")!=null){
-					isPro=Boolean.parseBoolean(hmAllParam.get("CIFI_PROJECTPLANPRO").toString());
-				}else{
-					isPro=false;
-				}
-			} catch (EASBizException e) {
-				e.printStackTrace();
-			} catch (BOSException e) {
-				e.printStackTrace();
-			}
-		}
+//		if(isPro==null){
+//			HashMap hmParamIn = new HashMap();
+//			hmParamIn.put("CIFI_PROJECTPLANPRO", this.editData.getOrgUnit().getId().toString());
+//			try {
+//				HashMap hmAllParam = ParamControlFactory.getRemoteInstance().getParamHashMap(hmParamIn);
+//				if(hmAllParam.get("CIFI_PROJECTPLANPRO")!=null){
+//					isPro=Boolean.parseBoolean(hmAllParam.get("CIFI_PROJECTPLANPRO").toString());
+//				}else{
+//					isPro=false;
+//				}
+//			} catch (EASBizException e) {
+//				e.printStackTrace();
+//			} catch (BOSException e) {
+//				e.printStackTrace();
+//			}
+//		}
 		isLoad=true;
 		detachListeners();
 		super.loadFields();
@@ -344,17 +354,6 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 		isLoad=false;
 	}
 	protected void initMonthColoum(KDTable table,int year,int month,int cycle){
-//		KDBizPromptBox f7Box = new KDBizPromptBox();
-//		KDTDefaultCellEditor f7Editor = new KDTDefaultCellEditor(f7Box);
-//		
-//		f7Box.setDisplayFormat("$name$");
-//		f7Box.setEditFormat("$name$");
-//		f7Box.setCommitFormat("$name$");
-//		NewBgItemDialog bgItemDialog=new NewBgItemDialog(this);
-//		bgItemDialog.setMulSelect(false);
-//		bgItemDialog.setSelectCombinItem(false);
-//		f7Box.setSelector(bgItemDialog);
-//		f7Editor = new KDTDefaultCellEditor(f7Box);
 		
 		KDFormattedTextField amount = new KDFormattedTextField();
 		amount.setDataType(KDFormattedTextField.BIGDECIMAL_TYPE);
@@ -382,30 +381,46 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 			amountColumn.getStyleAttributes().setLocked(false);
 			amountColumn.setRequired(true);
 			
-			IColumn useTypeColumn=table.addColumn();
-			useTypeColumn.setKey(key+"useType");
-			useTypeColumn.getStyleAttributes().setLocked(false);
-			useTypeColumn.setRequired(true);
+//			IColumn useTypeColumn=table.addColumn();
+//			useTypeColumn.setKey(key+"useType");
+//			useTypeColumn.getStyleAttributes().setLocked(false);
+//			useTypeColumn.setRequired(true);
+//			
+//			KDComboBox combo = new KDComboBox();
+//	        for(int k = 0; k < UseTypeEnum.getEnumList().size(); k++){
+//	        	combo.addItem(UseTypeEnum.getEnumList().get(k));
+//	        }
+//	        KDTDefaultCellEditor comboEditor = new KDTDefaultCellEditor(combo);
+//			table.getColumn(key+"useType").setEditor(comboEditor);
 			
-			KDComboBox combo = new KDComboBox();
-	        for(int k = 0; k < UseTypeEnum.getEnumList().size(); k++){
-	        	combo.addItem(UseTypeEnum.getEnumList().get(k));
-	        }
-	        KDTDefaultCellEditor comboEditor = new KDTDefaultCellEditor(combo);
-			table.getColumn(key+"useType").setEditor(comboEditor);
-			
+			IColumn payTypeColumn=table.addColumn();
+			payTypeColumn.setKey(key+"payType");
+			payTypeColumn.getStyleAttributes().setLocked(false);
+			payTypeColumn.setRequired(true);
+			KDBizPromptBox f7Box = new KDBizPromptBox();
+			f7Box.setDisplayFormat("$name$");
+			f7Box.setEditFormat("$name$");
+			f7Box.setCommitFormat("$name$");
+			f7Box.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7PaymentTypeQuery");
+			KDTDefaultCellEditor f7Editor = new KDTDefaultCellEditor(f7Box);
+			payTypeColumn.setEditor(f7Editor);
+			ObjectValueRender ovrNum = new ObjectValueRender();
+			ovrNum.setFormat(new BizDataFormat("$name$"));
+			payTypeColumn.setRenderer(ovrNum);
 //			IColumn remarkColumn=table.addColumn();
 //			remarkColumn.setEditor(remarkEditor);
 //			remarkColumn.setKey(key+"remark");
 //			remarkColumn.getStyleAttributes().setLocked(false);
 			
 			table.getHeadRow(0).getCell(key+"amount").setValue(monthStr);
-			table.getHeadRow(0).getCell(key+"useType").setValue(monthStr);
+//			table.getHeadRow(0).getCell(key+"useType").setValue(monthStr);
+			table.getHeadRow(0).getCell(key+"payType").setValue(monthStr);
 //			table.getHeadRow(0).getCell(key+"remark").setValue(monthStr);
 			
 			
 			table.getHeadRow(1).getCell(key+"amount").setValue("计划支付");
-			table.getHeadRow(1).getCell(key+"useType").setValue("用款类型");
+//			table.getHeadRow(1).getCell(key+"useType").setValue("用款类型");
+			table.getHeadRow(1).getCell(key+"payType").setValue("付款类型");
 //			table.getHeadRow(1).getCell(key+"remark").setValue("下月形象进度和付款节点");
 			
 			int merge=table.getHeadRow(0).getCell(key+"amount").getColumnIndex();
@@ -457,8 +472,8 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 		
 		IColumn column=this.proTable.addColumn();
 		column.setKey("number");
-		headRow.getCell("number").setValue("合约规划编码");
-		headRowName.getCell("number").setValue("合约规划编码");
+		headRow.getCell("number").setValue("合约规划");
+		headRowName.getCell("number").setValue("合约规划");
 		
 		KDBizPromptBox prmtcontract = new KDBizPromptBox();
 		prmtcontract.setDisplayFormat("$name$");
@@ -466,6 +481,147 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 		prmtcontract.setCommitFormat("$number$");
 		prmtcontract.setQueryInfo("com.kingdee.eas.fdc.contract.programming.app.ProgrammingContractF7Query");
 
+		prmtcontract.setSelector(new KDPromptSelector(){
+
+			IUIWindow win = null;
+			public Object getData() {
+				return getUIContext().get("selectedValue");
+			}
+			public boolean isCanceled() {
+				return false;
+			}
+			public void show() {
+				try {
+					UIContext context = new UIContext(ProjectMonthPlanProEditUI.this);
+					Object object = getUIContext().get("projectId");
+					if (object == null) {
+						if (editData.getCurProject() != null) {
+							object = editData.getCurProject().getId();
+						}
+					}
+					context.put("projectId", object);
+					context.put("allowZero", Boolean.FALSE);
+					//新建界面生成 uiwindow(合约框架F7)对象
+					win = UIFactory.createUIFactory().create(ProgrammingContractF7UI.class.getName(), context);
+					win.show();
+				} catch (Exception e) {
+					handUIExceptionAndAbort(e);
+				}
+			}
+		});
+		prmtcontract.addDataChangeListener(new DataChangeListener() {
+
+			public void dataChanged(DataChangeEvent datachangeevent) {
+				boolean isChanged = true;
+				isChanged = BizCollUtil.isF7ValueChanged(datachangeevent);
+		        if(!isChanged){
+		        	return;
+		        }
+				int index = proTable.getSelectManager().getActiveRowIndex();
+				ProjectMonthPlanProEntryInfo entry=(ProjectMonthPlanProEntryInfo) proTable.getRow(index).getUserObject();
+				
+				int spYears=spYear.getIntegerVlaue().intValue();
+				int spMonths=spMonth.getIntegerVlaue().intValue()+1;
+				int cycles=editData.getCycle().getCycle().getValue();
+				
+//				ProgrammingContractInfo pro=(ProgrammingContractInfo) proTable.getRow(index).getCell("number").getValue();
+				ProgrammingContractInfo pro=(ProgrammingContractInfo) datachangeevent.getNewValue();
+				String name=null;
+				BigDecimal amount=null;
+				ContractTypeInfo ct=null;
+				if(pro!=null){
+					name=pro.getName();
+					amount=pro.getAmount();
+				}else{
+					for(int k=0;k<cycles;k++){
+						if (spMonths > 12) {
+							spYears += 1;
+							spMonths = 1;
+						}
+						String key=spYears+"year"+spMonths+"m";
+						ICell amountCell=proTable.getRow(index).getCell(key+"amount");
+						if(amountCell!=null){
+							ProjectMonthPlanProDateEntryInfo ppDateEntry=(ProjectMonthPlanProDateEntryInfo) amountCell.getUserObject();
+							if(ppDateEntry==null){
+								ppDateEntry=new ProjectMonthPlanProDateEntryInfo();
+								ppDateEntry.setYear(spYears);
+								ppDateEntry.setMonth(spMonths);
+								entry.getDateEntry().add(ppDateEntry);
+							}
+							amountCell.setValue(null);
+							ppDateEntry.setAmount(null);
+						}
+						ICell remarkCell=proTable.getRow(index).getCell(key+"remark");
+						if(remarkCell!=null){
+							ProjectMonthPlanProDateEntryInfo ppDateEntry=(ProjectMonthPlanProDateEntryInfo) amountCell.getUserObject();
+							if(ppDateEntry==null){
+								ppDateEntry=new ProjectMonthPlanProDateEntryInfo();
+								ppDateEntry.setYear(spYears);
+								ppDateEntry.setMonth(spMonths);
+								entry.getDateEntry().add(ppDateEntry);
+							}
+							remarkCell.setValue(null);
+							ppDateEntry.setRemark(null);
+						}
+
+						//付款类型
+						ICell payTypeCell=proTable.getRow(index).getCell(key+"payType");
+						if(payTypeCell!=null){
+							ProjectMonthPlanProDateEntryInfo ppDateEntry=(ProjectMonthPlanProDateEntryInfo) payTypeCell.getUserObject();
+							if(ppDateEntry==null){
+								ppDateEntry=new ProjectMonthPlanProDateEntryInfo();
+								ppDateEntry.setYear(spYears);
+								ppDateEntry.setMonth(spMonths);
+								entry.getDateEntry().add(ppDateEntry);
+							}
+							payTypeCell.setValue(null);
+							ppDateEntry.setPayType(null);
+						}
+						spMonths++;
+					}
+					proTable.getRow(index).getCell("contractType").setValue(null);
+				}
+				proTable.getRow(index).getCell("name").setValue(name);
+				proTable.getRow(index).getCell("amount").setValue(amount);
+//				proTable.getRow(index).getCell("contractType").setValue(ct);
+				try {
+					if(pro!=null){
+						proTable.getRow(index).getCell("actPayAmount").setValue(getActPayAmount(pro.getId().toString()));
+					}else{
+						proTable.getRow(index).getCell("actPayAmount").setValue(null);
+					}
+				} catch (BOSException e1) {
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				
+				entry.setProgrammingContract(pro);
+				entry.setName(name);
+				entry.setAmount(amount);
+				entry.setContractType(ct);
+				
+				int totalYear=spYear.getIntegerVlaue().intValue();
+				int totalMonth=spMonth.getIntegerVlaue().intValue()+1;
+				String amountColoun[]=new String[cycles+1];
+				for(int k=0;k<cycles+1;k++){
+					if(k==0){
+						amountColoun[0]="amount";
+					}else{
+						if (totalMonth > 12) {
+							totalYear += 1;
+							totalMonth = 1;
+						}
+						String key=totalYear+"year"+totalMonth+"m";
+						amountColoun[k]=key+"amount";
+						
+						totalMonth++;
+					}
+				}
+				TableHelper.getFootRow(proTable, amountColoun);
+			}
+			
+		});
 		prmtcontract.addSelectorListener(new SelectorListener() {
 			public void willShow(SelectorEvent e) {
 				KDBizPromptBox f7 = (KDBizPromptBox) e.getSource();
@@ -487,20 +643,20 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 		column.setEditor(contractEditor);
 		column.getStyleAttributes().setLocked(false);
 		ObjectValueRender ovrNum = new ObjectValueRender();
-		ovrNum.setFormat(new BizDataFormat("$number$"));
+		ovrNum.setFormat(new BizDataFormat("$name$"));
 		column.setRenderer(ovrNum);
-		if(this.isPro){
-			column.getStyleAttributes().setHided(true);
-		}else{
-			column.setRequired(true);
-		}
+//		if(this.isPro){
+//			column.getStyleAttributes().setHided(true);
+//		}else{
+//			column.setRequired(true);
+//		}
 		column=this.proTable.addColumn();
 		column.setKey("name");
 		if(this.isPro){
 			headRow.getCell("name").setValue("事项");
 			headRowName.getCell("name").setValue("事项");
 			column.getStyleAttributes().setLocked(false);
-			column.setRequired(true);
+//			column.setRequired(true);
 		}else{
 			headRow.getCell("name").setValue("合约规划名称");
 			headRowName.getCell("name").setValue("合约规划名称");
@@ -661,6 +817,10 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 					row.getCell(key+"useType").setUserObject(dateEntry);
 					row.getCell(key+"useType").setValue(dateEntry.getUseType());
 				}
+				if(row.getCell(key+"payType")!=null){
+					row.getCell(key+"payType").setUserObject(dateEntry);
+					row.getCell(key+"payType").setValue(dateEntry.getPayType());
+				}
 			}
 		}
 		String amountColoun[]=new String[cycle+1];
@@ -691,7 +851,7 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 				((ProjectMonthPlanProDateEntryInfo)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getUserObject()).setAmount((BigDecimal)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getValue());
 				TableHelper.getFootRow(table, new String[]{table.getColumnKey(e.getColIndex())});
 				
-				if(this.isPro){
+				if(table.getRow(e.getRowIndex()).getCell("number").getValue() == null){
 					int spYear=this.spYear.getIntegerVlaue().intValue();
 					int spMonth=this.spMonth.getIntegerVlaue().intValue()+1;
 					int cycle=this.editData.getCycle().getCycle().getValue();
@@ -709,8 +869,34 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 					table.getRow(e.getRowIndex()).getCell("amount").setValue(amount);
 					((ProjectMonthPlanProEntryInfo)table.getRow(e.getRowIndex()).getUserObject()).setAmount(amount);
 				}
-			}if(table.getColumnKey(e.getColIndex()).indexOf("useType")>0){
-				((ProjectMonthPlanProDateEntryInfo)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getUserObject()).setUseType((UseTypeEnum)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getValue());
+			}
+//			if(table.getColumnKey(e.getColIndex()).indexOf("useType")>0){
+//				((ProjectMonthPlanProDateEntryInfo)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getUserObject()).setUseType((UseTypeEnum)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getValue());
+//				int year=((ProjectMonthPlanProDateEntryInfo)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getUserObject()).getYear();
+//				int month=((ProjectMonthPlanProDateEntryInfo)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getUserObject()).getMonth();
+//				
+//				int spYear=this.spYear.getIntegerVlaue().intValue();
+//				int spMonth=this.spMonth.getIntegerVlaue().intValue()+1;
+//				int cycle=this.editData.getCycle().getCycle().getValue();
+//				if((year==spYear&&month==spMonth)||(year==spYear+1&&month==1)){
+//					for(int k=0;k<cycle;k++){
+//						if (spMonth > 12) {
+//							spYear += 1;
+//							spMonth = 1;
+//						}
+//						String key=spYear+"year"+spMonth+"m";
+//						ICell useTypeCell=table.getRow(e.getRowIndex()).getCell(key+"useType");
+//						if(useTypeCell!=null){
+//							useTypeCell.setValue((UseTypeEnum)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getValue());
+//							((ProjectMonthPlanProDateEntryInfo)useTypeCell.getUserObject()).setUseType((UseTypeEnum)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getValue());
+//						}
+//						spMonth++;
+//					}
+//				}
+//				
+//			}
+			if(table.getColumnKey(e.getColIndex()).indexOf("payType")>0){
+				((ProjectMonthPlanProDateEntryInfo)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getUserObject()).setPayType((PaymentTypeInfo)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getValue());
 				int year=((ProjectMonthPlanProDateEntryInfo)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getUserObject()).getYear();
 				int month=((ProjectMonthPlanProDateEntryInfo)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getUserObject()).getMonth();
 				
@@ -724,10 +910,10 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 							spMonth = 1;
 						}
 						String key=spYear+"year"+spMonth+"m";
-						ICell useTypeCell=table.getRow(e.getRowIndex()).getCell(key+"useType");
-						if(useTypeCell!=null){
-							useTypeCell.setValue((UseTypeEnum)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getValue());
-							((ProjectMonthPlanProDateEntryInfo)useTypeCell.getUserObject()).setUseType((UseTypeEnum)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getValue());
+						ICell payTypeCell=table.getRow(e.getRowIndex()).getCell(key+"payType");
+						if(payTypeCell!=null){
+							payTypeCell.setValue((PaymentTypeInfo)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getValue());
+							((ProjectMonthPlanProDateEntryInfo)payTypeCell.getUserObject()).setPayType((PaymentTypeInfo)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getValue());
 						}
 						spMonth++;
 					}
@@ -774,7 +960,7 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 //				}
 //			}
 		}
-		if(table.getColumnKey(e.getColIndex()).equals("number")){
+		/*if(table.getColumnKey(e.getColIndex()).equals("number")){
 			ProjectMonthPlanProEntryInfo entry=(ProjectMonthPlanProEntryInfo) table.getRow(e.getRowIndex()).getUserObject();
 			
 			int spYear=this.spYear.getIntegerVlaue().intValue();
@@ -788,16 +974,6 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 			if(pro!=null){
 				name=pro.getName();
 				amount=pro.getAmount();
-				//待确定要不要合同类型
-//				if(pro.getContractType()!=null){
-//					try {
-//						ct=ContractTypeFactory.getRemoteInstance().getContractTypeInfo(new ObjectUuidPK(pro.getContractType().getId()));
-//					} catch (EASBizException e1) {
-//						e1.printStackTrace();
-//					} catch (BOSException e1) {
-//						e1.printStackTrace();
-//					}	
-//				}
 			}else{
 				for(int k=0;k<cycle;k++){
 					if (spMonth > 12) {
@@ -829,17 +1005,29 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 						remarkCell.setValue(null);
 						ppDateEntry.setRemark(null);
 					}
-					ICell useTypeCell=table.getRow(e.getRowIndex()).getCell(key+"useType");
-					if(useTypeCell!=null){
-						ProjectMonthPlanProDateEntryInfo ppDateEntry=(ProjectMonthPlanProDateEntryInfo) useTypeCell.getUserObject();
+//					ICell useTypeCell=table.getRow(e.getRowIndex()).getCell(key+"useType");
+//					if(useTypeCell!=null){
+//						ProjectMonthPlanProDateEntryInfo ppDateEntry=(ProjectMonthPlanProDateEntryInfo) useTypeCell.getUserObject();
+//						if(ppDateEntry==null){
+//							ppDateEntry=new ProjectMonthPlanProDateEntryInfo();
+//							ppDateEntry.setYear(spYear);
+//							ppDateEntry.setMonth(spMonth);
+//							entry.getDateEntry().add(ppDateEntry);
+//						}
+//						useTypeCell.setValue(null);
+//						ppDateEntry.setUseType(null);
+//					}
+					ICell payTypeCell=table.getRow(e.getRowIndex()).getCell(key+"payType");
+					if(payTypeCell!=null){
+						ProjectMonthPlanProDateEntryInfo ppDateEntry=(ProjectMonthPlanProDateEntryInfo) payTypeCell.getUserObject();
 						if(ppDateEntry==null){
 							ppDateEntry=new ProjectMonthPlanProDateEntryInfo();
 							ppDateEntry.setYear(spYear);
 							ppDateEntry.setMonth(spMonth);
 							entry.getDateEntry().add(ppDateEntry);
 						}
-						useTypeCell.setValue(null);
-						ppDateEntry.setUseType(null);
+						payTypeCell.setValue(null);
+						ppDateEntry.setPayType(null);
 					}
 					spMonth++;
 				}
@@ -882,7 +1070,7 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 				}
 			}
 			TableHelper.getFootRow(table, amountColoun);
-		}else if(table.getColumnKey(e.getColIndex()).equals("name")){
+		}else*/ if(table.getColumnKey(e.getColIndex()).equals("name")){
 			((ProjectMonthPlanProEntryInfo)table.getRow(e.getRowIndex()).getUserObject()).setName((String)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getValue());
 		}else if(table.getColumnKey(e.getColIndex()).equals("contractType")){
 			((ProjectMonthPlanProEntryInfo)table.getRow(e.getRowIndex()).getUserObject()).setContractType((ContractTypeInfo)table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getValue());
@@ -898,6 +1086,7 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
     	sel.add("entry.programmingContract.*");
     	sel.add("entry.programmingContract.contractType.*");
     	sel.add("entry.dateEntry.*");
+    	sel.add("entry.dateEntry.payType.*");
 //    	sel.add("entry.dateEntry.bgItem.*");
     	sel.add("bizDate");
 		return sel;
@@ -1008,6 +1197,10 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 			IRow row=this.proTable.getRow(i);
 			BigDecimal amount=FDCHelper.ZERO;
 			
+			if(row.getCell("number").getValue() == null && row.getCell("name").getValue() == null) {
+				FDCMsgBox.showWarning("合约规划和事项不能同时为空!");
+				SysUtil.abort();
+			}
 //			if(row.getCell(comYear+"year"+nextMonth+"m"+"remark").getValue()==null||"".equals(row.getCell(comYear+"year"+nextMonth+"m"+"remark").getValue().toString().trim())){
 //				FDCMsgBox.showWarning(this,headRow.getCell(comYear+"year"+nextMonth+"m"+"remark").getValue().toString()+headRowTwo.getCell(comYear+"year"+nextMonth+"m"+"remark").getValue().toString()+"不能为空！");
 //				this.proTable.getEditManager().editCellAt(i, this.proTable.getColumnIndex(comYear+"year"+nextMonth+"m"+"remark"));
@@ -1087,8 +1280,11 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 			if(row.getCell(key+"remark")!=null){
 				row.getCell(key+"remark").setUserObject(dateEntry);
 			}
-			if(row.getCell(key+"useType")!=null){
-				row.getCell(key+"useType").setUserObject(dateEntry);
+//			if(row.getCell(key+"useType")!=null){
+//				row.getCell(key+"useType").setUserObject(dateEntry);
+//			}
+			if(row.getCell(key+"payType")!=null){
+				row.getCell(key+"payType").setUserObject(dateEntry);
 			}
 			entry.getDateEntry().add(dateEntry);
 			month++;
@@ -1136,8 +1332,11 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 			if(row.getCell(key+"remark")!=null){
 				row.getCell(key+"remark").setUserObject(dateEntry);
 			}
-			if(row.getCell(key+"useType")!=null){
-				row.getCell(key+"useType").setUserObject(dateEntry);
+//			if(row.getCell(key+"useType")!=null){
+//				row.getCell(key+"useType").setUserObject(dateEntry);
+//			}
+			if(row.getCell(key+"payType")!=null){
+				row.getCell(key+"payType").setUserObject(dateEntry);
 			}
 			entry.getDateEntry().add(dateEntry);
 			month++;

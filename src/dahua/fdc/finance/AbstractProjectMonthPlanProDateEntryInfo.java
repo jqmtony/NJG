@@ -96,6 +96,17 @@ public class AbstractProjectMonthPlanProDateEntryInfo extends com.kingdee.eas.fr
         setString("useType", item.getValue());
 		}
     }
+    /**
+     * Object: 待签合同&&无合同费用付款计划明细分录 's 付款类型 property 
+     */
+    public com.kingdee.eas.fdc.basedata.PaymentTypeInfo getPayType()
+    {
+        return (com.kingdee.eas.fdc.basedata.PaymentTypeInfo)get("payType");
+    }
+    public void setPayType(com.kingdee.eas.fdc.basedata.PaymentTypeInfo item)
+    {
+        put("payType", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("10563C96");

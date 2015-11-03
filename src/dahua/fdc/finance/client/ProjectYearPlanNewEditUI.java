@@ -829,7 +829,7 @@ public class ProjectYearPlanNewEditUI extends AbstractProjectYearPlanNewEditUI
     	sel.add("entry.contractBill.*");
     	sel.add("entry.programmingContract.*");
     	sel.add("entry.dateEntry.*");
-    	sel.add("entry.dateEntry.bgItem.*");
+//    	sel.add("entry.dateEntry.bgItem.*");
     	sel.add("bizDate");
 		return sel;
 	}

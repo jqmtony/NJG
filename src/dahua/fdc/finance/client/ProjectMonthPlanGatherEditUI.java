@@ -43,6 +43,7 @@ import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.IDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizComboBoxMultiColumnItem;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
@@ -97,6 +98,7 @@ import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.PayPlanCycleFactory;
 import com.kingdee.eas.fdc.basedata.PayPlanCycleInfo;
+import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCClientVerifyHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
@@ -451,15 +453,29 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 			table.getColumn(key+"executeAmount").getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
 			table.getColumn(key+"executeAmount").getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
 			
-			IColumn useTypeColumn=table.addColumn();
-			useTypeColumn.setKey(key+"useType");
-			
-			KDComboBox combo = new KDComboBox();
-	        for(int k = 0; k < UseTypeEnum.getEnumList().size(); k++){
-	        	combo.addItem(UseTypeEnum.getEnumList().get(k));
-	        }
-	        KDTDefaultCellEditor comboEditor = new KDTDefaultCellEditor(combo);
-			table.getColumn(key+"useType").setEditor(comboEditor);
+//			IColumn useTypeColumn=table.addColumn();
+//			useTypeColumn.setKey(key+"useType");
+//			
+//			KDComboBox combo = new KDComboBox();
+//	        for(int k = 0; k < UseTypeEnum.getEnumList().size(); k++){
+//	        	combo.addItem(UseTypeEnum.getEnumList().get(k));
+//	        }
+//	        KDTDefaultCellEditor comboEditor = new KDTDefaultCellEditor(combo);
+//			table.getColumn(key+"useType").setEditor(comboEditor);
+			IColumn payTypeColumn=table.addColumn();
+			payTypeColumn.setKey(key+"payType");
+			payTypeColumn.getStyleAttributes().setLocked(false);
+			payTypeColumn.setRequired(true);
+			KDBizPromptBox f7Box = new KDBizPromptBox();
+			f7Box.setDisplayFormat("$name$");
+			f7Box.setEditFormat("$name$");
+			f7Box.setCommitFormat("$name$");
+			f7Box.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7PaymentTypeQuery");
+			KDTDefaultCellEditor f7Editor = new KDTDefaultCellEditor(f7Box);
+			payTypeColumn.setEditor(f7Editor);
+			ObjectValueRender ovrNum = new ObjectValueRender();
+			ovrNum.setFormat(new BizDataFormat("$name$"));
+			payTypeColumn.setRenderer(ovrNum);
 			
 			IColumn remarkColumn=table.addColumn();
 			remarkColumn.setEditor(remarkEditor);
@@ -471,14 +487,16 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 			table.getHeadRow(0).getCell(key+"houseAmount").setValue(monthStr);
 			table.getHeadRow(0).getCell(key+"executeAmount").setValue(monthStr);
 			table.getHeadRow(0).getCell(key+"remark").setValue(monthStr);
-			table.getHeadRow(0).getCell(key+"useType").setValue(monthStr);
+//			table.getHeadRow(0).getCell(key+"useType").setValue(monthStr);
+			table.getHeadRow(0).getCell(key+"payType").setValue(monthStr);
 			
 			table.getHeadRow(1).getCell(key+"amount").setValue("计划支付");
 			table.getHeadRow(1).getCell(key+"reportAmount").setValue("上报金额");
 			table.getHeadRow(1).getCell(key+"houseAmount").setValue("抵房金额");
 			table.getHeadRow(1).getCell(key+"executeAmount").setValue("核定金额");
 			table.getHeadRow(1).getCell(key+"remark").setValue("下月形象进度和付款节点");
-			table.getHeadRow(1).getCell(key+"useType").setValue("用款类型");
+//			table.getHeadRow(1).getCell(key+"useType").setValue("用款类型");
+			table.getHeadRow(1).getCell(key+"payType").setValue("付款类型");
 			
 			int merge=table.getHeadRow(0).getCell(key+"amount").getColumnIndex();
 			table.getHeadMergeManager().mergeBlock(0, merge, 0, merge+5);
@@ -637,6 +655,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		this.contractTable.getHeadMergeManager().mergeBlock(0, 9, 1, 9);
 		this.contractTable.getHeadMergeManager().mergeBlock(0, 10, 1, 10);
 		this.contractTable.getHeadMergeManager().mergeBlock(0, 11, 1, 11);
+		this.contractTable.getHeadMergeManager().mergeBlock(0, 12, 1, 12);
 		
 		initMonthColoum(this.contractTable,year,month,cycle);
 		
@@ -676,13 +695,13 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		contRespDep.setBounds(new Rectangle(450, 1, 270, 19));
         contEntry.add(contRespDep);
         
-        KDLabelContainer contHouseAmount = new KDLabelContainer();
-        contHouseAmount.setBoundLabelText("显示抵房金额");		
-        contHouseAmount.setBoundLabelLength(100);		
-        contHouseAmount.setBoundLabelUnderline(true);	
-        contHouseAmount.setBoundEditor(cbHouseAmount);
-        contHouseAmount.setBounds(new Rectangle(750, 1, 270, 19));
-        contEntry.add(contHouseAmount);
+//        KDLabelContainer contHouseAmount = new KDLabelContainer();
+//        contHouseAmount.setBoundLabelText("显示抵房金额");		
+//        contHouseAmount.setBoundLabelLength(100);		
+//        contHouseAmount.setBoundLabelUnderline(true);	
+//        contHouseAmount.setBoundEditor(cbHouseAmount);
+//        contHouseAmount.setBounds(new Rectangle(750, 1, 270, 19));
+//        contEntry.add(contHouseAmount);
 		
 //        KDWorkButton btnAddRowinfo = new KDWorkButton();
 //		KDWorkButton btnInsertRowinfo = new KDWorkButton();
@@ -1163,9 +1182,13 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 					row.getCell(key+"remark").setUserObject(dateEntry);
 					row.getCell(key+"remark").setValue(dateEntry.getRemark());
 				}
-				if(row.getCell(key+"useType")!=null){
-					row.getCell(key+"useType").setUserObject(dateEntry);
-					row.getCell(key+"useType").setValue(dateEntry.getUseType());
+//				if(row.getCell(key+"useType")!=null){
+//					row.getCell(key+"useType").setUserObject(dateEntry);
+//					row.getCell(key+"useType").setValue(dateEntry.getUseType());
+//				}
+				if(row.getCell(key+"payType")!=null){
+					row.getCell(key+"payType").setUserObject(dateEntry);
+					row.getCell(key+"payType").setValue(dateEntry.getPayType());
 				}
 				//add by shilei
 				if(row.getCell(key+"businessTicketAmount")!=null){
@@ -1366,6 +1389,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
     	sel.add("entry.respPerson.*");
     	sel.add("entry.programmingContract.*");
     	sel.add("entry.dateEntry.*");
+    	sel.add("entry.dateEntry.payType.*");
     	sel.add("bizDate");
     	sel.add("amount");
     	sel.add("curProject.fullOrgUnit.id");
@@ -1862,6 +1886,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             	
             	view.setFilter(filter);
             	view.getSelector().add("*");
+            	view.getSelector().add("paymentType.*");
             	view.getSelector().add("head.contractBill.programmingContract.name");
             	view.getSelector().add("head.contractBill.programmingContract.amount");
             	view.getSelector().add("head.contractBill.id");
@@ -1882,7 +1907,8 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 //            	Map bgItemMap=new HashMap();
         		for(int i=0;i<col.size();i++){
         			ContractPayPlanEntryInfo ppEntry=col.get(i);
-        			UseTypeEnum useType=ppEntry.getUseType();
+//        			UseTypeEnum useType=ppEntry.getUseType();
+        			PaymentTypeInfo paymentType = ppEntry.getPaymentType();
             		int year=ppEntry.getYear();
             		int month=ppEntry.getMonth();
             		
@@ -1910,7 +1936,8 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             					dateEntry.setAmount(dateEntry.getAmount().add(amount));
             				}else{
             					dateEntry=new ProjectMonthPlanDateEntryInfo();
-            					dateEntry.setUseType(useType);
+//            					dateEntry.setUseType(useType);
+            					dateEntry.setPayType(paymentType);
             					dateEntry.setAmount(amount);
             					dateEntry.setYear(year);
             					dateEntry.setMonth(month);
@@ -1924,7 +1951,8 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             				monthMap=new HashMap();
             				
             				dateEntry=new ProjectMonthPlanDateEntryInfo();
-            				dateEntry.setUseType(useType);
+//            				dateEntry.setUseType(useType);
+            				dateEntry.setPayType(paymentType);
         					dateEntry.setAmount(amount);
         					dateEntry.setYear(year);
         					dateEntry.setMonth(month);
@@ -1947,7 +1975,8 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             			monthMap=new HashMap();
         				
         				dateEntry=new ProjectMonthPlanDateEntryInfo();
-        				dateEntry.setUseType(useType);
+//        				dateEntry.setUseType(useType);
+        				dateEntry.setPayType(paymentType);
     					dateEntry.setAmount(amount);
     					dateEntry.setYear(year);
     					dateEntry.setMonth(month);
@@ -2002,7 +2031,8 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
                 				gdEntry.setYear(dEntry.getYear());
                 				gdEntry.setMonth(dEntry.getMonth());
                 				gdEntry.setRemark(dEntry.getRemark());
-                				gdEntry.setUseType(dEntry.getUseType());
+//                				gdEntry.setUseType(dEntry.getUseType());
+                				gdEntry.setPayType(dEntry.getPayType());
                 				gdEntry.setCashPayment(dEntry.getAmount());
                 				gdEntry.setId(BOSUuid.create(gdEntry.getBOSType()));
                 				
@@ -2036,7 +2066,8 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             				gdEntry.setYear(dEntry.getYear());
             				gdEntry.setMonth(dEntry.getMonth());
             				gdEntry.setRemark(dEntry.getRemark());
-            				gdEntry.setUseType(dEntry.getUseType());
+//            				gdEntry.setUseType(dEntry.getUseType());
+            				gdEntry.setPayType(dEntry.getPayType());
             				gdEntry.setCashPayment(dEntry.getAmount());
             				gdEntry.setId(BOSUuid.create(gdEntry.getBOSType()));
             				
@@ -2065,6 +2096,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             	
             	view.setFilter(filter);
             	view.getSelector().add("dateEntry.*");
+            	view.getSelector().add("dateEntry.payType.*");
             	view.getSelector().add("programmingContract.id");
             	view.getSelector().add("programmingContract.number");
             	view.getSelector().add("programmingContract.name");
@@ -2113,7 +2145,8 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
                 				gdEntry.setYear(dEntry.getYear());
                 				gdEntry.setMonth(dEntry.getMonth());
                 				gdEntry.setRemark(dEntry.getRemark());
-                				gdEntry.setUseType(dEntry.getUseType());
+//                				gdEntry.setUseType(dEntry.getUseType());
+                				gdEntry.setPayType(dEntry.getPayType());
                 				gdEntry.setCashPayment(dEntry.getAmount());
                 				gdEntry.setId(BOSUuid.create(gdEntry.getBOSType()));
                 				
@@ -2137,7 +2170,8 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             				gdEntry.setYear(dEntry.getYear());
             				gdEntry.setMonth(dEntry.getMonth());
             				gdEntry.setRemark(dEntry.getRemark());
-            				gdEntry.setUseType(dEntry.getUseType());
+//            				gdEntry.setUseType(dEntry.getUseType());
+            				gdEntry.setPayType(dEntry.getPayType());
             				gdEntry.setCashPayment(dEntry.getAmount());
             				gdEntry.setId(BOSUuid.create(gdEntry.getBOSType()));
             				
@@ -2173,6 +2207,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             	sel.add("entry.respPerson.*");
             	sel.add("entry.programmingContract.*");
             	sel.add("entry.dateEntry.*");
+            	sel.add("entry.dateEntry.payType.*");
             	view.setSelector(sel);
             	ProjectMonthPlanGatherCollection col=ProjectMonthPlanGatherFactory.getRemoteInstance().getProjectMonthPlanGatherCollection(view);
             	if(col.size()>1){
@@ -2449,4 +2484,5 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 			}
 		}
 	}
+	
 }
