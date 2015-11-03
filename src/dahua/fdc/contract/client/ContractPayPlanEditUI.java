@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import javax.swing.Action;
 import javax.swing.ActionMap;
 import javax.swing.SpinnerNumberModel;
 
@@ -32,7 +33,9 @@ import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIException;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
@@ -77,6 +80,8 @@ import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
+import com.kingdee.eas.fdc.contract.ContractPayItemCollection;
+import com.kingdee.eas.fdc.contract.ContractPayItemInfo;
 import com.kingdee.eas.fdc.contract.ContractPayPlanCollection;
 import com.kingdee.eas.fdc.contract.ContractPayPlanEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractPayPlanFactory;
@@ -209,6 +214,8 @@ public class ContractPayPlanEditUI extends AbstractContractPayPlanEditUI
 		}
 //		FDCClientUtils.setRespDeptF7(prmtRespDept, this,canSelectOtherOrgPerson ? null : cuId);
 		FDCClientUtils.setPersonF7(prmtRespPerson, this,canSelectOtherOrgPerson ? null : cuId);
+		
+		this.actionModify.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_duizsetting"));
 	}
 	public void setOprtState(String oprtType) {
 		super.setOprtState(oprtType);
@@ -324,10 +331,13 @@ public class ContractPayPlanEditUI extends AbstractContractPayPlanEditUI
 		this.kdtEntry.getColumn("payAmount").getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
 		this.kdtEntry.getColumn("payAmount").getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_COMMON_BG_COLOR);
 		
-//		KDBizPromptBox bizPayTypeBox = new KDBizPromptBox();
-//		bizPayTypeBox.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7PaymentTypeQuery");
-//		KDTDefaultCellEditor payTypeEditor=new KDTDefaultCellEditor(bizPayTypeBox);
-//		this.kdtEntry.getColumn("payType").setEditor(payTypeEditor);
+		KDBizPromptBox bizPayTypeBox = new KDBizPromptBox();
+		bizPayTypeBox.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7PaymentTypeQuery");
+		bizPayTypeBox.setDisplayFormat("$name$");
+		bizPayTypeBox.setCommitFormat("$number$");
+		KDTDefaultCellEditor payTypeEditor=new KDTDefaultCellEditor(bizPayTypeBox);
+		this.kdtEntry.getColumn("payType").setEditor(payTypeEditor);
+		
 		this.kdtEntry.getColumn("useType").getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_COMMON_BG_COLOR);
 		this.kdtEntry.getColumn("year").getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_COMMON_BG_COLOR);
 		this.kdtEntry.getColumn("month").getStyleAttributes().setBackground(FDCClientHelper.KDTABLE_COMMON_BG_COLOR);
@@ -356,6 +366,8 @@ public class ContractPayPlanEditUI extends AbstractContractPayPlanEditUI
 		KDTDefaultCellEditor remarkEditor = new KDTDefaultCellEditor(remark);
 		this.kdtEntry.getColumn("remark").setEditor(remarkEditor);
 		this.kdtEntry.getHeadRow(0).getCell("remark").setValue("用款说明");
+		
+		this.kdtEntry.getColumn("useType").getStyleAttributes().setHided(true);
 		
 //		KDBizPromptBox f7Box = new KDBizPromptBox();
 //		KDTDefaultCellEditor f7Editor = new KDTDefaultCellEditor(f7Box);
@@ -563,6 +575,8 @@ public class ContractPayPlanEditUI extends AbstractContractPayPlanEditUI
 				sic.add("respDept.*");
 				sic.add("programmingContract.amount");
 				sic.add("partB.name");
+				sic.add("payItems.*");
+				sic.add("payItems.paymentType.*");
 				contractBillInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(contractBillId), sic);			
 			} catch (Exception e1) {
 				handUIException(e1);
@@ -572,6 +586,23 @@ public class ContractPayPlanEditUI extends AbstractContractPayPlanEditUI
 				info.setContractBill(contractBillInfo);
 //				info.setRespDept(contractBillInfo.getRespDept());
 //				info.setRespPerson(contractBillInfo.getRespPerson());
+				
+				ContractPayItemCollection ecoItemsColl = contractBillInfo.getPayItems();
+				for(int i = 0; i < ecoItemsColl.size(); i++) {
+					ContractPayItemInfo ecoItemInfo = ecoItemsColl.get(i);
+					Calendar cal = Calendar.getInstance();
+					cal.clear();
+					cal.setTime(ecoItemInfo.getPayItemDate());
+					ContractPayPlanEntryInfo entryInfo = new ContractPayPlanEntryInfo();
+					entryInfo.setYear(cal.get(Calendar.YEAR));
+					entryInfo.setMonth(cal.get(Calendar.MONTH)+1);
+					entryInfo.setPaymentType(ecoItemInfo.getPaymentType());
+					entryInfo.setPayAmount(ecoItemInfo.getAmount());
+					entryInfo.setPayRate(ecoItemInfo.getProp());
+					entryInfo.setPayNode(ecoItemInfo.getPayCondition());
+					
+					info.getEntry().add(entryInfo);
+				}
 			}else{
 				FDCMsgBox.showWarning(this,"合同为空！");
 	    		SysUtil.abort();
@@ -661,9 +692,9 @@ public class ContractPayPlanEditUI extends AbstractContractPayPlanEditUI
 //				FDCMsgBox.showWarning(this,"付款类型不能为空！");
 //				SysUtil.abort();
 //			}
-			if(this.kdtEntry.getRow(i).getCell("useType").getValue()==null){
-				FDCMsgBox.showWarning(this,"用款类型不能为空！");
-				this.kdtEntry.getEditManager().editCellAt(i, this.kdtEntry.getColumnIndex("useType"));
+			if(this.kdtEntry.getRow(i).getCell("payType").getValue()==null){
+				FDCMsgBox.showWarning(this,"付款类型不能为空！");
+				this.kdtEntry.getEditManager().editCellAt(i, this.kdtEntry.getColumnIndex("payType"));
 				SysUtil.abort();
 			}
 			if(this.kdtEntry.getRow(i).getCell("payRate").getValue()==null){
@@ -678,19 +709,24 @@ public class ContractPayPlanEditUI extends AbstractContractPayPlanEditUI
 			}
 			Integer year=(Integer) this.kdtEntry.getRow(i).getCell("year").getValue();
 			Integer month=(Integer) this.kdtEntry.getRow(i).getCell("month").getValue();
-			if(year==bizyear&&month==bizmonth+1){
-				if(this.kdtEntry.getRow(i).getCell("remark").getValue()==null||"".equals(this.kdtEntry.getRow(i).getCell("remark").getValue().toString().trim())){
-					FDCMsgBox.showWarning(this,"用款说明不能为空！");
-					this.kdtEntry.getEditManager().editCellAt(i, this.kdtEntry.getColumnIndex("remark"));
-					SysUtil.abort();
-				}
-			}
+//			if(year==bizyear&&month==bizmonth+1){
+//				if(this.kdtEntry.getRow(i).getCell("remark").getValue()==null||"".equals(this.kdtEntry.getRow(i).getCell("remark").getValue().toString().trim())){
+//					FDCMsgBox.showWarning(this,"用款说明不能为空！");
+//					this.kdtEntry.getEditManager().editCellAt(i, this.kdtEntry.getColumnIndex("remark"));
+//					SysUtil.abort();
+//				}
+//			}
 			if((year==bizyear&&month==bizmonth+1)||year>bizyear){
 				sum=FDCHelper.add(sum, this.kdtEntry.getRow(i).getCell("payAmount").getValue());
 			}
 		}
-		if(this.kdtEntry.getRowCount()<6){
-			FDCMsgBox.showWarning(this,"合同付款计划不能小于六个月的计划！");
+//		if(this.kdtEntry.getRowCount()<6){
+//			FDCMsgBox.showWarning(this,"合同付款计划不能小于六个月的计划！");
+//			SysUtil.abort();
+//		}
+		BigDecimal totalRate = (BigDecimal) this.kdtEntry.getFootRow(0).getCell("payRate").getValue();
+		if(totalRate != null && totalRate.compareTo(new BigDecimal("100")) != 0) {
+			FDCMsgBox.showWarning(this,"计划付款比例之和不为100%!!请修改!");
 			SysUtil.abort();
 		}
 		if(this.editData.getContractBill().getProgrammingContract()!=null&&this.editData.getContractBill().getProgrammingContract().getAmount()!=null){
@@ -926,5 +962,54 @@ public class ContractPayPlanEditUI extends AbstractContractPayPlanEditUI
 //		}else{
 //			this.prmtRespDept.setValue(null);
 //		}
+	}
+	
+	/**
+	 * 修订
+	 */
+	public void actionModify_actionPerformed(ActionEvent e) throws Exception {
+		if(editData.getId() == null) {
+			MsgBox.showWarning(this, "请先保存单据!");
+	        SysUtil.abort();
+		}
+		ContractPayPlanInfo info=getSelectedInfo();
+		checkAudited(info);
+		checkLastVersion(info);
+		UIContext uiContext = new UIContext(this);
+		uiContext.put("info", info);
+		IUIWindow ui = UIFactory.createUIFactory().create(ContractPayPlanEditUI.class.getName(), uiContext, null,	OprtState.ADDNEW);
+		ui.show();
+	}
+	
+	private void checkAudited(ContractPayPlanInfo info) throws BOSException, EASBizException {
+		if (!FDCUtils.isBillAudited(info)) {
+			MsgBox.showWarning(this, "非审批单据不能修订！");
+	        SysUtil.abort();
+		}
+	}
+	private void checkLastVersion(ContractPayPlanInfo info) throws BOSException, EASBizException {
+		if(!info.isIsLatest()){
+			MsgBox.showWarning(this, "非最新版本不能修订！");
+	        SysUtil.abort();
+		}
+	}
+	private ContractPayPlanInfo getSelectedInfo() throws BOSException, EASBizException {
+//		checkSelected();
+		SelectorItemCollection sel=new SelectorItemCollection();
+		sel.add("*");
+		sel.add("orgUnit.*");
+    	sel.add("CU.*");
+    	sel.add("creator.*");
+    	sel.add("auditor.*");
+    	sel.add("entry.*");
+    	sel.add("entry.paymentType.*");
+    	sel.add("contractBill.number");
+    	sel.add("contractBill.name");
+		sel.add("contractBill.amount");
+		sel.add("contractBill.curProject.displayName");
+		sel.add("contractBill.orgUnit.displayName");
+		sel.add("respPerson.*");
+		sel.add("respDept.*");
+		return ContractPayPlanFactory.getRemoteInstance().getContractPayPlanInfo(new ObjectUuidPK(editData.getId()),sel);
 	}
 }

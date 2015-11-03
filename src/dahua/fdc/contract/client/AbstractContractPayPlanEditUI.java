@@ -94,12 +94,14 @@ public abstract class AbstractContractPayPlanEditUI extends com.kingdee.eas.fdc.
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtNextRate;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtNextActAmount;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtPartB;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnModify;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemPublish;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemRevise;
     protected com.kingdee.eas.fdc.contract.ContractPayPlanInfo editData = null;
     protected ActionALine actionALine = null;
     protected ActionILine actionILine = null;
     protected ActionRLine actionRLine = null;
+    protected ActionModify actionModify = null;
     /**
      * output class constructor
      */
@@ -148,6 +150,10 @@ public abstract class AbstractContractPayPlanEditUI extends com.kingdee.eas.fdc.
         this.actionRLine = new ActionRLine(this);
         getActionManager().registerAction("actionRLine", actionRLine);
          this.actionRLine.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionModify
+        this.actionModify = new ActionModify(this);
+        getActionManager().registerAction("actionModify", actionModify);
+         this.actionModify.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.panelAll = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
         this.payPlan = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.contract = new com.kingdee.bos.ctrl.swing.KDScrollPane();
@@ -196,6 +202,7 @@ public abstract class AbstractContractPayPlanEditUI extends com.kingdee.eas.fdc.
         this.txtNextRate = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtNextActAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtPartB = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.btnModify = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.menuItemPublish = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.menuItemRevise = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.panelAll.setName("panelAll");
@@ -246,6 +253,7 @@ public abstract class AbstractContractPayPlanEditUI extends com.kingdee.eas.fdc.
         this.txtNextRate.setName("txtNextRate");
         this.txtNextActAmount.setName("txtNextActAmount");
         this.txtPartB.setName("txtPartB");
+        this.btnModify.setName("btnModify");
         this.menuItemPublish.setName("menuItemPublish");
         this.menuItemRevise.setName("menuItemRevise");
         // CoreUI		
@@ -408,7 +416,7 @@ public abstract class AbstractContractPayPlanEditUI extends com.kingdee.eas.fdc.
         // txtContractInfo		
         this.txtContractInfo.setEnabled(false);
         // kdtEntry
-		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles /><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"year\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"0\" /><t:Column t:key=\"month\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"1\" /><t:Column t:key=\"useType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"2\" /><t:Column t:key=\"payRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"3\" /><t:Column t:key=\"payAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"4\" /><t:Column t:key=\"checkPayAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"actPayRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"actPayAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{year}</t:Cell><t:Cell>$Resource{month}</t:Cell><t:Cell>$Resource{useType}</t:Cell><t:Cell>$Resource{payRate}</t:Cell><t:Cell>$Resource{payAmount}</t:Cell><t:Cell>$Resource{checkPayAmount}</t:Cell><t:Cell>$Resource{actPayRate}</t:Cell><t:Cell>$Resource{actPayAmount}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot> ";
+		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles /><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"year\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"0\" /><t:Column t:key=\"month\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"1\" /><t:Column t:key=\"payType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"useType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"3\" /><t:Column t:key=\"payNode\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"payRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"5\" /><t:Column t:key=\"payAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"true\" t:index=\"6\" /><t:Column t:key=\"checkPayAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"actPayRate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" /><t:Column t:key=\"actPayAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"remark\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{year}</t:Cell><t:Cell>$Resource{month}</t:Cell><t:Cell>$Resource{payType}</t:Cell><t:Cell>$Resource{useType}</t:Cell><t:Cell>$Resource{payNode}</t:Cell><t:Cell>$Resource{payRate}</t:Cell><t:Cell>$Resource{payAmount}</t:Cell><t:Cell>$Resource{checkPayAmount}</t:Cell><t:Cell>$Resource{actPayRate}</t:Cell><t:Cell>$Resource{actPayAmount}</t:Cell><t:Cell>$Resource{remark}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntry.setFormatXml(resHelper.translateString("kdtEntry",kdtEntryStrXML));
         this.kdtEntry.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
@@ -421,7 +429,7 @@ public abstract class AbstractContractPayPlanEditUI extends com.kingdee.eas.fdc.
             }
         });
 
-                this.kdtEntry.putBindContents("editData",new String[] {"year","month","useType","payRate","payAmount","","","","remark"});
+                this.kdtEntry.putBindContents("editData",new String[] {"year","month","paymentType","useType","payNode","payRate","payAmount","","","","remark"});
 
 
         // prmtCreator		
@@ -511,6 +519,21 @@ public abstract class AbstractContractPayPlanEditUI extends com.kingdee.eas.fdc.
         this.txtNextActAmount.setEnabled(false);
         // txtPartB		
         this.txtPartB.setEnabled(false);
+        // btnModify
+        this.btnModify.setAction((IItemAction)ActionProxyFactory.getProxy(actionModify, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnModify.setText(resHelper.getString("btnModify.text"));
+        this.btnModify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    btnModify_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // menuItemPublish		
         this.menuItemPublish.setText(resHelper.getString("menuItemPublish.text"));
         // menuItemRevise		
@@ -811,6 +834,7 @@ contAct.getContentPane().setLayout(new BorderLayout(0, 0));        contAct.getCo
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
         this.toolBar.add(btnCalculator);
+        this.toolBar.add(btnModify);
 
 
     }
@@ -827,6 +851,8 @@ contAct.getContentPane().setLayout(new BorderLayout(0, 0));        contAct.getCo
 		dataBinder.registerBinding("entry.payAmount", java.math.BigDecimal.class, this.kdtEntry, "payAmount.text");
 		dataBinder.registerBinding("entry.remark", String.class, this.kdtEntry, "remark.text");
 		dataBinder.registerBinding("entry.useType", com.kingdee.eas.fdc.contract.UseTypeEnum.class, this.kdtEntry, "useType.text");
+		dataBinder.registerBinding("entry.paymentType", com.kingdee.eas.fdc.basedata.PaymentTypeInfo.class, this.kdtEntry, "payType.text");
+		dataBinder.registerBinding("entry.payNode", String.class, this.kdtEntry, "payNode.text");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("auditor", com.kingdee.eas.base.permission.UserInfo.class, this.prmtAuditor, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
@@ -904,6 +930,8 @@ contAct.getContentPane().setLayout(new BorderLayout(0, 0));        contAct.getCo
 		getValidateHelper().registerBindProperty("entry.payAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entry.remark", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entry.useType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entry.paymentType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entry.payNode", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditor", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
@@ -951,6 +979,13 @@ contAct.getContentPane().setLayout(new BorderLayout(0, 0));        contAct.getCo
     }
 
     /**
+     * output btnModify_actionPerformed method
+     */
+    protected void btnModify_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+    }
+
+    /**
      * output getSelectors method
      */
     public SelectorItemCollection getSelectors()
@@ -975,6 +1010,16 @@ contAct.getContentPane().setLayout(new BorderLayout(0, 0));        contAct.getCo
     	sic.add(new SelectorItemInfo("entry.payAmount"));
     	sic.add(new SelectorItemInfo("entry.remark"));
     	sic.add(new SelectorItemInfo("entry.useType"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entry.paymentType.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entry.paymentType.id"));
+			sic.add(new SelectorItemInfo("entry.paymentType.name"));
+        	sic.add(new SelectorItemInfo("entry.paymentType.number"));
+		}
+    	sic.add(new SelectorItemInfo("entry.payNode"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));
@@ -1042,6 +1087,14 @@ contAct.getContentPane().setLayout(new BorderLayout(0, 0));        contAct.getCo
     public void actionRLine_actionPerformed(ActionEvent e) throws Exception
     {
     }
+    	
+
+    /**
+     * output actionModify_actionPerformed method
+     */
+    public void actionModify_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1084,6 +1137,17 @@ contAct.getContentPane().setLayout(new BorderLayout(0, 0));        contAct.getCo
     }
 	
 	public boolean isPrepareActionRLine() {
+    	return false;
+    }
+	public RequestContext prepareActionModify(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionModify() {
     	return false;
     }
 
@@ -1174,6 +1238,36 @@ contAct.getContentPane().setLayout(new BorderLayout(0, 0));        contAct.getCo
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractContractPayPlanEditUI.this, "ActionRLine", "actionRLine_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionModify class
+     */     
+    protected class ActionModify extends ItemAction {     
+    
+        public ActionModify()
+        {
+            this(null);
+        }
+
+        public ActionModify(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionModify.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionModify.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionModify.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractContractPayPlanEditUI.this, "ActionModify", "actionModify_actionPerformed", e);
         }
     }
 
