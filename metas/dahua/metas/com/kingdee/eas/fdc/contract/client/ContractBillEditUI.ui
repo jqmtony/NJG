@@ -2839,6 +2839,90 @@
             </parent>
         </component>
         <component>
+            <name>kDLabelContainer5</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer5].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>559,186,172,19,0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer5].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer5].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer5].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel1" />
+            </parent>
+        </component>
+        <component>
+            <name>kDLabelContainer6</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer6].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>576,96,185,19,0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer6].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer6].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer6].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDPanel1" />
+            </parent>
+        </component>
+        <component>
             <name>contractPropert</name>
             <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[contractPropert].alias</alias>
             <userDefined>false</userDefined>
@@ -5063,6 +5147,88 @@
                     <userDefined>true</userDefined>
                 </propertyBinding>
             </propertyBindings>
+        </component>
+        <component>
+            <name>txtUnSplitAmount</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[txtUnSplitAmount].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDFormattedTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDLabelContainer5" />
+            </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>actionPerformed</name>
+                    <eventType>java.awt.event.ActionEvent</eventType>
+                    <scene />
+                    <listenerType>java.awt.event.ActionListener</listenerType>
+                    <listenerAdapter>java.awt.event.ActionListener</listenerAdapter>
+                    <methodName>txtUnSplitAmount_actionPerformed</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+                <eventBinding>
+                    <name>dataChanged</name>
+                    <eventType>com.kingdee.bos.ctrl.swing.event.DataChangeEvent</eventType>
+                    <scene />
+                    <listenerType>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerType>
+                    <listenerAdapter>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerAdapter>
+                    <methodName>txtUnSplitAmount_dataChanged</methodName>
+                    <code>
+      //write your code here1
+</code>
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
+        </component>
+        <component>
+            <name>txtSplitedAmount</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[txtSplitedAmount].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDFormattedTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDLabelContainer6" />
+            </parent>
+            <eventBindings>
+                <eventBinding>
+                    <name>dataChanged</name>
+                    <eventType>com.kingdee.bos.ctrl.swing.event.DataChangeEvent</eventType>
+                    <scene />
+                    <listenerType>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerType>
+                    <listenerAdapter>com.kingdee.bos.ctrl.swing.event.DataChangeListener</listenerAdapter>
+                    <methodName>txtSplitedAmount_dataChanged</methodName>
+                    <code>
+      //write your code here1
+</code>
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
         </component>
         <component>
             <name>txtNumber</name>
@@ -8825,6 +8991,20 @@
                     <userDefined>true</userDefined>
                 </propertyBinding>
             </propertyBindings>
+            <eventBindings>
+                <eventBinding>
+                    <name>editStopped</name>
+                    <eventType>com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent</eventType>
+                    <scene />
+                    <listenerType>com.kingdee.bos.ctrl.kdf.table.event.KDTEditListener</listenerType>
+                    <listenerAdapter>com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter</listenerAdapter>
+                    <methodName>kdtSplitEntry_editStopped</methodName>
+                    <code>//write your code here1</code>
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
         </component>
         <component>
             <name>prmtFwContract</name>
@@ -11940,6 +12120,156 @@
             <isEntryAction>false</isEntryAction>
             <batchMethodName />
         </action>
+        <action>
+            <instanceName>actionAcctSelect</instanceName>
+            <className>actionAcctSelect</className>
+            <name>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionAcctSelect].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionAcctSelect].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionAcctSelect].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionAcctSelect].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionSplitProj</instanceName>
+            <className>actionSplitProj</className>
+            <name>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProj].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProj].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProj].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProj].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionSplitBotUp</instanceName>
+            <className>actionSplitBotUp</className>
+            <name>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitBotUp].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitBotUp].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitBotUp].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitBotUp].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionSplitProd</instanceName>
+            <className>actionSplitProd</className>
+            <name>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProd].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProd].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProd].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProd].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionRemoveSplit</instanceName>
+            <className>actionRemoveSplit</className>
+            <name>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionRemoveSplit].name</name>
+            <enabled>false</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionRemoveSplit].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionRemoveSplit].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionRemoveSplit].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
     </actions>
     <statuses>
         <status>
@@ -12004,6 +12334,30 @@
         </status>
     </statuses>
     <resource>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionAcctSelect].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionAcctSelect].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionAcctSelect].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionAcctSelect].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionAddTblBailLine].longDescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="新增分录" />
@@ -12172,6 +12526,30 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionRemoveSplit].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionRemoveSplit].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionRemoveSplit].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionRemoveSplit].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionRemoveTblBailLine].longDescription">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="删除分录" />
@@ -12191,6 +12569,78 @@
             <lang locale="zh_TW" value="刪除分錄" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionRemoveTblBailLine].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitBotUp].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitBotUp].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitBotUp].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitBotUp].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProd].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProd].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProd].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProd].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProj].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProj].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProj].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].actions.action[actionSplitProj].smallIcon">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -15358,6 +15808,54 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer5].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer5].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="70" />
+            <lang locale="zh_CN" value="70" />
+            <lang locale="zh_HK" value="70" />
+            <lang locale="zh_TW" value="70" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer5].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="未拆分金额" />
+            <lang locale="zh_HK" value="未拆分金額" />
+            <lang locale="zh_TW" value="未拆分金額" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer5].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer6].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer6].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="65" />
+            <lang locale="zh_CN" value="65" />
+            <lang locale="zh_HK" value="65" />
+            <lang locale="zh_TW" value="65" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer6].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="已拆分金额" />
+            <lang locale="zh_HK" value="已拆分金額" />
+            <lang locale="zh_TW" value="已拆分金額" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDLabelContainer6].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[kDPanel1].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -17264,6 +17762,12 @@
             <lang locale="zh_HK" value="備註" />
             <lang locale="zh_TW" value="備註" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[txtSplitedAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[txtStampTaxAmt].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="印花税金额" />
@@ -17311,6 +17815,12 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[txtUnSplitAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractBillEditUI].components.component[txtamount].alias">
             <lang locale="en_US" value="null" />
