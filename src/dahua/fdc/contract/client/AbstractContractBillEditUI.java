@@ -107,6 +107,8 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcontractPrice;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkFiveClass;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer5;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer6;
     protected com.kingdee.bos.ctrl.swing.KDComboBox contractPropert;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pksignDate;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtRespDept;
@@ -144,6 +146,8 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCharge;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtcontractPrice;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtMIndexType;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtUnSplitAmount;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtSplitedAmount;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtlandDeveloper;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtcontractType;
@@ -250,6 +254,11 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
     protected ActionAddTblBailLine actionAddTblBailLine = null;
     protected ActionRemoveTblBailLine actionRemoveTblBailLine = null;
     protected ActionViewInvite actionViewInvite = null;
+    protected actionAcctSelect actionAcctSelect = null;
+    protected actionSplitProj actionSplitProj = null;
+    protected actionSplitBotUp actionSplitBotUp = null;
+    protected actionSplitProd actionSplitProd = null;
+    protected actionRemoveSplit actionRemoveSplit = null;
     /**
      * output class constructor
      */
@@ -390,6 +399,26 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.actionViewInvite = new ActionViewInvite(this);
         getActionManager().registerAction("actionViewInvite", actionViewInvite);
          this.actionViewInvite.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionAcctSelect
+        this.actionAcctSelect = new actionAcctSelect(this);
+        getActionManager().registerAction("actionAcctSelect", actionAcctSelect);
+         this.actionAcctSelect.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionSplitProj
+        this.actionSplitProj = new actionSplitProj(this);
+        getActionManager().registerAction("actionSplitProj", actionSplitProj);
+         this.actionSplitProj.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionSplitBotUp
+        this.actionSplitBotUp = new actionSplitBotUp(this);
+        getActionManager().registerAction("actionSplitBotUp", actionSplitBotUp);
+         this.actionSplitBotUp.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionSplitProd
+        this.actionSplitProd = new actionSplitProd(this);
+        getActionManager().registerAction("actionSplitProd", actionSplitProd);
+         this.actionSplitProd.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionRemoveSplit
+        this.actionRemoveSplit = new actionRemoveSplit(this);
+        getActionManager().registerAction("actionRemoveSplit", actionRemoveSplit);
+         this.actionRemoveSplit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.tabPanel = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
         this.mainPanel = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.ecoItemPanel = new com.kingdee.bos.ctrl.swing.KDPanel();
@@ -451,6 +480,8 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.contcontractPrice = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.chkFiveClass = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer5 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer6 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contractPropert = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.pksignDate = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtRespDept = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -488,6 +519,8 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.prmtCharge = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtcontractPrice = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtMIndexType = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtUnSplitAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
+        this.txtSplitedAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtlandDeveloper = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtcontractType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -641,6 +674,8 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.contcontractPrice.setName("contcontractPrice");
         this.chkFiveClass.setName("chkFiveClass");
         this.kDLabelContainer4.setName("kDLabelContainer4");
+        this.kDLabelContainer5.setName("kDLabelContainer5");
+        this.kDLabelContainer6.setName("kDLabelContainer6");
         this.contractPropert.setName("contractPropert");
         this.pksignDate.setName("pksignDate");
         this.prmtRespDept.setName("prmtRespDept");
@@ -678,6 +713,8 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.prmtCharge.setName("prmtCharge");
         this.txtcontractPrice.setName("txtcontractPrice");
         this.txtMIndexType.setName("txtMIndexType");
+        this.txtUnSplitAmount.setName("txtUnSplitAmount");
+        this.txtSplitedAmount.setName("txtSplitedAmount");
         this.txtNumber.setName("txtNumber");
         this.prmtlandDeveloper.setName("prmtlandDeveloper");
         this.prmtcontractType.setName("prmtcontractType");
@@ -1129,6 +1166,14 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.kDLabelContainer4.setBoundLabelText(resHelper.getString("kDLabelContainer4.boundLabelText"));		
         this.kDLabelContainer4.setBoundLabelLength(100);		
         this.kDLabelContainer4.setBoundLabelUnderline(true);
+        // kDLabelContainer5		
+        this.kDLabelContainer5.setBoundLabelText(resHelper.getString("kDLabelContainer5.boundLabelText"));		
+        this.kDLabelContainer5.setBoundLabelLength(70);		
+        this.kDLabelContainer5.setBoundLabelUnderline(true);
+        // kDLabelContainer6		
+        this.kDLabelContainer6.setBoundLabelText(resHelper.getString("kDLabelContainer6.boundLabelText"));		
+        this.kDLabelContainer6.setBoundLabelLength(65);		
+        this.kDLabelContainer6.setBoundLabelUnderline(true);
         // contractPropert		
         this.contractPropert.setVisible(true);		
         this.contractPropert.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.contract.ContractPropertyEnum").toArray());		
@@ -1477,6 +1522,40 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.txtcontractPrice.setRequired(false);		
         this.txtcontractPrice.setEnabled(false);
         // txtMIndexType
+        // txtUnSplitAmount
+        this.txtUnSplitAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    txtUnSplitAmount_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
+        this.txtUnSplitAmount.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    txtUnSplitAmount_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
+        // txtSplitedAmount
+        this.txtSplitedAmount.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    txtSplitedAmount_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // txtNumber		
         this.txtNumber.setMaxLength(80);		
         this.txtNumber.setVisible(true);		
@@ -1866,6 +1945,15 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
 		String kdtSplitEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol1\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection hidden=\"true\" /><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol6\"><c:Protection hidden=\"true\" /><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol8\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol9\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol11\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol14\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol15\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol16\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol17\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol18\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol19\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol20\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" t:styleID=\"sCol0\" /><t:Column t:key=\"costAccount.curProject.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" t:styleID=\"sCol1\" /><t:Column t:key=\"costAccount.curProject.name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" t:styleID=\"sCol2\" /><t:Column t:key=\"costAccount.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" t:styleID=\"sCol3\" /><t:Column t:key=\"costAccount.name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"workLoad\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" t:styleID=\"sCol5\" /><t:Column t:key=\"price\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"splitScale\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" t:styleID=\"sCol7\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"standard\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" t:styleID=\"sCol9\" /><t:Column t:key=\"product\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /><t:Column t:key=\"costAccount.curProject.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" t:styleID=\"sCol11\" /><t:Column t:key=\"costAccount.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" t:styleID=\"sCol12\" /><t:Column t:key=\"level\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" t:styleID=\"sCol13\" /><t:Column t:key=\"splitType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" t:styleID=\"sCol14\" /><t:Column t:key=\"apportionType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" t:styleID=\"sCol15\" /><t:Column t:key=\"apportionValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" t:styleID=\"sCol16\" /><t:Column t:key=\"directAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" t:styleID=\"sCol17\" /><t:Column t:key=\"apportionValueTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"18\" t:styleID=\"sCol18\" /><t:Column t:key=\"directAmountTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"19\" t:styleID=\"sCol19\" /><t:Column t:key=\"otherRatioTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"20\" t:styleID=\"sCol20\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{costAccount.curProject.number}</t:Cell><t:Cell>$Resource{costAccount.curProject.name}</t:Cell><t:Cell>$Resource{costAccount.number}</t:Cell><t:Cell>$Resource{costAccount.name}</t:Cell><t:Cell>$Resource{workLoad}</t:Cell><t:Cell>$Resource{price}</t:Cell><t:Cell>$Resource{splitScale}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{standard}</t:Cell><t:Cell>$Resource{product}</t:Cell><t:Cell>$Resource{costAccount.curProject.id}</t:Cell><t:Cell>$Resource{costAccount.id}</t:Cell><t:Cell>$Resource{level}</t:Cell><t:Cell>$Resource{splitType}</t:Cell><t:Cell>$Resource{apportionType.name}</t:Cell><t:Cell>$Resource{apportionValue}</t:Cell><t:Cell>$Resource{directAmount}</t:Cell><t:Cell>$Resource{apportionValueTotal}</t:Cell><t:Cell>$Resource{directAmountTotal}</t:Cell><t:Cell>$Resource{otherRatioTotal}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtSplitEntry.setFormatXml(resHelper.translateString("kdtSplitEntry",kdtSplitEntryStrXML));
+        this.kdtSplitEntry.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
+            public void editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
+                try {
+                    kdtSplitEntry_editStopped(e);
+                } catch(Exception exc) {
+                    handUIException(exc);
+                }
+            }
+        });
 
                 this.kdtSplitEntry.putBindContents("editData",new String[] {"id","","","","","workLoad","price","splitScale","amount","","product","costAccount.curProject.id","costAccount.id","level","splitType","apportionType.name","apportionValue","directAmount","apportionValueTotal","directAmountTotal","otherRatioTotal"});
 
@@ -2333,6 +2421,10 @@ this.setLayout(new BorderLayout(0, 0));
         kDPanel1.add(chkFiveClass, new KDLayout.Constraints(510, 95, 110, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer4.setBounds(new Rectangle(367, 3, 270, 19));
         kDPanel1.add(kDLabelContainer4, new KDLayout.Constraints(367, 3, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer5.setBounds(new Rectangle(559, 186, 172, 19));
+        kDPanel1.add(kDLabelContainer5, new KDLayout.Constraints(559, 186, 172, 19, 0));
+        kDLabelContainer6.setBounds(new Rectangle(576, 96, 185, 19));
+        kDPanel1.add(kDLabelContainer6, new KDLayout.Constraints(576, 96, 185, 19, 0));
         //contcontractPropert
         contcontractPropert.setBoundEditor(contractPropert);
         //contsignDate
@@ -2407,6 +2499,10 @@ this.setLayout(new BorderLayout(0, 0));
         contcontractPrice.setBoundEditor(txtcontractPrice);
         //kDLabelContainer4
         kDLabelContainer4.setBoundEditor(txtMIndexType);
+        //kDLabelContainer5
+        kDLabelContainer5.setBoundEditor(txtUnSplitAmount);
+        //kDLabelContainer6
+        kDLabelContainer6.setBoundEditor(txtSplitedAmount);
         //contNumber
         contNumber.setBoundEditor(txtNumber);
         //contlandDeveloper
@@ -3313,6 +3409,29 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
     }
 
     /**
+     * output txtUnSplitAmount_actionPerformed method
+     */
+    protected void txtUnSplitAmount_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output txtUnSplitAmount_dataChanged method
+     */
+    protected void txtUnSplitAmount_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+        //write your code here1
+    }
+
+    /**
+     * output txtSplitedAmount_dataChanged method
+     */
+    protected void txtSplitedAmount_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
+    {
+        //write your code here1
+    }
+
+    /**
      * output prmtcontractType_dataChanged method
      */
     protected void prmtcontractType_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
@@ -3352,6 +3471,14 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
      */
     protected void tblCost_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
     {
+    }
+
+    /**
+     * output kdtSplitEntry_editStopped method
+     */
+    protected void kdtSplitEntry_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
+    {
+        //write your code here1
     }
 
     /**
@@ -3887,6 +4014,46 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
     public void actionViewInvite_actionPerformed(ActionEvent e) throws Exception
     {
     }
+    	
+
+    /**
+     * output actionAcctSelect_actionPerformed method
+     */
+    public void actionAcctSelect_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
+    	
+
+    /**
+     * output actionSplitProj_actionPerformed method
+     */
+    public void actionSplitProj_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
+    	
+
+    /**
+     * output actionSplitBotUp_actionPerformed method
+     */
+    public void actionSplitBotUp_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
+    	
+
+    /**
+     * output actionSplitProd_actionPerformed method
+     */
+    public void actionSplitProd_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
+    	
+
+    /**
+     * output actionRemoveSplit_actionPerformed method
+     */
+    public void actionRemoveSplit_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -4083,6 +4250,61 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
     }
 	
 	public boolean isPrepareActionViewInvite() {
+    	return false;
+    }
+	public RequestContext prepareactionAcctSelect(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionAcctSelect() {
+    	return false;
+    }
+	public RequestContext prepareactionSplitProj(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionSplitProj() {
+    	return false;
+    }
+	public RequestContext prepareactionSplitBotUp(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionSplitBotUp() {
+    	return false;
+    }
+	public RequestContext prepareactionSplitProd(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionSplitProd() {
+    	return false;
+    }
+	public RequestContext prepareactionRemoveSplit(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionRemoveSplit() {
     	return false;
     }
 
@@ -4479,6 +4701,161 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractContractBillEditUI.this, "ActionViewInvite", "actionViewInvite_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionAcctSelect class
+     */     
+    protected class actionAcctSelect extends ItemAction {     
+    
+        public actionAcctSelect()
+        {
+            this(null);
+        }
+
+        public actionAcctSelect(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionAcctSelect.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionAcctSelect.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionAcctSelect.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractContractBillEditUI.this, "actionAcctSelect", "actionAcctSelect_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionSplitProj class
+     */     
+    protected class actionSplitProj extends ItemAction {     
+    
+        public actionSplitProj()
+        {
+            this(null);
+        }
+
+        public actionSplitProj(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionSplitProj.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionSplitProj.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionSplitProj.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractContractBillEditUI.this, "actionSplitProj", "actionSplitProj_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionSplitBotUp class
+     */     
+    protected class actionSplitBotUp extends ItemAction {     
+    
+        public actionSplitBotUp()
+        {
+            this(null);
+        }
+
+        public actionSplitBotUp(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionSplitBotUp.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionSplitBotUp.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionSplitBotUp.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractContractBillEditUI.this, "actionSplitBotUp", "actionSplitBotUp_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionSplitProd class
+     */     
+    protected class actionSplitProd extends ItemAction {     
+    
+        public actionSplitProd()
+        {
+            this(null);
+        }
+
+        public actionSplitProd(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionSplitProd.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionSplitProd.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionSplitProd.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractContractBillEditUI.this, "actionSplitProd", "actionSplitProd_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionRemoveSplit class
+     */     
+    protected class actionRemoveSplit extends ItemAction {     
+    
+        public actionRemoveSplit()
+        {
+            this(null);
+        }
+
+        public actionRemoveSplit(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionRemoveSplit.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionRemoveSplit.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionRemoveSplit.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractContractBillEditUI.this, "actionRemoveSplit", "actionRemoveSplit_actionPerformed", e);
         }
     }
 

@@ -44,13 +44,17 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.servertable.KDTStyleConstants;
+import com.kingdee.bos.ctrl.kdf.table.CellTreeNode;
 import com.kingdee.bos.ctrl.kdf.table.ICell;
 import com.kingdee.bos.ctrl.kdf.table.IColumn;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTAction;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTEditHelper;
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
+import com.kingdee.bos.ctrl.kdf.table.KDTSortManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTTransferAction;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.KDTableHelper;
@@ -58,6 +62,11 @@ import com.kingdee.bos.ctrl.kdf.table.event.BeforeActionEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.BeforeActionListener;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTPropertyChangeEvent;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTPropertyChangeListener;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTSelectListener;
+import com.kingdee.bos.ctrl.kdf.table.event.NodeClickListener;
+import com.kingdee.bos.ctrl.kdf.table.util.KDTableUtil;
 import com.kingdee.bos.ctrl.kdf.util.editor.ICellEditor;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
@@ -70,6 +79,7 @@ import com.kingdee.bos.ctrl.swing.KDPromptSelector;
 import com.kingdee.bos.ctrl.swing.KDScrollPane;
 import com.kingdee.bos.ctrl.swing.KDTextArea;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.NumberFormatterEx;
 import com.kingdee.bos.ctrl.swing.StringUtils;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
@@ -78,6 +88,7 @@ import com.kingdee.bos.ctrl.swing.event.SelectorEvent;
 import com.kingdee.bos.ctrl.swing.event.SelectorListener;
 import com.kingdee.bos.ctrl.swing.util.CtrlCommonConstant;
 import com.kingdee.bos.dao.AbstractObjectValue;
+import com.kingdee.bos.dao.IObjectCollection;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -94,12 +105,17 @@ import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.entity.SorterItemCollection;
 import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.bos.sql.ParserException;
+import com.kingdee.bos.sql.parser.Lexer;
+import com.kingdee.bos.sql.parser.SqlStmtParser;
+import com.kingdee.bos.sql.parser.TokenList;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IItemAction;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.ItemAction;
 import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSObjectType;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.util.backport.Arrays;
@@ -147,7 +163,13 @@ import com.kingdee.eas.fdc.basedata.ContractSourceInfo;
 import com.kingdee.eas.fdc.basedata.ContractThirdTypeEnum;
 import com.kingdee.eas.fdc.basedata.ContractTypeFactory;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
+import com.kingdee.eas.fdc.basedata.CostAccountCollection;
+import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.CostSplitStateEnum;
+import com.kingdee.eas.fdc.basedata.CostSplitTypeEnum;
+import com.kingdee.eas.fdc.basedata.CurProjProductEntriesCollection;
+import com.kingdee.eas.fdc.basedata.CurProjProductEntriesFactory;
+import com.kingdee.eas.fdc.basedata.CurProjProductEntriesInfo;
 import com.kingdee.eas.fdc.basedata.CurProjectFactory;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.DataTypeEnum;
@@ -160,22 +182,35 @@ import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCNumberConstants;
 import com.kingdee.eas.fdc.basedata.FDCNumberHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.basedata.FDCSplitBillEntryCollection;
+import com.kingdee.eas.fdc.basedata.FDCSplitBillEntryInfo;
 import com.kingdee.eas.fdc.basedata.IFDCBill;
+import com.kingdee.eas.fdc.basedata.ProductTypeCollection;
+import com.kingdee.eas.fdc.basedata.ProductTypeInfo;
 import com.kingdee.eas.fdc.basedata.ProjectStageEnum;
 import com.kingdee.eas.fdc.basedata.ProjectStatusInfo;
 import com.kingdee.eas.fdc.basedata.SourceTypeEnum;
 import com.kingdee.eas.fdc.basedata.client.AttachmentUtils;
 import com.kingdee.eas.fdc.basedata.client.ContractTypePromptSelector;
+import com.kingdee.eas.fdc.basedata.client.CostSplitAcctUI;
+import com.kingdee.eas.fdc.basedata.client.CostSplitApptProdUI;
+import com.kingdee.eas.fdc.basedata.client.CostSplitApptProjUI;
+import com.kingdee.eas.fdc.basedata.client.CostSplitApptUI;
 import com.kingdee.eas.fdc.basedata.client.FDCClientHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCClientVerifyHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCColorConstants;
 import com.kingdee.eas.fdc.basedata.client.FDCContractParamUI;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
+import com.kingdee.eas.fdc.basedata.client.FDCSplitClientHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCUIWeightWorker;
 import com.kingdee.eas.fdc.basedata.client.IFDCWork;
 import com.kingdee.eas.fdc.basedata.util.FDCKDBizPromptBoxHelper;
 import com.kingdee.eas.fdc.basedata.util.FdcCodingRuleUtil;
+import com.kingdee.eas.fdc.contract.ChangeAuditBillType;
+import com.kingdee.eas.fdc.contract.ChangeBillStateEnum;
+import com.kingdee.eas.fdc.contract.ConChangeSplitEntryInfo;
+import com.kingdee.eas.fdc.contract.ConChangeSplitInfo;
 import com.kingdee.eas.fdc.contract.ConNoCostSplitCollection;
 import com.kingdee.eas.fdc.contract.ConNoCostSplitFactory;
 import com.kingdee.eas.fdc.contract.ConSplitExecStateEnum;
@@ -186,6 +221,8 @@ import com.kingdee.eas.fdc.contract.ContractBillEntryCollection;
 import com.kingdee.eas.fdc.contract.ContractBillEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
+import com.kingdee.eas.fdc.contract.ContractBillSplitEntryCollection;
+import com.kingdee.eas.fdc.contract.ContractBillSplitEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractContentCollection;
 import com.kingdee.eas.fdc.contract.ContractContentFactory;
 import com.kingdee.eas.fdc.contract.ContractContentInfo;
@@ -215,7 +252,13 @@ import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleInfo;
 import com.kingdee.eas.fdc.finance.PayPlanNewCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewFactory;
+import com.kingdee.eas.fdc.finance.PaymentSplitEntryInfo;
+import com.kingdee.eas.fdc.finance.PaymentSplitInfo;
 import com.kingdee.eas.fdc.finance.client.ContractPayPlanEditUI;
+import com.kingdee.eas.fdc.finance.client.PaymentSplitListUI;
+import com.kingdee.eas.fdc.finance.client.WorkLoadConfirmBillEditUI;
+import com.kingdee.eas.fdc.finance.client.WorkLoadConfirmBillListUI;
+import com.kingdee.eas.fdc.finance.client.WorkLoadSplitListUI;
 import com.kingdee.eas.fdc.invite.AcceptanceLetterCollection;
 import com.kingdee.eas.fdc.invite.AcceptanceLetterFactory;
 import com.kingdee.eas.fdc.invite.InviteProjectFactory;
@@ -232,11 +275,17 @@ import com.kingdee.eas.fdc.invite.news.client.TenderDiscusstionEditUI;
 import com.kingdee.eas.fdc.invite.supplier.SupplierStockFactory;
 import com.kingdee.eas.fdc.invite.supplier.SupplierStockInfo;
 import com.kingdee.eas.fi.gl.GlUtils;
+import com.kingdee.eas.fm.common.FMIsqlFacadeFactory;
+import com.kingdee.eas.fm.common.IFMIsqlFacade;
+import com.kingdee.eas.fm.common.client.FMIsqlUI;
+import com.kingdee.eas.fm.common.client.FMIsqlUIHandler;
+import com.kingdee.eas.fm.common.client.SQLStmtInfo;
 import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.framework.CoreBillBaseCollection;
 import com.kingdee.eas.framework.CoreBillBaseInfo;
 import com.kingdee.eas.framework.batchHandler.RequestContext;
+import com.kingdee.eas.framework.client.FrameWorkClientUtils;
 import com.kingdee.eas.framework.client.workflow.DefaultWorkflowUIEnhancement;
 import com.kingdee.eas.framework.client.workflow.IWorkflowUIEnhancement;
 import com.kingdee.eas.framework.client.workflow.IWorkflowUISupport;
@@ -580,6 +629,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}
 		detailTableAutoFitRowHeight(tblEconItem);
 		detailTableAutoFitRowHeight(tblBail);
+		setButtonStatus();
+		setDisplay();
 	}
 	
 	protected void initPromptBoxFormat(){
@@ -1889,15 +1940,25 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			CurProjectInfo curInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(editData.getCurProject().getId()),sic);
 			this.prmtFwContract.setEnabled(!curInfo.isIsWholeAgeStage());
 		}
-		//modify by yxl 20151103 界面加载时增加一个合同拆分页签
-		if(editData.getId() == null)
-			editData.setId(BOSUuid.create(editData.getBOSType()));
-		addContSplitTab(getSplitId(editData.getId().toString()),ContractCostSplitEditUI.class.getName(), "合同拆分");
-		tabPanel.addChangeListener(new ChangeListener(){
-			public void stateChanged(ChangeEvent e) {
-				reloadPanel();
+		KDTSortManager sortManager = new KDTSortManager(kdtSplitEntry){
+			public void sort(int colIndex) {
+				super.sort(colIndex);
 			}
-		});
+		};   
+		sortManager.setSortAuto(false);   
+		sortManager.setClickCount(10);
+		for(int i = 0; i<kdtSplitEntry.getColumnCount();i++){  
+		    this.kdtSplitEntry.getColumn(i).setSortable(false);   
+		}  
+		//modify by yxl 20151103 界面加载时增加一个合同拆分页签
+//		if(editData.getId() == null)
+//			editData.setId(BOSUuid.create(editData.getBOSType()));
+////		addContSplitTab(getSplitId(editData.getId().toString()),ContractCostSplitEditUI.class.getName(), "合同拆分");
+//		tabPanel.addChangeListener(new ChangeListener(){
+//			public void stateChanged(ChangeEvent e) {
+//				reloadPanel();
+//			}
+//		});
 	}
 	
 	private void reloadPanel(){
@@ -2262,6 +2323,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		this.actionCopyLine.setEnabled(false);
 		this.txtamount.setEditable(false);
 		this.contConSettleAmount.setVisible(false);
+		this.txtSplitedAmount.setEnabled(false);
+		this.txtUnSplitAmount.setEnabled(false);
 //		this.ceremonybb.setEditable(false);
 		initListeners();
 		// added by shangjing
@@ -2752,6 +2815,172 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			initProgrammingContract();
 		}
 //		this.reSetMaxNum4AmountField();
+		
+		kdtSplitEntry.getColumn("amount").setEditor(FDCSplitClientHelper.getTotalCellNumberEdit());
+		kdtSplitEntry.getColumn("price").setEditor(getCellNumberEdit());
+		kdtSplitEntry.getColumn("workLoad").setEditor(getCellNumberEdit());
+		
+		((KDTTransferAction) kdtSplitEntry.getActionMap().get(KDTAction.PASTE)).setPasteMode(KDTEditHelper.VALUE);
+		//焦点到了最后一行时，不自动新增行
+		disableAutoAddLine(kdtSplitEntry);	
+		
+		initCtrlListener();
+		
+		//拆分组号		jelon 12/27/2006
+		int idx=0;
+		ContractBillSplitEntryInfo entry=null;
+		for(int i=0; i<kdtSplitEntry.getRowCount(); i++){	
+			entry=(ContractBillSplitEntryInfo)kdtSplitEntry.getRow(i).getUserObject();			
+			if(entry.getLevel()==0){
+				if(entry.getIndex()>idx){
+					idx=entry.getIndex();
+				}
+			}
+		}
+		groupIndex=idx;
+		
+		disableAutoAddLine(kdtSplitEntry);
+		disableAutoAddLineDownArrow(kdtSplitEntry);
+		disableEnterFocusTravel();
+		Object[] listeners = kdtSplitEntry.getListenerList().getListenerList();
+
+		for (int i = listeners.length - 2; i >= 0; i -= 2)
+		{
+			if (listeners[i] == KDTSelectListener.class)
+			{
+				kdtSplitEntry.getSelectManager().removeKDTSelectListener(((KDTSelectListener) listeners[i + 1]));
+			}
+		}
+		
+	}
+	
+	public static KDTDefaultCellEditor getCellNumberEdit(){
+		KDFormattedTextField kdc = new KDFormattedTextField();
+        kdc.setDataType(KDFormattedTextField.BIGDECIMAL_TYPE);
+        kdc.setPrecision(2);
+        kdc.setMinimumValue(FDCHelper.ZERO);
+        kdc.setMaximumValue(FDCHelper.ONE_HUNDRED_MILLION);
+        kdc.setHorizontalAlignment(KDFormattedTextField.RIGHT);
+        kdc.setSupportedEmpty(true);
+        kdc.setVisible(true);
+        kdc.setEnabled(true);
+//        kdc.setRequired(false);
+        KDTDefaultCellEditor editor = new KDTDefaultCellEditor(kdc);
+        return editor;
+	}
+	
+    protected void initCtrlListener(){
+		//处理键盘delete事件
+    	kdtSplitEntry.setBeforeAction(new BeforeActionListener(){
+			public void beforeAction(BeforeActionEvent e)
+			{
+				if(BeforeActionEvent.ACTION_DELETE==e.getType()){
+					for (int i = 0; i < kdtSplitEntry.getSelectManager().size(); i++)
+					{
+						KDTSelectBlock block = kdtSplitEntry.getSelectManager().get(i);
+						for (int rowIndex = block.getBeginRow(); rowIndex <= block.getEndRow(); rowIndex++)
+						{
+							for(int colIndex=block.getBeginCol();colIndex<=block.getEndCol();colIndex++){
+								int amount_index=kdtSplitEntry.getColumnIndex("amount");
+								int directAmt_index=kdtSplitEntry.getColumnIndex("directAmt");
+								int price_index=kdtSplitEntry.getColumnIndex("price");
+								int workLoad_index=kdtSplitEntry.getColumnIndex("workLoad");
+								//如果列不是上面的列或者单元格锁定了的话，则取消事件
+								if((colIndex!=amount_index&&colIndex!=directAmt_index&&colIndex!=price_index&&colIndex!=workLoad_index)||(kdtSplitEntry.getCell(rowIndex, colIndex).getStyleAttributes().isLocked())) {
+									e.setCancel(true);
+									continue;
+								}
+								try
+								{
+									kdtSplitEntry.getCell(rowIndex, colIndex).setValue(FDCHelper.ZERO);
+									kdtSplitEntry_editStopped(new KDTEditEvent(e.getSource(), null, FDCHelper.ZERO, 
+											rowIndex, colIndex,false,1));
+								} catch (Exception e1)
+								{
+									handUIExceptionAndAbort(e1);
+								}
+							}
+//							e.setCancel(true);
+						}
+					}
+
+				}
+				else if(BeforeActionEvent.ACTION_PASTE==e.getType()){
+					kdtSplitEntry.putClientProperty("ACTION_PASTE", "ACTION_PASTE");
+				}
+			}
+		});
+		
+    	kdtSplitEntry.setAfterAction(new BeforeActionListener() {
+			public void beforeAction(BeforeActionEvent e) {
+				if (BeforeActionEvent.ACTION_PASTE == e.getType()) {
+					kdtSplitEntry.putClientProperty("ACTION_PASTE", null);
+				}
+
+			}
+		});
+		/*
+		 * KDTable的KDTEditListener仅在编辑的时候触发，
+		 * KDTPropertyChangeListener则是在删除，粘贴等导致单元格value发生变化的时候都会触发。
+		 */
+    	kdtSplitEntry.addKDTPropertyChangeListener(new KDTPropertyChangeListener(){
+			public void propertyChange(KDTPropertyChangeEvent evt) {
+			    // 表体单元格值发生变化
+			    if ((evt.getType() == KDTStyleConstants.BODY_ROW) && (evt.getPropertyName().equals(KDTStyleConstants.CELL_VALUE)))
+			    {
+			    	if(kdtSplitEntry.getClientProperty("ACTION_PASTE")!=null){
+			    		//触发editStop事件
+			    		int rowIndex = evt.getRowIndex();
+			    		int colIndex = evt.getColIndex();
+			    		KDTEditEvent event=new KDTEditEvent(kdtSplitEntry);
+			    		event.setColIndex(colIndex);
+			    		event.setRowIndex(rowIndex);
+			    		event.setOldValue(null);
+			    		ICell cell = kdtSplitEntry.getCell(rowIndex,colIndex);
+			    		if(cell==null){
+			    			return;
+			    		}
+			    		event.setValue(cell.getValue());
+			    		try {
+			    			kdtSplitEntry_editStopped(event);			    			
+			    		} catch (Exception e1) {
+			    			handUIExceptionAndAbort(e1);
+			    		}
+			    	}
+			    }
+			}
+		});
+	}
+	
+	private void setSplitButton(){
+		this.kDContainer2.removeAllButton();
+		this.actionAcctSelect.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_evaluatecortrol"));
+		this.actionSplitProj.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_showparent"));
+		this.actionSplitBotUp.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_showsubflow"));
+		this.actionSplitProd.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_citetree"));
+		this.actionRemoveSplit.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_deleteline"));
+		this.actionAcctSelect.setEnabled(true);
+		this.actionSplitProj.setEnabled(true);
+		this.actionSplitProd.setEnabled(true);
+		this.actionSplitBotUp.setEnabled(true);
+		this.actionRemoveSplit.setEnabled(true);
+		
+		KDWorkButton btnAcctSelect = (KDWorkButton)this.kDContainer2.add(actionAcctSelect);
+		btnAcctSelect.setText("成本科目");
+		KDWorkButton btnSplitProj = (KDWorkButton)this.kDContainer2.add(actionSplitProj);
+		btnSplitProj.setText("自动拆分");
+		KDWorkButton btnSplitBotUp = (KDWorkButton)this.kDContainer2.add(actionSplitBotUp);
+		btnSplitBotUp.setText("末级拆分");
+		KDWorkButton btnSplitProd = (KDWorkButton)this.kDContainer2.add(actionSplitProd);
+		btnSplitProd.setText("产品拆分");
+		KDWorkButton btnRemoveLine = (KDWorkButton)this.kDContainer2.add(actionRemoveSplit);
+		btnRemoveLine.setText("删除分录");
+		
+		
+		this.kDLabelContainer5.setBounds(150, 2, 200, 19);
+		this.kDContainer2.add(this.kDLabelContainer5);
+		this.kDLabelContainer6.setBounds(370, 2, 180, 19);
+		this.kDContainer2.add(this.kDLabelContainer6);
 	}
 
 	/*
@@ -3533,6 +3762,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}
 
 		//		txtGrtAmount.setEditable(false);
+		setButtonStatus();
 	}
 
 	/*
@@ -3550,192 +3780,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				actionSplit.setEnabled(false);
 			}
 		}
-	}
-
-	public SelectorItemCollection getSelectors() {
-		SelectorItemCollection sic = new SelectorItemCollection();
-		sic.add(new SelectorItemInfo("isCoseSplit"));
-		sic.add(new SelectorItemInfo("isPartAMaterialCon"));
-		sic.add(new SelectorItemInfo("createTime"));
-		sic.add(new SelectorItemInfo("number"));
-		sic.add(new SelectorItemInfo("codingNumber"));
-		sic.add(new SelectorItemInfo("originalAmount"));
-		sic.add(new SelectorItemInfo("chgPercForWarn"));
-		sic.add(new SelectorItemInfo("payPercForWarn"));
-		sic.add(new SelectorItemInfo("signDate"));
-		sic.add(new SelectorItemInfo("landDeveloper.*"));
-		sic.add(new SelectorItemInfo("contractType.*"));
-		sic.add(new SelectorItemInfo("costProperty"));
-		sic.add(new SelectorItemInfo("contractPropert"));
-		sic.add(new SelectorItemInfo("contractSourceId.*"));
-		sic.add(new SelectorItemInfo("partB.id"));
-		sic.add(new SelectorItemInfo("isContractor"));
-		sic.add(new SelectorItemInfo("contractPrice"));
-		sic.add(new SelectorItemInfo("partB.number"));
-		sic.add(new SelectorItemInfo("partB.name"));
-		sic.add(new SelectorItemInfo("partC.id"));
-		sic.add(new SelectorItemInfo("partC.number"));
-		sic.add(new SelectorItemInfo("partC.name"));
-
-		sic.add(new SelectorItemInfo("name"));
-		sic.add(new SelectorItemInfo("isSubContract"));
-		
-		sic.add(new SelectorItemInfo("lowestPriceUnit.id"));
-		sic.add(new SelectorItemInfo("lowestPriceUnit.number"));
-		sic.add(new SelectorItemInfo("lowestPriceUnit.name"));
-		
-		sic.add(new SelectorItemInfo("lowerPriceUnit.id"));
-		sic.add(new SelectorItemInfo("lowerPriceUnit.number"));
-		sic.add(new SelectorItemInfo("lowerPriceUnit.name"));
-		
-		sic.add(new SelectorItemInfo("middlePriceUnit.id"));
-		sic.add(new SelectorItemInfo("middlePriceUnit.number"));
-		sic.add(new SelectorItemInfo("middlePriceUnit.name"));
-		
-		sic.add(new SelectorItemInfo("higherPriceUnit.id"));
-		sic.add(new SelectorItemInfo("higherPriceUnit.number"));
-		sic.add(new SelectorItemInfo("higherPriceUnit.name"));
-		
-		sic.add(new SelectorItemInfo("highestPriceUni.id"));
-		sic.add(new SelectorItemInfo("highestPriceUni.number"));
-		sic.add(new SelectorItemInfo("highestPriceUni.name"));
-		
-		sic.add(new SelectorItemInfo("remark"));
-		sic.add(new SelectorItemInfo("description"));
-		sic.add(new SelectorItemInfo("coopLevel"));
-		sic.add(new SelectorItemInfo("priceType"));
-		sic.add(new SelectorItemInfo("mainContract.*"));
-		sic.add(new SelectorItemInfo("effectiveStartDate"));
-		sic.add(new SelectorItemInfo("effectiveEndDate"));
-		sic.add(new SelectorItemInfo("information"));
-		sic.add(new SelectorItemInfo("lowestPrice"));
-		sic.add(new SelectorItemInfo("lowerPrice"));
-		sic.add(new SelectorItemInfo("higherPrice"));
-		sic.add(new SelectorItemInfo("middlePrice"));
-		sic.add(new SelectorItemInfo("highestPrice"));
-		sic.add(new SelectorItemInfo("basePrice"));
-		sic.add(new SelectorItemInfo("secondPrice"));
-		sic.add(new SelectorItemInfo("inviteType.*"));
-		sic.add(new SelectorItemInfo("winPrice"));
-		sic.add(new SelectorItemInfo("winUnit.id"));
-		sic.add(new SelectorItemInfo("winUnit.number"));
-		sic.add(new SelectorItemInfo("winUnit.name"));
-		sic.add(new SelectorItemInfo("fileNo"));
-		sic.add(new SelectorItemInfo("quantity"));
-		sic.add(new SelectorItemInfo("exRate"));
-		sic.add(new SelectorItemInfo("amount"));
-		sic.add(new SelectorItemInfo("grtAmount"));
-		sic.add(new SelectorItemInfo("currency"));
-		sic.add(new SelectorItemInfo("respDept.*"));
-		sic.add(new SelectorItemInfo("payScale"));
-		sic.add(new SelectorItemInfo("stampTaxRate"));
-		sic.add(new SelectorItemInfo("stampTaxAmt"));
-		sic.add(new SelectorItemInfo("respPerson.*"));
-		sic.add(new SelectorItemInfo("creator.name"));
-		sic.add(new SelectorItemInfo("grtRate"));
-		sic.add(new SelectorItemInfo("bookedDate"));
-		sic.add(new SelectorItemInfo("period.*"));
-		sic.add(new SelectorItemInfo("conChargeType.*"));
-		sic.add(new SelectorItemInfo("overRate"));
-		sic.add(new SelectorItemInfo("ceremonyb"));
-		sic.add(new SelectorItemInfo("ceremonybb"));
-		sic.add(new SelectorItemInfo("programmingContract.name"));
-		sic.add(new SelectorItemInfo("programmingContract.controlAmount"));
-		sic.add(new SelectorItemInfo("payItems.payItemDate"));
-		sic.add(new SelectorItemInfo("payItems.payCondition"));
-		sic.add(new SelectorItemInfo("payItems.prop"));
-		sic.add(new SelectorItemInfo("payItems.amount"));
-		sic.add(new SelectorItemInfo("payItems.desc"));
-		sic.add(new SelectorItemInfo("payItems.paymentType.*"));
-		sic.add(new SelectorItemInfo("bail.entry.bailDate"));
-		sic.add(new SelectorItemInfo("bail.entry.bailConditon"));
-		sic.add(new SelectorItemInfo("bail.entry.prop"));
-		sic.add(new SelectorItemInfo("bail.entry.amount"));
-		sic.add(new SelectorItemInfo("bail.entry.desc"));
-		sic.add(new SelectorItemInfo("bail.entry.*"));
-		sic.add(new SelectorItemInfo("bail.amount"));
-		sic.add(new SelectorItemInfo("bail.prop"));
-		sic.add(new SelectorItemInfo("curProject.id"));
-		sic.add(new SelectorItemInfo("curProject.name"));
-		sic.add(new SelectorItemInfo("curProject.number"));
-		sic.add(new SelectorItemInfo("curProject.codingNumber"));
-		sic.add(new SelectorItemInfo("curProject.displayName"));
-		sic.add(new SelectorItemInfo("curProject.fullOrgUnit.name"));
-		sic.add(new SelectorItemInfo("curProject.costCenter"));		// modified by zhaoqin for 建发 on 2013/10/10
-		sic.add(new SelectorItemInfo("curProject.isWholeAgeStage"));		// modified by zhaoqin for 建发 on 2013/10/10
-		
-		sic.add(new SelectorItemInfo("curProject.parent.id"));
-		sic.add(new SelectorItemInfo("curProject.parent.number"));
-		sic.add(new SelectorItemInfo("curProject.parent.name"));
-
-		sic.add(new SelectorItemInfo("currency.number"));
-		sic.add(new SelectorItemInfo("currency.name"));
-		sic.add(new SelectorItemInfo("currency.precision"));
-
-		sic.add(new SelectorItemInfo("CU.id"));
-		sic.add(new SelectorItemInfo("orgUnit.id"));
-		sic.add(new SelectorItemInfo("contractType.isLeaf"));
-		sic.add(new SelectorItemInfo("contractType.level"));
-		sic.add(new SelectorItemInfo("contractType.number"));
-		sic.add(new SelectorItemInfo("contractType.longnumber"));
-		sic.add(new SelectorItemInfo("contractType.name"));
-		sic.add(new SelectorItemInfo("contractType.isRefProgram"));
-		sic.add(new SelectorItemInfo("contractType.isWorkLoadConfirm"));
-		
-		sic.add(new SelectorItemInfo("codeType.id"));
-		sic.add(new SelectorItemInfo("codeType.name"));
-		sic.add(new SelectorItemInfo("codeType.number"));
-		sic.add(new SelectorItemInfo("codeType.thirdType"));
-		sic.add(new SelectorItemInfo("codeType.secondType"));
-		
-		sic.add(new SelectorItemInfo("entrys.*"));
-		sic.add(new SelectorItemInfo("contractPlan.*"));
-
-		sic.add(new SelectorItemInfo("amount"));
-		sic.add(new SelectorItemInfo("originalAmount"));
-		sic.add(new SelectorItemInfo("state"));
-		sic.add(new SelectorItemInfo("isAmtWithoutCost"));
-
-		sic.add(new SelectorItemInfo("isArchived"));
-		sic.add(new SelectorItemInfo("splitState"));
-
-		sic.add(new SelectorItemInfo("period.number"));
-		sic.add(new SelectorItemInfo("period.periodNumber"));
-		sic.add(new SelectorItemInfo("period.beginDate"));
-		sic.add(new SelectorItemInfo("period.periodYear"));
-		
-		sic.add(new SelectorItemInfo("payItems.*"));
-		sic.add(new SelectorItemInfo("bail.*"));
-		sic.add(new SelectorItemInfo("bail.entry.bailConditon"));
-		sic.add(new SelectorItemInfo("bail.entry.bailAmount"));
-		sic.add(new SelectorItemInfo("bail.entry.prop"));
-		sic.add(new SelectorItemInfo("bail.entry.bailDate"));
-		sic.add(new SelectorItemInfo("bail.entry.desc"));
-		
-		sic.add(new SelectorItemInfo("auditor.id"));
-		
-		sic.add(new SelectorItemInfo("sourceBillId"));
-		
-		sic.add(new SelectorItemInfo("mainContract.*"));
-		sic.add(new SelectorItemInfo("effectiveStartDate"));
-		sic.add(new SelectorItemInfo("effectiveEndDate"));
-		sic.add(new SelectorItemInfo("isSubContract"));
-		sic.add(new SelectorItemInfo("information"));
-		
-		sic.add(new SelectorItemInfo("overRate"));
-		sic.add(new SelectorItemInfo("bizDate"));
-		sic.add(new SelectorItemInfo("bookDate"));
-		
-		sic.add(new SelectorItemInfo("programmingContract.*"));
-		sic.add(new SelectorItemInfo("programmingContract.programming.*"));
-		sic.add(new SelectorItemInfo("programmingContract.programming.project.id"));
-		
-		sic.add(new SelectorItemInfo("srcProID"));
-		sic.add(new SelectorItemInfo("contractModel"));
-		sic.add(new SelectorItemInfo("entrustReason"));
-		sic.add(new SelectorItemInfo("mIndexType"));
-		sic.add(new SelectorItemInfo("isFiveClass"));
-		return sic;
 	}
 
 	/**
@@ -3761,6 +3805,11 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		if(table==this.tblBail){
 			if(obj!=null){
 				dataBinder.loadLineFields(tblBail, row, obj);
+			}
+		}
+		if(table==this.kdtSplitEntry){
+			if(obj!=null){
+				dataBinder.loadLineFields(kdtSplitEntry, row, obj);
 			}
 		}
 	}
@@ -4332,6 +4381,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}
 		
 		setCntractPropertEnable();
+		setButtonStatus();
 	}
 
 	public void actionSplit_actionPerformed(ActionEvent e) throws Exception {
@@ -4596,6 +4646,19 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			this.txtcontractPrice.setValue(FDCHelper.divide(this.txtamount.getBigDecimalValue(), buildArea,2,4));
 		} catch (BOSException e) {
 			e.printStackTrace();
+		}
+		
+		//重要的事情要做两遍
+        for (int i = 0; i < kdtSplitEntry.getRowCount(); i++) {
+			IRow row = kdtSplitEntry.getRow(i);
+			if(!row.getCell("splitScale").getStyleAttributes().getBackground().equals(Color.white))
+				continue;
+			try {
+				runCalAmount(row, i);
+				runCalAmount(row, i);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -5150,8 +5213,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}
 	}
 	
-	public void actionRemoveLine_actionPerformed(ActionEvent e)
-			throws Exception {
+	public void actionRemoveLine_actionPerformed(ActionEvent e)throws Exception {
 		if(STATUS_VIEW.equals(getOprtState())){
 			//.....do nothing.....
 		}else if((getOprtState()==STATUS_VIEW||getOprtState()==STATUS_FINDVIEW)&&this.editData.getId()!=null&&FDCUtils.isRunningWorkflow(this.editData.getId().toString())){
@@ -5221,6 +5283,17 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		btnViewCost.setIcon(EASResource.getIcon("imgTbtn_sequencecheck"));
 		initEcoEntryTableStyle();
 		btnViewInvite.setEnabled(true);
+		
+		setSplitButton();
+	}
+	
+	protected void setButtonStatus() {
+		boolean flse = (getOprtState().equals("ADDNEW")||getOprtState().equals("EDIT"))?true:false;
+		this.actionAcctSelect.setEnabled(flse);
+		this.actionSplitProj.setEnabled(flse);
+		this.actionSplitProd.setEnabled(flse);
+		this.actionSplitBotUp.setEnabled(flse);
+		this.actionRemoveSplit.setEnabled(flse);
 	}
 
 	protected void checkRef(String id) throws Exception {
@@ -6416,7 +6489,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		prmtModel.setEnabled(true);
 		btnViewContrnt.setEnabled(true);
 		comboModel.setEnabled(true);
-		conSplitUI.actionSave_actionPerformed(e);
+//		conSplitUI.actionSave_actionPerformed(e);
 	}
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
 		// 保存前反写所关联的框架合约“是否引用”字段
@@ -6473,7 +6546,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		comboModel.setEnabled(true);
 		
 		setNumberByCodingRule();
-		conSplitUI.actionSave_actionPerformed(e);
+//		conSplitUI.actionSave_actionPerformed(e);
+		setButtonStatus();
 	}
 
 	// 提交时，控制预算余额
@@ -7630,5 +7704,1770 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 	// 取编码，编码规则必须设置绑定属性
 	protected String getBindingProperty() {
 		return BINDING_PROPERTY;
+	}
+	
+	
+	
+    private int groupIndex=0;
+	private IUIWindow acctUI=null;
+    private String contractBillId=null;
+	private Map parentMap = new HashMap();
+    private List oldCostAccountLongNumber = new ArrayList();
+	private HashMap entrysMap = new HashMap(); 
+	private ContractBillSplitEntryCollection entrys = null;
+    protected FDCCostSplitForContractSL fdcCostSplit=new FDCCostSplitForContractSL(null);
+	
+	public void actionAcctSelect_actionPerformed(ActionEvent e) throws Exception {
+		CostAccountCollection accts=null;
+		if(acctUI==null){
+			Map map = getUIContext();
+			//从UIContext中获得当前ID
+			String costBillId = editData.getId().toString();
+			CurProjectInfo curProject = editData.getCurProject();
+			/* modified by zhaoqin for R130927-0088 on 2013/12/23 end */			
+			
+			//获得本合同拆分所在工程信息，放入UIContext，传递至选择科目
+			UIContext uiContext = new UIContext(this); 
+			uiContext.put("curProject",curProject);
+			if (contractBillId != null) {
+				uiContext.put("contractBillId", contractBillId);
+			}
+			/************* 作废合同重新拆分 *************/
+//			uiContext.put("txtCostBillNumber", txtCostBillNumber.getText());
+			/************* 作废合同重新拆分 *************/
+			// 复杂模式：工程量与付款拆分不显示可拆分选项
+//			if (isFinacial()) {
+//				uiContext.put("isFinacial", Boolean.TRUE);
+//			}
+//			DefaultKingdeeTreeNode node = (DefaultKingdeeTreeNode)map.get("node");
+			//如果为变更新增，则可以直接从CURRENT.VO中获得CurProjectInfo
+			if(costBillId==null){
+				if(map.get("CURRENT.VO") instanceof ConChangeSplitInfo){
+					ConChangeSplitInfo info = (ConChangeSplitInfo)map.get("CURRENT.VO");
+					CurProjectInfo curProj = info.getCurProject();
+					uiContext.put("curProject",curProj);
+				}
+				if(map.get("CURRENT.VO") instanceof ContractCostSplitInfo){
+					ContractCostSplitInfo info = (ContractCostSplitInfo)map.get("CURRENT.VO");
+					CurProjectInfo curProj = info.getCurProject();
+					uiContext.put("curProject",curProj);
+				}
+				if(map.get("CURRENT.VO") instanceof PaymentSplitInfo){
+					PaymentSplitInfo info = (PaymentSplitInfo)map.get("CURRENT.VO");
+					CurProjectInfo curProj = info.getCurProject();
+					uiContext.put("curProject",curProj);
+				}
+				
+			}
+//			//从uiContext中获得在FDCSplitListUI中保存的节点信息
+//			if(node!=null && (node.getUserObject() instanceof OrgStructureInfo)){
+//				OrgStructureInfo info = (OrgStructureInfo)node.getUserObject();
+//				uiContext.put("curProject",info);
+//			}
+//			if(node!=null && node.getUserObject() instanceof CurProjectInfo){
+//				CurProjectInfo info = (CurProjectInfo)node.getUserObject();
+//				uiContext.put("curProject",info);
+//			}
+			
+			
+//			uiContext.put("curProject",editData.getCurProject());
+//			uiContext.put("isMeasureSplit", isMeasureContract()?Boolean.TRUE:null);
+			acctUI=UIFactory.createUIFactory(UIFactoryName.MODEL).	create(
+					com.kingdee.eas.fdc.basedata.client.CostSplitAcctUI.class.getName(),	uiContext, null , null);       
+		}else{
+			((CostSplitAcctUI) acctUI.getUIObject()).actionNoneSelect_actionPerformed(null);
+		}
+		acctUI.show();
+		IUIWindow uiWin=acctUI;
+		
+		if (((CostSplitAcctUI) uiWin.getUIObject()).isOk()) {	
+			accts=((CostSplitAcctUI) uiWin.getUIObject()).getData();
+			parentMap = ((CostSplitAcctUI) uiWin.getUIObject()).getParentIdMap();
+		}else{
+			return;
+		}
+		
+
+		CostAccountInfo acct=null;
+		
+		ContractBillSplitEntryInfo entry=null;
+		IRow row=null;
+		boolean isExist=false;
+		// 在财务一体化复杂模式下做此操作 删除非明细科目
+//		removeParentCostAccount(accts);
+		
+		for(Iterator iter=accts.iterator(); iter.hasNext();){
+			acct = (CostAccountInfo)iter.next();
+			
+			//判断科目是否存在
+			isExist=false;
+			for(int i=0; i<kdtSplitEntry.getRowCount(); i++){			
+				entry=(ContractBillSplitEntryInfo)kdtSplitEntry.getRow(i).getUserObject();
+								
+				//允许选择在其他拆分方案中已存在的科目		jelon 12/6/06
+				//if(entry.getCostAccount().getId().equals(acct.getId())){
+				if(entry.getLevel()==0 && entry.getCostAccount().getId().equals(acct.getId())){
+					isExist=true;
+					break;
+				}
+			}
+			if(!isExist){
+				
+				//entry=new FDCSplitBillEntryInfo();
+				entry=new ContractBillSplitEntryInfo();
+				entry.setCostAccount(acct);  
+				entry.setLevel(0);
+				entry.setIsLeaf(true);		//Jelon 	Dec 11, 2006
+				entry.setAmount(FDCHelper.ZERO);
+				
+				//拆分组号	jelon 12/27/2006
+				groupIndex++;
+				entry.setIndex(groupIndex);
+				
+				row=addEntry(entry);
+				setDisplay(row.getRowIndex());
+
+			}				
+		}
+		setMenuSplitState();
+		// 将直接金额的背景色设置成白色
+		String className = getUIContext().get("Owner").getClass().getName();
+		if (className.equals(WorkLoadSplitListUI.class.getName())
+				|| className.equals(PaymentSplitListUI.class.getName())) {
+			for (int k = kdtSplitEntry.getRowCount() - 1; k > 0; k--) {
+				if (kdtSplitEntry.getRow(k) != null && kdtSplitEntry.getRow(k).getCell("directAmt") != null)
+				kdtSplitEntry.getRow(k).getCell("directAmt").getStyleAttributes().setBackground(
+						new Color(0xffffff));
+				if (kdtSplitEntry.getRow(k) != null
+						&& kdtSplitEntry.getRow(k).getCell("directPayedAmt") != null)
+				kdtSplitEntry.getRow(k).getCell("directPayedAmt").getStyleAttributes().setBackground(
+						new Color(0xffffff));
+			}
+		} else if (className.equals(WorkLoadConfirmBillListUI.class.getName())
+				|| className.equals(WorkLoadConfirmBillEditUI.class.getName())) {
+			for (int k = kdtSplitEntry.getRowCount() - 1; k > 0; k--) {
+				if (kdtSplitEntry.getRow(k) != null && kdtSplitEntry.getRow(k).getCell("directAmt") != null)
+				kdtSplitEntry.getRow(k).getCell("directAmt").getStyleAttributes().setBackground(new Color(0xffffff));
+			}
+		}
+		setOneEntryAmt(txtamount.getBigDecimalValue());
+	}
+	
+	 /**
+     * 描述：针对一个科目的情况增加自动填入变更金额的功能
+     * 后续可能会抽象到基类中支持所有拆分
+     * 
+     * @param shouldSplitAmt:应拆金额
+     */
+	private void setOneEntryAmt(BigDecimal shouldSplitAmt) throws Exception{
+//		if(kdtSplitEntry.getRowCount()==1){
+//			KDTEditEvent event = new KDTEditEvent(
+//					kdtSplitEntry, null, null, 0,
+//					kdtSplitEntry.getColumnIndex("amount"), true, 1);
+//			final IRow row = kdtSplitEntry.getRow(0);
+//			row.getCell("amount").setValue(shouldSplitAmt);
+//			event.setValue(shouldSplitAmt);
+//			kdtSplitEntry_editStopped(event);
+//		}
+	}
+	
+	public void setMenuSplitState() {
+		// 新的成本科目编码集合
+		List newCostAccountLongNumber = new ArrayList();
+		// 判断是否工程量拆分和付款拆分打开
+		String className = getUIContext().get("Owner").getClass().getName();
+		if (className.equals(WorkLoadSplitListUI.class.getName()) || className.equals(PaymentSplitListUI.class.getName())
+				|| className.equals(WorkLoadConfirmBillListUI.class.getName()) || className.equals(WorkLoadConfirmBillEditUI.class.getName())) {
+			// 遍历新形成表格存入新的成本科目编码
+			String longNumber = null;
+			PaymentSplitEntryInfo info = null;
+			for (int i = 0; i < kdtSplitEntry.getRowCount(); i++) {
+				info = (PaymentSplitEntryInfo) kdtSplitEntry.getRow(i).getUserObject();
+				// 判断当前是否成本科目
+				if (info.getCostAccount() instanceof CostAccountInfo) {
+					newCostAccountLongNumber.add(info.getCostAccount().getLongNumber());
+				}
+			}
+			// 判断旧成本科目编码和新成本科目编码是否一致
+			if (!oldCostAccountLongNumber.containsAll(newCostAccountLongNumber)) {
+				this.getUIContext().put("isCanEnable", Boolean.FALSE);
+				PaymentSplitEntryInfo tmpInfo = null;
+				// 遍历新的表格用于判断是否全都是最明细科目
+				for (int i = 0; i < kdtSplitEntry.getRowCount(); i++) {
+					tmpInfo = (PaymentSplitEntryInfo) kdtSplitEntry.getRow(i).getUserObject();
+					// 判断当前行是否成本科目
+					if (tmpInfo.getCostAccount() instanceof CostAccountInfo) {
+						// 判断是否最明细成本科目，如果不是就设置按钮可编辑状态到工程量拆分和付款拆分
+						if (!tmpInfo.getCostAccount().isIsLeaf()) {
+							this.getUIContext().put("isCanEnable", Boolean.FALSE);
+							return;
+						} 
+					}
+				}
+			}
+		}
+	}
+	
+    private void setDisplay(int rowIndex){
+    	initDirectMap.clear();
+    	setOneTreeDisplay(rowIndex);
+    	initDirectAssign();
+    	
+    	setDisplay();
+    }
+    
+    public SelectorItemCollection getSelectors() {
+    	SelectorItemCollection sic = new SelectorItemCollection();
+    	
+    	sic.add(new SelectorItemInfo("isCoseSplit"));
+		sic.add(new SelectorItemInfo("isPartAMaterialCon"));
+		sic.add(new SelectorItemInfo("createTime"));
+		sic.add(new SelectorItemInfo("number"));
+		sic.add(new SelectorItemInfo("codingNumber"));
+		sic.add(new SelectorItemInfo("originalAmount"));
+		sic.add(new SelectorItemInfo("chgPercForWarn"));
+		sic.add(new SelectorItemInfo("payPercForWarn"));
+		sic.add(new SelectorItemInfo("signDate"));
+		sic.add(new SelectorItemInfo("landDeveloper.*"));
+		sic.add(new SelectorItemInfo("contractType.*"));
+		sic.add(new SelectorItemInfo("costProperty"));
+		sic.add(new SelectorItemInfo("contractPropert"));
+		sic.add(new SelectorItemInfo("contractSourceId.*"));
+		sic.add(new SelectorItemInfo("partB.id"));
+		sic.add(new SelectorItemInfo("isContractor"));
+		sic.add(new SelectorItemInfo("contractPrice"));
+		sic.add(new SelectorItemInfo("partB.number"));
+		sic.add(new SelectorItemInfo("partB.name"));
+		sic.add(new SelectorItemInfo("partC.id"));
+		sic.add(new SelectorItemInfo("partC.number"));
+		sic.add(new SelectorItemInfo("partC.name"));
+
+		sic.add(new SelectorItemInfo("name"));
+		sic.add(new SelectorItemInfo("isSubContract"));
+		
+		sic.add(new SelectorItemInfo("lowestPriceUnit.id"));
+		sic.add(new SelectorItemInfo("lowestPriceUnit.number"));
+		sic.add(new SelectorItemInfo("lowestPriceUnit.name"));
+		
+		sic.add(new SelectorItemInfo("lowerPriceUnit.id"));
+		sic.add(new SelectorItemInfo("lowerPriceUnit.number"));
+		sic.add(new SelectorItemInfo("lowerPriceUnit.name"));
+		
+		sic.add(new SelectorItemInfo("middlePriceUnit.id"));
+		sic.add(new SelectorItemInfo("middlePriceUnit.number"));
+		sic.add(new SelectorItemInfo("middlePriceUnit.name"));
+		
+		sic.add(new SelectorItemInfo("higherPriceUnit.id"));
+		sic.add(new SelectorItemInfo("higherPriceUnit.number"));
+		sic.add(new SelectorItemInfo("higherPriceUnit.name"));
+		
+		sic.add(new SelectorItemInfo("highestPriceUni.id"));
+		sic.add(new SelectorItemInfo("highestPriceUni.number"));
+		sic.add(new SelectorItemInfo("highestPriceUni.name"));
+		
+		sic.add(new SelectorItemInfo("remark"));
+		sic.add(new SelectorItemInfo("description"));
+		sic.add(new SelectorItemInfo("coopLevel"));
+		sic.add(new SelectorItemInfo("priceType"));
+		sic.add(new SelectorItemInfo("mainContract.*"));
+		sic.add(new SelectorItemInfo("effectiveStartDate"));
+		sic.add(new SelectorItemInfo("effectiveEndDate"));
+		sic.add(new SelectorItemInfo("information"));
+		sic.add(new SelectorItemInfo("lowestPrice"));
+		sic.add(new SelectorItemInfo("lowerPrice"));
+		sic.add(new SelectorItemInfo("higherPrice"));
+		sic.add(new SelectorItemInfo("middlePrice"));
+		sic.add(new SelectorItemInfo("highestPrice"));
+		sic.add(new SelectorItemInfo("basePrice"));
+		sic.add(new SelectorItemInfo("secondPrice"));
+		sic.add(new SelectorItemInfo("inviteType.*"));
+		sic.add(new SelectorItemInfo("winPrice"));
+		sic.add(new SelectorItemInfo("winUnit.id"));
+		sic.add(new SelectorItemInfo("winUnit.number"));
+		sic.add(new SelectorItemInfo("winUnit.name"));
+		sic.add(new SelectorItemInfo("fileNo"));
+		sic.add(new SelectorItemInfo("quantity"));
+		sic.add(new SelectorItemInfo("exRate"));
+		sic.add(new SelectorItemInfo("amount"));
+		sic.add(new SelectorItemInfo("grtAmount"));
+		sic.add(new SelectorItemInfo("currency"));
+		sic.add(new SelectorItemInfo("respDept.*"));
+		sic.add(new SelectorItemInfo("payScale"));
+		sic.add(new SelectorItemInfo("stampTaxRate"));
+		sic.add(new SelectorItemInfo("stampTaxAmt"));
+		sic.add(new SelectorItemInfo("respPerson.*"));
+		sic.add(new SelectorItemInfo("creator.name"));
+		sic.add(new SelectorItemInfo("grtRate"));
+		sic.add(new SelectorItemInfo("bookedDate"));
+		sic.add(new SelectorItemInfo("period.*"));
+		sic.add(new SelectorItemInfo("conChargeType.*"));
+		sic.add(new SelectorItemInfo("overRate"));
+		sic.add(new SelectorItemInfo("ceremonyb"));
+		sic.add(new SelectorItemInfo("ceremonybb"));
+		sic.add(new SelectorItemInfo("programmingContract.name"));
+		sic.add(new SelectorItemInfo("programmingContract.controlAmount"));
+		sic.add(new SelectorItemInfo("payItems.payItemDate"));
+		sic.add(new SelectorItemInfo("payItems.payCondition"));
+		sic.add(new SelectorItemInfo("payItems.prop"));
+		sic.add(new SelectorItemInfo("payItems.amount"));
+		sic.add(new SelectorItemInfo("payItems.desc"));
+		sic.add(new SelectorItemInfo("payItems.paymentType.*"));
+		sic.add(new SelectorItemInfo("bail.entry.bailDate"));
+		sic.add(new SelectorItemInfo("bail.entry.bailConditon"));
+		sic.add(new SelectorItemInfo("bail.entry.prop"));
+		sic.add(new SelectorItemInfo("bail.entry.amount"));
+		sic.add(new SelectorItemInfo("bail.entry.desc"));
+		sic.add(new SelectorItemInfo("bail.entry.*"));
+		sic.add(new SelectorItemInfo("bail.amount"));
+		sic.add(new SelectorItemInfo("bail.prop"));
+		sic.add(new SelectorItemInfo("curProject.id"));
+		sic.add(new SelectorItemInfo("curProject.name"));
+		sic.add(new SelectorItemInfo("curProject.number"));
+		sic.add(new SelectorItemInfo("curProject.codingNumber"));
+		sic.add(new SelectorItemInfo("curProject.displayName"));
+		sic.add(new SelectorItemInfo("curProject.fullOrgUnit.name"));
+		sic.add(new SelectorItemInfo("curProject.costCenter"));		// modified by zhaoqin for 建发 on 2013/10/10
+		sic.add(new SelectorItemInfo("curProject.isWholeAgeStage"));		// modified by zhaoqin for 建发 on 2013/10/10
+		
+		sic.add(new SelectorItemInfo("curProject.parent.id"));
+		sic.add(new SelectorItemInfo("curProject.parent.number"));
+		sic.add(new SelectorItemInfo("curProject.parent.name"));
+
+		sic.add(new SelectorItemInfo("currency.number"));
+		sic.add(new SelectorItemInfo("currency.name"));
+		sic.add(new SelectorItemInfo("currency.precision"));
+
+		sic.add(new SelectorItemInfo("CU.id"));
+		sic.add(new SelectorItemInfo("orgUnit.id"));
+		sic.add(new SelectorItemInfo("contractType.isLeaf"));
+		sic.add(new SelectorItemInfo("contractType.level"));
+		sic.add(new SelectorItemInfo("contractType.number"));
+		sic.add(new SelectorItemInfo("contractType.longnumber"));
+		sic.add(new SelectorItemInfo("contractType.name"));
+		sic.add(new SelectorItemInfo("contractType.isRefProgram"));
+		sic.add(new SelectorItemInfo("contractType.isWorkLoadConfirm"));
+		
+		sic.add(new SelectorItemInfo("codeType.id"));
+		sic.add(new SelectorItemInfo("codeType.name"));
+		sic.add(new SelectorItemInfo("codeType.number"));
+		sic.add(new SelectorItemInfo("codeType.thirdType"));
+		sic.add(new SelectorItemInfo("codeType.secondType"));
+		
+		sic.add(new SelectorItemInfo("entrys.*"));
+		sic.add(new SelectorItemInfo("contractPlan.*"));
+
+		sic.add(new SelectorItemInfo("amount"));
+		sic.add(new SelectorItemInfo("originalAmount"));
+		sic.add(new SelectorItemInfo("state"));
+		sic.add(new SelectorItemInfo("isAmtWithoutCost"));
+
+		sic.add(new SelectorItemInfo("isArchived"));
+		sic.add(new SelectorItemInfo("splitState"));
+
+		sic.add(new SelectorItemInfo("period.number"));
+		sic.add(new SelectorItemInfo("period.periodNumber"));
+		sic.add(new SelectorItemInfo("period.beginDate"));
+		sic.add(new SelectorItemInfo("period.periodYear"));
+		
+		sic.add(new SelectorItemInfo("payItems.*"));
+		sic.add(new SelectorItemInfo("bail.*"));
+		sic.add(new SelectorItemInfo("bail.entry.bailConditon"));
+		sic.add(new SelectorItemInfo("bail.entry.bailAmount"));
+		sic.add(new SelectorItemInfo("bail.entry.prop"));
+		sic.add(new SelectorItemInfo("bail.entry.bailDate"));
+		sic.add(new SelectorItemInfo("bail.entry.desc"));
+		
+		sic.add(new SelectorItemInfo("auditor.id"));
+		
+		sic.add(new SelectorItemInfo("sourceBillId"));
+		
+		sic.add(new SelectorItemInfo("mainContract.*"));
+		sic.add(new SelectorItemInfo("effectiveStartDate"));
+		sic.add(new SelectorItemInfo("effectiveEndDate"));
+		sic.add(new SelectorItemInfo("isSubContract"));
+		sic.add(new SelectorItemInfo("information"));
+		
+		sic.add(new SelectorItemInfo("overRate"));
+		sic.add(new SelectorItemInfo("bizDate"));
+		sic.add(new SelectorItemInfo("bookDate"));
+		
+		sic.add(new SelectorItemInfo("programmingContract.*"));
+		sic.add(new SelectorItemInfo("programmingContract.programming.*"));
+		sic.add(new SelectorItemInfo("programmingContract.programming.project.id"));
+		
+		sic.add(new SelectorItemInfo("srcProID"));
+		sic.add(new SelectorItemInfo("contractModel"));
+		sic.add(new SelectorItemInfo("entrustReason"));
+		sic.add(new SelectorItemInfo("mIndexType"));
+		sic.add(new SelectorItemInfo("isFiveClass"));
+    	
+		sic.add("splitEntry.costAccount.curProject.isLeaf");
+		sic.add("splitEntry.costAccount.curProject.longNumber");
+		sic.add("splitEntry.costAccount.curProject.number");
+		sic.add("splitEntry.costAccount.curProject.name");
+		sic.add("splitEntry.costAccount.curProject.displayName");
+		sic.add("splitEntry.costAccount.name");
+		sic.add("splitEntry.costAccount.longNumber");
+		sic.add("splitEntry.costAccount.displayName");
+		sic.add(new SelectorItemInfo("splitEntry.id"));
+    	sic.add(new SelectorItemInfo("splitEntry.amount"));
+    	sic.add(new SelectorItemInfo("splitEntry.product.id"));
+		sic.add(new SelectorItemInfo("splitEntry.product.name"));
+    	sic.add(new SelectorItemInfo("splitEntry.product.number"));
+    	sic.add(new SelectorItemInfo("splitEntry.costAccount.curProject.*"));
+    	sic.add(new SelectorItemInfo("splitEntry.costAccount.*"));
+    	sic.add(new SelectorItemInfo("splitEntry.level"));
+    	sic.add(new SelectorItemInfo("splitEntry.apportionType.name"));
+    	sic.add(new SelectorItemInfo("splitEntry.apportionValue"));
+    	sic.add(new SelectorItemInfo("splitEntry.directAmount"));
+    	sic.add(new SelectorItemInfo("splitEntry.apportionValueTotal"));
+    	sic.add(new SelectorItemInfo("splitEntry.directAmountTotal"));
+    	sic.add(new SelectorItemInfo("splitEntry.otherRatioTotal"));
+    	sic.add(new SelectorItemInfo("splitEntry.splitType"));
+    	sic.add(new SelectorItemInfo("splitEntry.workLoad"));
+    	sic.add(new SelectorItemInfo("splitEntry.price"));
+    	sic.add(new SelectorItemInfo("splitEntry.splitScale"));
+    	return sic;
+    }
+    
+	/**
+	 * 描述：设置分摊标准（全部）
+	 * @return
+	 * @author:jelon 
+	 * 创建时间：2006-10-19 <p>
+	 */
+    protected void setDisplay(){
+    	ContractBillSplitEntryInfo entry=null;
+    	IRow row=null;
+    	initDirectMap.clear();
+		for(int i=0; i<kdtSplitEntry.getRowCount(); i++){	
+			row=kdtSplitEntry.getRow(i);
+			entry = (ContractBillSplitEntryInfo)row.getUserObject();
+			if(entry.getLevel()==0){
+				setOneTreeDisplay(i);
+				//引入合同拆分比例时计算表头已拆分
+				calcAmount(i);
+			}
+		}
+		initDirectAssign();
+    }
+    
+    private void setOneTreeDisplay(int rowIndex){
+    	ContractBillSplitEntryInfo topEntry = (ContractBillSplitEntryInfo)kdtSplitEntry.getRow(rowIndex).getUserObject();    	
+    	int topLevel=topEntry.getLevel();		
+        CostAccountInfo topAcct=topEntry.getCostAccount();
+
+        ContractBillSplitEntryInfo entry=null;
+        IRow row=null;
+        ICell cell=null;
+        String display=null;
+        int level=0;
+        
+        CostAccountInfo acct=null;
+        CurProjectInfo proj=null;
+        
+        
+
+    	NodeClickListener nodeClickListener = new NodeClickListener(){
+    		public void doClick(CellTreeNode source, ICell cell, int type)	{
+    			//项目展开跟产品展开应该进行区分 by sxhong 2009/02/05
+    			if(source!=null&&!source.isCollapse()&&source.isHasChildren()){
+    				//将其下级所有的+变成-
+    				int level=source.getTreeLevel();
+    				for(int i=cell.getRowIndex()+1;i<kdtSplitEntry.getRowCount();i++){
+    					if(cell.getColumnIndex()==kdtSplitEntry.getColumnIndex("costAccount.curProject.name")){
+    						ICell cell2 = kdtSplitEntry.getCell(i, "costAccount.curProject.name");
+    						if(cell2.getValue() instanceof CellTreeNode){
+    							CellTreeNode node=(CellTreeNode)cell2.getValue();
+    							if(node.getTreeLevel()<=level){
+    								return;
+    							}
+    							node.setCollapse(false);
+    						}
+    						ICell cell3 = kdtSplitEntry.getCell(i, "costAccount.name");
+    						if(cell3.getValue() instanceof CellTreeNode){
+    							CellTreeNode node=(CellTreeNode)cell3.getValue();
+    							node.setCollapse(false);
+    						}
+    					}else if(cell.getColumnIndex()==kdtSplitEntry.getColumnIndex("costAccount.name")){
+    						ICell cell3 = kdtSplitEntry.getCell(i, "costAccount.name");
+    						if(cell3.getValue() instanceof CellTreeNode){
+    							CellTreeNode node=(CellTreeNode)cell3.getValue();
+    							if(node.getTreeLevel()<=level){
+    								return;
+    							}
+    							node.setCollapse(false);
+    						}
+    					}
+    				}
+    			}
+     		}
+    	};
+        
+        for(int i=rowIndex; i<kdtSplitEntry.getRowCount(); i++){
+        	row=kdtSplitEntry.getRow(i);   
+			entry = (ContractBillSplitEntryInfo)kdtSplitEntry.getRow(i).getUserObject();
+			
+			row.getCell("directAmount").setValue(entry.getDirectAmount());
+			
+			level=entry.getLevel();
+			
+			acct=entry.getCostAccount();
+			if(acct==null){
+				proj=null;
+			}else{
+				proj=acct.getCurProject();
+			}
+				
+			if(level>=topLevel){
+				if(level==topLevel && i!=rowIndex){
+					//下一个分配树
+					break;	
+				}
+				
+				//编码、名称
+				if(entry.getCostAccount().getCurProject()!=null){
+					//编码
+					row.getCell("costAccount.curProject.number").setValue(
+							entry.getCostAccount().getCurProject().getLongNumber().replace('!','.'));
+					row.getCell("costAccount.number").setValue(
+							entry.getCostAccount().getLongNumber().replace('!','.'));
+
+					//名称
+					if(level==0){
+						row.getCell("costAccount.curProject.name").setValue(
+								entry.getCostAccount().getCurProject().getDisplayName().replace('_','\\'));
+						row.getCell("costAccount.name").setValue(
+								entry.getCostAccount().getDisplayName().replace('_','\\'));
+						
+					}else if(entry.getSplitType()==CostSplitTypeEnum.PRODSPLIT && entry.isIsLeaf()){
+						//产品拆分明细
+						row.getCell("costAccount.curProject.number").setValue("");
+						row.getCell("costAccount.number").setValue("");
+						row.getCell("costAccount.curProject.name").setValue("");
+						row.getCell("costAccount.name").setValue("");
+						
+					}else if(entry.isIsAddlAccount()){
+						//附加科目，直接分配
+						row.getCell("costAccount.curProject.number").setValue("");
+						row.getCell("costAccount.curProject.name").setValue("");
+						//row.getCell("costAccount.number").setValue(entry.getCostAccount().getLongNumber());
+						row.getCell("costAccount.name").setValue(entry.getCostAccount().getName());
+						
+					}else{
+						row.getCell("costAccount.curProject.name").setValue(
+								entry.getCostAccount().getCurProject().getName());
+						row.getCell("costAccount.name").setValue(
+								entry.getCostAccount().getName());	
+					}		
+					
+					
+					//测试树形
+					if(level>=topLevel){
+						CellTreeNode node = new CellTreeNode();
+						node.addClickListener(nodeClickListener);			
+						cell=row.getCell("costAccount.curProject.name");			
+						// 节点的值
+						node.setValue(cell.getValue());
+						// 是否有子节点
+						//if(entry.getCostAccount().getLongNumber().equals(topAcct.getLongNumber()) && !entry.getCostAccount().getCurProject().isIsLeaf()){
+						/*if(entry.getCostAccount().getLongNumber().replace('!','.').equals(topAcct.getLongNumber().replace('!','.')) 
+								&& !entry.getCostAccount().getCurProject().isIsLeaf()
+								&& !isProdSplitLeaf(entry)){*/
+						/*
+						 * 屏蔽设置是否有孩子节点 by 29 // if (!entry.isIsLeaf() // &&
+						 * !entry.getCostAccount().getCurProject().isIsLeaf() //
+						 * && //
+						 * entry.getCostAccount().getLongNumber().replace('!',
+						 * // '.').equals( //
+						 * topAcct.getLongNumber().replace('!', '.'))) { //
+						 * node.setHasChildren(true); // } else { // //
+						 * node.setHasChildren(false); // }
+						 */
+						
+						//node.setHasChildren(!entry.isIsAddlAccount());
+						// 节点的树级别
+						node.setTreeLevel(entry.getLevel());
+						cell.getStyleAttributes().setLocked(false);
+						cell.setValue(node);
+						
+						if(level!=topLevel){
+							node = new CellTreeNode();
+							node.addClickListener(nodeClickListener);			
+							cell=row.getCell("costAccount.name");			
+							// 节点的值
+							node.setValue(cell.getValue());
+							/*
+							 * 屏蔽设置是否有孩子节点 by 29// 是否有子节点 //
+							 * node.setHasChildren(!entry.getCostAccount(). //
+							 * isIsLeaf() // || (!entry.isIsLeaf() && //
+							 * entry.getCostAccount().isIsLeaf() && //
+							 * entry.getSplitType()!=null && //
+							 * entry.getSplitType() //
+							 * .equals(CostSplitTypeEnum.PRODSPLIT)) );
+							 */
+							// 节点的树级别
+							//node.setTreeLevel(entry.getCostAccount().getLevel()-topAcct.getLevel());	
+							if(entry.isIsLeaf() && entry.getSplitType()!=null && entry.getSplitType().equals(CostSplitTypeEnum.PRODSPLIT)){
+								node.setTreeLevel(entry.getCostAccount().getLevel()-topAcct.getLevel()+1);	
+							}else{
+								node.setTreeLevel(entry.getCostAccount().getLevel()-topAcct.getLevel());	
+							}
+											
+							cell.getStyleAttributes().setLocked(false);
+							cell.setValue(node);							
+						}
+						//end
+					}
+				}
+								
+								
+				//颜色
+				if(level==0){
+					row.getStyleAttributes().setBackground(new Color(0xF6F6BF));
+					row.getCell("amount").getStyleAttributes().setBackground(new Color(0xFFFFFF));					
+					row.getCell("splitScale").getStyleAttributes().setBackground(new Color(0xFFFFFF));
+				}else{
+					if(entry.getSplitType()!=null && entry.getSplitType().equals(CostSplitTypeEnum.PRODSPLIT) && entry.getProduct()==null){
+						row.getStyleAttributes().setBackground(new Color(0xF5F5E6));
+					}else{
+						row.getStyleAttributes().setBackground(new Color(0xE8E8E3));
+					}					
+					row.getCell("amount").getStyleAttributes().setLocked(true);
+					//非科目行不能编辑 by hpw 2010-06-25
+					row.getCell("splitScale").getStyleAttributes().setLocked(true);
+					
+					//附加科目处理（允许录入金额）
+					/*
+					if(entry.isIsAddlAccount() && entry.getCostAccount().isIsLeaf() && entry.getCostAccount().getCurProject().isIsLeaf()){
+						if(entry.isIsLeaf() && entry.getSplitType()!=null && entry.getSplitType().equals(CostSplitType.PRODSPLIT)){						
+						}else{
+							row.getCell("amount").getStyleAttributes().setLocked(false);
+							row.getCell("amount").getStyleAttributes().setBackground(new Color(0xFFFFFF));									
+						}					
+					}*/
+					if(entry.isIsAddlAccount() 
+							&& proj!=null && proj.isIsLeaf()
+							&& acct!=null && acct.isIsLeaf()
+							&& !isProdSplitLeaf(entry)){
+						row.getCell("amount").getStyleAttributes().setLocked(false);
+						row.getCell("amount").getStyleAttributes().setBackground(new Color(0xFFFFFF));								
+					}
+				}					
+				if(isMeasureContract()){
+//					row.getCell("price").getStyleAttributes().setBackground(new Color(0xFFFFFF));
+//					row.getCell("workLoad").getStyleAttributes().setBackground(new Color(0xFFFFFF));
+					setMeasureCtrl(row);
+				}
+				//直接归属
+				initDirectAssign(row);		
+				
+			}else{
+				break;
+			}
+			
+        }
+        for(int i=rowIndex;i<kdtSplitEntry.getRowCount();i++){
+        	row=kdtSplitEntry.getRow(i);
+			entry = (ContractBillSplitEntryInfo)kdtSplitEntry.getRow(i).getUserObject();
+			if(entry.getLevel()==0&&i!=rowIndex){
+				break;
+			}
+			IRow rowNext = kdtSplitEntry.getRow(i + 1);
+			// 取下级有非空情况需要判断
+			if (rowNext == null) {
+				continue;
+			}
+			if (!entry.isIsLeaf() && rowNext.getStyleAttributes().isHided()) {
+				Object obj = row.getCell("costAccount.name").getValue();
+				CellTreeNode node=null;
+				if(obj instanceof CellTreeNode){
+					node=(CellTreeNode)obj;
+					node.setCollapse(true);
+				}
+				
+			}
+        }
+        //归属标准
+        setStandard(rowIndex);
+    }
+    
+	public void actionSplitBotUp_actionPerformed(ActionEvent arg0) throws Exception {
+		splitCost(CostSplitTypeEnum.BOTUPSPLIT);
+	}
+	
+	public void actionRemoveSplit_actionPerformed(ActionEvent e)throws Exception {
+		super.actionRemoveSplit_actionPerformed(e);
+
+    	if(!actionRemoveSplit.isEnabled()||!actionRemoveSplit.isVisible()) return;
+        //if ((kdtSplitEntry.getSelectManager().size() == 0) || isTableColumnSelected(kdtSplitEntry))
+    	if ((kdtSplitEntry.getSelectManager().size() == 0))
+        {
+            FDCMsgBox.showInfo(this, EASResource
+                    .getString(FrameWorkClientUtils.strResource
+                            + "Msg_NoneEntry"));
+
+            //FDCMsgBox.showInfo(this,"没有选中分录，无法删除！");
+            return;
+        }
+
+        //[begin]进行删除分录的提示处理。
+        if(confirmRemove())
+        {
+            int top = kdtSplitEntry.getSelectManager().get().getBeginRow();
+            int bottom = kdtSplitEntry.getSelectManager().get().getEndRow();
+            
+            int idx=0;
+            int idx1,idx2;
+            
+            boolean isTrue=false;
+            ContractBillSplitEntryInfo entry=null;
+            
+            for(int i =bottom ;i>=top ;i--)
+            {
+            	idx=i;
+            	
+            	idx1=idx;
+            	idx2=idx;
+            	
+            	//查找最后一行
+            	isTrue=false;
+            	for(int j=i+1; j<kdtSplitEntry.getRowCount(); j++){
+            		entry = (ContractBillSplitEntryInfo)kdtSplitEntry.getRow(j).getUserObject();
+            		if(entry.getLevel()==0){
+            			idx2=j-1;
+            			isTrue=true;
+            			break;
+            		}
+            	}
+            	if(!isTrue){
+            		idx2=kdtSplitEntry.getRowCount()-1;
+            	}
+            	if(idx2<idx){
+            		idx2=idx;
+            	} 
+            	
+            	//从最后一行向前删除，直至Level=0
+            	for(int j=idx2; j>=0; j--){
+            		idx1=j;
+            		
+            		entry = (ContractBillSplitEntryInfo)kdtSplitEntry.getRow(j).getUserObject();
+            		if(entry.getLevel()==0){
+            			removeEntry(j);
+            			break;
+            		}else{
+            			removeEntry(j);
+            		}
+            	}
+            	
+            	//i=idx1-1;
+            	i=idx1;
+            }            
+        }
+
+        
+        if(kdtSplitEntry.getRowCount()>0){
+        	calcAmount(0);
+        }else{
+        	txtSplitedAmount.setValue(FDCHelper.ZERO);    
+        }        	
+        
+
+		//拆分组号		jelon 12/28/2006
+		int idx=0;
+		ContractBillSplitEntryInfo entry=null;
+		for(int i=0; i<kdtSplitEntry.getRowCount(); i++){	
+			entry=(ContractBillSplitEntryInfo)kdtSplitEntry.getRow(i).getUserObject();			
+			if(entry.getLevel()==0){
+				if(entry.getIndex()>idx){
+					idx=entry.getIndex();
+				}
+			}
+		}
+		groupIndex=idx;
+    
+	}
+    
+    protected void calcAmount(int rowIndex){
+		BigDecimal amountTotal=FDCHelper.ZERO;
+		
+		BigDecimal amount = FDCHelper.ZERO;
+		
+		ContractBillSplitEntryInfo entry = null;
+		
+		//计算拆分总金额
+		for (int i = 0; i < kdtSplitEntry.getRowCount(); i++) {
+			/*if (kdtSplitEntry.getRow(i).getCell(COLAMOUNT).getValue()!=null){
+				amount = amount.add(new BigDecimal(kdtSplitEntry.getRow(i).getCell(COLAMOUNT).getValue().toString()));
+			}*/
+			entry = (ContractBillSplitEntryInfo) kdtSplitEntry.getRow(i).getUserObject();
+			
+			if (entry.getLevel() == 0) {
+				amount = entry.getAmount();
+				if (amount != null) {
+					amountTotal = amountTotal.add(amount);
+				}
+			}
+		}
+		amountTotal = amountTotal.setScale(2, BigDecimal.ROUND_HALF_UP);
+		if (txtSplitedAmount.getBigDecimalValue() != null
+				&& amountTotal.compareTo(FDCHelper.toBigDecimal(txtSplitedAmount.getBigDecimalValue())
+						.setScale(2, BigDecimal.ROUND_HALF_UP)) == 0) {
+			try {
+				txtSplitedAmount_dataChanged(null);
+			} catch (Exception e) {
+				handUIExceptionAndAbort(e);
+			}
+		} else {
+			txtSplitedAmount.setValue(amountTotal);
+		}    	
+    } 
+    
+	protected void txtSplitedAmount_dataChanged(DataChangeEvent e) throws Exception {
+		if(e==null) return;
+		super.txtSplitedAmount_dataChanged(e);
+
+		BigDecimal amount = FDCHelper.toBigDecimal(txtamount.getValue());
+
+		BigDecimal amtSplited = FDCHelper.toBigDecimal(e.getNewValue());
+
+		txtUnSplitAmount.setValue(FDCHelper.subtract(amount, amtSplited));
+	}
+    
+    public void actionSplitProd_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionSplitProd_actionPerformed(e);
+    	splitCost(CostSplitTypeEnum.PRODSPLIT);
+    }
+    
+	public void actionSplitProj_actionPerformed(ActionEvent arg0) throws Exception {
+		splitCost(CostSplitTypeEnum.PROJSPLIT);
+	}
+	
+	private void splitCost(CostSplitTypeEnum costSplitType) throws Exception {
+
+		//----------------------------------------------------------------------------------------
+		//选择行
+
+        if ((kdtSplitEntry.getSelectManager().size() == 0)
+                || isTableColumnSelected(kdtSplitEntry))
+        {
+            FDCMsgBox.showInfo(this, "没有选中分录，无法设置拆分方案！");
+            return;
+        }
+		
+		
+		int topIdx=-1;		
+		int[] selectRows = KDTableUtil.getSelectedRows(kdtSplitEntry);        
+        if(selectRows.length >0){
+        	topIdx = selectRows[0];
+        }
+        if(!(topIdx>=0)){
+        	return;
+        }        	        
+        
+
+		//----------------------------------------------------------------------------------------
+        //拆分对象
+        IRow topRow=kdtSplitEntry.getRow(topIdx);         
+		//FDCSplitBillEntryInfo selectEntry=editData.getEntrys().get(selectIdx);
+        ContractBillSplitEntryInfo topEntry=(ContractBillSplitEntryInfo)topRow.getUserObject();
+        
+        
+
+		int topLevel=topEntry.getLevel();			
+		BOSUuid topId=topEntry.getId();		
+		CostAccountInfo topAcct=topEntry.getCostAccount();			
+		if(topAcct==null){
+			return;
+		}
+		String topAcctNo=topEntry.getCostAccount().getLongNumber();
+		        
+        //拆分类型
+		CostSplitTypeEnum splitType=topEntry.getSplitType();
+		
+		
+		boolean isTrue=true;	
+		
+		if(costSplitType.equals(CostSplitTypeEnum.PRODSPLIT)){			//产品拆分	
+			if(!isProdSplitEnabled(topEntry)){
+				//FDCMsgBox.showInfo(this,"当前分录无法设置产品分摊方案！");			
+				FDCMsgBox.showWarning(this,"所选分录不符合产品拆分条件,请选择明细分录进行操作");
+				return;
+			}
+			
+		}else if(costSplitType.equals(CostSplitTypeEnum.PROJSPLIT)){	//自动拆分	
+			if(topEntry.getSplitType()!=null && !topEntry.getSplitType().equals(CostSplitTypeEnum.MANUALSPLIT)){
+				if(!topEntry.getSplitType().equals(CostSplitTypeEnum.PROJSPLIT)){					
+					isTrue=false;					
+				}
+			}
+			
+			if ((!parentMap.containsKey(topEntry.getCostAccount().getId().toString()) || topAcct.isIsLeaf()) && topAcct.getCurProject().isIsLeaf()) {
+				isTrue=false;
+			}
+			
+			if(topEntry.getLevel()!=0){
+				isTrue=false;
+			}
+			
+			if(!isTrue){
+				//FDCMsgBox.showInfo(this,"当前分录无法设置自动拆分方案！");		
+				FDCMsgBox.showWarning(this, "所选分录不符合自动拆分条件,请选择一级非明细分录进行操作");
+				return;
+			}
+			
+		}else if(costSplitType.equals(CostSplitTypeEnum.BOTUPSPLIT)){	//末级拆分	
+			if(topEntry.getSplitType()!=null && !topEntry.getSplitType().equals(CostSplitTypeEnum.MANUALSPLIT)){
+				//if(topEntry.getSplitType().equals(CostSplitType.PROJSPLIT)){
+				if(!topEntry.getSplitType().equals(CostSplitTypeEnum.BOTUPSPLIT)){
+					//isTrue=false;
+										
+					//将当前的自动拆分转换成末级拆分	jelon 12/6/06
+					if(topEntry.getSplitType().equals(CostSplitTypeEnum.PROJSPLIT) && topEntry.getLevel()==0){						
+						if (!FDCMsgBox.isYes(FDCMsgBox
+				                .showConfirm2(this,FDCSplitClientHelper.getRes("sure")))){
+							return;
+						}							
+					}else{
+						isTrue=false;
+					}
+				}
+			}
+			
+			
+			if(topEntry.getLevel()!=0){
+				isTrue=false;
+			}
+			
+			if(topAcct.isIsLeaf() && topAcct.getCurProject().isIsLeaf()){
+				isTrue=false;
+			}
+			if ((!parentMap.containsKey(topEntry.getCostAccount().getId().toString()) || topAcct.isIsLeaf()) && topAcct.getCurProject().isIsLeaf()) {
+				isTrue = false;
+			}
+			if(!isTrue){
+				//FDCMsgBox.showInfo(this,"当前分录无法设置末级拆分方案！");		
+				FDCMsgBox.showWarning(this, "所选分录不符合末级拆分条件,请选择一级非明细分录进行操作");
+				return;
+			}
+		}
+				
+		//topEntry.setSplitType(costSplitType);
+        
+        int level=0;
+
+		
+		//----------------------------------------------------------------------------------------
+		//准备参数
+        ContractBillSplitEntryCollection entrys=new ContractBillSplitEntryCollection();
+		entrys.add(topEntry);
+				
+		ContractBillSplitEntryInfo entry=null;
+		for(int i=topIdx+1; i<kdtSplitEntry.getRowCount(); i++){
+			entry=(ContractBillSplitEntryInfo)kdtSplitEntry.getRow(i).getUserObject();		
+			
+			if(entry.getLevel()>topLevel){
+				entrys.add(entry);
+			}else{
+				break;
+			}
+		}
+				
+
+		//----------------------------------------------------------------------------------------
+		//拆分设置UI
+		
+		FDCSplitBillEntryCollection arfterOldEntrys = new FDCSplitBillEntryCollection();
+		for (int i = 0; i < entrys.size(); i++) {
+			FDCSplitBillEntryInfo oldNewEntryInfo = new FDCSplitBillEntryInfo();
+			oldNewEntryInfo.putAll(entrys.get(i));
+			arfterOldEntrys.add(oldNewEntryInfo);
+		}
+		
+		UIContext uiContext = new UIContext(this); 
+		//uiContext.put("costSplit", editData.getEntrys());		
+		uiContext.put("costSplit", arfterOldEntrys);			
+		uiContext.put("splitType", costSplitType);		
+		uiContext.put("entryClass", getSplitBillEntryClassName());		
+		uiContext.put("parentMap", parentMap);
+		String apptUiName;
+		if(costSplitType.equals(CostSplitTypeEnum.PRODSPLIT)){
+			apptUiName=CostSplitApptProdUI.class.getName();
+		}else{
+			apptUiName=CostSplitApptProjUI.class.getName();
+		}
+		
+		IUIWindow uiWin = UIFactory.createUIFactory(UIFactoryName.MODEL).create(
+				apptUiName,	uiContext, null ,STATUS_ADDNEW );       
+		uiWin.show();	
+			
+		if (!((CostSplitApptUI) uiWin.getUIObject()).isOk()) {
+			return;
+		}
+
+		//返回值
+		entrys=new ContractBillSplitEntryCollection();
+		FDCSplitBillEntryCollection oldEntrys =(FDCSplitBillEntryCollection) ((CostSplitApptUI) uiWin.getUIObject()).getData() ;
+		for (int i = 0; i < oldEntrys.size(); i++) {
+			ContractBillSplitEntryInfo newInfo = new ContractBillSplitEntryInfo();
+			newInfo.putAll(oldEntrys.get(i));
+			entrys.add(newInfo);
+		}
+//		entrys =oldEntrys.c;
+
+		//		for (int i = 0; i < entrys.size(); i++) {
+		//			if (entrys.get(i).getLevel() > 1) {
+		//				entrys.get(i).setLevel(1);
+		//			}
+		//		}
+
+		//----------------------------------------------------------------------------------------
+		//删除原来的拆分
+		int index=0;
+		for(int i=topIdx+1; i<kdtSplitEntry.getRowCount(); i++){
+			entry=(ContractBillSplitEntryInfo)kdtSplitEntry.getRow(i).getUserObject();
+			if(entry.getLevel()>topLevel){
+				index=i;
+			}else{
+				break;
+			}			
+		}
+		for(int i=index; i>topIdx ; i--){
+			entry=(ContractBillSplitEntryInfo)kdtSplitEntry.getRow(i).getUserObject();
+			if(entry.getLevel()==topLevel){
+				break;
+			}
+			else
+			{
+				removeEntry(i);
+			}
+		}
+				
+				
+		
+		//----------------------------------------------------------------------------------------
+		
+		//成本科目
+		CostAccountInfo acct=null;
+		acct=entrys.get(0).getCostAccount();
+					
+		//拆分类型
+		splitType=costSplitType;	//CostSplitType.BOTUPSPLIT;
+				
+		//分摊类型
+		ApportionTypeInfo apportionType;
+		apportionType = entrys.get(0).getApportionType();  
+		
+		//附加科目
+		boolean isAddlAcct=entrys.get(0).isIsAddlAccount();
+		
+		topEntry.setSplitType(splitType);
+		topEntry.setApportionType(apportionType);	
+		topEntry.setIsLeaf(false);			
+		topEntry.setProduct(null);
+		
+		topRow.getCell("standard").setValue(splitType.toString());
+		topRow.getCell("product").setValue("");
+		topRow.getCell("product").getStyleAttributes().setLocked(true);
+		
+		//调试　begin
+		if(apportionType!=null){
+			topRow.getCell("apportionType.name").setValue(apportionType.getName());
+		}
+		topRow.getCell("splitType").setValue(splitType);
+		//调试　end
+		
+		IRow row;				
+		
+		//产品拆分：删除全部拆分项
+		if(entrys.size()==1){	
+			topEntry.setIsLeaf(true);
+			
+			if(topEntry.getLevel()==0){
+				topEntry.setSplitType(CostSplitTypeEnum.MANUALSPLIT);
+				topEntry.setApportionType(null);
+				
+				topRow.getCell("splitType").setValue(CostSplitTypeEnum.MANUALSPLIT);
+				//topRow.getCell("apportionType").setValue(new ApportionTypeInfo());
+				
+
+				//topRow.getCell("standard").setValue("");
+				setDisplay(topIdx);
+				
+			}else{
+				for(int i=topIdx-1; i>=0; i--){
+					row=kdtSplitEntry.getRow(i);
+					entry=(ContractBillSplitEntryInfo) row.getUserObject();
+					
+					if(entry.getLevel()==topEntry.getLevel()-1){
+						topEntry.setSplitType(entry.getSplitType());
+						topEntry.setApportionType(null);
+
+						topRow.getCell("splitType").setValue(entry.getSplitType());
+						//topRow.getCell("apportionType").setValue(new ApportionTypeInfo());
+						
+						setDisplay(i);
+						
+						break;
+					}
+				}
+				
+			}
+			return;
+		}
+		//插入新的拆分行
+		int idxCurr=topIdx;
+		
+		for(int i=1; i<entrys.size(); i++){
+			entry=entrys.get(i);				
+
+			//拆分组号	jelon 12/27/2006
+			entry.setIndex(topEntry.getIndex());
+						
+			//entry.setSplitType(splitType);
+			if(entry.getSplitType()!=null && entry.getSplitType().equals(CostSplitTypeEnum.PRODSPLIT)){
+				//项目拆分中包含的产品拆分
+			}else{
+				entry.setSplitType(splitType);
+			}
+			
+			
+			if(costSplitType.equals(CostSplitTypeEnum.PRODSPLIT)){
+				//项目拆分中包含的产品拆分
+				entry.setIsAddlAccount(isAddlAcct);
+			}
+									
+			idxCurr++;
+			row=insertEntry(idxCurr,entry);			
+			
+			row.getCell("costAccount.curProject.name").setValue(entry.getCostAccount().getCurProject().getName());
+			row.getCell("costAccount.name").setValue(entry.getCostAccount().getName());	
+		}
+		
+		//----------------------------------------------------------------------------------------
+		
+		//计算汇总数	
+		//calcApportionData(topIdx,costSplitType);	//使用新接口　jelon 12/26/2006
+		totApptValue(topIdx);
+
+		//分摊成本
+		//calcApportionAmount(topIdx,costSplitType);	//使用新接口　jelon 12/26/2006
+		apptAmount(topIdx);
+			
+
+		//设置显示
+		index=topIdx;
+		
+		//产品拆分，从拆分树的根节点开始设置
+		if(costSplitType.equals(CostSplitTypeEnum.PRODSPLIT)){
+			row=kdtSplitEntry.getRow(topIdx);
+			entry=(ContractBillSplitEntryInfo)row.getUserObject();
+			if(entry.getLevel()!=0){
+				for(int i=topIdx-1; i>=0; i--){
+					row=kdtSplitEntry.getRow(i);
+					entry=(ContractBillSplitEntryInfo)row.getUserObject();
+					if(entry.getLevel()==0){
+						index=i;
+						break;
+					}
+				}
+			}
+		}
+		setDisplay(index);		
+	}
+	
+    protected IRow insertEntry(int rowIndex, IObjectValue detailData)
+    {
+        IRow row = null;
+        
+        row = kdtSplitEntry.addRow(rowIndex);
+
+        loadLineFields(kdtSplitEntry, row, detailData);
+        
+        return row;
+    }
+	
+    private void totApptValue(int rowIndex){
+    	ContractBillSplitEntryInfo entry = (ContractBillSplitEntryInfo)kdtSplitEntry.getRow(rowIndex).getUserObject();
+
+    	//修改调用接口	jelon 12/26/2006
+		/*CostSplitType splitType=entry.getSplitType();
+		calcApportionData(rowIndex,splitType);*/
+		
+
+		//fdcCostSplit.totApptValue((IObjectCollection)editData.get("entrys"),entry);
+		fdcCostSplit.totApptValue(getEntrys(),entry);
+						
+		int level=entry.getLevel();
+		IRow row=null;
+		BigDecimal amount=null;
+		
+		for(int i=rowIndex; i<kdtSplitEntry.getRowCount(); i++){				
+			row=kdtSplitEntry.getRow(i);
+			entry=(ContractBillSplitEntryInfo)row.getUserObject();
+			
+			if(entry.getLevel()>level
+					|| (entry.getLevel()==level && i==rowIndex)){
+				amount=entry.getApportionValueTotal();
+				if(amount==null){
+					amount=FDCHelper.ZERO;
+				}				
+				row.getCell("apportionValueTotal").setValue(amount);   	 
+
+				amount=entry.getDirectAmountTotal();
+				if(amount==null){
+					amount=FDCHelper.ZERO;
+				}				
+				row.getCell("directAmountTotal").setValue(amount); 
+
+				amount=entry.getOtherRatioTotal();
+				if(amount==null){
+					amount=FDCHelper.ZERO;
+				}				
+				row.getCell("otherRatioTotal").setValue(amount);
+				
+			}else{
+				break;
+			}
+		}
+    }
+	
+    protected void removeEntry(int idxRow)
+    {    	
+        IObjectValue detailData = (IObjectValue) kdtSplitEntry.getRow(idxRow).getUserObject();
+        kdtSplitEntry.removeRow(idxRow);
+        
+        IObjectCollection collection = (IObjectCollection) kdtSplitEntry.getUserObject();
+        if (collection == null)
+        {
+        	return;
+        }
+        else
+        {
+            if( detailData != null ) {
+                collection.removeObject(detailData);
+            }
+        }
+    }
+    
+    protected ContractBillSplitEntryCollection getEntrys(){
+		entrysMap.clear();
+		entrys = new ContractBillSplitEntryCollection();
+		for (int i = 0; i < kdtSplitEntry.getRowCount(); i++) {
+			ContractBillSplitEntryInfo info = (ContractBillSplitEntryInfo) kdtSplitEntry.getRow(i).getUserObject();
+			// entrysMap.put(String.valueOf(info.getSeq()), info);
+			String key = getEntrysMapKey(info);
+			entrysMap.put(key, info);
+			entrys.add(info);
+		}
+    	
+    	return entrys;
+	}
+    
+	protected String getEntrysMapKey(ContractBillSplitEntryInfo entryInfo) {
+		String key = entryInfo.getSeq() + "";
+
+		return key;
+	}
+	
+	
+    protected void apptAmount(int rowIndex){
+    	ContractBillSplitEntryInfo topEntry = (ContractBillSplitEntryInfo)kdtSplitEntry.getRow(rowIndex).getUserObject();
+		fdcCostSplit.apptAmount(getEntrys(),topEntry);
+		
+		int level=topEntry.getLevel();
+		IRow row=null;
+		boolean isMeasureContract=isMeasureContract();
+		
+		Object value = kdtSplitEntry.getCell(rowIndex, "amount").getValue();
+		//已分摊总金额
+		BigDecimal totalAmt = FDCHelper.ZERO;
+		for(int i=rowIndex+1; i<kdtSplitEntry.getRowCount(); i++){				
+			row=kdtSplitEntry.getRow(i);
+			ContractBillSplitEntryInfo entry=(ContractBillSplitEntryInfo)row.getUserObject();
+			
+			if(entry.getLevel()>level){
+				BigDecimal amount=entry.getAmount();
+				if(amount==null){
+					amount=FDCHelper.ZERO;
+				}				
+				row.getCell("amount").setValue(amount);
+				if (entry.getLevel() == level + 1) {
+					totalAmt = FDCHelper.add(totalAmt, amount);
+				}
+				if (i == kdtSplitEntry.getRowCount() - 1 && FDCHelper.compareTo(value, totalAmt) != 0) {
+					row.getCell("amount").setValue(
+							FDCHelper.add(row.getCell("amount").getValue(), FDCHelper.subtract(value, totalAmt)));
+				}
+				
+				if(isMeasureContract&&isProdSplitLeaf(entry)){
+					entry.setPrice(topEntry.getPrice());
+					row.getCell("price").setValue(topEntry.getPrice());	
+					row.getCell("workLoad").setValue(FDCHelper.divide(entry.getAmount(), entry.getPrice()));
+				}
+			}else{
+				break;
+			}
+		}
+    }
+	
+	protected String getSplitBillEntryClassName(){
+		return ConChangeSplitEntryInfo.class.getName();
+	}
+    
+	protected boolean isMeasureContract(){
+		return false;
+	}
+    
+	protected void setMeasureCtrl(final IRow row) {
+		Color cantEditColor=new Color(0xF5F5E6);
+		row.getCell("price").getStyleAttributes().setBackground(new Color(0xFFFFFF));
+		row.getCell("workLoad").getStyleAttributes().setBackground(new Color(0xFFFFFF));
+		BigDecimal amount=FDCHelper.toBigDecimal(row.getCell("amount").getValue());
+		BigDecimal price=FDCHelper.toBigDecimal(row.getCell("price").getValue());
+		BigDecimal workLoad=FDCHelper.toBigDecimal(row.getCell("workLoad").getValue());
+		if(price.signum()!=0||workLoad.signum()!=0){
+			row.getCell("amount").getStyleAttributes().setBackground(cantEditColor);
+			row.getCell("amount").getStyleAttributes().setLocked(true);
+		}else if (amount.signum()!=0){
+			row.getCell("price").getStyleAttributes().setBackground(cantEditColor);
+			row.getCell("workLoad").getStyleAttributes().setBackground(cantEditColor);
+			row.getCell("price").getStyleAttributes().setLocked(true);
+			row.getCell("workLoad").getStyleAttributes().setLocked(true);
+		}else{
+			row.getCell("amount").getStyleAttributes().setLocked(false);
+			row.getCell("price").getStyleAttributes().setLocked(false);
+			row.getCell("workLoad").getStyleAttributes().setLocked(false);
+			row.getCell("amount").getStyleAttributes().setBackground(Color.WHITE);
+			row.getCell("price").getStyleAttributes().setBackground(Color.WHITE);
+			row.getCell("workLoad").getStyleAttributes().setBackground(Color.WHITE);
+		}
+		if(row.getUserObject() instanceof ContractBillSplitEntryInfo){
+			ContractBillSplitEntryInfo entry=(ContractBillSplitEntryInfo)row.getUserObject();
+			if(isProdSplitLeaf(entry)){
+				row.getCell("price").setValue(entry.getPrice());	
+				row.getCell("workLoad").setValue(FDCHelper.divide(entry.getAmount(), entry.getPrice()));
+				row.getCell("price").getStyleAttributes().setBackground(cantEditColor);
+				row.getCell("workLoad").getStyleAttributes().setBackground(cantEditColor);
+				row.getCell("price").getStyleAttributes().setLocked(true);
+				row.getCell("workLoad").getStyleAttributes().setLocked(true);
+			}
+		}
+	}
+	
+    protected boolean isProdSplitLeaf(ContractBillSplitEntryInfo entry){
+    	boolean isTrue=false;
+    	
+    	if(entry.isIsLeaf() && entry.getSplitType()!=null && entry.getSplitType().equals(CostSplitTypeEnum.PRODSPLIT)){
+    		isTrue=true;
+    	}
+    	
+    	return isTrue;
+    }
+	
+   private void setStandard(int index){
+	   ContractBillSplitEntryInfo curEntry = (ContractBillSplitEntryInfo)kdtSplitEntry.getRow(index).getUserObject();    
+    	
+    	int level=curEntry.getLevel();	
+    	
+    	//1. 拆分根据节点，使用拆分类型作为归属标准
+		if(level==0){
+			//Jelon Dec 13, 2006			
+			/*if(curEntry.getSplitType()!=null && curEntry.getSplitType()!=CostSplitType.MANUALSPLIT){
+				kdtSplitEntry.getRow(index).getCell("standard").setValue(curEntry.getSplitType());			
+			}*/
+			if(curEntry.getSplitType()==null || curEntry.getSplitType()==CostSplitTypeEnum.MANUALSPLIT){
+				kdtSplitEntry.getRow(index).getCell("standard").setValue("");	
+			}else{
+				kdtSplitEntry.getRow(index).getCell("standard").setValue(curEntry.getSplitType().toString());			
+			}
+		}
+    	
+		//2. 其他拆分结点，使用父级的分摊类型作为归属标准
+    	String apptType=null;
+    	if(curEntry.getApportionType()!=null){
+    		apptType=curEntry.getApportionType().getName();
+    	}
+    	ContractBillSplitEntryInfo entry=null;
+		IRow row=null;
+		
+		for(int i=index+1; i<kdtSplitEntry.getRowCount(); i++){
+			row=kdtSplitEntry.getRow(i);
+			entry = (ContractBillSplitEntryInfo)row.getUserObject();
+			
+						
+			if(entry.getLevel()==level+1){	
+				if(entry.isIsAddlAccount()){
+					if(entry.isIsLeaf() && entry.getSplitType()!=null && entry.getSplitType().equals(CostSplitTypeEnum.PRODSPLIT)){
+						row.getCell("standard").setValue(apptType);
+					}else{
+						row.getCell("standard").setValue("直接分配");
+					}
+				}else{
+					row.getCell("standard").setValue(apptType);
+				}
+				
+				if(!entry.isIsLeaf()){
+					setStandard(i);
+				}
+			}
+			else if(entry.getLevel()<=level){
+				break;
+			}		
+			
+		}	   					
+	}
+    
+    private Map initDirectMap=new HashMap();
+    private void  initDirectAssign(){
+    	if(initDirectMap==null||initDirectMap.size()==0){
+    		return;
+    	}
+    	
+    	Map projProdMap=new HashMap();
+		//产品类型		
+		EntityViewInfo view = new EntityViewInfo();		
+		FilterInfo filter = new FilterInfo();
+    	filter.getFilterItems().add(new FilterItemInfo("curProject.id",new HashSet(initDirectMap.values()),CompareType.INCLUDE));
+    	//filter.getFilterItems().add(new FilterItemInfo("isEnabled", Boolean.TRUE));
+    	filter.getFilterItems().add(new FilterItemInfo("IsAccObj", Boolean.TRUE));
+    	view.setFilter(filter);
+    	view.getSelector().add("curProject.id");
+    	view.getSelector().add("productType.*"); 		//使用“*”，用于列表中的数据和分录中的数据匹配
+    	view.getSorter().add(new SorterItemInfo("productType.number"));
+		try {   	    	    
+			CurProjProductEntriesCollection c=CurProjProductEntriesFactory.getRemoteInstance().getCurProjProductEntriesCollection(view);
+			for(int i=0;i<c.size();i++){
+				String prjId=c.get(i).getCurProject().getId().toString();
+				CurProjProductEntriesCollection temp=(CurProjProductEntriesCollection)projProdMap.get(prjId);
+				if(temp==null){
+					temp=new CurProjProductEntriesCollection();
+				}
+				temp.add(c.get(i));
+				projProdMap.put(prjId, temp);
+			}
+		}catch(BOSException e){
+			handUIExceptionAndAbort(e);
+		}
+    	for(Iterator iter=initDirectMap.keySet().iterator();iter.hasNext();	){
+    		Integer idx=(Integer)iter.next();
+    		String prjId=(String)initDirectMap.get(idx);
+    		if(idx==null){
+    			continue;
+    		}
+    		IRow row=kdtSplitEntry.getRow(idx.intValue());
+    		CurProjProductEntriesCollection coll=(CurProjProductEntriesCollection)projProdMap.get(prjId);
+			if(coll==null){
+				coll=new CurProjProductEntriesCollection();
+			}
+			ProductTypeCollection collProd=new ProductTypeCollection();
+			//空行
+			ProductTypeInfo prod=new ProductTypeInfo();
+			prod.setName(null);
+			//prod.setName("否");
+	        collProd.insertObject(-1,prod);		
+	        
+	        //当前项目全部产品
+			for (Iterator iter2 = coll.iterator(); iter2.hasNext();)
+			{
+				prod = ((CurProjProductEntriesInfo)iter2.next()).getProductType();	        
+				if(prod!=null){
+					collProd.add(prod);
+				}
+	        }
+
+			KDComboBox cbo = new KDComboBox();    	    	    	
+	        cbo.addItems(collProd.toArray());			
+	        row.getCell("product").setEditor(new KDTDefaultCellEditor(cbo));  
+    	}
+    }
+
+    public void initDirectAssign(IRow row){
+    	ContractBillSplitEntryInfo entry;
+		entry = (ContractBillSplitEntryInfo)row.getUserObject();
+		
+		
+		boolean isTrue=false;
+		isTrue=isProdSplitEnabled(entry);
+    	
+		if(!isTrue || !entry.isIsLeaf()){
+			row.getCell("product").getStyleAttributes().setLocked(true);
+			return;
+		}else{
+			row.getCell("product").getStyleAttributes().setBackground(new Color(0xFFFFFF));
+			initDirectMap.put(new Integer(row.getRowIndex()), entry.getCostAccount().getCurProject().getId().toString());
+		}
+    }
+    
+	private boolean isProdSplitEnabled(ContractBillSplitEntryInfo entry){		
+		boolean isTrue=false;
+		if (entry != null && entry.getCostAccount() != null && entry.getCostAccount().getCurProject() != null && entry.getCostAccount().getCurProject().isIsLeaf()) {
+			
+			if(entry.getSplitType()==null || entry.getSplitType().equals(CostSplitTypeEnum.MANUALSPLIT)){
+				isTrue=true;
+			}else if(entry.getSplitType().equals(CostSplitTypeEnum.PROJSPLIT) || entry.getSplitType().equals(CostSplitTypeEnum.BOTUPSPLIT)){
+				isTrue=true;
+	    	}else if(entry.getSplitType().equals(CostSplitTypeEnum.PRODSPLIT)){
+	    		if(!entry.isIsLeaf()){
+	    			isTrue=true;
+	    		}
+	    	}			
+		}
+		
+		return isTrue;
+	}
+	
+    protected IRow addEntry(IObjectValue detailData)
+    {
+        IRow row = kdtSplitEntry.addRow();
+        ((ContractBillSplitEntryInfo)detailData).setSeq(row.getRowIndex()+1);
+        loadLineFields(kdtSplitEntry, row, detailData);
+        afterAddLine(kdtSplitEntry, detailData);
+        
+        return row;
+    }
+
+    protected void kdtSplitEntry_editStopped(KDTEditEvent e) throws Exception {
+    	super.kdtSplitEntry_editStopped(e);
+		final IRow row = kdtSplitEntry.getRow(e.getRowIndex());
+		if (e.getColIndex()==kdtSplitEntry.getColumnIndex("amount")){
+			if (e.getValue()!=e.getOldValue()){
+				
+				BigDecimal amount=FDCHelper.ZERO;
+				BigDecimal splitScale = FDCHelper.ZERO;
+				ContractBillSplitEntryInfo entry;
+				entry = (ContractBillSplitEntryInfo)row.getUserObject();
+				String key = getEntrysMapKey(entry);
+				//if (entrysMap.get(String.valueOf(entry.getSeq())) != null) {//modified by ken_liu...见变量说明
+				if (entrysMap.get(key) != null) {//modified by ken_liu...见变量说明
+					// modified by zhaoqin on 2013/11/09 start, 录入金额时，NullPointException
+					// entry = (FDCSplitBillEntryInfo) entrysMap.get(String.valueOf(entry.getSeq()));
+					entry = (ContractBillSplitEntryInfo) entrysMap.get(key);
+					// modified by zhaoqin on 2013/11/09 end
+				}
+				//amount=new BigDecimal(kdtEntrys.getRow(e.getRowIndex()).getCell("amount").getValue().toString());
+				Object cellVal=row.getCell("amount").getValue();
+				if(cellVal!=null){
+					amount=new BigDecimal(cellVal.toString());
+				}
+				entry.setAmount(amount);
+				//拆分比例
+				if(entry.getLevel()==0){
+					if(FDCHelper.toBigDecimal(txtamount.getBigDecimalValue()).compareTo(FDCHelper.ZERO)!=0){
+						splitScale=FDCHelper.divide(FDCHelper.multiply(amount, FDCHelper.ONE_HUNDRED), txtamount.getBigDecimalValue(),10,BigDecimal.ROUND_HALF_UP);
+					}
+					entry.setSplitScale(splitScale);
+					row.getCell("splitScale").setValue(splitScale);
+				}else{
+					row.getCell("splitScale").setValue(null);
+				}
+				//分摊
+				/*CostSplitType splitType=entry.getSplitType();
+				calcApportionAmount(e.getRowIndex(),splitType);*/				
+				apptAmount(e.getRowIndex());	
+				
+				
+				//汇总
+				if(entry.getLevel()==0){
+					row.setUserObject(entry); // modified by zhaoqin for R130910-0152 on 2013/9/22
+					calcAmount(0);
+					
+				}else if(entry.isIsLeaf() && isAddlAcctLeaf(entry)){
+				}
+			}
+		}
+		
+		if (e.getColIndex()==kdtSplitEntry.getColumnIndex("splitScale")){
+			if (e.getValue()!=e.getOldValue()){
+				
+				BigDecimal amount = FDCHelper.ZERO;
+				BigDecimal splitScale = FDCHelper.ZERO;
+				ContractBillSplitEntryInfo entry;
+				entry = (ContractBillSplitEntryInfo)row.getUserObject();
+				
+				// modified by zhaoqin on 2013/11/09, 应调用统一的方法
+				// String key = entry.getCostAccount().getId().toString() + String.valueOf(entry.getSeq());
+				String key = getEntrysMapKey(entry);
+								
+				//if (entrysMap.get(String.valueOf(entry.getSeq())) != null) {//modified by ken_liu...见变量说明
+				if (entrysMap.get(key) != null) {//modified by ken_liu...见变量说明
+					entry = (ContractBillSplitEntryInfo) entrysMap.get(key);
+				}
+				Object cellVal=row.getCell("splitScale").getValue();
+				if(cellVal!=null){
+					splitScale=FDCHelper.toBigDecimal(cellVal);
+				}
+				if(entry.getLevel()==0){
+					entry.setSplitScale(splitScale);
+					amount = FDCHelper.divide(FDCHelper.multiply(txtamount.getBigDecimalValue(), splitScale),FDCHelper.ONE_HUNDRED,10,BigDecimal.ROUND_HALF_UP);
+					entry.setAmount(amount);
+					row.getCell("amount").setValue(amount);
+				}else{
+					row.getCell("splitScale").setValue(null);
+				}
+				
+				apptAmount(e.getRowIndex());				
+				//汇总
+				if(entry.getLevel()==0){
+					row.setUserObject(entry); // modified by zhaoqin for R130910-0152 on 2013/9/22
+					calcAmount(0);
+					
+				}
+			}
+		}
+		
+		//附加科目汇总
+		if (e.getColIndex()==kdtSplitEntry.getColumnIndex("amount")){
+			BigDecimal value=UIRuleUtil.getBigDecimal(e.getValue());
+			BigDecimal oldValue=e.getOldValue()==null?FDCHelper.ZERO:UIRuleUtil.getBigDecimal(e.getOldValue());
+			BigDecimal changeAmt=value.subtract(oldValue);
+			if (changeAmt.compareTo(FDCHelper.ZERO)!=0){
+				ContractBillSplitEntryInfo entry=(ContractBillSplitEntryInfo)row.getUserObject();
+				if(entry.isIsLeaf()&&entry.isIsAddlAccount()){
+					totAddlAcct(entry.getCostAccount().getCurProject(), entry.getCostAccount(), changeAmt, e.getRowIndex());
+					entry.setApportionValue(value);
+					row.getCell("apportionValue").setValue(value);
+				}
+			}
+		}
+		//附加产品
+		if (e.getColIndex()==kdtSplitEntry.getColumnIndex("product")){
+			ContractBillSplitEntryInfo entry = (ContractBillSplitEntryInfo)row.getUserObject();
+			Object product = row.getCell("product").getValue();
+			//if(product!=null&&product instanceof ProductTypeInfo && ((ProductTypeInfo)product).getId()!=null ){
+			if(product!=null&& product.toString()!=null ){
+				entry.setProduct((ProductTypeInfo)product);
+			}else{
+				entry.setProduct(null);
+			}
+		}
+		//加条件，否则末级拆分点击成本科目时归属金额可以录入，导致金额错误
+		if(editData.getBoolean("isMeasureSplit")){
+			handleMeasureCalc(e, row);
+		}
+	}
+    
+    protected boolean isAddlAcctLeaf(ContractBillSplitEntryInfo entry){
+    	boolean isTrue=false;
+    	
+    	if(entry.isIsAddlAccount() 
+    			&& entry.getCostAccount()!=null && entry.getCostAccount().isIsLeaf()
+    			&& entry.getCostAccount().getCurProject()!=null && entry.getCostAccount().getCurProject().isIsLeaf()
+    			&& !isProdSplitLeaf(entry)){
+    		isTrue=true;
+    	}
+    	
+    	return isTrue;
+    }
+    
+    protected void totAddlAcct(CurProjectInfo prj,CostAccountInfo acct,BigDecimal amount,int end) {
+		IRow row=null;
+    	CurProjectInfo curPrj=null;
+		CostAccountInfo curAcct=null;
+		BigDecimal sum=null; 
+    	for (int i = end-1; i >=0 ; i--) {
+			row = kdtSplitEntry.getRow(i);
+			ContractBillSplitEntryInfo entry=(ContractBillSplitEntryInfo)(row.getUserObject());
+			if(entry.getLevel()==0){
+				break;
+			}
+			if(!entry.isIsAddlAccount()){
+				continue;
+			}
+			
+			curAcct=entry.getCostAccount();
+			curPrj=entry.getCostAccount().getCurProject();
+			//设置上级工程项目的相同科目,注:用长编码来判断
+			if(prj.getParent()!=null&&prj.getParent().getId().equals(curPrj.getId())
+					&&acct.getLongNumber().equals(curAcct.getLongNumber())){
+				if(entry.getAmount()==null){
+					sum=FDCHelper.ZERO;
+				}else{
+					sum=amount.add(entry.getAmount());
+				}
+				entry.setAmount(sum);
+				row.getCell("amount").setValue(sum);
+			}
+//			设置相同工程项目的上级科目,并递归处理
+			if(prj.getId().equals(curPrj.getId())
+					&&acct.getParent()!=null
+					&&acct.getParent().getId().equals(curAcct.getId())){
+				if(entry.getAmount()==null){
+					sum=FDCHelper.ZERO;
+				}else{
+					sum=amount.add(entry.getAmount());
+				}
+				entry.setAmount(sum);
+				row.getCell("amount").setValue(sum);
+				
+				totAddlAcct(curPrj,curAcct,amount,i);
+			}
+		}
+
+	}
+    
+	protected void handleMeasureCalc(KDTEditEvent e, final IRow row) {
+		//量价汇总
+		if (e.getColIndex()==kdtSplitEntry.getColumnIndex("workLoad")
+			||e.getColIndex()==kdtSplitEntry.getColumnIndex("price")){
+			FDCSplitBillEntryInfo entry= (FDCSplitBillEntryInfo)row.getUserObject();
+			BigDecimal oldAmt=entry.getAmount();
+			BigDecimal amount = FDCHelper.multiply(row.getCell("workLoad").getValue(), row.getCell("price").getValue());
+			row.getCell("amount").setValue(amount);
+			entry.setWorkLoad((BigDecimal)row.getCell("workLoad").getValue());
+			entry.setPrice((BigDecimal)row.getCell("price").getValue());
+			entry.setAmount(amount);
+			try{
+				kdtSplitEntry_editStopped(new KDTEditEvent(e.getSource(), oldAmt, amount, 
+					row.getRowIndex(), row.getCell("amount").getColumnIndex(),false,1));
+			}catch (Exception e1) {
+				logger.error(e1.getMessage(),e1);
+				handUIExceptionAndAbort(e1);
+			}
+			calcAmount(0);
+		}
+
+		setMeasureCtrl(row);
+	}
+	
+	private void loadTable(KDTable table,String sql){
+		try {
+			table.checkParsed();
+			table.removeColumns();
+			table.removeRows();
+			IFMIsqlFacade isql = FMIsqlFacadeFactory.getRemoteInstance();
+			IRowSet executeQuery = isql.executeQuery(sql, null);
+			String nsql = sql;
+			if(sql.startsWith("/*dialect*/"))
+				nsql = sql.substring("/*dialect*/".length());
+			SQLStmtInfo sqlStmtInfo;
+			try
+			{
+				Lexer lexer = new Lexer(nsql);
+				TokenList _tokList = new TokenList(lexer);
+				com.kingdee.bos.sql.dom.stmt.SqlStmt sqlStmt = (new SqlStmtParser(_tokList)).stmt();
+				sqlStmtInfo = FMIsqlUIHandler.getSQLStmtInfo(sqlStmt);
+			}
+			catch(ParserException pe)
+			{
+				sqlStmtInfo = new SQLStmtInfo();
+				sqlStmtInfo.canAudoUpdate = false;
+				sqlStmtInfo.isSelect = false;
+			}
+			FMIsqlUI.fillData(table,executeQuery ,sqlStmtInfo);
+		} catch (BOSException e) {
+			e.printStackTrace();
+		} catch (EASBizException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void runCalAmount(IRow row,int i) throws Exception{
+		KDTEditEvent event = new KDTEditEvent(kdtSplitEntry, null, null, i,kdtSplitEntry.getColumnIndex("splitScale"), true, 1);
+    	event.setValue(row.getCell("splitScale").getValue());
+    	event.setOldValue("1.2222");
+    	kdtSplitEntry_editStopped(event);
 	}
 }
