@@ -18,14 +18,12 @@
             <uiActionRef>
                 <id>50cf5dac-0105-1000-e000-00cac0a813a4uiaf</id>
                 <uiStatus>EDIT</uiStatus>
-                <webUIStatus />
                 <userDefined>true</userDefined>
                 <uiObjectRef>
                     <key name="package" value="com.kingdee.eas.fdc.contract.settle.client" />
                     <key name="name" value="SettleDeclarationBillEditUI" />
                 </uiObjectRef>
                 <actionRefName>ActionSubmit</actionRefName>
-                <webActionRefName />
                 <parameters>
                     <parameter>
                         <name>billID</name>
@@ -43,48 +41,168 @@
                 <key name="name" value="SettleDeclarationBill" />
             </entityObjectRef>
         </operation>
+        <operation>
+            <name>ActionAudit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionAudit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionAudit].description</description>
+            <reverseOperation />
+            <eventMethod>061a92c1-ff58-4c72-bfa9-990c04745786</eventMethod>
+            <event>passAuditEvent</event>
+            <userDefined>false</userDefined>
+            <uiActionRef>
+                <id>42522ae4-fa48-40eb-899b-4336a954aef1uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <userDefined>false</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.contract.settle.client" />
+                    <key name="name" value="SettleDeclarationBillEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionAudit</actionRefName>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.settle.app" />
+                <key name="name" value="SettleDeclarationBill" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>ActionUnAudit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionUnAudit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionUnAudit].description</description>
+            <reverseOperation />
+            <eventMethod>39798fe0-3464-4436-b132-452d69233e05</eventMethod>
+            <event>unpassAuditEvent</event>
+            <userDefined>false</userDefined>
+            <uiActionRef>
+                <id>72e1b726-efcc-4ade-8146-9b41a3998dcfuiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <userDefined>false</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.contract.settle.client" />
+                    <key name="name" value="SettleDeclarationBillEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionUnAudit</actionRefName>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.settle.app" />
+                <key name="name" value="SettleDeclarationBill" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>ActionInTrial</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionInTrial].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionInTrial].description</description>
+            <reverseOperation />
+            <eventMethod>1cb89076-2069-483f-b093-283c5c2cd1b1</eventMethod>
+            <event>InTrialEvent</event>
+            <userDefined>false</userDefined>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.settle.app" />
+                <key name="name" value="SettleDeclarationBill" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>ActionApproved</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionApproved].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionApproved].description</description>
+            <reverseOperation />
+            <eventMethod>0736aad0-4855-4fb1-95bf-311c461f6e14</eventMethod>
+            <event>ApprovedEvent</event>
+            <userDefined>false</userDefined>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.settle.app" />
+                <key name="name" value="SettleDeclarationBill" />
+            </entityObjectRef>
+        </operation>
     </operations>
     <resource>
         <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].alias">
-            <lang locale="en_US" value="多分录基础单据编辑界面业务功能" />
             <lang locale="zh_CN" value="结算申报单编辑功能" />
+            <lang locale="en_US" value="多分录基础单据编辑界面业务功能" />
             <lang locale="zh_HK" value="結算申報單編輯功能" />
             <lang locale="zh_TW" value="結算申報單編輯功能" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].description">
-            <lang locale="en_US" value="多分录基础单据编辑界面业务功能" />
             <lang locale="zh_CN" value="多分录基础单据编辑界面业务功能" />
+            <lang locale="en_US" value="多分录基础单据编辑界面业务功能" />
             <lang locale="zh_HK" value="多分錄基礎單據編輯介面業務功能" />
             <lang locale="zh_TW" value="多分錄基礎單據編輯介面業務功能" />
         </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionApproved].alias">
+            <lang locale="zh_CN" value="审定" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審定" />
+            <lang locale="zh_TW" value="審定" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionApproved].description">
+            <lang locale="zh_CN" value="审定" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審定" />
+            <lang locale="zh_TW" value="審定" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionAudit].alias">
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionAudit].description">
+            <lang locale="zh_CN" value="ActionAudit" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="ActionAudit" />
+            <lang locale="zh_TW" value="ActionAudit" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionInTrial].alias">
+            <lang locale="zh_CN" value="送审" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="送審" />
+            <lang locale="zh_TW" value="送審" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionInTrial].description">
+            <lang locale="zh_CN" value="送审" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="送審" />
+            <lang locale="zh_TW" value="送審" />
+        </rs>
         <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionSubmit].alias">
-            <lang locale="en_US" value="提交" />
             <lang locale="zh_CN" value="提交" />
+            <lang locale="en_US" value="提交" />
             <lang locale="zh_HK" value="提交" />
             <lang locale="zh_TW" value="提交" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionSubmit].description">
-            <lang locale="en_US" value="提交" />
             <lang locale="zh_CN" value="提交" />
+            <lang locale="en_US" value="提交" />
             <lang locale="zh_HK" value="提交" />
             <lang locale="zh_TW" value="提交" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionSubmit].extendedProperty.userDefined">
-            <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="true" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionSubmit].uiActionRef.parameters.parameter[billID].alias">
-            <lang locale="en_US" value="单据内码" />
             <lang locale="zh_CN" value="单据内码" />
+            <lang locale="en_US" value="单据内码" />
             <lang locale="zh_HK" value="單據內碼" />
             <lang locale="zh_TW" value="單據內碼" />
         </rs>
         <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionSubmit].uiActionRef.parameters.parameter[billID].description">
-            <lang locale="en_US" value="单据内码" />
             <lang locale="zh_CN" value="单据内码" />
+            <lang locale="en_US" value="单据内码" />
             <lang locale="zh_HK" value="單據內碼" />
             <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionUnAudit].alias">
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillEditUIFunction].operations.operation[ActionUnAudit].description">
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
         </rs>
     </resource>
 </functionObject>
