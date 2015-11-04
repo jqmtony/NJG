@@ -3117,6 +3117,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 
 		kDTabbedPane1.add(pnlDetail, resHelper.getString("pnlDetail.constraints"));
 		kDTabbedPane1.add(pnlInviteInfo, resHelper.getString("pnlInviteInfo.constraints"));
+		kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
 		//亿达需要，万科先注销
 		//		kDTabbedPane1.add(pnlCost, "成本信息");		
 	}
@@ -5878,7 +5879,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			sic.add("isWholeAgeStage");
 			CurProjectInfo curInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(editData.getCurProject().getId()),sic);
 			//校验合约规划
-			if(!curInfo.isIsWholeAgeStage())
+			if(!curInfo.isIsWholeAgeStage()&&!chkisContractor.isSelected())
 				checkConProgram();
 		}
 		//modify by yxl 20151027  提交时检验面平米指标，五大类合同
@@ -5892,6 +5893,22 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}
 	}
 
+	/**
+	 * by sl 大华需求，如果是总包合同，则不需要关联合约规划
+	 */
+	protected void chkisContractor_actionPerformed(ActionEvent e)throws Exception {
+		super.chkisContractor_actionPerformed(e);
+		checkContractor();
+	}
+	
+	private void checkContractor(){
+		if(this.chkisContractor.isSelected()){
+			this.prmtFwContract.setEnabled(false);
+			this.prmtFwContract.setValue(null);
+		}else{
+			this.prmtFwContract.setEnabled(true);
+		}
+	}
 	/**
 	 * 根据参数FDC228_ISSTRICTCONTROL和合约框架控制合同签定，控制逻辑如下：<p>
 	 * <li>当参数为“严格控制”时，合同提交时必须关联合约规划，合同金额大于控制金额时，合同不允许提交；

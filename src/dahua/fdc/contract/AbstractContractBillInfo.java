@@ -16,6 +16,7 @@ public class AbstractContractBillInfo extends com.kingdee.eas.fdc.basedata.FDCBi
     protected AbstractContractBillInfo(String pkField)
     {
         super(pkField);
+        put("splitEntry", new com.kingdee.eas.fdc.contract.ContractBillSplitEntryCollection());
         put("otherLandDevelpers", new com.kingdee.eas.fdc.contract.ContractLandDeveloperCollection());
         put("contractPlan", new com.kingdee.eas.fdc.contract.ContractBillContractPlanCollection());
         put("entrys", new com.kingdee.eas.fdc.contract.ContractBillEntryCollection());
@@ -1056,6 +1057,13 @@ public class AbstractContractBillInfo extends com.kingdee.eas.fdc.basedata.FDCBi
     public void setMIndexType(String item)
     {
         setString("mIndexType", item);
+    }
+    /**
+     * Object: 合同单据 's 拆分信息 property 
+     */
+    public com.kingdee.eas.fdc.contract.ContractBillSplitEntryCollection getSplitEntry()
+    {
+        return (com.kingdee.eas.fdc.contract.ContractBillSplitEntryCollection)get("splitEntry");
     }
     public BOSObjectType getBOSType()
     {
