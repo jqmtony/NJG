@@ -24,6 +24,7 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.param.ParamControlFactory;
 import com.kingdee.eas.base.permission.UserInfo;
@@ -94,10 +95,20 @@ public class ConChangeSplitControllerBean extends AbstractConChangeSplitControll
     	ConChangeSplitInfo info = (ConChangeSplitInfo)model;
     	info.setIslastVerThisPeriod(true);
     	
-    	if(info.getId()!=null){
+    	//如果是从变更审批走，则在保存不扣减合约规划金额
+    	if(UIRuleUtil.isNull(info.getSourceBillId())&&info.getId()!=null){
     		ContractCostSplitControllerBean.synUpdateBillByRelation(ctx, info.getId(), false);
 		}
     	IObjectPK pk=super._save(ctx, info);
+    	
+    	//保存更新
+    	if(UIRuleUtil.isNull(info.getSourceBillId()))
+    		update(ctx, info);
+    	
+		return pk;
+	}
+    
+    private void update(Context ctx,ConChangeSplitInfo info) throws EASBizException, BOSException{
     	ContractCostSplitControllerBean.synUpdateBillByRelation(ctx, info.getId(), true);
     	
     	ConChangeSplitInfo splitBillInfo=null;
@@ -110,7 +121,7 @@ public class ConChangeSplitControllerBean extends AbstractConChangeSplitControll
 		selectorGet.add("period.id");
 		selectorGet.add("period.number");
 		selectorGet.add("splitState");
-		splitBillInfo = super.getConChangeSplitInfo(ctx, pk, selectorGet);
+		splitBillInfo = super.getConChangeSplitInfo(ctx, new ObjectUuidPK(info.getId()), selectorGet);
 		String prjID = splitBillInfo.getContractChange().getCurProject().getId().toString();
 		PeriodInfo currentPeriod = FDCUtils.getCurrentPeriod(ctx,prjID, true);
 		if(currentPeriod!=null){
@@ -157,8 +168,8 @@ public class ConChangeSplitControllerBean extends AbstractConChangeSplitControll
 			builder.addParam(splitBillInfo.getContractChange().getId().toString());
 			builder.executeUpdate();
 		}
-    	ConChangeSplitInfo splitBill=(ConChangeSplitInfo)model;		
-		splitBill.setId(BOSUuid.read(pk.toString()));
+    	ConChangeSplitInfo splitBill=info;		
+		splitBill.setId(splitBill.getId());
 		updateEntrySeq(ctx,splitBill);
     			
 		collectCostSplit(ctx, CostSplitBillTypeEnum.CNTRCHANGESPLIT, splitBillInfo.getContractChange(), splitBill.getId(), splitBill.getEntrys());
@@ -171,8 +182,7 @@ public class ConChangeSplitControllerBean extends AbstractConChangeSplitControll
 		builder.execute();
 		//驱动拆分工作流,注意此处传递的单据的ID一定是单据ID
 		ContractChangeBillFactory.getLocalInstance(ctx).costChangeSplit(splitBill.getContractChange().getId());
-		return pk;
-	}
+    }
 
 	public IObjectPK[] _delete(Context ctx, FilterInfo filter) throws BOSException, EASBizException {
 		//统一在基类中实现
@@ -236,9 +246,17 @@ public class ConChangeSplitControllerBean extends AbstractConChangeSplitControll
 			}
 		}
 		
+		ConChangeSplitInfo info = getConChangeSplitInfo(ctx, new ObjectUuidPK(billId));
+    	//保存更新
+    	if(UIRuleUtil.isNotNull(info.getSourceBillId()))
+    		update(ctx, info);
 	}
 	
 	protected void _unAudit(Context ctx, BOSUuid billId) throws BOSException, EASBizException {
+		if(UIRuleUtil.isNotNull(getConChangeSplitInfo(ctx, new ObjectUuidPK(billId)).getSourceBillId())){
+			throw new EASBizException(new NumericExceptionSubItem("111",
+			"此拆分单据已做签证，不能反审批！"));
+		}
 		super._unAudit(ctx, billId);
 	}
     

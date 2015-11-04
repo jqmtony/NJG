@@ -133,30 +133,6 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 			builder.addParam(splitBillInfo.getContractBill().getId().toString());
 			builder.executeUpdate();
 		}
-    	//处理分录顺序
-		/*
-		SelectorItemCollection selector = new SelectorItemCollection();
-		//selector.add("entys.seq");	
-		//selector.add("entys.index");
-		selector.add("id");	
-		selector.add("seq");	
-		selector.add("index");	
-		//(ContractCostSplitInfo)model;//
-		ContractCostSplitInfo splitBill=(ContractCostSplitInfo)model;//ContractCostSplitFactory.getLocalInstance(ctx).getContractCostSplitInfo(pk,selector);
-		ContractCostSplitEntryInfo entry=null;		
-		for (Iterator iter = splitBill.getEntrys().iterator(); iter.hasNext();)
-		{
-			entry = (ContractCostSplitEntryInfo) iter.next();			
-
-			//entry.setSeq(entry.getIndex());		jelon 12/27/2006		
-			//entry.setSeq(entry.getIndex()*10000 + entry.getSeq());
-			//entry.setIndex(entry.getSeq()*100);
-			entry.setIndex(1000);
-			
-			ContractCostSplitEntryFactory.getLocalInstance(ctx).updatePartial(entry,selector);
-		}
-		//ContractCostSplitFactory.getLocalInstance(ctx).updatePartial(splitBill,selector);
-		*/		
 		
 		//处理拆分汇总
 		ContractCostSplitInfo splitBill=(ContractCostSplitInfo)model;
@@ -165,7 +141,6 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 		//处理拆分汇总
 		BOSUuid costBillId=splitBill.getContractBill().getId();
 		collectCostSplit(ctx, CostSplitBillTypeEnum.CONTRACTSPLIT, splitBillInfo.getContractBill(),splitBill.getId(),splitBill.getEntrys());
-		
 		
 //		更新合同的拆分状态
 		FDCSQLBuilder builder=new FDCSQLBuilder(ctx);
@@ -176,40 +151,8 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 		builder.execute();
 		//驱动拆分工作流,这里一定是单据ID
 		ContractBillFactory.getLocalInstance(ctx).split(new ObjectUuidPK(costBillId));
-		
-/*		//科目预测控制 by sxhong 2008-04-28 17:06:22
- * 		之前的演示功能，不在需要了
-		boolean hasUsed=FDCUtils.getDefaultFDCParamByKey(ctx, null, FDCConstants.FDC_PARAM_ACCTBUDGET);
-		if(hasUsed){
-			//只做实现,不考虑性能等
-			try {
-				FilterInfo filter=new FilterInfo();
-				filter.appendFilterItem("bill.contractId", costBillId.toString());
-				ConPayPlanSplitFactory.getLocalInstance(ctx).delete(filter);
-				builder = new FDCSQLBuilder(ctx);
-				builder.appendSql("select fid from T_FNC_ContractPayPlan where FContractId=?");
-				builder.addParam(costBillId.toString());
-				IRowSet rowSet = builder.executeQuery();
-				while (rowSet.next()) {
-					String conPayPlanId = rowSet.getString("fid");
-					ConPayPlanSplitFactory.getLocalInstance(ctx).autoSplit(conPayPlanId);
-				}
-				builder.clear();
-				builder.appendSql("select fid from T_CON_PayRequestBill where fcontractid=?");
-				builder.addParam(costBillId.toString());
-				rowSet = builder.executeQuery();
-				while (rowSet.next()) {
-					String reqId = rowSet.getString("fid");
-					PayRequestSplitFactory.getLocalInstance(ctx).autoSplit(reqId);
-				}
-			} catch (Exception e) {
-				throw new BOSException(e);
-			}
-		}*/
-		
 		//拆分保存更新对应招标立项下对应的招标预先拆分的状态为已拆分
 		ContractCostSplitInviteHelper.setInvitePreSplitState(ctx, pk, true);
-		
 		synUpdateBillByRelation(ctx, info.getId(), true);
 		return pk;
 	}
@@ -317,13 +260,7 @@ public class ContractCostSplitControllerBean extends AbstractContractCostSplitCo
 	 */
 	protected void _save(Context ctx, IObjectPK pk, IObjectValue model) throws BOSException, EASBizException {
 		// TODO 自动生成方法存根
-		ContractCostSplitInfo info = (ContractCostSplitInfo)model;
-		if(info.getId()!=null){
-			synUpdateBillByRelation(ctx, info.getId(), false);
-		}
 		super._save(ctx, pk, model);	
-		synUpdateBillByRelation(ctx, info.getId(), true);
-		
 		//拆分保存更新对应招标立项下对应的招标预先拆分的状态为已拆分
 		ContractCostSplitInviteHelper.setInvitePreSplitState(ctx, pk, true);
 	}
