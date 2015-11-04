@@ -2146,7 +2146,7 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length />
+            <length>0</length>
             <precision>0</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.fdc.contract.app.ContractBill].properties.ownProperty[isFiveClass].defaultValue</defaultValue>
@@ -2175,6 +2175,17 @@
                 <key name="name" value="CFMindexType" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>splitEntry</name>
+            <alias>entityObject[com.kingdee.eas.fdc.contract.app.ContractBill].properties.linkProperty[splitEntry].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.contract.app.ContractBill].properties.linkProperty[splitEntry].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="R_ContractBill_ContractBillSplitEntry_entrys" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -4552,6 +4563,17 @@
             <lang locale="zh_CN" value="责任人" />
             <lang locale="zh_HK" value="責任人" />
             <lang locale="zh_TW" value="責任人" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ContractBill].properties.linkProperty[splitEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="拆分信息" />
+            <lang locale="zh_HK" value="拆分信息" />
+            <lang locale="zh_TW" value="拆分信息" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ContractBill].properties.linkProperty[splitEntry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ContractBill].properties.linkProperty[strategyPact].alias">
             <lang locale="en_US" value="null" />
