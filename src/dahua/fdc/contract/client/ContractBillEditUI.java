@@ -1908,6 +1908,10 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				objs[1] = txtcontractName.getText();
 				objs[2] = ceremonyb.getBigDecimalValue();
 				conSplitUI.reloadCompoent(objs);
+				if(prmtFwContract.getValue()!=null && prmtFwContract.getValue() instanceof ProgrammingContractInfo){
+					ProgrammingContractInfo contractInfo = (ProgrammingContractInfo)prmtFwContract.getValue();
+					conSplitUI.loadProgrammingContractInfo(contractInfo);
+				}
 			}
 		}
 	}
@@ -7397,6 +7401,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			
 			
 			ProgrammingContractInfo contractInfo = (ProgrammingContractInfo) contractObj;
+			if(conSplitUI != null)
+				conSplitUI.setProgrammingContractInfo(contractInfo);
 			controlAmount = FDCHelper.toBigDecimal(contractInfo.getControlBalance(), 2);
 			txtControlAmount.setNumberValue(controlAmount);
 			//			this.txtControlAmount.setText(controlAmount

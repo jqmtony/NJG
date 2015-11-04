@@ -59,6 +59,8 @@ import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.basedata.CostSplitBillTypeEnum;
 import com.kingdee.eas.fdc.basedata.CostSplitStateEnum;
+import com.kingdee.eas.fdc.basedata.CurProjectFactory;
+import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
 import com.kingdee.eas.fdc.basedata.FDCCostSplit;
@@ -82,11 +84,7 @@ import com.kingdee.eas.fdc.contract.ContractWithProgramFactory;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.PayReqUtils;
 import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
-import com.kingdee.eas.fdc.contract.client.AbstractDesignChangeAuditEditUI.actionImpContrSplit;
-import com.kingdee.eas.fdc.contract.client.AbstractDesignChangeAuditEditUI.actionSplitProd;
-import com.kingdee.eas.fdc.contract.programming.IProgrammingContracCost;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
@@ -105,6 +103,7 @@ public class ContractCostSplitEditUI extends AbstractContractCostSplitEditUI
 	private boolean checkAllSplit = true;
 	private int viewType = 0;//合同编辑信息
     private static final Logger logger = CoreUIObject.getLogger(ContractCostSplitEditUI.class);
+    private ProgrammingContractInfo pcinfo = null;
     
     /**
      * output class constructor
@@ -120,6 +119,10 @@ public class ContractCostSplitEditUI extends AbstractContractCostSplitEditUI
     public void storeFields()
     {
         super.storeFields();
+    }
+    
+    public void setProgrammingContractInfo(ProgrammingContractInfo info){
+    	pcinfo = info;
     }
 
     /**
@@ -819,14 +822,21 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 		 this.btnViewContract.setIcon(EASResource.getIcon("imgTbtn_execute"));
 		 this.menuViewContract.setIcon(EASResource.getIcon("imgTbtn_execute"));
 		 
+		 String projectId = editData.getCurProject().getId().toString();
+		 if(projectId != null){
+			 CurProjectInfo project = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(projectId));
+			 if(!project.isIsWholeAgeStage())
+				 kdtEntrys.getColumn("programming").getStyleAttributes().setLocked(true);
+		 }
 		 EntityViewInfo view = new EntityViewInfo();
 		 FilterInfo filInfo = new FilterInfo();
-		 filInfo.getFilterItems().add(new FilterItemInfo("project.id",editData.getCurProject().getId()));
-		 filInfo.getFilterItems().add(new FilterItemInfo("programming.isLatest","1"));
+		 filInfo.getFilterItems().add(new FilterItemInfo("programming.project.id",projectId));
+//		 filInfo.getFilterItems().add(new FilterItemInfo("programming.isLatest","1"));
 		 view.setFilter(filInfo);
 		 
 		 final KDBizPromptBox kdtEntrys_programming_PromptBox = new KDBizPromptBox();
-		 kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery");
+//		 kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery");
+		 kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.programming.app.ProgrammingContractF7Query");
 		 kdtEntrys_programming_PromptBox.setVisible(true);
 		 kdtEntrys_programming_PromptBox.setEditable(true);
 	     kdtEntrys_programming_PromptBox.setDisplayFormat("$number$");
@@ -868,10 +878,19 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 		kDContainer1.addButton(btnRemoveLine1);
 	}
 	
+	
+	
 	public void reloadCompoent(Object[] objs){
 		txtCostBillNumber.setText((String)objs[0]);
     	txtCostBillName.setText((String)objs[1]);    	
     	txtAmount.setValue(objs[2]);
+	}
+	
+	public void loadProgrammingContractInfo(ProgrammingContractInfo pcinfo){
+		for(int i = 0; i < kdtEntrys.getRowCount(); i++) {
+			//programming
+			kdtEntrys.getCell(i,"programming").setValue(pcinfo);
+		}
 	}
 	
 	/**
@@ -1157,6 +1176,7 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 //			}
 //		} else {
 			super.actionAcctSelect_actionPerformed(e);
+			loadProgrammingContractInfo(pcinfo);
 //		}
 	}
     
