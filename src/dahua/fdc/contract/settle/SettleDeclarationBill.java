@@ -16,10 +16,10 @@ import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.bos.util.*;
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
-import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.bos.framework.*;
 import com.kingdee.eas.fdc.contract.settle.app.*;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.framework.ICoreBillBase;
 
 public class SettleDeclarationBill extends CoreBillBase implements ISettleDeclarationBill
@@ -130,7 +130,7 @@ public class SettleDeclarationBill extends CoreBillBase implements ISettleDeclar
      *ÀÕ…Û-User defined method
      *@param model model
      */
-    public void InTrial(IObjectValue model) throws BOSException
+    public void InTrial(BOSUuid model) throws BOSException
     {
         try {
             getController().InTrial(getContext(), model);
@@ -143,7 +143,7 @@ public class SettleDeclarationBill extends CoreBillBase implements ISettleDeclar
      *…Û∂®-User defined method
      *@param model model
      */
-    public void Approved(IObjectValue model) throws BOSException
+    public void Approved(BOSUuid model) throws BOSException
     {
         try {
             getController().Approved(getContext(), model);
@@ -156,7 +156,7 @@ public class SettleDeclarationBill extends CoreBillBase implements ISettleDeclar
      *…Û∫À-User defined method
      *@param model model
      */
-    public void Audit(IObjectValue model) throws BOSException
+    public void Audit(BOSUuid model) throws BOSException
     {
         try {
             getController().Audit(getContext(), model);
@@ -169,7 +169,7 @@ public class SettleDeclarationBill extends CoreBillBase implements ISettleDeclar
      *∑¥…Û∫À-User defined method
      *@param model model
      */
-    public void UnAudit(IObjectValue model) throws BOSException
+    public void UnAudit(BOSUuid model) throws BOSException
     {
         try {
             getController().UnAudit(getContext(), model);

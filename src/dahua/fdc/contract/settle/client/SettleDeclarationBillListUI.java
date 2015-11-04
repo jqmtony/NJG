@@ -6,6 +6,7 @@ package com.kingdee.eas.fdc.contract.settle.client;
 import java.awt.Component;
 import java.awt.event.*;
 import java.sql.ResultSetMetaData;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,12 +18,15 @@ import org.apache.log4j.Logger;
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.MetaDataPK;
+import com.kingdee.bos.metadata.data.SortType;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemCollection;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.entity.SorterItemCollection;
+import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
@@ -31,6 +35,7 @@ import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
+import com.kingdee.bos.ctrl.kdf.table.KDTDataRequestManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
@@ -55,11 +60,16 @@ import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.basedata.ContractTypeFactory;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.client.ContractBillEditUI;
 import com.kingdee.eas.fdc.contract.client.ContractClientUtils;
+import com.kingdee.eas.fdc.contract.settle.ISettleDeclarationBill;
+import com.kingdee.eas.fdc.contract.settle.SettleDeclarationBillFactory;
+import com.kingdee.eas.fdc.contract.settle.SettleDeclarationBillInfo;
+import com.kingdee.eas.fdc.contract.settle.WorkflowXRHelper;
 import com.kingdee.eas.fdc.merch.common.KDTableHelper;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.framework.client.tree.DefaultLNTreeNodeCtrl;
@@ -78,6 +88,7 @@ import com.kingdee.jdbc.rowset.IRowSet;
 public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(SettleDeclarationBillListUI.class);
+
     private FilterInfo mainFilterInfo = null;
     private int selectInvit = 0;
 	protected FullOrgUnitInfo orgUnit = SysContext.getSysContext().getCurrentAdminUnit().castToFullOrgUnitInfo();
@@ -103,6 +114,12 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
 //    			tblMain_afterDataFill(e);
 //    		}
 //    	});
+    	
+    	btnLocate.setVisible(false);
+    	btnAttachment.setVisible(false);
+    	btnAuditResult.setVisible(false);
+    	
+    	
     	super.onLoad();
     	initUI();
     	
@@ -115,6 +132,8 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
     	for(int i = 0; i < kDTable1.getColumnCount(); i++)
     	fields[i] = kDTable1.getColumnKey(i);
     	KDTableHelper.setSortedColumn(kDTable1, fields);
+    	
+    	tblMain.getColumn("id").getStyleAttributes().setHided(true);
     	
 //    	showQueryDate(this.kDTable1, "com.kingdee.eas.fdc.contract.app.ContractBillQuery",null);
     	
@@ -490,7 +509,7 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
     	
     	
     	int selectIndex = this.kDTable1.getSelectManager().getActiveRowIndex();
-    	EntityViewInfo view = new EntityViewInfo();
+//    	EntityViewInfo view = new EntityViewInfo();
     	FilterInfo filInfo = new FilterInfo();
 		if(selectIndex!=-1)
 		{
@@ -502,14 +521,24 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
 			filInfo.getFilterItems().add(new FilterItemInfo("id","999"));
 		}
     	
-    	view.setFilter(filInfo);
-    	return super.getQueryExecutor(queryPK, view);
+		colView.setFilter(filInfo);
+    	
+    	//按版本排序
+		SorterItemCollection sorters = new SorterItemCollection();  
+	    SorterItemInfo sorter = new SorterItemInfo("version");  
+	    sorter.setSortType(SortType.DESCEND); //降序 
+	    sorters.add(sorter);  
+	    colView.setSorter(sorters);  
+    	
+//    	return super.getQueryExecutor(queryPK, colView);
+    	 IQueryExecutor exec = super.getQueryExecutor(queryPK, colView);
+//         exec.option().isAutoIgnoreZero = isAutoIgnoreZero();//显示为零的属性
+         exec.option().isAutoTranslateBoolean = true;//布尔属性显示
+         exec.option().isAutoTranslateEnum = true;//枚举属性显示
+         exec.option().isIgnoreRowCount = isIgnoreRowCount();
+         exec.option().pageCount = KDTDataRequestManager.defaultPageRow;
+     	return exec;
     }
-    
-    
-    
-    
-    
     
     
     
@@ -546,6 +575,23 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
     protected void tblMain_tableSelectChanged(com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent e) throws Exception
     {
         super.tblMain_tableSelectChanged(e);
+        checkSelected();//判断是否选中行
+    	String id = this.getSelectedKeyValue();
+    	ISettleDeclarationBill Iexpen =  SettleDeclarationBillFactory.getRemoteInstance();
+    	SettleDeclarationBillInfo info = Iexpen.getSettleDeclarationBillInfo(new ObjectUuidPK(id));
+		if(info.getState().equals(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Review)){
+			btnInTrial.setEnabled(true);
+			btnApproved.setEnabled(false);
+		}
+		if(info.getState().equals(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.InTrial)){
+			btnInTrial.setEnabled(false);
+			btnApproved.setEnabled(true);
+		}
+		if(info.getState().equals(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Approved)){
+			btnInTrial.setEnabled(false);
+			btnApproved.setEnabled(false);
+		}
+    	
     }
 
     protected void menuItemImportData_actionPerformed(java.awt.event.ActionEvent e) throws Exception
@@ -554,11 +600,25 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
     }
     
     public void actionInTrial_actionPerformed(ActionEvent e) throws Exception {//送审
-    	super.actionInTrial_actionPerformed(e);
+//    	super.actionInTrial_actionPerformed(e);
+    	checkSelected();//判断是否选中行
+    	String id = this.getSelectedKeyValue();
+    	ISettleDeclarationBill Iexpen =  SettleDeclarationBillFactory.getRemoteInstance();
+    	SettleDeclarationBillInfo info = Iexpen.getSettleDeclarationBillInfo(new ObjectUuidPK(id));
+		
+    	
+    	SettleDeclarationBillFactory.getRemoteInstance().submit(info);
     }
     
     public void actionApproved_actionPerformed(ActionEvent e) throws Exception {//审定
-    	super.actionApproved_actionPerformed(e);
+//    	super.actionApproved_actionPerformed(e);
+    	checkSelected();//判断是否选中行
+    	String id = this.getSelectedKeyValue();
+    	ISettleDeclarationBill Iexpen =  SettleDeclarationBillFactory.getRemoteInstance();
+    	SettleDeclarationBillInfo info = Iexpen.getSettleDeclarationBillInfo(new ObjectUuidPK(id));
+		
+    	
+    	SettleDeclarationBillFactory.getRemoteInstance().Approved(info.getId());
     }
     
 
@@ -757,37 +817,7 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
         super.actionPopupPaste_actionPerformed(e);
     }
 
-    /**
-     * output actionToolBarCustom_actionPerformed
-     */
-    public void actionToolBarCustom_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionToolBarCustom_actionPerformed(e);
-    }
 
-    /**
-     * output actionCloudFeed_actionPerformed
-     */
-    public void actionCloudFeed_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCloudFeed_actionPerformed(e);
-    }
-
-    /**
-     * output actionCloudShare_actionPerformed
-     */
-    public void actionCloudShare_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCloudShare_actionPerformed(e);
-    }
-
-    /**
-     * output actionCloudScreen_actionPerformed
-     */
-    public void actionCloudScreen_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionCloudScreen_actionPerformed(e);
-    }
 
     /**
      * output actionAddNew_actionPerformed
@@ -808,18 +838,57 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
     /**
      * output actionEdit_actionPerformed
      */
-    public void actionEdit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionEdit_actionPerformed(e);
-    }
+    public void actionEdit_actionPerformed(ActionEvent e) throws Exception{//修改
+    	
+    	checkSelected();//判断是否选中行
+    	
+    	String id = this.getSelectedKeyValue();//获取选中单据ID
+    	
+    	ISettleDeclarationBill Iexpen = SettleDeclarationBillFactory.getRemoteInstance();
+    	
+    	SettleDeclarationBillInfo Info = Iexpen.getSettleDeclarationBillInfo(new ObjectUuidPK(id));
+		
+		if(!Info.isIsVersion()){
+			MsgBox.showWarning("不是最新版本，不能修改！");
+			SysUtil.abort();
+		}
+		if(Info.isIsVersion()){
+			if(WorkflowXRHelper.checkInProInst(Info.getId().toString())){
+				MsgBox.showWarning("此单据记录有流程正在运行!");
+				SysUtil.abort();
+			}else{
+				
+				super.actionEdit_actionPerformed(e);
+			}
+		}
+		
+		
+	}
 
     /**
      * output actionRemove_actionPerformed
      */
-    public void actionRemove_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionRemove_actionPerformed(e);
-    }
+    public void actionRemove_actionPerformed(ActionEvent e) throws Exception { //删除
+
+	    	checkSelected();//判断是否选中行
+	    	
+	    	String id = this.getSelectedKeyValue();//获取选中单据ID
+	    	
+	    	ISettleDeclarationBill Iexpen = SettleDeclarationBillFactory.getRemoteInstance();
+	    	
+	    	SettleDeclarationBillInfo Info = Iexpen.getSettleDeclarationBillInfo(new ObjectUuidPK(id));
+	    	
+	    	if(!Info.isIsVersion()){
+	    		MsgBox.showWarning("不是最新版本，不能删除！");
+	    		SysUtil.abort();
+	    	}
+	    	if(Info.isIsVersion()){
+	    		int version = Info.getVersion()-1;
+	    		String sql = " update CT_CON_SettleDeclarationBill set CFIsVersion=1 where CFVersion="+version+" and CFContractNumberID='"+Info.getContractNumber().getId().toString()+"'";
+	        	new FDCSQLBuilder().appendSql(sql).execute();
+	    		super.actionRemove_actionPerformed(e);
+	    	}
+    	}
 
     /**
      * output actionRefresh_actionPerformed
@@ -1056,10 +1125,6 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
     /**
      * output actionNumberSign_actionPerformed
      */
-    public void actionNumberSign_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionNumberSign_actionPerformed(e);
-    }
 
     /**
      * output actionTDPrint_actionPerformed
@@ -1094,5 +1159,7 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
 		
         return objectValue;
     }
+
+
 
 }

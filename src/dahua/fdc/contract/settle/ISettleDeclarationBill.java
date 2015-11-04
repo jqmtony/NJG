@@ -15,9 +15,9 @@ import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.bos.util.*;
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
-import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.bos.framework.*;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.framework.ICoreBillBase;
 
 public interface ISettleDeclarationBill extends ICoreBillBase
@@ -28,8 +28,8 @@ public interface ISettleDeclarationBill extends ICoreBillBase
     public SettleDeclarationBillInfo getSettleDeclarationBillInfo(IObjectPK pk) throws BOSException, EASBizException;
     public SettleDeclarationBillInfo getSettleDeclarationBillInfo(IObjectPK pk, SelectorItemCollection selector) throws BOSException, EASBizException;
     public SettleDeclarationBillInfo getSettleDeclarationBillInfo(String oql) throws BOSException, EASBizException;
-    public void InTrial(IObjectValue model) throws BOSException;
-    public void Approved(IObjectValue model) throws BOSException;
-    public void Audit(IObjectValue model) throws BOSException;
-    public void UnAudit(IObjectValue model) throws BOSException;
+    public void InTrial(BOSUuid model) throws BOSException;
+    public void Approved(BOSUuid model) throws BOSException;
+    public void Audit(BOSUuid model) throws BOSException;
+    public void UnAudit(BOSUuid model) throws BOSException;
 }

@@ -56,7 +56,6 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contendTime;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contsubTime;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contunitPrice;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contstate;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel3;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel4;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contLastUpdateUser;
@@ -70,6 +69,7 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contAuditor;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contNumber;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkisVersion;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contstate;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtdecAmount;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtversion;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtapprovalAmount;
@@ -80,7 +80,6 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkendTime;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pksubTime;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtunitPrice;
-    protected com.kingdee.bos.ctrl.swing.KDComboBox state;
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contjszlcyqk;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contjsydti;
@@ -134,6 +133,7 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtcontractNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtAuditor;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
+    protected com.kingdee.bos.ctrl.swing.KDComboBox state;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAudit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnAudit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnInTrial;
@@ -209,18 +209,22 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         //actionInTrial
         this.actionInTrial = new ActionInTrial(this);
         getActionManager().registerAction("actionInTrial", actionInTrial);
+        this.actionInTrial.setBindWorkFlow(true);
          this.actionInTrial.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         //actionApproved
         this.actionApproved = new ActionApproved(this);
         getActionManager().registerAction("actionApproved", actionApproved);
+        this.actionApproved.setBindWorkFlow(true);
          this.actionApproved.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         //actionAudit
         this.actionAudit = new ActionAudit(this);
         getActionManager().registerAction("actionAudit", actionAudit);
+        this.actionAudit.setBindWorkFlow(true);
          this.actionAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         //actionUnAudit
         this.actionUnAudit = new ActionUnAudit(this);
         getActionManager().registerAction("actionUnAudit", actionUnAudit);
+        this.actionUnAudit.setBindWorkFlow(true);
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.contdecAmount = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contversion = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -232,7 +236,6 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.contendTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contsubTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contunitPrice = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contstate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDPanel3 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel4 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -246,6 +249,7 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.contAuditor = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.chkisVersion = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.contstate = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtdecAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtversion = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtapprovalAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
@@ -256,7 +260,6 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.pkendTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.pksubTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtunitPrice = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.state = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
         this.contjszlcyqk = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contjsydti = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -307,6 +310,7 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.prmtcontractNumber = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtAuditor = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.state = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.btnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnUnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnInTrial = new com.kingdee.bos.ctrl.swing.KDWorkButton();
@@ -321,7 +325,6 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.contendTime.setName("contendTime");
         this.contsubTime.setName("contsubTime");
         this.contunitPrice.setName("contunitPrice");
-        this.contstate.setName("contstate");
         this.kDPanel3.setName("kDPanel3");
         this.kDPanel4.setName("kDPanel4");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -335,6 +338,7 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.contAuditor.setName("contAuditor");
         this.contNumber.setName("contNumber");
         this.chkisVersion.setName("chkisVersion");
+        this.contstate.setName("contstate");
         this.txtdecAmount.setName("txtdecAmount");
         this.txtversion.setName("txtversion");
         this.txtapprovalAmount.setName("txtapprovalAmount");
@@ -345,7 +349,6 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.pkendTime.setName("pkendTime");
         this.pksubTime.setName("pksubTime");
         this.txtunitPrice.setName("txtunitPrice");
-        this.state.setName("state");
         this.kDTabbedPane1.setName("kDTabbedPane1");
         this.contjszlcyqk.setName("contjszlcyqk");
         this.contjsydti.setName("contjsydti");
@@ -396,6 +399,7 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.prmtcontractNumber.setName("prmtcontractNumber");
         this.prmtAuditor.setName("prmtAuditor");
         this.txtNumber.setName("txtNumber");
+        this.state.setName("state");
         this.btnAudit.setName("btnAudit");
         this.btnUnAudit.setName("btnUnAudit");
         this.btnInTrial.setName("btnInTrial");
@@ -472,11 +476,6 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.contunitPrice.setBoundLabelLength(70);		
         this.contunitPrice.setBoundLabelUnderline(true);		
         this.contunitPrice.setVisible(true);
-        // contstate		
-        this.contstate.setBoundLabelText(resHelper.getString("contstate.boundLabelText"));		
-        this.contstate.setBoundLabelLength(70);		
-        this.contstate.setBoundLabelUnderline(true);		
-        this.contstate.setVisible(true);
         // kDPanel3		
         this.kDPanel3.setBorder(new TitledBorder(BorderFactory.createEtchedBorder(new Color(255,255,255),new Color(148,145,140)), resHelper.getString("kDPanel3.border.title")));
         // kDPanel4		
@@ -538,6 +537,11 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.chkisVersion.setText(resHelper.getString("chkisVersion.text"));		
         this.chkisVersion.setVisible(true);		
         this.chkisVersion.setHorizontalAlignment(2);
+        // contstate		
+        this.contstate.setBoundLabelText(resHelper.getString("contstate.boundLabelText"));		
+        this.contstate.setBoundLabelLength(70);		
+        this.contstate.setBoundLabelUnderline(true);		
+        this.contstate.setVisible(true);
         // txtdecAmount		
         this.txtdecAmount.setHorizontalAlignment(2);		
         this.txtdecAmount.setDataType(1);		
@@ -580,9 +584,6 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.txtunitPrice.setHorizontalAlignment(2);		
         this.txtunitPrice.setMaxLength(100);		
         this.txtunitPrice.setRequired(false);
-        // state		
-        this.state.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum").toArray());		
-        this.state.setRequired(false);
         // kDTabbedPane1
         // contjszlcyqk		
         this.contjszlcyqk.setBoundLabelText(resHelper.getString("contjszlcyqk.boundLabelText"));		
@@ -605,7 +606,7 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         // kDPanel2
         // kDPanel5
         // kdtE1
-		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"sbzl\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"xuanze\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"yeshu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{sbzl}</t:Cell><t:Cell>$Resource{xuanze}</t:Cell><t:Cell>$Resource{yeshu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol0\" /><t:Column t:key=\"sbzl\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /><t:Column t:key=\"xuanze\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /><t:Column t:key=\"yeshu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol3\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:configured=\"false\"><t:Cell t:configured=\"false\">单据分录序列号</t:Cell><t:Cell t:configured=\"false\">申报资料</t:Cell><t:Cell t:configured=\"false\">选择</t:Cell><t:Cell t:configured=\"false\">页数</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
 
@@ -631,7 +632,7 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         KDTDefaultCellEditor kdtE1_yeshu_CellEditor = new KDTDefaultCellEditor(kdtE1_yeshu_TextField);
         this.kdtE1.getColumn("yeshu").setEditor(kdtE1_yeshu_CellEditor);
         // kdtE2
-		String kdtE2StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"sbzl2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"xuanze2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"yeshu2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{sbzl2}</t:Cell><t:Cell>$Resource{xuanze2}</t:Cell><t:Cell>$Resource{yeshu2}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE2StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol0\" /><t:Column t:key=\"sbzl2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /><t:Column t:key=\"xuanze2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /><t:Column t:key=\"yeshu2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol3\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:configured=\"false\"><t:Cell t:configured=\"false\">单据分录序列号</t:Cell><t:Cell t:configured=\"false\">申报资料</t:Cell><t:Cell t:configured=\"false\">选择</t:Cell><t:Cell t:configured=\"false\">页数</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE2.setFormatXml(resHelper.translateString("kdtE2",kdtE2StrXML));
 
@@ -652,7 +653,7 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         KDTDefaultCellEditor kdtE2_yeshu2_CellEditor = new KDTDefaultCellEditor(kdtE2_yeshu2_TextField);
         this.kdtE2.getColumn("yeshu2").setEditor(kdtE2_yeshu2_CellEditor);
         // kdtE3
-		String kdtE3StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"yujingrenyuan\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{yujingrenyuan}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE3StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol0\" /><t:Column t:key=\"yujingrenyuan\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:configured=\"false\"><t:Cell t:configured=\"false\">单据分录序列号</t:Cell><t:Cell t:configured=\"false\">预警人员</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE3.setFormatXml(resHelper.translateString("kdtE3",kdtE3StrXML));
 
@@ -793,6 +794,10 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.prmtAuditor.setEnabled(false);
         // txtNumber		
         this.txtNumber.setMaxLength(80);
+        // state		
+        this.state.setVisible(true);		
+        this.state.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum").toArray());		
+        this.state.setRequired(false);
         // btnAudit
         this.btnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionAudit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAudit.setText(resHelper.getString("btnAudit.text"));
@@ -817,7 +822,7 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
                 }
             }
         });
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtdecAmount,txtapprovalAmount,txtversion,txtactualConstruction,txtsettleHead,txtlinkTel,pkstartTime,pkendTime,pksubTime,txtunitPrice,state,pkjswcsjyq,billState,txtgzjjmghfwms,txtzlfhyj,txtsptsyfw,txtjgclfw,txtwycfts,txtsdfjnqk,txtzlaqgq,chkqizhu,chkfenshua,chkdimian,prmtcontractNumber,kDDateLastUpdateTime,prmtLastUpdateUser,kDDateCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,kdtE3,kdtE2,kdtE1,txtjszlcyqk,txtjsydti,chkisVersion}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtdecAmount,txtapprovalAmount,txtversion,txtactualConstruction,txtsettleHead,txtlinkTel,pkstartTime,pkendTime,pksubTime,txtunitPrice,pkjswcsjyq,billState,txtgzjjmghfwms,txtzlfhyj,txtsptsyfw,txtjgclfw,txtwycfts,txtsdfjnqk,txtzlaqgq,chkqizhu,chkfenshua,chkdimian,prmtcontractNumber,kDDateLastUpdateTime,prmtLastUpdateUser,kDDateCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,kdtE3,kdtE2,kdtE1,txtjszlcyqk,txtjsydti,chkisVersion,state}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -866,8 +871,6 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.add(contsubTime, new KDLayout.Constraints(561, 50, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contunitPrice.setBounds(new Rectangle(285, 73, 200, 19));
         this.add(contunitPrice, new KDLayout.Constraints(285, 73, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contstate.setBounds(new Rectangle(561, 73, 200, 19));
-        this.add(contstate, new KDLayout.Constraints(561, 73, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDPanel3.setBounds(new Rectangle(5, 278, 980, 323));
         this.add(kDPanel3, new KDLayout.Constraints(5, 278, 980, 323, KDLayout.Constraints.ANCHOR_CENTRE | KDLayout.Constraints.ANCHOR_TOP_SCALE | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         kDPanel4.setBounds(new Rectangle(9, 99, 980, 167));
@@ -894,6 +897,8 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         this.add(contNumber, new KDLayout.Constraints(9, 28, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         chkisVersion.setBounds(new Rectangle(787, 3, 200, 19));
         this.add(chkisVersion, new KDLayout.Constraints(787, 3, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contstate.setBounds(new Rectangle(561, 73, 200, 19));
+        this.add(contstate, new KDLayout.Constraints(561, 73, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contdecAmount
         contdecAmount.setBoundEditor(txtdecAmount);
         //contversion
@@ -914,8 +919,6 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         contsubTime.setBoundEditor(pksubTime);
         //contunitPrice
         contunitPrice.setBoundEditor(txtunitPrice);
-        //contstate
-        contstate.setBoundEditor(state);
         //kDPanel3
         kDPanel3.setLayout(new KDLayout());
         kDPanel3.putClientProperty("OriginalBounds", new Rectangle(5, 278, 980, 323));        kDTabbedPane1.setBounds(new Rectangle(12, 16, 693, 297));
@@ -1021,6 +1024,8 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
         contAuditor.setBoundEditor(prmtAuditor);
         //contNumber
         contNumber.setBoundEditor(txtNumber);
+        //contstate
+        contstate.setBoundEditor(state);
 
     }
 
@@ -1042,13 +1047,9 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(kDSeparator1);
-        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemSave);
-        menuFile.add(menuItemCloudScreen);
         menuFile.add(menuItemSubmit);
-        menuFile.add(menuItemCloudShare);
         menuFile.add(menuSubmitOption);
-        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(rMenuItemSubmit);
         menuFile.add(rMenuItemSubmitAndAddNew);
         menuFile.add(rMenuItemSubmitAndPrint);
@@ -1107,7 +1108,6 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemMsgFormat);
         menuTool.add(menuItemCalculator);
-        menuTool.add(menuItemToolBarCustom);
         //menuWorkflow
         menuWorkflow.add(menuItemStartWorkFlow);
         menuWorkflow.add(separatorWF1);
@@ -1139,9 +1139,7 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
-        this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
@@ -1166,7 +1164,6 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
         this.toolBar.add(btnSignature);
         this.toolBar.add(btnViewSignature);
         this.toolBar.add(separatorFW4);
-        this.toolBar.add(btnNumberSign);
         this.toolBar.add(separatorFW7);
         this.toolBar.add(btnCreateFrom);
         this.toolBar.add(btnCopyFrom);
@@ -1207,7 +1204,6 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
 		dataBinder.registerBinding("endTime", java.util.Date.class, this.pkendTime, "value");
 		dataBinder.registerBinding("subTime", java.util.Date.class, this.pksubTime, "value");
 		dataBinder.registerBinding("unitPrice", String.class, this.txtunitPrice, "text");
-		dataBinder.registerBinding("state", com.kingdee.eas.basedata.assistant.AccountBillStateEnum.class, this.state, "selectedItem");
 		dataBinder.registerBinding("E1.seq", int.class, this.kdtE1, "seq.text");
 		dataBinder.registerBinding("E1", com.kingdee.eas.fdc.contract.settle.SettleDeclarationBillE1Info.class, this.kdtE1, "userObject");
 		dataBinder.registerBinding("E1.sbzl", String.class, this.kdtE1, "sbzl.text");
@@ -1240,10 +1236,11 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.kDDateCreateTime, "value");
 		dataBinder.registerBinding("description", String.class, this.txtDescription, "text");
 		dataBinder.registerBinding("bizDate", java.util.Date.class, this.pkBizDate, "value");
-		dataBinder.registerBinding("billState", com.kingdee.eas.cp.odm.BillStatusEnum.class, this.billState, "selectedItem");
+		dataBinder.registerBinding("billState", com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.class, this.billState, "selectedItem");
 		dataBinder.registerBinding("contractNumber", com.kingdee.eas.fdc.contract.ContractBillInfo.class, this.prmtcontractNumber, "data");
 		dataBinder.registerBinding("auditor", com.kingdee.eas.base.permission.UserInfo.class, this.prmtAuditor, "data");
-		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");		
+		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
+		dataBinder.registerBinding("state", com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.class, this.state, "selectedItem");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1360,7 +1357,7 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
     }
 		protected void setOrgF7(KDBizPromptBox f7,com.kingdee.eas.basedata.org.OrgType orgType) throws Exception
 		{
-			com.kingdee.eas.basedata.org.client.f7.NewOrgUnitFilterInfoProducer oufip = new com.kingdee.eas.basedata.org.client.f7.NewOrgUnitFilterInfoProducer(orgType);
+			com.kingdee.bos.ctrl.extendcontrols.ext.OrgUnitFilterInfoProducer oufip=(com.kingdee.bos.ctrl.extendcontrols.ext.OrgUnitFilterInfoProducer)com.kingdee.bos.ctrl.extendcontrols.ext.FilterInfoProducerFactory.getOrgUnitFilterInfoProducer(orgType);
 			oufip.getModel().setIsCUFilter(true);
 			f7.setFilterInfoProducer(oufip);
 		}
@@ -1389,7 +1386,6 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
 		getValidateHelper().registerBindProperty("endTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("subTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("unitPrice", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("state", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.seq", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("E1.sbzl", ValidateHelper.ON_SAVE);    
@@ -1425,7 +1421,8 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
 		getValidateHelper().registerBindProperty("billState", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("contractNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("auditor", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("state", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1456,10 +1453,6 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
-		String selectorAll = System.getProperty("selector.all");
-		if(StringUtils.isEmpty(selectorAll)){
-			selectorAll = "true";
-		}
         sic.add(new SelectorItemInfo("isVersion"));
         sic.add(new SelectorItemInfo("decAmount"));
         sic.add(new SelectorItemInfo("version"));
@@ -1471,43 +1464,23 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
         sic.add(new SelectorItemInfo("endTime"));
         sic.add(new SelectorItemInfo("subTime"));
         sic.add(new SelectorItemInfo("unitPrice"));
-        sic.add(new SelectorItemInfo("state"));
-    	sic.add(new SelectorItemInfo("E1.seq"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("E1.*"));
-		}
-		else{
-		}
-    	sic.add(new SelectorItemInfo("E1.sbzl"));
-    	sic.add(new SelectorItemInfo("E1.yeshu"));
-    	sic.add(new SelectorItemInfo("E1.xuanze"));
-    	sic.add(new SelectorItemInfo("E2.seq"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("E2.*"));
-		}
-		else{
-		}
-    	sic.add(new SelectorItemInfo("E2.sbzl2"));
-    	sic.add(new SelectorItemInfo("E2.xuanze2"));
-    	sic.add(new SelectorItemInfo("E2.yeshu2"));
-    	sic.add(new SelectorItemInfo("E3.seq"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("E3.*"));
-		}
-		else{
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("E3.yujingrenyuan.*"));
-		}
-		else{
-	    	sic.add(new SelectorItemInfo("E3.yujingrenyuan.id"));
-			sic.add(new SelectorItemInfo("E3.yujingrenyuan.name"));
-        	sic.add(new SelectorItemInfo("E3.yujingrenyuan.number"));
-		}
+    sic.add(new SelectorItemInfo("E1.seq"));
+        sic.add(new SelectorItemInfo("E1.*"));
+//        sic.add(new SelectorItemInfo("E1.number"));
+    sic.add(new SelectorItemInfo("E1.sbzl"));
+    sic.add(new SelectorItemInfo("E1.yeshu"));
+    sic.add(new SelectorItemInfo("E1.xuanze"));
+    sic.add(new SelectorItemInfo("E2.seq"));
+        sic.add(new SelectorItemInfo("E2.*"));
+//        sic.add(new SelectorItemInfo("E2.number"));
+    sic.add(new SelectorItemInfo("E2.sbzl2"));
+    sic.add(new SelectorItemInfo("E2.xuanze2"));
+    sic.add(new SelectorItemInfo("E2.yeshu2"));
+    sic.add(new SelectorItemInfo("E3.seq"));
+        sic.add(new SelectorItemInfo("E3.*"));
+//        sic.add(new SelectorItemInfo("E3.number"));
+        sic.add(new SelectorItemInfo("E3.yujingrenyuan.*"));
+//        sic.add(new SelectorItemInfo("E3.yujingrenyuan.number"));
         sic.add(new SelectorItemInfo("jszlcyqk"));
         sic.add(new SelectorItemInfo("jsydti"));
         sic.add(new SelectorItemInfo("jswcsjyq"));
@@ -1521,49 +1494,17 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
         sic.add(new SelectorItemInfo("wycfts"));
         sic.add(new SelectorItemInfo("sdfjnqk"));
         sic.add(new SelectorItemInfo("zlaqgq"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("lastUpdateUser.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("lastUpdateUser.id"));
-        	sic.add(new SelectorItemInfo("lastUpdateUser.number"));
-        	sic.add(new SelectorItemInfo("lastUpdateUser.name"));
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("creator.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("creator.id"));
-        	sic.add(new SelectorItemInfo("creator.number"));
-        	sic.add(new SelectorItemInfo("creator.name"));
-		}
+        sic.add(new SelectorItemInfo("lastUpdateUser.*"));
+        sic.add(new SelectorItemInfo("creator.*"));
         sic.add(new SelectorItemInfo("lastUpdateTime"));
         sic.add(new SelectorItemInfo("createTime"));
         sic.add(new SelectorItemInfo("description"));
         sic.add(new SelectorItemInfo("bizDate"));
         sic.add(new SelectorItemInfo("billState"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("contractNumber.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("contractNumber.id"));
-        	sic.add(new SelectorItemInfo("contractNumber.number"));
-        	sic.add(new SelectorItemInfo("contractNumber.name"));
-        	sic.add(new SelectorItemInfo("contractNumber.codingNumber"));
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("auditor.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("auditor.id"));
-        	sic.add(new SelectorItemInfo("auditor.number"));
-        	sic.add(new SelectorItemInfo("auditor.name"));
-		}
+        sic.add(new SelectorItemInfo("contractNumber.*"));
+        sic.add(new SelectorItemInfo("auditor.*"));
         sic.add(new SelectorItemInfo("number"));
+        sic.add(new SelectorItemInfo("state"));
         return sic;
     }        
     	
@@ -1905,6 +1846,7 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
     protected void applyDefaultValue(IObjectValue vo) {        
 				vo.put("decAmount",new java.math.BigDecimal(0));
 vo.put("billState",new Integer(20));
+vo.put("state",new Integer(1));
         
     }        
 	protected void setFieldsNull(com.kingdee.bos.dao.AbstractObjectValue arg0) {

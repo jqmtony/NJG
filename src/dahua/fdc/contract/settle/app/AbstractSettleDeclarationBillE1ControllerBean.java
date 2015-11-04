@@ -52,13 +52,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("cb615991-1f04-4310-8c6c-e02292f69c5c"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, pk);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
-            }
             invokeServiceAfter(svcCtx);
-        
-          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
+            return retValue;
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -77,13 +74,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("938b0dcc-0229-4635-868b-d615121afbd1"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, filter);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
-            }
             invokeServiceAfter(svcCtx);
-        
-          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
+            return retValue;
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -102,13 +96,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7dce62d9-578f-42ee-8cd5-95bf77fe5c47"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, oql);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
-            }
             invokeServiceAfter(svcCtx);
-        
-          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
+            return retValue;
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -127,13 +118,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("4f36fa52-6eea-42a8-ab81-ab3a22d89ac7"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             SettleDeclarationBillE1Info retValue = (SettleDeclarationBillE1Info)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
-            }
             invokeServiceAfter(svcCtx);
-        
-          return (SettleDeclarationBillE1Info)svcCtx.getMethodReturnValue();
+            return retValue;
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -152,13 +140,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("49877939-568a-480f-8990-e77d182b69bc"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             SettleDeclarationBillE1Info retValue = (SettleDeclarationBillE1Info)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
-            }
             invokeServiceAfter(svcCtx);
-        
-          return (SettleDeclarationBillE1Info)svcCtx.getMethodReturnValue();
+            return retValue;
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -177,13 +162,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("fde3b74b-3db6-426d-984d-113ff4fb3d0e"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             SettleDeclarationBillE1Info retValue = (SettleDeclarationBillE1Info)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
-            }
             invokeServiceAfter(svcCtx);
-        
-          return (SettleDeclarationBillE1Info)svcCtx.getMethodReturnValue();
+            return retValue;
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -202,13 +184,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("858375aa-16db-48c0-b5a8-77d27a574a68"), new Object[]{ctx, model});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             IObjectPK retValue = (IObjectPK)_addnew(ctx, model);
             svcCtx.setMethodReturnValue(retValue);
-            }
             invokeServiceAfter(svcCtx);
-        
-          return (IObjectPK)svcCtx.getMethodReturnValue();
+            return retValue;
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -229,9 +208,7 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("b1c7e467-e961-4514-8bb1-4a4ac0afe6e0"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()){
             _addnew(ctx, pk, model);
-            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -253,9 +230,7 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("daf628ee-62d2-4b50-8acf-f207a9fe3ffa"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()){
             _update(ctx, pk, model);
-            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -277,9 +252,7 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("97e21c76-c7ab-49d0-93a5-755c7eb7363f"), new Object[]{ctx, model, selector});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()){
             _updatePartial(ctx, model, selector);
-            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -301,9 +274,7 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("2326fc3b-85d4-43bc-8692-f3d223e68160"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()){
             _updateBigObject(ctx, pk, model);
-            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -322,9 +293,7 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("8ce88a75-e659-40fd-a24f-897efc685de8"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()){
             _delete(ctx, pk);
-            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -346,13 +315,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("f42ade40-189c-440c-8a0a-7f976b50949e"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx);
             svcCtx.setMethodReturnValue(retValue);
-            }
             invokeServiceAfter(svcCtx);
-        
-          return (IObjectPK[])svcCtx.getMethodReturnValue();
+            return retValue;
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -371,13 +337,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("81d869a6-f79d-4228-821c-d642be95f320"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
-            }
             invokeServiceAfter(svcCtx);
-        
-          return (IObjectPK[])svcCtx.getMethodReturnValue();
+            return retValue;
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -396,13 +359,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("d5c6e4b2-76b7-4614-ae73-7a601c5aa3b2"), new Object[]{ctx, filter, sorter});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, filter, sorter);
             svcCtx.setMethodReturnValue(retValue);
-            }
             invokeServiceAfter(svcCtx);
-        
-          return (IObjectPK[])svcCtx.getMethodReturnValue();
+            return retValue;
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -421,13 +381,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("c40b9ee5-f69c-4c6d-b445-2c0e16634979"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             SettleDeclarationBillE1Collection retValue = (SettleDeclarationBillE1Collection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
-            }
             invokeServiceAfter(svcCtx);
-        
-          return (SettleDeclarationBillE1Collection)svcCtx.getMethodReturnValue();
+            return retValue;
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -444,13 +401,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("e0e92358-b28b-4667-ad1f-24c8463ca3e3"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             SettleDeclarationBillE1Collection retValue = (SettleDeclarationBillE1Collection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
-            }
             invokeServiceAfter(svcCtx);
-        
-          return (SettleDeclarationBillE1Collection)svcCtx.getMethodReturnValue();
+            return retValue;
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -467,13 +421,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("185c1528-5e85-4632-83d0-f03a8f13fa5a"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             SettleDeclarationBillE1Collection retValue = (SettleDeclarationBillE1Collection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
-            }
             invokeServiceAfter(svcCtx);
-        
-          return (SettleDeclarationBillE1Collection)svcCtx.getMethodReturnValue();
+            return retValue;
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -490,13 +441,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("a04b25eb-03e0-469a-839f-4ddc34c47dc2"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, filter);
             svcCtx.setMethodReturnValue(retValue);
-            }
             invokeServiceAfter(svcCtx);
-        
-          return (IObjectPK[])svcCtx.getMethodReturnValue();
+            return retValue;
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -517,13 +465,10 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("cf0ef66c-400d-49bc-9bf5-1e824bbc172d"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
-            }
             invokeServiceAfter(svcCtx);
-        
-          return (IObjectPK[])svcCtx.getMethodReturnValue();
+            return retValue;
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -544,9 +489,7 @@ public abstract class AbstractSettleDeclarationBillE1ControllerBean extends Core
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("b74d5994-d563-441b-b500-efaa11fbf952"), new Object[]{ctx, arrayPK});
             invokeServiceBefore(svcCtx);
-            if(!svcCtx.invokeBreak()){
             _delete(ctx, arrayPK);
-            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();

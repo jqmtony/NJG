@@ -13,9 +13,9 @@ import com.kingdee.util.enums.IntEnum;
  */
 public class TrialStatusEnum extends IntEnum
 {
-    public static final int REVIEW_VALUE = 1;//alias=¥˝…Û
-    public static final int INTRIAL_VALUE = 2;//alias=‘⁄…Û
-    public static final int APPROVED_VALUE = 3;//alias=…Û∂®
+    public static final int REVIEW_VALUE = 1;
+    public static final int INTRIAL_VALUE = 2;
+    public static final int APPROVED_VALUE = 3;
 
     public static final TrialStatusEnum Review = new TrialStatusEnum("Review", REVIEW_VALUE);
     public static final TrialStatusEnum InTrial = new TrialStatusEnum("InTrial", INTRIAL_VALUE);

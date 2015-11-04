@@ -142,19 +142,6 @@ public class AbstractSettleDeclarationBillInfo extends com.kingdee.eas.framework
         setString("unitPrice", item);
     }
     /**
-     * Object:结算申报单's 送审状态property 
-     */
-    public com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum getState()
-    {
-        return com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.getEnum(getInt("state"));
-    }
-    public void setState(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum item)
-    {
-		if (item != null) {
-        setInt("state", item.getValue());
-		}
-    }
-    /**
      * Object:结算申报单's 结算完成时间要求property 
      */
     public java.util.Date getJswcsjyq()
@@ -352,6 +339,19 @@ public class AbstractSettleDeclarationBillInfo extends com.kingdee.eas.framework
     public void setIsVersion(boolean item)
     {
         setBoolean("isVersion", item);
+    }
+    /**
+     * Object:结算申报单's 送审状态property 
+     */
+    public com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum getState()
+    {
+        return com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.getEnum(getInt("state"));
+    }
+    public void setState(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum item)
+    {
+		if (item != null) {
+        setInt("state", item.getValue());
+		}
     }
     public BOSObjectType getBOSType()
     {

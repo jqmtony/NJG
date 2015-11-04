@@ -5,6 +5,7 @@ import javax.ejb.*;
 import java.rmi.RemoteException;
 import com.kingdee.bos.*;
 import com.kingdee.bos.util.BOSObjectType;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.rule.RuleExecutor;
 import com.kingdee.bos.metadata.MetaDataPK;
@@ -37,12 +38,13 @@ public class SettleDeclarationBillControllerBean extends AbstractSettleDeclarati
     private static Logger logger =
         Logger.getLogger("com.kingdee.eas.fdc.contract.settle.app.SettleDeclarationBillControllerBean");
     
-    protected void _Audit(Context ctx, IObjectValue model) throws BOSException {//…Û∫À
+protected void _Audit(Context ctx, BOSUuid model) throws BOSException {//…Û∫À
 		
 		try {
-			SettleDeclarationBillInfo info=(SettleDeclarationBillInfo)model;
+			SettleDeclarationBillInfo info=getSettleDeclarationBillInfo(ctx, new ObjectUuidPK(model));
+				
 			
-			info = getSettleDeclarationBillInfo(ctx,new ObjectUuidPK(info.getId().toString()));
+//			info = getSettleDeclarationBillInfo(ctx,new ObjectUuidPK(info.getId()));
 			
 //			info.setAuditData(SysUtil.getAppServerTime(ctx));// ±º‰
 //			
@@ -56,12 +58,12 @@ public class SettleDeclarationBillControllerBean extends AbstractSettleDeclarati
 		}
 	}
     
-    protected void _UnAudit(Context ctx, IObjectValue model) throws BOSException {//∑¥…Û∫À
+    protected void _UnAudit(Context ctx, BOSUuid model) throws BOSException {//∑¥…Û∫À
 		
 		try {
-			SettleDeclarationBillInfo info=(SettleDeclarationBillInfo)model;
+			SettleDeclarationBillInfo info=getSettleDeclarationBillInfo(ctx, new ObjectUuidPK(model));
 			
-			info = getSettleDeclarationBillInfo(ctx,new ObjectUuidPK(info.getId().toString()));
+//			info = getSettleDeclarationBillInfo(ctx,new ObjectUuidPK(info.getId().toString()));
 			
 //			info.setAuditData(SysUtil.getAppServerTime(ctx));// ±º‰
 //			
@@ -75,10 +77,10 @@ public class SettleDeclarationBillControllerBean extends AbstractSettleDeclarati
 		}
 	}
     
-    protected void _InTrial(Context ctx, IObjectValue model) throws BOSException {//ÀÕ…Û
+    protected void _InTrial(Context ctx, BOSUuid model) throws BOSException {//ÀÕ…Û
 		
 		try {
-			SettleDeclarationBillInfo info=(SettleDeclarationBillInfo)model;
+			SettleDeclarationBillInfo info=getSettleDeclarationBillInfo(ctx, new ObjectUuidPK(model));
 			
 			
 			info.setState(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.InTrial);//‘⁄…Û
@@ -91,10 +93,10 @@ public class SettleDeclarationBillControllerBean extends AbstractSettleDeclarati
 //    	super._InTrial(ctx, model);
     }
     
-    protected void _Approved(Context ctx, IObjectValue model) throws BOSException {//…Û∂®
+    protected void _Approved(Context ctx, BOSUuid model) throws BOSException {//…Û∂®
     	
     	try {
-			SettleDeclarationBillInfo info=(SettleDeclarationBillInfo)model;
+			SettleDeclarationBillInfo info=getSettleDeclarationBillInfo(ctx, new ObjectUuidPK(model));
 			
 			
 			info.setState(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Approved);//…Û∂®
@@ -106,4 +108,5 @@ public class SettleDeclarationBillControllerBean extends AbstractSettleDeclarati
     	
 //    	super._Approved(ctx, model);
     }
+    
 }
