@@ -62,8 +62,8 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	mergeManager.mergeBlock(1, 1, 1, 3);
     	
     	IRow addRow3 = this.kDTable1.addRow();
-    	addRow3.getCell(0).setValue("建设单位");
-    	addRow3.getCell(2).setValue("工程图纸编号");
+//    	addRow3.getCell(0).setValue("建设单位");
+//    	addRow3.getCell(2).setValue("工程图纸编号");
     	
     	IRow addRow4 = this.kDTable1.addRow();
     	addRow4.getCell(0).setValue("主送");
@@ -71,18 +71,24 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	
     	IRow addRow5 = this.kDTable1.addRow();
     	addRow5.getCell(0).setValue("内容");
-//    	mergeManager.mergeBlock(4, 0, 7, 3);
+    	mergeManager.mergeBlock(4, 0, 7, 0);
+    	mergeManager.mergeBlock(4, 1, 7, 3);
+//    	mergeManager.mergeBlock(4, 4, 7, );
     	IRow addRow6 = this.kDTable1.addRow();
-//    	mergeManager.mergeBlock(4, 0, 7, 3);
+    	mergeManager.mergeBlock(4, 0, 7, 0);
+    	mergeManager.mergeBlock(4, 1, 7, 3);
     	IRow addRow7 = this.kDTable1.addRow();
-//    	mergeManager.mergeBlock(4, 0, 7, 3);
+    	mergeManager.mergeBlock(4, 0, 7, 0);
+    	mergeManager.mergeBlock(4, 1, 7, 3);
     	IRow addRow8 = this.kDTable1.addRow();
-    	mergeManager.mergeBlock(4, 0, 7, 3);
+    	mergeManager.mergeBlock(4, 0, 7, 0);
+    	mergeManager.mergeBlock(4, 1, 7, 3);
     	
     	IRow addRow9 = this.kDTable1.addRow();
     	addRow9.getCell(2).setValue("工程部印章：");
-    	IRow addRow10 = this.kDTable1.addRow();
+    	mergeManager.mergeBlock(8, 0, 8, 1);
     	
+    	IRow addRow10 = this.kDTable1.addRow();
     	addRow10.getCell(0).setValue("经办人");
     	addRow10.getCell(2).setValue("工程部经理");
     	
@@ -90,7 +96,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	this.kDTable1.getColumn(0).setWidth(201);
     	this.kDTable1.getColumn(1).setWidth(201);
     	this.kDTable1.getColumn(2).setWidth(201);
-    	this.kDTable1.getColumn(3).setWidth(203);
+//    	this.kDTable1.getColumn(3).setWidth(203);
     	this.kDTable1.getIndexColumn().getStyleAttributes().setHided(true);
     	//-----------------------------------------------------------------------------------------------------------------
     	this.kDTable2.addColumns(13);
@@ -98,8 +104,8 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	
     	IRow addRow21 = this.kDTable2.addRow();
     	addRow21.getCell(0).setValue("合同名称");
-    	mergeManager2.mergeBlock(0, 2, 0, 9);
-    	mergeManager2.mergeBlock(0, 0, 0, 1);
+    	mergeManager2.mergeBlock(0, 1, 0, 12);
+//    	mergeManager2.mergeBlock(0, 0, 0, 1);
     	
     	IRow addRow22 = this.kDTable2.addRow();
     	addRow22.getCell(0).setValue("合同编号");
@@ -344,8 +350,8 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	String billId = "NuDk97fJRYGlkjRCTg9zcnARYRc=";
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 申请编号2 ,ChangeAB.CFPutForwardTime 提出时间, ChangeAB.Freadesc 事由,BaseU.Fname_l2 提出部门,");
-    	sb.append(" contractB.fname 合同名称6,contractB.fnumber 合同编号7,ChangeAB.FAuditTypeID 变更类型,");
-    	sb.append(" ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
+    	sb.append(" contractB.fname 合同名称6,contractB.fnumber 合同编号7,ChangeAB.FAuditTypeID 变更类型");
+//    	sb.append(" ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
@@ -355,8 +361,11 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	
     	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
     	while(rowset.next()){
+    		kDTextField1.setText(rowset.getString(1));
+    		kDTextField2.setText(rowset.getString(2));
+    		
     		this.kDTable1.getCell(0, 1).setValue(rowset.getString(1));
-    		this.kDTable1.getCell(0, 3).setValue(rowset.getString(2));
+//    		this.kDTable1.getCell(0, 3).setValue(rowset.getString(2));
     		this.kDTable1.getCell(1, 1).setValue(rowset.getString(7));
     		this.kDTable2.getCell(0, 2).setValue(rowset.getString(6));
     		this.kDTable2.getCell(1, 2).setValue(rowset.getString(7));

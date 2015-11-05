@@ -135,7 +135,9 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	//第七行
     	IRow addRowseven = this.kDTable1.addRow();
     	addRowseven.getCell(1).setValue("变更费用估算:");
-    	addRowseven.getCell(2).setValue("XX");
+//    	addRowseven.getCell(2).setValue("XX");
+    	addRowseven.getCell(2).setEditor(editor);
+    	addRowseven.getCell(2).setValue(Boolean.FALSE);
     	addRowseven.getCell(3).setValue("增加");
 //    	addRowseven.getCell(4).setValue("XX");
     	addRowseven.getCell(4).setEditor(editor);
@@ -310,24 +312,31 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	
     	String billId = "q7emQGR4RXO5s86vNyJxJXARYRc=";
     	StringBuffer sb = new StringBuffer();
-    	sb.append(" select ChangeAB.FCurProjectName 项目名称1 ,ChangeAB.FNumber 申请编号2 , ChangeAB.Freadesc 适用范围 ,BaseU.Fname_l2 提出部门 ,ChangeAB.CFPutForwardTime 提出时间5,");
-    	sb.append(" FTotalCost 变更费用估算,ChangeAE.FIsBack 返工情况,ChangeAB.FTotalCost 估算工程费增减总价8,ChangeAB.CFreworkVisa 估算工程费金额,ChangeAB.CFcontractAmpro 占合同价比例10,");
-    	sb.append(" ChangeAB.CFtotalChangeAmount 累计变更占合同比");
+    	sb.append(" select ChangeAB.FCurProjectName 项目名称1 ,ChangeAB.FNumber 申请编号2 , ChangeAB.Freadesc 适用范围 ,BaseU.Fname_l2 提出部门 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间5");
+    	sb.append(" ,ChangeAE.FChangeContent,bill.FNumber");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
+    	sb.append(" left join T_CON_ChangeAuditBill bill on ChangeAB.FsourcebillID=bill.FID");
     	sb.append(" where ChangeAB.fid = '").append(billId).append("'");
     	
     	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
+    	StringBuffer Yuanyi = new StringBuffer();
     	while(rowset.next()){
+    		//项目
+    		kDTextField1.setText(rowset.getString(1));
+    		//变更单编号
+    		kDTextField2.setText(rowset.getString(2));
+    		
     		this.kDTable1.getCell(0, 1).setValue(rowset.getString(1));
-    		this.kDTable1.getCell(0, 7).setValue(rowset.getString(2));
-//    		this.kDTable1.getCell(1, 1).setValue(rowset.getString(4));
-    		this.kDTable1.getCell(1, 7).setValue(rowset.getString(4));
-    		this.kDTable1.getCell(7, 3).setValue(rowset.getString(8));
-    		this.kDTable1.getCell(9, 4).setValue(rowset.getString(10));
+    		this.kDTable1.getCell(0, 7).setValue(rowset.getString(7));
+    		this.kDTable1.getCell(1, 1).setValue(rowset.getString(3));
+    		this.kDTable1.getCell(1, 7).setValue(rowset.getString(5));
+    		Yuanyi.append(rowset.getString(6)+"\n");
+
     	}
-    	
+    	this.kDTable1.getCell(4, 3).setValue(Yuanyi.toString());
+    	this.kDTable1.getCell(4, 3).getStyleAttributes().setWrapText(true);
     	
     	//工作流审批意见
     	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);

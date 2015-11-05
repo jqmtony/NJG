@@ -263,6 +263,15 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	mergeManager.mergeBlock(14, 3, 14, 4);
     	mergeManager.mergeBlock(13, 1, 14, 1);
     	mergeManager.mergeBlock(5, 0, 14, 0);
+    	//单元格设定只输入数字
+    	KDFormattedTextField kdtEntrys_pointValue_TextField = new KDFormattedTextField();
+		kdtEntrys_pointValue_TextField.setHorizontalAlignment(2);
+        kdtEntrys_pointValue_TextField.setDataType(1);
+        kdtEntrys_pointValue_TextField.setMinimumValue(new BigDecimal("-1.0E26"));
+    	kdtEntrys_pointValue_TextField.setMaximumValue(new BigDecimal("1.0E26"));
+    	kdtEntrys_pointValue_TextField.setPrecision(2);
+    	KDTDefaultCellEditor kdtEntrys_pointValue_CellEditor = new KDTDefaultCellEditor(kdtEntrys_pointValue_TextField);
+    	addRowfift.getCell(3).setEditor(kdtEntrys_pointValue_CellEditor);
     	
     	
     	IRow addRow16= this.kDTable1.addRow();
@@ -310,19 +319,23 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	String billId = "FrYcumfRTUq/iL87J1M2VXARYRc=";
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1 ,ChangeAB.FNumber 申请编号1 ,ChangeAB.Fname 事项名称1,BaseU.Fname_l2 提出部门 , ");
-    	sb.append(" ChangeAB.Freadesc 适用范围1 ,ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
+    	sb.append(" ChangeAB.Freadesc 适用范围1 ,entry.FChangeContent");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
+    	sb.append(" left join T_CON_ChangeAuditEntry entry on entry.FParentID = ChangeAB.fid ");
     	sb.append(" where ChangeAB.fid = '").append(billId).append("'");
     	
     	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
+    	StringBuffer Yuanyi = new StringBuffer();
     	while(rowset.next()){
     		this.kDTextField1.setText(rowset.getString(1));
     		this.kDTextField2.setText(rowset.getString(2));
     		this.kDTable1.getCell(0, 1).setValue(rowset.getString(3));
     		this.kDTable1.getCell(1, 1).setValue(rowset.getString(5));
+    		Yuanyi.append(rowset.getString(6)+"\n");
     	}
-    	
+    	this.kDTable1.getCell(4, 1).setValue(Yuanyi.toString());
+    	this.kDTable1.getCell(4, 1).getStyleAttributes().setWrapText(true);
     	//工作流审批意见
     	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
     	this.kDTable1.getCell(3, 3).setValue(apporveResultForMap.get("提出方经办人"));
