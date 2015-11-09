@@ -364,7 +364,8 @@ public abstract class AbstractCQGSEditUI extends com.kingdee.eas.framework.clien
         // chklasted		
         this.chklasted.setText(resHelper.getString("chklasted.text"));		
         this.chklasted.setVisible(true);		
-        this.chklasted.setHorizontalAlignment(2);
+        this.chklasted.setHorizontalAlignment(2);		
+        this.chklasted.setRequired(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);
         // kDDateCreateTime		
@@ -393,10 +394,10 @@ public abstract class AbstractCQGSEditUI extends com.kingdee.eas.framework.clien
         this.txtcompany.setEnabled(false);
         // pkstartdate		
         this.pkstartdate.setVisible(true);		
-        this.pkstartdate.setRequired(false);
+        this.pkstartdate.setRequired(true);
         // pkenddate		
         this.pkenddate.setVisible(true);		
-        this.pkenddate.setRequired(false);
+        this.pkenddate.setRequired(true);
         // txtredarea		
         this.txtredarea.setVisible(true);		
         this.txtredarea.setHorizontalAlignment(2);		
@@ -405,12 +406,12 @@ public abstract class AbstractCQGSEditUI extends com.kingdee.eas.framework.clien
         this.txtredarea.setMinimumValue( new java.math.BigDecimal("-1.0E18"));		
         this.txtredarea.setMaximumValue( new java.math.BigDecimal("1.0E18"));		
         this.txtredarea.setPrecision(10);		
-        this.txtredarea.setRequired(false);
+        this.txtredarea.setRequired(true);
         // txtVolumeRatio		
         this.txtVolumeRatio.setVisible(true);		
         this.txtVolumeRatio.setHorizontalAlignment(2);		
         this.txtVolumeRatio.setMaxLength(100);		
-        this.txtVolumeRatio.setRequired(false);
+        this.txtVolumeRatio.setRequired(true);
         // txtTotalArea		
         this.txtTotalArea.setVisible(true);		
         this.txtTotalArea.setHorizontalAlignment(2);		
@@ -1325,6 +1326,22 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
     	return new MetaDataPK("com.kingdee.eas.fdc.aimcost.costkf.app.CQGSQuery");
 	}
     
+        
+					protected void beforeStoreFields(ActionEvent arg0) throws Exception {
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(pkstartdate.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"计划开工时间"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(pkenddate.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"计划竣工时间"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtredarea.getValue())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"红线用地面积"});
+		}
+		if (com.kingdee.bos.ui.face.UIRuleUtil.isNull(txtVolumeRatio.getText())) {
+			throw new com.kingdee.eas.common.EASBizException(com.kingdee.eas.common.EASBizException.CHECKBLANK,new Object[] {"容积率"});
+		}
+			super.beforeStoreFields(arg0);
+		}
 
     /**
      * output getDetailTable method

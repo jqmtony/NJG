@@ -75,12 +75,14 @@ public class CQGSEditUI extends AbstractCQGSEditUI
 		txtTotalArea.setEditable(false);
 		State.setEnabled(false);
 		txtVersion.setEditable(false);
+		txtredarea.setVisible(true);
+		chklasted.setEnabled(false);
 		super.onLoad();
 		chkMenuItemSubmitAndAddNew.setSelected(false); //连续新增设置不可编辑
 		chkMenuItemSubmitAndAddNew.setEnabled(false);
 		btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
 		btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
-
+		
 		this.kDContainer1.getContentPane().add(kdtEntrys,BorderLayout.CENTER); 
 		
 		initTableButton(kdtEntrys_detailPanel);
