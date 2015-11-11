@@ -13,7 +13,7 @@
     <bizUnitPK />
     <parent>
         <key name="package" value="com.kingdee.eas.framework.client" />
-        <key name="name" value="EditUI" />
+        <key name="name" value="CoreBillEditUI" />
     </parent>
     <components>
         <component>
@@ -38,7 +38,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
-            <constraints>227,5,502,618,387</constraints>
+            <constraints>195,5,603,618,387</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -464,7 +464,30 @@
             <userDefined>false</userDefined>
         </dataObject>
     </dataObjects>
+	<statuses>
+        <status>
+            <id />
+            <name>CostEdit</name>
+            <alias>uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].statuses.status[CostEdit].alias</alias>
+            <default>false</default>
+            <description>uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].statuses.status[CostEdit].description</description>
+            <herited>false</herited>
+            <userDefined>true</userDefined>
+        </status>
+    </statuses>
     <resource>
+	    <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].statuses.status[CostEdit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本修改" />
+            <lang locale="zh_HK" value="成本修改" />
+            <lang locale="zh_TW" value="成本修改" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].statuses.status[CostEdit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="在成本审批节点可修改影响阶段字段" />
+            <lang locale="zh_HK" value="在成本審批節點可修改影響階段字段" />
+            <lang locale="zh_TW" value="在成本審批節點可修改影響階段字段" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="目标成本调整审批单审批界面" />
