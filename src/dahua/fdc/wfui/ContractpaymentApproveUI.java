@@ -4,6 +4,7 @@
 package com.kingdee.eas.fdc.wfui;
 
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.Iterator;
@@ -31,6 +32,8 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustFactory;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
@@ -48,6 +51,7 @@ import com.kingdee.eas.fdc.contract.PayRequestBillEntryInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 import com.kingdee.eas.framework.ICoreBase;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
@@ -351,7 +355,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     		kDTable1.getColumn(i).setWidth(80);
     	}
     	
-    	String billId = "++7pgRwQRf2paClUcxTBtsmlqGk=";
+    	String billId = editData.getId()!=null?editData.getId().toString():"++7pgRwQRf2paClUcxTBtsmlqGk=";
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select org.Fname_l2,bill.FBizDate,bill.FNumber,min.Fname_l2,try.FOriginalAmount,ier.Fname_l2, ject.Fname_l2,bill.FContractName,bill.FContractNo,bill.CFkxnr,con.FOriginalAmount,try.FAmount,bill.FMoneyDesc");
     	sb.append(" from T_CON_PayRequestBill bill  ");
@@ -591,29 +595,50 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
 		return lstReqAmt;
     }
 
-    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
-    	super.kDTable1_tableClicked(e);
-    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
+//    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
+//    	super.kDTable1_tableClicked(e);
+//    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
+//    }
+    
+    public void actionSave_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionSave_actionPerformed(e);
     }
     
-	protected IObjectValue createNewData() {
+    
+    protected void verifyInput(ActionEvent actionevent) throws Exception {
+    	super.verifyInput(actionevent);
+    	if(getOprtState().equals("自定义")){//如果是自定义状态打开
+    		//如果为空则提示
+    		if(1!=1){
+    			FDCMsgBox.showInfo("自定义状态");
+    			SysUtil.abort();
+    		}
+//    		SelectorItemCollection sic = new SelectorItemCollection();
+//    		sic.add("number");
+    		editData.setNumber("1111位");
+//    		AimAimCostAdjustFactory.getRemoteInstance().updatePartial(editData, sic);
+    	}
+    }
+    
+    public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionSubmit_actionPerformed(e);
+    }
+
+	protected IObjectValue createNewDetailData(KDTable kdtable) {
 		return null;
 	}
+
+	protected KDTable getDetailTable() {
+		return kDTable1;
+	}
+
 
 	protected ICoreBase getBizInterface() throws Exception {
-		return null;
+		return PayRequestBillFactory.getRemoteInstance();
 	}
 
-	@Override
-	protected IObjectValue createNewDetailData(KDTable kdtable) {
-		// TODO Auto-generated method stub
-		return null;
+	protected IObjectValue createNewData() {
+		return new PayRequestBillInfo();
 	}
-
-	@Override
-	protected KDTable getDetailTable() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 }

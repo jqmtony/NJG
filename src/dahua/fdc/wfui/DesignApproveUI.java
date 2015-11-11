@@ -3,6 +3,7 @@
  */
 package com.kingdee.eas.fdc.wfui;
 
+import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 import java.util.Map;
 
@@ -18,10 +19,15 @@ import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustFactory;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
+import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
+import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
 import com.kingdee.eas.framework.ICoreBase;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
@@ -311,7 +317,7 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	}
     	this.kDTable1.getIndexColumn().getStyleAttributes().setHided(true);
     	
-    	String billId = "q7emQGR4RXO5s86vNyJxJXARYRc=";
+    	String billId = editData.getId()!=null?editData.getId().toString():"q7emQGR4RXO5s86vNyJxJXARYRc=";
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1 ,ChangeAB.FNumber 申请编号2 , ChangeAB.Freadesc 适用范围 ,BaseU.Fname_l2 提出部门 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间5");
     	sb.append(" ,ChangeAE.FChangeContent,bill.FNumber");
@@ -357,29 +363,50 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	
     }
     
+//    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
+//    	super.kDTable1_tableClicked(e);
+//    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
+//    }
 
+    public void actionSave_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionSave_actionPerformed(e);
+    }
     
-    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
-    	super.kDTable1_tableClicked(e);
-    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
+    
+    protected void verifyInput(ActionEvent actionevent) throws Exception {
+    	super.verifyInput(actionevent);
+    	if(getOprtState().equals("自定义")){//如果是自定义状态打开
+    		//如果为空则提示
+    		if(1!=1){
+    			FDCMsgBox.showInfo("自定义状态");
+    			SysUtil.abort();
+    		}
+//    		SelectorItemCollection sic = new SelectorItemCollection();
+//    		sic.add("number");
+    		editData.setNumber("1111位");
+//    		AimAimCostAdjustFactory.getRemoteInstance().updatePartial(editData, sic);
+    	}
+    }
+    
+    public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionSubmit_actionPerformed(e);
     }
 
-	protected IObjectValue createNewData() {
+	protected IObjectValue createNewDetailData(KDTable kdtable) {
 		return null;
 	}
 
-	protected ICoreBase getBizInterface() throws Exception {
-		return null;
-	}
-	@Override
-	protected IObjectValue createNewDetailData(KDTable kdtable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
 	protected KDTable getDetailTable() {
-		// TODO Auto-generated method stub
-		return null;
+		return kDTable1;
+	}
+
+
+	protected ICoreBase getBizInterface() throws Exception {
+		return ChangeAuditBillFactory.getRemoteInstance();
+	}
+
+	protected IObjectValue createNewData() {
+		return new ChangeAuditBillInfo();
 	}
 
 }

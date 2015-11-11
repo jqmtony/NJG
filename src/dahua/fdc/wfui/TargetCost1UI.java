@@ -15,9 +15,15 @@ import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustFactory;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo;
+import com.kingdee.eas.fdc.aimcost.MeasureCostFactory;
+import com.kingdee.eas.fdc.aimcost.MeasureCostInfo;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
@@ -212,7 +218,7 @@ public class TargetCost1UI extends AbstractTargetCost1UI
     		kDTable1.getColumn(i).setWidth(90);
     	}    	
     	
-    	String billId = "wgnhf9P3R26Ot1IJWj08opkZNJQ="; //锁定单子ID
+    	String billId = editData.getId()!=null?editData.getId().toString():"wgnhf9P3R26Ot1IJWj08opkZNJQ="; //锁定单子ID
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select b.fname_l2,c.fname_l2,a.CFaddress ");
     	sb.append(" from  T_AIM_MeasureCost  a  ");
@@ -253,7 +259,46 @@ public class TargetCost1UI extends AbstractTargetCost1UI
     	this.kDTable1.getCell(10, 6).setValue(apporveResultForMap.get("总裁日期"));
 	}
 
+    public void actionSave_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionSave_actionPerformed(e);
+    }
+    
+    
+    protected void verifyInput(ActionEvent actionevent) throws Exception {
+    	super.verifyInput(actionevent);
+    	if(getOprtState().equals("自定义")){//如果是自定义状态打开
+    		//如果为空则提示
+    		if(1!=1){
+    			FDCMsgBox.showInfo("自定义状态");
+    			SysUtil.abort();
+    		}
+//    		SelectorItemCollection sic = new SelectorItemCollection();
+//    		sic.add("number");
+    		editData.setNumber("1111位");
+//    		AimAimCostAdjustFactory.getRemoteInstance().updatePartial(editData, sic);
+    	}
+    }
+    
+    public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionSubmit_actionPerformed(e);
+    }
 
+	protected IObjectValue createNewDetailData(KDTable kdtable) {
+		return null;
+	}
+
+	protected KDTable getDetailTable() {
+		return kDTable1;
+	}
+
+
+	protected ICoreBase getBizInterface() throws Exception {
+		return MeasureCostFactory.getRemoteInstance();
+	}
+
+	protected IObjectValue createNewData() {
+		return new MeasureCostInfo();
+	}
     /**
      * output actionPageSetup_actionPerformed
      */
@@ -481,18 +526,6 @@ public class TargetCost1UI extends AbstractTargetCost1UI
     /**
      * output actionSave_actionPerformed
      */
-    public void actionSave_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSave_actionPerformed(e);
-    }
-
-    /**
-     * output actionSubmit_actionPerformed
-     */
-    public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionSubmit_actionPerformed(e);
-    }
 
     /**
      * output actionCancel_actionPerformed
@@ -621,29 +654,5 @@ public class TargetCost1UI extends AbstractTargetCost1UI
     {
         super.actionMsgFormat_actionPerformed(e);
     }
-
-	@Override
-	protected IObjectValue createNewData() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	protected ICoreBase getBizInterface() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	protected IObjectValue createNewDetailData(KDTable kdtable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	protected KDTable getDetailTable() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

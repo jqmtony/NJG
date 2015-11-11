@@ -3,6 +3,7 @@
  */
 package com.kingdee.eas.fdc.wfui;
 
+import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.Map;
@@ -21,13 +22,18 @@ import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustFactory;
+import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo;
 import com.kingdee.eas.fdc.basedata.ApportionTypeInfo;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.ProjectStageEnum;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
+import com.kingdee.eas.fdc.contract.ContractBillFactory;
+import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.framework.ICoreBase;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
@@ -292,9 +298,9 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	}
     	this.kDTable1.getIndexColumn().getStyleAttributes().setHided(true);
     	
-    	String billId = "ksSILFqtQuqFtwN92GBRjA1t0fQ=";
+    	String billId = editData.getId()!=null?editData.getId().toString():"ksSILFqtQuqFtwN92GBRjA1t0fQ=";
     	StringBuffer sb = new StringBuffer();
-    	sb.append(" select fdc.Fname_l2,ject.Fname_l2 ,con.Fname,con.FCodingNumber,bd.Fname_l2,con.FAmount,act.FAmount,con.FCurProjectID,con.FGrtAmount,entry.FContent ");
+    	sb.append(" select fdc.Fname_l2,ject.Fname_l2 ,con.Fname,con.FCodingNumber,bd.Fname_l2,con.FAmount,act.FAmount,con.FCurProjectID,con.FGrtAmount,entry.FContent,con.CFIsFiveClass ");
     	sb.append(" from T_CON_ContractBill con  ");
     	sb.append(" left join T_FDC_LandDeveloper fdc on fdc.fid = con.FLandDeveloperID  ");
     	sb.append(" left join T_FDC_CurProject ject on ject.fid = con.FCurProjectID ");
@@ -302,7 +308,7 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	sb.append(" left join T_CON_ProgrammingContract act  on act.fid = con.FProgrammingContract ");
     	sb.append(" left join T_CON_ContractBillEntry entry on entry.FParentID=con.fid and entry.FDetail='备注' ");
     	sb.append(" where con.fid = '").append(billId).append("'");
-    	
+    	boolean isFiveClass = false;
     	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
     	while(rowset.next()){
     		this.kDTable1.getCell(0, 1).setValue(rowset.getString(1));
@@ -312,19 +318,22 @@ public class ContractApproveUI extends AbstractContractApproveUI
     		this.kDTable1.getCell(2, 1).setValue(rowset.getString(5));
     		this.kDTable1.getCell(2, 4).setValue(rowset.getString(6));
     		this.kDTable1.getCell(3, 1).setValue(rowset.getString(7));
+    		if("1".equals(rowset.getString(8)))
+    			isFiveClass = true;
         	//获取目标成本总建筑面积金额
     		BigDecimal buildArea = FDCHelper.getApportionValue(rowset.getString("FCurProjectID"),ApportionTypeInfo.buildAreaType, ProjectStageEnum.AIMCOST);
     		this.kDTable1.getCell(3, 5).setValue(FDCHelper.divide(buildArea, this.kDTable1.getCell(2, 4).getValue()));//单价
+    		
     		//判断保证金额是否为空,勾选布尔类型
     		this.kDTable1.getCell(17, 7).setValue(rowset.getString(9));
     		BigDecimal Bzj = UIRuleUtil.getBigDecimal(this.kDTable1.getCell(17, 7).getValue());
     		if( Bzj != null)
     		{
-    			addRowsist.getCell(3).setValue(Boolean.TRUE);//收取
+    			addRowsist.getCell(5).setValue(Boolean.TRUE);//收取
     		}
     		else
     		{
-    			addRowsist.getCell(5).setValue(Boolean.TRUE);//不收取
+    			addRowsist.getCell(3).setValue(Boolean.TRUE);//不收取
     		}
     	
     		this.kDTable1.getCell(18, 3).setValue(rowset.getString(10));
@@ -335,9 +344,23 @@ public class ContractApproveUI extends AbstractContractApproveUI
  		//工作流审批意见
     	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
     	this.kDTable1.getCell(5, 3).setValue(apporveResultForMap.get("成本部"));
-    	this.kDTable1.getCell(6, 3).setValue(apporveResultForMap.get("工程部"));
+    	if(apporveResultForMap.get("工程部") != null){
+    		this.kDTable1.getCell(6, 3).setValue(apporveResultForMap.get("工程部"));
+    	}
+    	else {
+    		this.kDTable1.getCell(6, 3).setValue(apporveResultForMap.get("前期（配套）部"));
+    	}
+//    	this.kDTable1.getCell(6, 3).setValue();
     	this.kDTable1.getCell(7, 3).setValue(apporveResultForMap.get("财务部"));
-    	this.kDTable1.getCell(8, 3).setValue(apporveResultForMap.get("设计部"));
+    	if(isFiveClass){
+    		this.kDTable1.getCell(8, 3).setValue(apporveResultForMap.get("设计部"));
+    		this.kDTable1.getRow(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	}
+    	else
+    	{
+    		this.kDTable1.getRow(8).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	}
+    	
     	this.kDTable1.getCell(9, 3).setValue(apporveResultForMap.get("项目公司第一负责人"));
     	this.kDTable1.getCell(10, 3).setValue(apporveResultForMap.get("地区第一负责人"));
     	this.kDTable1.getCell(11, 3).setValue(apporveResultForMap.get("合约审算部"));
@@ -355,21 +378,48 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
     }
     
-//	protected IObjectValue createNewData() {
-//		return null;
-//	}
-	
-//	protected ICoreBase getBizInterface() throws Exception {
-//		return null;
-//	}
-//	
+    public void actionSave_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionSave_actionPerformed(e);
+//    	UIContext uiContext = new UIContext(this);
+//		IUIWindow uiWindow = null;
+//		uiContext.put("ID", "7v36HV4ES6+HQ7TfX3B27QTHsvM=");
+////		uiContext.put("ID", "++e5/LBdTYWVTKE8baOBXA1t0fQ=");
+//		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(TargetcostApproveUI.class.getName(), uiContext, null, OprtState.VIEW);
+////		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ContractBillEditUI.class.getName(), uiContext, null, OprtState.VIEW);
+//		uiWindow.show();
+    }
+    
+    
+    protected void verifyInput(ActionEvent actionevent) throws Exception {
+    	super.verifyInput(actionevent);
+    	if(getOprtState().equals("自定义")){//如果是自定义状态打开
+    		//如果为空则提示
+    		if(1!=1){
+    			FDCMsgBox.showInfo("自定义状态");
+    			SysUtil.abort();
+    		}
+    		editData.setNumber("1111位");
+    	}
+    }
+    
+    public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionSubmit_actionPerformed(e);
+    }
+
 	protected IObjectValue createNewDetailData(KDTable kdtable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	protected KDTable getDetailTable() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
+	protected KDTable getDetailTable() {
+		return kDTable1;
+	}
+
+
+	protected ICoreBase getBizInterface() throws Exception {
+		return ContractBillFactory.getRemoteInstance();
+	}
+
+	protected IObjectValue createNewData() {
+		return new ContractBillInfo();
+	}
 }

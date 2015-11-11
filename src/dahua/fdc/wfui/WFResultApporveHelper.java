@@ -25,9 +25,9 @@ public class WFResultApporveHelper {
 		try {
 			IRowSet executeQuery = build.executeQuery();
 			while(executeQuery.next()){
-				String result = executeQuery.getString(1);
-				String actName = executeQuery.getString(2);
-				String person = executeQuery.getString(3);
+				String result = executeQuery.getString(1)!=null?executeQuery.getString(1):"";
+				String actName = executeQuery.getString(2)!=null?executeQuery.getString(2):"";
+				String person = executeQuery.getString(3)!=null?executeQuery.getString(3):"";
 				if(resultMap.get(actName)==null)
 					resultMap.put(actName, person+":"+result);
 			}

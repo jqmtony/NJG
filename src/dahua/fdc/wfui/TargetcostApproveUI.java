@@ -11,9 +11,12 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.web.components.util.EditDataGridHelper;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
@@ -27,6 +30,7 @@ import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustFactory;
 import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
@@ -35,6 +39,7 @@ import com.kingdee.eas.fdc.contract.client.ContractBillEditUI;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.contract.programming.client.ProgrammingContractEditUI;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
@@ -263,6 +268,7 @@ public class TargetcostApproveUI extends AbstractTargetcostApproveUI
     	this.kDTable1.getColumn(9).setWidth(50);
     	this.kDTable1.getIndexColumn().getStyleAttributes().setHided(true);
     	
+    	
     	//行宽
     	int i;
     	for(i=0;i<kDTable1.getRowCount()-1;i++)
@@ -296,7 +302,7 @@ public class TargetcostApproveUI extends AbstractTargetcostApproveUI
     		this.kDTable1.getCell(0, 1).setValue(rowset.getString(1));
     		this.kDTable1.getCell(1, 1).setValue(rowset.getString(2));
     		yuanYin.append(rowset.getString(3)+"\n");
-    		sum= sum.add(rowset.getBigDecimal(4));
+    		sum = FDCHelper.add(sum, rowset.getBigDecimal(4));
     		beiZu.append(rowset.getString(5)+"\n");
     	}  	
     	this.kDTable1.getCell(2, 1).setValue(yuanYin.toString());
@@ -328,10 +334,10 @@ public class TargetcostApproveUI extends AbstractTargetcostApproveUI
 
     } 
     
-    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
-    	super.kDTable1_tableClicked(e);
-    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
-    }
+//    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
+//    	super.kDTable1_tableClicked(e);
+//    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
+//    }
     
     public void actionSave_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSave_actionPerformed(e);
@@ -342,6 +348,26 @@ public class TargetcostApproveUI extends AbstractTargetcostApproveUI
 //		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(TargetcostApproveUI.class.getName(), uiContext, null, OprtState.VIEW);
 ////		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ContractBillEditUI.class.getName(), uiContext, null, OprtState.VIEW);
 //		uiWindow.show();
+    }
+    
+    
+    protected void verifyInput(ActionEvent actionevent) throws Exception {
+    	super.verifyInput(actionevent);
+    	if(getOprtState().equals("自定义")){//如果是自定义状态打开
+    		//如果为空则提示
+    		if(1!=1){
+    			FDCMsgBox.showInfo("自定义状态");
+    			SysUtil.abort();
+    		}
+//    		SelectorItemCollection sic = new SelectorItemCollection();
+//    		sic.add("number");
+    		editData.setNumber("1111位");
+//    		AimAimCostAdjustFactory.getRemoteInstance().updatePartial(editData, sic);
+    	}
+    }
+    
+    public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+    	super.actionSubmit_actionPerformed(e);
     }
 
 	protected IObjectValue createNewDetailData(KDTable kdtable) {
