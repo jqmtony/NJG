@@ -777,6 +777,26 @@
                 <key name="name" value="R_ProjectMonthPlanGatherEntry_Supplier_supplier" />
             </relationship>
         </linkProperty>
+        <ownProperty>
+            <name>applyAmount</name>
+            <alias>entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[applyAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[applyAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>13</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[applyAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="FApplyAmount" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -792,566 +812,584 @@
     </logicalKey>
     <resource>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].alias">
-            <lang locale="zh_CN" value="项目月度付款计划汇总分录" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目月度付款计划汇总分录" />
             <lang locale="zh_HK" value="項目月度付款計畫匯總分錄" />
             <lang locale="zh_TW" value="項目月度付款計畫匯總分錄" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].description">
-            <lang locale="zh_CN" value="项目月度付款计划汇总分录" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目月度付款计划汇总分录" />
             <lang locale="zh_HK" value="項目月度付款計畫匯總分錄" />
             <lang locale="zh_TW" value="項目月度付款計畫匯總分錄" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].logicalKey[id].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].logicalKey[id].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[addnew].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[addnew].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[addnew].parameters.parameter[model].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[addnew].parameters.parameter[model].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[addnew].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[addnew].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[delete].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[delete].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[delete].parameters.parameter[arrayPK].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[delete].parameters.parameter[arrayPK].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[delete].parameters.parameter[filter].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[delete].parameters.parameter[filter].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[delete].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[delete].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[delete].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[delete].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[exists].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[exists].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[exists].parameters.parameter[filter].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[exists].parameters.parameter[filter].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[exists].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[exists].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[exists].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[exists].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getCollection].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getCollection].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getCollection].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getCollection].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getCollection].parameters.parameter[view].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getCollection].parameters.parameter[view].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getPKList].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getPKList].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getPKList].parameters.parameter[filter].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getPKList].parameters.parameter[filter].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getPKList].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getPKList].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getPKList].parameters.parameter[sorter].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getPKList].parameters.parameter[sorter].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getValue].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getValue].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getValue].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getValue].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getValue].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getValue].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getValue].parameters.parameter[selector].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[getValue].parameters.parameter[selector].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[updateBigObject].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[updateBigObject].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[updateBigObject].parameters.parameter[model].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[updateBigObject].parameters.parameter[model].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[updateBigObject].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[updateBigObject].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[updatePartial].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[updatePartial].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[updatePartial].parameters.parameter[model].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[updatePartial].parameters.parameter[model].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[updatePartial].parameters.parameter[selector].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[updatePartial].parameters.parameter[selector].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[update].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[update].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[update].parameters.parameter[model].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[update].parameters.parameter[model].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[update].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].methods.method[update].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[contractBill].alias">
-            <lang locale="zh_CN" value="合同" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同" />
             <lang locale="zh_HK" value="合同" />
             <lang locale="zh_TW" value="合同" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[contractBill].description">
-            <lang locale="zh_CN" value="合同" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同" />
             <lang locale="zh_HK" value="合同" />
             <lang locale="zh_TW" value="合同" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[dateEntry].alias">
-            <lang locale="zh_CN" value="明细分录" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="明细分录" />
             <lang locale="zh_HK" value="明細分錄" />
             <lang locale="zh_TW" value="明細分錄" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[dateEntry].description">
-            <lang locale="zh_CN" value="明细分录" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="明细分录" />
             <lang locale="zh_HK" value="明細分錄" />
             <lang locale="zh_TW" value="明細分錄" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[head].alias">
-            <lang locale="zh_CN" value="项目月度付款计划汇总" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目月度付款计划汇总" />
             <lang locale="zh_HK" value="項目月度付款計畫匯總" />
             <lang locale="zh_TW" value="項目月度付款計畫匯總" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[head].description">
-            <lang locale="zh_CN" value="项目月度付款计划汇总" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目月度付款计划汇总" />
             <lang locale="zh_HK" value="項目月度付款計畫匯總" />
             <lang locale="zh_TW" value="項目月度付款計畫匯總" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[programmingContract].alias">
-            <lang locale="zh_CN" value="合规规划" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合规规划" />
             <lang locale="zh_HK" value="合規規劃" />
             <lang locale="zh_TW" value="合規規劃" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[programmingContract].description">
-            <lang locale="zh_CN" value="合规规划" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合规规划" />
             <lang locale="zh_HK" value="合規規劃" />
             <lang locale="zh_TW" value="合規規劃" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[respDept].alias">
-            <lang locale="zh_CN" value="责任部门" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任部门" />
             <lang locale="zh_HK" value="責任部門" />
             <lang locale="zh_TW" value="責任部門" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[respDept].description">
-            <lang locale="zh_CN" value="责任部门" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任部门" />
             <lang locale="zh_HK" value="責任部門" />
             <lang locale="zh_TW" value="責任部門" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[respPerson].alias">
-            <lang locale="zh_CN" value="责任人" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任人" />
             <lang locale="zh_HK" value="責任人" />
             <lang locale="zh_TW" value="責任人" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[respPerson].description">
-            <lang locale="zh_CN" value="责任人" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任人" />
             <lang locale="zh_HK" value="責任人" />
             <lang locale="zh_TW" value="責任人" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[supplier].alias">
-            <lang locale="zh_CN" value="供应商" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="供应商" />
             <lang locale="zh_HK" value="供應商" />
             <lang locale="zh_TW" value="供應商" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.linkProperty[supplier].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[amount].alias">
-            <lang locale="zh_CN" value="金额" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="金额" />
             <lang locale="zh_HK" value="金額" />
             <lang locale="zh_TW" value="金額" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[amount].defaultValue">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[amount].description">
-            <lang locale="zh_CN" value="金额" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="金额" />
             <lang locale="zh_HK" value="金額" />
             <lang locale="zh_TW" value="金額" />
         </rs>
-        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[department].alias">
-            <lang locale="zh_CN" value="用款部门" />
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[applyAmount].alias">
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本月申请金额" />
+            <lang locale="zh_HK" value="本月申請金額" />
+            <lang locale="zh_TW" value="本月申請金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[applyAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[applyAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[department].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用款部门" />
             <lang locale="zh_HK" value="用款部門" />
             <lang locale="zh_TW" value="用款部門" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[department].defaultValue">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[department].description">
-            <lang locale="zh_CN" value="用款部门" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用款部门" />
             <lang locale="zh_HK" value="用款部門" />
             <lang locale="zh_TW" value="用款部門" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[name].alias">
-            <lang locale="zh_CN" value="事项" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="事项" />
             <lang locale="zh_HK" value="事項" />
             <lang locale="zh_TW" value="事項" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[name].defaultValue">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[name].description">
-            <lang locale="zh_CN" value="事项" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="事项" />
             <lang locale="zh_HK" value="事項" />
             <lang locale="zh_TW" value="事項" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[srcId].alias">
-            <lang locale="zh_CN" value="源单据Id" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="源单据Id" />
             <lang locale="zh_HK" value="源單據Id" />
             <lang locale="zh_TW" value="源單據Id" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[srcId].defaultValue">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.finance.app.ProjectMonthPlanGatherEntry].properties.ownProperty[srcId].description">
-            <lang locale="zh_CN" value="源单据Id" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="源单据Id" />
             <lang locale="zh_HK" value="源單據Id" />
             <lang locale="zh_TW" value="源單據Id" />
         </rs>
