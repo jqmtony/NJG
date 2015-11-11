@@ -348,10 +348,10 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		icol.setKey("maxSize");
 		icol.getStyleAttributes().setHided(true);
 		IRow row0 = kdfxbd.addHeadRow();
-		row0.getCell("name").setValue("规划合同名称");
+		row0.getCell("name").setValue("合约规划名称");
 		row0.getCell("htrange").setValue("合同范围");
 		IRow row1 = kdfxbd.addHeadRow();
-		row1.getCell("name").setValue("规划合同名称");
+		row1.getCell("name").setValue("合约规划名称");
 		row1.getCell("htrange").setValue("合同范围");
 		pcs = PcDepTypeFactory.getRemoteInstance().getPcDepTypeCollection(" order by number");
 		PcDepTypeInfo pinfo = null;
@@ -1436,13 +1436,13 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			ProgrammingContractInfo headObject = (ProgrammingContractInfo) kdtEntries.getRow(rowIndex).getUserObject();
 			// 新增时判断数据是否合法
 			if (o == null || o.toString().trim().length() == 0) {
-				MsgBox.showInfo("分录第 " + (rowIndex + 1) + " 行，框架合约编码不能为空！");
+				MsgBox.showInfo("分录第 " + (rowIndex + 1) + " 行，合约规划编码不能为空！");
 				return;
 			} else if ((o.toString().trim() + ".").length() >= 80) {
-				MsgBox.showInfo("分录第 " + (rowIndex + 1) + " 行，框架合约编码过长\n请修改后再新增子级框架合约！");
+				MsgBox.showInfo("分录第 " + (rowIndex + 1) + " 行，合约规划编码过长\n请修改后再新增子级合约规划！");
 				return;
 			} else if (name == null || StringUtils.isEmpty(name.toString())) {
-				MsgBox.showInfo("分录第 " + (rowIndex + 1) + " 行，框架合约名称不能为空！");
+				MsgBox.showInfo("分录第 " + (rowIndex + 1) + " 行，合约规划名称不能为空！");
 				return;
 			} else if (head == null) {
 				int level = new Integer(headlevel.toString()).intValue();
@@ -1460,7 +1460,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				String ln = o.toString();
 
 				if (ln.length() == (head.toString().length() + 1)) {
-					MsgBox.showInfo("分录第 " + (rowIndex + 1) + " 行，框架合约编码不能为空！");
+					MsgBox.showInfo("分录第 " + (rowIndex + 1) + " 行，合约规划编码不能为空！");
 					return;
 				}
 				row = getInsertRowIndex(o, rowIndex, rowCount);
@@ -1624,10 +1624,10 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		Object name = getCellValue(kdtEntries, rowIndex, "name");
 		// Object name = kdtEntries.getCell(rowIndex, "name").getValue();
 		if (o == null || o.toString().trim().length() == 0) {
-			MsgBox.showInfo("分录第 " + (rowIndex + 1) + " 行，框架合约编码不能为空！");
+			MsgBox.showInfo("分录第 " + (rowIndex + 1) + " 行，合约规划编码不能为空！");
 			return;
 		} else if (name == null || StringUtils.isEmpty(name.toString())) {
-			MsgBox.showInfo("分录第 " + (rowIndex + 1) + " 行，框架合约名称不能为空！");
+			MsgBox.showInfo("分录第 " + (rowIndex + 1) + " 行，合约规划名称不能为空！");
 			return;
 		}
 		String headNumber = (String) kdtEntries.getCell(rowIndex, HEADNUMBER).getValue();
@@ -1688,7 +1688,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		Object h = kdtEntries.getCell(rowIndex, HEADNUMBER).getValue();
 		boolean isCiting = ((Boolean) kdtEntries.getCell(rowIndex, "isCiting").getValue()).booleanValue();
 		if (isCiting) {
-			MsgBox.showInfo("存在被引用的框架合约“" + name.toString() + "”,无法删除！");
+			MsgBox.showInfo("存在被引用的合约规划“" + name.toString() + "”,无法删除！");
 			return;
 		}
 
@@ -1720,7 +1720,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		}
 
 		if (list.size() > 1) {
-			if (MsgBox.OK == MsgBox.showConfirm2New(null, "您当前删除的父节点“" + name.toString() + "”下还有其他的框架合约，确定要一起删除吗？")) {
+			if (MsgBox.OK == MsgBox.showConfirm2New(null, "您当前删除的父节点“" + name.toString() + "”下还有其他的合约规划，确定要一起删除吗？")) {
 				create.removeLine(kdtEntries, list);
 				if (!isHasSomeLevel && oldLevel == 2) {
 					if (rowIndex > 0) {
@@ -2088,7 +2088,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				if (headNumber.toString().startsWith(longNumber)) {
 					boolean isCiting = ((Boolean) kdtEntries.getCell(i, "isCiting").getValue()).booleanValue();
 					if (isCiting) {
-						MsgBox.showInfo("存在被引用的框架合约“" + l.toString() + "”,无法删除！");
+						MsgBox.showInfo("存在被引用的合约规划“" + l.toString() + "”,无法删除！");
 						SysUtil.abort();
 					}
 					list.add(new Integer(i));
@@ -2164,7 +2164,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		if (e.getColIndex() == kdtEntries.getColumnIndex(LONGNUMBER)) {
 			Object longNumber = kdtEntries.getCell(e.getRowIndex(), LONGNUMBER).getValue();
 			if (longNumber != null && longNumber.toString().trim().length() > 80) {
-				MsgBox.showInfo("分录第 " + (e.getRowIndex() + 1) + " 行，框架合约编码超长\n请修改上级编码后再进行编辑！");
+				MsgBox.showInfo("分录第 " + (e.getRowIndex() + 1) + " 行，合约规划编码超长\n请修改上级编码后再进行编辑！");
 				kdtEntries.getEditManager().cancelEditing();
 				e.setCancel(true);
 			}
@@ -3568,13 +3568,13 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			}
 
 			if (proName != null && proName.toString().trim().length() > 80) {
-				throw new EASBizException(new NumericExceptionSubItem("1", "分录第" + (i + 1) + "行，框架合约名称超长！"));
+				throw new EASBizException(new NumericExceptionSubItem("1", "分录第" + (i + 1) + "行，合约规划名称超长！"));
 			}
 
 			Object longName = kdtEntries.getCell(i, "longName").getValue();
 			if (longName != null && !StringUtils.isEmpty(longName.toString())) {
 				if (longName.toString().length() > 255) {
-					throw new EASBizException(new NumericExceptionSubItem("1", "分录第" + (i + 1) + "行，框架合约长名称超长\n请修改框架合约名称数据！"));
+					throw new EASBizException(new NumericExceptionSubItem("1", "分录第" + (i + 1) + "行，合约规划长名称超长\n请修改合约规划名称数据！"));
 				}
 			}
 			//modify by yxl 20150914 校验合约类型和规划金额不能为空
@@ -3612,7 +3612,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			Object controlAmount = kdtEntries.getCell(i, "controlAmount").getValue();
 			Object amount = kdtEntries.getCell(i, "amount").getValue();
 			if (FDCHelper.toBigDecimal(amount).compareTo(FDCHelper.toBigDecimal(controlAmount)) == -1) {
-				throw new EASBizException(new NumericExceptionSubItem("1", "分录第" + (i + 1) + "行，采购控制金额不得大于规划金额\n请修改框架合约名称数据！"));
+				throw new EASBizException(new NumericExceptionSubItem("1", "分录第" + (i + 1) + "行，采购控制金额不得大于规划金额\n请修改合约规划名称数据！"));
 			}
 
 		}
@@ -4642,7 +4642,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			}
 			CostAccountInfo costInfo = (CostAccountInfo) costInfoMap.get(info.getCostAccount().getId().toString());
 			if (costInfo == null) {
-				MsgBox.showWarning(this, "框架合约对应的成本科目已经发生改变!");
+				MsgBox.showWarning(this, "合约规划对应的成本科目已经发生改变!");
 				SysUtil.abort();
 			}
 			/* modified by zhaoqin for 建发 on 2014/05/19 end */
@@ -4701,36 +4701,36 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			}
 			/* modified by zhaoqin for 建发 on 2014/05/19 end */
 
-			String name = null;
-			for (int j = 0; j < kdtCostAccount.getRowCount(); j++) {
-				name = null;
-				IRow row_k = kdtCostAccount.getRow(j);
-				String number = row_k.getCell("costNumber").getValue().toString();
-				Object name_1 = row_k.getCell("proName").getValue();
-				if (name_1 != null)
-					name = name_1.toString();
-				if (number.equals(costInfo.getLongNumber())) {
-					isHas = true;
-					if (name == null) {
-						row_k.getCell("proName").setValue(proName);
-					} else {
-						row_k.getCell("proName").setValue(name + ",\n" + proName);	/* modified by zhaoqin for R140507-0246 on 2014/05/13 */
-					}
-					Object ass = row_k.getCell(ASSIGNED).getValue();
-					BigDecimal assigned = FDCHelper.ZERO;
-					if (ass != null && !StringUtils.isEmpty(ass.toString())) {
-						assigned = new BigDecimal(ass.toString());
-						assigned = assigned.add(contractAssign);
-						row_k.getCell(ASSIGNED).setValue(assigned);
-					}
-					Object aim = row_k.getCell(AIM_COST).getValue();
-					BigDecimal aimCost = FDCHelper.ZERO;
-					if (aim != null && !StringUtils.isEmpty(aim.toString())) {
-						aimCost = new BigDecimal(aim.toString());
-					}
-					row_k.getCell(ASSIGNING).setValue(aimCost.subtract(assigned));
-				}
-			}
+//			String name = null;
+//			for (int j = 0; j < kdtCostAccount.getRowCount(); j++) {
+//				name = null;
+//				IRow row_k = kdtCostAccount.getRow(j);
+//				String number = row_k.getCell("costNumber").getValue().toString();
+//				Object name_1 = row_k.getCell("proName").getValue();
+//				if (name_1 != null)
+//					name = name_1.toString();
+//				if (number.equals(costInfo.getLongNumber())) {
+//					isHas = true;
+//					if (name == null) {
+//						row_k.getCell("proName").setValue(proName);
+//					} else {
+//						row_k.getCell("proName").setValue(name + ",\n" + proName);	/* modified by zhaoqin for R140507-0246 on 2014/05/13 */
+//					}
+//					Object ass = row_k.getCell(ASSIGNED).getValue();
+//					BigDecimal assigned = FDCHelper.ZERO;
+//					if (ass != null && !StringUtils.isEmpty(ass.toString())) {
+//						assigned = new BigDecimal(ass.toString());
+//						assigned = assigned.add(contractAssign);
+//						row_k.getCell(ASSIGNED).setValue(assigned);
+//					}
+//					Object aim = row_k.getCell(AIM_COST).getValue();
+//					BigDecimal aimCost = FDCHelper.ZERO;
+//					if (aim != null && !StringUtils.isEmpty(aim.toString())) {
+//						aimCost = new BigDecimal(aim.toString());
+//					}
+//					row_k.getCell(ASSIGNING).setValue(aimCost.subtract(assigned));
+//				}
+//			}
 			if (!isHas) {
 				List list = new ArrayList();
 				getParentCostAccountInfo(costInfo, list, costInfoMap);
@@ -4746,6 +4746,10 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				row.getCell("costAccount.id").setValue(costInfo.getId().toString());
 				row.getCell("costAccount.parent.id").setValue(costInfo.getParent().getId().toString());
 				row.setUserObject(costInfo);
+				// modify by yxl 20151109
+				for(int j = 0; j < kdtCostAccount.getRowCount(); j++) {
+					if(row.getRowIndex()!=j);
+				}
 			}
 		}
 	}
@@ -4854,7 +4858,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		for (int i = 0, size = entries.size(); i < size; i++) {
 			ProgrammingContractInfo entry = entries.get(i);
 			if (entry.isIsCiting()) {
-				throw new EASBizException(new NumericExceptionSubItem("1", "合约框架中存在被引用的框架合约\n不允许此操作"));
+				throw new EASBizException(new NumericExceptionSubItem("1", "合约规划中存在被引用的合约规划\n不允许此操作"));
 			}
 		}
 		UIContext uiContext = new UIContext(this);

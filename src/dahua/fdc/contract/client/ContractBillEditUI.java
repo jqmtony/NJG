@@ -393,6 +393,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 
 	private BigDecimal detailAmount = FDCHelper.ZERO;
 	private ContractCostSplitEditUI conSplitUI = null;
+	private boolean isWholeAgeProject = false;
 	
 	public ContractBillEditUI() throws Exception {
 		super();
@@ -1920,25 +1921,46 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				this.btnProgram.setEnabled(false);
 			}
 		}
-		
-		
-		
 		contOrgAmtBig.setLocation(5, 5);
 		isWin();
 		checkSignAmountByIsLongCal();
-
 		kDDateCreateTime.setDatePattern("yyyy-MM-dd   HH:mm:ss");
-		
 		btnAddLine.setVisible(false);
 		btnRemoveLine.setVisible(false);
 
 		this.initProgramControlMode();
 		
+		// modify by yxl 20151111 拆分页签表格初始化合约规划列，打开编辑界面时，默认加载拆分页签
+		kDTabbedPane1.setSelectedComponent(kDPanel2);
+		final KDBizPromptBox kdtEntrys_programming_PromptBox = new KDBizPromptBox();
+		kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery");
+//			 kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.programming.app.ProgrammingContractF7Query");
+		kdtEntrys_programming_PromptBox.setDisplayFormat("$number$");
+		kdtEntrys_programming_PromptBox.setEditFormat("$number$");
+		kdtEntrys_programming_PromptBox.setCommitFormat("$number$");
+		KDTDefaultCellEditor kdtEntrys_programming_CellEditor = new KDTDefaultCellEditor(kdtEntrys_programming_PromptBox);
+		this.kdtSplitEntry.getColumn("programming").setEditor(kdtEntrys_programming_CellEditor);
+		ObjectValueRender tblEconItem_payType_OVR = new ObjectValueRender();
+		tblEconItem_payType_OVR.setFormat(new BizDataFormat("$name$"));
+		this.kdtSplitEntry.getColumn("programming").setRenderer(tblEconItem_payType_OVR);
 		if(editData.getCurProject()!=null){
 			SelectorItemCollection sic = new SelectorItemCollection();
 			sic.add("isWholeAgeStage");
 			CurProjectInfo curInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(editData.getCurProject().getId()),sic);
+			isWholeAgeProject = curInfo.isIsWholeAgeStage();
 			this.prmtFwContract.setEnabled(!curInfo.isIsWholeAgeStage());
+			kdtSplitEntry.getColumn("programming").getStyleAttributes().setLocked(!curInfo.isIsWholeAgeStage());
+			//
+			EntityViewInfo view = new EntityViewInfo();
+			FilterInfo filInfo = new FilterInfo();
+			if(curInfo.isIsWholeAgeStage()){
+				
+			}else{
+				filInfo.getFilterItems().add(new FilterItemInfo("programming.project.id",editData.getCurProject().getId()));
+				filInfo.getFilterItems().add(new FilterItemInfo("programming.isLatest","1"));
+			}
+			view.setFilter(filInfo);
+		    kdtEntrys_programming_PromptBox.setEntityViewInfo(view);
 		}
 		KDTSortManager sortManager = new KDTSortManager(kdtSplitEntry){
 			public void sort(int colIndex) {
@@ -2815,10 +2837,12 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			initProgrammingContract();
 		}
 //		this.reSetMaxNum4AmountField();
-		
+		// init kdtSplitEntry modify by yxl 20151105
 		kdtSplitEntry.getColumn("amount").setEditor(FDCSplitClientHelper.getTotalCellNumberEdit());
 		kdtSplitEntry.getColumn("price").setEditor(getCellNumberEdit());
 		kdtSplitEntry.getColumn("workLoad").setEditor(getCellNumberEdit());
+		kdtSplitEntry.getColumn("splitScale").setEditor(getScaleCellNumberEdit());
+		
 		
 		((KDTTransferAction) kdtSplitEntry.getActionMap().get(KDTAction.PASTE)).setPasteMode(KDTEditHelper.VALUE);
 		//焦点到了最后一行时，不自动新增行
@@ -2865,6 +2889,18 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
         kdc.setVisible(true);
         kdc.setEnabled(true);
 //        kdc.setRequired(false);
+        KDTDefaultCellEditor editor = new KDTDefaultCellEditor(kdc);
+        return editor;
+	}
+	
+	public KDTDefaultCellEditor getScaleCellNumberEdit(){
+		KDFormattedTextField kdc = new KDFormattedTextField();
+        kdc.setDataType(KDFormattedTextField.BIGDECIMAL_TYPE);
+        kdc.setPrecision(10);
+        kdc.setMinimumValue(FDCHelper.ZERO);
+        kdc.setMaximumValue(FDCHelper.ONE_HUNDRED);
+        kdc.setHorizontalAlignment(KDFormattedTextField.RIGHT);
+        kdc.setSupportedEmpty(true);
         KDTDefaultCellEditor editor = new KDTDefaultCellEditor(kdc);
         return editor;
 	}
@@ -5964,6 +6000,14 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		if(!chkFiveClass.isSelected() && FDCMsgBox.showConfirm2("该合同不是五大类合同，继续提交吗？") != 0){
 			abort();
 		}
+		if(isWholeAgeProject){
+			for(int i = 0; i < kdtSplitEntry.getRowCount3(); i++) {
+				if(kdtSplitEntry.getCell(i,"programming").getValue() == null){
+					FDCMsgBox.showError("拆分信息第"+(i+1)+"行的合约规划不能为空！");
+					abort();
+				}
+			}
+		}
 	}
 
 	/**
@@ -7492,8 +7536,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			
 			
 			ProgrammingContractInfo contractInfo = (ProgrammingContractInfo) contractObj;
-			if(conSplitUI != null)
-				conSplitUI.setProgrammingContractInfo(contractInfo);
+//			if(conSplitUI != null)
+//				conSplitUI.setProgrammingContractInfo(contractInfo);
 			controlAmount = FDCHelper.toBigDecimal(contractInfo.getControlBalance(), 2);
 			txtControlAmount.setNumberValue(controlAmount);
 			//			this.txtControlAmount.setText(controlAmount
@@ -7819,7 +7863,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				entry.setLevel(0);
 				entry.setIsLeaf(true);		//Jelon 	Dec 11, 2006
 				entry.setAmount(FDCHelper.ZERO);
-				
+				entry.setProgrammings((ProgrammingContractInfo)prmtFwContract.getValue());
 				//拆分组号	jelon 12/27/2006
 				groupIndex++;
 				entry.setIndex(groupIndex);
@@ -8127,6 +8171,9 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
     	sic.add(new SelectorItemInfo("splitEntry.workLoad"));
     	sic.add(new SelectorItemInfo("splitEntry.price"));
     	sic.add(new SelectorItemInfo("splitEntry.splitScale"));
+    	sic.add(new SelectorItemInfo("splitEntry.programmings.id"));
+		sic.add(new SelectorItemInfo("splitEntry.programmings.name"));
+    	sic.add(new SelectorItemInfo("splitEntry.programmings.number"));
     	return sic;
     }
     

@@ -223,7 +223,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		kdtEconomy.getColumn("scheduletask").getStyleAttributes().setHided(true);
 		kdtEconomy.getColumn("completedate").getStyleAttributes().setHided(true);
 		kdtEconomy.getColumn("delaydays").getStyleAttributes().setHided(true);
-		
+		txtAmount.setEnabled(false);
 		txtAmount.addDataChangeListener(new DataChangeListener() {
 			/*
 			 * 规划金额改变后需要处理的事情有以下几种情况 1. 判断规划金额录入的数值是否小于0 2. 经济条款—付款金额依据原付款比例动态改变
@@ -568,14 +568,14 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		initOldValue();
 		pcCollection = (ProgrammingContractCollection) uiContext.get("pcCollection");
 		preparePCData();
-		
-		initAmountControlEnable();
-		if(kdtCost.getRowCount()>0){
-			txtAmount.setEnabled(false);
-		}else{
-			txtAmount.setEnabled(true);
-			txtAmount.setRequired(true);
-		}
+		// modify by yxl 20151109
+//		initAmountControlEnable();
+//		if(kdtCost.getRowCount()>0){
+//			txtAmount.setEnabled(false);
+//		}else{
+//			txtAmount.setEnabled(true);
+//			txtAmount.setRequired(true);
+//		}
 		txtName.setDocument(new LimitedLengthDocument() {
 			public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
 				if (str.matches("^\\.+$")) {
@@ -797,9 +797,13 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 				return;
 			}
 			if(ckdate.compareTo(editdate)==0){
+				kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.WHITE);
 				return;
 			}
-			kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.RED);
+			if(ckdate.compareTo(editdate)<0)
+				kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.RED);
+			else
+				kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.GREEN);
 		}
 	}
 	
@@ -1012,21 +1016,20 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		IRow row = kdtCost.addRow();
 		int rowIndex = row.getRowIndex();
 
-		CurProjectInfo project = (CurProjectInfo) this.getUIContext().get("project");
+		CurProjectInfo project = (CurProjectInfo)this.getUIContext().get("project");
 		row.getCell(COST_ID).setValue(BOSUuid.create("9E6FDD26"));
 		row.getCell(PROJECT).setValue(project);
 //		projectF7();
 		costAccountCellF7(project, rowIndex, kdtCost.getColumnIndex(COSTACCOUNT));
 		
-		// modified by zhaoqin for R130828-0384 on 2013/9/29
-		changeTxtAmountState();
-		
-		if(kdtCost.getRowCount()>0){
-			txtAmount.setEnabled(false);
-		}else{
-			txtAmount.setEnabled(true);
-			txtAmount.setRequired(true);
-		}
+		// modified by zhaoqin for R130828-0384 on 2013/9/29 modify by yxl
+//		changeTxtAmountState();
+//		if(kdtCost.getRowCount()>0){
+//			txtAmount.setEnabled(false);
+//		}else{
+//			txtAmount.setEnabled(true);
+//			txtAmount.setRequired(true);
+//		}
 	}
 
 	protected void actionRemoveLine_cost_actionPerformed(ActionEvent e) throws Exception {
@@ -1208,7 +1211,10 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		KDTextField kdtfDes = (KDTextField) cellEditorDes.getComponent();
 		kdtfDes.setMaxLength(80);
 		this.kdtCost.getColumn(COST_DES).setEditor(cellEditorDes);
-		projectF7();
+		// modify by yxl 20151109
+//		projectF7();
+		costAccountF7((CurProjectInfo)this.getUIContext().get("project"));
+		kdtCost.getColumn(PROJECT).getStyleAttributes().setHided(true);
 		/* 经济条款 */
 		//added by shangjing 初始化经济条款分录的设置
 //		kDContainerEconomy.setTitle("经济条款列表");
@@ -3735,7 +3741,10 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		FilterInfo filter = new FilterInfo();
 		// filter.getFilterItems().add(new
 		// FilterItemInfo("fullOrgUnit.id",OrgConstants.DEF_CU_ID,CompareType.EQUALS));
-		filter.getFilterItems().add(new FilterItemInfo("curProject.id", project.getId().toString(), CompareType.EQUALS));
+		if(project == null)
+			filter.getFilterItems().add(new FilterItemInfo("curProject.id", "error"));
+		else
+			filter.getFilterItems().add(new FilterItemInfo("curProject.id", project.getId().toString()));
 		entityView.setFilter(filter);
 		prmtCostAccount.setEntityViewInfo(entityView);
 		kdtCost.getColumn(COSTACCOUNT).setEditor(caEditor);

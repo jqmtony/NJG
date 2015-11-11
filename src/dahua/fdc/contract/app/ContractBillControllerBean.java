@@ -62,11 +62,12 @@ import com.kingdee.eas.fdc.contract.ContractBailFactory;
 import com.kingdee.eas.fdc.contract.ContractBaseDataCollection;
 import com.kingdee.eas.fdc.contract.ContractBaseDataFactory;
 import com.kingdee.eas.fdc.contract.ContractBaseDataInfo;
-import com.kingdee.eas.fdc.contract.ContractBillEntryCollection;
 import com.kingdee.eas.fdc.contract.ContractBillEntryFactory;
-import com.kingdee.eas.fdc.contract.ContractBillEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
+import com.kingdee.eas.fdc.contract.ContractBillSplitEntryCollection;
+import com.kingdee.eas.fdc.contract.ContractBillSplitEntryFactory;
+import com.kingdee.eas.fdc.contract.ContractBillSplitEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractCostSplitCollection;
 import com.kingdee.eas.fdc.contract.ContractCostSplitEntryCollection;
 import com.kingdee.eas.fdc.contract.ContractCostSplitEntryInfo;
@@ -91,7 +92,6 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.contract.util.ContractCodingUtil;
-import com.kingdee.eas.fdc.finance.ConPayPlanFactory;
 import com.kingdee.eas.fdc.finance.ContractPayPlanCollection;
 import com.kingdee.eas.fdc.finance.ContractPayPlanFactory;
 import com.kingdee.eas.fdc.finance.ContractPayPlanInfo;
@@ -447,6 +447,27 @@ public class ContractBillControllerBean extends
 		sic.add(new SelectorItemInfo("hasSettled"));
 		sic.add(new SelectorItemInfo("programmingContract.*"));
 		sic.add(new SelectorItemInfo("*"));
+		sic.add(new SelectorItemInfo("splitEntry.id"));
+    	sic.add(new SelectorItemInfo("splitEntry.amount"));
+    	sic.add(new SelectorItemInfo("splitEntry.product.id"));
+//		sic.add(new SelectorItemInfo("splitEntry.product.name"));
+//    	sic.add(new SelectorItemInfo("splitEntry.product.number"));
+    	sic.add(new SelectorItemInfo("splitEntry.costAccount.curProject.*"));
+    	sic.add(new SelectorItemInfo("splitEntry.costAccount.*"));
+    	sic.add(new SelectorItemInfo("splitEntry.level"));
+    	sic.add(new SelectorItemInfo("splitEntry.apportionType.name"));
+    	sic.add(new SelectorItemInfo("splitEntry.apportionValue"));
+    	sic.add(new SelectorItemInfo("splitEntry.directAmount"));
+    	sic.add(new SelectorItemInfo("splitEntry.apportionValueTotal"));
+    	sic.add(new SelectorItemInfo("splitEntry.directAmountTotal"));
+    	sic.add(new SelectorItemInfo("splitEntry.otherRatioTotal"));
+    	sic.add(new SelectorItemInfo("splitEntry.splitType"));
+    	sic.add(new SelectorItemInfo("splitEntry.workLoad"));
+    	sic.add(new SelectorItemInfo("splitEntry.price"));
+    	sic.add(new SelectorItemInfo("splitEntry.splitScale"));
+    	sic.add(new SelectorItemInfo("splitEntry.programmings.id"));
+//		sic.add(new SelectorItemInfo("splitEntry.programmings.name"));
+//    	sic.add(new SelectorItemInfo("splitEntry.programmings.number"));
         return sic;
     }
     
@@ -1222,13 +1243,68 @@ public class ContractBillControllerBean extends
 		if (null != autoSplit && ("0".equals(autoSplit) || "1".equals(autoSplit)))
 			autoSplit(ctx, contractBillInfo);
 		// modified by zhaoqin for 项目资金计划 on 2013/08/14 end
-		
-		
 		updateContractExecInfos(ctx, billId);		
 		updatePeriod(ctx, billId);
 		updateInviteContractHistory(ctx, billId);
 		
-		
+		//判断拆分分录有无信息，有则保存至合同拆分
+//		EntityViewInfo view = new EntityViewInfo();
+//		FilterInfo filInfo = new FilterInfo();
+//		filInfo.getFilterItems().add(new FilterItemInfo("parent.id",billId));
+//		view.setFilter(filInfo);
+//		view.setSelector()
+//		ContractBillSplitEntryCollection cbscoll=ContractBillSplitEntryFactory.getLocalInstance(ctx).getContractBillSplitEntryCollection(view);
+		ContractBillSplitEntryCollection cbscoll = contractBillInfo.getSplitEntry();
+		if(cbscoll.size() > 0){
+			ContractCostSplitInfo ccinfo = new ContractCostSplitInfo();
+			ccinfo.setState(FDCBillStateEnum.SAVED);
+			ccinfo.setHasInitIdx(true);
+			ccinfo.setIslastVerThisPeriod(true);
+			ccinfo.setContractBill(contractBillInfo);
+			ccinfo.setCurProject(contractBillInfo.getCurProject());
+			ccinfo.setAmount(contractBillInfo.getAmount());
+		    ccinfo.setIsInvalid(false);
+		    ccinfo.setIsConfirm(true); 
+			ContractBillSplitEntryInfo cbseinfo = null;
+			ContractCostSplitEntryInfo costentry = null;
+			BigDecimal splitAmount = BigDecimal.ZERO;
+			for (int i = 0; i < cbscoll.size(); i++) {
+				cbseinfo = cbscoll.get(i);
+				costentry = new ContractCostSplitEntryInfo();
+				costentry.setSeq(cbseinfo.getSeq());
+				costentry.setCostAccount(cbseinfo.getCostAccount());
+				costentry.setProduct(cbseinfo.getProduct());
+				if(cbseinfo.getAmount() != null)
+					splitAmount = splitAmount.add(cbseinfo.getAmount());
+				costentry.setAmount(cbseinfo.getAmount());
+				costentry.setSplitType(cbseinfo.getSplitType());
+				costentry.setLevel(cbseinfo.getLevel());
+				costentry.setIsLeaf(cbseinfo.isIsLeaf());
+				costentry.setApportionType(cbseinfo.getApportionType());
+				costentry.setApportionValue(cbseinfo.getApportionValue());
+				costentry.setApportionValueTotal(cbseinfo.getApportionValueTotal());
+				costentry.setOtherRatio(cbseinfo.getOtherRatio());
+				costentry.setOtherRatioTotal(cbseinfo.getOtherRatioTotal());
+				costentry.setDirectAmount(cbseinfo.getDirectAmount());
+				costentry.setDirectAmountTotal(cbseinfo.getDirectAmountTotal());
+				costentry.setIsApportion(cbseinfo.isIsApportion());
+				costentry.setIsAddlAccount(cbseinfo.isIsAddlAccount());
+				costentry.setCostBillId(cbseinfo.getCostBillId());
+				costentry.setIndex(cbseinfo.getIndex());
+				costentry.setIdxApportionId(cbseinfo.getIdxApportionId());
+				costentry.setSplitBillId(cbseinfo.getSplitBillId());
+				costentry.setPrice(cbseinfo.getPrice());
+				costentry.setWorkLoad(cbseinfo.getWorkLoad());
+				costentry.setSplitScale(cbseinfo.getSplitScale());
+				costentry.setProgrammings(cbseinfo.getProgrammings());
+				ccinfo.getEntrys().add(costentry);
+			}
+			if(contractBillInfo.getAmount().compareTo(splitAmount) == 0)
+				ccinfo.setSplitState(CostSplitStateEnum.ALLSPLIT);
+			else
+				ccinfo.setSplitState(CostSplitStateEnum.PARTSPLIT);
+			ContractCostSplitFactory.getLocalInstance(ctx).save(ccinfo);
+		}
 		/**
 		 * 导入合同付款计划
 		 */
@@ -1613,7 +1689,9 @@ public class ContractBillControllerBean extends
 		if (_exists(ctx, filter)) {
 			throw new ContractException(ContractException.HASACHIVED);
 		}	
-		
+		//如果合同关联合同拆分，则提示不能进行反审核  getContractCostSplitCollection("select id where contractbill.id='"+billId.toString()+"'")
+//		if(ContractCostSplitFactory.getLocalInstance(ctx).exists("where contractbill.id='"+billId.toString()+"'"))
+//			throw new ContractException(new NumericExceptionSubItem("999","已关联合同拆分单据，不能反审核！"));
 		super._unAudit(ctx, billId);
 		// 在金额累计之前取补充合同的补充金额
 		// 在金额累计之前取主合同的签约金额

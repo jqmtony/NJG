@@ -103,6 +103,7 @@ public class ContractCostSplitEditUI extends AbstractContractCostSplitEditUI
 	private boolean checkAllSplit = true;
 	private int viewType = 0;//合同编辑信息
     private static final Logger logger = CoreUIObject.getLogger(ContractCostSplitEditUI.class);
+    private boolean isWholeProject = false;
     private ProgrammingContractInfo pcinfo = null;
     
     /**
@@ -121,9 +122,9 @@ public class ContractCostSplitEditUI extends AbstractContractCostSplitEditUI
         super.storeFields();
     }
     
-    public void setProgrammingContractInfo(ProgrammingContractInfo info){
-    	pcinfo = info;
-    }
+//    public void setProgrammingContractInfo(ProgrammingContractInfo info){
+//    	pcinfo = info;
+//    }
 
     /**
      * output actionSave_actionPerformed
@@ -674,52 +675,39 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 		
         //objectValue.setCompany((com.kingdee.eas.basedata.org.CompanyOrgUnitInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentFIUnit()));
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-        if(getUIContext().get("fromContractNew") == null){
-        	String costBillID=null;
-        	Boolean isFromWorkflow =(Boolean)getUIContext().get("isFromWorkflow");
-        	if(isFromWorkflow!=null&&isFromWorkflow.booleanValue()&&this.getUIContext().get("billID")!=null){
-        		costBillID=this.getUIContext().get("billID").toString();
-        		getUIContext().remove(UIContext.ID);
-        	}else{
-        		costBillID = (String)getUIContext().get("costBillID");
-        	}
-        	ContractBillInfo costBillInfo=null;
-        	SelectorItemCollection selectors = new SelectorItemCollection();
-        	//selectors.add("*");
-        	selectors.add("id");
-        	selectors.add("number");
-        	selectors.add("name");
-        	selectors.add("amount");
-        	selectors.add("curProject.id");
-        	selectors.add("curProject.longNumber");
-        	selectors.add(new SelectorItemInfo("state"));
-        	selectors.add(new SelectorItemInfo("orgUnit.id"));
-        	try {
-        		costBillInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(BOSUuid.read(costBillID)),selectors);
-        	} catch (Exception e) {
-        		handUIExceptionAndAbort(e);
-        	}
-        	objectValue.setContractBill(costBillInfo);
-        	if(costBillInfo.getCurProject()!=null)
-        		objectValue.setCurProject(costBillInfo.getCurProject());
-        	txtCostBillNumber.setText(costBillInfo.getNumber());
-        	//txtCostBillName.setText(costBillInfo());    	
-        	txtAmount.setValue(costBillInfo.getAmount());
-        	objectValue.setIsInvalid(false);
-        	setContractBillId(costBillInfo.getId().toString());
-        	objectValue.setIsConfirm(true);        
+        String costBillID=null;
+        Boolean isFromWorkflow =(Boolean)getUIContext().get("isFromWorkflow");
+        if(isFromWorkflow!=null&&isFromWorkflow.booleanValue()&&this.getUIContext().get("billID")!=null){
+        	costBillID=this.getUIContext().get("billID").toString();
+        	getUIContext().remove(UIContext.ID);
         }else{
-        	ContractBillInfo costBillInfo = (ContractBillInfo)getUIContext().get("fromContractNew");
-        	objectValue.setContractBill(costBillInfo);
-        	if(costBillInfo.getCurProject()!=null)
-        		objectValue.setCurProject(costBillInfo.getCurProject());
-        	txtCostBillNumber.setText(costBillInfo.getNumber());
-        	//txtCostBillName.setText(costBillInfo());    	
-        	txtAmount.setValue(costBillInfo.getAmount());
-        	objectValue.setIsInvalid(false);
-        	setContractBillId(costBillInfo.getId().toString());
-        	objectValue.setIsConfirm(true); 
+        	costBillID = (String)getUIContext().get("costBillID");
         }
+        ContractBillInfo costBillInfo=null;
+        SelectorItemCollection selectors = new SelectorItemCollection();
+        //selectors.add("*");
+        selectors.add("id");
+        selectors.add("number");
+        selectors.add("name");
+        selectors.add("amount");
+        selectors.add("curProject.id");
+        selectors.add("curProject.longNumber");
+        selectors.add(new SelectorItemInfo("state"));
+        selectors.add(new SelectorItemInfo("orgUnit.id"));
+        try {
+        	costBillInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(BOSUuid.read(costBillID)),selectors);
+        } catch (Exception e) {
+        	handUIExceptionAndAbort(e);
+        }
+        objectValue.setContractBill(costBillInfo);
+        if(costBillInfo.getCurProject()!=null)
+        	objectValue.setCurProject(costBillInfo.getCurProject());
+        txtCostBillNumber.setText(costBillInfo.getNumber());
+        //txtCostBillName.setText(costBillInfo());    	
+        txtAmount.setValue(costBillInfo.getAmount());
+        objectValue.setIsInvalid(false);
+        setContractBillId(costBillInfo.getId().toString());
+        objectValue.setIsConfirm(true);        
         return objectValue;
 	}
 
@@ -745,23 +733,27 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 		if(param.get(FDCConstants.FDC_PARAM_CHECKALLSPLIT )!= null){
 	    	checkAllSplit = Boolean.valueOf(param.get(FDCConstants.FDC_PARAM_CHECKALLSPLIT).toString()).booleanValue();
 		}
-		//modify by yxl 20151103 在合同新增时就进行拆分，以下逻辑不要判断
-		if(getUIContext().get("fromContractNew") == null){
-			String id = "";
-			if(editData.getContractBill()!=null){
-				id = editData.getContractBill().getId().toString();
-			}
+//		String id = "";
+		if(editData.getContractBill()!=null){
+//			id = editData.getContractBill().getId().toString();
 			SelectorItemCollection sic = new SelectorItemCollection();
 			sic.add(new SelectorItemInfo("id"));
 			sic.add(new SelectorItemInfo("state"));
 			sic.add(new SelectorItemInfo("isAmtWithoutCost"));
 			sic.add(new SelectorItemInfo("isCoseSplit"));
+			sic.add(new SelectorItemInfo("programmingContract.id"));
+			sic.add(new SelectorItemInfo("programmingContract.name"));
+			sic.add(new SelectorItemInfo("programmingContract.number"));
+			sic.add(new SelectorItemInfo("curProject.id"));
+			sic.add(new SelectorItemInfo("curProject.isWholeAgeStage"));
 			//2008-12-25 .如果启用参数 并且进入成本的，按钮应该是亮
-			ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(BOSUuid.read(id)),sic);
+			ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getContractBill().getId()),sic);
 			if(splitBeforeAudit && !FDCBillStateEnum.SUBMITTED.equals(contractBillInfo.getState())
 					&& !contractBillInfo.isIsCoseSplit()){
 				super.setOprtState(OprtState.VIEW); 
 			}
+			isWholeProject = contractBillInfo.getCurProject().isIsWholeAgeStage();
+			pcinfo = contractBillInfo.getProgrammingContract();
 		}
 		
 
@@ -835,8 +827,8 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 		 view.setFilter(filInfo);
 		 
 		 final KDBizPromptBox kdtEntrys_programming_PromptBox = new KDBizPromptBox();
-//		 kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery");
-		 kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.programming.app.ProgrammingContractF7Query");
+		 kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery");
+//		 kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.programming.app.ProgrammingContractF7Query");
 		 kdtEntrys_programming_PromptBox.setVisible(true);
 		 kdtEntrys_programming_PromptBox.setEditable(true);
 	     kdtEntrys_programming_PromptBox.setDisplayFormat("$number$");
@@ -1176,11 +1168,18 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 //			}
 //		} else {
 			super.actionAcctSelect_actionPerformed(e);
-			loadProgrammingContractInfo(pcinfo);
+//			loadProgrammingContractInfo(pcinfo);
 //		}
 	}
     
-    
+    protected IRow addEntry(IObjectValue detailData) {
+    	IRow row = kdtEntrys.addRow();
+        ((FDCSplitBillEntryInfo)detailData).setSeq(row.getRowIndex()+1);
+        detailData.put("programmings",pcinfo);
+        loadLineFields(kdtEntrys, row, detailData);
+        afterAddLine(kdtEntrys, detailData);
+        return row;
+    }
     
 
     
@@ -1198,7 +1197,7 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 			IRow row = this.kdtEntrys.getRow(i);
 			if(UIRuleUtil.isNull(row.getCell("costAccount.curProject.number").getValue()))
 				continue;
-			if(UIRuleUtil.isNull(row.getCell("programming").getValue())){
+			if(isWholeProject && UIRuleUtil.isNull(row.getCell("programming").getValue())){
 				FDCMsgBox.showWarning("合约规划不能为空！");
 				this.kdtEntrys.getEditManager().editCellAt(i,this.kdtEntrys.getColumnIndex("programming"));
 				SysUtil.abort();
