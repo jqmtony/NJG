@@ -17,9 +17,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 import javax.swing.ActionMap;
 import javax.swing.SpinnerNumberModel;
@@ -103,6 +105,8 @@ import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCClientVerifyHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
+import com.kingdee.eas.fdc.contract.ContractBill;
+import com.kingdee.eas.fdc.contract.ContractBillCollection;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractPayPlanEntryCollection;
@@ -129,6 +133,7 @@ import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherCollection;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherDateEntryCollection;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherDateEntryInfo;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherEntryCollection;
+import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherEntryFactory;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherEntryInfo;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherFactory;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherInfo;
@@ -143,6 +148,7 @@ import com.kingdee.eas.fdc.finance.ProjectYearPlanTotalEntryFactory;
 import com.kingdee.eas.fdc.finance.ProjectYearPlanTotalEntryInfo;
 import com.kingdee.eas.fdc.finance.VersionTypeEnum;
 import com.kingdee.eas.fdc.finance.utils.TableHelper;
+import com.kingdee.eas.fm.ecore.app.bean.commercialdraft.ContractInformation;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.ma.budget.BgItemInfo;
 import com.kingdee.eas.ma.budget.BgItemObject;
@@ -250,7 +256,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		
 		this.contExecuteAmount.getBoundLabel().setForeground(Color.RED);
 		
-		
+		this.contVersionType.setEnabled(false);
 	}
 	public void setOprtState(String oprtType) {
 		super.setOprtState(oprtType);
@@ -387,17 +393,25 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 			table.getColumn(key+"reportAmount").getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
 			
 			
-			amountColumn=table.addColumn();
-			houseColoum.add(amountColumn);
-			amountColumn.setKey(key+"houseAmount");
-			amountColumn.getStyleAttributes().setLocked(false);
-			table.getColumn(key+"houseAmount").setEditor(amountEditor);
-			table.getColumn(key+"houseAmount").getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
-			table.getColumn(key+"houseAmount").getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
+//			amountColumn=table.addColumn();
+//			houseColoum.add(amountColumn);
+//			amountColumn.setKey(key+"houseAmount");
+//			amountColumn.getStyleAttributes().setLocked(false);
+//			table.getColumn(key+"houseAmount").setEditor(amountEditor);
+//			table.getColumn(key+"houseAmount").getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
+//			table.getColumn(key+"houseAmount").getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
 			
 			//add by shilei 
 			if(i==0)
 			{
+				amountColumn=table.addColumn();
+				houseColoum.add(amountColumn);
+				amountColumn.setKey(key+"houseAmount");
+				amountColumn.getStyleAttributes().setLocked(false);
+				table.getColumn(key+"houseAmount").setEditor(amountEditor);
+				table.getColumn(key+"houseAmount").getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
+				table.getColumn(key+"houseAmount").getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
+				
 				StyleAttributes col = table.getColumn(key+"reportAmount").getStyleAttributes();
 				col.setLocked(true);
 				col.setBackground(new Color(231, 237, 242));
@@ -435,11 +449,13 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 				otherTxColumn.getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
 				otherTxColumn.getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
 				
+				table.getHeadRow(0).getCell(key+"houseAmount").setValue(monthStr);
 				table.getHeadRow(0).getCell(key+"businessTicketAmount").setValue(monthStr);
 				table.getHeadRow(0).getCell(key+"promissoryNoteAmount").setValue(monthStr);
 				table.getHeadRow(0).getCell(key+"cashPaymentAmount").setValue(monthStr);
 				table.getHeadRow(0).getCell(key+"otherTxAmount").setValue(monthStr);
 				
+				table.getHeadRow(1).getCell(key+"houseAmount").setValue("抵房金额");
 				table.getHeadRow(1).getCell(key+"businessTicketAmount").setValue("商票");
 				table.getHeadRow(1).getCell(key+"promissoryNoteAmount").setValue("期票");
 				table.getHeadRow(1).getCell(key+"cashPaymentAmount").setValue("现金支付（含支票）");
@@ -484,7 +500,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 			
 			table.getHeadRow(0).getCell(key+"amount").setValue(monthStr);
 			table.getHeadRow(0).getCell(key+"reportAmount").setValue(monthStr);
-			table.getHeadRow(0).getCell(key+"houseAmount").setValue(monthStr);
+//			table.getHeadRow(0).getCell(key+"houseAmount").setValue(monthStr);
 			table.getHeadRow(0).getCell(key+"executeAmount").setValue(monthStr);
 			table.getHeadRow(0).getCell(key+"remark").setValue(monthStr);
 //			table.getHeadRow(0).getCell(key+"useType").setValue(monthStr);
@@ -492,14 +508,15 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 			
 			table.getHeadRow(1).getCell(key+"amount").setValue("计划支付");
 			table.getHeadRow(1).getCell(key+"reportAmount").setValue("上报金额");
-			table.getHeadRow(1).getCell(key+"houseAmount").setValue("抵房金额");
+//			table.getHeadRow(1).getCell(key+"houseAmount").setValue("抵房金额");
 			table.getHeadRow(1).getCell(key+"executeAmount").setValue("核定金额");
-			table.getHeadRow(1).getCell(key+"remark").setValue("下月形象进度和付款节点");
+//			table.getHeadRow(1).getCell(key+"remark").setValue("下月形象进度和付款节点");
+			table.getHeadRow(1).getCell(key+"remark").setValue("支付节点");
 //			table.getHeadRow(1).getCell(key+"useType").setValue("用款类型");
 			table.getHeadRow(1).getCell(key+"payType").setValue("付款类型");
 			
 			int merge=table.getHeadRow(0).getCell(key+"amount").getColumnIndex();
-			table.getHeadMergeManager().mergeBlock(0, merge, 0, merge+5);
+			table.getHeadMergeManager().mergeBlock(0, merge, 0, merge+4);
 			
 			//add by shilei
 			if(i==0)
@@ -572,6 +589,12 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		headRowName.getCell("lastPrice").setValue("合同最新造价/规划余额");
 		
 		column=this.contractTable.addColumn();
+		column.setKey("applyAmount");
+		column.setWidth(150);
+		headRow.getCell("applyAmount").setValue("本月申请金额");
+		headRowName.getCell("applyAmount").setValue("本月申请金额");
+		
+		column=this.contractTable.addColumn();
 		column.setKey("monthActPayAmount");
 		column.setWidth(150);
 		headRow.getCell("monthActPayAmount").setValue("本月实付金额");
@@ -623,6 +646,10 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		this.contractTable.getColumn("lastPrice").getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
 		this.contractTable.getColumn("lastPrice").getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
 		
+		this.contractTable.getColumn("applyAmount").setEditor(amountEditor);
+		this.contractTable.getColumn("applyAmount").getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
+		this.contractTable.getColumn("applyAmount").getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
+		
 		this.contractTable.getColumn("monthActPayAmount").setEditor(amountEditor);
 		this.contractTable.getColumn("monthActPayAmount").getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
 		this.contractTable.getColumn("monthActPayAmount").getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
@@ -656,6 +683,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		this.contractTable.getHeadMergeManager().mergeBlock(0, 10, 1, 10);
 		this.contractTable.getHeadMergeManager().mergeBlock(0, 11, 1, 11);
 		this.contractTable.getHeadMergeManager().mergeBlock(0, 12, 1, 12);
+		this.contractTable.getHeadMergeManager().mergeBlock(0, 13, 1, 13);
 		
 		initMonthColoum(this.contractTable,year,month,cycle);
 		
@@ -951,6 +979,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		
 		Set respPersonSetId=new HashSet();
 		Set respDepSetId=new HashSet();
+		Map reportAmountMap = getReportAmount();
 		for(int i=0;i<col.size();i++){
 			ProjectMonthPlanGatherEntryInfo entry=col.get(i);
 			String id=null;
@@ -965,6 +994,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 			BigDecimal conAmount=null;
 			BigDecimal noPayAmount=null;
 			BigDecimal rate=null;
+			Map applyAmountMap = null;
 			if(entry.getRespPerson()!=null){
 				respPerson=entry.getRespPerson();
 				if(!respPersonSetId.contains(respPerson.getId().toString())){
@@ -974,7 +1004,9 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 					respPersonSetId.add(respPerson.getId().toString());
 				}
 			}
-				
+			if(entry.getSrcId() != null) {
+				applyAmountMap = (Map) reportAmountMap.get(entry.getSrcId().toString());
+			}
 			if(entry.getDepartment()!=null){
 				department=entry.getDepartment();
 				if(!respDepSetId.contains(department)){
@@ -1142,6 +1174,13 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 						row.getCell("department").setValue(department);
 						row.getCell("department").setUserObject(department);
 					}
+
+					//申请金额
+					String key = spYear+"year"+(spMonth-1)+"m";
+					if(applyAmountMap != null) {
+						BigDecimal reportAmount = (BigDecimal) applyAmountMap.get(key);
+						row.getCell("applyAmount").setValue(reportAmount);
+					}
 					row.getCell("lastPrice").setValue(lastPrice);
 					row.getCell("monthActPayAmount").setValue(monthActPayAmount);
 					row.getCell("actPayAmount").setValue(actPayAmount);
@@ -1169,6 +1208,13 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 				if(row.getCell(key+"reportAmount")!=null){
 					row.getCell(key+"reportAmount").setUserObject(dateEntry);
 					row.getCell(key+"reportAmount").setValue(dateEntry.getReportAmount());
+					BigDecimal reportAmount = dateEntry.getReportAmount();
+					BigDecimal amount = dateEntry.getAmount();
+					//上报金额超过计划金额则显示红色
+//					if(reportAmount.compareTo(amount) > 0) {
+//						row.getCell(key+"reportAmount").getStyleAttributes().setBackground(Color.RED);
+//					}
+//					row.getCell(key+"reportAmount").getStyleAttributes().setBackground(Color.RED);
 				}
 				if(row.getCell(key+"houseAmount")!=null){
 					row.getCell(key+"houseAmount").setUserObject(dateEntry);
@@ -1252,10 +1298,13 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 			this.contractTable.getMergeManager().mergeBlock(0, 0, 0, this.contractTable.getColumnCount()-1);
 			
 			int proIndex=0;
+			int zbContractIndex=0;
 			for(int i=0;i<this.contractTable.getRowCount();i++){
 				if((ProjectMonthPlanGatherEntryInfo)this.contractTable.getRow(i).getUserObject()!=null&&((ProjectMonthPlanGatherEntryInfo)this.contractTable.getRow(i).getUserObject()).getContractBill()!=null){
 					proIndex=i+1;
 				}
+				if((ProjectMonthPlanGatherEntryInfo)this.contractTable.getRow(i).getUserObject()!=null&&((ProjectMonthPlanGatherEntryInfo)this.contractTable.getRow(i).getUserObject()).getSrcId() !=null)
+					zbContractIndex = i;
 			}
 			
 			IRow proRow=null;
@@ -1268,6 +1317,14 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 			proRow.getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
 			proRow.getStyleAttributes().setLocked(true);
 			proRow.getCell("name").setValue("待签合同&&无合同费用付款计划明细");
+			this.contractTable.getMergeManager().mergeBlock(proIndex, 0, proIndex, this.contractTable.getColumnCount()-1);
+			
+			//大总包合同
+			proRow=this.contractTable.addRow(contractTable.getRowCount()-1);
+			proIndex=proRow.getRowIndex();
+			proRow.getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+			proRow.getStyleAttributes().setLocked(true);
+			proRow.getCell("name").setValue("大总包合同付款计划");
 			this.contractTable.getMergeManager().mergeBlock(proIndex, 0, proIndex, this.contractTable.getColumnCount()-1);
 		}
 		
@@ -1431,6 +1488,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 				}
 			}
 		}
+		info.setVersionType(VersionTypeEnum.REPORT);
 		info.setState(FDCBillStateEnum.SAVED);
 		info.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
 		
@@ -1773,7 +1831,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 	protected void reGetValue() throws Exception{
 		if (!isLoad&&this.cbVersionType.getSelectedItem()!=null) {
 			if(checkBizDate()){
-				this.cbVersionType.setSelectedItem(null);
+//				this.cbVersionType.setSelectedItem(null);
 				return;
 			}
 			int result = MsgBox.OK;
@@ -1916,7 +1974,8 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             		if(!monthSet.contains(key)){
         				continue;
         			}
-            		String remark=ppEntry.getRemark();
+//            		String remark=ppEntry.getRemark();
+            		String remark=ppEntry.getPayNode();
             		ContractBillInfo contractInfo=ppEntry.getHead().getContractBill();
             		String contractId=contractInfo.getId().toString();
             		BigDecimal amount=ppEntry.getPayAmount();
@@ -1936,7 +1995,6 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             					dateEntry.setAmount(dateEntry.getAmount().add(amount));
             				}else{
             					dateEntry=new ProjectMonthPlanDateEntryInfo();
-//            					dateEntry.setUseType(useType);
             					dateEntry.setPayType(paymentType);
             					dateEntry.setAmount(amount);
             					dateEntry.setYear(year);
@@ -1969,13 +2027,13 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             			yearMap=new HashMap();
             			entry=new ProjectMonthPlanEntryInfo();
             			entry.setContractBill(contractInfo);
+            			BigDecimal preTotalAmount = getPreTotalAmount(contractInfo, year, month);
             			entry.setId(ppEntry.getHead().getId());
             			entry.put("department", ppEntry.getHead().getDepartment());
             			entry.put("respPerson", ppEntry.getHead().getRespPerson());
             			monthMap=new HashMap();
         				
         				dateEntry=new ProjectMonthPlanDateEntryInfo();
-//        				dateEntry.setUseType(useType);
         				dateEntry.setPayType(paymentType);
     					dateEntry.setAmount(amount);
     					dateEntry.setYear(year);
@@ -2031,7 +2089,6 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
                 				gdEntry.setYear(dEntry.getYear());
                 				gdEntry.setMonth(dEntry.getMonth());
                 				gdEntry.setRemark(dEntry.getRemark());
-//                				gdEntry.setUseType(dEntry.getUseType());
                 				gdEntry.setPayType(dEntry.getPayType());
                 				gdEntry.setCashPayment(dEntry.getAmount());
                 				gdEntry.setId(BOSUuid.create(gdEntry.getBOSType()));
@@ -2189,6 +2246,56 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             			entryMap.put(id, entry);
         			}
         		}
+        		//获取大总包合同数据
+        		ContractBillInfo currentDZBContract = getCurrentDZBContract();
+//        		ContractBillCollection currentFBContract = getCurrentFBContract();
+        		
+        		ContractPayPlanEntryCollection contractPayPlanEntryColl = getFBContractPayPlanEntryColl(yearSet);
+        		Map planMap = new TreeMap();
+        		for(int i = 0; i < contractPayPlanEntryColl.size(); i++) {
+        			ContractPayPlanEntryInfo entryInfo = contractPayPlanEntryColl.get(i);
+        			int year = entryInfo.getYear();
+        			int month = entryInfo.getMonth();
+        			String key=year+"year"+month+"m";
+        			if(!planMap.containsKey(key)) {
+        				Map map = new HashMap();
+        				map.put("amount", entryInfo.getPayAmount());
+        				map.put("paymentType", entryInfo.getPaymentType());
+        				map.put("year", year);
+        				map.put("month", month);
+        				planMap.put(key, map);
+        			} else {
+        				Map map = (Map) planMap.get(key);
+        				BigDecimal amount = (BigDecimal) map.get("amount");
+        				map.put("amount", amount.add(entryInfo.getPayAmount()));
+        			}
+        		}
+        		Set keySet = planMap.keySet();
+        		Iterator it = keySet.iterator();
+        		ProjectMonthPlanGatherEntryInfo entryInfo = new ProjectMonthPlanGatherEntryInfo();
+        		if(currentDZBContract != null) {
+        			entryInfo.setName(currentDZBContract.getName());
+//        			entryInfo.setContractBill(currentDZBContract);
+        			entryInfo.setId(BOSUuid.create(entryInfo.getBOSType()));
+        			while(it.hasNext()) {
+        				Map map = (Map) planMap.get(it.next().toString());
+        				BigDecimal amount = (BigDecimal) map.get("amount");
+        				Integer year = (Integer) map.get("year");
+        				Integer month = (Integer) map.get("month");
+        				PaymentTypeInfo payType = (PaymentTypeInfo) map.get("paymentType");
+        				ProjectMonthPlanGatherDateEntryInfo gdEntry=new ProjectMonthPlanGatherDateEntryInfo();
+        				gdEntry.setYear(year);
+        				gdEntry.setMonth(month);
+        				gdEntry.setAmount(amount.multiply(new BigDecimal("0.1")));
+        				gdEntry.setPayType(payType);
+        				gdEntry.setReportAmount(amount.multiply(new BigDecimal("0.1")));
+        				gdEntry.setCashPayment(amount.multiply(new BigDecimal("0.1")));
+        				gdEntry.setId(BOSUuid.create(gdEntry.getBOSType()));
+        				
+        				entryInfo.getDateEntry().add(gdEntry);
+        			}
+        			editData.getEntry().add(entryInfo);
+        		}
     		}else{
     			EntityViewInfo view=new EntityViewInfo();
     			FilterInfo filter=new FilterInfo();
@@ -2232,6 +2339,263 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
     		}
         	this.loadEntry();
 		}
+	}
+	
+	/**
+	 * 获取当前年月月份之前的所有计划金额
+	 */
+	private BigDecimal getPreTotalAmount(ContractBillInfo info, int year, int month) {
+		BigDecimal amount = BigDecimal.ZERO;
+		EntityViewInfo view=new EntityViewInfo();
+    	FilterInfo filter=new FilterInfo();
+    	
+    	filter.getFilterItems().add(new FilterItemInfo("head.contractbill.id",info.getId().toString()));
+    	filter.getFilterItems().add(new FilterItemInfo("head.state",FDCBillStateEnum.AUDITTED_VALUE));
+    	filter.getFilterItems().add(new FilterItemInfo("head.isLatest",Boolean.TRUE));
+    	filter.getFilterItems().add(new FilterItemInfo("payAmount",null,CompareType.NOTEQUALS));
+    	
+    	filter.getFilterItems().add(new FilterItemInfo("year", year, CompareType.LESS));
+    	
+    	filter.getFilterItems().add(new FilterItemInfo("year", year, CompareType.EQUALS));
+    	filter.getFilterItems().add(new FilterItemInfo("month", year, CompareType.LESS));
+    	
+    	filter.setMaskString("#0 and #1 and #2 and #3 and (#4 or (#5 and #6))");
+    	
+    	view.setFilter(filter);
+    	view.getSelector().add("*");
+    	view.getSelector().add("paymentType.*");
+    	view.getSelector().add("head.contractBill.programmingContract.name");
+    	view.getSelector().add("head.contractBill.programmingContract.amount");
+    	view.getSelector().add("head.contractBill.id");
+    	view.getSelector().add("head.contractBill.number");
+    	view.getSelector().add("head.contractBill.name");
+    	view.getSelector().add("head.contractBill.amount");
+    	view.getSelector().add("head.contractBill.programmingContract.id");
+    	view.getSelector().add("head.respPerson.*");
+    	view.getSelector().add("head.department");
+    	SorterItemCollection sort=new SorterItemCollection();
+    	SorterItemInfo number=new SorterItemInfo("head.contractBill.number");
+    	number.setSortType(SortType.ASCEND);
+    	sort.add(number);
+    	
+    	view.setSorter(sort);
+    	try {
+			ContractPayPlanEntryCollection col=ContractPayPlanEntryFactory.getRemoteInstance().getContractPayPlanEntryCollection(view);
+			for(int i = 0; i< col.size(); i++) {
+				BigDecimal payAmount = col.get(i).getPayAmount();
+				amount.add(payAmount);
+			}
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+    	
+    	
+    	return amount;
+	}
+	/**
+	 * 获取合同累计付款
+	 * @param info
+	 * @return
+	 */
+	private BigDecimal getActPayAmount(ContractBillInfo info) {
+		BigDecimal actAmount = BigDecimal.ZERO;
+		
+		FDCSQLBuilder _builder = new FDCSQLBuilder();
+		_builder.appendSql(" select sum(famount) payAmount from t_cas_paymentbill where fbillstatus=15 and fcontractbillid='"+info.getId().toString()+"'");
+		_builder.appendSql(" and fpayDate is not null and famount is not null");
+		try {
+			IRowSet rowSet = _builder.executeQuery();
+			while(rowSet.next()){
+				actAmount=rowSet.getBigDecimal("payAmount");
+			}
+		} catch (BOSException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return actAmount;
+	}
+	/**
+	 * 获取最新版项目月度计划每月上报金额,按合同付款计划
+	 */
+	private Map getReportAmount() {
+		Map reportMap = new HashMap();
+    	try {
+    		int years=this.spYear.getIntegerVlaue().intValue();
+    		int months=this.spMonth.getIntegerVlaue().intValue();
+    		Calendar cal = Calendar.getInstance();
+    		cal.set(Calendar.YEAR, years);
+    		cal.set(Calendar.MONTH, months-2);
+    		cal.set(Calendar.DATE, 1);
+    		cal.set(Calendar.HOUR_OF_DAY, 0);
+    		cal.set(Calendar.MINUTE, 0);
+    		cal.set(Calendar.SECOND, 0);
+    		cal.set(Calendar.MILLISECOND, 0);
+    		
+    		EntityViewInfo view=new EntityViewInfo();
+    		FilterInfo filter=new FilterInfo();
+    		view.setFilter(filter);
+//    		view.getSelector().add(new SelectorItemInfo("*.*"));
+//    		view.getSelector().add(new SelectorItemInfo("dateEntry.*"));
+    		filter.getFilterItems().add(new FilterItemInfo("head.curProject.id",this.editData.getCurProject().getId().toString()));
+    		filter.getFilterItems().add(new FilterItemInfo("head.state",FDCBillStateEnum.AUDITTED_VALUE));
+    		filter.getFilterItems().add(new FilterItemInfo("head.isLatest",Boolean.TRUE));
+    		filter.getFilterItems().add(new FilterItemInfo("head.bizDate", cal.getTime()));
+			ProjectMonthPlanGatherEntryCollection col = ProjectMonthPlanGatherEntryFactory.getRemoteInstance().getProjectMonthPlanGatherEntryCollection(view);
+			for(int i = 0; i < col.size(); i++) {
+				ProjectMonthPlanGatherEntryInfo entryInfo = col.get(i);
+				ProjectMonthPlanGatherDateEntryCollection dateEntry = entryInfo.getDateEntry();
+				Map amountMap = new HashMap();
+				for(int j = 0; j < dateEntry.size(); j++) {
+					ProjectMonthPlanGatherDateEntryInfo dateEntryInfo = dateEntry.get(j);
+					int year = dateEntryInfo.getYear();
+					int month = dateEntryInfo.getMonth();
+					String key=year+"year"+month+"m";
+					BigDecimal reportAmount = dateEntryInfo.getReportAmount();					
+					amountMap.put(key, reportAmount);
+				}
+				if(entryInfo.getSrcId() != null) {
+					reportMap.put(entryInfo.getSrcId().toString(), amountMap);
+				}
+			}
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+		return reportMap;
+	}
+	/**
+	 * 获取当前项目下的大总包合同(一个项目只有一个大总包合同)
+	 * @throws BOSException
+	 */
+	private ContractBillInfo getCurrentDZBContract() {
+		ContractBillInfo info = null;
+		
+		EntityViewInfo view=new EntityViewInfo();
+		FilterInfo filter=new FilterInfo();
+		view.setFilter(filter);
+    	
+    	filter.getFilterItems().add(new FilterItemInfo("curProject.id",this.editData.getCurProject().getId().toString()));
+    	filter.getFilterItems().add(new FilterItemInfo("state",FDCBillStateEnum.AUDITTED_VALUE));
+    	filter.getFilterItems().add(new FilterItemInfo("contractType.longnumber","015%", CompareType.LIKE));
+    	try {
+    		ContractBillCollection coll = ContractBillFactory.getRemoteInstance().getContractBillCollection(view);
+    		info = coll.get(0);
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+		return info;
+	}
+	/**
+	 * 获取某项目的分包合同
+	 * @return
+	 */
+	private ContractBillCollection getCurrentFBContract() {
+		ContractBillCollection coll = null;
+		
+		EntityViewInfo view=new EntityViewInfo();
+		FilterInfo filter=new FilterInfo();
+		view.setFilter(filter);
+    	
+    	filter.getFilterItems().add(new FilterItemInfo("curProject.id",this.editData.getCurProject().getId().toString()));
+    	filter.getFilterItems().add(new FilterItemInfo("state",FDCBillStateEnum.AUDITTED_VALUE));
+    	filter.getFilterItems().add(new FilterItemInfo("contractType.longnumber","016%", CompareType.LIKE));
+    	
+    	try {
+    		coll = ContractBillFactory.getRemoteInstance().getContractBillCollection(view);
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+		return coll;
+	}
+	/**
+	 * 根据分包合同获取合同付款计划信息
+	 * @param info
+	 * @return
+	 */
+	private ContractPayPlanEntryCollection getFBContractPayPlanEntryColl(Set yearSet) {
+		ContractPayPlanEntryCollection coll = null;
+		EntityViewInfo view=new EntityViewInfo();
+    	FilterInfo filter=new FilterInfo();
+    	
+    	filter.getFilterItems().add(new FilterItemInfo("head.contractbill.curProject.id",this.editData.getCurProject().getId().toString()));
+    	filter.getFilterItems().add(new FilterItemInfo("head.state",FDCBillStateEnum.AUDITTED_VALUE));
+    	filter.getFilterItems().add(new FilterItemInfo("head.isLatest",Boolean.TRUE));
+    	filter.getFilterItems().add(new FilterItemInfo("payAmount",null,CompareType.NOTEQUALS));
+    	filter.getFilterItems().add(new FilterItemInfo("year",yearSet,CompareType.INCLUDE));
+    	filter.getFilterItems().add(new FilterItemInfo("head.contractBill.contractType.longNumber","016%", CompareType.LIKE));
+    	
+    	view.setFilter(filter);
+    	view.getSelector().add("*");
+    	view.getSelector().add("paymentType.*");
+    	view.getSelector().add("head.contractBill.programmingContract.name");
+    	view.getSelector().add("head.contractBill.programmingContract.amount");
+    	view.getSelector().add("head.contractBill.id");
+    	view.getSelector().add("head.contractBill.number");
+    	view.getSelector().add("head.contractBill.name");
+    	view.getSelector().add("head.contractBill.amount");
+    	view.getSelector().add("head.contractBill.contractType.number");
+    	view.getSelector().add("head.contractBill.contractType.name");
+    	view.getSelector().add("head.contractBill.contractType.longNumber");
+    	view.getSelector().add("head.contractBill.programmingContract.id");
+    	view.getSelector().add("head.respPerson.*");
+    	view.getSelector().add("head.department");
+    	SorterItemCollection sort=new SorterItemCollection();
+    	SorterItemInfo number=new SorterItemInfo("head.contractBill.number");
+    	number.setSortType(SortType.ASCEND);
+    	sort.add(number);
+    	
+    	view.setSorter(sort);
+    	try {
+			coll=ContractPayPlanEntryFactory.getRemoteInstance().getContractPayPlanEntryCollection(view);
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+		
+		return coll;
+	}
+	/**
+	 * 根据合同获取合同付款计划信息
+	 * @param info
+	 * @return
+	 */
+	private ContractPayPlanEntryCollection getContractPayPlanEntryColl(Set yearSet) {
+		ContractPayPlanEntryCollection coll = null;
+		EntityViewInfo view=new EntityViewInfo();
+    	FilterInfo filter=new FilterInfo();
+    	
+    	filter.getFilterItems().add(new FilterItemInfo("head.contractbill.curProject.id",this.editData.getCurProject().getId().toString()));
+    	filter.getFilterItems().add(new FilterItemInfo("head.state",FDCBillStateEnum.AUDITTED_VALUE));
+    	filter.getFilterItems().add(new FilterItemInfo("head.isLatest",Boolean.TRUE));
+    	filter.getFilterItems().add(new FilterItemInfo("payAmount",null,CompareType.NOTEQUALS));
+    	filter.getFilterItems().add(new FilterItemInfo("year",yearSet,CompareType.INCLUDE));
+    	
+    	view.setFilter(filter);
+    	view.getSelector().add("*");
+    	view.getSelector().add("paymentType.*");
+    	view.getSelector().add("head.contractBill.programmingContract.name");
+    	view.getSelector().add("head.contractBill.programmingContract.amount");
+    	view.getSelector().add("head.contractBill.id");
+    	view.getSelector().add("head.contractBill.number");
+    	view.getSelector().add("head.contractBill.name");
+    	view.getSelector().add("head.contractBill.amount");
+    	view.getSelector().add("head.contractBill.contractType.number");
+    	view.getSelector().add("head.contractBill.contractType.name");
+    	view.getSelector().add("head.contractBill.programmingContract.id");
+    	view.getSelector().add("head.respPerson.*");
+    	view.getSelector().add("head.department");
+    	SorterItemCollection sort=new SorterItemCollection();
+    	SorterItemInfo number=new SorterItemInfo("head.contractBill.number");
+    	number.setSortType(SortType.ASCEND);
+    	sort.add(number);
+    	
+    	view.setSorter(sort);
+    	try {
+			coll=ContractPayPlanEntryFactory.getRemoteInstance().getContractPayPlanEntryCollection(view);
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+		
+		return coll;
 	}
 	protected void getExecuteAmount() throws BOSException{
 //    	EntityViewInfo view=new EntityViewInfo();
