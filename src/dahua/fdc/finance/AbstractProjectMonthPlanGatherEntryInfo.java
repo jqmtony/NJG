@@ -137,6 +137,17 @@ public class AbstractProjectMonthPlanGatherEntryInfo extends com.kingdee.eas.fra
     {
         put("supplier", item);
     }
+    /**
+     * Object:项目月度付款计划汇总分录's 本月申请金额property 
+     */
+    public java.math.BigDecimal getApplyAmount()
+    {
+        return getBigDecimal("applyAmount");
+    }
+    public void setApplyAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("applyAmount", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("0CA7FFF8");
