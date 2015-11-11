@@ -11,7 +11,7 @@ import com.kingdee.eas.framework.batchHandler.ResponseContext;
 /**
  * output class name
  */
-public abstract class AbstractTargetApproveUIHandler extends com.kingdee.eas.framework.app.EditUIHandler
+public abstract class AbstractTargetApproveUIHandler extends com.kingdee.eas.framework.app.CoreBillEditUIHandler
 
 {
 }

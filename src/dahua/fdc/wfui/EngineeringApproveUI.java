@@ -14,6 +14,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.dao.IObjectValue;
@@ -104,14 +105,15 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	
     	IRow addRow21 = this.kDTable2.addRow();
     	addRow21.getCell(0).setValue("合同名称");
-    	mergeManager2.mergeBlock(0, 1, 0, 12);
-//    	mergeManager2.mergeBlock(0, 0, 0, 1);
+    	mergeManager2.mergeBlock(0, 2, 0, 12);
+    	mergeManager2.mergeBlock(0, 0, 0, 1);
     	
     	IRow addRow22 = this.kDTable2.addRow();
     	addRow22.getCell(0).setValue("合同编号");
     	mergeManager2.mergeBlock(1, 2, 1, 9);
     	mergeManager2.mergeBlock(1, 0, 1, 1);
     	addRow22.getCell(10).setValue("提出时间");
+    	mergeManager2.mergeBlock(1, 11, 1, 12);
     	
     	IRow addRow23 = this.kDTable2.addRow();
     	addRow23.getCell(0).setValue("提出方");
@@ -141,9 +143,18 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	IRow addRow24 = this.kDTable2.addRow();
     	addRow24.getCell(0).setValue("工程部");
     	addRow24.getCell(2).setValue("发起原因及内容：");
+//    	mergeManager2.mergeBlock(3, 0, 5, 0);
+//    	mergeManager2.mergeBlock(3, 2, 3, 4);
+//    	mergeManager2.mergeBlock(3, 5, 3, 12);
+    	
     	IRow addRow25 = this.kDTable2.addRow();
+//    	addRow25.getCell(2).setValue("发起原因及内容：");
+//    	mergeManager2.mergeBlock(3, 0, 5, 0);
+//    	mergeManager2.mergeBlock(4, 2, 4, 4);
+//    	mergeManager2.mergeBlock(4, 5, 4, 12);
     	IRow addRow26 = this.kDTable2.addRow();
     	addRow26.getCell(2).setValue("是否影响二级及以上节点：");
+    	mergeManager2.mergeBlock(3, 0, 5, 0);
     	mergeManager2.mergeBlock(5, 2, 5, 4);
     	addRow26.getCell(5).setEditor(editor);
     	addRow26.getCell(5).setValue(Boolean.FALSE);
@@ -154,7 +165,8 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	mergeManager2.mergeBlock(5, 8, 5, 12);
     	
     	mergeManager2.mergeBlock(3, 0, 5, 1);
-    	mergeManager2.mergeBlock(3, 2, 4, 12);
+    	mergeManager2.mergeBlock(3, 2, 4, 4);
+    	mergeManager2.mergeBlock(3, 5, 4, 12);
     	
     	IRow addRow27 = this.kDTable2.addRow();
     	addRow27.getCell(0).setValue("部门意见");
@@ -332,25 +344,34 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	
     	
     	
-    	this.kDTable2.getColumn(0).setWidth(70);
-    	this.kDTable2.getColumn(1).setWidth(20);
-    	this.kDTable2.getColumn(2).setWidth(90);
-    	this.kDTable2.getColumn(3).setWidth(1);
-    	this.kDTable2.getColumn(4).setWidth(80);
-    	this.kDTable2.getColumn(5).setWidth(50);
-    	this.kDTable2.getColumn(6).setWidth(80);
-    	this.kDTable2.getColumn(7).setWidth(50);
-    	this.kDTable2.getColumn(8).setWidth(70);
-    	this.kDTable2.getColumn(9).setWidth(50);
-    	this.kDTable2.getColumn(10).setWidth(75);
-    	this.kDTable2.getColumn(11).setWidth(70);
-    	this.kDTable2.getColumn(12).setWidth(75);
+    	//行宽
+    	int i;
+    	for(i=0;i<kDTable1.getRowCount();i++)
+    	{
+    		kDTable1.getRow(i).setHeight(50);
+    	}
+    	//列宽
+    	for(i=0;i<kDTable1.getColumnCount();i++)
+    	{
+    		kDTable1.getColumn(i).setWidth(200);
+    	}
+    	
+    	//行宽
+    	for(i=0;i<kDTable2.getRowCount();i++)
+    	{
+    		kDTable2.getRow(i).setHeight(35);
+    	}
+    	//列宽
+    	for(i=0;i<kDTable2.getColumnCount();i++)
+    	{
+    		kDTable2.getColumn(i).setWidth(61);
+    	}
     	this.kDTable2.getIndexColumn().getStyleAttributes().setHided(true);
     	
     	String billId = "NuDk97fJRYGlkjRCTg9zcnARYRc=";
     	StringBuffer sb = new StringBuffer();
-    	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 申请编号2 ,ChangeAB.CFPutForwardTime 提出时间, ChangeAB.Freadesc 事由,BaseU.Fname_l2 提出部门,");
-    	sb.append(" contractB.fname 合同名称6,contractB.fnumber 合同编号7,ChangeAB.FAuditTypeID 变更类型");
+    	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 申请编号2 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间, ChangeAB.Freadesc 事由,BaseU.Fname_l2 提出部门,");
+    	sb.append(" contractB.fname 合同名称6,contractB.fnumber 合同编号7,ChangeAB.cfzs,ChangeAB.cfcs,ChangeAE.FChangeContent");
 //    	sb.append(" ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
@@ -367,8 +388,13 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     		this.kDTable1.getCell(0, 1).setValue(rowset.getString(1));
 //    		this.kDTable1.getCell(0, 3).setValue(rowset.getString(2));
     		this.kDTable1.getCell(1, 1).setValue(rowset.getString(7));
+    		this.kDTable1.getCell(3, 1).setValue(rowset.getString(8));
+    		this.kDTable1.getCell(3, 3).setValue(rowset.getString(9));
+    		this.kDTable1.getCell(4, 1).setValue(rowset.getString(10));
+    		
     		this.kDTable2.getCell(0, 2).setValue(rowset.getString(6));
     		this.kDTable2.getCell(1, 2).setValue(rowset.getString(7));
+    		this.kDTable2.getCell(1, 11).setValue(rowset.getString(3));
     	}
     	
     	
@@ -401,6 +427,18 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
 	}
 
 	protected ICoreBase getBizInterface() throws Exception {
+		return null;
+	}
+
+	@Override
+	protected IObjectValue createNewDetailData(KDTable kdtable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected KDTable getDetailTable() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

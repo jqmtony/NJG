@@ -15,6 +15,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.KDTableHelper;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles;
@@ -298,19 +299,18 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	mergeManager.mergeBlock(18, 0, 20, 0);
     	
     	
-    	this.kDTable1.getColumn(0).setWidth(100);
-    	this.kDTable1.getColumn(1).setWidth(70);
-    	this.kDTable1.getColumn(2).setWidth(60);
-    	this.kDTable1.getColumn(3).setWidth(40);
-    	this.kDTable1.getColumn(4).setWidth(60);
-    	this.kDTable1.getColumn(5).setWidth(40);
-    	this.kDTable1.getColumn(6).setWidth(75);
-    	this.kDTable1.getColumn(7).setWidth(40);
-    	this.kDTable1.getColumn(8).setWidth(70);
-    	this.kDTable1.getColumn(9).setWidth(40);
-    	this.kDTable1.getColumn(10).setWidth(70);
-    	this.kDTable1.getColumn(11).setWidth(72);
-    	this.kDTable1.getColumn(12).setWidth(90);
+    	//ÐÐ¿í
+    	int i;
+    	for(i=0;i<kDTable1.getRowCount();i++)
+    	{
+    		kDTable1.getRow(i).setHeight(27);
+    	}
+//    	kDTable1.getRow(kDTable1.getRowCount()-1).setHeight(150);
+    	//ÁÐ¿í
+    	for(i=0;i<kDTable1.getColumnCount();i++)
+    	{
+    		kDTable1.getColumn(i).setWidth(80);
+    	}
     	this.kDTable1.getIndexColumn().getStyleAttributes().setHided(true);
     	
     	
@@ -374,6 +374,20 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
 	}
 
 	protected ICoreBase getBizInterface() throws Exception {
+		return null;
+	}
+
+
+	@Override
+	protected IObjectValue createNewDetailData(KDTable kdtable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	protected KDTable getDetailTable() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

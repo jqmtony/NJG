@@ -43,11 +43,11 @@ import com.kingdee.bos.appframework.uip.UINavigator;
 /**
  * output class name
  */
-public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.client.EditUI
+public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.client.CoreBillEditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractTargetCost1UI.class);
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
-    protected com.kingdee.eas.framework.CoreBaseInfo editData = null;
+    protected com.kingdee.eas.framework.CoreBillBaseInfo editData = null;
     /**
      * output class constructor
      */
@@ -125,8 +125,8 @@ public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.cl
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        kDTable1.setBounds(new Rectangle(187, 0, 655, 630));
-        this.add(kDTable1, new KDLayout.Constraints(187, 0, 655, 630, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDTable1.setBounds(new Rectangle(187, 0, 617, 630));
+        this.add(kDTable1, new KDLayout.Constraints(187, 0, 617, 630, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
 
     }
 
@@ -141,7 +141,9 @@ public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.cl
         this.menuBar.add(MenuService);
         this.menuBar.add(menuView);
         this.menuBar.add(menuBiz);
+        this.menuBar.add(menuTable1);
         this.menuBar.add(menuTool);
+        this.menuBar.add(menuWorkflow);
         this.menuBar.add(menuHelp);
         //menuFile
         menuFile.add(menuItemAddNew);
@@ -162,6 +164,8 @@ public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.cl
         menuFile.add(menuItemPageSetup);
         menuFile.add(menuItemPrint);
         menuFile.add(menuItemPrintPreview);
+        menuFile.add(kDSeparator6);
+        menuFile.add(menuItemSendMail);
         menuFile.add(kDSeparator3);
         menuFile.add(menuItemExitCurrent);
         //menuSubmitOption
@@ -173,6 +177,13 @@ public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.cl
         menuEdit.add(menuItemRemove);
         menuEdit.add(kDSeparator4);
         menuEdit.add(menuItemReset);
+        menuEdit.add(separator1);
+        menuEdit.add(menuItemCreateFrom);
+        menuEdit.add(menuItemCreateTo);
+        menuEdit.add(menuItemCopyFrom);
+        menuEdit.add(separatorEdit1);
+        menuEdit.add(menuItemEnterToNextRow);
+        menuEdit.add(separator2);
         //MenuService
         MenuService.add(MenuItemKnowStore);
         MenuService.add(MenuItemAnwser);
@@ -183,14 +194,39 @@ public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.cl
         menuView.add(menuItemPre);
         menuView.add(menuItemNext);
         menuView.add(menuItemLast);
+        menuView.add(separator3);
+        menuView.add(menuItemTraceUp);
+        menuView.add(menuItemTraceDown);
+        menuView.add(kDSeparator7);
+        menuView.add(menuItemLocate);
         //menuBiz
         menuBiz.add(menuItemCancelCancel);
         menuBiz.add(menuItemCancel);
+        menuBiz.add(MenuItemVoucher);
+        menuBiz.add(menuItemDelVoucher);
+        //menuTable1
+        menuTable1.add(menuItemAddLine);
+        menuTable1.add(menuItemCopyLine);
+        menuTable1.add(menuItemInsertLine);
+        menuTable1.add(menuItemRemoveLine);
         //menuTool
-        menuTool.add(menuItemMsgFormat);
         menuTool.add(menuItemSendMessage);
+        menuTool.add(menuItemMsgFormat);
         menuTool.add(menuItemCalculator);
         menuTool.add(menuItemToolBarCustom);
+        //menuWorkflow
+        menuWorkflow.add(menuItemStartWorkFlow);
+        menuWorkflow.add(separatorWF1);
+        menuWorkflow.add(menuItemViewSubmitProccess);
+        menuWorkflow.add(menuItemViewDoProccess);
+        menuWorkflow.add(MenuItemWFG);
+        menuWorkflow.add(menuItemWorkFlowList);
+        menuWorkflow.add(separatorWF2);
+        menuWorkflow.add(menuItemMultiapprove);
+        menuWorkflow.add(menuItemNextPerson);
+        menuWorkflow.add(menuItemAuditResult);
+        menuWorkflow.add(kDSeparator5);
+        menuWorkflow.add(kDMenuItemSendMessage);
         //menuHelp
         menuHelp.add(menuItemHelp);
         menuHelp.add(kDSeparator12);
@@ -212,11 +248,13 @@ public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.cl
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
         this.toolBar.add(kDSeparatorCloud);
-        this.toolBar.add(btnReset);
         this.toolBar.add(btnSave);
+        this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);
         this.toolBar.add(btnRemove);
+        this.toolBar.add(btnCancelCancel);
+        this.toolBar.add(btnCancel);
         this.toolBar.add(btnAttachment);
         this.toolBar.add(separatorFW1);
         this.toolBar.add(btnPageSetup);
@@ -228,8 +266,32 @@ public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.cl
         this.toolBar.add(btnNext);
         this.toolBar.add(btnLast);
         this.toolBar.add(separatorFW3);
-        this.toolBar.add(btnCancelCancel);
-        this.toolBar.add(btnCancel);
+        this.toolBar.add(btnTraceUp);
+        this.toolBar.add(btnTraceDown);
+        this.toolBar.add(btnWorkFlowG);
+        this.toolBar.add(btnSignature);
+        this.toolBar.add(btnViewSignature);
+        this.toolBar.add(separatorFW4);
+        this.toolBar.add(btnNumberSign);
+        this.toolBar.add(separatorFW7);
+        this.toolBar.add(btnCreateFrom);
+        this.toolBar.add(btnCopyFrom);
+        this.toolBar.add(btnCreateTo);
+        this.toolBar.add(separatorFW5);
+        this.toolBar.add(separatorFW8);
+        this.toolBar.add(btnAddLine);
+        this.toolBar.add(btnCopyLine);
+        this.toolBar.add(btnInsertLine);
+        this.toolBar.add(btnRemoveLine);
+        this.toolBar.add(separatorFW6);
+        this.toolBar.add(separatorFW9);
+        this.toolBar.add(btnVoucher);
+        this.toolBar.add(btnDelVoucher);
+        this.toolBar.add(btnAuditResult);
+        this.toolBar.add(btnMultiapprove);
+        this.toolBar.add(btnWFViewdoProccess);
+        this.toolBar.add(btnWFViewSubmitProccess);
+        this.toolBar.add(btnNextPerson);
 
 
     }
@@ -272,7 +334,7 @@ public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.cl
     {
         IObjectValue ov = dataObject;        	    	
         super.setDataObject(ov);
-        this.editData = (com.kingdee.eas.framework.CoreBaseInfo)ov;
+        this.editData = (com.kingdee.eas.framework.CoreBillBaseInfo)ov;
     }
 
     /**
@@ -308,6 +370,7 @@ public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.cl
         if (STATUS_ADDNEW.equals(this.oprtState)) {
         } else if (STATUS_EDIT.equals(this.oprtState)) {
         } else if (STATUS_VIEW.equals(this.oprtState)) {
+        } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
     }
 

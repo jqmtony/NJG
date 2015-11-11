@@ -14,6 +14,7 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.dao.IObjectValue;
@@ -68,13 +69,17 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	
     	IRow addRow4 = this.kDTable1.addRow();
     	addRow4.getCell(0).setValue("核定内容");
-//    	mergeManager.mergeBlock(3, 0, 6, 3);
+    	mergeManager.mergeBlock(3, 0, 6, 0);
+    	mergeManager.mergeBlock(3, 1, 6, 3);
     	IRow addRow5 = this.kDTable1.addRow();
-//    	mergeManager.mergeBlock(3, 0, 6, 3);
+    	mergeManager.mergeBlock(3, 0, 6, 0);
+    	mergeManager.mergeBlock(3, 1, 6, 3);
     	IRow addRow6 = this.kDTable1.addRow();
-//    	mergeManager.mergeBlock(3, 0, 6, 3);
+    	mergeManager.mergeBlock(3, 0, 6, 0);
+    	mergeManager.mergeBlock(3, 1, 6, 3);
     	IRow addRow7 = this.kDTable1.addRow();
-    	mergeManager.mergeBlock(3, 0, 6, 3);
+    	mergeManager.mergeBlock(3, 0, 6, 0);
+    	mergeManager.mergeBlock(3, 1, 6, 3);
     	
     	IRow addRow8 = this.kDTable1.addRow();
     	addRow8.getCell(0).setValue("施工单位经办");
@@ -104,7 +109,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	
     	IRow addRow21 = this.kDTable2.addRow();
     	addRow21.getCell(0).setValue("合同名称");
-    	mergeManager2.mergeBlock(0, 2, 0, 9);
+    	mergeManager2.mergeBlock(0, 2, 0, 12);
     	mergeManager2.mergeBlock(0, 0, 0, 1);
     	
     	IRow addRow22 = this.kDTable2.addRow();
@@ -112,6 +117,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	mergeManager2.mergeBlock(1, 2, 1, 9);
     	mergeManager2.mergeBlock(1, 0, 1, 1);
     	addRow22.getCell(10).setValue("提出时间");
+    	mergeManager2.mergeBlock(1, 11, 1, 12);
     	
     	IRow addRow23 = this.kDTable2.addRow();
     	addRow23.getCell(0).setValue("提出方");
@@ -138,10 +144,15 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	addRow23.getCell(11).setValue(Boolean.FALSE);
     	addRow23.getCell(12).setValue("其他");
     	
+    	
     	IRow addRow24 = this.kDTable2.addRow();
     	addRow24.getCell(0).setValue("工程部");
     	addRow24.getCell(2).setValue("发起原因及内容：");
+    	
     	IRow addRow25 = this.kDTable2.addRow();
+//    	addRow25.getCell(2).setValue("发起原因及内容：");
+    	
+    	
     	IRow addRow26 = this.kDTable2.addRow();
     	addRow26.getCell(2).setValue("是否影响二级及以上节点：");
     	mergeManager2.mergeBlock(5, 2, 5, 4);
@@ -154,7 +165,8 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	mergeManager2.mergeBlock(5, 8, 5, 12);
     	
     	mergeManager2.mergeBlock(3, 0, 5, 1);
-    	mergeManager2.mergeBlock(3, 2, 4, 12);
+    	mergeManager2.mergeBlock(3, 2, 4, 4);
+    	mergeManager2.mergeBlock(3, 5, 4, 12);
     	
     	IRow addRow27 = this.kDTable2.addRow();
     	addRow27.getCell(0).setValue("部门意见");
@@ -302,55 +314,73 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
 //    	
     	IRow addRow222 = this.kDTable2.addRow();
     	addRow222.getCell(2).setValue("工程管理中心");
+    	mergeManager2.mergeBlock(21, 2, 21, 3);
     	mergeManager2.mergeBlock(21, 4, 21, 12);
     	IRow addRow223 = this.kDTable2.addRow();
     	addRow223.getCell(2).setValue("成本管理中心");
+    	mergeManager2.mergeBlock(22, 2, 22, 3);
     	mergeManager2.mergeBlock(22, 4, 22, 12);
     	IRow addRow224 = this.kDTable2.addRow();
     	addRow224.getCell(2).setValue("营销管理中心");
+    	mergeManager2.mergeBlock(23, 2, 23, 3);
     	mergeManager2.mergeBlock(23, 4, 23, 12);
     	IRow addRow225 = this.kDTable2.addRow();
     	addRow225.getCell(2).setValue("商业管理中心");
+    	mergeManager2.mergeBlock(24, 2, 24, 3);
     	mergeManager2.mergeBlock(24, 4, 24, 12);
     	IRow addRow226 = this.kDTable2.addRow();
     	addRow226.getCell(0).setValue("审阅栏");
     	addRow226.getCell(2).setValue("运营管理中心");
+    	mergeManager2.mergeBlock(25, 2, 25, 3);
     	mergeManager2.mergeBlock(25, 4, 25, 12);
     	mergeManager2.mergeBlock(21, 0, 25, 1);
     	
     	IRow addRow227 = this.kDTable2.addRow();
     	addRow227.getCell(2).setValue("工程成本副总裁");
+    	mergeManager2.mergeBlock(26, 2, 26, 3);
     	mergeManager2.mergeBlock(26, 4, 26, 12);
     	IRow addRow228 = this.kDTable2.addRow();
     	addRow228.getCell(2).setValue("执行副总裁");
+    	mergeManager2.mergeBlock(27, 2, 27, 3);
     	mergeManager2.mergeBlock(27, 4, 27, 12);
     	IRow addRow229 = this.kDTable2.addRow();
     	addRow229.getCell(0).setValue("审批栏");
     	addRow229.getCell(2).setValue("总裁");
+    	mergeManager2.mergeBlock(28, 2, 28, 3);
     	mergeManager2.mergeBlock(28, 4, 28, 12);
     	mergeManager2.mergeBlock(26, 0, 28, 1);
     	
-    	this.kDTable2.getColumn(0).setWidth(90);
-    	this.kDTable2.getColumn(1).setWidth(20);
-    	this.kDTable2.getColumn(2).setWidth(80);
-    	this.kDTable2.getColumn(3).setWidth(25);
-    	this.kDTable2.getColumn(4).setWidth(70);
-    	this.kDTable2.getColumn(5).setWidth(40);
-    	this.kDTable2.getColumn(6).setWidth(70);
-    	this.kDTable2.getColumn(7).setWidth(40);
-    	this.kDTable2.getColumn(8).setWidth(70);
-    	this.kDTable2.getColumn(9).setWidth(40);
-    	this.kDTable2.getColumn(10).setWidth(70);
-    	this.kDTable2.getColumn(11).setWidth(105);
-    	this.kDTable2.getColumn(12).setWidth(70);
+    	//行宽
+    	int i;
+    	for(i=0;i<kDTable1.getRowCount();i++)
+    	{
+    		kDTable1.getRow(i).setHeight(48);
+    	}
+    	//列宽
+    	for(i=0;i<kDTable1.getColumnCount();i++)
+    	{
+    		kDTable1.getColumn(i).setWidth(190);
+    	}
+    	
+    	//行宽
+    	for(i=0;i<kDTable2.getRowCount();i++)
+    	{
+    		kDTable2.getRow(i).setHeight(30);
+    	}
+    	//列宽
+    	for(i=0;i<kDTable2.getColumnCount();i++)
+    	{
+    		kDTable2.getColumn(i).setWidth(61);
+    	}
+    	
     	this.kDTable2.getIndexColumn().getStyleAttributes().setHided(true);
     	
     	
     	String billId = "099ZGQatSJe5KUx/CzBJ03ARYRc=";
     	StringBuffer sb = new StringBuffer();
-    	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 核定编号,contractB.fname 合同名称3,contractB.fnumber 合同编号4,");
-    	sb.append(" supplier.fname_l2 建设单位施工, ChangeAB.Freadesc 核定内容6,BaseU.Fname_l2  提出方");
-    	sb.append(" from T_CON_ChangeAuditBill ChangeAB   ");
+    	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 核定编号,contractB.fname 合同名称3,contractB.fnumber 合同编号4 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间, ChangeAB.Freadesc 核定内容");
+//    	sb.append(" supplier.fname_l2 建设单位施工, ChangeAB.Freadesc 核定内容6,BaseU.Fname_l2  提出方,ChangeAB.FNumber 申请编号2");
+    	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
     	sb.append(" left join T_CON_ChangeSupplierEntry ChangeSE on ChangeAB.fid=ChangeSE.FParentID");
@@ -360,12 +390,18 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	
     	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
     	while(rowset.next()){
+    		kDTextField1.setText(rowset.getString(1));
+    		kDTextField2.setText(rowset.getString(2));
+    		
     		this.kDTable1.getCell(0, 1).setValue(rowset.getString(1));
+    		//事由
+    		this.kDTable1.getCell(1, 1).setValue(rowset.getString(6));
     		this.kDTable1.getCell(2, 1).setValue(rowset.getString(3));
     		this.kDTable1.getCell(2, 3).setValue(rowset.getString(4));
-    		this.kDTable1.getCell(3, 0).setValue(rowset.getString(6));
+    		this.kDTable1.getCell(3, 1).setValue(rowset.getString(6));
     		this.kDTable2.getCell(0, 2).setValue(rowset.getString(3));
     		this.kDTable2.getCell(1, 2).setValue(rowset.getString(4));
+    		this.kDTable2.getCell(1, 11).setValue(rowset.getString(5));
     	}
     	
     	
@@ -380,7 +416,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	this.kDTable1.getCell(10, 1).setValue(apporveResultForMap.get("建设单位签字"));
     	this.kDTable1.getCell(10, 1).setValue(apporveResultForMap.get("建设单位盖章"));
     	
-//    	工程部发起原因及内容
+
 //    	设计部，影响，负责人，意见
 //    	工程部，影响，负责人，意见
 //    	销售部，影响，负责人，意见
@@ -391,8 +427,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
 //    	合约审算部
 //    	中心负责人
 //    	分管副总裁审批
-    	this.kDTable2.getCell(3, 2).setValue(apporveResultForMap.get("工程部发起原因及内容"));
-//    	this.kDTable2.getCell(10, 1).setValue(apporveResultForMap.get("设计部，影响"));
+
     	this.kDTable2.getCell(7, 11).setValue(apporveResultForMap.get("设计部，负责人"));
     	this.kDTable2.getCell(7, 12).setValue(apporveResultForMap.get("设计部，意见"));
 //    	this.kDTable2.getCell(10, 1).setValue(apporveResultForMap.get("工程部，影响"));
@@ -432,6 +467,18 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
 	}
 
 	protected ICoreBase getBizInterface() throws Exception {
+		return null;
+	}
+
+	@Override
+	protected IObjectValue createNewDetailData(KDTable kdtable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected KDTable getDetailTable() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

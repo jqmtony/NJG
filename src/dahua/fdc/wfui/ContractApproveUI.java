@@ -13,6 +13,7 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.ctrl.swing.KDCheckBox;
@@ -56,12 +57,13 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	this.kDTable1.addColumns(10);
     	KDTMergeManager mergeManager = kDTable1.getMergeManager();
     	
+    	
     	//第一行
     	IRow addRow = this.kDTable1.addRow();
     	addRow.getCell(0).setValue("建设单位");
-    	addRow.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRow.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRow.getCell(3).setValue("项目名称");
-    	addRow.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRow.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(0, 1, 0, 2);
     	mergeManager.mergeBlock(0, 4, 0, 9);
@@ -69,9 +71,9 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第二行
     	IRow addRowtwo = this.kDTable1.addRow();
     	addRowtwo.getCell(0).setValue("合同名称");
-    	addRowtwo.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowtwo.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowtwo.getCell(3).setValue("合同变号");
-    	addRowtwo.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowtwo.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(1, 1, 1, 2);
     	mergeManager.mergeBlock(1, 4, 1, 9);
@@ -79,9 +81,9 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第三行
     	IRow addRowthree = this.kDTable1.addRow();
     	addRowthree.getCell(0).setValue("合同供方");
-    	addRowthree.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowthree.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowthree.getCell(3).setValue("合同总价 ");
-    	addRowthree.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowthree.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(2, 1, 2, 2);
     	mergeManager.mergeBlock(2, 4, 2, 9);
@@ -90,11 +92,11 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第四行
     	IRow addRowfour = this.kDTable1.addRow();
     	addRowfour.getCell(0).setValue("合约规划金额");
-    	addRowfour.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowfour.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowfour.getCell(3).setValue("价格指标");
-    	addRowfour.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowfour.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowfour.getCell(4).setValue("综合单价");
-    	addRowfour.getCell(4).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowfour.getCell(4).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(3, 0, 4, 0);
     	mergeManager.mergeBlock(3, 1, 4, 2);
@@ -104,11 +106,11 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第五行
     	IRow addRowfive = this.kDTable1.addRow();
     	addRowfive.getCell(0).setValue("合约规划金额");
-    	addRowfive.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowfive.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowfive.getCell(3).setValue("价格指标");
-    	addRowfive.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowfive.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowfive.getCell(4).setValue("平米面积指标");
-    	addRowfive.getCell(4).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowfive.getCell(4).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(3, 0, 4, 0);
     	mergeManager.mergeBlock(3, 1, 4, 2);
@@ -118,9 +120,9 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第六行
     	IRow addRowsix = this.kDTable1.addRow();
     	addRowsix.getCell(0).setValue("申报单位");
-    	addRowsix.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowsix.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowsix.getCell(1).setValue("成本部");
-    	addRowsix.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowsix.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(5, 0, 8, 0);
     	mergeManager.mergeBlock(5, 1, 5, 2);
@@ -129,9 +131,9 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第七行
     	IRow addRowseven = this.kDTable1.addRow();
     	addRowseven.getCell(0).setValue("申报单位");
-    	addRowseven.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowseven.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowseven.getCell(1).setValue("工程部/前期(配套)部");
-    	addRowseven.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowseven.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(5, 0, 8, 0);
     	mergeManager.mergeBlock(6, 1, 6, 2);
@@ -140,9 +142,9 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第八行
     	IRow addRoweight = this.kDTable1.addRow();
     	addRoweight.getCell(0).setValue("申报单位");
-    	addRoweight.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRoweight.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRoweight.getCell(1).setValue("财务部");
-    	addRoweight.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRoweight.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(5, 0, 8, 0);
     	mergeManager.mergeBlock(7, 1, 7, 2);
@@ -152,9 +154,9 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//设计部
     	IRow addRowSj = this.kDTable1.addRow();
     	addRowSj.getCell(0).setValue("申报单位");
-    	addRowSj.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowSj.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowSj.getCell(1).setValue("设计部");
-    	addRowSj.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowSj.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(5, 0, 8, 0);
     	mergeManager.mergeBlock(8, 1, 8, 2);
@@ -164,9 +166,9 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第九行
     	IRow addRownine = this.kDTable1.addRow();
     	addRownine.getCell(0).setValue("建设单位");
-    	addRownine.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRownine.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRownine.getCell(1).setValue("项目公司第一负责人");
-    	addRownine.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRownine.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(9, 0, 10, 0);
     	mergeManager.mergeBlock(9, 1, 9, 2);
@@ -175,9 +177,9 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第十行
     	IRow addRowten = this.kDTable1.addRow();
     	addRowten.getCell(0).setValue("建设单位");
-    	addRowten.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowten.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowten.getCell(1).setValue("城市公司/地区第一负责人");
-    	addRowten.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowten.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(9, 0, 10, 0);
     	mergeManager.mergeBlock(10, 1, 10, 2);
@@ -186,9 +188,9 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第十一行
     	IRow addRowelev = this.kDTable1.addRow();
     	addRowelev.getCell(0).setValue("成本管理中心");
-    	addRowelev.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowelev.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowelev.getCell(1).setValue("合约审算部");
-    	addRowelev.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowelev.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(11, 0, 12, 0);
     	mergeManager.mergeBlock(11, 1, 11, 2);
@@ -197,9 +199,9 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第十二行
     	IRow addRowtwev= this.kDTable1.addRow();
     	addRowtwev.getCell(0).setValue("成本管理中心");
-    	addRowtwev.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowtwev.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowtwev.getCell(1).setValue("第一负责人");
-    	addRowtwev.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowtwev.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(11, 0, 12, 0);
     	mergeManager.mergeBlock(12, 1, 12, 2);
@@ -208,7 +210,7 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//工程管理中心
     	IRow addRowGcgl= this.kDTable1.addRow();
     	addRowGcgl.getCell(0).setValue("工程管理中心");
-    	addRowGcgl.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowGcgl.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(13, 0, 13, 2);
     	mergeManager.mergeBlock(13, 3, 13, 9);
@@ -216,7 +218,7 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第十四行
     	IRow addRowthirt= this.kDTable1.addRow();
     	addRowthirt.getCell(0).setValue("工程成本副总裁");
-    	addRowthirt.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowthirt.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(14, 0, 14, 2);
     	mergeManager.mergeBlock(14, 3, 14, 9);
@@ -225,7 +227,7 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第十五行
     	IRow addRowfout= this.kDTable1.addRow();
     	addRowfout.getCell(0).setValue("执行副总裁");
-    	addRowfout.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowfout.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(15, 0, 15, 2);
     	mergeManager.mergeBlock(15, 3, 15, 9);
@@ -233,7 +235,7 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第十六行
     	IRow addRowfift= this.kDTable1.addRow();
     	addRowfift.getCell(0).setValue("总裁");
-    	addRowfift.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowfift.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(16, 0, 16, 2);
     	mergeManager.mergeBlock(16, 3, 16, 9);
@@ -241,7 +243,7 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第十七行
     	IRow addRowsist= this.kDTable1.addRow();
     	addRowsist.getCell(0).setValue("履约保证金");
-    	addRowsist.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowsist.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//新增布尔控件
     	KDCheckBox cb = new KDCheckBox();
     	//容器控件
@@ -272,21 +274,22 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//第十八行
     	IRow addRowsevent= this.kDTable1.addRow();
     	addRowsevent.getCell(0).setValue("备注");
-    	addRowsevent.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+//    	addRowsevent.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(18, 0, 18, 2);
     	mergeManager.mergeBlock(18, 3, 18, 9);
-    	
-    	this.kDTable1.getColumn(0).setWidth(100);
-    	this.kDTable1.getColumn(1).setWidth(120);
-    	this.kDTable1.getColumn(2).setWidth(50);
-    	this.kDTable1.getColumn(3).setWidth(75);
-    	this.kDTable1.getColumn(4).setWidth(80);
-    	this.kDTable1.getColumn(5).setWidth(75);
-    	this.kDTable1.getColumn(6).setWidth(75);
-    	this.kDTable1.getColumn(7).setWidth(50);
-    	this.kDTable1.getColumn(8).setWidth(50);
-    	this.kDTable1.getColumn(9).setWidth(50);
+    	//行宽
+    	int i;
+    	for(i=0;i<kDTable1.getRowCount()-1;i++)
+    	{
+    		kDTable1.getRow(i).setHeight(27);
+    	}
+    	kDTable1.getRow(kDTable1.getRowCount()-1).setHeight(150);
+    	//列宽
+    	for(i=0;i<kDTable1.getColumnCount();i++)
+    	{
+    		kDTable1.getColumn(i).setWidth(80);
+    	}
     	this.kDTable1.getIndexColumn().getStyleAttributes().setHided(true);
     	
     	String billId = "ksSILFqtQuqFtwN92GBRjA1t0fQ=";
@@ -352,11 +355,20 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
     }
     
-	protected IObjectValue createNewData() {
+//	protected IObjectValue createNewData() {
+//		return null;
+//	}
+	
+//	protected ICoreBase getBizInterface() throws Exception {
+//		return null;
+//	}
+//	
+	protected IObjectValue createNewDetailData(KDTable kdtable) {
+		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	protected ICoreBase getBizInterface() throws Exception {
+	protected KDTable getDetailTable() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

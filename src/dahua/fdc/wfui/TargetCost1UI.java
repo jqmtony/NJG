@@ -13,6 +13,7 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
@@ -44,6 +45,7 @@ public class TargetCost1UI extends AbstractTargetCost1UI
     }
     @Override
     public void onLoad() throws Exception {
+    	int i =0;
     	super.onLoad();
     	initui();
     }
@@ -57,19 +59,20 @@ public class TargetCost1UI extends AbstractTargetCost1UI
     	IRow addrow1 = kDTable1.addRow();
     	addrow1.getCell(0).setValue("成本简况:");
     	addrow1.getCell(0).getStyleAttributes().setLocked(true);
-    	addrow1.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow1.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow1.getCell(1).setValue("营业收入:");
     	addrow1.getCell(1).getStyleAttributes().setLocked(true);
-    	addrow1.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow1.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow1.getCell(3).setValue("项目开发成本:");
     	addrow1.getCell(3).getStyleAttributes().setLocked(true);
-    	addrow1.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow1.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+    	mergeManager.mergeBlock(0, 4, 0, 8);
     	
     	//第二行
     	IRow addrow2 = kDTable1.addRow();
     	addrow2.getCell(0).setValue("项目名称:");
     	addrow2.getCell(0).getStyleAttributes().setLocked(true);
-    	addrow2.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow2.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(1, 1, 1, 8); 	//第二行，1个单元格融合，第一行，4个单元格融合
     	
@@ -77,40 +80,40 @@ public class TargetCost1UI extends AbstractTargetCost1UI
     	IRow addrow3 = kDTable1.addRow();
     	addrow3.getCell(0).setValue("工程地址:");
     	addrow3.getCell(0).getStyleAttributes().setLocked(true);
-    	addrow3.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow3.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	mergeManager.mergeBlock(2, 1, 2, 8);
     	
     	//第四行
     	IRow addrow4 = kDTable1.addRow();
     	addrow4.getCell(0).setValue("建设单位:");
     	addrow4.getCell(0).getStyleAttributes().setLocked(true);
-    	addrow4.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow4.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	mergeManager.mergeBlock(3, 1, 3, 8);
     	
     	//第五行
     	IRow addrow5 = kDTable1.addRow();
     	addrow5.getCell(0).setValue("编制单位:");
     	addrow5.getCell(0).getStyleAttributes().setLocked(true);
-    	addrow5.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow5.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	mergeManager.mergeBlock(4, 1, 4, 8);
     	
     	//第六行
     	IRow addrow6 = kDTable1.addRow();
     	addrow6.getCell(0).setValue("编制部门:");
     	addrow6.getCell(0).getStyleAttributes().setLocked(true);
-    	addrow6.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow6.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow6.getCell(1).setValue("前期部:");
     	addrow6.getCell(1).getStyleAttributes().setLocked(true);
-    	addrow6.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow6.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow6.getCell(3).setValue("营销部:");
     	addrow6.getCell(3).getStyleAttributes().setLocked(true);
-    	addrow6.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow6.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow6.getCell(5).setValue("工程部:");
     	addrow6.getCell(5).getStyleAttributes().setLocked(true);
-    	addrow6.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow6.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow6.getCell(7).setValue("设计部:");
     	addrow6.getCell(7).getStyleAttributes().setLocked(true);
-    	addrow6.getCell(7).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow6.getCell(7).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	mergeManager.mergeBlock(5, 0, 6, 0);  //第六行到第九行融合
     	
     	
@@ -118,89 +121,96 @@ public class TargetCost1UI extends AbstractTargetCost1UI
     	IRow addrow7 = kDTable1.addRow();
     	addrow7.getCell(0).setValue("编制部门:");
     	addrow7.getCell(0).getStyleAttributes().setLocked(true);
-    	addrow7.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow7.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow7.getCell(1).setValue("行政部:");
     	addrow7.getCell(1).getStyleAttributes().setLocked(true);
-    	addrow7.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow7.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow7.getCell(3).setValue("配套部:");
     	addrow7.getCell(3).getStyleAttributes().setLocked(true);
-    	addrow7.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow7.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow7.getCell(5).setValue("成本部:");
     	addrow7.getCell(5).getStyleAttributes().setLocked(true);
-    	addrow7.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow7.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow7.getCell(7).setValue("财务部:");
     	addrow7.getCell(7).getStyleAttributes().setLocked(true);
-    	addrow7.getCell(7).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow7.getCell(7).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	mergeManager.mergeBlock(5, 0, 6, 0);  //第六行到第九行融合
     	//第八行
     	IRow addrow8 = kDTable1.addRow();
     	addrow8.getCell(0).setValue("审核人:");
     	addrow8.getCell(0).getStyleAttributes().setLocked(true);
-    	addrow8.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow8.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow8.getCell(1).setValue("公司负责人:");
     	addrow8.getCell(1).getStyleAttributes().setLocked(true);
-    	addrow8.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow8.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow8.getCell(3).setValue("城市公司负责人:");
     	addrow8.getCell(3).getStyleAttributes().setLocked(true);
-    	addrow8.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow8.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow8.getCell(5).setValue("地区总部负责人:");
     	addrow8.getCell(5).getStyleAttributes().setLocked(true);
-    	addrow8.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow8.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	//第九行
     	IRow addrow9 = kDTable1.addRow();
     	addrow9.getCell(0).setValue("集团审核部门:");
     	addrow9.getCell(0).getStyleAttributes().setLocked(true);
-    	addrow9.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow9.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow9.getCell(1).setValue("设计管理中心:");
     	addrow9.getCell(1).getStyleAttributes().setLocked(true);
-    	addrow9.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow9.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow9.getCell(3).setValue("营销管理中心:");
     	addrow9.getCell(3).getStyleAttributes().setLocked(true);
-    	addrow9.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow9.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow9.getCell(5).setValue("工程管理中心:");
     	addrow9.getCell(5).getStyleAttributes().setLocked(true);
-    	addrow9.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow9.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	mergeManager.mergeBlock(8, 0, 9, 0);  //第六行到第九行融合
     	
     	//第十行
     	IRow addrow10 = kDTable1.addRow();
     	addrow10.getCell(0).setValue("集团审核部门:");
     	addrow10.getCell(0).getStyleAttributes().setLocked(true);
-    	addrow10.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow10.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow10.getCell(1).setValue("成本管理中心:");
     	addrow10.getCell(1).getStyleAttributes().setLocked(true);
-    	addrow10.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow10.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow10.getCell(3).setValue("运营管理中心:");
     	addrow10.getCell(3).getStyleAttributes().setLocked(true);
-    	addrow10.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow10.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow10.getCell(3).setValue("财务管理中心:");
     	addrow10.getCell(3).getStyleAttributes().setLocked(true);
-    	addrow10.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow10.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	mergeManager.mergeBlock(8, 0, 9, 0);  //第六行到第九行融合
     	
     	//第十一行
     	IRow addrow11 = kDTable1.addRow();
     	addrow11.getCell(0).setValue("集团审批人:");
     	addrow11.getCell(0).getStyleAttributes().setLocked(true);
-    	addrow11.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow11.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow11.getCell(1).setValue("工程成本副总裁:");
     	addrow11.getCell(1).getStyleAttributes().setLocked(true);
-    	addrow11.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow11.getCell(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow11.getCell(3).setValue("执行副总裁:");
     	addrow11.getCell(3).getStyleAttributes().setLocked(true);
-    	addrow11.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow11.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	addrow11.getCell(5).setValue("总裁:");
     	addrow11.getCell(5).getStyleAttributes().setLocked(true);
-    	addrow11.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
+//    	addrow11.getCell(5).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);//上背景色
     	//第十一行
     	IRow addrow12 = kDTable1.addRow();
     	mergeManager.mergeBlock(11, 0, 11, 8);  //第1列到第九列融合
     	
-    	kDTable1.getColumn(0).setWidth(100);
-    	kDTable1.getColumn(1).setWidth(100);
-    	kDTable1.getColumn(2).setWidth(100);
-    	kDTable1.getColumn(3).setWidth(100);
-    	kDTable1.getColumn(4).setWidth(100);
+    	//行宽
+    	int i;
+    	for(i=0;i<kDTable1.getRowCount();i++)
+    	{
+    		kDTable1.getRow(i).setHeight(45);
+    	}
+
+    	//列宽
+    	for(i=0;i<kDTable1.getColumnCount();i++)
+    	{
+    		kDTable1.getColumn(i).setWidth(90);
+    	}    	
     	
     	String billId = "wgnhf9P3R26Ot1IJWj08opkZNJQ="; //锁定单子ID
     	StringBuffer sb = new StringBuffer();
@@ -620,6 +630,18 @@ public class TargetCost1UI extends AbstractTargetCost1UI
 
 	@Override
 	protected ICoreBase getBizInterface() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected IObjectValue createNewDetailData(KDTable kdtable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected KDTable getDetailTable() {
 		// TODO Auto-generated method stub
 		return null;
 	}
