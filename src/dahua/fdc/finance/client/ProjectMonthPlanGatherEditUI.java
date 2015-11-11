@@ -2476,7 +2476,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
     	
     	filter.getFilterItems().add(new FilterItemInfo("curProject.id",this.editData.getCurProject().getId().toString()));
     	filter.getFilterItems().add(new FilterItemInfo("state",FDCBillStateEnum.AUDITTED_VALUE));
-    	filter.getFilterItems().add(new FilterItemInfo("contractType.longnumber","015%", CompareType.LIKE));
+    	filter.getFilterItems().add(new FilterItemInfo("contractType.longnumber","zb%", CompareType.LIKE));
     	try {
     		ContractBillCollection coll = ContractBillFactory.getRemoteInstance().getContractBillCollection(view);
     		info = coll.get(0);
@@ -2522,7 +2522,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
     	filter.getFilterItems().add(new FilterItemInfo("head.isLatest",Boolean.TRUE));
     	filter.getFilterItems().add(new FilterItemInfo("payAmount",null,CompareType.NOTEQUALS));
     	filter.getFilterItems().add(new FilterItemInfo("year",yearSet,CompareType.INCLUDE));
-    	filter.getFilterItems().add(new FilterItemInfo("head.contractBill.contractType.longNumber","016%", CompareType.LIKE));
+    	filter.getFilterItems().add(new FilterItemInfo("head.contractBill.contractType.longNumber","fb%", CompareType.LIKE));
     	
     	view.setFilter(filter);
     	view.getSelector().add("*");
