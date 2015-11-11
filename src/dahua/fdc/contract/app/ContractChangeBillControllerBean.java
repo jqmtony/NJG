@@ -239,7 +239,7 @@ public class ContractChangeBillControllerBean extends
 		/**
 		 * 更新合同付款计划
 		 */
-		ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(info.getContractBill().getId().toString(), false);
+//		ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(info.getContractBill().getId().toString(), false);
 	}
 
 	/**

@@ -1059,7 +1059,7 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
 			 * 更新合同付款计划
 			 * 这尼玛,中断后就脏数据了.不能回滚啊
 			 */
-			ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(contractChangeBillInfo.getContractBill().getId().toString(), false);
+//			ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(contractChangeBillInfo.getContractBill().getId().toString(), false);
 		}
 	}
 	
