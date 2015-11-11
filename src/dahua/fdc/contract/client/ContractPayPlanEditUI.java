@@ -13,8 +13,10 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import javax.swing.Action;
 import javax.swing.ActionMap;
@@ -720,6 +722,7 @@ public class ContractPayPlanEditUI extends AbstractContractPayPlanEditUI
 				sum=FDCHelper.add(sum, this.kdtEntry.getRow(i).getCell("payAmount").getValue());
 			}
 		}
+		checkRepeatPlan();
 //		if(this.kdtEntry.getRowCount()<6){
 //			FDCMsgBox.showWarning(this,"合同付款计划不能小于六个月的计划！");
 //			SysUtil.abort();
@@ -734,6 +737,21 @@ public class ContractPayPlanEditUI extends AbstractContractPayPlanEditUI
 				FDCMsgBox.showWarning(this,"截止本月累计实付金额+合同付款计划总额之和大于合同关联合约规划金额！");
 				SysUtil.abort();
 			}
+		}
+	}
+	
+	private void checkRepeatPlan() {
+		Set set = new HashSet();
+		for(int i = 0; i < kdtEntry.getRowCount(); i++) {
+			IRow row = kdtEntry.getRow(i);
+			Object year = row.getCell("year").getValue();
+			Object month = row.getCell("month").getValue();
+			String key = year+"-"+month;
+			set.add(key);
+		}
+		if(set.size() != kdtEntry.getRowCount()) {
+			MsgBox.showWarning("分录存在重复年月的计划，请修改!");
+			SysUtil.abort();
 		}
 	}
 	public void actionALine_actionPerformed(ActionEvent e) throws Exception {
