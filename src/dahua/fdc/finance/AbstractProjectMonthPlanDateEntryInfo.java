@@ -107,6 +107,17 @@ public class AbstractProjectMonthPlanDateEntryInfo extends com.kingdee.eas.frame
     {
         put("payType", item);
     }
+    /**
+     * Object:项目月度付款计划明细分录's 上报金额property 
+     */
+    public java.math.BigDecimal getReportAmount()
+    {
+        return getBigDecimal("reportAmount");
+    }
+    public void setReportAmount(java.math.BigDecimal item)
+    {
+        setBigDecimal("reportAmount", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("C8FAC265");
