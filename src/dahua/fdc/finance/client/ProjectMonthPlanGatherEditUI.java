@@ -1211,9 +1211,9 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 					BigDecimal reportAmount = dateEntry.getReportAmount();
 					BigDecimal amount = dateEntry.getAmount();
 					//上报金额超过计划金额则显示红色
-//					if(reportAmount.compareTo(amount) > 0) {
-//						row.getCell(key+"reportAmount").getStyleAttributes().setBackground(Color.RED);
-//					}
+					if(reportAmount != null && amount != null && reportAmount.compareTo(amount) > 0) {
+						row.getCell(key+"reportAmount").getStyleAttributes().setBackground(Color.RED);
+					}
 //					row.getCell(key+"reportAmount").getStyleAttributes().setBackground(Color.RED);
 				}
 				if(row.getCell(key+"houseAmount")!=null){
@@ -1565,29 +1565,62 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 			SysUtil.abort();
 		}
 		verifyInputForSave();
+		
+		int sYear = this.spYear.getIntegerVlaue().intValue();
+		int sMonth = this.spMonth.getIntegerVlaue().intValue()+1;
+		int circle = editData.getCycle().getCycle().getValue();
 		IRow headRow=this.contractTable.getHeadRow(0);
 		IRow headRowTwo=this.contractTable.getHeadRow(1);
-		for(int i=0;i<this.contractTable.getRowCount();i++){
-			IRow row=this.contractTable.getRow(i);
-			if(row.getStyleAttributes().getBackground().equals(FDCTableHelper.cantEditColor)){
-				continue;
+		
+		for(int i = 0; i < circle; i++) {
+			if(sMonth > 12) {
+				sYear += 1;
+				sMonth = 1;
 			}
-			for(int j=0;j<this.contractTable.getColumnCount();j++){
-				if(this.contractTable.getColumn(j).isRequired()){
-					if(row.getCell(j).getValue()!=null&&row.getCell(j).getValue() instanceof String){
-						if("".equals(row.getCell(j).getValue().toString().trim())){
-							FDCMsgBox.showWarning(this,headRow.getCell(j).getValue().toString()+headRowTwo.getCell(j).getValue().toString()+"不能为空！");
-							this.contractTable.getEditManager().editCellAt(i, j);
-							SysUtil.abort();
-						}
-					}else if(row.getCell(j).getValue()==null){
-						FDCMsgBox.showWarning(this,headRow.getCell(j).getValue().toString()+headRowTwo.getCell(j).getValue().toString()+"不能为空！");
-						this.contractTable.getEditManager().editCellAt(i, j);
+			String Key = sYear+"year"+sMonth+"m";
+			System.out.println(Key);
+			sMonth++;
+			for(int j = 0; j < contractTable.getRowCount(); j++) {
+				IRow row = contractTable.getRow(j);
+				if(row.getStyleAttributes().getBackground().equals(FDCTableHelper.cantEditColor)){
+					continue;
+				}
+				BigDecimal amount = (BigDecimal) row.getCell(Key+"amount").getValue();
+				PaymentTypeInfo payType = (PaymentTypeInfo) row.getCell(Key+"payType").getValue();
+				if(amount != null) {
+					if(amount.compareTo(BigDecimal.ZERO) != 0 && payType == null) {
+						int index = row.getCell(Key+"payType").getColumnIndex();
+						MsgBox.showWarning(headRow.getCell(index).getValue()+headRowTwo.getCell(index).getValue().toString()+"不能为空！");
+						this.contractTable.getEditManager().editCellAt(j, index);
 						SysUtil.abort();
 					}
 				}
 			}
 		}
+		
+//		IRow headRow=this.contractTable.getHeadRow(0);
+//		IRow headRowTwo=this.contractTable.getHeadRow(1);
+//		for(int i=0;i<this.contractTable.getRowCount();i++){
+//			IRow row=this.contractTable.getRow(i);
+//			if(row.getStyleAttributes().getBackground().equals(FDCTableHelper.cantEditColor)){
+//				continue;
+//			}
+//			for(int j=0;j<this.contractTable.getColumnCount();j++){
+//				if(this.contractTable.getColumn(j).isRequired()){
+//					if(row.getCell(j).getValue()!=null&&row.getCell(j).getValue() instanceof String){
+//						if("".equals(row.getCell(j).getValue().toString().trim())){
+//							FDCMsgBox.showWarning(this,headRow.getCell(j).getValue().toString()+headRowTwo.getCell(j).getValue().toString()+"不能为空！");
+//							this.contractTable.getEditManager().editCellAt(i, j);
+//							SysUtil.abort();
+//						}
+//					}else if(row.getCell(j).getValue()==null){
+//						FDCMsgBox.showWarning(this,headRow.getCell(j).getValue().toString()+headRowTwo.getCell(j).getValue().toString()+"不能为空！");
+//						this.contractTable.getEditManager().editCellAt(i, j);
+//						SysUtil.abort();
+//					}
+//				}
+//			}
+//		}
 		checkExecuteAmount();
 		checkYearAmount();
 	}
@@ -1970,6 +2003,13 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             		int year=ppEntry.getYear();
             		int month=ppEntry.getMonth();
             		
+            		int sYear=this.spYear.getIntegerVlaue().intValue();
+            		int sMonth=this.spMonth.getIntegerVlaue().intValue()+1;
+            		if(sMonth > 12) {
+            			sYear += 1;
+            			sMonth = 1;
+            		}
+            		String nextMonthKey = sYear+"year"+sMonth+"m";
             		String key=year+"year"+month+"m";
             		if(!monthSet.contains(key)){
         				continue;
@@ -1978,6 +2018,16 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             		String remark=ppEntry.getPayNode();
             		ContractBillInfo contractInfo=ppEntry.getHead().getContractBill();
             		String contractId=contractInfo.getId().toString();
+            		
+            		BigDecimal reportAmount = BigDecimal.ZERO;
+            		if(nextMonthKey.equals(key)) {
+            			BigDecimal preTotalAmount = getPreTotalAmount(contractInfo, sYear, sMonth);
+                		BigDecimal actPayAmount = getActPayAmount(contractInfo, sYear, sMonth);
+                		reportAmount = preTotalAmount.subtract(actPayAmount);
+            		} else {
+            			reportAmount = ppEntry.getPayAmount();
+            		}
+            		
             		BigDecimal amount=ppEntry.getPayAmount();
             		HashMap yearMap=null;
             		HashMap monthMap=null;
@@ -1997,6 +2047,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             					dateEntry=new ProjectMonthPlanDateEntryInfo();
             					dateEntry.setPayType(paymentType);
             					dateEntry.setAmount(amount);
+            					dateEntry.setReportAmount(reportAmount);
             					dateEntry.setYear(year);
             					dateEntry.setMonth(month);
             					dateEntry.setRemark(remark);
@@ -2012,6 +2063,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 //            				dateEntry.setUseType(useType);
             				dateEntry.setPayType(paymentType);
         					dateEntry.setAmount(amount);
+        					dateEntry.setReportAmount(reportAmount);
         					dateEntry.setYear(year);
         					dateEntry.setMonth(month);
         					dateEntry.setRemark(remark);
@@ -2027,7 +2079,6 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             			yearMap=new HashMap();
             			entry=new ProjectMonthPlanEntryInfo();
             			entry.setContractBill(contractInfo);
-            			BigDecimal preTotalAmount = getPreTotalAmount(contractInfo, year, month);
             			entry.setId(ppEntry.getHead().getId());
             			entry.put("department", ppEntry.getHead().getDepartment());
             			entry.put("respPerson", ppEntry.getHead().getRespPerson());
@@ -2036,6 +2087,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
         				dateEntry=new ProjectMonthPlanDateEntryInfo();
         				dateEntry.setPayType(paymentType);
     					dateEntry.setAmount(amount);
+    					dateEntry.setReportAmount(reportAmount);
     					dateEntry.setYear(year);
     					dateEntry.setMonth(month);
     					dateEntry.setRemark(remark);
@@ -2085,7 +2137,8 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             				if(isAddNew){
             					ProjectMonthPlanGatherDateEntryInfo gdEntry=new ProjectMonthPlanGatherDateEntryInfo();
                 				gdEntry.setAmount(dEntry.getAmount());
-                				gdEntry.setReportAmount(dEntry.getAmount());
+//                				gdEntry.setReportAmount(dEntry.getAmount());
+                				gdEntry.setReportAmount(dEntry.getReportAmount());
                 				gdEntry.setYear(dEntry.getYear());
                 				gdEntry.setMonth(dEntry.getMonth());
                 				gdEntry.setRemark(dEntry.getRemark());
@@ -2119,7 +2172,8 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             				ProjectMonthPlanDateEntryInfo dEntry=ppEntry.getDateEntry().get(j);
             				ProjectMonthPlanGatherDateEntryInfo gdEntry=new ProjectMonthPlanGatherDateEntryInfo();
             				gdEntry.setAmount(dEntry.getAmount());
-            				gdEntry.setReportAmount(dEntry.getAmount());
+//            				gdEntry.setReportAmount(dEntry.getAmount());
+            				gdEntry.setReportAmount(dEntry.getReportAmount());
             				gdEntry.setYear(dEntry.getYear());
             				gdEntry.setMonth(dEntry.getMonth());
             				gdEntry.setRemark(dEntry.getRemark());
@@ -2342,7 +2396,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 	}
 	
 	/**
-	 * 获取当前年月月份之前的所有计划金额
+	 * 获取截止到当前年月后一个月（包含后一月）之前的所有计划金额
 	 */
 	private BigDecimal getPreTotalAmount(ContractBillInfo info, int year, int month) {
 		BigDecimal amount = BigDecimal.ZERO;
@@ -2357,7 +2411,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
     	filter.getFilterItems().add(new FilterItemInfo("year", year, CompareType.LESS));
     	
     	filter.getFilterItems().add(new FilterItemInfo("year", year, CompareType.EQUALS));
-    	filter.getFilterItems().add(new FilterItemInfo("month", year, CompareType.LESS));
+    	filter.getFilterItems().add(new FilterItemInfo("month", month, CompareType.LESS_EQUALS));
     	
     	filter.setMaskString("#0 and #1 and #2 and #3 and (#4 or (#5 and #6))");
     	
@@ -2383,7 +2437,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 			ContractPayPlanEntryCollection col=ContractPayPlanEntryFactory.getRemoteInstance().getContractPayPlanEntryCollection(view);
 			for(int i = 0; i< col.size(); i++) {
 				BigDecimal payAmount = col.get(i).getPayAmount();
-				amount.add(payAmount);
+				amount = amount.add(payAmount);
 			}
 		} catch (BOSException e) {
 			e.printStackTrace();
@@ -2393,20 +2447,27 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
     	return amount;
 	}
 	/**
-	 * 获取合同累计付款
+	 * 获取合同累计付款（截止到当前月底）
 	 * @param info
 	 * @return
 	 */
-	private BigDecimal getActPayAmount(ContractBillInfo info) {
+	private BigDecimal getActPayAmount(ContractBillInfo info, int year, int month) {
 		BigDecimal actAmount = BigDecimal.ZERO;
+		
+		Calendar cal = Calendar.getInstance();
+		cal.clear();
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.MONTH, month-1);
+		cal.set(Calendar.DAY_OF_MONTH, 1);
 		
 		FDCSQLBuilder _builder = new FDCSQLBuilder();
 		_builder.appendSql(" select sum(famount) payAmount from t_cas_paymentbill where fbillstatus=15 and fcontractbillid='"+info.getId().toString()+"'");
 		_builder.appendSql(" and fpayDate is not null and famount is not null");
+		_builder.appendSql(" and fpayDate < {ts '"+FDCConstants.FORMAT_TIME.format(FDCDateHelper.getSQLEnd(FDCDateHelper.getFirstDayOfMonth(cal.getTime())))+ "'}");
 		try {
 			IRowSet rowSet = _builder.executeQuery();
 			while(rowSet.next()){
-				actAmount=rowSet.getBigDecimal("payAmount");
+				actAmount=rowSet.getBigDecimal("payAmount") == null ? BigDecimal.ZERO : rowSet.getBigDecimal("payAmount");
 			}
 		} catch (BOSException e) {
 			e.printStackTrace();
