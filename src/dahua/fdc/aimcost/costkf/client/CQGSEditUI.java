@@ -216,7 +216,7 @@ public class CQGSEditUI extends AbstractCQGSEditUI
 			if(row.getCell("BuildingName").getValue()==null||!(row.getCell("BuildingName").getValue() instanceof ProductTypeInfo)) //ø’ªÚstring¿‡–Õ
 				continue;
 			ProductTypeInfo productInfo = (ProductTypeInfo) row.getCell("BuildingName").getValue();
-			if(productInfo.getNumber().startsWith("01")){
+			if(productInfo.getNumber().startsWith("0101")){
 				KSbuidlingArea = FDCHelper.add(KSbuidlingArea, row.getCell("BuidlingArea").getValue());
 				KSsaleArea = FDCHelper.add(KSsaleArea, row.getCell("SaleArea").getValue());
 				KSbuildingFloorArea = FDCHelper.add(KSbuildingFloorArea, row.getCell("BuildingFloorArea").getValue());
@@ -253,8 +253,8 @@ public class CQGSEditUI extends AbstractCQGSEditUI
 			BigDecimal saleArea = UIRuleUtil.getBigDecimal(footRow.getCell("SaleArea").getValue());
 			BigDecimal buildingFloorArea = UIRuleUtil.getBigDecimal(footRow.getCell("BuildingFloorArea").getValue());
 			
-			BigDecimal totall = FDCHelper.add(FDCHelper.add(buidlingArea, saleArea),buildingFloorArea);
-			txtTotalArea.setText(totall.toString());
+//			BigDecimal totall = FDCHelper.add(FDCHelper.add(buidlingArea, saleArea),buildingFloorArea);
+			txtTotalArea.setText(buidlingArea.toString());
 		}
 	}
 	
