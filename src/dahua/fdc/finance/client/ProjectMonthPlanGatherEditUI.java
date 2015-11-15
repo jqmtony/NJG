@@ -176,6 +176,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 	private List reportColoum=null;
 	private List executeColoum=null;
 	private List houseColoum=null;
+	private Boolean isHasFbDetail = false;
     public ProjectMonthPlanGatherEditUI() throws Exception
     {
         super();
@@ -1322,12 +1323,14 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 			this.contractTable.getMergeManager().mergeBlock(proIndex, 0, proIndex, this.contractTable.getColumnCount()-1);
 			
 			//大总包合同
-			proRow=this.contractTable.addRow(contractTable.getRowCount()-1);
-			proIndex=proRow.getRowIndex();
-			proRow.getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
-			proRow.getStyleAttributes().setLocked(true);
-			proRow.getCell("name").setValue("大总包合同付款计划");
-			this.contractTable.getMergeManager().mergeBlock(proIndex, 0, proIndex, this.contractTable.getColumnCount()-1);
+			if(isHasFbDetail) {
+				proRow=this.contractTable.addRow(contractTable.getRowCount()-1);
+				proIndex=proRow.getRowIndex();
+				proRow.getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+				proRow.getStyleAttributes().setLocked(true);
+				proRow.getCell("name").setValue("大总包合同付款计划");
+				this.contractTable.getMergeManager().mergeBlock(proIndex, 0, proIndex, this.contractTable.getColumnCount()-1);
+			}
 		}
 		
 		try {
@@ -2307,64 +2310,67 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 //        		ContractBillCollection currentFBContract = getCurrentFBContract();
         		
         		ContractPayPlanEntryCollection contractPayPlanEntryColl = getFBContractPayPlanEntryColl(yearSet);
-        		Map planMap = new TreeMap();
-        		for(int i = 0; i < contractPayPlanEntryColl.size(); i++) {
-        			ContractPayPlanEntryInfo entryInfo = contractPayPlanEntryColl.get(i);
-        			int year = entryInfo.getYear();
-        			int month = entryInfo.getMonth();
-        			String key=year+"year"+month+"m";
-        			if(!planMap.containsKey(key)) {
-        				Map map = new HashMap();
-        				map.put("amount", entryInfo.getPayAmount());
-        				map.put("paymentType", entryInfo.getPaymentType());
-        				map.put("year", year);
-        				map.put("month", month);
-        				planMap.put(key, map);
-        			} else {
-        				Map map = (Map) planMap.get(key);
-        				BigDecimal amount = (BigDecimal) map.get("amount");
-        				map.put("amount", amount.add(entryInfo.getPayAmount()));
-        			}
-        		}
-        		Set keySet = planMap.keySet();
-        		Iterator it = keySet.iterator();
-        		ProjectMonthPlanGatherEntryInfo entryInfo = new ProjectMonthPlanGatherEntryInfo();
-        		if(currentDZBContract != null) {
-        			entryInfo.setName(currentDZBContract.getName());
-//        			entryInfo.setContractBill(currentDZBContract);
-        			entryInfo.setId(BOSUuid.create(entryInfo.getBOSType()));
-        			int sYear=this.spYear.getIntegerVlaue().intValue();
-            		int sMonth=this.spMonth.getIntegerVlaue().intValue()+1;
-            		if(sMonth > 12) {
-            			sYear += 1;
-            			sMonth = 1;
-            		}
-            		String nextMonthKey = sYear+"year"+sMonth+"m";
-        			while(it.hasNext()) {
-        				Map map = (Map) planMap.get(it.next().toString());
-        				BigDecimal amount = (BigDecimal) map.get("amount");
-        				Integer year = (Integer) map.get("year");
-        				Integer month = (Integer) map.get("month");
-        				BigDecimal reportAmount = amount;
-        				String key = year.intValue()+"year"+month.intValue()+"m";
-        				if(key.equals(nextMonthKey)) {
-        					BigDecimal preFBTotalAmount = getPreFBTotalAmount(editData.getCurProject(), sYear, sMonth);
-        					BigDecimal fbactPayAmount = getFBActPayAmount(editData.getCurProject(), sYear, sMonth);
-        					reportAmount = preFBTotalAmount.subtract(fbactPayAmount);
+        		if(contractPayPlanEntryColl.size() > 0) {
+        			isHasFbDetail = true;
+        			Map planMap = new TreeMap();
+        			for(int i = 0; i < contractPayPlanEntryColl.size(); i++) {
+        				ContractPayPlanEntryInfo entryInfo = contractPayPlanEntryColl.get(i);
+        				int year = entryInfo.getYear();
+        				int month = entryInfo.getMonth();
+        				String key=year+"year"+month+"m";
+        				if(!planMap.containsKey(key)) {
+        					Map map = new HashMap();
+        					map.put("amount", entryInfo.getPayAmount());
+        					map.put("paymentType", entryInfo.getPaymentType());
+        					map.put("year", year);
+        					map.put("month", month);
+        					planMap.put(key, map);
+        				} else {
+        					Map map = (Map) planMap.get(key);
+        					BigDecimal amount = (BigDecimal) map.get("amount");
+        					map.put("amount", amount.add(entryInfo.getPayAmount()));
         				}
-        				PaymentTypeInfo payType = (PaymentTypeInfo) map.get("paymentType");
-        				ProjectMonthPlanGatherDateEntryInfo gdEntry=new ProjectMonthPlanGatherDateEntryInfo();
-        				gdEntry.setYear(year);
-        				gdEntry.setMonth(month);
-        				gdEntry.setAmount(amount.multiply(new BigDecimal("0.1")));
-        				gdEntry.setPayType(payType);
-        				gdEntry.setReportAmount(reportAmount.multiply(new BigDecimal("0.1")));
-        				gdEntry.setCashPayment(reportAmount.multiply(new BigDecimal("0.1")));
-        				gdEntry.setId(BOSUuid.create(gdEntry.getBOSType()));
-        				
-        				entryInfo.getDateEntry().add(gdEntry);
         			}
-        			editData.getEntry().add(entryInfo);
+        			Set keySet = planMap.keySet();
+        			Iterator it = keySet.iterator();
+        			ProjectMonthPlanGatherEntryInfo entryInfo = new ProjectMonthPlanGatherEntryInfo();
+        			if(currentDZBContract != null) {
+        				entryInfo.setName(currentDZBContract.getName());
+//        			entryInfo.setContractBill(currentDZBContract);
+        				entryInfo.setId(BOSUuid.create(entryInfo.getBOSType()));
+        				int sYear=this.spYear.getIntegerVlaue().intValue();
+        				int sMonth=this.spMonth.getIntegerVlaue().intValue()+1;
+        				if(sMonth > 12) {
+        					sYear += 1;
+        					sMonth = 1;
+        				}
+        				String nextMonthKey = sYear+"year"+sMonth+"m";
+        				while(it.hasNext()) {
+        					Map map = (Map) planMap.get(it.next().toString());
+        					BigDecimal amount = (BigDecimal) map.get("amount");
+        					Integer year = (Integer) map.get("year");
+        					Integer month = (Integer) map.get("month");
+        					BigDecimal reportAmount = amount;
+        					String key = year.intValue()+"year"+month.intValue()+"m";
+        					if(key.equals(nextMonthKey)) {
+        						BigDecimal preFBTotalAmount = getPreFBTotalAmount(editData.getCurProject(), sYear, sMonth);
+        						BigDecimal fbactPayAmount = getFBActPayAmount(editData.getCurProject(), sYear, sMonth);
+        						reportAmount = preFBTotalAmount.subtract(fbactPayAmount);
+        					}
+        					PaymentTypeInfo payType = (PaymentTypeInfo) map.get("paymentType");
+        					ProjectMonthPlanGatherDateEntryInfo gdEntry=new ProjectMonthPlanGatherDateEntryInfo();
+        					gdEntry.setYear(year);
+        					gdEntry.setMonth(month);
+        					gdEntry.setAmount(amount.multiply(new BigDecimal("0.1")));
+        					gdEntry.setPayType(payType);
+        					gdEntry.setReportAmount(reportAmount.multiply(new BigDecimal("0.1")));
+        					gdEntry.setCashPayment(reportAmount.multiply(new BigDecimal("0.1")));
+        					gdEntry.setId(BOSUuid.create(gdEntry.getBOSType()));
+        					
+        					entryInfo.getDateEntry().add(gdEntry);
+        				}
+        				editData.getEntry().add(entryInfo);
+        			}
         		}
     		}else{
     			EntityViewInfo view=new EntityViewInfo();
