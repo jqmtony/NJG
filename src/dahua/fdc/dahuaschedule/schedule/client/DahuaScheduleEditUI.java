@@ -17,10 +17,15 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
+import com.kingdee.eas.fdc.contract.programming.client.ProgrammingContractF7UI;
 import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleFacadeFactory;
 import com.kingdee.eas.fdc.dahuaschedule.schedule.IDahuaScheduleFacade;
+import com.kingdee.eas.fdc.finance.client.ProjectMonthPlanProEditUI;
 import com.kingdee.eas.framework.*;
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
@@ -31,6 +36,7 @@ import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.ctrl.swing.KDFileChooser;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
+import com.kingdee.bos.ctrl.swing.KDPromptSelector;
 
 /**
  * output class name
@@ -74,8 +80,8 @@ public class DahuaScheduleEditUI extends AbstractDahuaScheduleEditUI
     	this.prmtproject.setEnabled(false);
     	
 //    	this.kdtEntrys_detailPanel.getAddNewLineButton().setVisible(false);
-    	this.kdtEntrys_detailPanel.getInsertLineButton().setVisible(false);
-    	this.kdtEntrys_detailPanel.getRemoveLinesButton().setVisible(false);
+//    	this.kdtEntrys_detailPanel.getInsertLineButton().setVisible(false);
+//    	this.kdtEntrys_detailPanel.getRemoveLinesButton().setVisible(false);
     	
     	initTable();
     }
@@ -94,22 +100,50 @@ public class DahuaScheduleEditUI extends AbstractDahuaScheduleEditUI
     	kdtEntrys_programming_PromptBox.setVisible(true);
     	kdtEntrys_programming_PromptBox.setEditable(true);
     	kdtEntrys_programming_PromptBox.setDisplayFormat("$name$");
-    	kdtEntrys_programming_PromptBox.setEditFormat("$name$");
-    	kdtEntrys_programming_PromptBox.setCommitFormat("$name$");
+    	kdtEntrys_programming_PromptBox.setEditFormat("$number$");
+    	kdtEntrys_programming_PromptBox.setCommitFormat("$number$");
         KDTDefaultCellEditor kdtEntrys_programming_CellEditor = new KDTDefaultCellEditor(kdtEntrys_programming_PromptBox);
         this.kdtEntrys.getColumn("progamming").setEditor(kdtEntrys_programming_CellEditor);
         ObjectValueRender kdtEntrys_manager_OVR = new ObjectValueRender();
         kdtEntrys_manager_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtEntrys.getColumn("progamming").setRenderer(kdtEntrys_manager_OVR);
         
-        CurProjectInfo project = (CurProjectInfo) prmtproject.getValue();
-        EntityViewInfo evi = new EntityViewInfo();
-        FilterInfo filter = new FilterInfo();
-        evi.setFilter(filter);
-        filter.getFilterItems().add(new FilterItemInfo("programming.project.id", project.getId().toString(), CompareType.EQUALS));
-        filter.getFilterItems().add(new FilterItemInfo("programming.isLatest", true, CompareType.EQUALS));
-//        filter.getFilterItems().add(new FilterItemInfo("isLeaf", true, CompareType.EQUALS));
-        kdtEntrys_programming_PromptBox.setEntityViewInfo(evi);
+//        CurProjectInfo project = (CurProjectInfo) prmtproject.getValue();
+//        EntityViewInfo evi = new EntityViewInfo();
+//        FilterInfo filter = new FilterInfo();
+//        evi.setFilter(filter);
+//        filter.getFilterItems().add(new FilterItemInfo("programming.project.id", project.getId().toString(), CompareType.EQUALS));
+//        filter.getFilterItems().add(new FilterItemInfo("programming.isLatest", true, CompareType.EQUALS));
+////        filter.getFilterItems().add(new FilterItemInfo("isLeaf", true, CompareType.EQUALS));
+//        kdtEntrys_programming_PromptBox.setEntityViewInfo(evi);
+        kdtEntrys_programming_PromptBox.setSelector(new KDPromptSelector(){
+
+			IUIWindow win = null;
+			public Object getData() {
+				return getUIContext().get("selectedValue");
+			}
+			public boolean isCanceled() {
+				return false;
+			}
+			public void show() {
+				try {
+					UIContext context = new UIContext(DahuaScheduleEditUI.this);
+					Object object = getUIContext().get("projectId");
+					if (object == null) {
+						if (editData.getProject() != null) {
+							object = editData.getProject().getId();
+						}
+					}
+					context.put("projectId", object);
+					context.put("allowZero", Boolean.FALSE);
+					//新建界面生成 uiwindow(合约框架F7)对象
+					win = UIFactory.createUIFactory().create(ProgrammingContractF7UI.class.getName(), context);
+					win.show();
+				} catch (Exception e) {
+					handUIExceptionAndAbort(e);
+				}
+			}
+		});
         
         kdtEntrys.getStyleAttributes().setLocked(true);
         this.kdtEntrys.getColumn("progamming").getStyleAttributes().setLocked(false);
