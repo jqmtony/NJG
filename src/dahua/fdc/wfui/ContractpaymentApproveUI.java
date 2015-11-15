@@ -357,7 +357,8 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	
     	String billId = editData.getId()!=null?editData.getId().toString():"++7pgRwQRf2paClUcxTBtsmlqGk=";
     	StringBuffer sb = new StringBuffer();
-    	sb.append(" select org.Fname_l2,bill.FBizDate,bill.FNumber,min.Fname_l2,try.FOriginalAmount,ier.Fname_l2, ject.Fname_l2,bill.FContractName,bill.FContractNo,bill.CFkxnr,con.FOriginalAmount,try.FAmount,bill.FMoneyDesc");
+    	sb.append(" select org.Fname_l2,bill.FBizDate,bill.FNumber,min.Fname_l2,try.FOriginalAmount,ier.Fname_l2, ject.Fname_l2,bill.FContractName");
+    	sb.append(" ,bill.FContractNo,bill.CFkxnr,con.FOriginalAmount,try.FAmount,bill.FMoneyDesc,u.Fname_l2");
     	sb.append(" from T_CON_PayRequestBill bill  ");
     	sb.append(" left join T_FDC_CurProject ject on ject.fid = bill.FCurProjectID  ");
     	sb.append(" left join T_ORG_BaseUnit org on org.fid = ject.FFullOrgUnit ");
@@ -365,6 +366,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	sb.append(" left join T_CON_PayRequestBillEntry try on try.FParentID = bill.fid ");
     	sb.append(" left join T_BD_Supplier ier on ier.fid = bill.FSupplierID ");
     	sb.append(" left join T_CON_ContractBill con on con.fid = bill.FContractId ");
+    	sb.append(" left join T_PM_User u on u.fid = bill.FCreatorID");
     	sb.append(" where bill.fid = '").append(billId).append("'");
     	
     	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
@@ -388,34 +390,34 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     		this.kDTable1.getCell(4, 1).setValue(rowset.getString(9));
     		this.kDTable1.getCell(5, 1).setValue(rowset.getString(10));
     		this.kDTable1.getCell(22, 1).setValue(rowset.getString(13));
+    		this.kDTable1.getCell(15, 1).setValue(rowset.getString(14));
     		//合同总价
     		this.kDTable1.getCell(6, 7).setValue(rowset.getString(11));
     		BigDecimal Htzj = UIRuleUtil.getBigDecimal(this.kDTable1.getCell(6, 7).getValue()) ;
     		//变更金额
     		BigDecimal Bgje = UIRuleUtil.getBigDecimal(this.kDTable1.getCell(6, 7).getValue());
     		this.kDTable1.getCell(6, 1).setValue(FDCClientHelper.getChineseFormat(Bgje,false));
-    		//本次核定付款金额
-    		this.kDTable1.getCell(9, 7).setValue(rowset.getString(12));
-    		BigDecimal Bchdje = UIRuleUtil.getBigDecimal(this.kDTable1.getCell(9, 7).getValue());
-    		this.kDTable1.getCell(9, 1).setValue(FDCClientHelper.getChineseFormat(Bgje,false));
 
+    		//变更签证
+    		BigDecimal Bgqz = getContractChange(billId);    	
+    		this.kDTable1.getCell(7, 7).setValue(Bgqz);
+    		this.kDTable1.getCell(7, 1).setValue(FDCClientHelper.getChineseFormat(Bgqz, false));
     		
-    		
-    	//变更签证
-    	BigDecimal Bgqz = getContractChange(billId);    	
-    	 	this.kDTable1.getCell(7, 7).setValue(Bgqz);
-    	 	this.kDTable1.getCell(7, 1).setValue(FDCClientHelper.getChineseFormat(Bgqz, false));
+    		//结算金额 	
+    		BigDecimal jsje = getJsjine(billId);
+    		this.kDTable1.getCell(8, 7).setValue(jsje);
+    		this.kDTable1.getCell(8,1).setValue(FDCClientHelper.getChineseFormat(jsje, false));
     	 	
-    	 //结算金额 	
-	 	BigDecimal jsje = getJsjine(billId);
-	 		this.kDTable1.getCell(8, 7).setValue(jsje);
-	 		this.kDTable1.getCell(8,1).setValue(FDCClientHelper.getChineseFormat(jsje, false));
+	 		//本次核定付款金额
+	 		this.kDTable1.getCell(9, 7).setValue(rowset.getString(12)==null?0:rowset.getString(12));
+	 		BigDecimal Bchdje = UIRuleUtil.getBigDecimal(this.kDTable1.getCell(9, 7).getValue());
+	 		this.kDTable1.getCell(9, 1).setValue(FDCClientHelper.getChineseFormat(Bchdje,false));
 
- 		//累计核定金额
- 		BigDecimal lj = getljsf(billId);
- 			this.kDTable1.getCell(10, 7).setValue(Bchdje.add(lj));
- 			this.kDTable1.getCell(10, 1).setValue(FDCClientHelper.getChineseFormat(Bchdje.add(lj), false));
- 			
+	 		//累计核定金额
+	 		BigDecimal lj = getljsf(billId);
+	 		this.kDTable1.getCell(10, 7).setValue(Bchdje.add(lj));
+	 		this.kDTable1.getCell(10, 1).setValue(FDCClientHelper.getChineseFormat(Bchdje.add(lj), false));
+	 		
 		//以前累计金额
  			this.kDTable1.getCell(11, 7).setValue(lj);
  			this.kDTable1.getCell(11, 1).setValue(FDCClientHelper.getChineseFormat(lj, false));				
@@ -433,8 +435,8 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
 		this.kDTable1.getCell(14, 1).setValue(FDCClientHelper.getChineseFormat(Htzj.subtract(lj), false));			
  			
  			//工作流审批意见
-	 		Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
-	    	this.kDTable1.getCell(15, 1).setValue(apporveResultForMap.get("业务经办人"));
+	 		Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForPerson(billId);
+//	    	this.kDTable1.getCell(15, 1).setValue(apporveResultForMap.get("业务经办人"));
 	    	this.kDTable1.getCell(15, 5).setValue(apporveResultForMap.get("经办部门负责人"));
 	    	this.kDTable1.getCell(16, 1).setValue(apporveResultForMap.get("相关部门联审"));
 	    	this.kDTable1.getCell(16, 5).setValue(apporveResultForMap.get("联审部门负责人"));
@@ -595,10 +597,10 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
 		return lstReqAmt;
     }
 
-//    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
-//    	super.kDTable1_tableClicked(e);
-//    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
-//    }
+    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
+    	super.kDTable1_tableClicked(e);
+    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
+    }
     
     public void actionSave_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSave_actionPerformed(e);

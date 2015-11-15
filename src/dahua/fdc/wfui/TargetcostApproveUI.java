@@ -314,10 +314,10 @@ public class TargetcostApproveUI extends AbstractTargetcostApproveUI
     	
 
  		//工作流审批意见
-    	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
+    	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForPerson(billId);
     	this.kDTable1.getCell(7, 3).setValue(apporveResultForMap.get("营销部经办人"));
     	this.kDTable1.getCell(8, 3).setValue(apporveResultForMap.get("营销部"));
-    	this.kDTable1.getCell(8, 6).setValue(apporveResultForMap.get("成本管理部"));
+    	this.kDTable1.getCell(8, 6).setValue(apporveResultForMap.get("成本管理部(组)"));
     	this.kDTable1.getCell(9, 3).setValue(apporveResultForMap.get("设计部"));
     	this.kDTable1.getCell(9, 6).setValue(apporveResultForMap.get("财务部"));
     	this.kDTable1.getCell(10, 3).setValue(apporveResultForMap.get("项目公司第一负责人"));

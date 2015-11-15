@@ -220,7 +220,7 @@ public class TargetCost1UI extends AbstractTargetCost1UI
     	
     	String billId = editData.getId()!=null?editData.getId().toString():"wgnhf9P3R26Ot1IJWj08opkZNJQ="; //锁定单子ID
     	StringBuffer sb = new StringBuffer();
-    	sb.append(" select b.fname_l2,c.fname_l2,a.CFaddress ");
+    	sb.append(" select b.fname_l2,c.fname_l2,a.CFaddress,,to_char(a.FBizDate,'yyyy-mm-dd') 提出时间");
     	sb.append(" from  T_AIM_MeasureCost  a  ");
     	sb.append(" left join T_FDC_CurProject  b on a.FProjectID=b.fid ");
     	sb.append(" left join T_ORG_BaseUnit  c on b.FFullOrgUnit=c.fid ");
@@ -232,10 +232,11 @@ public class TargetCost1UI extends AbstractTargetCost1UI
     		this.kDTable1.getCell(2, 1).setValue(rowset.getString(3));
     		this.kDTable1.getCell(3, 1).setValue(rowset.getString(2));
     		this.kDTable1.getCell(4, 1).setValue(rowset.getString(2));
+    		this.kDTable1.getCell(11, 1).setValue(rowset.getString(4));
     	}
     	
     	//工作流中的字段
-    	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
+    	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForPerson(billId);
     	this.kDTable1.getCell(5, 2).setValue(apporveResultForMap.get("前期部"));
     	this.kDTable1.getCell(5, 4).setValue(apporveResultForMap.get("营销部"));
     	this.kDTable1.getCell(5, 6).setValue(apporveResultForMap.get("工程部"));
@@ -254,7 +255,7 @@ public class TargetCost1UI extends AbstractTargetCost1UI
     	this.kDTable1.getCell(9, 4).setValue(apporveResultForMap.get("运营管理中心"));
     	this.kDTable1.getCell(9, 6).setValue(apporveResultForMap.get("财务管理中心"));
     	this.kDTable1.getCell(10, 2).setValue(apporveResultForMap.get("工程成本副总裁"));
-    	this.kDTable1.getCell(10, 4).setValue(apporveResultForMap.get("执行"));
+    	this.kDTable1.getCell(10, 4).setValue(apporveResultForMap.get("执行副总裁"));
     	this.kDTable1.getCell(11, 1).setValue(apporveResultForMap.get("业务副总裁"));
     	this.kDTable1.getCell(10, 6).setValue(apporveResultForMap.get("总裁日期"));
 	}

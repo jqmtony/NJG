@@ -150,7 +150,7 @@ public class TechnologyeconomyApproveUI extends AbstractTechnologyeconomyApprove
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FNumber 单据编号1,contractB.fnumber 合同编号2,ChangeAB.Freadesc 签证事由3,");
     	sb.append(" ChangeAB.CFcompDate 项目完成时间4,ChangeAB.CFconstructionHead 施工负责人5,");
-    	sb.append(" ChangeAB.CFBIMUDF0052ID 经办人6,ChangeAB.CFworkNote 实际工作内容描述7,ject.fName_l2 工程名称");
+    	sb.append(" ChangeAB.CFBIMUDF0052ID 经办人6,ChangeAB.CFworkNote 实际工作内容描述7,ject.fName_l2 工程名称,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
@@ -171,23 +171,43 @@ public class TechnologyeconomyApproveUI extends AbstractTechnologyeconomyApprove
     		this.kDTable1.getCell(3, 1).setValue(rowset.getString(5));
     		this.kDTable1.getCell(3, 3).setValue(rowset.getString(6));
     		this.kDTable1.getCell(4, 1).setValue(rowset.getString(7));
-    		this.kDTable1.getCell(9, 2).setValue(rowset.getString(6));
-    		this.kDTable1.getCell(9, 4).setValue(rowset.getString(5));
+//    		this.kDTable1.getCell(9, 2).setValue(rowset.getString(6));
+//    		this.kDTable1.getCell(9, 4).setValue(rowset.getString(5));
+    		this.kDTable1.getCell(20, 4).setValue(rowset.getString(9));
     	}
     	
     	//工作流审批意见
     	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
-    	this.kDTable1.getCell(9, 0).setValue(apporveResultForMap.get("项目主管工程师（项目经理）意见；审核人"));
-    	this.kDTable1.getCell(12, 0).setValue(apporveResultForMap.get("造价工程师意见；审核人"));
-    	this.kDTable1.getCell(16, 1).setValue(apporveResultForMap.get("收文签证；审核人"));
-    	this.kDTable1.getCell(16, 3).setValue(apporveResultForMap.get("时间；时间"));
-    	
+    	if(apporveResultForMap.get("工程部") != null){
+    		//总意见
+    		String result = apporveResultForMap.get("工程部");	
+    		String person = result.substring(0,result.indexOf("!"));  		
+    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+//    		String date = result.substring(result.indexOf("@")+1);
+    		this.kDTable1.getCell(12, 4).setValue(person);
+    		this.kDTable1.getCell(10, 1).setValue(yijian);
+    	}
+    	if(apporveResultForMap.get("成本部") != null){
+    		//总意见
+    		String result = apporveResultForMap.get("工程部");	
+    		String person = result.substring(0,result.indexOf("!"));  		
+    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		this.kDTable1.getCell(14, 4).setValue(person);
+    		this.kDTable1.getCell(13, 1).setValue(yijian);
+    	}
+    	//工作流审批意见
+    	Map<String, String> apporveResultForMaptwo = WFResultApporveHelper.getApporveResultForPerson(billId);
+    			this.kDTable1.getCell(36, 4).setValue(apporveResultForMaptwo.get("项目公司第一负责人"));
+    			this.kDTable1.getCell(18, 4).setValue(apporveResultForMaptwo.get("成本管理中心"));
+    			this.kDTable1.getCell(19, 4).setValue(apporveResultForMaptwo.get("工程成本副总裁"));
+    			this.kDTable1.getCell(20, 1).setValue(apporveResultForMaptwo.get("收文签字"));
+
     }
     
-//    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
-//    	super.kDTable1_tableClicked(e);
-//    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
-//    }
+    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
+    	super.kDTable1_tableClicked(e);
+    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
+    }
 
     public void actionSave_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSave_actionPerformed(e);
@@ -203,17 +223,14 @@ public class TechnologyeconomyApproveUI extends AbstractTechnologyeconomyApprove
     
     protected void verifyInput(ActionEvent actionevent) throws Exception {
     	super.verifyInput(actionevent);
-    	if(getOprtState().equals("自定义")){//如果是自定义状态打开
-    		//如果为空则提示
-    		if(1!=1){
-    			FDCMsgBox.showInfo("自定义状态");
-    			SysUtil.abort();
-    		}
-//    		SelectorItemCollection sic = new SelectorItemCollection();
-//    		sic.add("number");
-    		editData.setNumber("1111位");
-//    		AimAimCostAdjustFactory.getRemoteInstance().updatePartial(editData, sic);
-    	}
+//    	if(getOprtState().equals("自定义")){//如果是自定义状态打开
+//    		//如果为空则提示
+//    		if(1!=1){
+//    			FDCMsgBox.showInfo("自定义状态");
+//    			SysUtil.abort();
+//    		}
+
+    	
     }
     
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {

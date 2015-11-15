@@ -48,6 +48,27 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     public void onLoad() throws Exception {
     	super.onLoad();
     	initUI();
+    	
+    	kDTable1.getStyleAttributes().setLocked(true);
+    	if (getOprtState().equals("设计部修改")){
+    		kDTable1.getRow(7).getStyleAttributes().setLocked(false);
+    	}
+    	if (getOprtState().equals("工程部修改")){
+    		kDTable1.getRow(5).getStyleAttributes().setLocked(false);
+    		kDTable1.getRow(8).getStyleAttributes().setLocked(false);
+    		kDTable1.getRow(9).getStyleAttributes().setLocked(false);
+    	}
+    	if (getOprtState().equals("销售部修改")){
+    		kDTable1.getRow(10).getStyleAttributes().setLocked(false);
+    		kDTable1.getRow(11).getStyleAttributes().setLocked(false);
+    	}
+    	if (getOprtState().equals("前期配套部修改")){
+    		kDTable1.getRow(12).getStyleAttributes().setLocked(false);
+    	}
+//    	if (getOprtState().equals("成本部修改")){
+//    		kDTable1.getRow(6).getStyleAttributes().setLocked(false);
+//    		kDTable1.getRow(11).getStyleAttributes().setLocked(false);
+//    	}
     }
     
     private void initUI() throws BOSException, SQLException{
@@ -247,8 +268,6 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	addRow212.getCell(7).setEditor(editor);
     	addRow212.getCell(7).setValue(Boolean.FALSE);
     	addRow212.getCell(8).setValue("无影响");
-    	
-    	
 
     	mergeManager2.mergeBlock(10, 2, 11, 3);
     	
@@ -269,9 +288,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	addRow214.getCell(2).setValue("成 本 部");
     	addRow214.getCell(4).setValue("估算工程费增减总价：");
     	addRow214.getCell(10).setValue("万元");
-    	mergeManager2.mergeBlock(13, 4, 13, 8);
-    	
-    	
+    	mergeManager2.mergeBlock(13, 4, 13, 8);   	
     	
     	IRow addRow215 = this.kDTable2.addRow();
     	addRow215.getCell(4).setValue("其中返工造成的签证费用估算：");
@@ -299,9 +316,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	
     	mergeManager2.mergeBlock(13, 2, 17, 3);
     	mergeManager2.mergeBlock(6, 0, 17, 1);
-    	
-    	
-    	
+       	    	
     	IRow addRow219 = this.kDTable2.addRow();
     	addRow219.getCell(0).setValue("公司第一负责人:");
     	
@@ -384,7 +399,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	String billId = editData.getId()!=null?editData.getId().toString():"099ZGQatSJe5KUx/CzBJ03ARYRc=";
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 核定编号,contractB.fname 合同名称3,contractB.fnumber 合同编号4 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间, ChangeAB.Freadesc 核定内容");
-//    	sb.append(" supplier.fname_l2 建设单位施工, ChangeAB.Freadesc 核定内容6,BaseU.Fname_l2  提出方,ChangeAB.FNumber 申请编号2");
+    	sb.append(" BaseU.Fname_l2  提出方,ChangeAE.FIsBack isBack");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
@@ -394,6 +409,9 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	sb.append(" where ChangeAB.fid = '").append(billId).append("'");
     	
     	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
+    	String Bm = null;
+    	//返工
+    	boolean fg = false;
     	while(rowset.next()){
     		kDTextField1.setText(rowset.getString(1));
     		kDTextField2.setText(rowset.getString(2));
@@ -404,56 +422,77 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		this.kDTable1.getCell(2, 1).setValue(rowset.getString(3));
     		this.kDTable1.getCell(2, 3).setValue(rowset.getString(4));
     		this.kDTable1.getCell(3, 1).setValue(rowset.getString(6));
+    		Bm = rowset.getString(7);
+    		
     		this.kDTable2.getCell(0, 2).setValue(rowset.getString(3));
     		this.kDTable2.getCell(1, 2).setValue(rowset.getString(4));
     		this.kDTable2.getCell(1, 11).setValue(rowset.getString(5));
+    		if(rowset.getBoolean("isBack"))
+    			fg = true;	
+    		if(Bm != null && Bm.indexOf("设计")!=-1)
+        	{
+    			addRow23.getCell(2).setValue(Boolean.TRUE);
+        	}
+        	else if(Bm.indexOf("工程")!=-1)
+        	{
+        		addRow23.getCell(5).setValue(Boolean.TRUE);
+        	}
+        	else if(Bm.indexOf("配套")!=-1)
+        	{
+        		addRow23.getCell(7).setValue(Boolean.TRUE);
+        	}
+        	else if(Bm.indexOf("销售")!=-1)
+        	{
+        		addRow23.getCell(9).setValue(Boolean.TRUE);
+        	}
+        	else 
+        	{
+        		addRow23.getCell(11).setValue(Boolean.TRUE);
+        	}
+        	//返工
+        	if(fg){
+        		this.kDTable2.getCell(9, 7).setValue(Boolean.TRUE);
+        	}
+        	else{
+        		this.kDTable2.getCell(9, 5).setValue(Boolean.TRUE);
+        	}
     	}
     	
     	
     	//工作流审批意见
     	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
-    	this.kDTable1.getCell(7, 1).setValue(apporveResultForMap.get("施工单位经办"));
-    	this.kDTable1.getCell(7, 3).setValue(apporveResultForMap.get("施工单位审批"));
-    	this.kDTable1.getCell(8, 1).setValue(apporveResultForMap.get("监理单位签字"));
-    	this.kDTable1.getCell(8, 1).setValue(apporveResultForMap.get("监理单位盖章"));
-    	this.kDTable1.getCell(9, 1).setValue(apporveResultForMap.get("设计单位签字"));
-    	this.kDTable1.getCell(9, 1).setValue(apporveResultForMap.get("设计单位盖章"));
-    	this.kDTable1.getCell(10, 1).setValue(apporveResultForMap.get("建设单位签字"));
-    	this.kDTable1.getCell(10, 1).setValue(apporveResultForMap.get("建设单位盖章"));
+//    	this.kDTable1.getCell(7, 1).setValue(apporveResultForMap.get("施工单位经办"));
+//    	this.kDTable1.getCell(7, 3).setValue(apporveResultForMap.get("施工单位审批"));
+    	this.kDTable1.getCell(8, 1).setValue(apporveResultForMap.get("设计单位"));
+//    	this.kDTable1.getCell(8, 1).setValue(apporveResultForMap.get("监理单位盖章"));
+    	this.kDTable1.getCell(9, 1).setValue(apporveResultForMap.get("设计单位"));
+//    	this.kDTable1.getCell(9, 1).setValue(apporveResultForMap.get("设计单位盖章"));
+    	this.kDTable1.getCell(10, 1).setValue(apporveResultForMap.get("建设单位"));
+//    	this.kDTable1.getCell(10, 1).setValue(apporveResultForMap.get("建设单位盖章"));
     	
-
-//    	设计部，影响，负责人，意见
-//    	工程部，影响，负责人，意见
-//    	销售部，影响，负责人，意见
-//    	前期配套部，影响，负责人，意见
-//    	合约部，影响（各项指标），负责人，意见
-//    	公司第一负责人，意见，签字，日期
-//    	工程管理部
-//    	合约审算部
-//    	中心负责人
-//    	分管副总裁审批
-
-    	this.kDTable2.getCell(7, 11).setValue(apporveResultForMap.get("设计部，负责人"));
-    	this.kDTable2.getCell(7, 12).setValue(apporveResultForMap.get("设计部，意见"));
-//    	this.kDTable2.getCell(10, 1).setValue(apporveResultForMap.get("工程部，影响"));
-    	this.kDTable2.getCell(8, 11).setValue(apporveResultForMap.get("工程部，负责人"));
-    	this.kDTable2.getCell(8, 12).setValue(apporveResultForMap.get("工程部，意见"));
-//    	this.kDTable2.getCell(10, 1).setValue(apporveResultForMap.get("销售部，影响"));
-    	this.kDTable2.getCell(9, 11).setValue(apporveResultForMap.get("销售部，负责人"));
-    	this.kDTable2.getCell(9, 12).setValue(apporveResultForMap.get("销售部，意见"));
-//    	this.kDTable2.getCell(10, 1).setValue(apporveResultForMap.get("前期配套部，影响"));
-    	this.kDTable2.getCell(10, 11).setValue(apporveResultForMap.get("前期配套部，负责人"));
-    	this.kDTable2.getCell(10, 12).setValue(apporveResultForMap.get("前期配套部，意见"));
-//    	this.kDTable2.getCell(10, 1).setValue(apporveResultForMap.get("合约部，影响"));
-    	this.kDTable2.getCell(11, 11).setValue(apporveResultForMap.get("合约部，负责人"));
-    	this.kDTable2.getCell(11, 12).setValue(apporveResultForMap.get("合约部，意见"));
-    	this.kDTable2.getCell(17, 2).setValue(apporveResultForMap.get("公司第一负责人，意见"));
-    	this.kDTable2.getCell(18, 4).setValue(apporveResultForMap.get("公司第一负责人，签字"));
-    	this.kDTable2.getCell(18, 12).setValue(apporveResultForMap.get("公司第一负责人，日期"));
-    	this.kDTable2.getCell(19, 4).setValue(apporveResultForMap.get("工程管理部"));
-    	this.kDTable2.getCell(19, 12).setValue(apporveResultForMap.get("合约审算部"));
-    	this.kDTable2.getCell(20, 4).setValue(apporveResultForMap.get("中心负责人"));
-    	this.kDTable2.getCell(20, 12).setValue(apporveResultForMap.get("分管副总裁审批"));
+    	if(apporveResultForMap.get("公司第一负责人") != null){
+    		//总意见
+    		String result = apporveResultForMap.get("公司第一负责人");
+    		
+    		String person = result.substring(0,result.indexOf("!"));  		
+    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		String date = result.substring(result.indexOf("@")+1);
+    		this.kDTable2.getCell(18, 2).setValue(yijian);  		
+    		this.kDTable2.getCell(20, 10).setValue(person);
+    		if(!"".equals(date))
+    			this.kDTable2.getCell(20, 12).setValue(date);
+    	}
+    	
+    	//工作流审批意见
+    	Map<String, String> apporveResultForMaptwo = WFResultApporveHelper.getApporveResultForPerson(billId);
+    			this.kDTable2.getCell(21, 4).setValue(apporveResultForMaptwo.get("工程管理中心"));
+    			this.kDTable2.getCell(22, 4).setValue(apporveResultForMaptwo.get("成本管理中心"));
+    			this.kDTable2.getCell(23, 4).setValue(apporveResultForMaptwo.get("营销管理中心"));
+    			this.kDTable2.getCell(24, 4).setValue(apporveResultForMaptwo.get("商业管理中心"));
+    			this.kDTable2.getCell(25, 4).setValue(apporveResultForMaptwo.get("运营管理中心"));
+    			this.kDTable2.getCell(26, 4).setValue(apporveResultForMaptwo.get("工程成本副总裁"));
+    			this.kDTable2.getCell(27, 4).setValue(apporveResultForMaptwo.get("执行副总裁"));
+    			this.kDTable2.getCell(28, 4).setValue(apporveResultForMaptwo.get("总裁"));
     	
     }
     
@@ -469,28 +508,138 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
 
     public void actionSave_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSave_actionPerformed(e);
-//    	UIContext uiContext = new UIContext(this);
-//		IUIWindow uiWindow = null;
-//		uiContext.put("ID", "7v36HV4ES6+HQ7TfX3B27QTHsvM=");
-////		uiContext.put("ID", "++e5/LBdTYWVTKE8baOBXA1t0fQ=");
-//		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(TargetcostApproveUI.class.getName(), uiContext, null, OprtState.VIEW);
-////		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ContractBillEditUI.class.getName(), uiContext, null, OprtState.VIEW);
-//		uiWindow.show();
+
     }
     
     
     protected void verifyInput(ActionEvent actionevent) throws Exception {
     	super.verifyInput(actionevent);
-    	if(getOprtState().equals("自定义")){//如果是自定义状态打开
-    		//如果为空则提示
-    		if(1!=1){
-    			FDCMsgBox.showInfo("自定义状态");
+    	int i = 0;
+    	//设计部修改
+    	if(getOprtState().equals("设计部修改")){
+    		if((Boolean)kDTable2.getCell(7, 5).getValue())
+    			i++;
+    		if((Boolean)kDTable2.getCell(7, 7).getValue())
+    			i++;	
+    		if((Boolean)kDTable2.getCell(7, 9).getValue())
+    			i++;	
+    		if(i == 0){
+    			FDCMsgBox.showInfo("你并没有勾选");
+    			SysUtil.abort();
+    		}else if(i > 1){
+    			FDCMsgBox.showInfo("你只能勾选一个");
     			SysUtil.abort();
     		}
-//    		SelectorItemCollection sic = new SelectorItemCollection();
-//    		sic.add("number");
-    		editData.setNumber("1111位");
-//    		AimAimCostAdjustFactory.getRemoteInstance().updatePartial(editData, sic);
+    		//产品品质
+    		if((Boolean)kDTable2.getCell(8, 5).getValue()){
+    			editData.setQuality("缩短");
+			}
+			else if((Boolean)kDTable2.getCell(8, 7).getValue()) 		
+				editData.setQuality("延长");
+			else if((Boolean)kDTable2.getCell(8, 7).getValue()) 		
+				editData.setQuality("无影响");
+    	}
+    		
+    	//工程部修改
+    	if(getOprtState().equals("工程部修改")){
+    		if((Boolean)kDTable2.getCell(5, 5).getValue())
+    			i++;
+    		if((Boolean)kDTable2.getCell(5, 7).getValue())
+    			i++;			
+    		if(i == 0){
+    			FDCMsgBox.showInfo("你并没有勾选");
+    			SysUtil.abort();
+    		}else if(i > 1){
+    			FDCMsgBox.showInfo("你只能勾选一个");
+    			SysUtil.abort();
+    		}
+    		//二级节点
+			if((Boolean)kDTable2.getCell(5, 5).getValue()){
+				editData.setSfejjd(Boolean.TRUE);
+			}
+			else if((Boolean)kDTable2.getCell(5, 7).getValue()) 		
+				editData.setSfejjd(Boolean.TRUE);
+			
+			if((Boolean)kDTable2.getCell(8, 5).getValue())
+    			i++;
+    		if((Boolean)kDTable2.getCell(8, 7).getValue())
+    			i++;
+    		if((Boolean)kDTable2.getCell(8, 9).getValue())
+    			i++;
+    		if(i == 0){
+    			FDCMsgBox.showInfo("你并没有勾选");
+    			SysUtil.abort();
+    		}else if(i > 1){
+    			FDCMsgBox.showInfo("你只能勾选一个");
+    			SysUtil.abort();
+    		}
+    		//工期
+    		if((Boolean)kDTable2.getCell(8, 5).getValue()){
+    			editData.setTimeLi("缩短");
+			}
+			else if((Boolean)kDTable2.getCell(8, 7).getValue()) 		
+				editData.setTimeLi("延长");
+			else if((Boolean)kDTable2.getCell(8, 9).getValue()) 		
+				editData.setTimeLi("无影响");
+    	}
+    	//销售部修改
+    	if(getOprtState().equals("销售部修改")){
+    		if((Boolean)kDTable2.getCell(10, 5).getValue())
+    			i++;
+    		if((Boolean)kDTable2.getCell(10, 7).getValue())
+    			i++;			
+    		if(i == 0){
+    			FDCMsgBox.showInfo("你并没有勾选");
+    			SysUtil.abort();
+    		}else if(i > 1){
+    			FDCMsgBox.showInfo("你只能勾选一个");
+    			SysUtil.abort();
+    		}
+    		//销售
+			if((Boolean)kDTable2.getCell(10, 5).getValue()){
+				editData.setSale("有利");
+			}
+			else if((Boolean)kDTable2.getCell(10, 7).getValue()) 		
+				editData.setSale("无利");
+			//销售承诺
+			if((Boolean)kDTable2.getCell(11, 5).getValue())
+    			i++;
+    		if((Boolean)kDTable2.getCell(11, 7).getValue())
+    			i++;
+
+    		if(i == 0){
+    			FDCMsgBox.showInfo("你并没有勾选");
+    			SysUtil.abort();
+    		}else if(i > 1){
+    			FDCMsgBox.showInfo("你只能勾选一个");
+    			SysUtil.abort();
+    		}
+    		//工期
+    		if((Boolean)kDTable2.getCell(11, 5).getValue()){
+    			editData.setXscn(Boolean.TRUE);
+			}
+			else if((Boolean)kDTable2.getCell(11, 7).getValue()) 		
+				editData.setXscn(Boolean.TRUE);
+    	}
+    	//前期配套部修改
+    	if(getOprtState().equals("前期配套部修改")){
+    		if((Boolean)kDTable2.getCell(12, 5).getValue())
+    			i++;
+    		if((Boolean)kDTable2.getCell(12, 7).getValue())
+    			i++;			
+    		if(i == 0){
+    			FDCMsgBox.showInfo("你并没有勾选");
+    			SysUtil.abort();
+    		}else if(i > 1){
+    			FDCMsgBox.showInfo("你只能勾选一个");
+    			SysUtil.abort();
+    		}
+    		//报建指标
+			if((Boolean)kDTable2.getCell(12, 5).getValue()){
+				editData.setBjzb(Boolean.TRUE);
+			}
+			else if((Boolean)kDTable2.getCell(12, 7).getValue()) 		
+				editData.setBjzb(Boolean.TRUE);
     	}
     }
     

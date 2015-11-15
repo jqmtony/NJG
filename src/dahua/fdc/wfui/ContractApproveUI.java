@@ -101,7 +101,7 @@ public class ContractApproveUI extends AbstractContractApproveUI
 //    	addRowfour.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowfour.getCell(3).setValue("价格指标");
 //    	addRowfour.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
-    	addRowfour.getCell(4).setValue("综合单价");
+    	addRowfour.getCell(4).setValue("平米面积指标");
 //    	addRowfour.getCell(4).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(3, 0, 4, 0);
@@ -115,7 +115,7 @@ public class ContractApproveUI extends AbstractContractApproveUI
 //    	addRowfive.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowfive.getCell(3).setValue("价格指标");
 //    	addRowfive.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
-    	addRowfive.getCell(4).setValue("平米面积指标");
+    	addRowfive.getCell(4).setValue("综合单价");
 //    	addRowfive.getCell(4).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(3, 0, 4, 0);
@@ -308,6 +308,7 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	sb.append(" left join T_CON_ProgrammingContract act  on act.fid = con.FProgrammingContract ");
     	sb.append(" left join T_CON_ContractBillEntry entry on entry.FParentID=con.fid and entry.FDetail='备注' ");
     	sb.append(" where con.fid = '").append(billId).append("'");
+    	//是否是五大类
     	boolean isFiveClass = false;
     	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
     	while(rowset.next()){
@@ -342,7 +343,7 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	
 
  		//工作流审批意见
-    	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
+    	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForPerson(billId);
     	this.kDTable1.getCell(5, 3).setValue(apporveResultForMap.get("成本部"));
     	if(apporveResultForMap.get("工程部") != null){
     		this.kDTable1.getCell(6, 3).setValue(apporveResultForMap.get("工程部"));
@@ -373,33 +374,26 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	
     }
     
-    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
-    	super.kDTable1_tableClicked(e);
-    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
-    }
+//    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
+//    	super.kDTable1_tableClicked(e);
+//    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
+//    }
     
     public void actionSave_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSave_actionPerformed(e);
-//    	UIContext uiContext = new UIContext(this);
-//		IUIWindow uiWindow = null;
-//		uiContext.put("ID", "7v36HV4ES6+HQ7TfX3B27QTHsvM=");
-////		uiContext.put("ID", "++e5/LBdTYWVTKE8baOBXA1t0fQ=");
-//		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(TargetcostApproveUI.class.getName(), uiContext, null, OprtState.VIEW);
-////		uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ContractBillEditUI.class.getName(), uiContext, null, OprtState.VIEW);
-//		uiWindow.show();
     }
     
     
     protected void verifyInput(ActionEvent actionevent) throws Exception {
     	super.verifyInput(actionevent);
-    	if(getOprtState().equals("自定义")){//如果是自定义状态打开
-    		//如果为空则提示
-    		if(1!=1){
-    			FDCMsgBox.showInfo("自定义状态");
-    			SysUtil.abort();
-    		}
-    		editData.setNumber("1111位");
-    	}
+//    	if(getOprtState().equals("自定义")){//如果是自定义状态打开
+//    		//如果为空则提示
+//    		if(1!=1){
+//    			FDCMsgBox.showInfo("自定义状态");
+//    			SysUtil.abort();
+//    		}
+//    		editData.setNumber("1111位");
+//    	}
     }
     
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
