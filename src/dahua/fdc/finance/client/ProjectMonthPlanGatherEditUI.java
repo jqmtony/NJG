@@ -256,7 +256,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		
 		this.contExecuteAmount.getBoundLabel().setForeground(Color.RED);
 		
-		this.contVersionType.setEnabled(false);
+		this.contVersionType.setVisible(false);
 	}
 	public void setOprtState(String oprtType) {
 		super.setOprtState(oprtType);
@@ -809,7 +809,9 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 				{
 					BigDecimal dfAmount = UIRuleUtil.getBigDecimal(row.getCell(sp-4).getValue());
 					row.getCell(sp-5).setValue(dfAmount.add(amount));
+//					row.getCell(sp-1).setValue(dfAmount.add(amount));
 					((ProjectMonthPlanGatherDateEntryInfo)row.getCell(sp-5).getUserObject()).setReportAmount(dfAmount.add(amount));
+//					((ProjectMonthPlanGatherDateEntryInfo)row.getCell(sp-1).getUserObject()).setCashPayment(dfAmount.add(amount));
 				}
 			}
 			
@@ -1432,7 +1434,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		amountColoun[amountColoun.length-4]=fistKey+"otherTxAmount";
 		
 		TableHelper.getFootRow(this.contractTable, amountColoun);
-		TableHelper.getFootRow(this.contractTable, new String[]{"conAmount","monthActPayAmount","actPayAmount","lastPrice","actPayAmount","noPayAmount"});
+		TableHelper.getFootRow(this.contractTable, new String[]{"monthActPayAmount","actPayAmount","lastPrice","actPayAmount","noPayAmount"});
 //		CRMClientHelper.getFootRow(this.bgTable, amountColoun);
 	}
 	public SelectorItemCollection getSelectors() {
@@ -2143,7 +2145,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
                 				gdEntry.setMonth(dEntry.getMonth());
                 				gdEntry.setRemark(dEntry.getRemark());
                 				gdEntry.setPayType(dEntry.getPayType());
-                				gdEntry.setCashPayment(dEntry.getAmount());
+                				gdEntry.setCashPayment(dEntry.getReportAmount());
                 				gdEntry.setId(BOSUuid.create(gdEntry.getBOSType()));
                 				
                 				entry.getDateEntry().add(gdEntry);
@@ -2179,7 +2181,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             				gdEntry.setRemark(dEntry.getRemark());
 //            				gdEntry.setUseType(dEntry.getUseType());
             				gdEntry.setPayType(dEntry.getPayType());
-            				gdEntry.setCashPayment(dEntry.getAmount());
+            				gdEntry.setCashPayment(dEntry.getReportAmount());
             				gdEntry.setId(BOSUuid.create(gdEntry.getBOSType()));
             				
             				String key=dEntry.getYear()+"year"+dEntry.getMonth()+"m";
@@ -2331,19 +2333,33 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
         			entryInfo.setName(currentDZBContract.getName());
 //        			entryInfo.setContractBill(currentDZBContract);
         			entryInfo.setId(BOSUuid.create(entryInfo.getBOSType()));
+        			int sYear=this.spYear.getIntegerVlaue().intValue();
+            		int sMonth=this.spMonth.getIntegerVlaue().intValue()+1;
+            		if(sMonth > 12) {
+            			sYear += 1;
+            			sMonth = 1;
+            		}
+            		String nextMonthKey = sYear+"year"+sMonth+"m";
         			while(it.hasNext()) {
         				Map map = (Map) planMap.get(it.next().toString());
         				BigDecimal amount = (BigDecimal) map.get("amount");
         				Integer year = (Integer) map.get("year");
         				Integer month = (Integer) map.get("month");
+        				BigDecimal reportAmount = amount;
+        				String key = year.intValue()+"year"+month.intValue()+"m";
+        				if(key.equals(nextMonthKey)) {
+        					BigDecimal preFBTotalAmount = getPreFBTotalAmount(editData.getCurProject(), sYear, sMonth);
+        					BigDecimal fbactPayAmount = getFBActPayAmount(editData.getCurProject(), sYear, sMonth);
+        					reportAmount = preFBTotalAmount.subtract(fbactPayAmount);
+        				}
         				PaymentTypeInfo payType = (PaymentTypeInfo) map.get("paymentType");
         				ProjectMonthPlanGatherDateEntryInfo gdEntry=new ProjectMonthPlanGatherDateEntryInfo();
         				gdEntry.setYear(year);
         				gdEntry.setMonth(month);
         				gdEntry.setAmount(amount.multiply(new BigDecimal("0.1")));
         				gdEntry.setPayType(payType);
-        				gdEntry.setReportAmount(amount.multiply(new BigDecimal("0.1")));
-        				gdEntry.setCashPayment(amount.multiply(new BigDecimal("0.1")));
+        				gdEntry.setReportAmount(reportAmount.multiply(new BigDecimal("0.1")));
+        				gdEntry.setCashPayment(reportAmount.multiply(new BigDecimal("0.1")));
         				gdEntry.setId(BOSUuid.create(gdEntry.getBOSType()));
         				
         				entryInfo.getDateEntry().add(gdEntry);
@@ -2447,6 +2463,62 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
     	return amount;
 	}
 	/**
+	 * 获取某项目分包合同截止到当前年月后一个月（包含后一月）之前的所有计划金额
+	 */
+	private BigDecimal getPreFBTotalAmount(CurProjectInfo info, int year, int month) {
+		BigDecimal amount = BigDecimal.ZERO;
+		EntityViewInfo view=new EntityViewInfo();
+    	FilterInfo filter=new FilterInfo();
+    	
+    	filter.getFilterItems().add(new FilterItemInfo("head.contractBill.curProject.id",info.getId().toString()));
+    	filter.getFilterItems().add(new FilterItemInfo("head.state",FDCBillStateEnum.AUDITTED_VALUE));
+    	filter.getFilterItems().add(new FilterItemInfo("head.isLatest",Boolean.TRUE));
+    	filter.getFilterItems().add(new FilterItemInfo("payAmount",null,CompareType.NOTEQUALS));
+    	
+    	filter.getFilterItems().add(new FilterItemInfo("year", year, CompareType.LESS));
+    	
+    	filter.getFilterItems().add(new FilterItemInfo("year", year, CompareType.EQUALS));
+    	filter.getFilterItems().add(new FilterItemInfo("month", month, CompareType.LESS_EQUALS));
+    	filter.getFilterItems().add(new FilterItemInfo("head.contractBill.contractType.longnumber", "fb%", CompareType.LIKE));
+    	
+    	filter.setMaskString("#0 and #1 and #2 and #3 and (#4 or (#5 and #6)) and #7");
+    	
+    	view.setFilter(filter);
+    	view.getSelector().add("*");
+    	view.getSelector().add("paymentType.*");
+    	view.getSelector().add("head.contractBill.programmingContract.name");
+    	view.getSelector().add("head.contractBill.programmingContract.amount");
+    	view.getSelector().add("head.contractBill.id");
+    	view.getSelector().add("head.contractBill.contractType.id");
+    	view.getSelector().add("head.contractBill.contractType.number");
+    	view.getSelector().add("head.contractBill.contractType.longnumber");
+    	view.getSelector().add("head.contractBill.curProject.id");
+    	view.getSelector().add("head.contractBill.number");
+    	view.getSelector().add("head.contractBill.name");
+    	view.getSelector().add("head.contractBill.amount");
+    	view.getSelector().add("head.contractBill.programmingContract.id");
+    	view.getSelector().add("head.respPerson.*");
+    	view.getSelector().add("head.department");
+    	SorterItemCollection sort=new SorterItemCollection();
+    	SorterItemInfo number=new SorterItemInfo("head.contractBill.number");
+    	number.setSortType(SortType.ASCEND);
+    	sort.add(number);
+    	
+    	view.setSorter(sort);
+    	try {
+			ContractPayPlanEntryCollection col=ContractPayPlanEntryFactory.getRemoteInstance().getContractPayPlanEntryCollection(view);
+			for(int i = 0; i< col.size(); i++) {
+				BigDecimal payAmount = col.get(i).getPayAmount();
+				amount = amount.add(payAmount);
+			}
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
+    	
+    	
+    	return amount;
+	}
+	/**
 	 * 获取合同累计付款（截止到当前月底）
 	 * @param info
 	 * @return
@@ -2464,6 +2536,45 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		_builder.appendSql(" select sum(famount) payAmount from t_cas_paymentbill where fbillstatus=15 and fcontractbillid='"+info.getId().toString()+"'");
 		_builder.appendSql(" and fpayDate is not null and famount is not null");
 		_builder.appendSql(" and fpayDate < {ts '"+FDCConstants.FORMAT_TIME.format(FDCDateHelper.getSQLEnd(FDCDateHelper.getFirstDayOfMonth(cal.getTime())))+ "'}");
+		try {
+			IRowSet rowSet = _builder.executeQuery();
+			while(rowSet.next()){
+				actAmount=rowSet.getBigDecimal("payAmount") == null ? BigDecimal.ZERO : rowSet.getBigDecimal("payAmount");
+			}
+		} catch (BOSException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return actAmount;
+	}
+	/**
+	 * 获取分包合同累计付款（截止到当前月底）
+	 * @param info
+	 * @return
+	 */
+	private BigDecimal getFBActPayAmount(CurProjectInfo info, int year, int month) {
+		BigDecimal actAmount = BigDecimal.ZERO;
+		
+		Calendar cal = Calendar.getInstance();
+		cal.clear();
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.MONTH, month-1);
+		cal.set(Calendar.DAY_OF_MONTH, 1);
+		
+		FDCSQLBuilder _builder = new FDCSQLBuilder();
+		_builder.appendSql(" select sum(bill.famount) payAmount from t_cas_paymentbill bill");
+		_builder.appendSql(" left join t_con_contractbill contract on contract.fid=bill.fcontractbillid");
+		_builder.appendSql(" left join t_fdc_curproject project on project.fid=contract.fcurprojectid");
+		_builder.appendSql(" left join t_Fdc_Contracttype type on type.fid=contract.fcontracttypeid");
+		_builder.appendSql(" where bill.fbillstatus=15 and type.flongnumber like 'fb%'");
+		_builder.appendSql(" and project.fid='"+info.getId().toString()+"'");
+		_builder.appendSql(" and bill.fpayDate is not null and bill.famount is not null");
+		_builder.appendSql(" and bill.fpayDate < {ts '"+FDCConstants.FORMAT_TIME.format(FDCDateHelper.getSQLEnd(FDCDateHelper.getFirstDayOfMonth(cal.getTime())))+ "'}");
+		
+//		_builder.appendSql(" select sum(famount) payAmount from t_cas_paymentbill where fbillstatus=15 and fcontractbillid='"+info.getId().toString()+"'");
+//		_builder.appendSql(" and fpayDate is not null and famount is not null");
+//		_builder.appendSql(" and fpayDate < {ts '"+FDCConstants.FORMAT_TIME.format(FDCDateHelper.getSQLEnd(FDCDateHelper.getFirstDayOfMonth(cal.getTime())))+ "'}");
 		try {
 			IRowSet rowSet = _builder.executeQuery();
 			while(rowSet.next()){
@@ -2559,7 +2670,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
     	
     	filter.getFilterItems().add(new FilterItemInfo("curProject.id",this.editData.getCurProject().getId().toString()));
     	filter.getFilterItems().add(new FilterItemInfo("state",FDCBillStateEnum.AUDITTED_VALUE));
-    	filter.getFilterItems().add(new FilterItemInfo("contractType.longnumber","016%", CompareType.LIKE));
+    	filter.getFilterItems().add(new FilterItemInfo("contractType.longnumber","fb%", CompareType.LIKE));
     	
     	try {
     		coll = ContractBillFactory.getRemoteInstance().getContractBillCollection(view);
@@ -2905,7 +3016,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 				amountColoun[amountColoun.length-4]=fistKey+"otherTxAmount";
 				
 				TableHelper.getFootRow(this.contractTable, amountColoun);
-				TableHelper.getFootRow(this.contractTable, new String[]{"conAmount","monthActPayAmount","actPayAmount","lastPrice","actPayAmount","noPayAmount"});
+				TableHelper.getFootRow(this.contractTable, new String[]{"monthActPayAmount","actPayAmount","lastPrice","actPayAmount","noPayAmount"});
 			}
 		}
 	}

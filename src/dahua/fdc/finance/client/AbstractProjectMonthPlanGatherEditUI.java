@@ -437,20 +437,20 @@ public abstract class AbstractProjectMonthPlanGatherEditUI extends com.kingdee.e
         this.add(pnlBig, new KDLayout.Constraints(10, 147, 991, 419, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contVersion.setBounds(new Rectangle(732, 8, 270, 19));
         this.add(contVersion, new KDLayout.Constraints(732, 8, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contYear.setBounds(new Rectangle(732, 53, 189, 19));
-        this.add(contYear, new KDLayout.Constraints(732, 53, 189, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabel1.setBounds(new Rectangle(926, 53, 15, 19));
-        this.add(kDLabel1, new KDLayout.Constraints(926, 53, 15, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        spMonth.setBounds(new Rectangle(946, 53, 40, 19));
-        this.add(spMonth, new KDLayout.Constraints(946, 53, 40, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabel2.setBounds(new Rectangle(990, 53, 15, 19));
-        this.add(kDLabel2, new KDLayout.Constraints(990, 53, 15, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contYear.setBounds(new Rectangle(732, 30, 189, 19));
+        this.add(contYear, new KDLayout.Constraints(732, 30, 189, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel1.setBounds(new Rectangle(926, 30, 15, 19));
+        this.add(kDLabel1, new KDLayout.Constraints(926, 30, 15, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        spMonth.setBounds(new Rectangle(946, 30, 40, 19));
+        this.add(spMonth, new KDLayout.Constraints(946, 30, 40, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel2.setBounds(new Rectangle(990, 30, 15, 19));
+        this.add(kDLabel2, new KDLayout.Constraints(990, 30, 15, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contCycle.setBounds(new Rectangle(371, 30, 270, 19));
         this.add(contCycle, new KDLayout.Constraints(371, 30, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         btnGet.setBounds(new Rectangle(882, 118, 119, 25));
         this.add(btnGet, new KDLayout.Constraints(882, 118, 119, 25, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contVersionType.setBounds(new Rectangle(732, 30, 270, 19));
-        this.add(contVersionType, new KDLayout.Constraints(732, 30, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contVersionType.setBounds(new Rectangle(732, 97, 270, 19));
+        this.add(contVersionType, new KDLayout.Constraints(732, 97, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contExecuteAmount.setBounds(new Rectangle(732, 75, 270, 19));
         this.add(contExecuteAmount, new KDLayout.Constraints(732, 75, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contNumber
@@ -502,9 +502,13 @@ public abstract class AbstractProjectMonthPlanGatherEditUI extends com.kingdee.e
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(kDSeparator1);
+        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemSave);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(menuItemSubmit);
+        menuFile.add(menuItemCloudShare);
         menuFile.add(menuSubmitOption);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(rMenuItemSubmit);
         menuFile.add(rMenuItemSubmitAndAddNew);
         menuFile.add(rMenuItemSubmitAndPrint);
@@ -565,6 +569,7 @@ public abstract class AbstractProjectMonthPlanGatherEditUI extends com.kingdee.e
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemMsgFormat);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuWorkflow
         menuWorkflow.add(menuItemStartWorkFlow);
         menuWorkflow.add(separatorWF1);
@@ -596,7 +601,9 @@ public abstract class AbstractProjectMonthPlanGatherEditUI extends com.kingdee.e
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
@@ -621,6 +628,7 @@ public abstract class AbstractProjectMonthPlanGatherEditUI extends com.kingdee.e
         this.toolBar.add(btnAuditResult);
         this.toolBar.add(separatorFW4);
         this.toolBar.add(btnSignature);
+        this.toolBar.add(btnNumberSign);
         this.toolBar.add(separatorFW7);
         this.toolBar.add(btnViewSignature);
         this.toolBar.add(btnCreateFrom);
@@ -781,16 +789,53 @@ public abstract class AbstractProjectMonthPlanGatherEditUI extends com.kingdee.e
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("name"));
-        sic.add(new SelectorItemInfo("curProject.*"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("curProject.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("curProject.id"));
+        	sic.add(new SelectorItemInfo("curProject.number"));
+        	sic.add(new SelectorItemInfo("curProject.name"));
+		}
         sic.add(new SelectorItemInfo("description"));
-        sic.add(new SelectorItemInfo("creator.*"));
-        sic.add(new SelectorItemInfo("auditor.*"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("creator.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("creator.id"));
+        	sic.add(new SelectorItemInfo("creator.number"));
+        	sic.add(new SelectorItemInfo("creator.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("auditor.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("auditor.id"));
+        	sic.add(new SelectorItemInfo("auditor.number"));
+        	sic.add(new SelectorItemInfo("auditor.name"));
+		}
         sic.add(new SelectorItemInfo("createTime"));
         sic.add(new SelectorItemInfo("auditTime"));
         sic.add(new SelectorItemInfo("version"));
-        sic.add(new SelectorItemInfo("cycle.*"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("cycle.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("cycle.id"));
+        	sic.add(new SelectorItemInfo("cycle.number"));
+        	sic.add(new SelectorItemInfo("cycle.name"));
+        	sic.add(new SelectorItemInfo("cycle.cycle"));
+		}
         sic.add(new SelectorItemInfo("versionType"));
         return sic;
     }        
