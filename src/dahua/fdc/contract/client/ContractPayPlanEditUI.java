@@ -152,7 +152,7 @@ public class ContractPayPlanEditUI extends AbstractContractPayPlanEditUI
 		this.actionAudit.setVisible(true);
 		this.actionAudit.setEnabled(true);
 		
-		actionAudit_actionPerformed(e);
+//		actionAudit_actionPerformed(e);
 	}
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
 		super.actionAudit_actionPerformed(e);
