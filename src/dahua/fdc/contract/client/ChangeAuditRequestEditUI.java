@@ -4,6 +4,7 @@
 package com.kingdee.eas.fdc.contract.client;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.*;
@@ -2066,8 +2067,8 @@ public class ChangeAuditRequestEditUI extends AbstractChangeAuditRequestEditUI
         //1合同名称
         ChangeAuditUtil.bindCell(table, i+curRow, 2, ChangeAuditUtil.getRes("contractName"), "mainSupp", bindCellMap);
         //记录合同的ID到列的UserObject对象里（点击合同名称打开合同查询界面用）
-        table.getRow(i + curRow).getCell(3)
-				.setUserObject(info.getContractBill() == null ? null : info.getContractBill().getId().toString());
+        String contractBillId = info.getContractBill() == null ? null : info.getContractBill().getId().toString();
+        table.getRow(i + curRow).getCell(3).setUserObject(contractBillId);
         table.getCell(i+curRow, 3).getStyleAttributes().setLocked(true);
         if(info.getContractBill()!=null&&info.getContractBill().getName()!=null)
         	table.getCell(i+curRow, 3).setValue(info.getContractBill().getName());
@@ -2085,6 +2086,13 @@ public class ChangeAuditRequestEditUI extends AbstractChangeAuditRequestEditUI
         changeAudit_box.setEnabledMultiSelection(false);
         changeAudit_box.setQueryInfo("com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery");
         EntityViewInfo foreView = new EntityViewInfo();
+        FilterInfo filInfo = new FilterInfo();
+        filInfo.getFilterItems().add(new FilterItemInfo("isLast","1"));
+        if(contractBillId!=null)
+        	filInfo.getFilterItems().add(new FilterItemInfo("contractNumber.id",contractBillId));
+        else
+        	filInfo.getFilterItems().add(new FilterItemInfo("contractNumber.id","null"));
+        foreView.setFilter(filInfo);
         changeAudit_box.setEntityViewInfo(foreView);
         table.getCell(i+curRow, 3).setEditor(new KDTDefaultCellEditor(changeAudit_box));
         ObjectValueRender CHANGE_AUDIT = new ObjectValueRender();
@@ -3497,7 +3505,8 @@ public class ChangeAuditRequestEditUI extends AbstractChangeAuditRequestEditUI
 			if(e.getValue()!=null){
 				ContractBillInfo info = (ContractBillInfo)e.getValue();
 				
-				
+				String oldIdContractId = (e.getOldValue()!=null&& (e.getOldValue() instanceof ContractBillInfo))?((ContractBillInfo)e.getOldValue()).getId().toString():"";
+				String contractBillId = null;
 				if(info!=null){
 					
 					if(ChangeAuditUtil.checkHasSettlementBill(info.getId().toString())){
@@ -3508,7 +3517,10 @@ public class ChangeAuditRequestEditUI extends AbstractChangeAuditRequestEditUI
 						SysUtil.abort();
 			    	}
 					
+					contractBillId = info.getId().toString();
 					
+					if(oldIdContractId.equals(contractBillId))
+						return;
 					getSecondTable().getCell(e.getRowIndex()+ROW_contractNum, e.getColIndex()).setValue(info);//新增行时单元格已设置显示number，这里直接设置对象
 //					getSecondTable().getCell(e.getRowIndex()+ROW_contractName, e.getColIndex()).setValue(info.getNumber());
 					getSecondTable().getCell(e.getRowIndex()+ROW_contractName, e.getColIndex()).setValue(info.getName());
@@ -3572,6 +3584,22 @@ public class ChangeAuditRequestEditUI extends AbstractChangeAuditRequestEditUI
 //						getSecondTable().getCell(e.getRowIndex()+ROW_costAmt, e.getColIndex()).getStyleAttributes().setNumberFormat(
 //				        		com.kingdee.eas.framework.report.util.KDTableUtil.getNumberFormat(2,true));
 					}
+				}
+				ICell cell = kdtSuppEntry.getCell(e.getRowIndex()+2, 3);
+				Component component = cell.getEditor().getComponent();
+				if(component!=null && (component instanceof KDBizPromptBox)){
+					KDBizPromptBox prmtContract = (KDBizPromptBox) component;
+					EntityViewInfo foreView = new EntityViewInfo();
+			        FilterInfo filInfo = new FilterInfo();
+			        filInfo.getFilterItems().add(new FilterItemInfo("isLast","1"));
+			        if(contractBillId!=null)
+			        	filInfo.getFilterItems().add(new FilterItemInfo("contractNumber.id",contractBillId));
+			        else
+			        	filInfo.getFilterItems().add(new FilterItemInfo("contractNumber.id","null"));
+			        foreView.setFilter(filInfo);
+			        prmtContract.setEntityViewInfo(foreView);
+			        
+			        cell.setValue(null);
 				}
 			}else{
 //				getSecondTable().getCell(e.getRowIndex(), e.getColIndex()).setValue(null);

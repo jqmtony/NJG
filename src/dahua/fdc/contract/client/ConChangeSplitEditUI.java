@@ -61,6 +61,7 @@ import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCSplitClientHelper;
 import com.kingdee.eas.fdc.basedata.client.ViewCostInfoUI;
 import com.kingdee.eas.fdc.contract.ConChangeSplitEntryCollection;
+import com.kingdee.eas.fdc.contract.ConChangeSplitEntryFactory;
 import com.kingdee.eas.fdc.contract.ConChangeSplitEntryInfo;
 import com.kingdee.eas.fdc.contract.ConChangeSplitFactory;
 import com.kingdee.eas.fdc.contract.ConChangeSplitInfo;
@@ -68,6 +69,7 @@ import com.kingdee.eas.fdc.contract.ContractChangeBillFactory;
 import com.kingdee.eas.fdc.contract.ContractChangeBillInfo;
 import com.kingdee.eas.fdc.contract.ContractCostSplitFactory;
 import com.kingdee.eas.fdc.contract.FDCUtils;
+import com.kingdee.eas.fdc.contract.IConChangeSplitEntry;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitEntryFactory;
 import com.kingdee.eas.fdc.finance.PaymentSplitEntryFactory;
 import com.kingdee.eas.fdc.finance.PaymentSplitEntryInfo;
@@ -216,6 +218,7 @@ public class ConChangeSplitEditUI extends AbstractConChangeSplitEditUI
 		FDCSplitBillEntryCollection entrys = getEntrys();
 		for (int i = 0; i < entrys.size(); i++) {
 			FDCSplitBillEntryInfo entry = (FDCSplitBillEntryInfo) entrys.get(i);
+			
 			BigDecimal amount = FDCHelper.ZERO;
 			if (entry.getLevel() == 0) {
 				amount = FDCHelper.divide(FDCHelper.multiply(txtChangeAmount.getBigDecimalValue(), entry.getSplitScale()), FDCHelper.ONE_HUNDRED, 10, BigDecimal.ROUND_HALF_UP);
@@ -483,6 +486,9 @@ public class ConChangeSplitEditUI extends AbstractConChangeSplitEditUI
     	selector.add("contractChange.id"); 
     	selector.add("state");
     	selector.add("contractBill.id");
+    	selector.add("entrys.programmings.id");
+    	selector.add("entrys.programmings.number");
+    	selector.add("entrys.programmings.name");
     	return setSelectors(selector);
     }
     

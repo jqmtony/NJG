@@ -4160,7 +4160,11 @@ public class FDCCostSplit
         sic.add(new SelectorItemInfo(prefix + "apportionType.name"));
         sic.add(new SelectorItemInfo(prefix + "product.*"));
 
-//        sic.add(new SelectorItemInfo(prefix + "costAccount"));
+        //TODO 
+        sic.add(new SelectorItemInfo(prefix + "programmings.id"));
+        sic.add(new SelectorItemInfo(prefix + "programmings.number"));
+        sic.add(new SelectorItemInfo(prefix + "programmings.name"));
+        
         sic.add(new SelectorItemInfo(prefix + "costAccount.id"));
         sic.add(new SelectorItemInfo(prefix + "costAccount.name"));
         sic.add(new SelectorItemInfo(prefix + "costAccount.longNumber"));

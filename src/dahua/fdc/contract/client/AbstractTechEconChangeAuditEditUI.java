@@ -199,6 +199,7 @@ public abstract class AbstractTechEconChangeAuditEditUI extends com.kingdee.eas.
     protected actionSplitProd actionSplitProd = null;
     protected actionImpContrSplit actionImpContrSplit = null;
     protected actionAddSplit actionAddSplit = null;
+    protected actionRemoveSplitEntry actionRemoveSplitEntry = null;
     /**
      * output class constructor
      */
@@ -346,6 +347,10 @@ public abstract class AbstractTechEconChangeAuditEditUI extends com.kingdee.eas.
         this.actionAddSplit = new actionAddSplit(this);
         getActionManager().registerAction("actionAddSplit", actionAddSplit);
          this.actionAddSplit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionRemoveSplitEntry
+        this.actionRemoveSplitEntry = new actionRemoveSplitEntry(this);
+        getActionManager().registerAction("actionRemoveSplitEntry", actionRemoveSplitEntry);
+         this.actionRemoveSplitEntry.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -2405,6 +2410,14 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
     public void actionAddSplit_actionPerformed(ActionEvent e) throws Exception
     {
     }
+    	
+
+    /**
+     * output actionRemoveSplitEntry_actionPerformed method
+     */
+    public void actionRemoveSplitEntry_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSave(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSave(itemAction);		
 		if (request != null) {
@@ -2623,6 +2636,17 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
     }
 	
 	public boolean isPrepareactionAddSplit() {
+    	return false;
+    }
+	public RequestContext prepareactionRemoveSplitEntry(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareactionRemoveSplitEntry() {
     	return false;
     }
 
@@ -3085,6 +3109,37 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractTechEconChangeAuditEditUI.this, "actionAddSplit", "actionAddSplit_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output actionRemoveSplitEntry class
+     */     
+    protected class actionRemoveSplitEntry extends ItemAction {     
+    
+        public actionRemoveSplitEntry()
+        {
+            this(null);
+        }
+
+        public actionRemoveSplitEntry(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("actionRemoveSplitEntry.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionRemoveSplitEntry.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("actionRemoveSplitEntry.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractTechEconChangeAuditEditUI.this, "actionRemoveSplitEntry", "actionRemoveSplitEntry_actionPerformed", e);
         }
     }
 

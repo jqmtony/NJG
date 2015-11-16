@@ -181,7 +181,8 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
         this.txtBanane.setMinimumValue( new java.math.BigDecimal("-1.0E26"));		
         this.txtBanane.setMaximumValue( new java.math.BigDecimal("1.0E26"));		
         this.txtBanane.setPrecision(2);		
-        
+        this.chkMenuItemSubmitAndAddNew.setSelected(false);
+    	this.chkMenuItemSubmitAndAddNew.setEnabled(false);
     	super.onLoad();
     	initButtonStatus();
     	initTable();
@@ -617,6 +618,7 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
     
     private String getSql(){
     	StringBuffer sb = new StringBuffer();
+    	BOSUuid contractId = editData.getContractNumber().getId();
     	sb.append(" SELECT CHANGEAUDITBILL.FID AS ID,  ");
     	sb.append(" PERIOD.FNumber AS 期间,  ");
     	sb.append(" ORGUNIT.FName_l2 AS 组织,  ");
@@ -625,7 +627,7 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
     	sb.append(" CHANGEAUDITBILL.FBookedDate AS 业务日期,  ");
     	sb.append(" CURPROJECT.FName_l2 AS 工程项目,  ");
     	sb.append(" CHANGEAUDITBILL.FChangeState AS 状态,  ");
-    	sb.append(" CHANGEAUDITBILL.FTotalCost AS 变更金额,  ");
+    	sb.append(" SUPPENTRY.FCostAmount AS 变更金额,  ");
     	sb.append(" CHANGEAUDITBILL.CFBillType AS 单据类型,  ");
     	sb.append(" CREATOR.FName_l2 AS 制单人,  ");
     	sb.append(" CHANGEAUDITBILL.FCreateTime AS 制单日期,  ");
@@ -643,9 +645,10 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
     	sb.append(" LEFT OUTER JOIN T_BD_Period AS PERIOD ON CHANGEAUDITBILL.FPeriodId = PERIOD.FID ");
     	sb.append(" LEFT OUTER JOIN T_ORG_BaseUnit AS ORGUNIT ON CHANGEAUDITBILL.FOrgUnitID = ORGUNIT.FID ");
     	sb.append(" LEFT OUTER JOIN T_CON_ChangeSupplierEntry AS SUPPENTRY ON CHANGEAUDITBILL.FID = SUPPENTRY.FParentID ");
-    	sb.append(" LEFT OUTER JOIN T_CON_ContractBill AS CONTRACTBILL ON SUPPENTRY.FContractBillID = CONTRACTBILL.FID ");
+    	sb.append(" LEFT OUTER JOIN T_CON_ContractBill AS CONTRACTBILL ON SUPPENTRY.FContractBillID = CONTRACTBILL.FID "); 
     	sb.append(" LEFT OUTER JOIN T_BD_Supplier AS PARTB ON CONTRACTBILL.FPartBID = PARTB.FID ");
-    	sb.append(" where CONTRACTBILL.fid='").append(editData.getContractNumber().getId()).append("' and CHANGEAUDITBILL.CFBillType is not null and CHANGEAUDITBILL.CFBillType<>'10'");
+    	sb.append(" where 1= 1 and SUPPENTRY.CFforecastChangeVi in (select fid from CT_AIM_ForecastChangeVis where CFContractNumberID='"+contractId+"')");
+//    	sb.append(" and CONTRACTBILL.fid='").append(contractId).append("' and CHANGEAUDITBILL.CFBillType is not null and CHANGEAUDITBILL.CFBillType<>'10'");
 //    	sb.append(" and CHANGEAUDITBILL.FChangeState='7Visa'");
     	return sb.toString();
     }

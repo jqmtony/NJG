@@ -89,4 +89,9 @@ public abstract class AbstractDesignChangeAuditEditUIHandler extends com.kingdee
 	}
 	protected void _handleactionAddSplit(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleactionRemoveSplitEntry(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleactionRemoveSplitEntry(request,response,context);
+	}
+	protected void _handleactionRemoveSplitEntry(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

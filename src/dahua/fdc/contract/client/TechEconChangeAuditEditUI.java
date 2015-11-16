@@ -2231,8 +2231,8 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
         //1合同名称
         ChangeAuditUtil.bindCell(table, i+curRow, 2, ChangeAuditUtil.getRes("contractName"), "mainSupp", bindCellMap);
         //记录合同的ID到列的UserObject对象里（点击合同名称打开合同查询界面用）
-        table.getRow(i + curRow).getCell(3)
-				.setUserObject(info.getContractBill() == null ? null : info.getContractBill().getId().toString());
+        String contractBillId = info.getContractBill() == null ? null : info.getContractBill().getId().toString();
+        table.getRow(i + curRow).getCell(3).setUserObject(contractBillId);
         table.getCell(i+curRow, 3).getStyleAttributes().setLocked(true);
         if(info.getContractBill()!=null&&info.getContractBill().getName()!=null)
         	table.getCell(i+curRow, 3).setValue(info.getContractBill().getName());
@@ -2250,6 +2250,13 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
         changeAudit_box.setEnabledMultiSelection(false);
         changeAudit_box.setQueryInfo("com.kingdee.eas.fdc.aimcost.app.ForecastChangeVisQuery");
         EntityViewInfo foreView = new EntityViewInfo();
+        FilterInfo filInfo = new FilterInfo();
+        filInfo.getFilterItems().add(new FilterItemInfo("isLast","1"));
+        if(contractBillId!=null)
+        	filInfo.getFilterItems().add(new FilterItemInfo("contractNumber.id",contractBillId));
+        else
+        	filInfo.getFilterItems().add(new FilterItemInfo("contractNumber.id","null"));
+        foreView.setFilter(filInfo);
         changeAudit_box.setEntityViewInfo(foreView);
         table.getCell(i+curRow, 3).setEditor(new KDTDefaultCellEditor(changeAudit_box));
         ObjectValueRender CHANGE_AUDIT = new ObjectValueRender();
@@ -2881,13 +2888,15 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 		actionSplitProj.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_showparent"));
 		actionSplitBotUp.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_showsubflow"));
 		actionSplitProd.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_citetree"));
-		actionImpContrSplit.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_deleteline"));
+		actionImpContrSplit.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_collect"));
+		actionRemoveSplitEntry.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_deleteline"));
 		actionAcctSelect.setEnabled(true);
 		actionSplitProj.setEnabled(true);
 		actionSplitProd.setEnabled(true);
 		actionSplitBotUp.setEnabled(true);
-		actionImpContrSplit.setEnabled(true);//只有变更拆分内用到
-//		actionImpContrSplit.setVisible(false);
+		actionImpContrSplit.setEnabled(true);
+		actionRemoveSplitEntry.setEnabled(true);
+		
 		
 		KDWorkButton btnAcctSelect = (KDWorkButton) this.kDContainer1.add(this.actionAcctSelect);
 		btnAcctSelect.setText("成本科目");
@@ -2906,8 +2915,12 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 		btnSplitProd.setSize(new Dimension(140, 19));
 		
 		KDWorkButton btnImpContrSplit = (KDWorkButton) this.kDContainer1.add(this.actionImpContrSplit);
-		btnImpContrSplit.setText("删除分录");
+		btnImpContrSplit.setText("引入合同拆分");
 		btnImpContrSplit.setSize(new Dimension(140, 19));
+		
+		KDWorkButton btnRemoveLine = (KDWorkButton) this.kDContainer1.add(this.actionRemoveSplitEntry);
+		btnRemoveLine.setText("删除分录");
+		btnRemoveLine.setSize(new Dimension(140, 19));
 
 		EntityViewInfo view = new EntityViewInfo();
 		FilterInfo filter = new FilterInfo();
@@ -3735,7 +3748,8 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 			if(e.getValue()!=null){
 				ContractBillInfo info = (ContractBillInfo)e.getValue();
 				
-				
+				String oldIdContractId = (e.getOldValue()!=null&& (e.getOldValue() instanceof ContractBillInfo))?((ContractBillInfo)e.getOldValue()).getId().toString():"";
+				String contractBillId = null;
 				if(info!=null){
 					
 					if(ChangeAuditUtil.checkHasSettlementBill(info.getId().toString())){
@@ -3745,7 +3759,10 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 						getSecondTable().getCell(e.getRowIndex()+2, e.getColIndex()).setValue(null);
 						SysUtil.abort();
 			    	}
+					contractBillId = info.getId().toString();
 					
+					if(oldIdContractId.equals(contractBillId))
+						return;
 					
 					getSecondTable().getCell(e.getRowIndex()+ROW_contractNum, e.getColIndex()).setValue(info);//新增行时单元格已设置显示number，这里直接设置对象
 //					getSecondTable().getCell(e.getRowIndex()+ROW_contractName, e.getColIndex()).setValue(info.getNumber());
@@ -3810,6 +3827,22 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 //						getSecondTable().getCell(e.getRowIndex()+ROW_costAmt, e.getColIndex()).getStyleAttributes().setNumberFormat(
 //				        		com.kingdee.eas.framework.report.util.KDTableUtil.getNumberFormat(2,true));
 					}
+				}
+				ICell cell = kdtSuppEntry.getCell(e.getRowIndex()+2, 3);
+				Component component = cell.getEditor().getComponent();
+				if(component!=null && (component instanceof KDBizPromptBox)){
+					KDBizPromptBox prmtContract = (KDBizPromptBox) component;
+					EntityViewInfo foreView = new EntityViewInfo();
+			        FilterInfo filInfo = new FilterInfo();
+			        filInfo.getFilterItems().add(new FilterItemInfo("isLast","1"));
+			        if(contractBillId!=null)
+			        	filInfo.getFilterItems().add(new FilterItemInfo("contractNumber.id",contractBillId));
+			        else
+			        	filInfo.getFilterItems().add(new FilterItemInfo("contractNumber.id","null"));
+			        foreView.setFilter(filInfo);
+			        prmtContract.setEntityViewInfo(foreView);
+			        
+			        cell.setValue(null);
 				}
 			}else{
 //				getSecondTable().getCell(e.getRowIndex(), e.getColIndex()).setValue(null);
@@ -4901,6 +4934,14 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 		super.actionImpContrSplit_actionPerformed(e);
 		Component selectedComponent = this.kDTabbedPane1.getSelectedComponent();
 		if(selectedComponent==null)
+			return; 
+		((ConChangeSplitEditUI)((KDPanel)selectedComponent).getUserObject()).actionImpContrSplit_actionPerformed(e);
+	}
+	
+	public void actionRemoveSplitEntry_actionPerformed(ActionEvent e)throws Exception {
+		super.actionRemoveSplitEntry_actionPerformed(e);
+		Component selectedComponent = this.kDTabbedPane1.getSelectedComponent();
+		if(selectedComponent==null)
 			return;
 		((ConChangeSplitEditUI)((KDPanel)selectedComponent).getUserObject()).actionRemoveLine_actionPerformed(e);
 	}
@@ -4978,6 +5019,7 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 		this.actionSplitProd.setEnabled(flse);
 		this.actionSplitBotUp.setEnabled(flse);
 		this.actionImpContrSplit.setEnabled(flse);
+		this.actionRemoveSplitEntry.setEnabled(flse);
 		Iterator iterator = uiSet.iterator();
         while(iterator.hasNext()){
         	((ConChangeSplitEditUI)iterator.next()).kdtEntrys.setEnabled(flse);
