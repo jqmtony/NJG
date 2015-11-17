@@ -28,6 +28,17 @@ public class AbstractBuildNumberInfo extends com.kingdee.eas.framework.DataBaseI
     {
         put("productType", item);
     }
+    /**
+     * Object: 楼号 's 工程项目 property 
+     */
+    public com.kingdee.eas.fdc.basedata.CurProjectInfo getCurProject()
+    {
+        return (com.kingdee.eas.fdc.basedata.CurProjectInfo)get("curProject");
+    }
+    public void setCurProject(com.kingdee.eas.fdc.basedata.CurProjectInfo item)
+    {
+        put("curProject", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("38776AD0");

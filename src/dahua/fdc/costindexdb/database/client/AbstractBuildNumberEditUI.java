@@ -51,11 +51,13 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer3;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contproductType;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcurProject;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtSimpleName;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtDescription;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtproductType;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtcurProject;
     protected com.kingdee.eas.fdc.costindexdb.database.BuildNumberInfo editData = null;
     /**
      * output class constructor
@@ -81,21 +83,25 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
         this.kDLabelContainer3 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contproductType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contcurProject = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
         this.txtSimpleName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtDescription = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
         this.prmtproductType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtcurProject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDLabelContainer1.setName("kDLabelContainer1");
         this.kDLabelContainer2.setName("kDLabelContainer2");
         this.kDLabelContainer3.setName("kDLabelContainer3");
         this.kDLabelContainer4.setName("kDLabelContainer4");
         this.contproductType.setName("contproductType");
+        this.contcurProject.setName("contcurProject");
         this.txtNumber.setName("txtNumber");
         this.txtName.setName("txtName");
         this.txtSimpleName.setName("txtSimpleName");
         this.txtDescription.setName("txtDescription");
         this.prmtproductType.setName("prmtproductType");
+        this.prmtcurProject.setName("prmtcurProject");
         // CoreUI		
         this.btnPrint.setVisible(false);		
         this.btnPrintPreview.setVisible(false);		
@@ -125,6 +131,11 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
         this.contproductType.setBoundLabelLength(100);		
         this.contproductType.setBoundLabelUnderline(true);		
         this.contproductType.setVisible(true);
+        // contcurProject		
+        this.contcurProject.setBoundLabelText(resHelper.getString("contcurProject.boundLabelText"));		
+        this.contcurProject.setBoundLabelLength(100);		
+        this.contcurProject.setBoundLabelUnderline(true);		
+        this.contcurProject.setVisible(true);
         // txtNumber		
         this.txtNumber.setMaxLength(80);
         // txtName
@@ -139,7 +150,15 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
         this.prmtproductType.setEditFormat("$number$");		
         this.prmtproductType.setCommitFormat("$number$");		
         this.prmtproductType.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtproductType}));
+        // prmtcurProject		
+        this.prmtcurProject.setQueryInfo("com.kingdee.eas.fdc.basedata.app.CurProjectQuery");		
+        this.prmtcurProject.setVisible(true);		
+        this.prmtcurProject.setEditable(true);		
+        this.prmtcurProject.setDisplayFormat("$name$");		
+        this.prmtcurProject.setEditFormat("$number$");		
+        this.prmtcurProject.setCommitFormat("$number$");		
+        this.prmtcurProject.setRequired(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtproductType,prmtcurProject}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -169,14 +188,16 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
         this.setLayout(null);
         kDLabelContainer1.setBounds(new Rectangle(21, 24, 270, 19));
         this.add(kDLabelContainer1, null);
-        kDLabelContainer2.setBounds(new Rectangle(21, 58, 270, 19));
+        kDLabelContainer2.setBounds(new Rectangle(21, 57, 270, 19));
         this.add(kDLabelContainer2, null);
-        kDLabelContainer3.setBounds(new Rectangle(21, 143, 270, 19));
+        kDLabelContainer3.setBounds(new Rectangle(21, 159, 270, 19));
         this.add(kDLabelContainer3, null);
         kDLabelContainer4.setBounds(new Rectangle(15, 153, 270, 19));
         this.add(kDLabelContainer4, null);
-        contproductType.setBounds(new Rectangle(21, 92, 270, 19));
+        contproductType.setBounds(new Rectangle(21, 90, 270, 19));
         this.add(contproductType, null);
+        contcurProject.setBounds(new Rectangle(21, 124, 270, 19));
+        this.add(contcurProject, null);
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtNumber);
         //kDLabelContainer2
@@ -187,6 +208,8 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
         kDLabelContainer4.setBoundEditor(txtDescription);
         //contproductType
         contproductType.setBoundEditor(prmtproductType);
+        //contcurProject
+        contcurProject.setBoundEditor(prmtcurProject);
 
     }
 
@@ -300,7 +323,8 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
 		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
 		dataBinder.registerBinding("simpleName", String.class, this.txtSimpleName, "text");
 		dataBinder.registerBinding("description", String.class, this.txtDescription, "_multiLangItem");
-		dataBinder.registerBinding("productType", com.kingdee.eas.fdc.basedata.ProductTypeInfo.class, this.prmtproductType, "data");		
+		dataBinder.registerBinding("productType", com.kingdee.eas.fdc.basedata.ProductTypeInfo.class, this.prmtproductType, "data");
+		dataBinder.registerBinding("curProject", com.kingdee.eas.fdc.basedata.CurProjectInfo.class, this.prmtcurProject, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){
@@ -451,7 +475,8 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("simpleName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("productType", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("productType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("curProject", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -502,6 +527,15 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
         	sic.add(new SelectorItemInfo("productType.id"));
         	sic.add(new SelectorItemInfo("productType.number"));
         	sic.add(new SelectorItemInfo("productType.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("curProject.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("curProject.id"));
+        	sic.add(new SelectorItemInfo("curProject.number"));
+        	sic.add(new SelectorItemInfo("curProject.name"));
 		}
         return sic;
     }        
