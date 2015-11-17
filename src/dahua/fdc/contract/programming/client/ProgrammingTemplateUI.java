@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.util.StringTokenizer;
 
 import javax.swing.Action;
 import javax.swing.event.ChangeEvent;
@@ -124,7 +125,7 @@ public class ProgrammingTemplateUI extends AbstractProgrammingTemplateUI {
 	private static final Logger logger = CoreUIObject.getLogger(ProgrammingTemplateEditUI.class);
 
 	private CreateTableRow create = new CreateTableRow(this.dataBinder);
-	private static final String TEMPLATEBASE = "合约框架模板列表";
+	private static final String TEMPLATEBASE = "合约规划模板列表";
 	private final String LONGNUMBER = "longNumber";
 	private final String HEADNUMBER = "headNumber";
 	private final String ATTACHMENT = "attachment";
@@ -580,6 +581,8 @@ public class ProgrammingTemplateUI extends AbstractProgrammingTemplateUI {
 		super.onShow();
 		kdtEntires.addKDTMouseListener(new KDTSortManager(kdtEntires));
 		kdtEntires.getSortMange().setSortAuto(false);
+		setUITitle("合约规划模板");
+		kdtCosetEntries.getHeadRow(0).getCell("name").setValue("合约规划名称");
 	}
 
 	private void setCellEditorForTable() {
@@ -1802,12 +1805,39 @@ public class ProgrammingTemplateUI extends AbstractProgrammingTemplateUI {
 			if (flag) {
 				loadCostAccountTabData();
 				setCostNumberFormat();
-				createCostTree();
-
+				
 				List rows = this.kdtCosetEntries.getBody().getRows();
 				Collections.sort(rows, new TableCellComparator(kdtCosetEntries.getColumnIndex("costNumber"), KDTSortManager.SORT_ASCEND));
 				kdtCosetEntries.setRefresh(false);
-
+				String proName = null;
+				StringTokenizer st = null;
+				IRow row = null;
+				int index = 0;
+				for(int i = kdtCosetEntries.getRowCount()-1; i >=0; i--) {
+					proName = (String)kdtCosetEntries.getCell(i,"name").getValue();
+					if(proName == null)
+						continue;
+					else{
+						st = new StringTokenizer(proName,",");
+						index = i;
+						while(st.hasMoreElements()){
+							if(index == i){
+								kdtCosetEntries.getCell(i,"name").setValue(st.nextElement());
+								index++;
+								continue;
+							}else{
+								row = kdtCosetEntries.addRow(index);
+								Object obj = st.nextElement();
+								row.getCell("name").setValue(obj);
+								row.getCell("level").setValue(kdtCosetEntries.getCell(i,"level").getValue());
+								row.getCell("headNumber").setValue(kdtCosetEntries.getCell(i,"headNumber").getValue());
+								row.getCell("costName").setValue(kdtCosetEntries.getCell(i,"costName").getValue());
+								index++;
+							}
+						}
+					}
+				}
+				createCostTree();
 				isRewLoadCostAccountTab = false;
 			}
 		}

@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -61,23 +60,17 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingTemplateEntireCollect
 import com.kingdee.eas.fdc.contract.programming.ProgrammingTemplateEntireFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingTemplateEntireInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingTemplateFactory;
-import com.kingdee.eas.fdc.finance.PayPlanNewByMonthCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleInfo;
-import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleTaskCollection;
-import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleTaskInfo;
 import com.kingdee.eas.fdc.finance.PayPlanNewInfo;
 import com.kingdee.eas.fdc.finance.PayPlanTemplateByScheduleInfo;
 import com.kingdee.eas.fdc.finance.PayPlanTemplateCollection;
 import com.kingdee.eas.fdc.finance.PayPlanTemplateFactory;
 import com.kingdee.eas.fdc.finance.PayPlanTemplateInfo;
 import com.kingdee.eas.fdc.migrate.StringUtils;
-import com.kingdee.eas.fdc.schedule.FDCScheduleTaskCollection;
-import com.kingdee.eas.fdc.schedule.FDCScheduleTaskFactory;
-import com.kingdee.eas.fdc.schedule.FDCScheduleTaskInfo;
-import com.kingdee.eas.fdc.schedule.RESchTemplateTaskInfo;
 import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.eas.framework.ICoreBase;
+import com.kingdee.eas.util.client.KDTableUtil;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
 
@@ -87,6 +80,8 @@ import com.kingdee.jdbc.rowset.IRowSet;
 public class ProgrammingImportUI extends AbstractProgrammingImportUI
 {
     private static final Logger logger = CoreUIObject.getLogger(ProgrammingImportUI.class);
+    //如果是大华集团模板，则要把模板ID存入合约规划中，后续再合约规划中对两者的成本构成进行对比，如果不相同则合约规则中的合约类型红色背景显示
+    private boolean isGroupTemp = false;
     
 	public ProgrammingImportUI() throws Exception {
 		super();
@@ -162,6 +157,9 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		programming.setAimCost(aimCost);
 
 		String selectedKeyValue = getSelectedKeyValue();
+		String tempName = (String)tblMain.getCell(KDTableUtil.getSelectedRow(tblMain),"name").getValue();
+		if("大华集团模板".equals(tempName))
+			isGroupTemp = true;
 		executeImportByTemplate(programming, aimCost, project, selectedKeyValue);
 		MsgBox.showInfo(this, "导入成功");
 		disposeUIWindow();
@@ -213,6 +211,9 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 			programmingEntry.setAttachWork(templateEntry.getAttachWork());
 			programmingEntry.setAttContract(templateEntry.getAttContract());
 			programmingEntry.setWorkContent(templateEntry.getScope());	// modified by zhaoqin on 2013/11/08
+			if(isGroupTemp){
+				programmingEntry.setSimpleName(templateEntry.getId().toString());
+			}
 			// modify by yxl 20150914 暂时不导入付款规划页签
 			payPlanImport(programming, templateEntry, programmingEntry, project,payPlanTempMap,null);
 		}
@@ -596,8 +597,9 @@ public class ProgrammingImportUI extends AbstractProgrammingImportUI
 		}
 
 		programmingEntry.setAmount(planAmountTotal);
-		
-		programmingEntry.setControlAmount(FDCHelper.ZERO);
+		programmingEntry.setReservedChangeRate(FDCHelper.ZERO);
+		programmingEntry.setControlAmount(planAmountTotal);
+//		programmingEntry.setControlAmount(FDCHelper.ZERO);
 		// 模板中经济条款
 //		PTEEnonomyCollection pteEnonomyCollection = templateEntry.getPteEnonomy();
 //		enonomyImport(programmingEntry, pteEnonomyCollection);

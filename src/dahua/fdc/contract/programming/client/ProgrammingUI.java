@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.util.StringTokenizer;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.TreeSelectionEvent;
@@ -117,6 +118,7 @@ import com.kingdee.eas.fdc.aimcost.IAimCost;
 import com.kingdee.eas.fdc.basedata.CostAccountCollection;
 import com.kingdee.eas.fdc.basedata.CostAccountFactory;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
+import com.kingdee.eas.fdc.basedata.CurProjectFactory;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
@@ -133,8 +135,11 @@ import com.kingdee.eas.fdc.contract.basedata.PcDepTypeCollection;
 import com.kingdee.eas.fdc.contract.basedata.PcDepTypeFactory;
 import com.kingdee.eas.fdc.contract.basedata.PcDepTypeInfo;
 import com.kingdee.eas.fdc.contract.programming.CKDate;
+import com.kingdee.eas.fdc.contract.programming.IPTECost;
 import com.kingdee.eas.fdc.contract.programming.IPcTypeEntry;
 import com.kingdee.eas.fdc.contract.programming.IProgramming;
+import com.kingdee.eas.fdc.contract.programming.PTECostCollection;
+import com.kingdee.eas.fdc.contract.programming.PTECostFactory;
 import com.kingdee.eas.fdc.contract.programming.PcTypeEntryCollection;
 import com.kingdee.eas.fdc.contract.programming.PcTypeEntryFactory;
 import com.kingdee.eas.fdc.contract.programming.PcTypeEntryInfo;
@@ -154,8 +159,6 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingException;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingInfo;
 import com.kingdee.eas.fdc.contract.programming.SendContWay;
-import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleEntryCollection;
-import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleEntryFactory;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleDatazCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleDatazInfo;
@@ -1110,6 +1113,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		setAimCostVersionMsg();
 		/* modified by zhaoqin for R140507-0214 on 2014/05/13 start */
 		initFxdbTable();
+//		btnImportProject.setVisible(false);
 	}
 
 	/**
@@ -1158,7 +1162,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	 */
 	private void setSmallButton() {
 		btnImport.setIcon(EASResource.getIcon("imgTbtn_input"));
-		btnImportProject.setIcon(EASResource.getIcon("imgTbtn_input"));
+//		btnImportProject.setIcon(EASResource.getIcon("imgTbtn_input"));
 		menuItemImport.setIcon(EASResource.getIcon("imgTbtn_input"));
 		btnExport.setIcon(EASResource.getIcon("imgTbtn_output"));
 		menuItemExport.setEnabled(true);
@@ -1303,20 +1307,64 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	}
 	
 	public void updateSchduleTime_actionPerformed(ActionEvent e) throws Exception {
-		Set pcids = new HashSet();
-		for (int i = 0; i < kdtEntries.getRowCount(); i++) {
-			pcids.add(kdtEntries.getCell(i,"id").getValue());
+//		Set pcids = new HashSet();
+//		for (int i = 0; i < kdtEntries.getRowCount(); i++) {
+//			pcids.add(kdtEntries.getCell(i,"id").getValue());
+//		}
+//		if(pcids.size() > 0){
+//			DahuaScheduleEntryCollection dscoll = null;//" where progamming.id='"+id+"'"
+//			EntityViewInfo evi = new EntityViewInfo();
+//			FilterInfo filter = new FilterInfo();
+//			filter.getFilterItems().add(new FilterItemInfo("progamming.id",pcids,CompareType.INCLUDE));
+//			evi.setFilter(filter);
+//			dscoll=DahuaScheduleEntryFactory.getRemoteInstance().getDahuaScheduleEntryCollection(evi);
+//			if(dscoll.size() == 0){
+//				FDCMsgBox.showInfo("合约规划与明源进度项未关联！");
+//				return;
+//			}
+//		}
+		
+	}
+
+	protected void isChangeTempCost() throws BOSException, EASBizException {
+		Set<Integer> tempNull = new HashSet<Integer>();
+		ProgrammingContractInfo rowObject = null;
+		IPTECost iCost = PTECostFactory.getRemoteInstance();
+		ProgrammingContracCostCollection costColl = null;
+		PTECostCollection tempCostColl = null;
+		boolean isGroupTemp = false;
+		for(int i = kdtEntries.getRowCount()-1; i >= 0; i--) {
+			rowObject = (ProgrammingContractInfo)kdtEntries.getRow(i).getUserObject();
+			if(null == rowObject.getSimpleName())
+				tempNull.add(i);
+			else{
+				costColl = rowObject.getCostEntries();
+				tempCostColl = iCost.getPTECostCollection("select costAccount.id,costAccount.longNumber where parent.id='"+rowObject.getSimpleName()+"'");
+				if(tempCostColl.size() != costColl.size()){
+					kdtEntries.getCell(i,"hyType").getStyleAttributes().setBackground(Color.RED);
+				}else if(costColl.size() > 0){
+					for(int j = 0; j < costColl.size(); j++) {
+						String costNumber = costColl.get(j).getCostAccount().getLongNumber();
+						boolean flag = true;
+						for(int k = 0; k < tempCostColl.size(); k++) {
+							if(costNumber.equals(tempCostColl.get(k).getCostAccount().getLongNumber())){
+								flag = false;
+								break;
+							}
+						}
+						if(flag){
+							kdtEntries.getCell(i,"hyType").getStyleAttributes().setBackground(Color.RED);
+							break;
+						}
+					}
+				}
+				if(!isGroupTemp)
+					isGroupTemp = true;
+			}
 		}
-		if(pcids.size() > 0){
-			DahuaScheduleEntryCollection dscoll = null;//" where progamming.id='"+id+"'"
-			EntityViewInfo evi = new EntityViewInfo();
-			FilterInfo filter = new FilterInfo();
-			filter.getFilterItems().add(new FilterItemInfo("progamming.id",pcids,CompareType.INCLUDE));
-			evi.setFilter(filter);
-			dscoll=DahuaScheduleEntryFactory.getRemoteInstance().getDahuaScheduleEntryCollection(evi);
-			if(dscoll.size() == 0){
-				FDCMsgBox.showInfo("合约规划与明源进度项未关联！");
-				return;
+		if(isGroupTemp){
+			for(Iterator<Integer> it=tempNull.iterator(); it.hasNext();) {
+				kdtEntries.getCell(it.next(),"hyType").getStyleAttributes().setBackground(Color.RED);
 			}
 		}
 	}
@@ -1432,7 +1480,6 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				return;
 			}
 			
-			
 			ProgrammingContractInfo headObject = (ProgrammingContractInfo) kdtEntries.getRow(rowIndex).getUserObject();
 			// 新增时判断数据是否合法
 			if (o == null || o.toString().trim().length() == 0) {
@@ -1506,6 +1553,32 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		
 		/* modified by zhaoqin for R140507-0214 on 2014/05/13 */
 		setSaved(false);
+		handNoLeafData();
+	}
+	
+	//合约中非明细合约,数据清空，不能输入，副项表单联动   modify by yxl 20151112
+	public void handNoLeafData(){
+		for(int i = 0; i < kdtEntries.getRowCount(); i++) {
+			if(!isLeaf((String)kdtEntries.getCell(i,LONGNUMBER).getValue(),kdtEntries,HEADNUMBER)){
+				kdtEntries.getCell(i,"hyType").setValue(null);
+				kdtEntries.getCell(i,"priceWay").setValue(null);
+				kdtEntries.getCell(i,"sendPage").setValue(null);
+				kdtEntries.getCell(i,"sgDate").setValue(null);
+				kdtEntries.getCell(i,"csDate").setValue(null);
+				kdtEntries.getCell(i,"startDate").setValue(null);
+				kdtEntries.getCell(i,"endDate").setValue(null);
+				kdtEntries.getCell(i,"csendDate").setValue(null);
+				// set lock
+				kdtEntries.getCell(i,"hyType").getStyleAttributes().setLocked(true);
+				kdtEntries.getCell(i,"priceWay").getStyleAttributes().setLocked(true);
+				kdtEntries.getCell(i,"sendPage").getStyleAttributes().setLocked(true);
+				kdtEntries.getCell(i,"sgDate").getStyleAttributes().setLocked(true);
+		        kdtEntries.getCell(i,"csDate").getStyleAttributes().setLocked(true);
+		        kdtEntries.getCell(i,"startDate").getStyleAttributes().setLocked(true);
+		        kdtEntries.getCell(i,"endDate").getStyleAttributes().setLocked(true);
+		        kdtEntries.getCell(i,"csendDate").getStyleAttributes().setLocked(true);
+			}
+		}
 	}
 	
 	protected void actionSplit_actionPerformed(ActionEvent e) throws Exception {
@@ -1670,6 +1743,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		ProgrammingContractInfo rowObject = (ProgrammingContractInfo) kdtEntries.getRow(rowIndex).getUserObject();
 		setkdtEntries_AmountState1(rowIndex, rowObject);
 		// modified by zhaoqin on 2013/10/17 end
+		handNoLeafData();
 	}
 
 	/**
@@ -1892,6 +1966,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		
 		/* modified by zhaoqin for R140507-0214 on 2014/05/13 */
 		setSaved(false);
+		handNoLeafData();
 	}
 
 	private int getLoop(int rowIndex, Object h) {
@@ -3211,6 +3286,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 //		if(txtYjDays.getIntegerValue() <= 0)
 //			throw new EASBizException(new NumericExceptionSubItem("1", "预警天数应大于零！"));
 		veryfyForSave();
+		//markit
 		verifyDataBySave();
 		editData.setState(FDCBillStateEnum.SAVED); // modified by zhaoqin for R130819-0171 on 2013/09/11
 		fillFxbdByHyType();
@@ -3223,6 +3299,8 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		
 		/* modified by zhaoqin for R140507-0295 on 2014/05/15 */
 		setAimCostVersionMsg();
+		//保存后，如果模板的成本构成与合约规划中的不一样，则合约类型红色背景
+		isChangeTempCost();
 	}
 	
 	protected void verifyInput(ActionEvent e) throws Exception {
@@ -3415,6 +3493,15 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		String curVersion = txtVersion.getText();
 		String versionGroup = txtVersionGroup.getText();
 		fillFxbdByHyType();
+		//提示成本构成科目不为零ASSIGNING
+		CostAccountInfo costInfo = null;
+		for(int i = kdtCostAccount.getRowCount()-1; i >=0; i--) {
+			costInfo = (CostAccountInfo)kdtCostAccount.getRow(i).getUserObject();
+			if(costInfo!=null && costInfo.isIsLeaf() && FDCHelper.ZERO.compareTo((BigDecimal)kdtCostAccount.getCell(i,ASSIGNING).getValue())!=0){
+				FDCMsgBox.showInfo("目标成本页签第"+(i+1)+"行的待规划金额不为零！");
+				SysUtil.abort();
+			}
+		}
 		super.actionSubmit_actionPerformed(e);
 		if (isBillModify()) {
 			getServiceInterface2().billModify(versionGroup, curVersion); // 维护最新版本字段
@@ -3430,6 +3517,8 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		
 		/* modified by zhaoqin for R140507-0295 on 2014/05/15 */
 		setAimCostVersionMsg();
+		//保存后，如果模板的成本构成与合约规划中的不一样，则合约类型红色背景
+		isChangeTempCost();
 	}
 
 	// 是否修订
@@ -3661,6 +3750,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			MsgBox.showWarning("请选择工程项目名称");
 			return;
 		}
+		
 		if (hasHistoryVersion()) {// 有就编辑
 			/*if (isBillStateEquals(FDCBillStateEnum.SUBMITTED)) {// TODO dcwei
 				MsgBox.showWarning("已在工作流处理中，当前任务或执行人不匹配");
@@ -3675,10 +3765,17 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			switchButtonEnabled();
 			updateSchduleTime.setEnabled(true);
 		} else {// 没有就新增
+			DefaultKingdeeTreeNode treeNode = getTreeNode(treeMain.getSelectionPath());
+			CurProjectInfo pinfo = (CurProjectInfo)treeNode.getUserObject();
+			SelectorItemCollection sic = new SelectorItemCollection();
+			sic.add("isWholeAgeStage");
+			pinfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(pinfo.getId()),sic);
+			if(pinfo.isIsWholeAgeStage() && !FDCMsgBox.isOk(FDCMsgBox.showConfirm2("本项目是跨期项目，是否新增合约规划？"))){
+				abort();
+			}
 			setOprtState(OprtState.ADDNEW);
 			ProgrammingInfo newData = (ProgrammingInfo) createNewData();
 			newData.setNumber(getDateString());
-			DefaultKingdeeTreeNode treeNode = getTreeNode(treeMain.getSelectionPath());
 			if (treeNode != null && treeNode.getUserObject() instanceof CurProjectInfo) {
 				// 设置工程
 				newData.setProject((CurProjectInfo) treeNode.getUserObject());
@@ -3705,6 +3802,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		activeSaveAction();
 		
 		setkdtEntries_AmountState(); // modified by zhaoqin on 2013/10/17
+		handNoLeafData();
 	}
 
 	/**
@@ -4029,6 +4127,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		sic.add(new SelectorItemInfo("entries.soldPerSquare"));
 		sic.add(new SelectorItemInfo("entries.reservedChangeRate"));
 		sic.add(new SelectorItemInfo("entries.baseId"));
+		sic.add(new SelectorItemInfo("entries.simpleName"));
 
 		// /////////////////////////////////////////////////////////////////////
 		// start，厦门建发，合约规划的详细内容及列表界面加入4个字段“发包方式”、“招投标方式”、“预计发包开始时间”、“预计发包结束时间”等四个字段
@@ -4381,9 +4480,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	 */
 	private void loadCostAccountToCostEntry() {
 		long startTime = System.currentTimeMillis();
-
 		//////////////////////////////////////////////////////////////////
-
 		loadCostAccountTabData();
 		setCostNumberFormat();
 		createCostTree();
@@ -4393,15 +4490,42 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		
 		// 带级次的table金额列向上汇总
 		FDCTableHelper.calcTotalAmount(kdtCostAccount, 0, new String[] { AIM_COST, ASSIGNED, ASSIGNING }, "costAccount.id", "costAccount.parent.id");
-		
 		kdtCostAccount.setRefresh(false);
 		// add bu lihaiou,2013.7.25 ,fix bug for R130718-0286
 		//setAccountsTableToSumField();
 		// modify end
+		
+		//合约中成本构成，改成分行显示  modify by  yxl  20151112
+		String proName = null;
+		StringTokenizer st = null;
+		IRow row = null;
+		for(int i = kdtCostAccount.getRowCount()-1; i >=0; i--) {
+			proName = (String)kdtCostAccount.getCell(i,"proName").getValue();
+			if(proName == null)
+				continue;
+			else{
+				st = new StringTokenizer(proName,",");
+				int index = i;
+				while(st.hasMoreTokens()){
+					if(index == i){
+						kdtCostAccount.getCell(i,"proName").setValue(st.nextToken());
+						index++;
+						continue;
+					}else{
+						row = kdtCostAccount.addRow(index);
+						row.getCell("proName").setValue(st.nextToken());
+						row.getCell("level").setValue(kdtCostAccount.getCell(i,"level").getValue());
+						row.getCell("headNumber").setValue(kdtCostAccount.getCell(i,"headNumber").getValue());
+						row.getCell("costName").setValue(kdtCostAccount.getCell(i,"costName").getValue());
+//						row.getCell("costNumber").setValue(kdtCostAccount.getCell(i,"costNumber").getValue());
+//						row.getCell("costAccount.id").setValue(kdtCostAccount.getCell(i,"costAccount.id").getValue());
+//						row.getCell("costAccount.parent.id").setValue(kdtCostAccount.getCell(i,"costAccount.parent.id").getValue());
+						index++;
+					}
+				}
+			}
+		}
 		setCostAccountDisplay();
-
-		//////////////////////////////////////////////////////////////////
-
 		long endTime = System.currentTimeMillis();
 		double exeTime = (endTime - startTime) * 1.0 / 1000;
 		logger.info("ProgrammingUI.loadCostAccountToCostEntry(),exeTime:" + exeTime + "秒");
@@ -4461,7 +4585,8 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		// modify by lihaiou. 2013.07.30, fix bug R130723-0087,循环查数据库，存在性能问题
 		//取当前项目的所有目标成本科目
 		Map costInfoMap = getCostInfoMap();
-		for (int i = 0; i < rowCount; i++) {
+		Set<String> oldCostSet = new HashSet<String>();
+		for(int i = 0; i < rowCount; i++) {
 			ProgrammingContractInfo rowObject = (ProgrammingContractInfo) kdtEntries.getRow(i).getUserObject();
 			// Object name = kdtEntries.getCell(i, "name").getValue();//框架合约模板名称
 			Object name = getCellValue(kdtEntries, i, "name");
@@ -4471,11 +4596,62 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				proName = name.toString().trim();
 				oldName = name.toString().trim();
 			}
-			createCostEntriesRow(i, rowObject, proName, oldName, costInfoMap);
+			createCostEntriesRow(i, rowObject, proName, oldName, costInfoMap,oldCostSet);
 		}
 		
-		/* modified by zhaoqin for 建发 on 2014/05/19 */
-		displayOtherCostInfo(costInfoMap);
+		try {
+			CostAccountInfo costInfo = null;
+			Object key = null;
+			AimCostInfo aimCostInfo = getLastAimCostByCurProject((CurProjectInfo)getUIContext().get(TREE_SELECTED_OBJ));
+			boolean isAimCostAudit = isAimCostAudit(aimCostInfo);
+			for(Iterator it=costInfoMap.keySet().iterator(); it.hasNext();) {
+				key = it.next();
+				if(!oldCostSet.contains(key)){
+					boolean isHas = false;
+					costInfo = (CostAccountInfo)costInfoMap.get(key);
+					for(int j = 0; j < kdtCostAccount.getRowCount(); j++) {
+						if(costInfo.getLongNumber().equals(kdtCostAccount.getCell(j,"costNumber").getValue())) {
+							isHas = true;
+							break;
+						}
+					}
+					if(!isHas){
+						List list = new ArrayList();
+						getParentCostAccountInfo(costInfo, list, costInfoMap);
+						addCostAccountParent(list);
+						IRow row = kdtCostAccount.addRow();
+						row.getCell("costNumber").setValue(costInfo.getLongNumber());
+						row.getCell("costName").setValue(setNameIndent(costInfo.getLevel()) + costInfo.getName());
+						if(aimCostInfo==null || !isAimCostAudit){
+							row.getCell(AIM_COST).setValue(FDCHelper.ZERO);
+							row.getCell(ASSIGNED).setValue(FDCHelper.ZERO);
+							row.getCell(ASSIGNING).setValue(FDCHelper.ZERO);
+						}else{
+							if(costInfo.isIsLeaf()){
+								BigDecimal goalCost = ProgrammingContractUtil.getGoalCostBy_costAcc_aimCost(costInfo, aimCostInfo);
+								row.getCell(AIM_COST).setValue(goalCost);
+								row.getCell(ASSIGNED).setValue(FDCHelper.ZERO);
+								row.getCell(ASSIGNING).setValue(goalCost);
+							}else{
+								row.getCell(AIM_COST).setValue(FDCHelper.ZERO);
+								row.getCell(ASSIGNED).setValue(FDCHelper.ZERO);
+								row.getCell(ASSIGNING).setValue(FDCHelper.ZERO);
+							}
+						}
+						row.getCell("level").setValue(costInfo.getLevel() + "");
+						row.getCell("costAccount.id").setValue(costInfo.getId().toString());
+						if(costInfo.getParent() != null)
+							row.getCell("costAccount.parent.id").setValue(costInfo.getParent().getId().toString());
+						row.setUserObject(costInfo);
+					}
+				}
+			}
+		} catch (BOSException e) {
+			handUIException(e);
+		}
+		/* modified by zhaoqin for 建发 on 2014/05/19
+		 * 成本构成的项目被隐藏了，暂时注销这个方法   modify by  yxl  20151113 */
+//		displayOtherCostInfo(costInfoMap);
 		
 		KDTableHelper.autoFitColumnWidth(kdtCostAccount, kdtCostAccount.getColumnIndex("proName"), 5);
 		// modify end
@@ -4514,9 +4690,9 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			EntityViewInfo view = new EntityViewInfo();
 			FilterInfo filter = new FilterInfo();
 			view.setFilter(filter);
-			SelectorItemCollection sic = view.getSelector();
-			sic.add("*");
-			sic.add("curProject.name");
+//			SelectorItemCollection sic = view.getSelector();
+//			sic.add("*");
+//			sic.add("curProject.name");
 			//filter.getFilterItems().add(new FilterItemInfo("curProject", keySet, CompareType.INCLUDE));
 			filter.getFilterItems().add(new FilterItemInfo("curProject", projectId, CompareType.EQUALS));
 			/* modified by zhaoqin for 建发 on 2014/05/19 end */
@@ -4615,10 +4791,19 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	 * @param oldName
 	 */
 	private void createCostEntriesRow(int i, ProgrammingContractInfo rowObject, String proName, String oldName, Map costInfoMap) {
-		if (rowObject != null) {
+		if(rowObject != null) {
 			ProgrammingContracCostCollection proCol = rowObject.getCostEntries();
-			if (proCol.size() > 0) {
+			if(proCol.size() > 0) {
 				addRowForCost(proName, oldName, proCol, costInfoMap);
+			}
+		}
+	}
+	
+	private void createCostEntriesRow(int i, ProgrammingContractInfo rowObject, String proName, String oldName, Map costInfoMap, Set<String> oldCostSet) {
+		if(rowObject != null) {
+			ProgrammingContracCostCollection proCol = rowObject.getCostEntries();
+			if(proCol.size() > 0) {
+				addRowForCost(proName, oldName, proCol, costInfoMap,oldCostSet);
 			}
 		}
 	}
@@ -4631,6 +4816,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	 * @param proCol
 	 */
 	private void addRowForCost(String proName, String oldName, ProgrammingContracCostCollection proCol, Map costInfoMap) {
+		
 		for (int i = 0; i < proCol.size(); i++) {
 			boolean isHas = false;
 			ProgrammingContracCostInfo info = proCol.get(i);
@@ -4657,80 +4843,37 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			else
 				contractScale = FDCHelper.ZERO;
 			proName = oldName + "(" + contractScale + "%)";
-			/*
-			if (contractAssign != null && goalCost != null) {
-				if (goalCost.compareTo(FDCHelper.ZERO) > 0) {
-					BigDecimal percent = contractAssign.divide(goalCost, 4, BigDecimal.ROUND_HALF_UP).multiply(FDCHelper.ONE_HUNDRED);
-					percent = percent.divide(FDCHelper.ONE, 2, BigDecimal.ROUND_HALF_UP);
-					if (percent.intValue() <= 0) {
-						proName = oldName;
-					} else if (percent.intValue() <= 100) {
-						proName = oldName + percent + "%";
+
+			String name = null;
+			for (int j = 0; j < kdtCostAccount.getRowCount(); j++) {
+				name = null;
+				IRow row_k = kdtCostAccount.getRow(j);
+				String number = row_k.getCell("costNumber").getValue().toString();
+				Object name_1 = row_k.getCell("proName").getValue();
+				if (name_1 != null)
+					name = name_1.toString();
+				if (number.equals(costInfo.getLongNumber())) {
+					isHas = true;
+					if (name == null) {
+						row_k.getCell("proName").setValue(proName);
+					} else {
+						row_k.getCell("proName").setValue(name + ",\n" + proName);	/* modified by zhaoqin for R140507-0246 on 2014/05/13 */
 					}
+					Object ass = row_k.getCell(ASSIGNED).getValue();
+					BigDecimal assigned = FDCHelper.ZERO;
+					if (ass != null && !StringUtils.isEmpty(ass.toString())) {
+						assigned = new BigDecimal(ass.toString());
+						assigned = assigned.add(contractAssign);
+						row_k.getCell(ASSIGNED).setValue(assigned);
+					}
+					Object aim = row_k.getCell(AIM_COST).getValue();
+					BigDecimal aimCost = FDCHelper.ZERO;
+					if (aim != null && !StringUtils.isEmpty(aim.toString())) {
+						aimCost = new BigDecimal(aim.toString());
+					}
+					row_k.getCell(ASSIGNING).setValue(aimCost.subtract(assigned));
 				}
 			}
-			*/
-			/* modified by zhaoqin for R131119-0321 on 2013/12/3 end */
-			
-			/* modified by zhaoqin for 建发 on 2014/05/19 start */
-			// modify by lihaiou. 2013.07.30, fix bug R130723-0087,循环查数据库，存在性能问题
-			//CostAccountInfo costInfo = (CostAccountInfo) costInfoMap.get(info.getCostAccount().getId().toString());
-			//if (costInfo == null) {
-				//				SelectorItemCollection sic = new SelectorItemCollection();
-				//				sic.add("*");
-				//				sic.add("curProject.name");
-				//				try {
-				//					costInfo = CostAccountFactory.getRemoteInstance().getCostAccountInfo(new ObjectUuidPK(info.getCostAccount().getId()),
-				//							sic);
-				//				} catch (EASBizException e) {
-				//					logger.error(e);
-				//					handUIExceptionAndAbort(e);
-				//				} catch (BOSException e) {
-				//					logger.error(e);
-				//					handUIExceptionAndAbort(e);
-				//				}
-				//MsgBox.showWarning(this, "框架合约对应的成本科目已经发生改变!");
-				//SysUtil.abort();
-			//}
-			// modify end
-			//if (curProject == null || !curProject.getId().equals(costInfo.getCurProject().getId())) {
-				//proName = costInfo.getCurProject().getName() + "." + proName;
-			//}
-			if(null != info.get("projectNameOfOtherProg")) {
-				proName = (String)info.get("projectNameOfOtherProg") + "." + proName;
-			}
-			/* modified by zhaoqin for 建发 on 2014/05/19 end */
-
-//			String name = null;
-//			for (int j = 0; j < kdtCostAccount.getRowCount(); j++) {
-//				name = null;
-//				IRow row_k = kdtCostAccount.getRow(j);
-//				String number = row_k.getCell("costNumber").getValue().toString();
-//				Object name_1 = row_k.getCell("proName").getValue();
-//				if (name_1 != null)
-//					name = name_1.toString();
-//				if (number.equals(costInfo.getLongNumber())) {
-//					isHas = true;
-//					if (name == null) {
-//						row_k.getCell("proName").setValue(proName);
-//					} else {
-//						row_k.getCell("proName").setValue(name + ",\n" + proName);	/* modified by zhaoqin for R140507-0246 on 2014/05/13 */
-//					}
-//					Object ass = row_k.getCell(ASSIGNED).getValue();
-//					BigDecimal assigned = FDCHelper.ZERO;
-//					if (ass != null && !StringUtils.isEmpty(ass.toString())) {
-//						assigned = new BigDecimal(ass.toString());
-//						assigned = assigned.add(contractAssign);
-//						row_k.getCell(ASSIGNED).setValue(assigned);
-//					}
-//					Object aim = row_k.getCell(AIM_COST).getValue();
-//					BigDecimal aimCost = FDCHelper.ZERO;
-//					if (aim != null && !StringUtils.isEmpty(aim.toString())) {
-//						aimCost = new BigDecimal(aim.toString());
-//					}
-//					row_k.getCell(ASSIGNING).setValue(aimCost.subtract(assigned));
-//				}
-//			}
 			if (!isHas) {
 				List list = new ArrayList();
 				getParentCostAccountInfo(costInfo, list, costInfoMap);
@@ -4746,14 +4889,139 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				row.getCell("costAccount.id").setValue(costInfo.getId().toString());
 				row.getCell("costAccount.parent.id").setValue(costInfo.getParent().getId().toString());
 				row.setUserObject(costInfo);
-				// modify by yxl 20151109
-				for(int j = 0; j < kdtCostAccount.getRowCount(); j++) {
-					if(row.getRowIndex()!=j);
-				}
 			}
 		}
 	}
+	
+	/**
+	 * 判断目标成本是否已审批
+	 * 
+	 * @return true:审批中之后状态; false:未审批
+	 */
+	private boolean isAimCostAudit(AimCostInfo aimCostInfo) {
+		if (aimCostInfo != null) {
+			FDCBillStateEnum state = aimCostInfo.getState();
+			if (state.equals(FDCBillStateEnum.SAVED)
+					|| state.equals(FDCBillStateEnum.SUBMITTED)) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * 获取当前工程项目最新版本的目标成本
+	 * @param curProject
+	 * @return
+	 * @throws BOSException
+	 * 
+	 * @author zhaoqin
+	 * @date 2013/10/22
+	 */
+	private AimCostInfo getLastAimCostByCurProject(CurProjectInfo curProject) throws BOSException {
+		if(null == curProject || null == curProject.getId())
+			return null;
+		
+		SelectorItemCollection selector = new SelectorItemCollection();
+		selector.add("id");
+		selector.add("versionNumber");
+		selector.add("versionName");
+		selector.add("orgOrProId");
+		selector.add("state");
+		EntityViewInfo view = new EntityViewInfo();
+		FilterInfo filter = new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("orgOrProId", curProject.getId().toString()));
+		filter.getFilterItems().add(new FilterItemInfo("state", FDCBillStateEnum.AUDITTED_VALUE));
+		filter.getFilterItems().add(new FilterItemInfo("isLastVersion", Boolean.TRUE));
+		view.setFilter(filter);
+		view.setSelector(selector);
+		AimCostCollection coll = AimCostFactory.getRemoteInstance().getAimCostCollection(view);
+		if(coll.size() > 0)
+			return coll.get(0);
+		return null;
+	}
 
+	private void addRowForCost(String proName, String oldName, ProgrammingContracCostCollection proCol, Map costInfoMap, Set<String> oldCostSet) {
+		
+		for (int i = 0; i < proCol.size(); i++) {
+			boolean isHas = false;
+			ProgrammingContracCostInfo info = proCol.get(i);
+			
+			/* modified by zhaoqin for 建发 on 2014/05/19 start */
+			if (curProject == null || (null != info.getCostAccount().getCurProject() && 
+					!curProject.getId().equals(info.getCostAccount().getCurProject().getId()))) {
+				return;
+			}
+			CostAccountInfo costInfo = (CostAccountInfo) costInfoMap.get(info.getCostAccount().getId().toString());
+			if (costInfo == null) {
+				MsgBox.showWarning(this, "合约规划对应的成本科目已经发生改变!");
+				SysUtil.abort();
+			}
+			/* modified by zhaoqin for 建发 on 2014/05/19 end */
+			
+			BigDecimal contractAssign = info.getContractAssign();// 本合约分配
+			BigDecimal goalCost = info.getGoalCost();// 目标成本
+			
+			/* modified by zhaoqin for R131119-0321 on 2013/12/3 start */
+			BigDecimal contractScale = info.getContractScale();
+			if(null != contractScale)
+				contractScale = contractScale.setScale(2, BigDecimal.ROUND_HALF_UP);
+			else
+				contractScale = FDCHelper.ZERO;
+			proName = oldName + "(" + contractScale + "%)";
+
+			String name = null;
+			for (int j = 0; j < kdtCostAccount.getRowCount(); j++) {
+				name = null;
+				IRow row_k = kdtCostAccount.getRow(j);
+				String number = row_k.getCell("costNumber").getValue().toString();
+				Object name_1 = row_k.getCell("proName").getValue();
+				if (name_1 != null)
+					name = name_1.toString();
+				if (number.equals(costInfo.getLongNumber())) {
+					isHas = true;
+					if (name == null) {
+						row_k.getCell("proName").setValue(proName);
+					} else {
+						row_k.getCell("proName").setValue(name + ",\n" + proName);	/* modified by zhaoqin for R140507-0246 on 2014/05/13 */
+					}
+					Object ass = row_k.getCell(ASSIGNED).getValue();
+					BigDecimal assigned = FDCHelper.ZERO;
+					if (ass != null && !StringUtils.isEmpty(ass.toString())) {
+						assigned = new BigDecimal(ass.toString());
+						assigned = assigned.add(contractAssign);
+						row_k.getCell(ASSIGNED).setValue(assigned);
+					}
+					Object aim = row_k.getCell(AIM_COST).getValue();
+					BigDecimal aimCost = FDCHelper.ZERO;
+					if (aim != null && !StringUtils.isEmpty(aim.toString())) {
+						aimCost = new BigDecimal(aim.toString());
+					}
+					row_k.getCell(ASSIGNING).setValue(aimCost.subtract(assigned));
+				}
+			}
+			if (!isHas) {
+				List list = new ArrayList();
+				getParentCostAccountInfo(costInfo, list, costInfoMap);
+				addCostAccountParent(list);
+				IRow row = kdtCostAccount.addRow();
+				row.getCell("costNumber").setValue(costInfo.getLongNumber());
+				row.getCell("costName").setValue(setNameIndent(costInfo.getLevel()) + costInfo.getName());
+				row.getCell(AIM_COST).setValue(goalCost);
+				row.getCell(ASSIGNED).setValue(contractAssign);
+				row.getCell(ASSIGNING).setValue(goalCost.subtract(contractAssign));
+				row.getCell("level").setValue(costInfo.getLevel() + "");
+				row.getCell("proName").setValue(proName);
+				row.getCell("costAccount.id").setValue(costInfo.getId().toString());
+				row.getCell("costAccount.parent.id").setValue(costInfo.getParent().getId().toString());
+				row.setUserObject(costInfo);
+				oldCostSet.add(costInfo.getId().toString());
+			}
+		}
+	}
+	
 	/**
 	 * 递归获取成本科目的所有上级成本科目
 	 * @modify lihaiou.2013.0731, fix bug R130723-0087,提高性能,不从数据库查询数据
@@ -5158,6 +5426,8 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				}
 
 				setNameDisplay();
+				//保存后，如果模板的成本构成与合约规划中的不一样，则合约类型红色背景
+				isChangeTempCost();
 			} else {
 				setDataObject(new ProgrammingInfo());
 				loadFields();
@@ -5464,6 +5734,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		
 		/* modified by zhaoqin for R140507-0214 on 2014/05/13 */
 		setSaved(false);
+		handNoLeafData();
 	}
 	
 	
@@ -5833,7 +6104,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		switchButtonEnableState(true);
 		if (oprtState.equals(OprtState.VIEW)) {
 			btnImport.setEnabled(false);
-			btnImportProject.setEnabled(false);
+//			btnImportProject.setEnabled(false);
 			if (!hasHistoryVersion()) {//没有历史单据
 				switchButtonEnableState(false);
 				btnEdit.setEnabled(true);
@@ -5965,7 +6236,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		btnSubmit.setVisible(!isViewOprtState);
 		btnAuditResult.setVisible(isViewOprtState);
 		btnImport.setVisible(!isViewOprtState);
-		btnImportProject.setVisible(!isViewOprtState);
+//		btnImportProject.setVisible(!isViewOprtState);
 		actionNextPerson.setVisible(isViewOprtState);//查看状态下才可见 added by Owen_wen 2012-3-30
 	}
 
@@ -5977,7 +6248,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		btnWorkFlowG.setEnabled(enabled);
 		btnAuditResult.setEnabled(enabled);
 		btnImport.setEnabled(enabled);
-		btnImportProject.setEnabled(enabled);
+//		btnImportProject.setEnabled(enabled);
 		btnNextPerson.setEnabled(enabled);
 		btnAudit.setEnabled(enabled);
 		btnUnAudit.setEnabled(enabled);

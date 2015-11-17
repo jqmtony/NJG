@@ -2123,6 +2123,17 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		
 	}
 	
+	public boolean isContractRaleToBuildPriceIndex(String contractId) throws Exception {
+		boolean flag = false;
+		FDCSQLBuilder builder = new FDCSQLBuilder();
+		builder.appendSql("select fid from CT_COS_BuildPriceIndex where CFContractId='"+contractId+"' and CFContractStation='10'");
+		IRowSet rs = builder.executeQuery();
+		if(rs.next() && rs.getString(1) != null){
+			flag = true;
+		}
+		return flag;
+	}
+	
 	/**
 	 * 在编辑状态下动步取到最新版本对应的合约规划
 	 * 
@@ -5816,18 +5827,20 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 						isWarn = false;
 					}
 				}
-
 			}
 			if(isWarn){
 				MsgBox.showInfo(this, ContractClientUtils.getRes("NotEntryCost"));	
 			}
-			
 		}
-
 		checkStampMatch();
-
 		checkProjStatus();
-
+		// modify by yxl 20151113
+//		for(int i=0;i<tblEconItem.getRowCount();i++){
+//			if(FDCHelper.isEmpty(tblEconItem.getCell(i,"date").getValue())) {
+//				FDCMsgBox.showInfo("付款事项第"+(i+1)+"行的日期不能为空！");
+//				SysUtil.abort();
+//			}
+//		}
 	}
 
 	protected boolean checkCanSubmit() throws Exception {
@@ -5993,20 +6006,24 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}
 		//modify by yxl 20151027  提交时检验面平米指标，五大类合同
 		if(FDCHelper.isEmpty(txtMIndexType.getText())){
-			FDCMsgBox.showError("平米面积指标不能为空！");
+			FDCMsgBox.showInfo("综合单价不能为空！");
 			txtMIndexType.grabFocus();
-			abort();
-		}
-		if(!chkFiveClass.isSelected() && FDCMsgBox.showConfirm2("该合同不是五大类合同，继续提交吗？") != 0){
 			abort();
 		}
 		if(isWholeAgeProject){
 			for(int i = 0; i < kdtSplitEntry.getRowCount3(); i++) {
 				if(kdtSplitEntry.getCell(i,"programming").getValue() == null){
-					FDCMsgBox.showError("拆分信息第"+(i+1)+"行的合约规划不能为空！");
+					FDCMsgBox.showInfo("拆分信息第"+(i+1)+"行的合约规划不能为空！");
 					abort();
 				}
 			}
+		}
+		if(!chkFiveClass.isSelected() && FDCMsgBox.showConfirm2("该合同不是五大类合同，继续提交吗？") != 0){
+			abort();
+		}
+		if(editData.getId()==null||!isContractRaleToBuildPriceIndex(editData.getId().toString())){
+			if(FDCMsgBox.showConfirm2("没有录入成本指标库数据，是否继续提交？") != 0)
+				abort();
 		}
 	}
 
@@ -7577,7 +7594,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 					beginDate = tsInfo.getBeginDate();
 					endDate = tsInfo.getEndDate();
 					scale = tsInfo.getPayScale();
-					amount = contractAmount.multiply(scale);
+					amount = contractAmount.multiply(scale).divide(FDCHelper.ONE_HUNDRED);
 					if(beginDate!=null && endDate!=null){
 						months.clear();
 						while(beginDate.compareTo(endDate) <= 0) {

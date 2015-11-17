@@ -570,7 +570,7 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.contOrgUnit.setBoundLabelText(resHelper.getString("contOrgUnit.boundLabelText"));		
         this.contOrgUnit.setBoundLabelLength(100);		
         this.contOrgUnit.setBoundLabelUnderline(true);		
-        this.contOrgUnit.setVisible(true);		
+        this.contOrgUnit.setVisible(false);		
         this.contOrgUnit.setBoundLabelAlignment(7);
         // kDLabelContainer2		
         this.kDLabelContainer2.setBoundLabelText(resHelper.getString("kDLabelContainer2.boundLabelText"));		
@@ -583,7 +583,8 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         // kDLabelContainer8		
         this.kDLabelContainer8.setBoundLabelText(resHelper.getString("kDLabelContainer8.boundLabelText"));		
         this.kDLabelContainer8.setBoundLabelLength(100);		
-        this.kDLabelContainer8.setBoundLabelUnderline(true);
+        this.kDLabelContainer8.setBoundLabelUnderline(true);		
+        this.kDLabelContainer8.setVisible(false);
         // kDLabelContainer12		
         this.kDLabelContainer12.setBoundLabelText(resHelper.getString("kDLabelContainer12.boundLabelText"));		
         this.kDLabelContainer12.setBoundLabelUnderline(true);		
@@ -924,10 +925,10 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.setBounds(new Rectangle(0, 0, 1013, 649));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1013, 649));
-        kDSeparator6.setBounds(new Rectangle(10, 61, 993, 10));
-        this.add(kDSeparator6, new KDLayout.Constraints(10, 61, 993, 10, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDLabelContainer1.setBounds(new Rectangle(12, 70, 432, 19));
-        this.add(kDLabelContainer1, new KDLayout.Constraints(12, 70, 432, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDSeparator6.setBounds(new Rectangle(10, 85, 993, 10));
+        this.add(kDSeparator6, new KDLayout.Constraints(10, 85, 993, 10, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDLabelContainer1.setBounds(new Rectangle(12, 60, 432, 19));
+        this.add(kDLabelContainer1, new KDLayout.Constraints(12, 60, 432, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer4.setBounds(new Rectangle(573, 595, 430, 19));
         this.add(kDLabelContainer4, new KDLayout.Constraints(573, 595, 430, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kDLabelContainer5.setBounds(new Rectangle(12, 619, 430, 19));
@@ -936,24 +937,24 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.add(kDLabelContainer6, new KDLayout.Constraints(12, 272, 633, 20, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer7.setBounds(new Rectangle(12, 595, 430, 19));
         this.add(kDLabelContainer7, new KDLayout.Constraints(12, 595, 430, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contbillName.setBounds(new Rectangle(571, 70, 432, 19));
-        this.add(contbillName, new KDLayout.Constraints(571, 70, 432, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contbillName.setBounds(new Rectangle(571, 60, 432, 19));
+        this.add(contbillName, new KDLayout.Constraints(571, 60, 432, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contsettlePrice.setBounds(new Rectangle(372, 145, 270, 19));
         this.add(contsettlePrice, new KDLayout.Constraints(372, 145, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contbuildArea.setBounds(new Rectangle(373, 170, 270, 19));
         this.add(contbuildArea, new KDLayout.Constraints(373, 170, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contgetFeeCriteria.setBounds(new Rectangle(12, 145, 270, 19));
-        this.add(contgetFeeCriteria, new KDLayout.Constraints(12, 145, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contgetFeeCriteria.setBounds(new Rectangle(12, 120, 270, 19));
+        this.add(contgetFeeCriteria, new KDLayout.Constraints(12, 120, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contunitPrice.setBounds(new Rectangle(733, 145, 270, 19));
         this.add(contunitPrice, new KDLayout.Constraints(733, 145, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        continfoPrice.setBounds(new Rectangle(12, 170, 270, 19));
-        this.add(continfoPrice, new KDLayout.Constraints(12, 170, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        continfoPrice.setBounds(new Rectangle(12, 145, 270, 19));
+        this.add(continfoPrice, new KDLayout.Constraints(12, 145, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contqualityGuarante.setBounds(new Rectangle(733, 195, 270, 19));
         this.add(contqualityGuarante, new KDLayout.Constraints(733, 195, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contauditTime.setBounds(new Rectangle(573, 619, 430, 19));
         this.add(contauditTime, new KDLayout.Constraints(573, 619, 430, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDLabelContainer9.setBounds(new Rectangle(12, 35, 430, 19));
-        this.add(kDLabelContainer9, new KDLayout.Constraints(12, 35, 430, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer9.setBounds(new Rectangle(12, 10, 430, 19));
+        this.add(kDLabelContainer9, new KDLayout.Constraints(12, 10, 430, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer10.setBounds(new Rectangle(571, 35, 430, 19));
         this.add(kDLabelContainer10, new KDLayout.Constraints(571, 35, 430, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contDetailInfo.setBounds(new Rectangle(9, 297, 994, 293));
@@ -962,16 +963,16 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.add(kDLabelContainer11, new KDLayout.Constraints(372, 195, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contProj.setBounds(new Rectangle(571, 10, 430, 19));
         this.add(contProj, new KDLayout.Constraints(571, 10, 430, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contOrgUnit.setBounds(new Rectangle(12, 10, 430, 19));
-        this.add(contOrgUnit, new KDLayout.Constraints(12, 10, 430, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contOrgUnit.setBounds(new Rectangle(226, 33, 157, 19));
+        this.add(contOrgUnit, new KDLayout.Constraints(226, 33, 157, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer2.setBounds(new Rectangle(733, 274, 270, 19));
         this.add(kDLabelContainer2, new KDLayout.Constraints(733, 274, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kDLabelContainer3.setBounds(new Rectangle(12, 95, 270, 19));
         this.add(kDLabelContainer3, new KDLayout.Constraints(12, 95, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer8.setBounds(new Rectangle(12, 120, 270, 19));
-        this.add(kDLabelContainer8, new KDLayout.Constraints(12, 120, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer12.setBounds(new Rectangle(12, 195, 270, 19));
-        this.add(kDLabelContainer12, new KDLayout.Constraints(12, 195, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer8.setBounds(new Rectangle(12, 196, 270, 19));
+        this.add(kDLabelContainer8, new KDLayout.Constraints(12, 196, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer12.setBounds(new Rectangle(12, 170, 270, 19));
+        this.add(kDLabelContainer12, new KDLayout.Constraints(12, 170, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer13.setBounds(new Rectangle(372, 95, 270, 19));
         this.add(kDLabelContainer13, new KDLayout.Constraints(372, 95, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer14.setBounds(new Rectangle(733, 95, 270, 19));
@@ -994,8 +995,8 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.add(conAttenTwo, new KDLayout.Constraints(13, 248, 531, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         viewAttenTwo.setBounds(new Rectangle(559, 248, 83, 21));
         this.add(viewAttenTwo, new KDLayout.Constraints(559, 248, 83, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        btnCostIndex.setBounds(new Rectangle(456, 10, 100, 21));
-        this.add(btnCostIndex, new KDLayout.Constraints(456, 10, 100, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        btnCostIndex.setBounds(new Rectangle(12, 33, 100, 21));
+        this.add(btnCostIndex, new KDLayout.Constraints(12, 33, 100, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtNumber);
         //kDLabelContainer4

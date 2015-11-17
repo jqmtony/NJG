@@ -12,6 +12,7 @@ import com.kingdee.bos.ctrl.swing.KDDatePicker;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCColorConstants;
+import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.migrate.StringUtils;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
@@ -152,20 +153,24 @@ public class EcoItemHelper {
 	}
 	public static void checkVeforeSubmit(KDTable tblPayItem,KDTable tblBail) {
 		for (int i = 0; i < tblPayItem.getRowCount(); i++) {
+			if(FDCHelper.isEmpty(tblPayItem.getCell(i,"date").getValue())) {
+				FDCMsgBox.showInfo("付款事项第"+(i+1)+"行的日期不能为空");
+				SysUtil.abort();
+			}
 			if(null==tblPayItem.getRow(i).getCell("payType").getValue()){
-				MsgBox.showWarning("付款类型不能为空");
+				MsgBox.showWarning("付款事项第"+(i+1)+"行的付款类型不能为空");
 				SysUtil.abort();
 			}
 			if(StringUtils.isEmpty((String)tblPayItem.getRow(i).getCell("payCondition").getValue())){
-				MsgBox.showWarning("付款条件不能为空");
+				MsgBox.showWarning("付款事项第"+(i+1)+"行的支付节点不能为空");
 				SysUtil.abort();
 			}
 			if(null==tblPayItem.getRow(i).getCell("payRate").getValue()){
-				MsgBox.showWarning("付款比例不能为空");
+				MsgBox.showWarning("付款事项第"+(i+1)+"行的付款比例不能为空");
 				SysUtil.abort();
 			}
 			if(null==tblPayItem.getRow(i).getCell("payAmount").getValue()){
-				MsgBox.showWarning("付款金额不能为空");
+				MsgBox.showWarning("付款事项第"+(i+1)+"行的付款金额不能为空");
 				SysUtil.abort();
 			}
 			

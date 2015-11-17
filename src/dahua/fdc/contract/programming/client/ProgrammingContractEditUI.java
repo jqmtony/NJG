@@ -204,6 +204,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 				}
 			}
 		});
+		txtAmount.setEnabled(false);
 	}
 
 	public void onLoad() throws Exception {
@@ -223,7 +224,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		kdtEconomy.getColumn("scheduletask").getStyleAttributes().setHided(true);
 		kdtEconomy.getColumn("completedate").getStyleAttributes().setHided(true);
 		kdtEconomy.getColumn("delaydays").getStyleAttributes().setHided(true);
-		txtAmount.setEnabled(false);
+		
 		txtAmount.addDataChangeListener(new DataChangeListener() {
 			/*
 			 * 规划金额改变后需要处理的事情有以下几种情况 1. 判断规划金额录入的数值是否小于0 2. 经济条款—付款金额依据原付款比例动态改变
@@ -591,6 +592,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		kDTabbedPane1.remove(kDContainerEconomy);
 		//modify by yxl 20150812
 		initFxbd();
+		txtAmount.setEnabled(false);
 	}
 
 	private void initFxbd() throws BOSException{
@@ -737,37 +739,47 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		}
 	}
 	
-	private boolean isDateChange(String key,Date editDate,Calendar c1){
+	private String isDateChange(String key,Date editDate,Calendar c1){
 		PcTypeEntryInfo einfo = ptentrys.get(key);
 		if(einfo != null){
 			if(editDate==null)
-				return false;
+				return null;
 			CKDate ckItem = einfo.getCkDate();
 			if(ckItem==null)
-				return false;
+				return null;
 			Date ckdate = ckDates.get(ckItem.getName());
 			if(ckdate==null)
-				return false;
+				return null;
 			c1.setTime(ckdate);
 			c1.add(Calendar.DATE,-einfo.getTqDays());
-			if(new Timestamp(c1.getTime().getTime()).compareTo(new Timestamp(editDate.getTime())) != 0)
-				return true;
+			Timestamp ck = new Timestamp(c1.getTime().getTime());
+			Timestamp sj = new Timestamp(editDate.getTime());
+			if(sj.compareTo(ck) > 0)
+				return "red";
+			else if(sj.compareTo(ck) < 0)
+				return "green";
+			else
+				return null;
 //			if(realDate!=null & planDate!=null){
 //				if(new Timestamp(realDate.getTime()).compareTo(new Timestamp(planDate.getTime())) != 0)
 //					return true;
 //			}
 		}
-		return false;
+		return null;
 	}
 	
 	private void setFxbdBg(){
 		Calendar c1 = Calendar.getInstance();
 		String number = null;
+		String result = null;
 		for (int k = 1; k < kdtfxbd.getColumnCount(); k=k+3) {
 			number = kdtfxbd.getColumnKey(k).substring(0,3);
 			for (int j = kdtfxbd.getRowCount3()-1; j >=0; j--) {
-				if(isDateChange(number+j,(Date)kdtfxbd.getCell(j,number+"date").getValue(),c1)){
+				result = isDateChange(number+j,(Date)kdtfxbd.getCell(j,number+"date").getValue(),c1);
+				if("red".equals(result)){
 					kdtfxbd.getCell(j,number+"date").getStyleAttributes().setBackground(Color.red);
+				}else if("green".equals(result)){
+					kdtfxbd.getCell(j,number+"date").getStyleAttributes().setBackground(Color.GREEN);
 				}
 			}
 		}
@@ -1053,14 +1065,13 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		}
 		
 		// modified by zhaoqin for R130828-0384 on 2013/9/29
-		changeTxtAmountState();
-		
-		if(kdtCost.getRowCount()>0){
-			txtAmount.setEnabled(false);
-		}else{
-			txtAmount.setEnabled(true);
-			txtAmount.setRequired(true);
-		}
+//		changeTxtAmountState();
+//		if(kdtCost.getRowCount()>0){
+//			txtAmount.setEnabled(false);
+//		}else{
+//			txtAmount.setEnabled(true);
+//			txtAmount.setRequired(true);
+//		}
 	}
 
 	protected void actionAddnewLine_enocomy_actionPerformed(ActionEvent e) {
@@ -1403,24 +1414,24 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		}
 
 		// 招标方式
-		if (FDCHelper.isEmpty(kdcInviteWay.getSelectedItem()) ^ FDCHelper.isEmpty(oldPcInfo.getInviteWay())) {
-			return true;
-		}
-		if (!FDCHelper.isEmpty(kdcInviteWay.getSelectedItem()) & !FDCHelper.isEmpty(oldPcInfo.getInviteWay())) {
-			if (!kdcInviteWay.getSelectedItem().equals(oldPcInfo.getInviteWay())) {
-				return true;
-			}
-		}
+//		if (FDCHelper.isEmpty(kdcInviteWay.getSelectedItem()) ^ FDCHelper.isEmpty(oldPcInfo.getInviteWay())) {
+//			return true;
+//		}
+//		if (!FDCHelper.isEmpty(kdcInviteWay.getSelectedItem()) & !FDCHelper.isEmpty(oldPcInfo.getInviteWay())) {
+//			if (!kdcInviteWay.getSelectedItem().equals(oldPcInfo.getInviteWay())) {
+//				return true;
+//			}
+//		}
 
 		// 招标组织
-		if (FDCHelper.isEmpty(prmtInviteOrg.getData()) ^ FDCHelper.isEmpty(oldPcInfo.getInviteOrg())) {
-			return true;
-		}
-		if (!FDCHelper.isEmpty(prmtInviteOrg.getData()) & !FDCHelper.isEmpty(oldPcInfo.getInviteOrg())) {
-			if (!prmtInviteOrg.getData().equals(oldPcInfo.getInviteOrg())) {
-				return true;
-			}
-		}
+//		if (FDCHelper.isEmpty(prmtInviteOrg.getData()) ^ FDCHelper.isEmpty(oldPcInfo.getInviteOrg())) {
+//			return true;
+//		}
+//		if (!FDCHelper.isEmpty(prmtInviteOrg.getData()) & !FDCHelper.isEmpty(oldPcInfo.getInviteOrg())) {
+//			if (!prmtInviteOrg.getData().equals(oldPcInfo.getInviteOrg())) {
+//				return true;
+//			}
+//		}
 
 		// 工作内容，注意为“默认工作内容”时相当于没有填工作内容
 		boolean isWorkContentEmpty = DEFAULT_WORK_CONTENT.equals(txtWorkContent.getText()) || FDCHelper.isEmpty(txtWorkContent.getText());
@@ -1698,7 +1709,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
 		
 		if (getUIContext().get("editPayPlan") != null) {
-			payPlanNewUI.actionSubmit_actionPerformed(e);
+			payPlanNewUI.actionSave_actionPerformed(e);
 		} else {
 			verifyIsEmpty();
 			verifyAllData();
@@ -1708,7 +1719,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 			// modified by zhaoqin on 2013/11/22
 			storeEditData();
 			
-			payPlanNewUI.actionSubmit_actionPerformed(e);
+			payPlanNewUI.actionSave_actionPerformed(e);
 			if (directExit) {
 				// 直接保存退出，不作提示
 				// verifyIsEmpty();
