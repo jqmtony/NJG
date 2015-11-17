@@ -48,6 +48,8 @@ public class ProductTypeEditUI extends AbstractProductTypeEditUI {
 		super.onLoad();
 		setTitle();
 //		setBtnStatus();		
+		PlanIndexType.setVisible(false);
+		contPlanIndexType.setVisible(false);
 	}
 
 	private void setTitle() {
