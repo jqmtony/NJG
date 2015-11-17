@@ -1,0 +1,1009 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.contract.app</package>
+    <name>MingYuanScheduleQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaSchedule</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>DahuaSchedule</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].subObjects.subEntity[DahuaSchedule].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.dahuaschedule.schedule.app" />
+                <key name="name" value="DahuaSchedule" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>project</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].subObjects.subEntity[project].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProject" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>entrys</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].subObjects.subEntity[entrys].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.dahuaschedule.schedule.app" />
+                <key name="name" value="DahuaScheduleEntry" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>progamming</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].subObjects.subEntity[progamming].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.programming.app" />
+                <key name="name" value="ProgrammingContract" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>f576e068-ad7f-454a-ba00-5c91c98b49cc</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.propertyUnit[f576e068-ad7f-454a-ba00-5c91c98b49cc].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e4a2cfbb-73fe-4102-a758-d4d4939accdc</key>
+                    <parentUnit>
+                        <key name="name" value="f576e068-ad7f-454a-ba00-5c91c98b49cc" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaSchedule" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="project" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>d4a7e1cf-30bf-41c4-975f-0aff881e8c41</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.propertyUnit[d4a7e1cf-30bf-41c4-975f-0aff881e8c41].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>33d00b8e-3154-4a7d-8e3d-b258a88936cc</key>
+                    <parentUnit>
+                        <key name="name" value="d4a7e1cf-30bf-41c4-975f-0aff881e8c41" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>6e25d67b-6e59-41e6-b196-04a789fd7aea</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.propertyUnit[6e25d67b-6e59-41e6-b196-04a789fd7aea].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>076bb73e-0066-4dbe-b4c8-2482c6367f80</key>
+                    <parentUnit>
+                        <key name="name" value="6e25d67b-6e59-41e6-b196-04a789fd7aea" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaSchedule" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>92dd8b8f-f0c7-4f02-b7e8-875f8b129cd0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.propertyUnit[92dd8b8f-f0c7-4f02-b7e8-875f8b129cd0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>cb0e0541-88d5-4c84-87f6-324c73e6f51d</key>
+                    <parentUnit>
+                        <key name="name" value="92dd8b8f-f0c7-4f02-b7e8-875f8b129cd0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>d5aee2c8-dbfb-4d2d-8ff3-e39880de17db</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.propertyUnit[d5aee2c8-dbfb-4d2d-8ff3-e39880de17db].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>75628413-b998-43bb-b073-318a0370bd0e</key>
+                    <parentUnit>
+                        <key name="name" value="d5aee2c8-dbfb-4d2d-8ff3-e39880de17db" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="progamming" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>b99a86fc-def8-45a0-a223-9ede8c0a7edd</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.propertyUnit[b99a86fc-def8-45a0-a223-9ede8c0a7edd].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>7590e2c5-d05e-47e9-9265-283329a93390</key>
+                    <parentUnit>
+                        <key name="name" value="b99a86fc-def8-45a0-a223-9ede8c0a7edd" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="progamming" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>entrys.number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2cb4d713-cbc7-4a8a-a3b4-de4c0ad8414e</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.task</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.task].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>aa5ba5cd-87f3-4b97-9d78-7c7a74f03da8</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.task" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="task" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.times</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.times].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>058dd4ca-98d4-4f8b-a16d-f28d2066c505</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.times" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="times" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.completeRate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.completeRate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>77b6470c-de1f-43f2-8d4b-1fa9e9a43b10</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.completeRate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="completeRate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.startDate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.startDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>83961640-ea0c-4b6b-9f05-626e4f9f2ea6</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.startDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="startDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.endDate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.endDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>3291f8dc-bb44-4dbb-9505-cf0ad0d8999a</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.endDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="endDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.actStartDate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.actStartDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>e3850aeb-7084-4898-a822-1750188108d6</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.actStartDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="actStartDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.actCompleteDate</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.actCompleteDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>acda16fc-7927-48aa-9299-2e7e0ab302e7</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.actCompleteDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="actCompleteDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.managerText</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.managerText].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b777dd32-7ed4-4d29-87f4-7d92f637b948</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.managerText" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="managerText" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.departmentText</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.departmentText].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ee110ed4-c8ad-4aa6-ba68-01d8c529055a</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.departmentText" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="departmentText" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>progamming.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[progamming.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>5b57ab8c-7808-40ad-afae-485051a6bb11</key>
+                    <parentUnit>
+                        <key name="name" value="progamming.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="progamming" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>project.id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[project.id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>593a14b9-7242-4175-93a0-592c9fe509dc</key>
+                    <parentUnit>
+                        <key name="name" value="project.id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="project" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>identrys</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[identrys].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4e789048-8680-4765-a1a6-bd60d2a20a3d</key>
+                    <parentUnit>
+                        <key name="name" value="identrys" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>91a8e12f-bdd2-49dc-9969-1636b19f7a07</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="DahuaSchedule" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+            <key name="name" value="MingYuanScheduleQuery" />
+        </query>
+    </defaultFilter>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="identrys" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>676abcc5-cf17-497a-a14f-b3c5d6fb8216</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="DahuaSchedule" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="project" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>4f2abfae-5ece-42fb-ac51-f2a2f0254140</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="f576e068-ad7f-454a-ba00-5c91c98b49cc" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="d4a7e1cf-30bf-41c4-975f-0aff881e8c41" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="676abcc5-cf17-497a-a14f-b3c5d6fb8216" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </join>
+        <join>
+            <name>37c4fc77-3ce7-40db-bd14-b0ff2b1a6c7e</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="DahuaSchedule" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="entrys" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>40311bde-d38b-43cc-ab16-2b42107ec119</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="6e25d67b-6e59-41e6-b196-04a789fd7aea" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="92dd8b8f-f0c7-4f02-b7e8-875f8b129cd0" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="37c4fc77-3ce7-40db-bd14-b0ff2b1a6c7e" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </join>
+        <join>
+            <name>57755a8d-5f74-4db9-952b-3f876e42e519</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="entrys" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="progamming" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>46c0d846-3ec4-4ecf-bdfd-53a002b7d2c4</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="d5aee2c8-dbfb-4d2d-8ff3-e39880de17db" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="b99a86fc-def8-45a0-a223-9ede8c0a7edd" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="57755a8d-5f74-4db9-952b-3f876e42e519" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="MingYuanScheduleQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="明源进度项" />
+            <lang locale="zh_HK" value="明源進度項" />
+            <lang locale="zh_TW" value="明源進度項" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="明源进度项" />
+            <lang locale="zh_HK" value="明源進度項" />
+            <lang locale="zh_TW" value="明源進度項" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.dahuaschedule.schedule.client.ScheduleResource.DahuaScheduleQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.dahuaschedule.schedule.client.ScheduleResource.DahuaScheduleQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.dahuaschedule.schedule.client.ScheduleResource.DahuaScheduleQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="进度" />
+            <lang locale="zh_CN" value="进度" />
+            <lang locale="zh_TW" value="进度" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].subObjects.subEntity[DahuaSchedule].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].subObjects.subEntity[entrys].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].subObjects.subEntity[progamming].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].subObjects.subEntity[project].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.propertyUnit[6e25d67b-6e59-41e6-b196-04a789fd7aea].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.propertyUnit[92dd8b8f-f0c7-4f02-b7e8-875f8b129cd0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.propertyUnit[b99a86fc-def8-45a0-a223-9ede8c0a7edd].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.propertyUnit[d4a7e1cf-30bf-41c4-975f-0aff881e8c41].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.propertyUnit[d5aee2c8-dbfb-4d2d-8ff3-e39880de17db].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.propertyUnit[f576e068-ad7f-454a-ba00-5c91c98b49cc].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.actCompleteDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际完成日期" />
+            <lang locale="zh_HK" value="實際完成日期" />
+            <lang locale="zh_TW" value="實際完成日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.actStartDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="实际开始时间" />
+            <lang locale="zh_HK" value="實際開始時間" />
+            <lang locale="zh_TW" value="實際開始時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.completeRate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="完成进度" />
+            <lang locale="zh_HK" value="完成進度" />
+            <lang locale="zh_TW" value="完成進度" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.departmentText].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任部门" />
+            <lang locale="zh_HK" value="責任部門" />
+            <lang locale="zh_TW" value="責任部門" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.endDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划完成日期" />
+            <lang locale="zh_HK" value="計畫完成日期" />
+            <lang locale="zh_TW" value="計畫完成日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.managerText].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="责任人" />
+            <lang locale="zh_HK" value="責任人" />
+            <lang locale="zh_TW" value="責任人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="任务编码" />
+            <lang locale="zh_HK" value="任務編碼" />
+            <lang locale="zh_TW" value="任務編碼" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.number].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.startDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="计划开始日期" />
+            <lang locale="zh_HK" value="計畫開始日期" />
+            <lang locale="zh_TW" value="計畫開始日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.task].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="任务名称" />
+            <lang locale="zh_HK" value="任務名稱" />
+            <lang locale="zh_TW" value="任務名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.task].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[entrys.times].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工期" />
+            <lang locale="zh_HK" value="工期" />
+            <lang locale="zh_TW" value="工期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[identrys].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[identrys].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[progamming.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[progamming.id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[project.id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
+            <lang locale="zh_HK" value="ID" />
+            <lang locale="zh_TW" value="ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.contract.app.MingYuanScheduleQuery].units.queryField[project.id].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+    </resource>
+</joinQuery>
+
