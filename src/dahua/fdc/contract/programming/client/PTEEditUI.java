@@ -241,7 +241,7 @@ public class PTEEditUI extends AbstractPTEEditUI implements REAutoCompletionData
 		kdftf.setPrecision(2);	// modified by zhaoqin for R131216-0523 on 2013/12/20
 		kdftf.setSupportedEmpty(true);
 		kdftf.setMaximumValue(FDCHelper.ONE_HUNDRED);
-		kdftf.setMinimumValue(new BigDecimal("1"));
+		kdftf.setMinimumValue(new BigDecimal("0.01"));
 		this.kdtCostEntries.getColumn(CONSTRACTSCALE).setEditor(cellEditor0);
 		
 		// modified by zhaoqin for R131216-0523 on 2013/12/20

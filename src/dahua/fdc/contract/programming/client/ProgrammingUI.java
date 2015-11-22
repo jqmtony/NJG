@@ -304,7 +304,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		menuItemAddNew.setText("修改付款规划");
 		// modify by yxl 20150814
 		txtYjDays.setRequired(true);
-		
+		actioinImportProject.setVisible(false);
 //		prmtYjPerson.setRequired(true);
 //		prmtYjPerson.setDisplayFormat("$name$");
 //		prmtYjPerson.setEditFormat("$number$");
@@ -2974,7 +2974,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 
 				String l3[] = (l2 == null ? "" : l2).toString().split("\\.");
 				for (int j = 0; j < l.length; j++) {
-					if (l3[j] != null && l3[j].length() > 0) {
+					if (l3.length>j && l3[j] != null && l3[j].length() > 0) {
 						l3[j] = l[j];
 					}
 				}
@@ -5379,8 +5379,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	 */
 	protected void treeMain_valueChanged(TreeSelectionEvent e) throws Exception {
 		/* modified by zhaoqin for R140507-0214 on 2014/05/13 start */
-		if((getOprtState().equals(OprtState.ADDNEW) || getOprtState().equals(OprtState.EDIT)) 
-				&& !isSaved()) {
+		if((getOprtState().equals(OprtState.ADDNEW) || getOprtState().equals(OprtState.EDIT)) && !isSaved()) {
 			if(MsgBox.isYes(MsgBox.showConfirm2(this, "数据未保存,是否保存?"))) {
 				actionSave_actionPerformed(null);
 			}

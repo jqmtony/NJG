@@ -144,10 +144,12 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 
 	private static final Logger logger = CoreUIObject.getLogger(ProgrammingContractEditUI.class);
 
-	protected KDWorkButton btnAddnewLine_cost;
-	protected KDWorkButton btnRemoveLines_cost;
-	protected KDWorkButton btnAddnewLine_economy;
-	protected KDWorkButton btnRemoveLines_economy;
+	protected KDWorkButton btnAddnewLine_cost = null;
+	protected KDWorkButton btnRemoveLines_cost = null;
+	protected KDWorkButton btnAddnewLine_economy = null;
+	protected KDWorkButton btnRemoveLines_economy = null;
+	protected KDWorkButton addFxbdLine = null;
+	protected KDWorkButton removeFxbdLine = null;
 	
 	private Map<String,PcTypeEntryInfo> ptentrys = new HashMap<String,PcTypeEntryInfo>();
 	private Map<String,Date> ckDates = new HashMap<String,Date>();
@@ -632,7 +634,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		    icol.setKey("isNew");
 		    icol.setEditor(boxeditor);
 			icol.setRenderer(boxrender);
-			icol.getStyleAttributes().setHided(true);
+//			icol.getStyleAttributes().setHided(true);
 			for(Iterator<String> it=depIds.keySet().iterator(); it.hasNext();){
 				key = it.next();
 				if(maxSize < depIds.get(key)){
@@ -820,22 +822,22 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	}
 	
 	private void initFxbdButton(){
-		KDWorkButton addLine = new KDWorkButton("新增行");
+		addFxbdLine = new KDWorkButton("新增行");
+		removeFxbdLine = new KDWorkButton("删除行");
 //		KDWorkButton insetLine = new KDWorkButton("插入行");
-		KDWorkButton removeLine = new KDWorkButton("删除行");
-		addLine.setName("addLine");
+		addFxbdLine.setName("addLine");
 //		insetLine.setName("insetLine");
-		removeLine.setName("removeLine");
-		addLine.setIcon(EASResource.getIcon("imgTbtn_addline"));
+		removeFxbdLine.setName("removeLine");
+		addFxbdLine.setIcon(EASResource.getIcon("imgTbtn_addline"));
 //		insetLine.setIcon(EASResource.getIcon("imgTbtn_insert"));
-		removeLine.setIcon(EASResource.getIcon("imgTbtn_deleteline"));
-		kDContainer1fx.addButton(addLine);
-		kDContainer1fx.addButton(removeLine);
+		removeFxbdLine.setIcon(EASResource.getIcon("imgTbtn_deleteline"));
+		kDContainer1fx.addButton(addFxbdLine);
+		kDContainer1fx.addButton(removeFxbdLine);
 //		kDContainer1fx.addButton(insetLine);
 		MyActionListener myal = new MyActionListener(kdtfxbd);
-		addLine.addActionListener(myal);
+		addFxbdLine.addActionListener(myal);
 //		insetLine.addActionListener(myal);
-		removeLine.addActionListener(myal);
+		removeFxbdLine.addActionListener(myal);
 	}
 	
 	class MyActionListener implements ActionListener{
@@ -1020,6 +1022,10 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	private void setButtionEnable(boolean isEnable) {
 		btnAddnewLine_cost.setEnabled(isEnable);
 		btnRemoveLines_cost.setEnabled(isEnable);
+		if(addFxbdLine != null)
+			addFxbdLine.setEnabled(isEnable);
+		if(removeFxbdLine != null)
+			removeFxbdLine.setEnabled(isEnable);
 //		btnAddnewLine_economy.setEnabled(isEnable);
 //		btnRemoveLines_economy.setEnabled(isEnable);
 	}

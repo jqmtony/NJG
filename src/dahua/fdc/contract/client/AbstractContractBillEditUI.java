@@ -259,6 +259,7 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
     protected actionSplitBotUp actionSplitBotUp = null;
     protected actionSplitProd actionSplitProd = null;
     protected actionRemoveSplit actionRemoveSplit = null;
+    protected ActionProgrAcctSelect actionProgrAcctSelect = null;
     /**
      * output class constructor
      */
@@ -419,6 +420,10 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.actionRemoveSplit = new actionRemoveSplit(this);
         getActionManager().registerAction("actionRemoveSplit", actionRemoveSplit);
          this.actionRemoveSplit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionProgrAcctSelect
+        this.actionProgrAcctSelect = new ActionProgrAcctSelect(this);
+        getActionManager().registerAction("actionProgrAcctSelect", actionProgrAcctSelect);
+         this.actionProgrAcctSelect.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.tabPanel = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
         this.mainPanel = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.ecoItemPanel = new com.kingdee.bos.ctrl.swing.KDPanel();
@@ -4088,6 +4093,14 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
     public void actionRemoveSplit_actionPerformed(ActionEvent e) throws Exception
     {
     }
+    	
+
+    /**
+     * output actionProgrAcctSelect_actionPerformed method
+     */
+    public void actionProgrAcctSelect_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -4339,6 +4352,17 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
     }
 	
 	public boolean isPrepareactionRemoveSplit() {
+    	return false;
+    }
+	public RequestContext prepareActionProgrAcctSelect(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionProgrAcctSelect() {
     	return false;
     }
 
@@ -4890,6 +4914,36 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractContractBillEditUI.this, "actionRemoveSplit", "actionRemoveSplit_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionProgrAcctSelect class
+     */     
+    protected class ActionProgrAcctSelect extends ItemAction {     
+    
+        public ActionProgrAcctSelect()
+        {
+            this(null);
+        }
+
+        public ActionProgrAcctSelect(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionProgrAcctSelect.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionProgrAcctSelect.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionProgrAcctSelect.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractContractBillEditUI.this, "ActionProgrAcctSelect", "actionProgrAcctSelect_actionPerformed", e);
         }
     }
 

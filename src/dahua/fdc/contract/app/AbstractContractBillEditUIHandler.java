@@ -104,4 +104,9 @@ public abstract class AbstractContractBillEditUIHandler extends com.kingdee.eas.
 	}
 	protected void _handleactionRemoveSplit(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleActionProgrAcctSelect(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionProgrAcctSelect(request,response,context);
+	}
+	protected void _handleActionProgrAcctSelect(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }
