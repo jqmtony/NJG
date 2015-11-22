@@ -1329,6 +1329,10 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 		super.actionSave_actionPerformed(e);
 //		ProgrammingContractInfo pInfo = (ProgrammingContractInfo)getUIContext().get("programming");
 		pInfo.put("PayPlan", editData);
+		btnAddnewLine.setEnabled(false);
+		btnInsertLine.setEnabled(false);
+		btnRemoveLines.setEnabled(false);
+		btnCalAmount.setEnabled(false);
 	}
 	
 	public IObjectPK runSubmit() throws Exception {
