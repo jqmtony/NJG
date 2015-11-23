@@ -31,6 +31,7 @@ import com.kingdee.bos.ctrl.kdf.table.util.KDTableUtil;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDMenuItem;
+import com.kingdee.bos.ctrl.swing.KDPromptSelector;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.dao.IObjectCollection;
@@ -88,6 +89,7 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
+import com.kingdee.eas.fdc.contract.programming.client.ProgrammingContractF7UI;
 import com.kingdee.eas.fdc.finance.PaymentSplitEntryInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
@@ -140,6 +142,12 @@ public class ContractCostSplitEditUI extends AbstractContractCostSplitEditUI
         
     	super.actionSave_actionPerformed(e);
 //    	this.btnSubmit.doClick();
+    	if(isWholeProject){
+			for(int i = 0; i < kdtEntrys.getRowCount(); i++) {
+				if((Integer)kdtEntrys.getCell(i,"level").getValue() == 0)
+					setProgrammingContractCellF7(i);
+			}
+		}
     }
 
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
@@ -754,6 +762,7 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 			}
 			isWholeProject = contractBillInfo.getCurProject().isIsWholeAgeStage();
 			pcinfo = contractBillInfo.getProgrammingContract();
+			kdtEntrys.getColumn("programming").getStyleAttributes().setLocked(!isWholeProject);
 		}
 		
 
@@ -814,27 +823,27 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 		 this.btnViewContract.setIcon(EASResource.getIcon("imgTbtn_execute"));
 		 this.menuViewContract.setIcon(EASResource.getIcon("imgTbtn_execute"));
 		 
-		 String projectId = editData.getCurProject().getId().toString();
-		 if(projectId != null){
-			 CurProjectInfo project = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(projectId));
-			 if(!project.isIsWholeAgeStage())
-				 kdtEntrys.getColumn("programming").getStyleAttributes().setLocked(true);
-		 }
-		 EntityViewInfo view = new EntityViewInfo();
-		 FilterInfo filInfo = new FilterInfo();
-		 filInfo.getFilterItems().add(new FilterItemInfo("programming.project.id",projectId));
-//		 filInfo.getFilterItems().add(new FilterItemInfo("programming.isLatest","1"));
-		 view.setFilter(filInfo);
+//		 String projectId = editData.getCurProject().getId().toString();
+//		 if(projectId != null){
+//			 CurProjectInfo project = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(projectId));
+//			 if(!project.isIsWholeAgeStage())
+//				 kdtEntrys.getColumn("programming").getStyleAttributes().setLocked(true);
+////		 }
+//		 EntityViewInfo view = new EntityViewInfo();
+//		 FilterInfo filInfo = new FilterInfo();
+//		 filInfo.getFilterItems().add(new FilterItemInfo("programming.project.id",projectId));
+////		 filInfo.getFilterItems().add(new FilterItemInfo("programming.isLatest","1"));
+//		 view.setFilter(filInfo);
 		 
 		 final KDBizPromptBox kdtEntrys_programming_PromptBox = new KDBizPromptBox();
 		 kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery");
 //		 kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.programming.app.ProgrammingContractF7Query");
-		 kdtEntrys_programming_PromptBox.setVisible(true);
-		 kdtEntrys_programming_PromptBox.setEditable(true);
+//		 kdtEntrys_programming_PromptBox.setVisible(true);
+//		 kdtEntrys_programming_PromptBox.setEditable(true);
 	     kdtEntrys_programming_PromptBox.setDisplayFormat("$number$");
 	     kdtEntrys_programming_PromptBox.setEditFormat("$number$");
 	     kdtEntrys_programming_PromptBox.setCommitFormat("$number$");
-	     kdtEntrys_programming_PromptBox.setEntityViewInfo(view);
+//	     kdtEntrys_programming_PromptBox.setEntityViewInfo(view);
 	     KDTDefaultCellEditor kdtEntrys_programming_CellEditor = new KDTDefaultCellEditor(kdtEntrys_programming_PromptBox);
 	     this.kdtEntrys.getColumn("programming").setEditor(kdtEntrys_programming_CellEditor);
 	     ObjectValueRender tblEconItem_payType_OVR = new ObjectValueRender();
@@ -991,6 +1000,12 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
 		this.btnViewContract.setEnabled(true);
 		this.menuViewContract.setVisible(true);
 		this.menuViewContract.setEnabled(true);
+		if(isWholeProject){
+			for(int i = 0; i < kdtEntrys.getRowCount(); i++) {
+				if((Integer)kdtEntrys.getCell(i,"level").getValue() == 0)
+					setProgrammingContractCellF7(i);
+			}
+		}
 	}
 	
 	/**
@@ -1174,14 +1189,56 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
     
     protected IRow addEntry(IObjectValue detailData) {
     	IRow row = kdtEntrys.addRow();
+    	if(isWholeProject)
+    		setProgrammingContractCellF7(row.getRowIndex());
+    	else
+    		detailData.put("programmings",pcinfo);
         ((FDCSplitBillEntryInfo)detailData).setSeq(row.getRowIndex()+1);
-        detailData.put("programmings",pcinfo);
         loadLineFields(kdtEntrys, row, detailData);
         afterAddLine(kdtEntrys, detailData);
         return row;
     }
     
-
+    public void updateEntryProgramming() throws BOSException {
+    	
+    }
+    
+    private void setProgrammingContractCellF7(final int rowIndex){
+		KDBizPromptBox prmtPC = new KDBizPromptBox();
+//		KDBizPromptBox prmtPC = (KDBizPromptBox)kdtSplitEntry.getCell(rowIndex,"programming").getEditor().getComponent();
+//		final BOSUuid proId = BOSUuid.read(projectId);
+		prmtPC.setDisplayFormat("$name$");
+		prmtPC.setEditFormat("$name$");
+		prmtPC.setCommitFormat("$name$");
+		prmtPC.setSelector(new KDPromptSelector() {
+			public void show() {
+				try {
+					UIContext context = new UIContext(ContractCostSplitEditUI.this);
+					Object object = kdtEntrys.getCell(rowIndex,"costAccount.curProject.id").getValue();
+					if (object == null && editData.getCurProject() != null) {
+						object = editData.getCurProject().getId();
+					}
+					context.put("projectId", object);
+					context.put("allowZero", Boolean.FALSE);
+					//新建界面生成 uiwindow(合约框架F7)对象
+					UIFactory.createUIFactory().create(ProgrammingContractF7UI.class.getName(), context).show();
+				} catch (Exception e) {
+					handUIExceptionAndAbort(e);
+				}
+			}
+			public boolean isCanceled() {
+				return false;
+			}
+			//得到返回的值
+			public Object getData() {
+				return getUIContext().get("selectedValue");
+			}
+		});
+		kdtEntrys.getCell(rowIndex, "programming").setEditor(new KDTDefaultCellEditor(prmtPC));
+		ObjectValueRender kdtCostEntries_costAccount_OVR = new ObjectValueRender();
+		kdtCostEntries_costAccount_OVR.setFormat(new BizDataFormat("$name$"));
+		kdtEntrys.getCell(rowIndex, "programming").setRenderer(kdtCostEntries_costAccount_OVR);
+	}
     
     protected void kdtEntrys_editStopped(KDTEditEvent e) throws Exception {
     	super.kdtEntrys_editStopped(e);
@@ -1193,16 +1250,16 @@ ContractBillInfo contractBillInfo = ContractBillFactory.getRemoteInstance().getC
     
     protected void verifyInput(ActionEvent e) throws Exception {
     	super.verifyInput(e);
-    	for (int i = 0; i < this.kdtEntrys.getRowCount(); i++) {
-			IRow row = this.kdtEntrys.getRow(i);
-			if(UIRuleUtil.isNull(row.getCell("costAccount.curProject.number").getValue()))
-				continue;
-			if(isWholeProject && UIRuleUtil.isNull(row.getCell("programming").getValue())){
-				FDCMsgBox.showWarning("合约规划不能为空！");
-				this.kdtEntrys.getEditManager().editCellAt(i,this.kdtEntrys.getColumnIndex("programming"));
-				SysUtil.abort();
-			}
-    	}
+//    	for (int i = 0; i < this.kdtEntrys.getRowCount(); i++) {
+//			IRow row = this.kdtEntrys.getRow(i);
+//			if(UIRuleUtil.isNull(row.getCell("costAccount.curProject.number").getValue()))
+//				continue;
+//			if(isWholeProject && UIRuleUtil.isNull(row.getCell("programming").getValue())){
+//				FDCMsgBox.showWarning("合约规划不能为空！");
+//				this.kdtEntrys.getEditManager().editCellAt(i,this.kdtEntrys.getColumnIndex("programming"));
+//				SysUtil.abort();
+//			}
+//    	}
     }
     
     /**

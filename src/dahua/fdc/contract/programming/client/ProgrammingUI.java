@@ -3301,6 +3301,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		setAimCostVersionMsg();
 		//保存后，如果模板的成本构成与合约规划中的不一样，则合约类型红色背景
 		isChangeTempCost();
+		handNoLeafData();
 	}
 	
 	protected void verifyInput(ActionEvent e) throws Exception {
@@ -3519,6 +3520,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		setAimCostVersionMsg();
 		//保存后，如果模板的成本构成与合约规划中的不一样，则合约类型红色背景
 		isChangeTempCost();
+		handNoLeafData();
 	}
 
 	// 是否修订
@@ -4385,16 +4387,19 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 							einfo = pcoll.get(j);
 							ptentrys.put(einfo.getRecordSeq(),einfo);
 						}
+						int mxSize = 0;
 						for (int j = 0; j < fxcoll.size(); j++) {
 							feinfo = fxcoll.get(j);
 							fxentrys.put(feinfo.getRecordSeq(),feinfo);
+							if(mxSize < Integer.parseInt(feinfo.getRecordSeq().substring(3)))
+								mxSize = Integer.parseInt(feinfo.getRecordSeq().substring(3));
 						}
-						builder.appendSql("select max(count(fid)) from CT_CON_PcTypeEntry where fparentid='"+hyTypeId+"' group by CFDepTypeID");
-						rsfxbd = builder.executeQuery();
-						int mxSize = 0;
-						if(rsfxbd.next()){
-							mxSize = rsfxbd.getInt(1);
-						}
+//						builder.appendSql("select max(count(fid)) from CT_CON_PcTypeEntry where fparentid='"+hyTypeId+"' group by CFDepTypeID");
+//						rsfxbd = builder.executeQuery();
+//						if(rsfxbd.next()){
+//							mxSize = rsfxbd.getInt(1);
+//						}
+						mxSize++;
 						for(int k=0; k<mxSize; k++){
 							row = kdfxbd.addRow();
 							if(pcname instanceof CellTreeNode)
@@ -5140,6 +5145,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		clearAndDisplay(entries);
 		
 		setkdtEntries_AmountState(); // modified by zhaoqin on 2013/10/17
+		handNoLeafData();
 	}
 
 	/**

@@ -313,8 +313,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 	
 	private static final String DETAIL_DEF_ID = "detailDef.id";
 
-	private static final Logger logger = CoreUIObject
-			.getLogger(ContractBillEditUI.class);
+	private static final Logger logger = CoreUIObject.getLogger(ContractBillEditUI.class);
 
 	private static final String BINDING_PROPERTY = "codeType.number";
 	
@@ -1898,7 +1897,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		this.kDContainer1.setContainerType(KDContainer.DISEXTENDSIBLE_STYLE);
 		this.contPayItem.setContainerType(KDContainer.DISEXTENDSIBLE_STYLE);
 		this.contBailItem.setContainerType(KDContainer.DISEXTENDSIBLE_STYLE);
-
 		
 		// 工作流处理时修改字段
 		SwingUtilities.invokeLater(new Runnable() {
@@ -1931,60 +1929,34 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		this.initProgramControlMode();
 		
 		// modify by yxl 20151111 拆分页签表格初始化合约规划列，打开编辑界面时，默认加载拆分页签
+		txtMIndexType.setRequired(true);
 		kDTabbedPane1.setSelectedComponent(kDPanel2);
-		final KDBizPromptBox kdtEntrys_programming_PromptBox = new KDBizPromptBox();
-		kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery");
-//			 kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.programming.app.ProgrammingContractF7Query");
-		kdtEntrys_programming_PromptBox.setDisplayFormat("$number$");
-		kdtEntrys_programming_PromptBox.setEditFormat("$number$");
-		kdtEntrys_programming_PromptBox.setCommitFormat("$number$");
-//		kdtEntrys_programming_PromptBox.setSelector(new KDPromptSelector() {
-//			public void show() {
-//				try {
-//					UIContext context = new UIContext(ContractBillEditUI.this);
-//					Object object = getUIContext().get("projectId");
-//					if (object == null && editData.getCurProject() != null) {
-//						object = editData.getCurProject().getId();
-//					}
-//					context.put("projectId", object);
-//					context.put("allowZero", Boolean.FALSE);
-//					//新建界面生成 uiwindow(合约框架F7)对象
-//					UIFactory.createUIFactory().create(ProgrammingContractF7UI.class.getName(), context).show();
-//				} catch (Exception e) {
-//					handUIExceptionAndAbort(e);
-//				}
-//			}
-//			public boolean isCanceled() {
-//				return false;
-//			}
-//			//得到返回的值
-//			public Object getData() {
-//				return getUIContext().get("selectedValue");
-//			}
-//		});
-		KDTDefaultCellEditor kdtEntrys_programming_CellEditor = new KDTDefaultCellEditor(kdtEntrys_programming_PromptBox);
-		kdtSplitEntry.getColumn("programming").setEditor(kdtEntrys_programming_CellEditor);
-		ObjectValueRender tblEconItem_payType_OVR = new ObjectValueRender();
-		tblEconItem_payType_OVR.setFormat(new BizDataFormat("$name$"));
-		kdtSplitEntry.getColumn("programming").setRenderer(tblEconItem_payType_OVR);
+		
 		if(editData.getCurProject()!=null){
 			SelectorItemCollection sic = new SelectorItemCollection();
 			sic.add("isWholeAgeStage");
 			CurProjectInfo curInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(editData.getCurProject().getId()),sic);
 			isWholeAgeProject = curInfo.isIsWholeAgeStage();
-			this.prmtFwContract.setEnabled(!curInfo.isIsWholeAgeStage());
-			kdtSplitEntry.getColumn("programming").getStyleAttributes().setLocked(!curInfo.isIsWholeAgeStage());
-			//
-			EntityViewInfo view = new EntityViewInfo();
-			FilterInfo filInfo = new FilterInfo();
-			if(curInfo.isIsWholeAgeStage()){
-				
+			prmtFwContract.setEnabled(!isWholeAgeProject);
+			kdtSplitEntry.getColumn("programming").getStyleAttributes().setLocked(!isWholeAgeProject);
+			//modify by yxl 20151122 保存后需重新为拆分信息的合约规划制定过滤规则
+			if(isWholeAgeProject){
+				for(int i = 0; i < kdtSplitEntry.getRowCount(); i++) {
+					if((Integer)kdtSplitEntry.getCell(i,"level").getValue() == 0)
+						setProgrammingContractCellF7(i);
+				}
 			}else{
-				filInfo.getFilterItems().add(new FilterItemInfo("programming.project.id",editData.getCurProject().getId()));
-				filInfo.getFilterItems().add(new FilterItemInfo("programming.isLatest","1"));
+				final KDBizPromptBox kdtEntrys_programming_PromptBox = new KDBizPromptBox();
+				kdtEntrys_programming_PromptBox.setQueryInfo("com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery");
+				kdtEntrys_programming_PromptBox.setDisplayFormat("$number$");
+				kdtEntrys_programming_PromptBox.setEditFormat("$number$");
+				kdtEntrys_programming_PromptBox.setCommitFormat("$number$");
+				KDTDefaultCellEditor kdtEntrys_programming_CellEditor = new KDTDefaultCellEditor(kdtEntrys_programming_PromptBox);
+				kdtSplitEntry.getColumn("programming").setEditor(kdtEntrys_programming_CellEditor);
+				ObjectValueRender tblEconItem_payType_OVR = new ObjectValueRender();
+				tblEconItem_payType_OVR.setFormat(new BizDataFormat("$name$"));
+				kdtSplitEntry.getColumn("programming").setRenderer(tblEconItem_payType_OVR);
 			}
-			view.setFilter(filInfo);
-		    kdtEntrys_programming_PromptBox.setEntityViewInfo(view);
 		}
 		KDTSortManager sortManager = new KDTSortManager(kdtSplitEntry){
 			public void sort(int colIndex) {
@@ -1998,7 +1970,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}  
 	}
 	
-	private void setProgrammingContractCellF7(int rowIndex, final Object project){
+	private void setProgrammingContractCellF7(final int rowIndex){
 		KDBizPromptBox prmtPC = new KDBizPromptBox();
 //		KDBizPromptBox prmtPC = (KDBizPromptBox)kdtSplitEntry.getCell(rowIndex,"programming").getEditor().getComponent();
 //		final BOSUuid proId = BOSUuid.read(projectId);
@@ -2009,7 +1981,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			public void show() {
 				try {
 					UIContext context = new UIContext(ContractBillEditUI.this);
-					Object object = project;
+					Object object = kdtSplitEntry.getCell(rowIndex,"costAccount.curProject.id").getValue();
 					if (object == null && editData.getCurProject() != null) {
 						object = editData.getCurProject().getId();
 					}
@@ -6203,18 +6175,20 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}
 		//拆分信息，如果是全期项目则检验合约规划不能为空；不是的话校验是否全部产品拆分。拆分比例不能超过100%
 		BigDecimal splitRate = FDCHelper.ZERO;
+		IRow row = null;
 		for(int i = 0; i < kdtSplitEntry.getRowCount3(); i++) {
+			row = kdtSplitEntry.getRow(i);
 			if(isWholeAgeProject){
-				if(kdtSplitEntry.getCell(i,"programming").getValue() == null){
+				if((Integer)row.getCell("level").getValue()==0 && row.getCell("programming").getValue() == null){
 					FDCMsgBox.showWarning("拆分信息第"+(i+1)+"行的合约规划不能为空！");
 					abort();
 				}
-			}else if(FDCHelper.isEmpty(kdtSplitEntry.getCell(i,"standard").getValue()) && FDCHelper.isEmpty(kdtSplitEntry.getCell(i,"product").getValue())){
+			}else if(FDCHelper.isEmpty(row.getCell("standard").getValue()) && FDCHelper.isEmpty(row.getCell("product").getValue())){
 				FDCMsgBox.showWarning("拆分信息第"+(i+1)+"行的科目须进行产品拆分！");
 				abort();
 			}
-			if(kdtSplitEntry.getCell(i,"splitScale").getValue() != null)
-				splitRate = splitRate.add((BigDecimal)kdtSplitEntry.getCell(i,"splitScale").getValue());
+			if(row.getCell("splitScale").getValue() != null)
+				splitRate = splitRate.add((BigDecimal)row.getCell("splitScale").getValue());
 		}
 		if(splitRate.compareTo(FDCHelper.ONE_HUNDRED) == 1) {
 			MsgBox.showWarning("拆分比例不能大于100%");
@@ -6753,6 +6727,13 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		btnViewContrnt.setEnabled(true);
 		comboModel.setEnabled(true);
 //		conSplitUI.actionSave_actionPerformed(e);
+		//modify by yxl 20151122 保存后需重新为拆分信息的合约规划制定过滤规则
+		if(isWholeAgeProject){
+			for(int i = 0; i < kdtSplitEntry.getRowCount(); i++) {
+				if((Integer)kdtSplitEntry.getCell(i,"level").getValue() == 0)
+					setProgrammingContractCellF7(i);
+			}
+		}
 	}
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
 		// 保存前反写所关联的框架合约“是否引用”字段
@@ -6811,6 +6792,13 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		setNumberByCodingRule();
 //		conSplitUI.actionSave_actionPerformed(e);
 		setButtonStatus();
+		//modify by yxl 20151122 保存后需重新为拆分信息的合约规划制定过滤规则
+		if(isWholeAgeProject){
+			for(int i = 0; i < kdtSplitEntry.getRowCount(); i++) {
+				if((Integer)kdtSplitEntry.getCell(i,"level").getValue() == 0)
+					setProgrammingContractCellF7(i);
+			}
+		}
 	}
 
 	// 提交时，控制预算余额
@@ -8607,6 +8595,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 					row.getCell("amount").getStyleAttributes().setLocked(true);
 					//非科目行不能编辑 by hpw 2010-06-25
 					row.getCell("splitScale").getStyleAttributes().setLocked(true);
+					row.getCell("programming").getStyleAttributes().setLocked(true);
 					
 					//附加科目处理（允许录入金额）
 					/*
@@ -9495,7 +9484,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
         loadLineFields(kdtSplitEntry, row, detailData);
         afterAddLine(kdtSplitEntry, detailData);
         if(isWholeAgeProject)
-        	setProgrammingContractCellF7(row.getRowIndex(),kdtSplitEntry.getCell(row.getRowIndex(),"costAccount.curProject.id").getValue());
+        	setProgrammingContractCellF7(row.getRowIndex());
         return row;
     }
 

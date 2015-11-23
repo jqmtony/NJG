@@ -1274,7 +1274,7 @@ public class ContractBillControllerBean extends
 				costentry.setSeq(cbseinfo.getSeq());
 				costentry.setCostAccount(cbseinfo.getCostAccount());
 				costentry.setProduct(cbseinfo.getProduct());
-				if(cbseinfo.getAmount() != null)
+				if(cbseinfo.getAmount() != null && cbseinfo.getLevel() == 0)
 					splitAmount = splitAmount.add(cbseinfo.getAmount());
 				costentry.setAmount(cbseinfo.getAmount());
 				costentry.setSplitType(cbseinfo.getSplitType());

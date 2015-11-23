@@ -219,6 +219,10 @@ public class ProgrammingContractF7UI extends AbstractProgrammingContractF7UI {
 	public void onShow() throws Exception {
 		super.onShow();
 		createLevelTree();
+//		CoreUIObject owner = (CoreUIObject) this.getUIContext().get(UIContext.OWNER);
+//		if(owner!=null){
+//			owner.getUIContext().put("selectedValue", null);
+//		}
 	}
 
 	/**

@@ -105,6 +105,7 @@ import com.kingdee.eas.fdc.basedata.JobTypeInfo;
 import com.kingdee.eas.fdc.basedata.PaymentTypeFactory;
 import com.kingdee.eas.fdc.basedata.PaymentTypeInfo;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
+import com.kingdee.eas.fdc.basedata.client.FDCSplitClientHelper;
 import com.kingdee.eas.fdc.contract.ContractBillCollection;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
@@ -634,7 +635,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		    icol.setKey("isNew");
 		    icol.setEditor(boxeditor);
 			icol.setRenderer(boxrender);
-//			icol.getStyleAttributes().setHided(true);
+			icol.getStyleAttributes().setHided(true);
 			for(Iterator<String> it=depIds.keySet().iterator(); it.hasNext();){
 				key = it.next();
 				if(maxSize < depIds.get(key)){
@@ -690,6 +691,8 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 					for(Iterator<String> it=depIds.keySet().iterator(); it.hasNext();){
 						key = it.next();
 						feinfo = fxentrys.get(key+row0.getRowIndex());
+//						if(i == maxSize)
+//							row0.getCell(key+"name").getStyleAttributes().setBackground(FDCSplitClientHelper.COLOR_NOSPLIT);
 						if(feinfo != null){
 							row0.getCell("isNew").setValue(feinfo.isIsNew());
 							if(feinfo.getItemName() != null){
@@ -1586,14 +1589,27 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 			return false;
 		if(fxcoll.size()==0 && kdtfxbd.getRowCount3()>0)
 			return true;
+		int maxSize = 0;
+		for(int i = 0; i < fxcoll.size(); i++) {
+			if(maxSize < Integer.parseInt(fxcoll.get(i).getRecordSeq().substring(3)))
+				maxSize = Integer.parseInt(fxcoll.get(i).getRecordSeq().substring(3));
+		}
+		maxSize++;
+		if(maxSize != kdtfxbd.getRowCount3())
+			return true;
 		ProgrammingContractFxbdEntryInfo feinfo = null;
 		Date planDate = null;
 		Date realDate = null;
 		String recordSeq = null;
+		int rowIndex = 0;
+		String number = null;
 		for (int i = 0; i < fxcoll.size(); i++) {
 			feinfo = fxcoll.get(i);
 			recordSeq = feinfo.getRecordSeq();
-			realDate = (Date)kdtfxbd.getCell(Integer.parseInt(recordSeq.substring(3)),recordSeq.substring(0,3)+"date").getValue();
+			rowIndex = Integer.parseInt(recordSeq.substring(3));
+			number = recordSeq.substring(0,3);
+			//判断时间是否修改
+			realDate = (Date)kdtfxbd.getCell(rowIndex,number+"date").getValue();
 			planDate = feinfo.getPlanDate();
 			if(realDate==null ^ planDate==null)
 				return true;
@@ -1601,6 +1617,14 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 				if(new Timestamp(realDate.getTime()).compareTo(new Timestamp(planDate.getTime())) != 0)
 					return true;
 			}
+			//判断预警是否修改
+			if(rowIndex==5)
+				feinfo.getItemName();
+			if(feinfo.isIsYj()^(kdtfxbd.getCell(rowIndex,number+"yj").getValue()==null?false:(Boolean)kdtfxbd.getCell(rowIndex,number+"yj").getValue()))
+				return true;
+			//如果有用户新增的记录，则要判断事项名称是否改变
+//			if(feinfo.isIsNew() && !feinfo.getItemName().equals(kdtfxbd.getCell(rowIndex,number+"name").getValue()))
+//				return true;
 		}
 		return false;
 	}
@@ -1893,19 +1917,20 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 			}
 		}
 		// 经济条款分录必录项验空
-		for (int i = 0; i < kdtEconomy.getRowCount(); i++) {
-			IRow row = kdtEconomy.getRow(i);
-			ICell costAccountCell = row.getCell(PAYMENTTYPE);
-			ICell scale = row.getCell(SCALE);
-			if (FDCHelper.isEmpty(costAccountCell.getValue())) {
-				FDCMsgBox.showInfo("付款类型不能为空！");
-				SysUtil.abort();
-			}
-			if (FDCHelper.isEmpty(scale.getValue())) {
-				FDCMsgBox.showInfo("付款比例不能为空！");
-				SysUtil.abort();
-			}
-		}
+//		for (int i = 0; i < kdtEconomy.getRowCount(); i++) {
+//			IRow row = kdtEconomy.getRow(i);
+//			ICell costAccountCell = row.getCell(PAYMENTTYPE);
+//			ICell scale = row.getCell(SCALE);
+//			if (FDCHelper.isEmpty(costAccountCell.getValue())) {
+//				FDCMsgBox.showInfo("付款类型不能为空！");
+//				SysUtil.abort();
+//			}
+//			if (FDCHelper.isEmpty(scale.getValue())) {
+//				FDCMsgBox.showInfo("付款比例不能为空！");
+//				SysUtil.abort();
+//			}
+//		}
+		
 	}
 
 	private void verifyAllData() {
