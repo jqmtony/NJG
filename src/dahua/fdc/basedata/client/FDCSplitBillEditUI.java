@@ -1190,7 +1190,7 @@ public abstract class FDCSplitBillEditUI extends AbstractFDCSplitBillEditUI
 					row.getCell("amount").getStyleAttributes().setLocked(true);
 					//非科目行不能编辑 by hpw 2010-06-25
 					row.getCell("splitScale").getStyleAttributes().setLocked(true);
-					
+					row.getCell("programming").getStyleAttributes().setLocked(true);
 					//附加科目处理（允许录入金额）
 					/*
 					if(entry.isIsAddlAccount() && entry.getCostAccount().isIsLeaf() && entry.getCostAccount().getCurProject().isIsLeaf()){
