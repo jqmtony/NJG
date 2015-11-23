@@ -210,34 +210,33 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 		key.put(FDCConstants.FDC551_PREPEYMENTAPPROVE, null);
         IParamControl pc = ParamControlFactory.getRemoteInstance();
         HashMap param = pc.getParamHashMap(key);
-        
         prePayParam =  new Integer(param.get(FDCConstants.FDC551_PREPEYMENTAPPROVE).toString());
-		
 		pInfo = (ProgrammingContractInfo) getUIContext().get("programming");
 		
-//		if(pInfo.containsKey("PayPlan")){
+//		if(OprtState.ADDNEW.equals(getOprtState()) && pInfo.containsKey("PayPlan")){
 //			PayPlanNewInfo info = (PayPlanNewInfo) pInfo.get("PayPlan");
 //			getUIContext().put(UIContext.INIT_DATAOBJECT, info);
-//			setOprtState(OprtState.ADDNEW);
 //			return;
 //		}
-
 		String id = (String) getUIContext().get("programmingId");
 		if (id != null) {
 			PayPlanNewCollection coll = PayPlanNewFactory
-					.getRemoteInstance().getPayPlanNewCollection(
-							" where programming.id = '" + id + "'");
-			
+					.getRemoteInstance().getPayPlanNewCollection(" where programming.id = '"+id+"'");
 			if(coll != null && coll.get(0) != null){
 				PayPlanNewInfo info = coll.get(0);
 				getUIContext().put(UIContext.ID, info.getId().toString());
 				if(OprtState.ADDNEW.equals(getOprtState())){
 					setOprtState(OprtState.EDIT);
 				}
-			}else{
+			}else if(pInfo.containsKey("PayPlan")){
+//				PayPlanNewInfo info = (PayPlanNewInfo) pInfo.get("PayPlan");
+				getUIContext().put(UIContext.INIT_DATAOBJECT,pInfo.get("PayPlan"));
 				setOprtState(OprtState.ADDNEW);
-			}
-		}else {
+			}else
+				setOprtState(OprtState.ADDNEW);
+		}else if(pInfo.containsKey("PayPlan")){
+//			PayPlanNewInfo info = (PayPlanNewInfo) pInfo.get("PayPlan");
+			getUIContext().put(UIContext.INIT_DATAOBJECT,pInfo.get("PayPlan"));
 			setOprtState(OprtState.ADDNEW);
 		}
 	}
@@ -1475,7 +1474,10 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 //		tblBySchedule.getHeadRow(0).getStyleAttributes().getBackground();
 		PayPlanNewDataCollection ppdcoll = editData.getData();
 //		PayPlanNewDataCollection ppdcoll = new PayPlanNewDataCollection();
-		ppdcoll.clear();
+		if(ppdcoll == null)
+			ppdcoll = new PayPlanNewDataCollection();
+		else
+			ppdcoll.clear();
 		Calendar calendar = Calendar.getInstance();
 		List<Integer> months = new ArrayList<Integer>();
 		Date beginDate = null;
