@@ -22,6 +22,7 @@ import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.data.SortType;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemCollection;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
@@ -61,6 +62,8 @@ import com.kingdee.eas.fdc.contract.ContractSettlementBillFactory;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillInfo;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.IContractBill;
+import com.kingdee.eas.fdc.contract.IContractChangeBill;
+import com.kingdee.eas.fdc.contract.ISettlementCostSplit;
 import com.kingdee.eas.fdc.contract.PayRequestBillCollection;
 import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
@@ -1121,7 +1124,13 @@ public class ContractSettlementBillControllerBean extends
 		}
 		
 		//由于结算单
-		
+		ISettlementCostSplit localInstance = SettlementCostSplitFactory.getLocalInstance(ctx);
+		for(int i=0;i<pk.length;i++){
+			FilterInfo filInfo = new FilterInfo();
+			filInfo.getFilterItems().add(new FilterItemInfo("sourceBillId",pk[i].toString()));
+			localInstance.delete(filInfo);
+			
+		}
 		super._delete(ctx, arrayPK);
 		
 		reComContractSettlementBill(ctx,contractIds) ;

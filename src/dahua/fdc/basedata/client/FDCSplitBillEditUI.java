@@ -3913,7 +3913,7 @@ public abstract class FDCSplitBillEditUI extends AbstractFDCSplitBillEditUI
 	
 	public void loadFields() {
 		super.loadFields();
-		
+		  
 		try {
 			updateEntryProgramming();
 		} catch (BOSException e) {

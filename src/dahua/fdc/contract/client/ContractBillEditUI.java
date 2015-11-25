@@ -7889,6 +7889,23 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}
 		return programControlMode;
 	}
+	
+	/**
+	* <p>Title: 是否打开合约合约规划</p>
+	* <p>Description: </p>
+	* <p>Company: </p> 
+	* @author 
+	* @date
+	 */
+	public static boolean isOpenProgramming(String costId){
+		String programControlMode = "";
+		try {
+			if(!StringUtils.isEmpty(costId))
+				programControlMode = FDCUtils.getFDCParamByKey(null, costId, FDCConstants.FDC_PARAM_CONTRACT_PROGRAM_AMOUNT);
+			} catch (Exception e) {
+		}
+		return ("0".equals(programControlMode.trim()) || "1".equals(programControlMode.trim()))?true:false;
+	}
 
 	/**
 	 * added by shangjing

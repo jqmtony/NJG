@@ -823,6 +823,18 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
     	if(StringUtils.isEmpty(txtSpecialtyType.getText()))
     		setSpecialtyName();
     	
+    	int number = getSecondTable().getRowCount();
+		int count = number/suppRows;
+		boolean isForNull = false;
+		for(int i=0; i<count; i++){
+			Object content = getSecondTable().getCell(i*suppRows+2, "content").getValue();
+			if(content == null)
+				isForNull = true;
+		}
+		if(isForNull){
+			if(FDCMsgBox.showConfirm2(this, "下发单位有未选择的预估变更签证，确认提交？")!= FDCMsgBox.YES)
+	    		return;
+		}
     	//提交前调用一下编码规则生成编码
 		this.handleCodingRule();
 		runAction(e,"SUBMIT");

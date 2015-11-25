@@ -102,10 +102,12 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
     protected com.kingdee.bos.ctrl.swing.KDPanel panelDeduct;
     protected com.kingdee.bos.ctrl.swing.KDPanel panelGuerdon;
     protected com.kingdee.bos.ctrl.swing.KDPanel panelSettlementbill;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable tblCompensationBill;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable tblDeduct;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable tblGuerdon;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable tblSettlementBill;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtqualityGuaranteRate;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtProj;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtOrgUnit;
@@ -324,10 +326,12 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.panelDeduct = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.panelGuerdon = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.panelSettlementbill = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.tblCompensationBill = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.tblDeduct = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.tblGuerdon = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.tblSettlementBill = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.txtqualityGuaranteRate = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtProj = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtOrgUnit = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -404,10 +408,12 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.panelDeduct.setName("panelDeduct");
         this.panelGuerdon.setName("panelGuerdon");
         this.panelSettlementbill.setName("panelSettlementbill");
+        this.kDPanel1.setName("kDPanel1");
         this.tblCompensationBill.setName("tblCompensationBill");
         this.tblDeduct.setName("tblDeduct");
         this.tblGuerdon.setName("tblGuerdon");
         this.tblSettlementBill.setName("tblSettlementBill");
+        this.kDContainer1.setName("kDContainer1");
         this.txtqualityGuaranteRate.setName("txtqualityGuaranteRate");
         this.txtProj.setName("txtProj");
         this.txtOrgUnit.setName("txtOrgUnit");
@@ -783,6 +789,7 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         // panelGuerdon
         // panelSettlementbill		
         this.panelSettlementbill.setBorder(null);
+        // kDPanel1
         // tblCompensationBill
 		String tblCompensationBillStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles /><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"select\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"type\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"deductType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"creator\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /><t:Column t:key=\"createDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{select}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{type}</t:Cell><t:Cell>$Resource{deductType}</t:Cell><t:Cell>$Resource{creator}</t:Cell><t:Cell>$Resource{createDate}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot> ";
 		
@@ -815,6 +822,9 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         
 
         this.tblSettlementBill.checkParsed();
+        // kDContainer1		
+        this.kDContainer1.setEnableActive(false);		
+        this.kDContainer1.setTitle(resHelper.getString("kDContainer1.title"));
         // txtqualityGuaranteRate
         // txtProj		
         this.txtProj.setMaxLength(80);		
@@ -1037,6 +1047,7 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         tabTop.add(panelDeduct, resHelper.getString("panelDeduct.constraints"));
         tabTop.add(panelGuerdon, resHelper.getString("panelGuerdon.constraints"));
         tabTop.add(panelSettlementbill, resHelper.getString("panelSettlementbill.constraints"));
+        tabTop.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
 panelCollection.setLayout(new BorderLayout(0, 0));        //panelCompensation
 panelCompensation.setLayout(new BorderLayout(0, 0));        panelCompensation.add(tblCompensationBill, BorderLayout.CENTER);
         //panelDeduct
@@ -1046,7 +1057,9 @@ panelGuerdon.setLayout(new BorderLayout(0, 0));        panelGuerdon.add(tblGuerd
         //panelSettlementbill
 panelSettlementbill.setLayout(new BorderLayout(0, 0));        panelSettlementbill.add(kDSeparator5, BorderLayout.SOUTH);
         panelSettlementbill.add(tblSettlementBill, BorderLayout.CENTER);
-        //kDLabelContainer11
+        //kDPanel1
+kDPanel1.setLayout(new BorderLayout(0, 0));        kDPanel1.add(kDContainer1, BorderLayout.CENTER);
+kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        //kDLabelContainer11
         kDLabelContainer11.setBoundEditor(txtqualityGuaranteRate);
         //contProj
         contProj.setBoundEditor(txtProj);

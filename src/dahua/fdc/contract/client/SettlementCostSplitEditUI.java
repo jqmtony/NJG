@@ -4,6 +4,7 @@
 package com.kingdee.eas.fdc.contract.client;
 
 import java.awt.Color;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -23,6 +24,7 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.util.KDTableUtil;
+import com.kingdee.bos.ctrl.swing.KDLayout;
 import com.kingdee.bos.ctrl.swing.KDMenuItem;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.dao.IObjectValue;
@@ -298,6 +300,16 @@ public class SettlementCostSplitEditUI extends
 		/* modified by zhaoqin for R140403-0024 on 2014/04/17 */
 		if (OprtState.ADDNEW.equals(getOprtState()) && noCtrl) {
 			btnSplit.doClick();
+		}
+		
+		if(getUIContext().get("AUDITBILLVIEW")!=null){
+			this.kDLabelContainer8.setVisible(false);
+			this.kDLabelContainer1.setVisible(false);
+			this.kDLabelContainer10.setVisible(false);
+			this.kDLabelContainer11.setVisible(false);
+			kdtEntrys.setBounds(new Rectangle(10, 54, 993, 487));
+			this.add(kdtEntrys, new KDLayout.Constraints(10, 59, 993, 532, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+	        
 		}
 	}
 

@@ -3,9 +3,12 @@
  */
 package com.kingdee.eas.fdc.contract.client;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.ItemEvent;
 import java.math.BigDecimal;
@@ -14,8 +17,10 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
@@ -27,8 +32,10 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
+import com.kingdee.bos.ctrl.swing.KDPanel;
 import com.kingdee.bos.ctrl.swing.KDScrollPane;
 import com.kingdee.bos.ctrl.swing.KDTextField;
+import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.StringUtils;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.ctrl.swing.event.DataChangeListener;
@@ -54,10 +61,12 @@ import com.kingdee.eas.base.attachment.BoAttchAssoInfo;
 import com.kingdee.eas.base.attachment.common.AttachmentClientManager;
 import com.kingdee.eas.base.attachment.common.AttachmentManagerFactory;
 import com.kingdee.eas.base.commonquery.BooleanEnum;
+import com.kingdee.eas.base.netctrl.IMutexServiceControl;
 import com.kingdee.eas.base.param.ParamControlFactory;
 import com.kingdee.eas.base.param.util.ParamManager;
 import com.kingdee.eas.base.permission.PermissionFactory;
 import com.kingdee.eas.base.permission.UserInfo;
+import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
 import com.kingdee.eas.basedata.assistant.CurrencyInfo;
 import com.kingdee.eas.basedata.assistant.ExchangeRateInfo;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
@@ -85,10 +94,13 @@ import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCSplitClientHelper;
 import com.kingdee.eas.fdc.contract.ChangeSupplierEntryFactory;
 import com.kingdee.eas.fdc.contract.CompensationBillInfo;
+import com.kingdee.eas.fdc.contract.ConChangeSplitCollection;
+import com.kingdee.eas.fdc.contract.ConChangeSplitFactory;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractChangeBillCollection;
 import com.kingdee.eas.fdc.contract.ContractChangeBillFactory;
+import com.kingdee.eas.fdc.contract.ContractChangeBillInfo;
 import com.kingdee.eas.fdc.contract.ContractException;
 import com.kingdee.eas.fdc.contract.ContractFacadeFactory;
 import com.kingdee.eas.fdc.contract.ContractSettlementBillCollection;
@@ -97,13 +109,16 @@ import com.kingdee.eas.fdc.contract.ContractSettlementBillInfo;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.ForWriteMarkHelper;
 import com.kingdee.eas.fdc.contract.GuerdonBillInfo;
+import com.kingdee.eas.fdc.contract.IContractChangeBill;
 import com.kingdee.eas.fdc.contract.IContractSettlementBill;
 import com.kingdee.eas.fdc.contract.SettNoCostSplitFactory;
+import com.kingdee.eas.fdc.contract.SettlementCostSplitCollection;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitFactory;
 import com.kingdee.eas.fdc.costindexdb.client.BuildPriceIndexEditUI;
 import com.kingdee.eas.fdc.finance.DeductBillEntryInfo;
 import com.kingdee.eas.fdc.finance.WorkLoadConfirmBillCollection;
 import com.kingdee.eas.fdc.finance.WorkLoadConfirmBillInfo;
+import com.kingdee.eas.framework.client.FrameWorkClientUtils;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -126,7 +141,7 @@ public class ContractSettlementBillEditUI extends
 
 	// 结算详细信息helper
 	private SettlementDetailHelper settlementDetailHelper;
-
+	private final static Set uiSet = new HashSet();
 	// 数量
 	private boolean isQualityGuarante = false;
 	
@@ -154,6 +169,9 @@ public class ContractSettlementBillEditUI extends
 	private boolean isMoreSettlement = false;
 	//合同结算造价必须等于合同最新造价 建发专用
 	private String settleAmtEqualsLasterPrice = "2";
+	
+	private KDWorkButton btnImportSplit = new KDWorkButton("引入拆分");
+	private KDWorkButton btnRemoveSplit = new KDWorkButton("删除分录");
 	
 	/**
 	 * 汇率是否取合同签订时的汇率
@@ -572,6 +590,12 @@ public class ContractSettlementBillEditUI extends
 			} catch (Exception e) {
 				handUIExceptionAndAbort(e);
 			}
+		}
+		
+		try {
+			loadSettlementSplitUI();
+		} catch (Throwable e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -1117,8 +1141,58 @@ public class ContractSettlementBillEditUI extends
 		if (OprtState.ADDNEW.equals(getOprtState()) || OprtState.EDIT.equals(getOprtState()) || OprtState.VIEW.equals(getOprtState())) {
 			txtqualityGuarante.setValue(FDCHelper.add(getLstQualityGuarante(), txtGuaranceAmt.getBigDecimalValue()), false);
 		}
+		
+		btnImportSplit.setIcon(EASResource.getIcon("imgTbtn_collect"));
+		btnImportSplit.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					btnImportSplit_actionPerformed(e);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnRemoveSplit.setIcon(EASResource.getIcon("imgTbtn_deleteline"));
+		btnRemoveSplit.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					btnRemoveSplit_actionPerformed(e);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		this.kDContainer1.addButton(btnImportSplit);
+		this.kDContainer1.addButton(btnRemoveSplit);
+	}
+	
+	private void btnImportSplit_actionPerformed(ActionEvent e) throws Exception {
+		Iterator iterator = uiSet.iterator();
+		while(iterator.hasNext()){
+			((SettlementCostSplitEditUI)iterator.next()).actionImpContrSplit_actionPerformed(e);
+		}
+	}
+	private void btnRemoveSplit_actionPerformed(ActionEvent e) throws Exception {
+		Iterator iterator = uiSet.iterator();
+		while(iterator.hasNext())
+			((SettlementCostSplitEditUI)iterator.next()).actionRemoveLine_actionPerformed(e);
+	}
+	
+	protected void setButtonStatus() {
+		super.setButtonStatus();
+		boolean flse = (getOprtState().equals("ADDNEW")||getOprtState().equals("EDIT"))?true:false;
+		this.btnImportSplit.setEnabled(flse);
+		this.btnRemoveSplit.setEnabled(flse);
+		Iterator iterator = uiSet.iterator();
+        while(iterator.hasNext()){
+        	((SettlementCostSplitEditUI)iterator.next()).kdtEntrys.setEnabled(flse);
+        }
 	}
 
+	public void setOprtState(String oprtType) {
+		super.setOprtState(oprtType);
+		setButtonStatus();
+	}
 	/**
 	 * 
 	 * 描述：返回编码控件（子类必须实现）
@@ -1279,6 +1353,8 @@ public class ContractSettlementBillEditUI extends
 	
 	
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+		if(editData.getId()==null)
+			btnSave.doClick();
  		//改为服务端验证，ken_liu
 		/*if(!checkSubmit()){
 			return;
@@ -1345,6 +1421,7 @@ public class ContractSettlementBillEditUI extends
 				// }
 			}
 		}
+		runAction(e,"SUBMIT");
 		super.actionSubmit_actionPerformed(e);
 	}
 	/**
@@ -1557,6 +1634,7 @@ public class ContractSettlementBillEditUI extends
 		 */
 		checkAmt();
 		settlementDetailHelper.save();
+		runAction(e,"SAVE");
 		super.actionSave_actionPerformed(e);
 	}
 
@@ -2319,6 +2397,53 @@ public class ContractSettlementBillEditUI extends
 		}
 		
 		return isPass;
+	}
+	
+    private void runAction(ActionEvent e,String actionName) throws Exception{
+    	Iterator iterator = uiSet.iterator();
+        while(iterator.hasNext()){
+        	SettlementCostSplitEditUI ui = (SettlementCostSplitEditUI)iterator.next();
+        	ui.editData.setSourceBillId(editData.getId().toString());
+    		ui.actionSave_actionPerformed(e);
+        }
+    }
+	
+	private void loadSettlementSplitUI() throws Throwable{
+		Iterator iterator = uiSet.iterator();
+		while(iterator.hasNext())
+			((SettlementCostSplitEditUI)iterator.next()).destroyWindow();
+		uiSet.clear();
+		openSplitUI();
+	}
+	
+	private void openSplitUI() throws Throwable {
+		String billId = editData.getId()!=null?editData.getId().toString():null;
+		if(billId==null)
+			return;
+		EntityViewInfo view = new EntityViewInfo();
+		FilterInfo filInfo = new FilterInfo(); 
+		filInfo.getFilterItems().add(new FilterItemInfo("sourceBillId",billId));
+		view.setFilter(filInfo);
+		view.getSelector().add("id");
+		SettlementCostSplitCollection splitColl = SettlementCostSplitFactory.getRemoteInstance().getSettlementCostSplitCollection(view);
+		
+	    IMutexServiceControl mutexServiceControl = FrameWorkClientUtils.createMutexServiceControl();
+		SettlementCostSplitEditUI ui = null;
+		if(splitColl.size()>0){
+			UIContext uiContext = new UIContext(this);
+	        uiContext.put(UIContext.ID, splitColl.get(0).getId());
+	        uiContext.put("AUDITBILLVIEW", "AUDITBILLVIEW");
+	        
+	        ui = (SettlementCostSplitEditUI) UIFactoryHelper.initUIObject(SettlementCostSplitEditUI.class.getName(), uiContext, null,OprtState.EDIT);
+	        mutexServiceControl.releaseObjIDForUpdate(splitColl.get(0).getId().toString());
+		}else{
+			UIContext uiContext = new UIContext(this);
+			uiContext.put("costBillID",billId);
+			uiContext.put("AUDITBILLVIEW", "AUDITBILLVIEW");
+			ui = (SettlementCostSplitEditUI) UIFactoryHelper.initUIObject(SettlementCostSplitEditUI.class.getName(), uiContext, null,OprtState.ADDNEW);
+		}
+		kDContainer1.getContentPane().add(ui,BorderLayout.CENTER);
+		uiSet.add(ui);
 	}
 	
 	/**

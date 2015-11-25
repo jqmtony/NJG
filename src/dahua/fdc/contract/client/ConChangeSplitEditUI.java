@@ -33,6 +33,7 @@ import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
@@ -128,6 +129,20 @@ public class ConChangeSplitEditUI extends AbstractConChangeSplitEditUI
     
     protected void verifyInput(ActionEvent e) throws Exception {
     	super.verifyInput(e);
+    	for (int i = 0; i < this.kdtEntrys.getRowCount(); i++) {
+    		IRow row = kdtEntrys.getRow(i);
+    		if(FDCHelper.isEmpty(row.getCell("standard").getValue()) && FDCHelper.isEmpty(row.getCell("product").getValue())){
+				FDCMsgBox.showWarning("拆分信息第"+(i+1)+"行的科目须进行产品拆分！");
+				abort();
+    		}
+    	}
+    	if(editData.getContractBill()==null||editData.getCurProject()==null||editData.getCurProject().getCostCenter()==null)
+    		return;
+    	String costId = editData.getCurProject().getCostCenter().getId().toString();
+    	if(!ContractBillEditUI.isOpenProgramming(costId))
+    		return;
+    	if(!editData.getCurProject().isIsWholeAgeStage())
+    		return;
     	for (int i = 0; i < this.kdtEntrys.getRowCount(); i++) {
 			IRow row = this.kdtEntrys.getRow(i);
 			if(UIRuleUtil.isNull(row.getCell("costAccount.curProject.number").getValue()))
@@ -489,6 +504,8 @@ public class ConChangeSplitEditUI extends AbstractConChangeSplitEditUI
     	selector.add("entrys.programmings.id");
     	selector.add("entrys.programmings.number");
     	selector.add("entrys.programmings.name");
+    	selector.add("contractBill.curProject.costCenter.id");
+    	selector.add("contractBill.curProject.isWholeAgeStage");
     	return setSelectors(selector);
     }
     
