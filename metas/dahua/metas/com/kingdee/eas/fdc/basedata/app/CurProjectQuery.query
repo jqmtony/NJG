@@ -1063,6 +1063,37 @@
                 <key name="name" value="CurProjectQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>projectEnd</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[projectEnd].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>f2fb4440-3523-480a-a0e7-e45a8aaf7f66</key>
+                    <parentUnit>
+                        <key name="name" value="projectEnd" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CurProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectEnd" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProjectQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1614,6 +1645,22 @@
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[projectEnd].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目是否结束" />
+            <lang locale="zh_HK" value="項目是否結束" />
+            <lang locale="zh_TW" value="項目是否結束" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[projectEnd].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[projectEnd].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[projectPeriod].displayName">
             <lang locale="en_US" value="null" />

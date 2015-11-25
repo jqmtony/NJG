@@ -642,6 +642,56 @@
             </parent>
         </component>
         <component>
+            <name>chkprojectEnd</name>
+            <alias>uiObject[com.kingdee.eas.fdc.basedata.client.ProjectEditUI].components.component[chkprojectEnd].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDCheckBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>263,88,270,19</constraints>
+            <tabIndex>33</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.client.ProjectEditUI].components.component[chkprojectEnd].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.client.ProjectEditUI].components.component[chkprojectEnd].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.basedata.client.ProjectEditUI].components.component[chkprojectEnd].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>selected</propertyName>
+                    <propertyType>boolean</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>projectEnd</bindingField>
+                    <fieldType>boolean</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
             <name>txtName</name>
             <alias>uiObject[com.kingdee.eas.fdc.basedata.client.ProjectEditUI].components.component[txtName].alias</alias>
             <userDefined>false</userDefined>
@@ -5879,6 +5929,30 @@
             <lang locale="zh_TW" value="全期項目" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.ProjectEditUI].components.component[chkisWholeAgeStage].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.ProjectEditUI].components.component[chkprojectEnd].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目是否结束" />
+            <lang locale="zh_HK" value="項目是否結束" />
+            <lang locale="zh_TW" value="項目是否結束" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.ProjectEditUI].components.component[chkprojectEnd].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.ProjectEditUI].components.component[chkprojectEnd].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目是否结束" />
+            <lang locale="zh_HK" value="項目是否結束" />
+            <lang locale="zh_TW" value="項目是否結束" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.basedata.client.ProjectEditUI].components.component[chkprojectEnd].properties.property[visible].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
