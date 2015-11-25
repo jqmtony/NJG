@@ -176,6 +176,17 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
     {
         return (com.kingdee.eas.fdc.basedata.CurProjectSplitProjectCollection)get("SplitProject");
     }
+    /**
+     * Object:当前工程项目's 项目是否结束property 
+     */
+    public boolean isProjectEnd()
+    {
+        return getBoolean("projectEnd");
+    }
+    public void setProjectEnd(boolean item)
+    {
+        setBoolean("projectEnd", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("F9E5E92B");
