@@ -21,7 +21,17 @@ public class CostAccountPromptBox extends KDCommonPromptDialog {
 	Map ctx = new HashMap();
 	private IUIObject uiObj;
 	private CurProjectInfo curInfo;
+	//modify by yxl 20151125 此标记用于在专业要素中可以选择非明细的成本构成
+	private boolean isShowParent = true;
 	
+	public boolean isShowParent() {
+		return isShowParent;
+	}
+
+	public void setShowParent(boolean isShowParent) {
+		this.isShowParent = isShowParent;
+	}
+
 	public CostAccountPromptBox(IUIObject uiObj) {
 		
 		this.uiObj = uiObj;
@@ -50,6 +60,7 @@ public class CostAccountPromptBox extends KDCommonPromptDialog {
 		IUIFactory uiFactory = null;
 		ctx.put("query", this.getQueryInfo());
 		ctx.put("view", this.getEntityViewInfo());
+		ctx.put("isShowParent", isShowParent());
 		if(uiObj.getUIContext().get("projectF7")!=null){
 			ctx.put("projectF7", uiObj.getUIContext().get("projectF7"));
 		}

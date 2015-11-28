@@ -94,4 +94,14 @@ public abstract class AbstractTechEconChangeAuditEditUIHandler extends com.kingd
 	}
 	protected void _handleactionRemoveSplitEntry(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleActionProfessionSplit(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionProfessionSplit(request,response,context);
+	}
+	protected void _handleActionProfessionSplit(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
+	public void handleActionContractPriceSplit(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionContractPriceSplit(request,response,context);
+	}
+	protected void _handleActionContractPriceSplit(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

@@ -134,6 +134,8 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
     protected ActionAttenTwo actionAttenTwo = null;
     protected ActionViewTwo actionViewTwo = null;
     protected ActionViewContent actionViewContent = null;
+    protected ActionProfessionSplit actionProfessionSplit = null;
+    protected ActionContractPriceSplit actionContractPriceSplit = null;
     /**
      * output class constructor
      */
@@ -270,6 +272,14 @@ public abstract class AbstractContractSettlementBillEditUI extends com.kingdee.e
         this.actionViewContent = new ActionViewContent(this);
         getActionManager().registerAction("actionViewContent", actionViewContent);
          this.actionViewContent.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionProfessionSplit
+        this.actionProfessionSplit = new ActionProfessionSplit(this);
+        getActionManager().registerAction("actionProfessionSplit", actionProfessionSplit);
+         this.actionProfessionSplit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionContractPriceSplit
+        this.actionContractPriceSplit = new ActionContractPriceSplit(this);
+        getActionManager().registerAction("actionContractPriceSplit", actionContractPriceSplit);
+         this.actionContractPriceSplit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer5 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -1710,6 +1720,22 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        //kDLabe
     public void actionViewContent_actionPerformed(ActionEvent e) throws Exception
     {
     }
+    	
+
+    /**
+     * output actionProfessionSplit_actionPerformed method
+     */
+    public void actionProfessionSplit_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
+    	
+
+    /**
+     * output actionContractPriceSplit_actionPerformed method
+     */
+    public void actionContractPriceSplit_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1840,6 +1866,28 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        //kDLabe
     }
 	
 	public boolean isPrepareActionViewContent() {
+    	return false;
+    }
+	public RequestContext prepareActionProfessionSplit(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionProfessionSplit() {
+    	return false;
+    }
+	public RequestContext prepareActionContractPriceSplit(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionContractPriceSplit() {
     	return false;
     }
 
@@ -1991,6 +2039,68 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        //kDLabe
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractContractSettlementBillEditUI.this, "ActionViewContent", "actionViewContent_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionProfessionSplit class
+     */     
+    protected class ActionProfessionSplit extends ItemAction {     
+    
+        public ActionProfessionSplit()
+        {
+            this(null);
+        }
+
+        public ActionProfessionSplit(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("ActionProfessionSplit.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionProfessionSplit.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionProfessionSplit.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractContractSettlementBillEditUI.this, "ActionProfessionSplit", "actionProfessionSplit_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionContractPriceSplit class
+     */     
+    protected class ActionContractPriceSplit extends ItemAction {     
+    
+        public ActionContractPriceSplit()
+        {
+            this(null);
+        }
+
+        public ActionContractPriceSplit(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("ActionContractPriceSplit.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionContractPriceSplit.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionContractPriceSplit.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractContractSettlementBillEditUI.this, "ActionContractPriceSplit", "actionContractPriceSplit_actionPerformed", e);
         }
     }
 

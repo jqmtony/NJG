@@ -283,7 +283,7 @@ public class CostAccountF7UI extends AbstractCostAccountF7UI {
 			CostAccountCollection costAccounts = CostAccountFactory.getRemoteInstance()
 					.getCostAccountCollection(view);
              // 修改只允许选择明细科目的逻辑
-			if (!costAccount.isIsLeaf()) {
+			if (!costAccount.isIsLeaf() && (getUIContext().get("isShowParent")==null || (Boolean)getUIContext().get("isShowParent"))) {
 				if (!costAccount.isIsSplit()) {
 					MsgBox.showWarning(this, FDCClientUtils.getRes("selectLeaf"));
 					SysUtil.abort();

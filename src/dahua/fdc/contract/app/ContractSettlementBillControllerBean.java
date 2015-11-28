@@ -523,11 +523,11 @@ public class ContractSettlementBillControllerBean extends
 		}
 		
 		/**
-		 * 更新合同付款计划
+		 * 更新合同付款计划 暂时注销 modify by yxl  20151126
 		 */
-		if(BooleanEnum.TRUE.equals(billInfo.getIsFinalSettle())){
-			ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(billInfo.getContractBill().getId().toString(),false);
-		}
+//		if(BooleanEnum.TRUE.equals(billInfo.getIsFinalSettle())){
+//			ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(billInfo.getContractBill().getId().toString(),false);
+//		}
 	}
 
 	protected void _unAudit(Context ctx, BOSUuid billId) throws BOSException,

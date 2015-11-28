@@ -239,7 +239,9 @@ import com.kingdee.eas.fdc.contract.ContractUtil;
 import com.kingdee.eas.fdc.contract.CostPropertyEnum;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.ForWriteMarkHelper;
+import com.kingdee.eas.fdc.contract.programming.IProgrammingContracCost;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractCollection;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
@@ -248,6 +250,9 @@ import com.kingdee.eas.fdc.contract.programming.client.ContractBillLinkProgContE
 import com.kingdee.eas.fdc.contract.programming.client.ProgrammingContractEditUI;
 import com.kingdee.eas.fdc.contract.programming.client.ProgrammingContractF7UI;
 import com.kingdee.eas.fdc.costindexdb.client.BuildPriceIndexEditUI;
+import com.kingdee.eas.fdc.costindexdb.database.BuildSplitContract;
+import com.kingdee.eas.fdc.costindexdb.database.BuildSplitDataType;
+import com.kingdee.eas.fdc.costindexdb.database.client.BuildSplitBillEditUI;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleInfo;
 import com.kingdee.eas.fdc.finance.PayPlanNewCollection;
@@ -1970,41 +1975,63 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}  
 	}
 	
-	private void setProgrammingContractCellF7(final int rowIndex){
-		KDBizPromptBox prmtPC = new KDBizPromptBox();
-//		KDBizPromptBox prmtPC = (KDBizPromptBox)kdtSplitEntry.getCell(rowIndex,"programming").getEditor().getComponent();
-//		final BOSUuid proId = BOSUuid.read(projectId);
-		prmtPC.setDisplayFormat("$name$");
-		prmtPC.setEditFormat("$name$");
-		prmtPC.setCommitFormat("$name$");
-		prmtPC.setSelector(new KDPromptSelector() {
-			public void show() {
-				try {
-					UIContext context = new UIContext(ContractBillEditUI.this);
-					Object object = kdtSplitEntry.getCell(rowIndex,"costAccount.curProject.id").getValue();
-					if (object == null && editData.getCurProject() != null) {
-						object = editData.getCurProject().getId();
-					}
-					context.put("projectId", object);
-					context.put("allowZero", Boolean.FALSE);
-					//新建界面生成 uiwindow(合约框架F7)对象
-					UIFactory.createUIFactory().create(ProgrammingContractF7UI.class.getName(), context).show();
-				} catch (Exception e) {
-					handUIExceptionAndAbort(e);
-				}
+	private void setProgrammingContractCellF7(int rowIndex){
+		try {
+			IProgrammingContracCost IProgrammingContracCost = ProgrammingContracCostFactory.getRemoteInstance();
+			Object value = kdtSplitEntry.getCell(rowIndex,"costAccount.id").getValue();
+			String oql = "select contract.id,contract.name,contract.number where costAccount.id='"+value+"' and contract.programming.isLatest=1 and contract.programming.state='4AUDITTED'";
+			Set<String> idset = new HashSet<String>();
+			idset.add("999");
+			ProgrammingContracCostCollection programmCostColl = IProgrammingContracCost.getProgrammingContracCostCollection(oql);
+			ProgrammingContractInfo contract = null;
+			for (int j = 0; j < programmCostColl.size(); j++) {
+				contract = programmCostColl.get(j).getContract();
+				if(contract==null)
+					continue;
+				idset.add(contract.getId().toString());
 			}
-			public boolean isCanceled() {
-				return false;
-			}
-			//得到返回的值
-			public Object getData() {
-				return getUIContext().get("selectedValue");
-			}
-		});
-		kdtSplitEntry.getCell(rowIndex, "programming").setEditor(new KDTDefaultCellEditor(prmtPC));
-		ObjectValueRender kdtCostEntries_costAccount_OVR = new ObjectValueRender();
-		kdtCostEntries_costAccount_OVR.setFormat(new BizDataFormat("$name$"));
-		kdtSplitEntry.getCell(rowIndex, "programming").setRenderer(kdtCostEntries_costAccount_OVR);
+			EntityViewInfo view = new EntityViewInfo();
+			FilterInfo filInfo = new FilterInfo();
+			filInfo.getFilterItems().add(new FilterItemInfo("id",idset,CompareType.INCLUDE));
+			view.setFilter(filInfo);
+			
+			KDBizPromptBox prmtPC = new KDBizPromptBox();
+			prmtPC.setDisplayFormat("$name$");
+			prmtPC.setEditFormat("$name$");
+			prmtPC.setCommitFormat("$name$");
+			prmtPC.setQueryInfo("com.kingdee.eas.fdc.contract.app.F7ProgrammingContractQuery");
+			prmtPC.setEntityViewInfo(view);
+			kdtSplitEntry.getCell(rowIndex, "programming").setEditor(new KDTDefaultCellEditor(prmtPC));
+			ObjectValueRender kdtCostEntries_costAccount_OVR = new ObjectValueRender();
+			kdtCostEntries_costAccount_OVR.setFormat(new BizDataFormat("$name$"));
+			kdtSplitEntry.getCell(rowIndex, "programming").setRenderer(kdtCostEntries_costAccount_OVR);
+		} catch (Exception e) {
+			handUIException(e);
+		}
+//		prmtPC.setSelector(new KDPromptSelector() {
+//			public void show() {
+//				try {
+//					UIContext context = new UIContext(ContractBillEditUI.this);
+//					Object object = kdtSplitEntry.getCell(rowIndex,"costAccount.curProject.id").getValue();
+//					if (object == null && editData.getCurProject() != null) {
+//						object = editData.getCurProject().getId();
+//					}
+//					context.put("projectId", object);
+//					context.put("allowZero", Boolean.FALSE);
+//					//新建界面生成 uiwindow(合约框架F7)对象
+//					UIFactory.createUIFactory().create(ProgrammingContractF7UI.class.getName(), context).show();
+//				} catch (Exception e) {
+//					handUIExceptionAndAbort(e);
+//				}
+//			}
+//			public boolean isCanceled() {
+//				return false;
+//			}
+//			//得到返回的值
+//			public Object getData() {
+//				return getUIContext().get("selectedValue");
+//			}
+//		});
 	}
 	
 	private void reloadPanel(){
@@ -2129,16 +2156,55 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		if(editData.getId() == null){
 			MsgBox.showInfo("请先保存合同单据！");
 		}else{
+			IRowSet rs = null;
+			FDCSQLBuilder cpBuilder = new FDCSQLBuilder();
+			cpBuilder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
+			cpBuilder.appendSql("where bill.CFDataType='contract' and bill.CFContractLevel='sign' and bill.CFProjectNameID=? and bill.CFCostAccountID=? and bill.CFSourceNumber=?");
+			//校验专业要素的楼号拆分
+			FDCSQLBuilder proBuilder = new FDCSQLBuilder();
+			proBuilder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
+			proBuilder.appendSql("where bill.CFDataType='professPoint' and bill.CFContractLevel='sign' and bill.CFProjectNameID=? and bill.CFCostAccountID=? and bill.CFSourceNumber=?");
+			String billNumber = txtNumber.getText();
+			String projectId = null;
+			String costId = null;
+			for(int i = 0; i < kdtSplitEntry.getRowCount(); i++) {
+				if((Integer)kdtSplitEntry.getCell(i,"level").getValue()!=0)
+					continue;
+				projectId = ((BOSUuid)kdtSplitEntry.getCell(i,"costAccount.curProject.id").getValue()).toString();
+				costId = ((BOSUuid)kdtSplitEntry.getCell(i,"costAccount.id").getValue()).toString();
+				cpBuilder.addParam(projectId);
+				cpBuilder.addParam(costId);
+				cpBuilder.addParam(billNumber);
+				rs = cpBuilder.executeQuery();
+				if(rs.size() == 0){
+					MsgBox.showInfo("拆分信息第"+(i+1)+"行记录没有做合同价拆分！");
+					abort();
+				}
+				//校验专业要素
+				proBuilder.addParam(projectId);
+				proBuilder.addParam(costId);
+				proBuilder.addParam(billNumber);
+				rs = proBuilder.executeQuery();
+				if(rs.size() == 0){
+					MsgBox.showInfo("拆分信息第"+(i+1)+"行记录没有做专业要素拆分！");
+					abort();
+				}
+				cpBuilder.getParamaters().clear();
+				proBuilder.getParamaters().clear();
+			}
 			UIContext uiContext = new UIContext(this);
-			uiContext.put("contractInfo", editData);
-			uiContext.put("contractStationType", "sign");
-			String state = OprtState.ADDNEW;
+			String state = null;
 			FDCSQLBuilder builder = new FDCSQLBuilder();
-			builder.appendSql("select fid from CT_COS_BuildPriceIndex where CFContractId='"+editData.getId().toString()+"' and CFContractStation='10'");
-			IRowSet rs = builder.executeQuery();
+			builder.appendSql("select fid from CT_COS_BuildPriceIndex where CFContractId='"+editData.getId().toString()+"' and CFContractStation='10' and FSourceBillID='"+editData.getId().toString()+"'");
+			rs = builder.executeQuery();
 			if(rs.next() && rs.getString(1) != null){
 				state = OprtState.VIEW;
 				uiContext.put("ID", rs.getString(1));
+			}else{
+				state = OprtState.ADDNEW;
+				uiContext.put("contractInfo", editData);
+				uiContext.put("contractStationType", "sign");
+				uiContext.put("sourceBillId", editData.getId().toString());
 			}
 			IUIWindow uiWindow = UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(
 					BuildPriceIndexEditUI.class.getName(), uiContext, null,state);
@@ -3036,7 +3102,13 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		this.actionSplitProd.setEnabled(true);
 		this.actionSplitBotUp.setEnabled(true);
 		this.actionRemoveSplit.setEnabled(true);
+		this.actionContractPriceSplit.setEnabled(true);
+		this.actionProfessionSplit.setEnabled(true);
 		
+		KDWorkButton btnContractPriceSplit = (KDWorkButton)this.kDContainer2.add(actionContractPriceSplit);
+		btnContractPriceSplit.setText("合同价拆分");
+		KDWorkButton btnProfessionSplit = (KDWorkButton)this.kDContainer2.add(actionProfessionSplit);
+		btnProfessionSplit.setText("专业要素拆分");
 		KDWorkButton btnAcctSelect = (KDWorkButton)this.kDContainer2.add(actionAcctSelect);
 		btnAcctSelect.setText("成本科目");
 		KDWorkButton btnProgrAcctSelect = (KDWorkButton)this.kDContainer2.add(actionProgrAcctSelect);
@@ -3062,9 +3134,9 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			MsgBox.showInfo("请先保存合同单据！");
 			return;
 		}
-		if(isClearFlag){
-    		return;
-    	}
+//		if(isClearFlag){
+//    		return;
+//    	}
 		ProgrammingContractInfo pcInfo = (ProgrammingContractInfo)prmtFwContract.getValue();
 		String checkIsExistProg = null;
 		if(pcInfo != null)
@@ -3170,7 +3242,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				entry.setAmount(FDCHelper.toBigDecimal(row.getCell("amount").getValue()));
 				setDisplay(row.getRowIndex());
 	    	}
-	    	isClearFlag = true;
+//	    	isClearFlag = true;
 		}
 	}
 	
@@ -3192,6 +3264,115 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			}
 		}
     }
+	
+	//合同价拆分按钮功能
+	public void actionContractPriceSplit_actionPerformed(ActionEvent e) throws Exception {
+		if(kdtSplitEntry.getSelectManager().size() == 0){
+            MsgBox.showInfo("没有选中分录，无法拆分到楼号！");
+            return;
+        }
+        int top = kdtSplitEntry.getSelectManager().get().getTop();
+        IRow row = kdtSplitEntry.getRow(top);
+        if(row == null){
+            MsgBox.showInfo("没有选中分录，无法拆分到楼号！");
+            return;
+        }
+        ContractBillSplitEntryInfo splitEntryInfo = (ContractBillSplitEntryInfo)row.getUserObject();
+        if(splitEntryInfo.getLevel() != 0){
+        	MsgBox.showInfo("请选择上级记录！");
+            return;
+        }
+        CurProjectInfo projectInfo = null;
+        if(isWholeAgeProject){
+        	BOSUuid proId = (BOSUuid)row.getCell("costAccount.curProject.id").getValue();
+        	projectInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(proId));
+        }else
+        	projectInfo = editData.getCurProject();
+		try {
+			UIContext uiContext = new UIContext(this);
+			IUIWindow ui = null;
+			FDCSQLBuilder builder = new FDCSQLBuilder();
+			builder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
+			builder.appendSql("where bill.CFDataType='contract' and bill.CFContractLevel='sign' ");
+			builder.appendSql("and bill.CFProjectNameID='"+projectInfo.getId().toString()+"' ");
+			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+			builder.appendSql("and bill.CFSourceNumber='"+txtNumber.getText()+"'");
+			IRowSet rs = builder.executeQuery();
+			String state = null;
+			if(rs.next()){
+				state = OprtState.VIEW;
+				uiContext.put("ID",rs.getString(1));
+			}else{
+				uiContext.put("dataType",BuildSplitDataType.contract);
+				uiContext.put("contractLevel",BuildSplitContract.sign);
+				uiContext.put("pointName","合同价");
+				uiContext.put("projectName",projectInfo);
+				uiContext.put("pointValue",splitEntryInfo.getAmount());
+				uiContext.put("sourceNumber",txtNumber.getText());
+				uiContext.put("costAccount",splitEntryInfo.getCostAccount());
+				state = OprtState.ADDNEW;
+			}
+			ui = UIFactory.createUIFactory(UIFactoryName.MODEL).create(BuildSplitBillEditUI.class.getName(),uiContext,null,state);
+			ui.show();
+		} catch (Exception e1) {
+			handUIException(e1);
+		}
+		
+	}
+	
+	//专业要素拆分按钮功能
+	public void actionProfessionSplit_actionPerformed(ActionEvent e) throws Exception {
+		if(kdtSplitEntry.getSelectManager().size() == 0){
+            MsgBox.showInfo("没有选中分录，无法拆分到楼号！");
+            return;
+        }
+        int top = kdtSplitEntry.getSelectManager().get().getTop();
+        IRow row = kdtSplitEntry.getRow(top);
+        if(row == null){
+            MsgBox.showInfo("没有选中分录，无法拆分到楼号！");
+            return;
+        }
+        ContractBillSplitEntryInfo splitEntryInfo = (ContractBillSplitEntryInfo)row.getUserObject();
+        if(splitEntryInfo.getLevel() != 0){
+        	MsgBox.showInfo("请选择上级记录！");
+            return;
+        }
+        CurProjectInfo projectInfo = null;
+        if(isWholeAgeProject){
+        	String proId = (String)row.getCell("costAccount.curProject.id").getValue();
+        	projectInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(proId));
+        }else
+        	projectInfo = editData.getCurProject();
+		try {
+			UIContext uiContext = new UIContext(this);
+			IUIWindow ui = null;
+			FDCSQLBuilder builder = new FDCSQLBuilder();
+			builder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
+			builder.appendSql("where bill.CFDataType='professPoint' and bill.CFContractLevel='sign' ");
+			builder.appendSql("and bill.CFProjectNameID='"+projectInfo.getId().toString()+"' ");
+			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+			builder.appendSql("and bill.CFSourceNumber='"+txtNumber.getText()+"'");
+			IRowSet rs = builder.executeQuery();
+			String state = null;
+			if(rs.next()){
+				state = OprtState.VIEW;
+				uiContext.put("ID",rs.getString(1));
+			}else{
+				uiContext.put("dataType",BuildSplitDataType.professPoint);
+				uiContext.put("contractLevel",BuildSplitContract.sign);
+//				uiContext.put("pointName","合同价");
+				uiContext.put("projectName",projectInfo);
+				uiContext.put("pointValue",splitEntryInfo.getAmount());
+				uiContext.put("sourceNumber",txtNumber.getText());
+				uiContext.put("costAccount",splitEntryInfo.getCostAccount());
+				state = OprtState.ADDNEW;
+			}
+			ui = UIFactory.createUIFactory(UIFactoryName.MODEL).create(BuildSplitBillEditUI.class.getName(),uiContext,null,state);
+			ui.show();
+		} catch (Exception e1) {
+			handUIException(e1);
+		}
+	}
 
 	/*
 	 * R131220-0068 取消金额上限限制
@@ -5504,6 +5685,9 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		this.actionSplitProd.setEnabled(flse);
 		this.actionSplitBotUp.setEnabled(flse);
 		this.actionRemoveSplit.setEnabled(flse);
+		actionProgrAcctSelect.setEnabled(flse);
+		actionProfessionSplit.setEnabled(flse);
+		actionContractPriceSplit.setEnabled(flse);
 	}
 
 	protected void checkRef(String id) throws Exception {

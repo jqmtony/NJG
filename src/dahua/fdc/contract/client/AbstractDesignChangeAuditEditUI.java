@@ -176,6 +176,8 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
     protected actionImpContrSplit actionImpContrSplit = null;
     protected actionAddSplit actionAddSplit = null;
     protected actionRemoveSplitEntry actionRemoveSplitEntry = null;
+    protected ActionContractPriceSplit actionContractPriceSplit = null;
+    protected ActionProfessionSplit actionProfessionSplit = null;
     /**
      * output class constructor
      */
@@ -329,6 +331,14 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.actionRemoveSplitEntry = new actionRemoveSplitEntry(this);
         getActionManager().registerAction("actionRemoveSplitEntry", actionRemoveSplitEntry);
          this.actionRemoveSplitEntry.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionContractPriceSplit
+        this.actionContractPriceSplit = new ActionContractPriceSplit(this);
+        getActionManager().registerAction("actionContractPriceSplit", actionContractPriceSplit);
+         this.actionContractPriceSplit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionProfessionSplit
+        this.actionProfessionSplit = new ActionProfessionSplit(this);
+        getActionManager().registerAction("actionProfessionSplit", actionProfessionSplit);
+         this.actionProfessionSplit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contNumber = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -2198,6 +2208,22 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
     public void actionRemoveSplitEntry_actionPerformed(ActionEvent e) throws Exception
     {
     }
+    	
+
+    /**
+     * output actionContractPriceSplit_actionPerformed method
+     */
+    public void actionContractPriceSplit_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
+    	
+
+    /**
+     * output actionProfessionSplit_actionPerformed method
+     */
+    public void actionProfessionSplit_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSave(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSave(itemAction);		
 		if (request != null) {
@@ -2427,6 +2453,28 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
     }
 	
 	public boolean isPrepareactionRemoveSplitEntry() {
+    	return false;
+    }
+	public RequestContext prepareActionContractPriceSplit(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionContractPriceSplit() {
+    	return false;
+    }
+	public RequestContext prepareActionProfessionSplit(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionProfessionSplit() {
     	return false;
     }
 
@@ -2920,6 +2968,68 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractDesignChangeAuditEditUI.this, "actionRemoveSplitEntry", "actionRemoveSplitEntry_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionContractPriceSplit class
+     */     
+    protected class ActionContractPriceSplit extends ItemAction {     
+    
+        public ActionContractPriceSplit()
+        {
+            this(null);
+        }
+
+        public ActionContractPriceSplit(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("ActionContractPriceSplit.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionContractPriceSplit.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionContractPriceSplit.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractDesignChangeAuditEditUI.this, "ActionContractPriceSplit", "actionContractPriceSplit_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionProfessionSplit class
+     */     
+    protected class ActionProfessionSplit extends ItemAction {     
+    
+        public ActionProfessionSplit()
+        {
+            this(null);
+        }
+
+        public ActionProfessionSplit(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            this.setEnabled(false);
+            _tempStr = resHelper.getString("ActionProfessionSplit.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionProfessionSplit.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionProfessionSplit.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractDesignChangeAuditEditUI.this, "ActionProfessionSplit", "actionProfessionSplit_actionPerformed", e);
         }
     }
 
