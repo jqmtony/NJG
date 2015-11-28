@@ -1,0 +1,1373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entityObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.costindexdb.database.app</package>
+    <name>BuildSplitBillEntryDetail</name>
+    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].alias</alias>
+    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].description</description>
+    <userDefined>true</userDefined>
+    <bosType>501915A9</bosType>
+    <stereoType>false</stereoType>
+    <businessImplName>com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryDetail</businessImplName>
+    <businessControllerName>com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetailController</businessControllerName>
+    <accessLevel>public</accessLevel>
+    <subClassingMode>normal</subClassingMode>
+    <methods>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].description</description>
+            <innerID>6c7642c8-c468-4fe1-9a5f-db8877f5e444</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].description</description>
+            <innerID>a2c8dafc-e695-4d46-8ad3-48197348711d</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>exists</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].description</description>
+            <innerID>89903fde-f296-41b4-83e8-ce686c630d31</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>Boolean</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].description</description>
+            <innerID>8090e047-3b38-45fa-878a-c838cc4a8965</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].description</description>
+            <innerID>b6d07a40-f143-4bb7-b17c-4239bbd5608e</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getValue</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].description</description>
+            <innerID>d4981f93-87d5-43bb-8a27-9eb60b8110a4</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectValue</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].description</description>
+            <innerID>3e93c387-8139-4055-ae1d-46709b7986fd</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>addnew</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].description</description>
+            <innerID>41c4cb66-5c99-4966-83e0-0f912604f10c</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>update</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[update].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[update].description</description>
+            <innerID>4044d08b-3a0c-48c0-a591-d256fd46447d</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[update].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[update].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[update].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[update].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updatePartial</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updatePartial].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updatePartial].description</description>
+            <innerID>4dc8b929-05b1-4b3b-b037-f804c54c85d8</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updatePartial].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updatePartial].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>selector</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updatePartial].parameters.parameter[selector].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updatePartial].parameters.parameter[selector].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SelectorItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>updateBigObject</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updateBigObject].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updateBigObject].description</description>
+            <innerID>63e28384-cb0e-4a5c-a796-d8a1ef1eaeba</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updateBigObject].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updateBigObject].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>model</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updateBigObject].parameters.parameter[model].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updateBigObject].parameters.parameter[model].description</description>
+                    <direction>in</direction>
+                    <dataType>ObjectValue</dataType>
+                    <metadataRef>com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail</metadataRef>
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].description</description>
+            <innerID>594e23d8-c21a-4c10-9e9c-5f4036c1fe28</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>pk</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[pk].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[pk].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].description</description>
+            <innerID>28aa9a0e-179d-449a-a943-2353154eb313</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].description</description>
+            <innerID>74930ba3-402e-4fd2-91f0-95998e7a2970</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getPKList</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].description</description>
+            <innerID>ad264d20-4ecb-4e34-bfb4-7c14ff24920c</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>sorter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].parameters.parameter[sorter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].parameters.parameter[sorter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.SorterItemCollection</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].description</description>
+            <innerID>84f907d9-91ef-440b-aa79-b0bba14858f6</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].description</description>
+            <innerID>7bf8be2c-535d-488e-9737-613c5a7b0968</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>view</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].parameters.parameter[view].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].parameters.parameter[view].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.EntityViewInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>getCollection</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].description</description>
+            <innerID>f0f503f0-b516-41a0-8135-ef62835b8677</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>ObjectCollection</returnValueType>
+            <metadataRef>com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail</metadataRef>
+            <transactionAttribute>Supports</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].description</description>
+            <innerID>108ee8cc-e41e-4e05-889a-f3be2e498a92</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>filter</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[filter].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[filter].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.metadata.entity.FilterInfo</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].description</description>
+            <innerID>b7f59061-e037-4d1a-a7bf-4dbbb500da1c</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType>com.kingdee.bos.dao.IObjectPK[]</returnValueType>
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>oql</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[oql].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[oql].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+        <method>
+            <name>delete</name>
+            <isListenerMethod>false</isListenerMethod>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].description</description>
+            <innerID>048830ef-51cb-43da-b6ab-bce5d0472f90</innerID>
+            <accessLevel>public</accessLevel>
+            <subClassingMode>normal</subClassingMode>
+            <returnValueType />
+            <metadataRef />
+            <transactionAttribute>Required</transactionAttribute>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>arrayPK</name>
+                    <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[arrayPK].alias</alias>
+                    <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[arrayPK].description</description>
+                    <direction>in</direction>
+                    <dataType>com.kingdee.bos.dao.IObjectPK[]</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
+            <configured>false</configured>
+        </method>
+    </methods>
+    <isAbstract>false</isAbstract>
+    <bizUnitPK>com.kingdee.eas.fdc.costindexdb.database.BuildSplitBill</bizUnitPK>
+    <baseEntity>
+        <key name="package" value="com.kingdee.eas.framework.app" />
+        <key name="name" value="CoreBillEntryBase" />
+    </baseEntity>
+    <table>
+        <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+        <key name="name" value="CT_DAT_BuildSplitBillDetails" />
+    </table>
+    <properties>
+        <linkProperty>
+            <name>parent1</name>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[parent1].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[parent1].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="FParentID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="R_BuildSplitBillEntry_BuildSplitBillEntryDetail" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>buildNumber</name>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[buildNumber].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[buildNumber].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFBuildNumberID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="R_BuildSplitBillEntryDetail_BuildNumber_buildNumber" />
+            </relationship>
+        </linkProperty>
+        <linkProperty>
+            <name>productType</name>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[productType].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[productType].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFProductTypeID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="R_BuildSplitBillEntryDetail_ProductType_productType" />
+            </relationship>
+        </linkProperty>
+        <ownProperty>
+            <name>modelBuild</name>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Boolean</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>1</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFModelBuild" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>dataValue</name>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>2</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFDataValue" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>beizhu</name>
+            <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>200</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFBeizhu" />
+            </mappingField>
+        </ownProperty>
+    </properties>
+    <logicalKey>
+        <name>id</name>
+        <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].logicalKey[id].alias</alias>
+        <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].logicalKey[id].description</description>
+        <keyClass>com.kingdee.bos.dao.IObjectPK</keyClass>
+        <userDefined>true</userDefined>
+        <keyProperties>
+            <baseProperty>
+                <key name="name" value="id" />
+            </baseProperty>
+        </keyProperties>
+    </logicalKey>
+    <defaultView>
+        <name />
+        <alias>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].defaultViewalias</alias>
+        <description>entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].defaultViewdescription</description>
+    </defaultView>
+    <resource>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="明细数据" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].defaultViewalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].defaultViewdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].extendedProperty.genImplementCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].logicalKey[id].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].logicalKey[id].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[addnew].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[arrayPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[arrayPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[delete].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[exists].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].parameters.parameter[view].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getCollection].parameters.parameter[view].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].parameters.parameter[filter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].parameters.parameter[filter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].parameters.parameter[sorter].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getPKList].parameters.parameter[sorter].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[oql].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[oql].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[selector].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[getValue].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updateBigObject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updateBigObject].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updateBigObject].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updateBigObject].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updateBigObject].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updateBigObject].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updatePartial].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updatePartial].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updatePartial].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updatePartial].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updatePartial].parameters.parameter[selector].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[updatePartial].parameters.parameter[selector].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[update].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[update].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[update].parameters.parameter[model].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[update].parameters.parameter[model].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[update].parameters.parameter[pk].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].methods.method[update].parameters.parameter[pk].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[buildNumber].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="楼号" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[buildNumber].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="楼号" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[buildNumber].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[buildNumber].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[buildNumber].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[buildNumber].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[buildNumber].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[buildNumber].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[buildNumber].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[buildNumber].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[parent1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[parent1].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[productType].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="产品类型" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[productType].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="产品类型" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[productType].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[productType].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[productType].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[productType].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[productType].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[productType].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[productType].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.linkProperty[productType].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[beizhu].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数值" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数值" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[dataValue].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否典型楼" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否典型楼" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].extendedProperty.bizDataType">
+            <lang locale="en_US" value="BOOLEAN" />
+            <lang locale="zh_CN" value="BOOLEAN" />
+            <lang locale="zh_TW" value="BOOLEAN" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillEntryDetail].properties.ownProperty[modelBuild].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</entityObject>
+

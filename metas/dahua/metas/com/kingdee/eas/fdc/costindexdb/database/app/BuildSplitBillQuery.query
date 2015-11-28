@@ -1,0 +1,1467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.costindexdb.database.app</package>
+    <name>BuildSplitBillQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.fdc.costindexdb.database.BuildSplitBill</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>BuildSplitBill</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[BuildSplitBill].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBill" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>auditor</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[auditor].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>entrys</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[entrys].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillEntry" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>handler</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[handler].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>costAccount</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[costAccount].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CostAccount" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>projectName</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[projectName].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProject" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>NewUnit0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditor" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit3</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit4</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit5</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit5].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit5" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>NewUnit7</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit7].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit7" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit6</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit6].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit6" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="parent" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit9</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="handler" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit8</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit8].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit8" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="handler" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>costAccount.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[costAccount.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>b4826baa-2c88-477e-81c5-80d1e953c305</key>
+                    <parentUnit>
+                        <key name="name" value="costAccount.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="costAccount" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>509fdc26-f702-46ec-b932-49453adf0ae9</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[509fdc26-f702-46ec-b932-49453adf0ae9].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>5a227f9a-00cd-4710-87b9-c3d2de724367</key>
+                    <parentUnit>
+                        <key name="name" value="509fdc26-f702-46ec-b932-49453adf0ae9" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="costAccount" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>c4a25c8e-12a8-4d33-bd6f-74cec696f12f</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[c4a25c8e-12a8-4d33-bd6f-74cec696f12f].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>9e7d2c56-0c41-41ad-ae30-7ce12724a572</key>
+                    <parentUnit>
+                        <key name="name" value="c4a25c8e-12a8-4d33-bd6f-74cec696f12f" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="costAccount" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>projectName.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[projectName.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>ae4d4af1-7363-452d-a51d-f6a2a42ea27f</key>
+                    <parentUnit>
+                        <key name="name" value="projectName.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="projectName" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>5be2648e-b1c2-4021-8b44-13e0ebe9b227</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[5be2648e-b1c2-4021-8b44-13e0ebe9b227].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>a9fb7dde-403a-42d5-937f-952480686765</key>
+                    <parentUnit>
+                        <key name="name" value="5be2648e-b1c2-4021-8b44-13e0ebe9b227" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>0e798d28-af94-493a-8210-3ff6d217dfbc</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[0e798d28-af94-493a-8210-3ff6d217dfbc].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>69619986-c99a-4d57-a84b-c692002f297d</key>
+                    <parentUnit>
+                        <key name="name" value="0e798d28-af94-493a-8210-3ff6d217dfbc" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="projectName" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>sourceNumber</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[sourceNumber].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>41570a77-7064-4855-8772-136de9062f40</key>
+                    <parentUnit>
+                        <key name="name" value="sourceNumber" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="sourceNumber" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>dataType</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[dataType].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>989cc536-3e13-4379-8bd0-66a7f2b4c90a</key>
+                    <parentUnit>
+                        <key name="name" value="dataType" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="dataType" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>contractLevel</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[contractLevel].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1fb26d79-5e81-4c71-80da-0b796071e27c</key>
+                    <parentUnit>
+                        <key name="name" value="contractLevel" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="contractLevel" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildSplitBill" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </queryField>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+            <key name="name" value="BuildSplitBillQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>number</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>NewJoin0</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="BuildSplitBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="auditor" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit1" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin1</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="BuildSplitBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit3" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin1" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin2</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="BuildSplitBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit4" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit5" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin2" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin3</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="BuildSplitBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="entrys" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit7" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit6" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin3" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin4</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="BuildSplitBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="handler" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit9" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit8" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin4" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </join>
+        <join>
+            <name>e7c2a88d-2955-47bf-b63f-424cdbf13ee2</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="BuildSplitBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="costAccount" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>ce5304a1-6b0f-4c76-93b4-96918eeb96e6</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="509fdc26-f702-46ec-b932-49453adf0ae9" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="c4a25c8e-12a8-4d33-bd6f-74cec696f12f" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="e7c2a88d-2955-47bf-b63f-424cdbf13ee2" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </join>
+        <join>
+            <name>f510de2b-831a-45bc-aef7-aca2b0a309e5</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="BuildSplitBill" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="projectName" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>2175199f-ad5a-4f6e-a639-f243ce2003d5</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="5be2648e-b1c2-4021-8b44-13e0ebe9b227" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="0e798d28-af94-493a-8210-3ff6d217dfbc" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="f510de2b-831a-45bc-aef7-aca2b0a309e5" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="BuildSplitBillQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="楼号拆分单" />
+            <lang locale="zh_HK" value="樓號拆分單" />
+            <lang locale="zh_TW" value="樓號拆分單" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="多分录基础单据模板" />
+            <lang locale="zh_CN" value="多分录基础单据模板" />
+            <lang locale="zh_TW" value="多分录基础单据模板" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="多分录基础单据查询" />
+            <lang locale="zh_HK" value="多分錄基礎單據查詢" />
+            <lang locale="zh_TW" value="多分錄基礎單據查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.costindexdb.database.client.DatabaseResource.BuildSplitBillQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.costindexdb.database.client.DatabaseResource.BuildSplitBillQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.costindexdb.database.client.DatabaseResource.BuildSplitBillQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="楼号拆分单" />
+            <lang locale="zh_CN" value="楼号拆分单" />
+            <lang locale="zh_TW" value="楼号拆分单" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[BuildSplitBill].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[auditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[costAccount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[entrys].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[handler].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].subObjects.subEntity[projectName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[0e798d28-af94-493a-8210-3ff6d217dfbc].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[509fdc26-f702-46ec-b932-49453adf0ae9].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[5be2648e-b1c2-4021-8b44-13e0ebe9b227].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit3].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit5].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit6].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit7].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit8].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[NewUnit9].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.propertyUnit[c4a25c8e-12a8-4d33-bd6f-74cec696f12f].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[contractLevel].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同阶段" />
+            <lang locale="zh_HK" value="合同階段" />
+            <lang locale="zh_TW" value="合同階段" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[contractLevel].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[contractLevel].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[costAccount.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本科目" />
+            <lang locale="zh_HK" value="成本科目" />
+            <lang locale="zh_TW" value="成本科目" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[costAccount.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[costAccount.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[costAccount.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[dataType].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数据类型" />
+            <lang locale="zh_HK" value="數據類型" />
+            <lang locale="zh_TW" value="數據類型" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[dataType].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[dataType].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[lastUpdateTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[lastUpdateUser.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
+            <lang locale="zh_TW" value="別名" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[projectName.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目名称" />
+            <lang locale="zh_HK" value="項目名稱" />
+            <lang locale="zh_TW" value="項目名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[projectName.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[projectName.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[projectName.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[sourceNumber].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="原单据编号" />
+            <lang locale="zh_HK" value="原單據編號" />
+            <lang locale="zh_TW" value="原單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[sourceNumber].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.BuildSplitBillQuery].units.queryField[sourceNumber].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</joinQuery>
+

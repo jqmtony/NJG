@@ -121,7 +121,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>21,159,270,19</constraints>
+            <constraints>19,179,270,19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -170,7 +170,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>15,153,270,19</constraints>
+            <constraints>15,180,270,19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -317,6 +317,56 @@
             <parent>
                 <key name="name" value="CoreUI" />
             </parent>
+        </component>
+        <component>
+            <name>chkmodelBuild</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildNumberEditUI].components.component[chkmodelBuild].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDCheckBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>21,155,270,19</constraints>
+            <tabIndex>12</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildNumberEditUI].components.component[chkmodelBuild].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildNumberEditUI].components.component[chkmodelBuild].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildNumberEditUI].components.component[chkmodelBuild].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>selected</propertyName>
+                    <propertyType>boolean</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>modelBuild</bindingField>
+                    <fieldType>boolean</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
         </component>
         <component>
             <name>txtNumber</name>
@@ -875,6 +925,30 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildNumberEditUI].components.component[chkmodelBuild].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否典型楼" />
+            <lang locale="zh_HK" value="是否典型樓" />
+            <lang locale="zh_TW" value="是否典型樓" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildNumberEditUI].components.component[chkmodelBuild].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildNumberEditUI].components.component[chkmodelBuild].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否典型楼" />
+            <lang locale="zh_HK" value="是否典型樓" />
+            <lang locale="zh_TW" value="是否典型樓" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildNumberEditUI].components.component[chkmodelBuild].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildNumberEditUI].components.component[contcurProject].alias">
             <lang locale="en_US" value="null" />

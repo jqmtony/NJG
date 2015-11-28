@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.costindexdb.database.app</package>
+    <name>CT_DAT_ProfessionPointEntry</name>
+    <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].alias</alias>
+    <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].description</description>
+    <userDefined>true</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[FID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FSeq</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[FSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[FSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[FParentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFSeq</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>0</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFCostAccountID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFCostAccountID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFCostAccountID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFSplitBuild</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFSplitBuild].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFSplitBuild].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFPointName</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFPointName].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFPointName].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>150</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>CPK_DAT_PrfsnPEbl8</name>
+        <userDefined>true</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType />
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <foreignKeys>
+        <foreignKey>
+            <name>CFK_DAT_DATPPEOs5m</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="T_FDC_CostAccount" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFCostAccountID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分录" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFCostAccountID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本科目" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFCostAccountID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本科目" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFPointName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="要素" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFPointName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="要素" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFSplitBuild].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否拆到楼号" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[CFSplitBuild].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否拆到楼号" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[FParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[FParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[FSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].columns.column[FSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_ProfessionPointEntry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</dataTable>
+

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTable xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.costindexdb.database.app</package>
+    <name>CT_DAT_BuildSplitBillEntry</name>
+    <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].alias</alias>
+    <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].description</description>
+    <userDefined>true</userDefined>
+    <bizUnitPK />
+    <columns>
+        <column>
+            <name>FSeq</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[FSeq].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[FSeq].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>4</length>
+            <scale>0</scale>
+            <precision>4</precision>
+        </column>
+        <column>
+            <name>FID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[FID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[FID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>false</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>FParentID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[FParentID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[FParentID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>44</precision>
+        </column>
+        <column>
+            <name>CFPointName</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[CFPointName].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[CFPointName].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>200</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFDataValue</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[CFDataValue].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[CFDataValue].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>2</scale>
+            <precision>28</precision>
+        </column>
+        <column>
+            <name>CFSplitBuild</name>
+            <alias>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[CFSplitBuild].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[CFSplitBuild].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>1</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+    </columns>
+    <primaryKey>
+        <name>CPK_DAT_BuildSBj87</name>
+        <userDefined>true</userDefined>
+        <primaryKeyColumns>
+            <primaryKeyColumn>
+                <indexID>0</indexID>
+                <sortType>ASC</sortType>
+                <column>
+                    <key name="name" value="FID" />
+                </column>
+            </primaryKeyColumn>
+        </primaryKeyColumns>
+    </primaryKey>
+    <foreignKeys>
+        <foreignKey>
+            <name>CFK_DAT_DATBSBEPnn</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="CT_DAT_BuildSplitBill" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="FParentID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+    </foreignKeys>
+    <resource>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="分录" />
+            <lang locale="zh_HK" value="分錄" />
+            <lang locale="zh_TW" value="分錄" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[CFDataValue].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数值" />
+            <lang locale="zh_HK" value="數值" />
+            <lang locale="zh_TW" value="數值" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[CFDataValue].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="数值" />
+            <lang locale="zh_HK" value="數值" />
+            <lang locale="zh_TW" value="數值" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[CFPointName].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="要素" />
+            <lang locale="zh_HK" value="要素" />
+            <lang locale="zh_TW" value="要素" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[CFPointName].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="要素" />
+            <lang locale="zh_HK" value="要素" />
+            <lang locale="zh_TW" value="要素" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[CFSplitBuild].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否拆到楼号" />
+            <lang locale="zh_HK" value="是否拆到樓號" />
+            <lang locale="zh_TW" value="是否拆到樓號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[CFSplitBuild].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否拆到楼号" />
+            <lang locale="zh_HK" value="是否拆到樓號" />
+            <lang locale="zh_TW" value="是否拆到樓號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[FID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[FParentID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[FParentID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[FSeq].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
+            <lang locale="zh_HK" value="單據分錄序列號" />
+            <lang locale="zh_TW" value="單據分錄序列號" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].columns.column[FSeq].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号（定义为序列属性即使用{seq}）" />
+            <lang locale="zh_HK" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+            <lang locale="zh_TW" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.costindexdb.database.app.CT_DAT_BuildSplitBillEntry].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+    </resource>
+</dataTable>
+
