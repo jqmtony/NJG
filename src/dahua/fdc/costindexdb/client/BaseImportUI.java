@@ -82,6 +82,7 @@ public class BaseImportUI extends AbstractBaseImportUI
     		row = table.addRow();
     		row.getCell("pointName").setValue(beinfo.getPointName());
     		row.getCell("baseUnit").setValue(beinfo.getUnitBase());
+    		row.getCell("isCombo").setValue(Boolean.FALSE);
     		row.getCell("isModel").setValue(Boolean.FALSE);
 		}
     	MsgBox.showInfo(this, "导入成功");

@@ -39,6 +39,17 @@ public class AbstractBuildNumberInfo extends com.kingdee.eas.framework.DataBaseI
     {
         put("curProject", item);
     }
+    /**
+     * Object:Â¥ºÅ's ÊÇ·ñµäÐÍÂ¥property 
+     */
+    public boolean isModelBuild()
+    {
+        return getBoolean("modelBuild");
+    }
+    public void setModelBuild(boolean item)
+    {
+        setBoolean("modelBuild", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("38776AD0");

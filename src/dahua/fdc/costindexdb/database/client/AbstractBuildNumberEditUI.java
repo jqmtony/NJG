@@ -52,6 +52,7 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contproductType;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcurProject;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkmodelBuild;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtSimpleName;
@@ -84,6 +85,7 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
         this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contproductType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contcurProject = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.chkmodelBuild = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
         this.txtSimpleName = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -96,6 +98,7 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
         this.kDLabelContainer4.setName("kDLabelContainer4");
         this.contproductType.setName("contproductType");
         this.contcurProject.setName("contcurProject");
+        this.chkmodelBuild.setName("chkmodelBuild");
         this.txtNumber.setName("txtNumber");
         this.txtName.setName("txtName");
         this.txtSimpleName.setName("txtSimpleName");
@@ -136,6 +139,10 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
         this.contcurProject.setBoundLabelLength(100);		
         this.contcurProject.setBoundLabelUnderline(true);		
         this.contcurProject.setVisible(true);
+        // chkmodelBuild		
+        this.chkmodelBuild.setText(resHelper.getString("chkmodelBuild.text"));		
+        this.chkmodelBuild.setVisible(true);		
+        this.chkmodelBuild.setHorizontalAlignment(2);
         // txtNumber		
         this.txtNumber.setMaxLength(80);
         // txtName
@@ -158,7 +165,7 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
         this.prmtcurProject.setEditFormat("$number$");		
         this.prmtcurProject.setCommitFormat("$number$");		
         this.prmtcurProject.setRequired(false);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtproductType,prmtcurProject}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtproductType,prmtcurProject,chkmodelBuild}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -190,14 +197,16 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
         this.add(kDLabelContainer1, null);
         kDLabelContainer2.setBounds(new Rectangle(21, 57, 270, 19));
         this.add(kDLabelContainer2, null);
-        kDLabelContainer3.setBounds(new Rectangle(21, 159, 270, 19));
+        kDLabelContainer3.setBounds(new Rectangle(19, 179, 270, 19));
         this.add(kDLabelContainer3, null);
-        kDLabelContainer4.setBounds(new Rectangle(15, 153, 270, 19));
+        kDLabelContainer4.setBounds(new Rectangle(15, 180, 270, 19));
         this.add(kDLabelContainer4, null);
         contproductType.setBounds(new Rectangle(21, 90, 270, 19));
         this.add(contproductType, null);
         contcurProject.setBounds(new Rectangle(21, 124, 270, 19));
         this.add(contcurProject, null);
+        chkmodelBuild.setBounds(new Rectangle(21, 155, 270, 19));
+        this.add(chkmodelBuild, null);
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtNumber);
         //kDLabelContainer2
@@ -319,6 +328,7 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
 
 	//Regiester control's property binding.
 	private void registerBindings(){
+		dataBinder.registerBinding("modelBuild", boolean.class, this.chkmodelBuild, "selected");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
 		dataBinder.registerBinding("simpleName", String.class, this.txtSimpleName, "text");
@@ -471,6 +481,7 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
+		getValidateHelper().registerBindProperty("modelBuild", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("simpleName", ValidateHelper.ON_SAVE);    
@@ -515,6 +526,7 @@ public abstract class AbstractBuildNumberEditUI extends com.kingdee.eas.framewor
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
+        sic.add(new SelectorItemInfo("modelBuild"));
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("simpleName"));

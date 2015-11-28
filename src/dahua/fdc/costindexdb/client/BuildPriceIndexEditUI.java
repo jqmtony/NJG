@@ -687,6 +687,7 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 //        Map ctx = getUIContext();
         ContractBillInfo cbinfo = (ContractBillInfo)getUIContext().get("contractInfo");
         //合同阶段    “合同签订“”合同变更”“合同结算”
+        objectValue.setSourceBillId((String)getUIContext().get("sourceBillId"));
         String contractStationType = (String)getUIContext().get("contractStationType");
         objectValue.setContractId(cbinfo.getId().toString());
         objectValue.setProjectId(cbinfo.getCurProject().getId().toString());

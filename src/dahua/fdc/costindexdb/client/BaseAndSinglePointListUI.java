@@ -33,6 +33,7 @@ import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
@@ -377,6 +378,10 @@ public class BaseAndSinglePointListUI extends AbstractBaseAndSinglePointListUI
         
         return sic;
     }   
+    
+    protected String getEditUIModal() {
+    	return UIFactoryName.NEWTAB;
+    }
     
     /**
      * output getBizInterface method
