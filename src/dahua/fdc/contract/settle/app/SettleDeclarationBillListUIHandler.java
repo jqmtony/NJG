@@ -21,8 +21,4 @@ public class SettleDeclarationBillListUIHandler extends AbstractSettleDeclaratio
 	}
 	protected void _handleActionTDPrintPreview(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
-	protected void _handleActionInTrial(RequestContext request,ResponseContext response, Context context) throws Exception {
-	}
-	protected void _handleActionApproved(RequestContext request,ResponseContext response, Context context) throws Exception {
-	}
 }

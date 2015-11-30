@@ -24,7 +24,7 @@ import java.lang.String;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.bos.dao.IObjectPK;
-import com.kingdee.eas.fdc.contract.settle.SettleDeclarationBillE2Collection;
+import com.kingdee.eas.fdc.contract.settle.SettleDeclarationBillEntry3Collection;
 import com.kingdee.eas.framework.CoreBillEntryBaseCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SorterItemCollection;
@@ -32,25 +32,25 @@ import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.framework.app.CoreBillEntryBaseControllerBean;
-import com.kingdee.eas.fdc.contract.settle.SettleDeclarationBillE2Info;
+import com.kingdee.eas.fdc.contract.settle.SettleDeclarationBillEntry3Info;
 
 
 
-public abstract class AbstractSettleDeclarationBillE2ControllerBean extends CoreBillEntryBaseControllerBean implements SettleDeclarationBillE2Controller
+public abstract class AbstractSettleDeclarationBillEntry3ControllerBean extends CoreBillEntryBaseControllerBean implements SettleDeclarationBillEntry3Controller
 {
-    protected AbstractSettleDeclarationBillE2ControllerBean()
+    protected AbstractSettleDeclarationBillEntry3ControllerBean()
     {
     }
 
     protected BOSObjectType getBOSType()
     {
-        return new BOSObjectType("73E69341");
+        return new BOSObjectType("2F7D02D5");
     }
 
     public boolean exists(Context ctx, IObjectPK pk) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("24db00ce-9574-480c-880b-582e068c116b"), new Object[]{ctx, pk});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("8eb2d193-4033-4e49-b09e-9cd6ee01edd8"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, pk);
@@ -75,7 +75,7 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
     public boolean exists(Context ctx, FilterInfo filter) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("d79b4435-b99d-4804-8a1d-781e59d7ae8f"), new Object[]{ctx, filter});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("5230dc37-b751-42ed-9f05-a720c9a357f9"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, filter);
@@ -100,7 +100,7 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
     public boolean exists(Context ctx, String oql) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("f3ea7063-6547-4e1f-8dcd-8bf8aabf8ce2"), new Object[]{ctx, oql});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("5be4093a-b996-4a44-9f61-ca2c3bb8ec9a"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, oql);
@@ -122,18 +122,18 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
         return super._exists(ctx, oql);
     }
 
-    public SettleDeclarationBillE2Info getSettleDeclarationBillE2Info(Context ctx, IObjectPK pk) throws BOSException, EASBizException
+    public SettleDeclarationBillEntry3Info getSettleDeclarationBillEntry3Info(Context ctx, IObjectPK pk) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("0f9f859f-5fe8-4546-b935-b8ad8f36a5c0"), new Object[]{ctx, pk});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("ccd29c5e-b9ae-4d31-89b2-6338586750f3"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
-            SettleDeclarationBillE2Info retValue = (SettleDeclarationBillE2Info)_getValue(ctx, pk);
+            SettleDeclarationBillEntry3Info retValue = (SettleDeclarationBillEntry3Info)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
             }
             invokeServiceAfter(svcCtx);
         
-          return (SettleDeclarationBillE2Info)svcCtx.getMethodReturnValue();
+          return (SettleDeclarationBillEntry3Info)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -147,18 +147,18 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
         return super._getValue(ctx, pk);
     }
 
-    public SettleDeclarationBillE2Info getSettleDeclarationBillE2Info(Context ctx, IObjectPK pk, SelectorItemCollection selector) throws BOSException, EASBizException
+    public SettleDeclarationBillEntry3Info getSettleDeclarationBillEntry3Info(Context ctx, IObjectPK pk, SelectorItemCollection selector) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("a05229d8-9728-4092-aacb-d5fb97ff1e4e"), new Object[]{ctx, pk, selector});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("80cfcf71-b11c-40e0-bb2f-e52e74260e82"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
-            SettleDeclarationBillE2Info retValue = (SettleDeclarationBillE2Info)_getValue(ctx, pk, selector);
+            SettleDeclarationBillEntry3Info retValue = (SettleDeclarationBillEntry3Info)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
             }
             invokeServiceAfter(svcCtx);
         
-          return (SettleDeclarationBillE2Info)svcCtx.getMethodReturnValue();
+          return (SettleDeclarationBillEntry3Info)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -172,18 +172,18 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
         return super._getValue(ctx, pk, selector);
     }
 
-    public SettleDeclarationBillE2Info getSettleDeclarationBillE2Info(Context ctx, String oql) throws BOSException, EASBizException
+    public SettleDeclarationBillEntry3Info getSettleDeclarationBillEntry3Info(Context ctx, String oql) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("e4d3e509-4efe-4c7e-a1ab-a6e552643187"), new Object[]{ctx, oql});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("76d1559a-860b-4df9-8d20-bed396737667"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
-            SettleDeclarationBillE2Info retValue = (SettleDeclarationBillE2Info)_getValue(ctx, oql);
+            SettleDeclarationBillEntry3Info retValue = (SettleDeclarationBillEntry3Info)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
             }
             invokeServiceAfter(svcCtx);
         
-          return (SettleDeclarationBillE2Info)svcCtx.getMethodReturnValue();
+          return (SettleDeclarationBillEntry3Info)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -197,10 +197,10 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
         return super._getValue(ctx, oql);
     }
 
-    public IObjectPK addnew(Context ctx, SettleDeclarationBillE2Info model) throws BOSException, EASBizException
+    public IObjectPK addnew(Context ctx, SettleDeclarationBillEntry3Info model) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("cc8cb9e9-6457-432b-98cf-97b3b640cc36"), new Object[]{ctx, model});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("73f466a0-46a7-4603-9717-5be1ac6f82e7"), new Object[]{ctx, model});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
             IObjectPK retValue = (IObjectPK)_addnew(ctx, model);
@@ -224,10 +224,10 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
         return super._addnew(ctx, model);
     }
 
-    public void addnew(Context ctx, IObjectPK pk, SettleDeclarationBillE2Info model) throws BOSException, EASBizException
+    public void addnew(Context ctx, IObjectPK pk, SettleDeclarationBillEntry3Info model) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("2b1d801d-3c67-4ec8-8895-03383348ef5b"), new Object[]{ctx, pk, model});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("2764f646-f48a-4c5a-9a14-a5b947f281ca"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()){
             _addnew(ctx, pk, model);
@@ -248,10 +248,10 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
         super._addnew(ctx, pk, model);
     }
 
-    public void update(Context ctx, IObjectPK pk, SettleDeclarationBillE2Info model) throws BOSException, EASBizException
+    public void update(Context ctx, IObjectPK pk, SettleDeclarationBillEntry3Info model) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("4f8deafc-94d6-47a7-a0d3-94a4513491c1"), new Object[]{ctx, pk, model});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("d7d37fc8-e358-4288-90fb-1943bb472167"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()){
             _update(ctx, pk, model);
@@ -272,10 +272,10 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
         super._update(ctx, pk, model);
     }
 
-    public void updatePartial(Context ctx, SettleDeclarationBillE2Info model, SelectorItemCollection selector) throws BOSException, EASBizException
+    public void updatePartial(Context ctx, SettleDeclarationBillEntry3Info model, SelectorItemCollection selector) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("0b1c2b0c-1856-4c99-9f13-2cccc0d48672"), new Object[]{ctx, model, selector});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("e85d30a3-5ced-41a4-b5ca-2b18bd20ee28"), new Object[]{ctx, model, selector});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()){
             _updatePartial(ctx, model, selector);
@@ -296,10 +296,10 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
         super._updatePartial(ctx, model, selector);
     }
 
-    public void updateBigObject(Context ctx, IObjectPK pk, SettleDeclarationBillE2Info model) throws BOSException
+    public void updateBigObject(Context ctx, IObjectPK pk, SettleDeclarationBillEntry3Info model) throws BOSException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("2b532c73-2f25-42eb-ba9b-0ecd6c43d6c5"), new Object[]{ctx, pk, model});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("5662c8fa-7413-4286-a671-0f4f3e815d98"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()){
             _updateBigObject(ctx, pk, model);
@@ -320,7 +320,7 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
     public void delete(Context ctx, IObjectPK pk) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("59d2cce2-79a7-49c9-8ce4-1c2abf9f9e31"), new Object[]{ctx, pk});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("b760e048-cb82-49ae-bf9c-6c243587168c"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()){
             _delete(ctx, pk);
@@ -344,7 +344,7 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
     public IObjectPK[] getPKList(Context ctx) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("3a4e01e7-6a5b-4616-91e2-7ed013a417c7"), new Object[]{ctx});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("0459cef5-1f9f-4407-893e-a054d243e87c"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx);
@@ -369,7 +369,7 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
     public IObjectPK[] getPKList(Context ctx, String oql) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("4736bd75-3dee-4a89-ad59-c1b766698ef2"), new Object[]{ctx, oql});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("058d0636-6e20-4de9-84be-af000b9bedb4"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, oql);
@@ -394,7 +394,7 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
     public IObjectPK[] getPKList(Context ctx, FilterInfo filter, SorterItemCollection sorter) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("28de5ba5-b044-4c01-97b2-6e29ff6b951f"), new Object[]{ctx, filter, sorter});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("7d1514df-1781-4ab7-bb72-83ee707f7eed"), new Object[]{ctx, filter, sorter});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, filter, sorter);
@@ -416,18 +416,18 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
         return super._getPKList(ctx, filter, sorter);
     }
 
-    public SettleDeclarationBillE2Collection getSettleDeclarationBillE2Collection(Context ctx) throws BOSException
+    public SettleDeclarationBillEntry3Collection getSettleDeclarationBillEntry3Collection(Context ctx) throws BOSException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("d754a822-cc0d-4dbe-9927-1e5ff9fe6f80"), new Object[]{ctx});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("970ef83c-8398-449c-ba43-404ba5396003"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
-            SettleDeclarationBillE2Collection retValue = (SettleDeclarationBillE2Collection)_getCollection(ctx, svcCtx);
+            SettleDeclarationBillEntry3Collection retValue = (SettleDeclarationBillEntry3Collection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
             }
             invokeServiceAfter(svcCtx);
         
-          return (SettleDeclarationBillE2Collection)svcCtx.getMethodReturnValue();
+          return (SettleDeclarationBillEntry3Collection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -439,18 +439,18 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
         return super._getCollection(ctx, svcCtx);
     }
 
-    public SettleDeclarationBillE2Collection getSettleDeclarationBillE2Collection(Context ctx, EntityViewInfo view) throws BOSException
+    public SettleDeclarationBillEntry3Collection getSettleDeclarationBillEntry3Collection(Context ctx, EntityViewInfo view) throws BOSException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("2b0dd015-b776-40bb-a350-ff3f85197a10"), new Object[]{ctx, view});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("f4540e8d-ab7b-4c85-8d0f-2b3b32482dc3"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
-            SettleDeclarationBillE2Collection retValue = (SettleDeclarationBillE2Collection)_getCollection(ctx, svcCtx, view);
+            SettleDeclarationBillEntry3Collection retValue = (SettleDeclarationBillEntry3Collection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
             }
             invokeServiceAfter(svcCtx);
         
-          return (SettleDeclarationBillE2Collection)svcCtx.getMethodReturnValue();
+          return (SettleDeclarationBillEntry3Collection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -462,18 +462,18 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
         return super._getCollection(ctx, svcCtx, view);
     }
 
-    public SettleDeclarationBillE2Collection getSettleDeclarationBillE2Collection(Context ctx, String oql) throws BOSException
+    public SettleDeclarationBillEntry3Collection getSettleDeclarationBillEntry3Collection(Context ctx, String oql) throws BOSException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("94d771ea-db73-4404-9002-2a469fcd1810"), new Object[]{ctx, oql});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("5fc7753f-9609-4a5f-bdba-92d8fb0c970c"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
-            SettleDeclarationBillE2Collection retValue = (SettleDeclarationBillE2Collection)_getCollection(ctx, svcCtx, oql);
+            SettleDeclarationBillEntry3Collection retValue = (SettleDeclarationBillEntry3Collection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
             }
             invokeServiceAfter(svcCtx);
         
-          return (SettleDeclarationBillE2Collection)svcCtx.getMethodReturnValue();
+          return (SettleDeclarationBillEntry3Collection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -488,7 +488,7 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
     public IObjectPK[] delete(Context ctx, FilterInfo filter) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("bb643503-4775-4ccc-999a-bfa739bf0a46"), new Object[]{ctx, filter});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("2dca5cd6-8368-4476-a1bb-6d5e41209098"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, filter);
@@ -515,7 +515,7 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
     public IObjectPK[] delete(Context ctx, String oql) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("cc388b5c-bcc5-4d19-805c-2a0a61a9065f"), new Object[]{ctx, oql});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("f8491b43-e081-4d19-b943-0b4d1d2bc4e5"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, oql);
@@ -542,7 +542,7 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
     public void delete(Context ctx, IObjectPK[] arrayPK) throws BOSException, EASBizException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("b86cc7a0-29b7-4b4f-98f4-59a8bee14ead"), new Object[]{ctx, arrayPK});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("9e22fcda-e16d-4d91-9987-10bef7c112ea"), new Object[]{ctx, arrayPK});
             invokeServiceBefore(svcCtx);
             if(!svcCtx.invokeBreak()){
             _delete(ctx, arrayPK);
@@ -565,26 +565,26 @@ public abstract class AbstractSettleDeclarationBillE2ControllerBean extends Core
 
     public CoreBillEntryBaseCollection getCoreBillEntryBaseCollection (Context ctx) throws BOSException
     {
-    	return (CoreBillEntryBaseCollection)(getSettleDeclarationBillE2Collection(ctx).cast(CoreBillEntryBaseCollection.class));
+    	return (CoreBillEntryBaseCollection)(getSettleDeclarationBillEntry3Collection(ctx).cast(CoreBillEntryBaseCollection.class));
     }
     public CoreBillEntryBaseCollection getCoreBillEntryBaseCollection (Context ctx, EntityViewInfo view) throws BOSException
     {
-    	return (CoreBillEntryBaseCollection)(getSettleDeclarationBillE2Collection(ctx, view).cast(CoreBillEntryBaseCollection.class));
+    	return (CoreBillEntryBaseCollection)(getSettleDeclarationBillEntry3Collection(ctx, view).cast(CoreBillEntryBaseCollection.class));
     }
     public CoreBillEntryBaseCollection getCoreBillEntryBaseCollection (Context ctx, String oql) throws BOSException
     {
-    	return (CoreBillEntryBaseCollection)(getSettleDeclarationBillE2Collection(ctx, oql).cast(CoreBillEntryBaseCollection.class));
+    	return (CoreBillEntryBaseCollection)(getSettleDeclarationBillEntry3Collection(ctx, oql).cast(CoreBillEntryBaseCollection.class));
     }
     public CoreBaseCollection getCoreBaseCollection (Context ctx) throws BOSException
     {
-    	return (CoreBaseCollection)(getSettleDeclarationBillE2Collection(ctx).cast(CoreBaseCollection.class));
+    	return (CoreBaseCollection)(getSettleDeclarationBillEntry3Collection(ctx).cast(CoreBaseCollection.class));
     }
     public CoreBaseCollection getCoreBaseCollection (Context ctx, EntityViewInfo view) throws BOSException
     {
-    	return (CoreBaseCollection)(getSettleDeclarationBillE2Collection(ctx, view).cast(CoreBaseCollection.class));
+    	return (CoreBaseCollection)(getSettleDeclarationBillEntry3Collection(ctx, view).cast(CoreBaseCollection.class));
     }
     public CoreBaseCollection getCoreBaseCollection (Context ctx, String oql) throws BOSException
     {
-    	return (CoreBaseCollection)(getSettleDeclarationBillE2Collection(ctx, oql).cast(CoreBaseCollection.class));
+    	return (CoreBaseCollection)(getSettleDeclarationBillEntry3Collection(ctx, oql).cast(CoreBaseCollection.class));
     }
 }

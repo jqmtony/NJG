@@ -52,10 +52,13 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("1ce63a0d-0b34-4993-8c2e-9c467e2cbce7"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SettleDeclarationBillCollection retValue = (SettleDeclarationBillCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SettleDeclarationBillCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -72,10 +75,13 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("09054bca-5888-4a10-945b-d62ff6e701df"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SettleDeclarationBillCollection retValue = (SettleDeclarationBillCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SettleDeclarationBillCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -92,10 +98,13 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("1d26b896-6250-4ab4-a4b0-eb8d046d330f"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SettleDeclarationBillCollection retValue = (SettleDeclarationBillCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SettleDeclarationBillCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -112,10 +121,13 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("c7c06124-091a-4e39-8a35-40670b0d6fa1"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SettleDeclarationBillInfo retValue = (SettleDeclarationBillInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SettleDeclarationBillInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -134,10 +146,13 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("c0b1ad61-fdc8-4ad7-bb7c-41e304e1c973"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SettleDeclarationBillInfo retValue = (SettleDeclarationBillInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SettleDeclarationBillInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -156,10 +171,13 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("2eb2366d-bde6-421a-8974-06ffb2110fc8"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             SettleDeclarationBillInfo retValue = (SettleDeclarationBillInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (SettleDeclarationBillInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -178,7 +196,9 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("1cb89076-2069-483f-b093-283c5c2cd1b1"), new Object[]{ctx, model});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _InTrial(ctx, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -197,7 +217,9 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("0736aad0-4855-4fb1-95bf-311c461f6e14"), new Object[]{ctx, model});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _Approved(ctx, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -216,7 +238,9 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("061a92c1-ff58-4c72-bfa9-990c04745786"), new Object[]{ctx, model});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _Audit(ctx, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -235,7 +259,9 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("39798fe0-3464-4436-b132-452d69233e05"), new Object[]{ctx, model});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _UnAudit(ctx, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();

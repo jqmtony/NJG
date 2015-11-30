@@ -606,7 +606,7 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         // kDPanel2
         // kDPanel5
         // kdtE1
-		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol0\" /><t:Column t:key=\"sbzl\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /><t:Column t:key=\"xuanze\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /><t:Column t:key=\"yeshu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol3\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:configured=\"false\"><t:Cell t:configured=\"false\">单据分录序列号</t:Cell><t:Cell t:configured=\"false\">申报资料</t:Cell><t:Cell t:configured=\"false\">选择</t:Cell><t:Cell t:configured=\"false\">页数</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE1StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol0\" /><t:Column t:key=\"sbzl\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /><t:Column t:key=\"xuanze\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /><t:Column t:key=\"yeshu\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol3\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:configured=\"false\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{sbzl}</t:Cell><t:Cell>$Resource{xuanze}</t:Cell><t:Cell>$Resource{yeshu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE1.setFormatXml(resHelper.translateString("kdtE1",kdtE1StrXML));
 
@@ -632,7 +632,7 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         KDTDefaultCellEditor kdtE1_yeshu_CellEditor = new KDTDefaultCellEditor(kdtE1_yeshu_TextField);
         this.kdtE1.getColumn("yeshu").setEditor(kdtE1_yeshu_CellEditor);
         // kdtE2
-		String kdtE2StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol0\" /><t:Column t:key=\"sbzl2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /><t:Column t:key=\"xuanze2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /><t:Column t:key=\"yeshu2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol3\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:configured=\"false\"><t:Cell t:configured=\"false\">单据分录序列号</t:Cell><t:Cell t:configured=\"false\">申报资料</t:Cell><t:Cell t:configured=\"false\">选择</t:Cell><t:Cell t:configured=\"false\">页数</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE2StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol0\" /><t:Column t:key=\"sbzl2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /><t:Column t:key=\"xuanze2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /><t:Column t:key=\"yeshu2\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol3\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:configured=\"false\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{sbzl2}</t:Cell><t:Cell>$Resource{xuanze2}</t:Cell><t:Cell>$Resource{yeshu2}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE2.setFormatXml(resHelper.translateString("kdtE2",kdtE2StrXML));
 
@@ -653,7 +653,7 @@ public abstract class AbstractSettleDeclarationBillEditUI extends com.kingdee.ea
         KDTDefaultCellEditor kdtE2_yeshu2_CellEditor = new KDTDefaultCellEditor(kdtE2_yeshu2_TextField);
         this.kdtE2.getColumn("yeshu2").setEditor(kdtE2_yeshu2_CellEditor);
         // kdtE3
-		String kdtE3StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol0\" /><t:Column t:key=\"yujingrenyuan\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:configured=\"false\"><t:Cell t:configured=\"false\">单据分录序列号</t:Cell><t:Cell t:configured=\"false\">预警人员</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtE3StrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" t:styleID=\"sCol0\" /><t:Column t:key=\"yujingrenyuan\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:configured=\"false\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:configured=\"false\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{yujingrenyuan}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtE3.setFormatXml(resHelper.translateString("kdtE3",kdtE3StrXML));
 
@@ -1047,9 +1047,13 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(kDSeparator1);
+        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemSave);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(menuItemSubmit);
+        menuFile.add(menuItemCloudShare);
         menuFile.add(menuSubmitOption);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(rMenuItemSubmit);
         menuFile.add(rMenuItemSubmitAndAddNew);
         menuFile.add(rMenuItemSubmitAndPrint);
@@ -1108,6 +1112,7 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemMsgFormat);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuWorkflow
         menuWorkflow.add(menuItemStartWorkFlow);
         menuWorkflow.add(separatorWF1);
@@ -1139,6 +1144,8 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnEdit);
         this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
@@ -1162,6 +1169,7 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
         this.toolBar.add(btnTraceDown);
         this.toolBar.add(btnWorkFlowG);
         this.toolBar.add(btnSignature);
+        this.toolBar.add(btnNumberSign);
         this.toolBar.add(btnViewSignature);
         this.toolBar.add(separatorFW4);
         this.toolBar.add(separatorFW7);
@@ -1357,7 +1365,7 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
     }
 		protected void setOrgF7(KDBizPromptBox f7,com.kingdee.eas.basedata.org.OrgType orgType) throws Exception
 		{
-			com.kingdee.bos.ctrl.extendcontrols.ext.OrgUnitFilterInfoProducer oufip=(com.kingdee.bos.ctrl.extendcontrols.ext.OrgUnitFilterInfoProducer)com.kingdee.bos.ctrl.extendcontrols.ext.FilterInfoProducerFactory.getOrgUnitFilterInfoProducer(orgType);
+			com.kingdee.eas.basedata.org.client.f7.NewOrgUnitFilterInfoProducer oufip = new com.kingdee.eas.basedata.org.client.f7.NewOrgUnitFilterInfoProducer(orgType);
 			oufip.getModel().setIsCUFilter(true);
 			f7.setFilterInfoProducer(oufip);
 		}
@@ -1453,6 +1461,10 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
         sic.add(new SelectorItemInfo("isVersion"));
         sic.add(new SelectorItemInfo("decAmount"));
         sic.add(new SelectorItemInfo("version"));
@@ -1464,23 +1476,42 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
         sic.add(new SelectorItemInfo("endTime"));
         sic.add(new SelectorItemInfo("subTime"));
         sic.add(new SelectorItemInfo("unitPrice"));
-    sic.add(new SelectorItemInfo("E1.seq"));
-        sic.add(new SelectorItemInfo("E1.*"));
-//        sic.add(new SelectorItemInfo("E1.number"));
-    sic.add(new SelectorItemInfo("E1.sbzl"));
-    sic.add(new SelectorItemInfo("E1.yeshu"));
-    sic.add(new SelectorItemInfo("E1.xuanze"));
-    sic.add(new SelectorItemInfo("E2.seq"));
-        sic.add(new SelectorItemInfo("E2.*"));
-//        sic.add(new SelectorItemInfo("E2.number"));
-    sic.add(new SelectorItemInfo("E2.sbzl2"));
-    sic.add(new SelectorItemInfo("E2.xuanze2"));
-    sic.add(new SelectorItemInfo("E2.yeshu2"));
-    sic.add(new SelectorItemInfo("E3.seq"));
-        sic.add(new SelectorItemInfo("E3.*"));
-//        sic.add(new SelectorItemInfo("E3.number"));
-        sic.add(new SelectorItemInfo("E3.yujingrenyuan.*"));
-//        sic.add(new SelectorItemInfo("E3.yujingrenyuan.number"));
+    	sic.add(new SelectorItemInfo("E1.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("E1.*"));
+		}
+		else{
+		}
+    	sic.add(new SelectorItemInfo("E1.sbzl"));
+    	sic.add(new SelectorItemInfo("E1.yeshu"));
+    	sic.add(new SelectorItemInfo("E1.xuanze"));
+    	sic.add(new SelectorItemInfo("E2.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("E2.*"));
+		}
+		else{
+		}
+    	sic.add(new SelectorItemInfo("E2.sbzl2"));
+    	sic.add(new SelectorItemInfo("E2.xuanze2"));
+    	sic.add(new SelectorItemInfo("E2.yeshu2"));
+    	sic.add(new SelectorItemInfo("E3.seq"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("E3.*"));
+		}
+		else{
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("E3.yujingrenyuan.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("E3.yujingrenyuan.id"));
+			sic.add(new SelectorItemInfo("E3.yujingrenyuan.name"));
+        	sic.add(new SelectorItemInfo("E3.yujingrenyuan.number"));
+		}
         sic.add(new SelectorItemInfo("jszlcyqk"));
         sic.add(new SelectorItemInfo("jsydti"));
         sic.add(new SelectorItemInfo("jswcsjyq"));
@@ -1494,15 +1525,48 @@ kDPanel5.setLayout(new BorderLayout(0, 0));        kdtE3_detailPanel = (com.king
         sic.add(new SelectorItemInfo("wycfts"));
         sic.add(new SelectorItemInfo("sdfjnqk"));
         sic.add(new SelectorItemInfo("zlaqgq"));
-        sic.add(new SelectorItemInfo("lastUpdateUser.*"));
-        sic.add(new SelectorItemInfo("creator.*"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("lastUpdateUser.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("lastUpdateUser.id"));
+        	sic.add(new SelectorItemInfo("lastUpdateUser.number"));
+        	sic.add(new SelectorItemInfo("lastUpdateUser.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("creator.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("creator.id"));
+        	sic.add(new SelectorItemInfo("creator.number"));
+        	sic.add(new SelectorItemInfo("creator.name"));
+		}
         sic.add(new SelectorItemInfo("lastUpdateTime"));
         sic.add(new SelectorItemInfo("createTime"));
         sic.add(new SelectorItemInfo("description"));
         sic.add(new SelectorItemInfo("bizDate"));
         sic.add(new SelectorItemInfo("billState"));
-        sic.add(new SelectorItemInfo("contractNumber.*"));
-        sic.add(new SelectorItemInfo("auditor.*"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("contractNumber.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("contractNumber.id"));
+        	sic.add(new SelectorItemInfo("contractNumber.number"));
+        	sic.add(new SelectorItemInfo("contractNumber.name"));
+        	sic.add(new SelectorItemInfo("contractNumber.codingNumber"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("auditor.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("auditor.id"));
+        	sic.add(new SelectorItemInfo("auditor.number"));
+        	sic.add(new SelectorItemInfo("auditor.name"));
+		}
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("state"));
         return sic;

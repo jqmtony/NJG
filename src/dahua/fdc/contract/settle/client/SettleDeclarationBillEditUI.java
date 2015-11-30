@@ -23,9 +23,9 @@ import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.settle.SettleDeclarationBillFactory;
+import com.kingdee.eas.fdc.contract.settle.app.BillStateEnum;
 import com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum;
 import com.kingdee.eas.framework.*;
-import com.kingdee.eas.rptclient.gr.rptclient.util.DbUtil;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
@@ -33,12 +33,9 @@ import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.KDTableHelper;
 import com.kingdee.bos.ctrl.swing.KDComboBox;
 
-/**
- * output class name
- */
+@SuppressWarnings("serial")
 public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEditUI
 {
-
     private static final Logger logger = CoreUIObject.getLogger(SettleDeclarationBillEditUI.class);
     
     public SettleDeclarationBillEditUI() throws Exception
@@ -47,241 +44,172 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
         
     }
     public void onLoad() throws Exception {
-    	btnRemove.setVisible(false);
-    	btnCopy.setVisible(false);
-    	btnAttachment.setVisible(false);
-    	btnPrint.setVisible(false);
-    	btnPrintPreview.setVisible(false);
-    	btnFirst.setVisible(false);
-    	btnPre.setVisible(false);
-    	btnNext.setVisible(false);
-    	btnLast.setVisible(false);
-    	btnAuditResult.setVisible(false);
-    	btnMultiapprove.setVisible(false);
-    	btnNextPerson.setVisible(false);
-    	
-    	
-    	this.contstate.setEnabled(false);
-    	this.contbillState.setEnabled(false);
-    	
-    	chkisVersion.setEnabled(false);
-    	contversion.setEnabled(false);
+
+        this.btnRemove.setVisible(false);
+        this.btnCopy.setVisible(false);
+        this.btnAttachment.setVisible(false);
+        this.btnPrint.setVisible(false);
+        this.btnPrintPreview.setVisible(false);
+        this.btnFirst.setVisible(false);
+        this.btnPre.setVisible(false);
+        this.btnNext.setVisible(false);
+        this.btnLast.setVisible(false);
+        this.btnAuditResult.setVisible(false);
+        this.btnMultiapprove.setVisible(false);
+        this.btnNextPerson.setVisible(false);
+
+        this.contstate.setEnabled(false);
+        this.contbillState.setEnabled(false);
+
+        this.chkisVersion.setEnabled(false);
+        this.contversion.setEnabled(false);
     	super.onLoad();
     	initUI();
-    	if(getOprtState().equals(OprtState.ADDNEW)){//新增
-    		this.billState.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.ADDNEW);
-    		this.state.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Review);
-    		
-    		this.actionAddNew.setEnabled(false);//新增
-    		this.actionEdit.setEnabled(false);//修改
-        	this.actionSave.setEnabled(true);//保存
-        	this.actionRemove.setEnabled(false);//删除
-        	this.actionSubmit.setEnabled(false);//提交
-        	this.actionAudit.setEnabled(false);//审批
-        	this.actionUnAudit.setEnabled(false);//反审批
-        	this.btnAudit.setEnabled(false);//审批
-        	this.btnUnAudit.setEnabled(false);//反审批
-        	this.btnInTrial.setEnabled(false);//送审
-        	this.btnApproved.setEnabled(false);//审定
-    		
-    		prmtcontractNumber.setDisplayFormat("$name$");
-    		prmtcontractNumber.setEditFormat("$name$");
-    		prmtcontractNumber.setCommitFormat("$number$");
-    	}
-    	if(getOprtState().equals(OprtState.VIEW)){//查看
-    		this.actionAddNew.setEnabled(false);//新增
-    		this.actionEdit.setEnabled(false);//修改
-        	this.actionSave.setEnabled(false);//保存
-        	this.actionRemove.setEnabled(false);//删除
-        	this.actionSubmit.setEnabled(false);//提交
-        	this.actionAudit.setEnabled(false);//审批
-        	this.actionUnAudit.setEnabled(false);//反审批
-        	this.btnAudit.setEnabled(false);//审批
-        	this.btnUnAudit.setEnabled(false);//反审批
-        	this.btnInTrial.setEnabled(false);//送审
-        	this.btnApproved.setEnabled(false);//审定
-    	}
+    	if (getOprtState().equals(OprtState.ADDNEW)) {
+    	      
+
+    	      this.actionAddNew.setEnabled(false);
+    	      this.actionEdit.setEnabled(false);
+    	      this.actionSave.setEnabled(true);
+    	      this.actionRemove.setEnabled(false);
+    	      this.actionSubmit.setEnabled(false);
+    	      this.actionAudit.setEnabled(false);
+    	      this.actionUnAudit.setEnabled(false);
+    	      this.btnAudit.setEnabled(false);
+    	      this.btnUnAudit.setEnabled(false);
+    	      this.btnInTrial.setEnabled(false);
+    	      this.btnApproved.setEnabled(false);
+
+    	    }
+    	if (getOprtState().equals(OprtState.VIEW)) {
+    	      this.actionAddNew.setEnabled(false);
+    	      this.actionEdit.setEnabled(false);
+    	      this.actionSave.setEnabled(false);
+    	      this.actionRemove.setEnabled(false);
+    	      this.actionSubmit.setEnabled(false);
+    	      this.actionAudit.setEnabled(false);
+    	      this.actionUnAudit.setEnabled(false);
+    	      this.btnAudit.setEnabled(false);
+    	      this.btnUnAudit.setEnabled(false);
+    	      this.btnInTrial.setEnabled(false);
+    	      this.btnApproved.setEnabled(false);
+    	    }
+    	 if ((getOprtState().equals(OprtState.EDIT)) && (this.editData.isIsVersion())) {
+    	      if (this.editData.getBillState().equals(BillStateEnum.SAVE)) {
+    	        this.actionAddNew.setEnabled(false);
+    	        this.actionEdit.setEnabled(true);
+    	        this.actionSave.setEnabled(false);
+    	        this.actionRemove.setEnabled(false);
+    	        this.actionSubmit.setEnabled(true);
+    	        this.actionAudit.setEnabled(false);
+    	        this.actionUnAudit.setEnabled(false);
+
+    	        this.btnAddNew.setEnabled(false);
+    	        this.btnEdit.setEnabled(true);
+    	        this.btnSave.setEnabled(false);
+    	        this.btnRemove.setEnabled(false);
+    	        this.btnSubmit.setEnabled(true);
+    	        this.btnAudit.setEnabled(false);
+    	        this.btnUnAudit.setEnabled(false);
+    	        this.btnInTrial.setEnabled(false);
+    	        this.btnApproved.setEnabled(false);
+    	      }
+    	      if (this.editData.getBillState().equals(BillStateEnum.SUBMIT)) {
+    	        this.actionAddNew.setEnabled(false);
+    	        this.actionEdit.setEnabled(false);
+    	        this.actionSave.setEnabled(false);
+    	        this.actionRemove.setEnabled(false);
+    	        this.actionSubmit.setEnabled(false);
+    	        this.actionAudit.setEnabled(true);
+    	        this.actionUnAudit.setEnabled(false);
+
+    	        this.btnAddNew.setEnabled(false);
+    	        this.btnEdit.setEnabled(false);
+    	        this.btnSave.setEnabled(false);
+    	        this.btnRemove.setEnabled(false);
+    	        this.btnSubmit.setEnabled(false);
+    	        this.btnAudit.setEnabled(true);
+    	        this.btnUnAudit.setEnabled(false);
+    	        this.btnInTrial.setEnabled(false);
+    	        this.btnApproved.setEnabled(false);
+    	      }
+
+    	      if (this.editData.getBillState().equals(BillStateEnum.AUDIT))
+    	      {
+    	        if (this.editData.getState().equals(TrialStatusEnum.Review)) {
+    	          this.actionAddNew.setEnabled(false);
+    	          this.actionEdit.setEnabled(false);
+    	          this.actionSave.setEnabled(false);
+    	          this.actionRemove.setEnabled(false);
+    	          this.actionSubmit.setEnabled(false);
+    	          this.actionAudit.setEnabled(false);
+    	          this.actionUnAudit.setEnabled(false);
+
+    	          this.btnAddNew.setEnabled(false);
+    	          this.btnEdit.setEnabled(false);
+    	          this.btnSave.setEnabled(false);
+    	          this.btnRemove.setEnabled(false);
+    	          this.btnSubmit.setEnabled(false);
+    	          this.btnAudit.setEnabled(false);
+    	          this.btnUnAudit.setEnabled(true);
+    	          this.btnInTrial.setEnabled(true);
+    	          this.btnApproved.setEnabled(false);
+    	        }
+    	        if (this.editData.getState().equals(TrialStatusEnum.InTrial)) {
+    	          this.actionAddNew.setEnabled(false);
+    	          this.actionEdit.setEnabled(false);
+    	          this.actionSave.setEnabled(false);
+    	          this.actionRemove.setEnabled(false);
+    	          this.actionSubmit.setEnabled(false);
+    	          this.actionAudit.setEnabled(false);
+    	          this.actionUnAudit.setEnabled(false);
+
+    	          this.btnAddNew.setEnabled(false);
+    	          this.btnEdit.setEnabled(false);
+    	          this.btnSave.setEnabled(false);
+    	          this.btnRemove.setEnabled(false);
+    	          this.btnSubmit.setEnabled(false);
+    	          this.btnAudit.setEnabled(false);
+    	          this.btnUnAudit.setEnabled(false);
+    	          this.btnInTrial.setEnabled(false);
+    	          this.btnApproved.setEnabled(true);
+    	        }
+    	        if (this.editData.getState().equals(TrialStatusEnum.Approved)) {
+    	          this.actionAddNew.setEnabled(false);
+    	          this.actionEdit.setEnabled(false);
+    	          this.actionSave.setEnabled(false);
+    	          this.actionRemove.setEnabled(false);
+    	          this.actionSubmit.setEnabled(false);
+    	          this.actionAudit.setEnabled(false);
+    	          this.actionUnAudit.setEnabled(false);
+
+    	          this.btnAddNew.setEnabled(false);
+    	          this.btnEdit.setEnabled(false);
+    	          this.btnSave.setEnabled(false);
+    	          this.btnRemove.setEnabled(false);
+    	          this.btnSubmit.setEnabled(false);
+    	          this.btnAudit.setEnabled(false);
+    	          this.btnUnAudit.setEnabled(false);
+    	          this.btnInTrial.setEnabled(false);
+    	          this.btnApproved.setEnabled(false);
+    	        }
+    	      }
+    	    }
+    	 kDPanel4.setEnabled(false);//工程部确认信息
+    	 kDPanel3.setEnabled(false);//合约审算确认信息
+    	 contapprovalAmount.setEnabled(false);//审定金额
     	
-    	if(getOprtState().equals(OprtState.EDIT)&&editData.isIsVersion()){//修改且是最新版本
-    		if(editData.getBillState().equals(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.SAVE)){
-        		this.actionAddNew.setEnabled(false);//新增
-        		this.actionEdit.setEnabled(true);//修改
-            	this.actionSave.setEnabled(false);//保存
-            	this.actionRemove.setEnabled(false);//删除
-            	this.actionSubmit.setEnabled(true);//提交
-            	this.actionAudit.setEnabled(false);//审批
-            	this.actionUnAudit.setEnabled(false);//反审批
-            	
-            	this.btnAddNew.setEnabled(false);//新增
-        		this.btnEdit.setEnabled(true);//修改
-            	this.btnSave.setEnabled(false);//保存
-            	this.btnRemove.setEnabled(false);//删除
-            	this.btnSubmit.setEnabled(true);//提交
-            	this.btnAudit.setEnabled(false);//审批
-            	this.btnUnAudit.setEnabled(false);//反审批
-            	this.btnInTrial.setEnabled(false);//送审
-            	this.btnApproved.setEnabled(false);//审定
-        	}
-    		if(editData.getBillState().equals(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.SUBMIT)){
-        		this.actionAddNew.setEnabled(false);//新增
-        		this.actionEdit.setEnabled(false);//修改
-            	this.actionSave.setEnabled(false);//保存
-            	this.actionRemove.setEnabled(false);//删除
-            	this.actionSubmit.setEnabled(false);//提交
-            	this.actionAudit.setEnabled(true);//审批
-            	this.actionUnAudit.setEnabled(false);//反审批
-            	
-            	this.btnAddNew.setEnabled(false);//新增
-        		this.btnEdit.setEnabled(false);//修改
-            	this.btnSave.setEnabled(false);//保存
-            	this.btnRemove.setEnabled(false);//删除
-            	this.btnSubmit.setEnabled(false);//提交
-            	this.btnAudit.setEnabled(true);//审批
-            	this.btnUnAudit.setEnabled(false);//反审批
-            	this.btnInTrial.setEnabled(false);//送审
-            	this.btnApproved.setEnabled(false);//审定
-            	
-        	}
-    		if(editData.getBillState().equals(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.AUDIT)){
-    			
-    			if(editData.getState().equals(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Review)){
-    				this.actionAddNew.setEnabled(false);//新增
-            		this.actionEdit.setEnabled(false);//修改
-                	this.actionSave.setEnabled(false);//保存
-                	this.actionRemove.setEnabled(false);//删除
-                	this.actionSubmit.setEnabled(false);//提交
-                	this.actionAudit.setEnabled(false);//审批
-                	this.actionUnAudit.setEnabled(false);//反审批
-                	
-                	this.btnAddNew.setEnabled(false);//新增
-            		this.btnEdit.setEnabled(false);//修改
-                	this.btnSave.setEnabled(false);//保存
-                	this.btnRemove.setEnabled(false);//删除
-                	this.btnSubmit.setEnabled(false);//提交
-                	this.btnAudit.setEnabled(false);//审批
-                	this.btnUnAudit.setEnabled(true);//反审批
-                	this.btnInTrial.setEnabled(true);//送审
-                	this.btnApproved.setEnabled(false);//审定
-    			}
-    			if(editData.getState().equals(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.InTrial)){
-    				this.actionAddNew.setEnabled(false);//新增
-            		this.actionEdit.setEnabled(false);//修改
-                	this.actionSave.setEnabled(false);//保存
-                	this.actionRemove.setEnabled(false);//删除
-                	this.actionSubmit.setEnabled(false);//提交
-                	this.actionAudit.setEnabled(false);//审批
-                	this.actionUnAudit.setEnabled(false);//反审批
-                	
-                	this.btnAddNew.setEnabled(false);//新增
-            		this.btnEdit.setEnabled(false);//修改
-                	this.btnSave.setEnabled(false);//保存
-                	this.btnRemove.setEnabled(false);//删除
-                	this.btnSubmit.setEnabled(false);//提交
-                	this.btnAudit.setEnabled(false);//审批
-                	this.btnUnAudit.setEnabled(false);//反审批
-                	this.btnInTrial.setEnabled(false);//送审
-                	this.btnApproved.setEnabled(true);//审定
-    			}
-    			if(editData.getState().equals(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Approved)){
-    				this.actionAddNew.setEnabled(false);//新增
-            		this.actionEdit.setEnabled(false);//修改
-                	this.actionSave.setEnabled(false);//保存
-                	this.actionRemove.setEnabled(false);//删除
-                	this.actionSubmit.setEnabled(false);//提交
-                	this.actionAudit.setEnabled(false);//审批
-                	this.actionUnAudit.setEnabled(false);//反审批
-                	
-                	this.btnAddNew.setEnabled(false);//新增
-            		this.btnEdit.setEnabled(false);//修改
-                	this.btnSave.setEnabled(false);//保存
-                	this.btnRemove.setEnabled(false);//删除
-                	this.btnSubmit.setEnabled(false);//提交
-                	this.btnAudit.setEnabled(false);//审批
-                	this.btnUnAudit.setEnabled(false);//反审批
-                	this.btnInTrial.setEnabled(false);//送审
-                	this.btnApproved.setEnabled(false);//审定
-    			}
-        	}
-    	}
-//    	if(getOprtState().equals(OprtState.VIEW)&&editData.isIsVersion()){
-//    		if(editData.getBillState().equals(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.SAVE)){
-//        		this.actionAddNew.setEnabled(false);//新增
-//        		this.actionEdit.setEnabled(true);//修改
-//            	this.actionSave.setEnabled(false);//保存
-//            	this.actionRemove.setEnabled(false);//删除
-//            	this.actionSubmit.setEnabled(true);//提交
-//            	this.actionAudit.setEnabled(false);//审批
-//            	this.actionUnAudit.setEnabled(false);//反审批
-//            	
-//            	this.btnAddNew.setEnabled(false);//新增
-//        		this.btnEdit.setEnabled(true);//修改
-//            	this.btnSave.setEnabled(false);//保存
-//            	this.btnRemove.setEnabled(false);//删除
-//            	this.btnSubmit.setEnabled(false);//提交
-//            	this.btnAudit.setEnabled(false);//审批
-//            	this.btnUnAudit.setEnabled(false);//反审批
-//            	this.btnInTrial.setEnabled(false);//送审
-//            	this.btnApproved.setEnabled(false);//审定
-//        	}
-//    		if(editData.getBillState().equals(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.SUBMIT)){
-//        		this.actionAddNew.setEnabled(false);//新增
-//        		this.actionEdit.setEnabled(false);//修改
-//            	this.actionSave.setEnabled(false);//保存
-//            	this.actionRemove.setEnabled(false);//删除
-//            	this.actionSubmit.setEnabled(false);//提交
-//            	this.actionAudit.setEnabled(true);//审批
-//            	this.actionUnAudit.setEnabled(false);//反审批
-//            	
-//            	this.btnAddNew.setEnabled(false);//新增
-//        		this.btnEdit.setEnabled(false);//修改
-//            	this.btnSave.setEnabled(false);//保存
-//            	this.btnRemove.setEnabled(false);//删除
-//            	this.btnSubmit.setEnabled(false);//提交
-//            	this.btnAudit.setEnabled(true);//审批
-//            	this.btnUnAudit.setEnabled(false);//反审批
-//            	this.btnInTrial.setEnabled(false);//送审
-//            	this.btnApproved.setEnabled(false);//审定
-//            	
-//        	}
-//    		if(editData.getBillState().equals(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.AUDIT)){
-//        		this.actionAddNew.setEnabled(false);//新增
-//        		this.actionEdit.setEnabled(false);//修改
-//            	this.actionSave.setEnabled(false);//保存
-//            	this.actionRemove.setEnabled(false);//删除
-//            	this.actionSubmit.setEnabled(false);//提交
-//            	this.actionAudit.setEnabled(false);//审批
-//            	this.actionUnAudit.setEnabled(true);//反审批
-//            	
-//            	this.btnAddNew.setEnabled(false);//新增
-//        		this.btnEdit.setEnabled(false);//修改
-//            	this.btnSave.setEnabled(false);//保存
-//            	this.btnRemove.setEnabled(false);//删除
-//            	this.btnSubmit.setEnabled(false);//提交
-//            	this.btnAudit.setEnabled(false);//审批
-//            	this.btnUnAudit.setEnabled(true);//反审批
-//            	this.btnInTrial.setEnabled(true);//送审
-//            	this.btnApproved.setEnabled(false);//审定
-//        	}
-//    	}
-//    	if(getOprtState().equals(OprtState.VIEW)&&!editData.isIsVersion()){
-//    		this.actionAddNew.setEnabled(false);//新增
-//    		this.actionEdit.setEnabled(false);//修改
-//        	this.actionSave.setEnabled(false);//保存
-//        	this.actionRemove.setEnabled(false);//删除
-//        	this.actionSubmit.setEnabled(false);//提交
-//        	this.actionAudit.setEnabled(false);//审批
-//        	this.actionUnAudit.setEnabled(false);//反审批
-//        	this.btnAddNew.setEnabled(false);//新增
-//    		this.btnEdit.setEnabled(false);//修改
-//        	this.btnSave.setEnabled(false);//保存
-//        	this.btnRemove.setEnabled(false);//删除
-//        	this.btnSubmit.setEnabled(false);//提交
-//        	this.btnAudit.setEnabled(false);//审批
-//        	this.btnUnAudit.setEnabled(false);//反审批
-//        	this.btnInTrial.setEnabled(false);//送审
-//        	this.btnApproved.setEnabled(false);//审定
-//    	}
-    	
+    	 if (getOprtState().equals("工程部确认信息")) {
+    		 kDPanel4.setEnabled(true);
+    	 }
+    	 if (getOprtState().equals("合约审算确认信息")) {
+    		 kDPanel3.setEnabled(true);
+    	 }
+    	 if (getOprtState().equals("审定金额")) {
+    		 contapprovalAmount.setEnabled(true);
+    	 }
+    	 
+    	 
     }
     public void onShow() throws Exception {
     	super.onShow();
@@ -291,6 +219,7 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     {
         super.loadFields();
 //        controlStateEditUI(this, this.state, actionEdit, actionRemove, actionSave, actionSubmit, actionAudit, actionUnAudit);
+        
     }
 
     public void storeFields()
@@ -299,26 +228,52 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     }
     
     protected void initUI() throws Exception{
-    	this.txtdecAmount.setRequired(true);
-    	this.txtapprovalAmount.setRequired(true);
-    	btnAudit.setEnabled(true);
-    	btnUnAudit.setEnabled(true);
-    	btnInTrial.setEnabled(true);
-    	btnApproved.setEnabled(true);
-    	contstate.setEnabled(false);//送审状态
-    	contbillState.setEnabled(false);//单据状态
+    	 this.txtdecAmount.setRequired(true);
+    	    this.txtapprovalAmount.setRequired(true);
+    	    this.btnAudit.setEnabled(true);
+    	    this.btnUnAudit.setEnabled(true);
+    	    this.btnInTrial.setEnabled(true);
+    	    this.btnApproved.setEnabled(true);
+    	    this.contstate.setEnabled(false);
+    	    this.contbillState.setEnabled(false);
+    	    
+    	    prmtcontractNumber.setDisplayFormat("$name$");
+        	prmtcontractNumber.setEditFormat("$name$");
+        	prmtcontractNumber.setCommitFormat("$number$");
+        	
+        	this.txtdecAmount.setHorizontalAlignment(2);		
+            this.txtdecAmount.setDataType(1);		
+            this.txtdecAmount.setSupportedEmpty(true);		
+            this.txtdecAmount.setMinimumValue( new java.math.BigDecimal(-1.0E18));		
+            this.txtdecAmount.setMaximumValue( new java.math.BigDecimal(1.0E18));		
+            this.txtdecAmount.setPrecision(2);		
+            this.txtdecAmount.setRequired(true);
+            this.txtapprovalAmount.setHorizontalAlignment(2);		
+            this.txtapprovalAmount.setDataType(1);		
+            this.txtapprovalAmount.setSupportedEmpty(true);		
+            this.txtapprovalAmount.setMinimumValue( new java.math.BigDecimal(-1.0E18));		
+            this.txtapprovalAmount.setMaximumValue( new java.math.BigDecimal(1.0E18));		
+            this.txtapprovalAmount.setPrecision(2);		
+            this.txtapprovalAmount.setRequired(true);
+            
+            
+            this.txtdecAmount.setValue(editData.getDecAmount());
+            this.txtapprovalAmount.setValue(editData.getApprovalAmount());
 //    	kdtE1.addRows(16);
     	
 //    	KDTable table = new KDTable();
 //    	String [] columnKeys  = new String[]{"a","b","c","d"};
 //    	String [] head = new String[]{"a1","b1","c1","d1"};
-    	String [][] E1 = new String[][] {{null,"竣工图", null, ""},{null,"竣工结算书", null, ""},{null,"开（竣）工报告", null, ""},{null,"技术核定单", null, ""}
-    										,{null,"经济签证单：原件", null, ""},{null,"工作联系单", null, ""},{null,"材料核价单", null, ""},{null,"设计变更通知单", null, ""}
-    										,{null,"供货签收凭证原件", null, ""},{null,"供货结算汇总表", null, ""},{null,"竣工结算计算书", null, ""}};
-    	String [][] E2 = new String[][] {{null,"合同文件附件", null, ""},{null,"工作联系单：原件", null, ""},{null,"设计交底", null, ""},{null,"技术核定单", null, ""}};
-
-    	KDTableHelper.initTable(kdtE1, null , null, E1);
-    	KDTableHelper.initTable(kdtE2, null , null, E2);
+        
+        if(getOprtState().equals(OprtState.ADDNEW)){
+        	String [][] E1 = new String[][] {{null,"竣工图", null, ""},{null,"竣工结算书", null, ""},{null,"开（竣）工报告", null, ""},{null,"技术核定单", null, ""}
+        	,{null,"经济签证单：原件", null, ""},{null,"工作联系单", null, ""},{null,"材料核价单", null, ""},{null,"设计变更通知单", null, ""}
+        	,{null,"供货签收凭证原件", null, ""},{null,"供货结算汇总表", null, ""},{null,"竣工结算计算书", null, ""}};
+        	String [][] E2 = new String[][] {{null,"合同文件附件", null, ""},{null,"工作联系单：原件", null, ""},{null,"设计交底", null, ""},{null,"技术核定单", null, ""}};
+        	
+        	KDTableHelper.initTable(kdtE1, null , null, E1);
+        	KDTableHelper.initTable(kdtE2, null , null, E2);
+        }
 	}
     
     protected void verifyInput(ActionEvent e) throws Exception {
@@ -356,22 +311,23 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     	this.actionSubmit.setEnabled(false);//提交
     	this.actionAudit.setEnabled(false);//审批
     	this.actionUnAudit.setEnabled(false);//反审批
-    	this.btnInTrial.setEnabled(false);//送审
-    	this.btnApproved.setEnabled(false);//审定
-    	
-    	this.billState.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.TEMPORARILYSAVED);
-    	this.state.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Review);
+    	this.btnInTrial.setEnabled(false);
+        this.btnApproved.setEnabled(false);
+        this.billState.setSelectedItem(BillStateEnum.TEMPORARILYSAVED);
+        this.state.setSelectedItem(TrialStatusEnum.Review);
     	
     }
     
     public void actionSave_actionPerformed(ActionEvent e) throws Exception {//保存
-    	this.billState.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.SAVE);
-    	this.state.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Review);
-    	String sql = " update CT_CON_SettleDeclarationBill set CFIsVersion=0 where CFContractNumberID='"+editData.getContractNumber().getId().toString()+"'";
-    	new FDCSQLBuilder().appendSql(sql).execute();
-    	chkisVersion.setSelected(true);
-    	
+//    	this.billState.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.SAVE);
+    	this.billState.setSelectedItem(BillStateEnum.SAVE);
+        this.state.setSelectedItem(TrialStatusEnum.Review);
+        String sql = " update CT_CON_SettleDeclarationBill set CFIsVersion=0 where CFContractNumberID ='" + this.editData.getContractNumber().getId().toString() + "'";
+        new FDCSQLBuilder().appendSql(sql).execute();
+        this.chkisVersion.setSelected(true);
     	super.actionSave_actionPerformed(e);
+    	
+    	
     	this.actionAddNew.setEnabled(false);//新增
 		this.actionEdit.setEnabled(true);//修改
     	this.actionSave.setEnabled(false);//保存
@@ -379,30 +335,26 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     	this.actionSubmit.setEnabled(true);//提交
     	this.actionAudit.setEnabled(false);//审批
     	this.actionUnAudit.setEnabled(false);//反审批
-    	this.btnInTrial.setEnabled(false);//送审
-    	this.btnApproved.setEnabled(false);//审定
+    	this.btnInTrial.setEnabled(false);
+        this.btnApproved.setEnabled(false);
     }
     
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception {//修改
-    	
-    	if(!editData.isIsVersion()){
-    		MsgBox.showWarning("不是最新版本，不能修改！");
-    		SysUtil.abort();
-    	}
-    	if(editData.isIsVersion()){
-    	
-	    	if(this.billState.getSelectedItem().equals(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.SUBMIT)){
-				MsgBox.showWarning("单据状态为已提交，不能修改！");SysUtil.abort();
-			}
-			if(this.billState.getSelectedItem().equals(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.AUDIT)){
-				MsgBox.showWarning("单据状态为已审批，不能修改！");SysUtil.abort();
-			}
-	//		if(WorkflowXRHelper.checkInProInst(editData.getId().toString())){
-	//			MsgBox.showWarning("此单据记录有流程正在运行!");
-	//			SysUtil.abort();
-	//		}
-		super.actionEdit_actionPerformed(e);
-    	}
+    	if (!this.editData.isIsVersion()) {
+    	      MsgBox.showWarning("不是最新版本，不能修改！");
+    	      SysUtil.abort();
+    	    }
+    	    if (this.editData.isIsVersion())
+    	    {
+    	      if (this.billState.getSelectedItem().equals(BillStateEnum.SUBMIT)) {
+    	        MsgBox.showWarning("单据状态为已提交，不能修改！"); SysUtil.abort();
+    	      }
+    	      if (this.billState.getSelectedItem().equals(BillStateEnum.AUDIT)) {
+    	        MsgBox.showWarning("单据状态为已审批，不能修改！"); SysUtil.abort();
+    	      }
+
+    	      super.actionEdit_actionPerformed(e);
+    	    }
 	this.actionAddNew.setEnabled(false);//新增
 	this.actionEdit.setEnabled(false);//修改
 	this.actionSave.setEnabled(true);//保存
@@ -410,58 +362,37 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
 	this.actionSubmit.setEnabled(true);//提交
 	this.actionAudit.setEnabled(false);//审批
 	this.actionUnAudit.setEnabled(false);//反审批
-	this.btnInTrial.setEnabled(false);//送审
-	this.btnApproved.setEnabled(false);//审定
-	this.billState.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.TEMPORARILYSAVED);
-	this.state.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Review);
+	this.btnInTrial.setEnabled(false);
+    this.btnApproved.setEnabled(false);
+    this.billState.setSelectedItem(BillStateEnum.TEMPORARILYSAVED);
+    this.state.setSelectedItem(TrialStatusEnum.Review);
 	
     }
     
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {//提交
-//    	if(editData.getState().equals(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Review)){
-    		
-    		this.billState.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.SUBMIT);
-    		this.state.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Review);
-//    		super.actionSubmit_actionPerformed(e);
-    		this.actionAddNew.setEnabled(false);//新增
-    		this.actionEdit.setEnabled(false);//修改
-    		this.actionSave.setEnabled(false);//保存
-    		this.actionRemove.setEnabled(false);//删除
-    		this.actionSubmit.setEnabled(false);//提交
-    		this.actionAudit.setEnabled(true);//审批
-    		this.actionUnAudit.setEnabled(false);//反审批
-    		this.btnInTrial.setEnabled(false);//送审
-    		this.btnApproved.setEnabled(false);//审定
-    		this.state.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Review);
-//    	this.setOprtState("VIEW");
-//    	}
-//    	if(editData.getState().equals(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.InTrial)){
-//    		
-//    		this.billState.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.SUBMIT);
-//    		this.state.setSelectedItem(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Review);
-//    		super.actionSubmit_actionPerformed(e);
-//    		this.actionAddNew.setEnabled(false);//新增
-//    		this.actionEdit.setEnabled(false);//修改
-//    		this.actionSave.setEnabled(false);//保存
-//    		this.actionRemove.setEnabled(false);//删除
-//    		this.actionSubmit.setEnabled(false);//提交
-//    		this.actionAudit.setEnabled(false);//审批
-//    		this.actionUnAudit.setEnabled(false);//反审批
-//    		this.btnInTrial.setEnabled(true);//送审
-//    		this.btnApproved.setEnabled(false);//审定
-////    	this.setOprtState("VIEW");
-//    	}
-    	
-    	
+
+        this.billState.setSelectedItem(BillStateEnum.SUBMIT);
+        this.state.setSelectedItem(TrialStatusEnum.Review);
+
+        this.actionAddNew.setEnabled(false);
+        this.actionEdit.setEnabled(false);
+        this.actionSave.setEnabled(false);
+        this.actionRemove.setEnabled(false);
+        this.actionSubmit.setEnabled(false);
+        this.actionAudit.setEnabled(true);
+        this.actionUnAudit.setEnabled(false);
+        this.btnInTrial.setEnabled(false);
+        this.btnApproved.setEnabled(false);
+        this.state.setSelectedItem(TrialStatusEnum.Review);
     }
     
     public void actionAudit_actionPerformed(ActionEvent e) throws Exception {//审批
-    	SettleDeclarationBillFactory.getRemoteInstance().Audit(editData.getId());
-    	super.actionAudit_actionPerformed(e);
 //    	if(WorkflowXRHelper.checkInProInst(editData.getId().toString())){
 //			MsgBox.showWarning("此单据记录有流程正在运行!");
 //			SysUtil.abort();
 //		}
+    	SettleDeclarationBillFactory.getRemoteInstance().Audit(this.editData.getId());
+    	super.actionAudit_actionPerformed(e);
     	refEditUI();
     	this.actionAddNew.setEnabled(false);//新增
     	this.actionEdit.setEnabled(false);//修改
@@ -471,17 +402,18 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     	this.actionAudit.setEnabled(false);//审批
     	btnAudit.setEnabled(false);
     	this.actionUnAudit.setEnabled(true);//反审批
-    	this.btnInTrial.setEnabled(true);//送审
-    	this.btnApproved.setEnabled(false);//审定
+    	 this.btnInTrial.setEnabled(true);
+    	    this.btnApproved.setEnabled(false);
     }
     
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {//反审批
-    	SettleDeclarationBillFactory.getRemoteInstance().UnAudit(editData.getId());
-    	super.actionUnAudit_actionPerformed(e);
+    	
 //    	if(WorkflowXRHelper.checkInProInst(editData.getId().toString())){
 //			MsgBox.showWarning("此单据记录有流程正在运行!");
 //			SysUtil.abort();
 //		}
+    	SettleDeclarationBillFactory.getRemoteInstance().UnAudit(this.editData.getId());
+    	super.actionUnAudit_actionPerformed(e);
     	refEditUI();
     	this.actionAddNew.setEnabled(false);//新增
     	this.actionEdit.setEnabled(true);//修改
@@ -492,31 +424,30 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     	btnAudit.setEnabled(false);
     	this.actionUnAudit.setEnabled(false);//反审批
     	btnUnAudit.setEnabled(false);
-    	this.btnInTrial.setEnabled(false);//送审
-    	this.btnApproved.setEnabled(false);//审定
+    	this.btnInTrial.setEnabled(false);
+    	this.btnApproved.setEnabled(false);
     }
     
     public void actionInTrial_actionPerformed(ActionEvent e) throws Exception {//送审
-    	SettleDeclarationBillFactory.getRemoteInstance().InTrial(editData.getId());
-    	super.actionSubmit_actionPerformed(e);
-    	this.actionAddNew.setEnabled(false);//新增
-    	this.actionEdit.setEnabled(false);//修改
-    	this.actionSave.setEnabled(false);//保存
-    	this.actionRemove.setEnabled(false);//删除
-    	this.actionSubmit.setEnabled(false);//提交
-    	this.actionAudit.setEnabled(false);//审批
-    	this.actionUnAudit.setEnabled(false);//反审批
-    	this.btnInTrial.setEnabled(false);//送审
-    	this.btnApproved.setEnabled(true);//审定
-    	
+    	SettleDeclarationBillFactory.getRemoteInstance().InTrial(this.editData.getId());
+    	super.actionInTrial_actionPerformed(e);
+    	 this.actionAddNew.setEnabled(false);
+    	    this.actionEdit.setEnabled(false);
+    	    this.actionSave.setEnabled(false);
+    	    this.actionRemove.setEnabled(false);
+    	    this.actionSubmit.setEnabled(false);
+    	    this.actionAudit.setEnabled(false);
+    	    this.actionUnAudit.setEnabled(false);
+    	    this.btnInTrial.setEnabled(false);
+    	    this.btnApproved.setEnabled(true);
     	refEditUI();
     }
     
     public void actionApproved_actionPerformed(ActionEvent e) throws Exception {//审定
-    	SettleDeclarationBillFactory.getRemoteInstance().Approved(editData.getId());
+    	SettleDeclarationBillFactory.getRemoteInstance().Approved(this.editData.getId());
     	super.actionApproved_actionPerformed(e);
-    	this.btnInTrial.setEnabled(false);//送审
-    	this.btnApproved.setEnabled(false);//审定
+    	this.btnInTrial.setEnabled(false);
+        this.btnApproved.setEnabled(false);
     	refEditUI();
     }
     
@@ -592,6 +523,29 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
         
         ContractBillInfo Info = (ContractBillInfo) getUIContext().get("orderInfo");//两个界面传值
         objectValue.setContractNumber(Info);
+        
+        objectValue.setBillState(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.ADDNEW);
+        objectValue.setState(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.Review);
+//        objectValue.setIsVersion(true);
+        
+        try
+        {
+        	AdminOrgUnitInfo currentAdminUnit = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(Info.getId().toString()));
+        }
+        catch (EASBizException e)
+        {
+          AdminOrgUnitInfo currentAdminUnit;
+          e.printStackTrace();
+        } catch (BOSException e) {
+          e.printStackTrace();
+        }
+        String oql = "select id where contractNumber.id='" + Info.getId().toString() + "'";
+        try {
+          objectValue.setVersion(SettleDeclarationBillFactory.getRemoteInstance().getSettleDeclarationBillCollection(oql).size() + 1);
+        } catch (BOSException e) {
+          e.printStackTrace();
+        }
+        
 //        objectValue.setStrategicPact(Info);//带出
 //        objectValue.setSupplier(Info.getPartB());
 //        objectValue.setOrganization(Info.getOrgUnit());
@@ -607,23 +561,7 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
 //		} catch (BOSException e) {
 //			e.printStackTrace();
 //		}
-    	try {
-			AdminOrgUnitInfo currentAdminUnit = AdminOrgUnitFactory.getRemoteInstance().getAdminOrgUnitInfo(new ObjectUuidPK(Info.getId().toString()));
-		} catch (EASBizException e) {
-			e.printStackTrace();
-		} catch (BOSException e) {
-			e.printStackTrace();
-		}
-    	String oql = "select id where contractNumber.id='"+Info.getId().toString()+"'";//查出所有相同事业部的单据
-		try {
-			objectValue.setVersion(SettleDeclarationBillFactory.getRemoteInstance().getSettleDeclarationBillCollection(oql).size()+1);//单据版本=单据总数+1
-		} catch (BOSException e) {
-			e.printStackTrace();
-		}
-        
-        
         return objectValue;
     }
-
 
 }

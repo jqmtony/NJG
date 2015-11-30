@@ -17,12 +17,4 @@ public class SettleDeclarationBillEditUIHandler extends AbstractSettleDeclaratio
 	protected void _handleInit(RequestContext request,ResponseContext response, Context context) throws Exception {
 		super._handleInit(request,response,context);
 	}
-	protected void _handleActionInTrial(RequestContext request,ResponseContext response, Context context) throws Exception {
-	}
-	protected void _handleActionApproved(RequestContext request,ResponseContext response, Context context) throws Exception {
-	}
-	protected void _handleActionAudit(RequestContext request,ResponseContext response, Context context) throws Exception {
-	}
-	protected void _handleActionUnAudit(RequestContext request,ResponseContext response, Context context) throws Exception {
-	}
 }
