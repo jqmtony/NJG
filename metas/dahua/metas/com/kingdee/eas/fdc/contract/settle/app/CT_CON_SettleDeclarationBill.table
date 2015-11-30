@@ -31,7 +31,7 @@
             <isNullable>true</isNullable>
             <defaultValue />
             <sqlType>NUMERIC</sqlType>
-            <length>13</length>
+            <length>28</length>
             <scale>2</scale>
             <precision>10</precision>
         </column>
@@ -59,7 +59,7 @@
             <isNullable>true</isNullable>
             <defaultValue />
             <sqlType>NUMERIC</sqlType>
-            <length>13</length>
+            <length>28</length>
             <scale>2</scale>
             <precision>10</precision>
         </column>
@@ -386,20 +386,6 @@
             <precision>0</precision>
         </column>
         <column>
-            <name>FState</name>
-            <alias>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FState].alias</alias>
-            <description>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FState].description</description>
-            <userDefined>false</userDefined>
-            <isMultilingual>false</isMultilingual>
-            <isEncoded>false</isEncoded>
-            <isNullable>true</isNullable>
-            <defaultValue />
-            <sqlType>INT</sqlType>
-            <length>4</length>
-            <scale>0</scale>
-            <precision>4</precision>
-        </column>
-        <column>
             <name>FNumber</name>
             <alias>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FNumber].alias</alias>
             <description>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FNumber].description</description>
@@ -409,7 +395,7 @@
             <isNullable>true</isNullable>
             <defaultValue />
             <sqlType>VARCHAR</sqlType>
-            <length>44</length>
+            <length>100</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -493,7 +479,7 @@
             <isNullable>true</isNullable>
             <defaultValue />
             <sqlType>VARCHAR</sqlType>
-            <length>44</length>
+            <length>100</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -592,6 +578,20 @@
             <defaultValue>''</defaultValue>
             <sqlType>VARCHAR</sqlType>
             <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>FState</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FState].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FState].description</description>
+            <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>INT</sqlType>
+            <length>0</length>
             <scale>0</scale>
             <precision>0</precision>
         </column>
@@ -1046,9 +1046,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FAuditorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FAuditorID].description">
             <lang locale="en_US" value="null" />
@@ -1070,9 +1070,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FControlUnitID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
+            <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FControlUnitID].description">
             <lang locale="en_US" value="null" />
@@ -1094,9 +1094,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FCreatorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FCreatorID].description">
             <lang locale="en_US" value="null" />
@@ -1130,9 +1130,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FHandlerID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="经手人" />
+            <lang locale="zh_HK" value="經手人" />
+            <lang locale="zh_TW" value="經手人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FHandlerID].description">
             <lang locale="en_US" value="null" />
@@ -1177,9 +1177,9 @@
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FLastUpdateUserID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.settle.app.CT_CON_SettleDeclarationBill].columns.column[FLastUpdateUserID].description">
             <lang locale="en_US" value="null" />
