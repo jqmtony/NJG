@@ -32,7 +32,6 @@ public class WFResultApporveHelper {
 				String date = executeQuery.getString(4)!=null?executeQuery.getString(4):"";
 				if(resultMap.get(actName)==null)
 					resultMap.put(actName, person+"!"+result+"@"+date);
-				
 			}
 		} catch (BOSException e) {
 			e.printStackTrace();
@@ -55,7 +54,7 @@ public class WFResultApporveHelper {
 		build.appendSql(sb.toString());
 		
 		try {
-			//1、审批意见   2、审批部门   3、审批人   4、审批时间
+			//1、审批意见   2、审批部门   3、审批人   
 			IRowSet executeQuery = build.executeQuery();
 			while(executeQuery.next()){
 				String result = executeQuery.getString(1)!=null?executeQuery.getString(1):"";
@@ -63,7 +62,6 @@ public class WFResultApporveHelper {
 				String person = executeQuery.getString(3)!=null?executeQuery.getString(3):"";
 				if(resultMap.get(actName)==null)
 					resultMap.put(actName, person+":"+result);
-				
 			}
 		} catch (BOSException e) {
 			e.printStackTrace();

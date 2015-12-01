@@ -3,30 +3,24 @@
  */
 package com.kingdee.eas.fdc.wfui;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
-import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.ctrl.freechart.ui.HorizontalAlignment;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
-import com.kingdee.bos.ctrl.kdf.util.style.Styles;
 import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustFactory;
-import com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo;
+import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
-import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
-import com.kingdee.eas.framework.*;
-import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
@@ -197,9 +191,9 @@ public class TechnologyeconomyApproveUI extends AbstractTechnologyeconomyApprove
     	}
     	//工作流审批意见
     	Map<String, String> apporveResultForMaptwo = WFResultApporveHelper.getApporveResultForPerson(billId);
-    			this.kDTable1.getCell(36, 4).setValue(apporveResultForMaptwo.get("项目公司第一负责人"));
-    			this.kDTable1.getCell(18, 4).setValue(apporveResultForMaptwo.get("成本管理中心"));
-    			this.kDTable1.getCell(19, 4).setValue(apporveResultForMaptwo.get("工程成本副总裁"));
+    			this.kDTable1.getCell(16, 1).setValue(apporveResultForMaptwo.get("项目公司第一负责人"));
+    			this.kDTable1.getCell(18, 1).setValue(apporveResultForMaptwo.get("成本管理中心"));
+    			this.kDTable1.getCell(19, 1).setValue(apporveResultForMaptwo.get("工程成本副总裁"));
     			this.kDTable1.getCell(20, 1).setValue(apporveResultForMaptwo.get("收文签字"));
 
     }
