@@ -352,7 +352,7 @@ public class GcftbListUI extends AbstractGcftbListUI
 		
 		Map<String,Set<TreeNode>> zdyNode = new HashMap<String, Set<TreeNode>>();
 		
-		String oql = "select id,number,name,company.id where company.id is not null";
+		String oql = "select id,number,name,company.id,company.name,company.numner where company.id is not null";
 		TreeNodeCollection treeNodeCollection = TreeNodeFactory.getRemoteInstance().getTreeNodeCollection(oql);
 		for (int i = 0; i < treeNodeCollection.size(); i++) {
 			TreeNodeInfo treeNodeInfo = treeNodeCollection.get(i);

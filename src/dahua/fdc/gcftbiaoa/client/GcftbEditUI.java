@@ -69,6 +69,9 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 	private final static String CANTAUDIT = "cantAudit";
 	private final static String CANTUNAUDITEDITSTATE = "cantUnAuditEditState";
 	private final static String CANTAUDITEDITSTATE = "cantAuditEditState";
+	
+	private KDWorkButton importExcelButton = new KDWorkButton("导入Excel");
+	private KDWorkButton outExcelButton = new KDWorkButton("导出Excel模板");
 
 	/**
 	 * output class constructor
@@ -83,6 +86,8 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		contengineeringProject.setEnabled(false);
 		contstatus.setEnabled(false);
 		chkisLast.setEnabled(false);
+		contbbh.setEnabled(false);
+		contgsmc.setEnabled(false);
 		EntityViewInfo view = new EntityViewInfo();
 		FilterInfo filter = new FilterInfo();
 		view.setFilter(filter);
@@ -126,6 +131,9 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		kdtDetail.getColumn("allocationBase").getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
 		kdtDetail.getColumn("shareAmount").getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
 		
+		//连续提交设置
+		this.chkMenuItemSubmitAndAddNew.setVisible(false);
+		this.chkMenuItemSubmitAndAddNew.setSelected(false);
 		
 		setDetailPanel(kdtEntrys_detailPanel, kDContainer1);
 		setDetailPanel(kdtDetail_detailPanel, kDContainer2);
@@ -141,7 +149,25 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
         setEntryDetailButtonAction();
         //合计
         setTableToSumField(kdtEntrys,new String[]{"totalCost","totalAmount","costHasOccurred","share"});
-        setTableToSumField(kdtDetail,new String[]{"allocationBase","shareAmount"});       
+        setTableToSumField(kdtDetail,new String[]{"allocationBase","shareAmount"});   
+        
+        
+        importExcelButton.setIcon(EASResource.getIcon(""));
+		outExcelButton.setIcon(EASResource.getIcon(""));
+		
+		kDContainer1.addButton(importExcelButton);
+		kDContainer1.addButton(outExcelButton);
+		
+		importExcelButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				importExcelButton_actionPerformed(e);
+			}
+		});
+		outExcelButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				outExcelButton_actionPerformed(e);
+			}
+		});
 	}
 	
 	private void setDetailPanel(DetailPanel detail,KDContainer kDContainer){
@@ -157,9 +183,33 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		kDContainer.addButton(removeLinesButton);
 		kDContainer.getContentPane().add(detail.getEntryTable(),BorderLayout.CENTER);
 	}
+	
+	private void importExcelButton_actionPerformed(ActionEvent e) {
+		
+	}
+	
+	private void outExcelButton_actionPerformed(ActionEvent e) {
+		
+	}
 
 	protected void beforeStoreFields(ActionEvent arg0) throws Exception {
 		super.beforeStoreFields(arg0);
+	}
+	
+	public void setOprtState(String oprtType) {
+		super.setOprtState(oprtType);
+		boolean flse = (oprtType.equals("EDIT")||oprtType.equals("ADDNEW"))?true:false;
+		importExcelButton.setEnabled(flse);
+		if(kdtDetail_detailPanel!=null){
+			kdtDetail_detailPanel.getAddNewLineButton().setEnabled(flse);
+			kdtDetail_detailPanel.getInsertLineButton().setEnabled(flse);
+			kdtDetail_detailPanel.getRemoveLinesButton().setEnabled(flse);
+		}
+		if(kdtEntrys_detailPanel!=null){
+			kdtEntrys_detailPanel.getAddNewLineButton().setEnabled(flse);
+			kdtEntrys_detailPanel.getInsertLineButton().setEnabled(flse);
+			kdtEntrys_detailPanel.getRemoveLinesButton().setEnabled(flse);
+		}
 	}
 	
 	protected void verifyInput(ActionEvent e) throws Exception {
@@ -201,9 +251,14 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 				MsgBox.showWarning("应分摊总量不能为空！");
 				SysUtil.abort();
 			}
-			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "share").getValue())) {
+			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "share").getValue())){
 				MsgBox.showWarning("待分摊总量不能为空！");
 				SysUtil.abort();
+			}else{
+				if(((BigDecimal) (kdtEntrys.getCell(i, "share").getValue())).compareTo(BigDecimal.ZERO)==-1){
+					MsgBox.showWarning("待分摊总量不能为负数！");
+					SysUtil.abort();
+				}
 			}
 			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "sharePrice").getValue())) {
 				MsgBox.showWarning("分摊单价不能为空！");
@@ -273,8 +328,6 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		 SysUtil.abort();
 		 }
 		 }
-		
-		
 		changeTableDataLinens(kdtEntrys);
 		 setTableToSumField(kdtEntrys,new String[]{"totalCost","totalAmount","costHasOccurred","share"});
 	     setTableToSumField(kdtDetail,new String[]{"allocationBase","shareAmount"});    
@@ -413,18 +466,32 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		if(indexRow==-1)return;
 		IRow row = table.getRow(indexRow);
 		if(table.getName().equals("kdtEntrys")){
-			row.getCell("sharePrice").setValue(FDCHelper.divide(row.getCell("totalCost").getValue(), row.getCell("totalAmount").getValue(),2,4));
+			if(UIRuleUtil.isNull(row.getCell("costHasOccurred").getValue())){
+				//单价
+				row.getCell("sharePrice").setValue(FDCHelper.divide(row.getCell("totalCost").getValue(), row.getCell("totalAmount").getValue(),2,4));
+			}else{
+				row.getCell("sharePrice").setValue(FDCHelper.divide(row.getCell("costHasOccurred").getValue(), row.getCell("totalAmount").getValue(),2,4));
+			}
 			AllocationIndex cationIndex = (AllocationIndex)row.getCell("allocationIndex").getValue();
 			updateDetailBaseAmount(-1,cationIndex);
 			row.getCell("share").setValue(FDCHelper.subtract(row.getCell("totalAmount").getValue(), UIRuleUtil.sum(kdtDetail, "allocationBase")));
 		}else{
-			int activeRowIndex = this.kdtEntrys.getSelectManager().getActiveRowIndex();
-			if(activeRowIndex==-1)return;
-			AllocationIndex cationIndex = (AllocationIndex)this.kdtEntrys.getCell(activeRowIndex, "allocationIndex").getValue();
-			updateDetailBaseAmount(indexRow,cationIndex);
-			this.kdtEntrys.getCell(activeRowIndex, "share").setValue(FDCHelper.subtract(this.kdtEntrys.getCell(activeRowIndex,"totalAmount").getValue(), UIRuleUtil.sum(kdtDetail, "allocationBase")));
-		} 
-	}
+			//判断项目是否结束
+			CurProjectInfo syxmInfo = (CurProjectInfo)row.getCell("benefitProject").getValue();
+			boolean end = syxmInfo.isProjectEnd();
+			if(end == false){
+				int activeRowIndex = this.kdtEntrys.getSelectManager().getActiveRowIndex();
+				if(activeRowIndex==-1)return;
+				AllocationIndex cationIndex = (AllocationIndex)this.kdtEntrys.getCell(activeRowIndex, "allocationIndex").getValue();
+				updateDetailBaseAmount(indexRow,cationIndex);
+				this.kdtEntrys.getCell(activeRowIndex, "share").setValue(FDCHelper.subtract(this.kdtEntrys.getCell(activeRowIndex,"totalAmount").getValue(), UIRuleUtil.sum(kdtDetail, "allocationBase")));
+			}else{
+				MsgBox.showWarning("项目已结束，请选择别的项目");
+				SysUtil.abort();
+			}
+		}
+	} 
+	
 	
 	private void updateDetailBaseAmount(int rowIndex,AllocationIndex cationIndex) throws BOSException, SQLException{
 		if(rowIndex==-1){
@@ -437,7 +504,10 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 	
 	private void updateDetail(int rowIndex,AllocationIndex cationIndex) throws BOSException, SQLException{
 		IRow row = this.kdtDetail.getRow(rowIndex);
-		
+		CurProjectInfo syxmInfo = (CurProjectInfo)row.getCell("benefitProject").getValue();
+		//项目结束就不联动；
+		if(syxmInfo.isProjectEnd())
+			return;
 		GcftbEntryDetailInfo detailInfo = new GcftbEntryDetailInfo();
 		if(row.getUserObject()!=null && (row.getUserObject() instanceof GcftbEntryDetailInfo))
 			detailInfo = (GcftbEntryDetailInfo)row.getUserObject();
@@ -457,8 +527,8 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		int activeRowIndex = this.kdtEntrys.getSelectManager().getActiveRowIndex();
 		if(activeRowIndex!=-1)
 			sharePrice = UIRuleUtil.getBigDecimal(this.kdtEntrys.getCell(activeRowIndex, "sharePrice").getValue());
-		row.getCell("shareAmount").setValue(FDCHelper.multiply(baseAmount, sharePrice,2));
-		detailInfo.setShareAmount(FDCHelper.multiply(baseAmount, sharePrice,2));
+		row.getCell("shareAmount").setValue(FDCHelper.multiply(baseAmount, sharePrice,4));
+		detailInfo.setShareAmount(FDCHelper.multiply(baseAmount, sharePrice,4));
 	}
 	
 	private BigDecimal getBaseAmount(String projectId,AllocationIndex index) throws BOSException, SQLException{
@@ -567,8 +637,8 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
 		super.actionSubmit_actionPerformed(e);
-		this.lockUIForViewStatus();
 		this.setOprtState("VIEW");
+		this.lockUIForViewStatus();
 		setAuditBtnEnable();
 	}
 
@@ -663,8 +733,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 			TreeNodeInfo conInfo = (TreeNodeInfo) getUIContext().get(
 					"treeNodeInfo");
 			objectValue.setEngineeringProject(conInfo);
-			// objectValue.setContractName(conInfo.getName());
-			// objectValue.setContractAmount(conInfo.getAmount());
+			objectValue.setGsmc(conInfo.getCompany().getName());
 			objectValue.setBbh("1");
 			objectValue.setBizDate(new Date());
 			// objectValue.setAmount(BigDecimal.ZERO);
