@@ -8,9 +8,12 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -40,17 +43,22 @@ import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.basedata.assistant.MeasureUnitInfo;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
-import com.kingdee.eas.fdc.basedata.CostAccountCollection;
-import com.kingdee.eas.fdc.basedata.CostAccountFactory;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
-import com.kingdee.eas.fdc.basedata.ICostAccount;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.IFDCBill;
 import com.kingdee.eas.fdc.basedata.ProductTypeInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.programming.client.CostAccountPromptBox;
+import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEcostCollection;
+import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEcostFactory;
+import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEcostInfo;
+import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEntryCollection;
+import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEntryFactory;
+import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEntryInfo;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataCollection;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataEbaseUnitCollection;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataEbaseUnitInfo;
@@ -66,15 +74,17 @@ import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataEtextDataCollect
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataEtextDataInfo;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataInfo;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryCollection;
-import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryInfo;
 import com.kingdee.eas.fdc.costindexdb.ContractStationEnum;
 import com.kingdee.eas.fdc.costindexdb.database.BuildNumberInfo;
+import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillCollection;
+import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillFactory;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexCollection;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexEntryCollection;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexEntryInfo;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexFactory;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexInfo;
 import com.kingdee.eas.fdc.costindexdb.database.FieldType;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 
@@ -85,7 +95,24 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 {
     private static final Logger logger = CoreUIObject.getLogger(BuildPriceIndexEditUI.class);
     private Map<String,KDTable> tables = null;
+    private Map<String,KDContainer> containers = null;
     private Map<String,CostAccountPriceIndexEntryCollection> priceIndexEntrys = null;
+    List<KDWorkButton> buttons = null;
+    //成本科目与造价指标关联表
+    private CostAccountPriceIndexCollection capcoll = null;
+    //基本要素
+    private BaseAndSinglePointEntryCollection bsentrys = null;
+    //单项要素
+    private BaseAndSinglePointEcostCollection bsecosts = null;
+    //楼号拆分单
+    BuildSplitBillCollection bscoll = null;
+    //用于保存科目与页签的关系，在删除页签时候用到
+    Map<String,String[]> costTabMap = null;
+    //保存公式内容，table的name属性加上列的key属性作为键
+    Map<String,String> contentMap = null;
+    
+    Map<String,BigDecimal> basePointMap = null;
+    Map<String,BigDecimal> singlePointMap = null;
     /**
      * output class constructor
      */
@@ -96,14 +123,6 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     
     public void onLoad() throws Exception {
     	super.onLoad();
-    	initEntrys();
-    	rebuildCostAccount();
-    	BuildPriceIndexEntryCollection indexEntrys = editData.getEntrys();
-    	for(int i = 0; i < indexEntrys.size(); i++) {
-			if(indexEntrys.get(i).isIsInput())
-				initIndexTable(indexEntrys.get(i).getAccountNumber());
-		}
-    	loadIndexData();
     	if("ADDNEW".equals(getOprtState())){
     		String contractStationType = (String)getUIContext().get("contractStationType");
     		if("sign".equals(contractStationType)){
@@ -117,10 +136,58 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     			contractStation.setSelectedItem(ContractStationEnum.contractChange);
     		}
     	}
+    	costTabMap = new HashMap<String,String[]>();
+    	contentMap = new HashMap<String,String>();
+    	//得到成本科目与指标的关联表，用于根据明细科目创建指标表
+    	capcoll=CostAccountPriceIndexFactory.getRemoteInstance().getCostAccountPriceIndexCollection("select costAccount.id,costAccount.longnumber,costAccount.isLeaf,number,name,indexType.id,indexType.number,indexType.name,Entrys.fieldName,Entrys.fieldHide,Entrys.fieldInput,Entrys.fcontent,Entrys.fieldType");
+    	String sql="select fid from CT_COS_BaseAndSinglePoint where CFPROJECTID='"+editData.getProjectId()+"' and CFISLATEST=1 and CFPOINTBILLSTATUS='4AUDITTED'";
+    	bsentrys=BaseAndSinglePointEntryFactory.getRemoteInstance().getBaseAndSinglePointEntryCollection("select pointName,pointValue where parent.id in("+sql+")");
+    	bsecosts=BaseAndSinglePointEcostFactory.getRemoteInstance().getBaseAndSinglePointEcostCollection("select costAccount.id,costAccount.longNumber,costAccount.isLeaf,pointName,pointValue where parent.id in("+sql+")");
+    	EntityViewInfo viewInfo = new EntityViewInfo();
+		FilterInfo filterInfo = new FilterInfo();
+		filterInfo.getFilterItems().add(new FilterItemInfo("projectName.id", editData.getProjectId()));
+		viewInfo.setFilter(filterInfo);
+		SelectorItemCollection sic = new SelectorItemCollection();
+    	sic.add("costAccount.id");
+    	sic.add("costAccount.longNumber");
+    	sic.add("costAccount.isLeaf");
+    	sic.add("sourceNumber");
+    	sic.add("dataType");
+    	sic.add("contractLevel");
+    	sic.add("entrys.id");
+    	sic.add("entrys.pointName");
+    	sic.add("entrys.dataValue");
+    	sic.add("entrys.Details.id");
+    	sic.add("entrys.Details.buildNumber.id");
+    	sic.add("entrys.Details.buildNumber.name");
+    	sic.add("entrys.Details.buildNumber.number");
+    	sic.add("entrys.Details.modelBuild");
+    	sic.add("entrys.Details.dataValue");
+		viewInfo.setSelector(sic);
+    	bscoll=BuildSplitBillFactory.getRemoteInstance().getBuildSplitBillCollection(viewInfo);
+    	setSmallButtonStatus();
     }
 
+	private void setSmallButtonStatus() {
+		actionAddNew.setVisible(false);
+    	actionCopy.setVisible(false);
+    	actionFirst.setVisible(false);
+    	actionLast.setVisible(false);
+    	actionPre.setVisible(false);
+    	actionNext.setVisible(false);
+    	actionWorkFlowG.setVisible(false);
+    	actionCreateFrom.setVisible(false);
+    	actionCreateTo.setVisible(false);
+    	actionNextPerson.setVisible(false);
+    	actionAuditResult.setVisible(false);
+    	actionMultiapprove.setVisible(false);
+    	actionSubmit.setVisible(false);
+	}
+
 	private void initEntrys() {
+		containers = new HashMap<String,KDContainer>();
 		tables = new HashMap<String,KDTable>();
+		buttons = new ArrayList<KDWorkButton>();
 		priceIndexEntrys = new HashMap<String,CostAccountPriceIndexEntryCollection>();
 		kDContainer1.getContentPane().remove(kdtEntrys_detailPanel);
 		kDContainer1.getContentPane().add(kdtEntrys, BorderLayout.CENTER);
@@ -145,126 +212,140 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 		addLine.addActionListener(baseAL);
 		insetLine.addActionListener(baseAL);
 		removeLine.addActionListener(baseAL);
+		buttons.add(addLine);
+		buttons.add(insetLine);
+		buttons.add(removeLine);
 	}
 	
 	public void removeIndexTable(CostAccountInfo cainfo){
-		try {
-//			ICostAccountPriceIndex icapi = CostAccountPriceIndexFactory.getRemoteInstance();
-			CostAccountPriceIndexCollection capcoll = null;
-//			capcoll=icapi.getCostAccountPriceIndexCollection("where id in(select a.fid from CT_DAT_CostAccountPriceIndex a left join T_FDC_CostAccount b on a.CFCOSTACCOUNTID=b.fid where b.flongnumber='"+cainfo.getLongNumber()+"')");
-//			IIndexType iit = IndexTypeFactory.getRemoteInstance();
-			EntityViewInfo viewInfo = new EntityViewInfo();
-			FilterInfo filterInfo = new FilterInfo();
-//			filterInfo.getFilterItems().add(new FilterItemInfo("costAccount.id", cainfo.getId().toString()));
-			filterInfo.getFilterItems().add(new FilterItemInfo("curProject.id", editData.getProjectId()));
-			filterInfo.getFilterItems().add(new FilterItemInfo("costAccount.longnumber", cainfo.getLongNumber()));
-			viewInfo.setFilter(filterInfo);
-			SelectorItemCollection sic = new SelectorItemCollection();
-	    	sic.add("indexType.id");
-	    	sic.add("indexType.number");
-	    	sic.add("indexType.name");
-			viewInfo.setSelector(sic);
-			capcoll=CostAccountPriceIndexFactory.getRemoteInstance().getCostAccountPriceIndexCollection(viewInfo);
-			String kdcName = null;
-			for (int i = 0; i < capcoll.size(); i++) {
-				capcoll.get(i).getIndexType();
-				kdcName=capcoll.get(i).getIndexType().getNumber()+cainfo.getLongNumber();
-				Component[] components = kDTabbedPane1.getComponents();
-				for (int j = 0; j < components.length; j++) {
-					if(kdcName.equals(components[j].getName())){
-						kDTabbedPane1.remove(components[j]);
-						tables.remove(kdcName);
-						break;
-					}
+		//			ICostAccountPriceIndex icapi = CostAccountPriceIndexFactory.getRemoteInstance();
+		//			CostAccountPriceIndexCollection capcoll = null;
+		//			capcoll=icapi.getCostAccountPriceIndexCollection("where id in(select a.fid from CT_DAT_CostAccountPriceIndex a left join T_FDC_CostAccount b on a.CFCOSTACCOUNTID=b.fid where b.flongnumber='"+cainfo.getLongNumber()+"')");
+		//			IIndexType iit = IndexTypeFactory.getRemoteInstance();
+		//			EntityViewInfo viewInfo = new EntityViewInfo();
+		//			FilterInfo filterInfo = new FilterInfo();
+		//			filterInfo.getFilterItems().add(new FilterItemInfo("costAccount.id", cainfo.getId().toString()));
+		//			filterInfo.getFilterItems().add(new FilterItemInfo("curProject.id", editData.getProjectId()));
+		//			filterInfo.getFilterItems().add(new FilterItemInfo("costAccount.longnumber", cainfo.getLongNumber()));
+		//			viewInfo.setFilter(filterInfo);
+		//			SelectorItemCollection sic = new SelectorItemCollection();
+		//	    	sic.add("indexType.id");
+		//	    	sic.add("indexType.number");
+		//	    	sic.add("indexType.name");
+		//			viewInfo.setSelector(sic);
+		//			capcoll=CostAccountPriceIndexFactory.getRemoteInstance().getCostAccountPriceIndexCollection(viewInfo);
+		String kdcName = null;
+		String[] tabNames = costTabMap.get(cainfo.getLongNumber());
+		for(int i = 0; i < tabNames.length; i++) {
+			kdcName = tabNames[i];
+			Component[] comps = kDTabbedPane1.getComponents();
+			for(int j = 0; j < comps.length; j++) {
+				if(kdcName.equals(comps[j].getName())){
+					kDTabbedPane1.remove(comps[j]);
+					tables.remove(kdcName);
+					break;
 				}
 			}
-		} catch (BOSException e) {
-			e.printStackTrace();
 		} 
 		
 	}
 	
 	public void initIndexTable(CostAccountInfo cainfo){
-		try {
-//			ICostAccountPriceIndex icapi = CostAccountPriceIndexFactory.getRemoteInstance();
-			CostAccountPriceIndexCollection capcoll = null;
-//			capcoll=icapi.getCostAccountPriceIndexCollection("where id in(select a.fid from CT_DAT_CostAccountPriceIndex a left join T_FDC_CostAccount b on a.CFCOSTACCOUNTID=b.fid where b.flongnumber='"+cainfo.getLongNumber()+"')");
-			EntityViewInfo viewInfo = new EntityViewInfo();
-			FilterInfo filterInfo = new FilterInfo();
-			filterInfo.getFilterItems().add(new FilterItemInfo("curProject.id", editData.getProjectId()));
-			filterInfo.getFilterItems().add(new FilterItemInfo("costAccount.longnumber", cainfo.getLongNumber()));
-//			filterInfo.getFilterItems().add(new FilterItemInfo("costAccount.id", cainfo.getId().toString()));
-			viewInfo.setFilter(filterInfo);
-			viewInfo.setSelector(getCostPriceSelectors());
-			capcoll=CostAccountPriceIndexFactory.getRemoteInstance().getCostAccountPriceIndexCollection(viewInfo);
-			CostAccountPriceIndexInfo capinfo = null;
-			CostAccountPriceIndexEntryCollection entrycoll = null;
-			CostAccountPriceIndexEntryInfo entryInfo = null;
-			KDWorkButton addLine = null;
-			KDWorkButton insetLine = null;
-			KDWorkButton removeLine = null;
-			KDContainer kdc = null;
-			KDTable table = null;
-			IColumn icol = null;
-			IRow row = null;
-			String key = null;
-			for (int i = 0; i < capcoll.size(); i++) {
-//				capinfo = icapi.getCostAccountPriceIndexInfo(new ObjectUuidPK(capcoll.get(i).getId()),getCostPriceSelectors());
-				capinfo = capcoll.get(i);
-				table = new KDTable();
-				entrycoll = capinfo.getEntrys();
-				row = table.addHeadRow();
-				for (int j = 0; j < entrycoll.size(); j++) {
-					entryInfo = entrycoll.get(j);
-					icol = table.addColumn();
-					row.getCell(icol.getColumnIndex()).setValue(entryInfo.getFieldName());
-					if(FieldType.TEXT.equals(entryInfo.getFieldType())){
-						initColumnForText(icol);
-					}else if(FieldType.NUMBER.equals(entryInfo.getFieldType())){
-						initColumnForNum(icol);
-					}else if(FieldType.DATE.equals(entryInfo.getFieldType())){
-						initColumnForDate(icol);
-					}else if(FieldType.PRODUCTYPE.equals(entryInfo.getFieldType())){
-						initColumnForF7(icol,"com.kingdee.eas.fdc.basedata.app.F7ProductTypeQuery");
-					}else if(FieldType.BASEUNIT.equals(entryInfo.getFieldType())){
-						initColumnForF7(icol,"com.kingdee.eas.basedata.assistant.app.F7MeasureUnitQuery");
-					}else if(FieldType.COMPUTE.equals(entryInfo.getFieldType())){
-						
-					}else if(FieldType.BUILDNUM.equals(entryInfo.getFieldType())){
-						initColumnForF7(icol,"com.kingdee.eas.fdc.costindexdb.database.app.BuildNumberQuery");
-					}
-					if(entryInfo.isFieldInput()){
-						icol.setRequired(true);
+		CostAccountPriceIndexInfo capinfo = null;
+		List<CostAccountPriceIndexInfo> entrycolls = new ArrayList<CostAccountPriceIndexInfo>();
+		for(int i = capcoll.size()-1; i >=0; i--) {
+			capinfo = capcoll.get(i);
+			if(capinfo.getCostAccount().getLongNumber().equals(cainfo.getLongNumber())){
+				entrycolls.add(capinfo);
+			}
+		}
+		if(entrycolls.size() == 0){
+			String caLongNumber = cainfo.getLongNumber();
+			while(entrycolls.size() == 0){
+				if(caLongNumber.lastIndexOf("!") == -1)
+					break;
+				caLongNumber = caLongNumber.substring(0,caLongNumber.lastIndexOf("!"));
+				for(int i = capcoll.size()-1; i >=0; i--) {
+					capinfo = capcoll.get(i);
+					if(capinfo.getCostAccount().getLongNumber().equals(caLongNumber)){
+						entrycolls.add(capinfo);
 					}
 				}
-				kdc = new KDContainer();
-				key = capinfo.getIndexType().getNumber()+cainfo.getLongNumber();
-				kdc.setName(key);
-				kdc.getContentPane().setLayout(new BorderLayout(0,0));
-				kdc.getContentPane().add(table,BorderLayout.CENTER);
-				addLine = new KDWorkButton("新增行");
-				insetLine = new KDWorkButton("插入行");
-				removeLine = new KDWorkButton("删除行");
-				addLine.setName("addLine");
-				insetLine.setName("insetLine");
-				removeLine.setName("removeLine");
-				addLine.setIcon(EASResource.getIcon("imgTbtn_addline"));
-				insetLine.setIcon(EASResource.getIcon("imgTbtn_insert"));
-				removeLine.setIcon(EASResource.getIcon("imgTbtn_deleteline"));
-				kdc.addButton(addLine);
-				kdc.addButton(insetLine);
-				kdc.addButton(removeLine);
-				MyActionListener baseAL = new MyActionListener(table);
-				addLine.addActionListener(baseAL);
-				insetLine.addActionListener(baseAL);
-				removeLine.addActionListener(baseAL);
-				kDTabbedPane1.add(cainfo.getName()+capinfo.getIndexType().getName(),kdc);
-				tables.put(key,table);
-				priceIndexEntrys.put(key,entrycoll);
 			}
-		} catch (BOSException e1) {
-			handUIException(e1);
-		}  
+		}
+		CostAccountPriceIndexEntryCollection entrycoll = null;
+		CostAccountPriceIndexEntryInfo entryInfo = null;
+		KDWorkButton addLine = null;
+		KDWorkButton insetLine = null;
+		KDWorkButton removeLine = null;
+		KDContainer kdc = null;
+		KDTable table = null;
+		IColumn icol = null;
+		IRow row = null;
+		String key = null;
+		String[] tabNames = new String[entrycolls.size()];
+		for (int i = 0; i < entrycolls.size(); i++) {
+			table = new KDTable();
+			capinfo = entrycolls.get(i);
+			entrycoll = capinfo.getEntrys();
+			row = table.addHeadRow();
+			key = capinfo.getIndexType().getNumber()+cainfo.getLongNumber();
+			table.setName(key);
+			for (int j = 0; j < entrycoll.size(); j++) {
+				entryInfo = entrycoll.get(j);
+				icol = table.addColumn();
+				row.getCell(icol.getColumnIndex()).setValue(entryInfo.getFieldName());
+				if(FieldType.TEXT.equals(entryInfo.getFieldType())){
+					initColumnForText(icol);
+				}else if(FieldType.NUMBER.equals(entryInfo.getFieldType())){
+					initColumnForNum(icol);
+				}else if(FieldType.DATE.equals(entryInfo.getFieldType())){
+					initColumnForDate(icol);
+				}else if(FieldType.PRODUCTYPE.equals(entryInfo.getFieldType())){
+					initColumnForF7(icol,"com.kingdee.eas.fdc.basedata.app.F7ProductTypeQuery");
+				}else if(FieldType.BASEUNIT.equals(entryInfo.getFieldType())){
+					initColumnForF7(icol,"com.kingdee.eas.basedata.assistant.app.F7MeasureUnitQuery");
+				}else if(FieldType.COMPUTE.equals(entryInfo.getFieldType())){
+					initColumnForNum(icol);
+					contentMap.put(key+"@"+entryInfo.getFieldType().getName()+j,entryInfo.getFcontent());
+				}else if(FieldType.BUILDNUM.equals(entryInfo.getFieldType())){
+					initColumnForF7(icol,"com.kingdee.eas.fdc.costindexdb.database.app.BuildNumberQuery");
+				}
+				if(entryInfo.isFieldInput()){
+					icol.setRequired(true);
+				}
+				icol.setKey(entryInfo.getFieldType().getName()+j);
+			}
+			kdc = new KDContainer();
+			kdc.setName(key);
+			kdc.getContentPane().setLayout(new BorderLayout(0,0));
+			kdc.getContentPane().add(table,BorderLayout.CENTER);
+			addLine = new KDWorkButton("新增行");
+			insetLine = new KDWorkButton("插入行");
+			removeLine = new KDWorkButton("删除行");
+			addLine.setName("addLine");
+			insetLine.setName("insetLine");
+			removeLine.setName("removeLine");
+			addLine.setIcon(EASResource.getIcon("imgTbtn_addline"));
+			insetLine.setIcon(EASResource.getIcon("imgTbtn_insert"));
+			removeLine.setIcon(EASResource.getIcon("imgTbtn_deleteline"));
+			kdc.addButton(addLine);
+			kdc.addButton(insetLine);
+			kdc.addButton(removeLine);
+			MyActionListener baseAL = new MyActionListener(table);
+			addLine.addActionListener(baseAL);
+			insetLine.addActionListener(baseAL);
+			removeLine.addActionListener(baseAL);
+			kDTabbedPane1.add(cainfo.getName()+capinfo.getIndexType().getName(),kdc);
+			tables.put(key,table);
+			containers.put(key,kdc);
+			priceIndexEntrys.put(key,entrycoll);
+			buttons.add(addLine);
+			buttons.add(insetLine);
+			buttons.add(removeLine);
+			tabNames[i] = key;
+		} 
+		costTabMap.put(cainfo.getLongNumber(),tabNames);
 	}
 	
 	public void storeIndexData(){
@@ -377,19 +458,19 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 					for(int j = 0; j < table.getColumnCount(); j++) {
 						entryInfo = entrycoll.get(j);
 						recordSeq = i+"!"+j;
-						if(FieldType.TEXT.equals(entryInfo.getFieldType())){
+						if(FieldType.TEXT.equals(entryInfo.getFieldType()) && textMap.containsKey(recordSeq)){
 							row.getCell(j).setValue(textMap.get(recordSeq).getTextData());
-						}else if(FieldType.NUMBER.equals(entryInfo.getFieldType())){
+						}else if(FieldType.NUMBER.equals(entryInfo.getFieldType()) && numberMap.containsKey(recordSeq)){
 							row.getCell(j).setValue(numberMap.get(recordSeq).getNumberData());
-						}else if(FieldType.DATE.equals(entryInfo.getFieldType())){
+						}else if(FieldType.COMPUTE.equals(entryInfo.getFieldType()) && numberMap.containsKey(recordSeq)){
+							row.getCell(j).setValue(numberMap.get(recordSeq).getNumberData());
+						}else if(FieldType.DATE.equals(entryInfo.getFieldType()) && dateMap.containsKey(recordSeq)){
 							row.getCell(j).setValue(dateMap.get(recordSeq).getDateData());
-						}else if(FieldType.PRODUCTYPE.equals(entryInfo.getFieldType())){
+						}else if(FieldType.PRODUCTYPE.equals(entryInfo.getFieldType()) && productMap.containsKey(recordSeq)){
 							row.getCell(j).setValue(productMap.get(recordSeq).getProductType());
-						}else if(FieldType.BASEUNIT.equals(entryInfo.getFieldType())){
+						}else if(FieldType.BASEUNIT.equals(entryInfo.getFieldType()) && baseUnitMap.containsKey(recordSeq)){
 							row.getCell(j).setValue(baseUnitMap.get(recordSeq).getBaseUnit());
-						}else if(FieldType.COMPUTE.equals(entryInfo.getFieldType())){
-							
-						}else if(FieldType.BUILDNUM.equals(entryInfo.getFieldType())){
+						}else if(FieldType.BUILDNUM.equals(entryInfo.getFieldType()) && buildMap.containsKey(recordSeq)){
 							row.getCell(j).setValue(buildMap.get(recordSeq).getBuildNumber());
 						}
 					}
@@ -400,6 +481,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 	
 	public void getTextMaps(BuildPriceIndexEindexDataEtextDataCollection colls,Map<String,BuildPriceIndexEindexDataEtextDataInfo> map){
 		map.clear();
+		if(colls.size() == 0)
+			return;
 		for(int i = colls.size()-1; i >=0; i--) {
 			map.put(colls.get(i).getRecordSeq(),colls.get(i));
 		}
@@ -407,6 +490,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 	
 	public void getNumberMaps(BuildPriceIndexEindexDataEnumberDataCollection colls,Map<String,BuildPriceIndexEindexDataEnumberDataInfo> map){
 		map.clear();
+		if(colls.size() == 0)
+			return;
 		for(int i = colls.size()-1; i >=0; i--) {
 			map.put(colls.get(i).getRecordSeq(),colls.get(i));
 		}
@@ -414,6 +499,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 	
 	public void getDateMaps(BuildPriceIndexEindexDataEdateDataCollection colls,Map<String,BuildPriceIndexEindexDataEdateDataInfo> map){
 		map.clear();
+		if(colls.size() == 0)
+			return;
 		for(int i = colls.size()-1; i >=0; i--) {
 			map.put(colls.get(i).getRecordSeq(),colls.get(i));
 		}
@@ -421,6 +508,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 	
 	public void getProductMaps(BuildPriceIndexEindexDataEproductTypeCollection colls,Map<String,BuildPriceIndexEindexDataEproductTypeInfo> map){
 		map.clear();
+		if(colls.size() == 0)
+			return;
 		for(int i = colls.size()-1; i >=0; i--) {
 			map.put(colls.get(i).getRecordSeq(),colls.get(i));
 		}
@@ -428,6 +517,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 	
 	public void getBaseUnitMaps(BuildPriceIndexEindexDataEbaseUnitCollection colls,Map<String,BuildPriceIndexEindexDataEbaseUnitInfo> map){
 		map.clear();
+		if(colls.size() == 0)
+			return;
 		for(int i = colls.size()-1; i >=0; i--) {
 			map.put(colls.get(i).getRecordSeq(),colls.get(i));
 		}
@@ -435,6 +526,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 	
 	public void getBuildMaps(BuildPriceIndexEindexDataEbuildNumberCollection colls,Map<String,BuildPriceIndexEindexDataEbuildNumberInfo> map){
 		map.clear();
+		if(colls.size() == 0)
+			return;
 		for(int i = colls.size()-1; i >=0; i--) {
 			map.put(colls.get(i).getRecordSeq(),colls.get(i));
 		}
@@ -455,7 +548,7 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 		prmtCostAccount.setSelector(selector);
 		prmtCostAccount.setEnabledMultiSelection(false);
 		prmtCostAccount.setDisplayFormat("$longNumber$");
-		prmtCostAccount.setEditFormat("$longNumber$");
+		prmtCostAccount.setEditFormat("$longNumber$");	
 		prmtCostAccount.setCommitFormat("$longNumber$");
 		KDTDefaultCellEditor caEditor = new KDTDefaultCellEditor(prmtCostAccount);
 		EntityViewInfo entityView = new EntityViewInfo();
@@ -542,6 +635,15 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     			row = table.addRow();
     			if(table == kdtEntrys)
     				row.getCell("isInput").setValue(Boolean.FALSE);
+    			else{
+    				//判断这个table有没有公式列
+    				for(int i = 0; i < table.getColumnCount(); i++) {
+    					if(table.getColumnKey(i).startsWith("COMPUTE")){
+    						//得到公式内容，解析内容，填充数据
+    						praseContent(contentMap.get(table.getName()+"@"+table.getColumnKey(i)),i,row);
+    					}
+					}
+    			}
     		}else if("insetLine".equals(type)){
     			if(table.getSelectManager().size() > 0) {
     	            int top = table.getSelectManager().get().getTop();
@@ -554,6 +656,15 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     	        }
     			if(table == kdtEntrys)
     				row.getCell("isInput").setValue(Boolean.FALSE);
+    			else{
+    				//判断这个table有没有公式列
+    				for(int i = 0; i < table.getColumnCount(); i++) {
+    					if(table.getColumnKey(i).startsWith("COMPUTE")){
+    						//得到公式内容，解析内容，填充数据
+    						praseContent(contentMap.get(table.getName()+"@"+table.getColumnKey(i)),i,row);
+    					}
+					}
+    			}
     		}else if("removeLine".equals(type)){
     			if(table.getSelectManager().size() == 0){
     	            MsgBox.showInfo(EASResource.getString("com.kingdee.eas.framework.FrameWorkResource.Msg_NoneEntry"));
@@ -567,6 +678,75 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     	        table.removeRow(top);
     		}
     	}
+    }
+    
+    //解析公式内容，并将得到的数据填充到单元格
+    private void praseContent(String content, int colIndex, IRow row){
+    	int index1 = content.indexOf('/');
+    	
+    }
+    
+    private void calcData(String content, int index1, int colIndex, IRow row, String calcWay){
+    	String fenzi = content.substring(0,index1);
+		String fenmu = content.substring(index1+1);
+		String fenziPointName = fenzi.substring(0,fenzi.lastIndexOf("."));
+		String fenmuPointName = fenmu.substring(0,fenmu.lastIndexOf("."));
+		BigDecimal bd_fenzi = null;
+		BigDecimal bd_fenmu = null;
+		if("基本要素".equals(fenziPointName)){
+			getBasePointMap();
+			bd_fenzi = basePointMap.get(fenzi.substring(fenzi.lastIndexOf(".")+1));
+		}else if("单项要素".equals(fenziPointName)){
+			getSinglePointMap();
+			bd_fenzi = singlePointMap.get(fenzi.substring(fenzi.lastIndexOf(".")+1));
+		}
+		if("基本要素".equals(fenmuPointName)){
+			getBasePointMap();
+			bd_fenmu = basePointMap.get(fenmu.substring(fenmu.lastIndexOf(".")+1));
+		}else if("单项要素".equals(fenmuPointName)){
+			getSinglePointMap();
+			bd_fenmu = singlePointMap.get(fenmu.substring(fenmu.lastIndexOf(".")+1));
+		}
+		if(bd_fenzi!=null && bd_fenmu!=null){
+			if("divide".equals(calcWay))
+				row.getCell(colIndex).setValue(bd_fenzi.divide(bd_fenmu,2,RoundingMode.HALF_UP));
+			else if("multiply".equals(calcWay))
+				row.getCell(colIndex).setValue(bd_fenzi.multiply(bd_fenmu));
+			else if("add".equals(calcWay))
+				row.getCell(colIndex).setValue(bd_fenzi.add(bd_fenmu));
+			else if("subtract".equals(calcWay))
+				row.getCell(colIndex).setValue(bd_fenzi.subtract(bd_fenmu));
+		}
+		
+    }
+    
+    //获得基本要素
+    private void getBasePointMap(){
+    	if(basePointMap == null){
+    		basePointMap = new HashMap<String,BigDecimal>();
+    		BaseAndSinglePointEntryInfo einfo = null;
+    		for(int i = bsentrys.size()-1; i >=0; i--) {
+    			einfo = bsentrys.get(i);
+    			basePointMap.put(einfo.getPointName(),einfo.getPointValue());
+			}
+    	}
+    }
+    
+    //获得单项要素
+    private void getSinglePointMap(){
+    	if(singlePointMap == null){
+    		singlePointMap = new HashMap<String,BigDecimal>();
+    		BaseAndSinglePointEcostInfo einfo = null;
+    		for(int i = bsecosts.size()-1; i >=0; i--) {
+    			einfo = bsecosts.get(i);
+    			singlePointMap.put(einfo.getPointName(),einfo.getPointValue());
+			}
+    	}
+    }
+    
+    //获得楼号
+    private void getBuildNumberMap(){
+    	
     }
     
     public SelectorItemCollection getCostPriceSelectors(){
@@ -616,6 +796,11 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     	return sic;
     }
     
+    public void actionSave_actionPerformed(ActionEvent e) throws Exception {
+    	storeIndexData();
+    	super.actionSave_actionPerformed(e);
+    }
+    
     /**
      * output loadFields method
      */
@@ -628,14 +813,54 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
      * output storeFields method
      */
     public void storeFields()
-    {	storeIndexData();
+    {	
         super.storeFields();
+        
     }
 
+    public void onShow() throws Exception {
+    	super.onShow();
+    	initEntrys();
+    	rebuildCostAccount();
+    	BuildPriceIndexEntryCollection indexEntrys = editData.getEntrys();
+    	for(int i = 0; i < indexEntrys.size(); i++) {
+			if(indexEntrys.get(i).isIsInput())
+				initIndexTable(indexEntrys.get(i).getAccountNumber());
+		}
+    	loadIndexData();
+    	if(OprtState.VIEW.equals(getOprtState())){
+    		setBuutonAndTableState(false);
+    	}
+    	
+    }
+    
+    private void setBuutonAndTableState(boolean flag){
+    	for(Iterator<String> it=tables.keySet().iterator(); it.hasNext();){
+			tables.get(it.next()).setEditable(flag);
+		}
+    	for(int i = 0; i < buttons.size(); i++) {
+    		buttons.get(i).setEnabled(flag);
+		}
+    }
+    
     protected void verifyInput(ActionEvent e) throws Exception {
-    	super.verifyInput(e);
+    	KDTable table = null;
+    	for(Iterator<String> it=tables.keySet().iterator(); it.hasNext();){
+    		table = tables.get(it.next());
+    		for(int i = 0; i < table.getColumnCount(); i++) {
+				if(table.getColumn(i).isRequired()){
+					for(int j = 0; j < table.getRowCount3(); j++) {
+						if(FDCHelper.isEmpty(table.getCell(j,i).getValue())){
+							kDTabbedPane1.setSelectedComponent(containers.get(table.getName()));
+							MsgBox.showInfo("第"+(j+1)+"行的"+table.getHeadRow(0).getCell(i).getValue()+"不能为空！");
+							table.getEditManager().editCellAt(j,i);
+							SysUtil.abort();
+						}
+					}
+				}
+			}
+		}
     }
-
     /**
      * output actionAddNew_actionPerformed
      */
@@ -650,6 +875,7 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionEdit_actionPerformed(e);
+        setBuutonAndTableState(true);
     }
 
     /**

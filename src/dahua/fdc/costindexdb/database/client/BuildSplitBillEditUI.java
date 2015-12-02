@@ -33,8 +33,12 @@ import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
@@ -63,6 +67,7 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
     private static final Logger logger = CoreUIObject.getLogger(BuildSplitBillEditUI.class);
     private Map<String,KDTable> tables = null;
     List<KDWorkButton> buttons = null;
+    private KDWorkButton grabData = null;
     
     /**
      * output class constructor
@@ -134,6 +139,7 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
     	txtNumber.requestFocusInWindow();
     	if(OprtState.VIEW.equals(getOprtState())){
     		setBuutonAndTableState(false);
+    		grabData.setEnabled(false);
     	}
     }
     
@@ -149,16 +155,26 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
     }
     
     public void initPointEntrys(){
-    	kdtEntrys_detailPanel.getRemoveLinesButton().setVisible(false);
-    	kdtEntrys_detailPanel.getInsertLineButton().setVisible(false);
-    	kdtEntrys_detailPanel.getAddNewLineButton().setVisible(false);
+//    	kdtEntrys_detailPanel.getRemoveLinesButton().setVisible(false);
+//    	kdtEntrys_detailPanel.getInsertLineButton().setVisible(false);
+//    	kdtEntrys_detailPanel.getAddNewLineButton().setVisible(false);
+    	kDContainer1.getContentPane().remove(kdtEntrys_detailPanel);
+    	kDContainer1.getContentPane().add(kdtEntrys, BorderLayout.CENTER);
     	kdtEntrys.getColumn("pointName").getStyleAttributes().setLocked(true);
-    	if(!BuildSplitDataType.professPoint.equals(editData.getDataType()))
-    		kdtEntrys.getColumn("dataValue").getStyleAttributes().setLocked(true);
     	kdtEntrys.getColumn("dataValue").getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
     	kdtEntrys.getColumn("splitBuild").getStyleAttributes().setLocked(true);
+    	if(!BuildSplitDataType.professPoint.equals(editData.getDataType())){
+    		kdtEntrys.getColumn("dataValue").getStyleAttributes().setLocked(true);
+    	}
     	tables = new HashMap<String,KDTable>();
     	buttons = new ArrayList<KDWorkButton>();
+    	grabData = new KDWorkButton("提取最新数据");
+    	grabData.setName("grabData");
+    	grabData.addActionListener(new MyActionListener(kdtEntrys));
+    	kDContainer1.addButton(grabData);
+    	if(!OprtState.EDIT.equals(getOprtState())){
+    		grabData.setEnabled(false);
+    	}
     	try {
     		final IProductType ipt = ProductTypeFactory.getRemoteInstance();
     		KDTEditAdapter ad = new KDTEditAdapter(){
@@ -184,7 +200,7 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
 		String key = null;
 		IColumn icol = table.addColumn();
 		icol.setKey("buildNumber");
-		initColumnForF7(icol,"com.kingdee.eas.fdc.costindexdb.database.app.BuildNumberQuery");
+		initColumnForBuildNumber(icol);
 		icol = table.addColumn();
 		icol.setKey("productType");
 		initColumnForF7(icol,"com.kingdee.eas.fdc.basedata.app.F7ProductTypeQuery");
@@ -280,6 +296,25 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
     public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
     	super.actionEdit_actionPerformed(arg0);
     	setBuutonAndTableState(true);
+    	grabData.setEnabled(true);
+    }
+    
+    private void initColumnForBuildNumber(IColumn icol){
+    	KDBizPromptBox box = new KDBizPromptBox();
+    	box.setQueryInfo("com.kingdee.eas.fdc.costindexdb.database.app.BuildNumberQuery");
+    	box.setDisplayFormat("$number$");
+    	box.setEditFormat("$number$");
+    	box.setCommitFormat("$number$");
+    	EntityViewInfo entityView = new EntityViewInfo();
+		FilterInfo filter = new FilterInfo();
+		if(editData.getProjectName() != null)
+			filter.getFilterItems().add(new FilterItemInfo("curProject.id", editData.getProjectName().getId().toString()));
+		entityView.setFilter(filter);
+		box.setEntityViewInfo(entityView);
+    	ObjectValueRender kdtEntrys_baseUnit_OVR = new ObjectValueRender();
+    	kdtEntrys_baseUnit_OVR.setFormat(new BizDataFormat("$name$"));
+    	icol.setEditor(new KDTDefaultCellEditor(box));
+    	icol.setRenderer(kdtEntrys_baseUnit_OVR);
     }
     
     private void initColumnForF7(IColumn icol, String queryInfo){
@@ -400,6 +435,13 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
     	            return;
     	        }
     	        table.removeRow(top);
+    		}else if("grabData".equals(type)){
+    			if(getUIContext().get("newData")!=null && UIRuleUtil.getBigDecimal(getUIContext().get("newData")).compareTo(UIRuleUtil.getBigDecimal(kdtEntrys.getCell(0,"dataValue").getValue()))!=0){
+    				kdtEntrys.getCell(0,"dataValue").setValue(getUIContext().get("newData"));
+    				MsgBox.showInfo("提取最新数据成功！");
+    			}else{
+    				MsgBox.showInfo("数据已是最新！");
+    			}
     		}
     	}
     }

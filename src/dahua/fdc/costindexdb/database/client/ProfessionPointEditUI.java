@@ -24,6 +24,7 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.basedata.org.OrgConstants;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.contract.programming.client.CostAccountPromptBox;
 import com.kingdee.eas.util.client.EASResource;
@@ -55,7 +56,16 @@ public class ProfessionPointEditUI extends AbstractProfessionPointEditUI
     	actionLast.setVisible(false);
     	actionPre.setVisible(false);
     	actionNext.setVisible(false);
+    	btnSave.setIcon(btnSubmit.getIcon());
+    	btnSave.setText(btnSubmit.getText());
+    	btnSave.setToolTipText(btnSubmit.getToolTipText());
     	reBuildCostAccount();
+    	String cuID = SysContext.getSysContext().getCurrentOrgUnit().getId().toString();
+		if(!cuID.equals(OrgConstants.DEF_CU_ID)) {
+			actionEdit.setEnabled(false);
+			actionRemove.setEnabled(false);
+			actionSave.setEnabled(false);
+		}
     }
     
     public void onShow() throws Exception {

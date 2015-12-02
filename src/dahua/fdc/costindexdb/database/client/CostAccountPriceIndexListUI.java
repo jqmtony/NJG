@@ -23,10 +23,11 @@ import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.basedata.org.OrgConstants;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.CostAccountFactory;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
-import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
 import com.kingdee.eas.framework.client.tree.DefaultLNTreeNodeCtrl;
 import com.kingdee.eas.framework.client.tree.ITreeBuilder;
 import com.kingdee.eas.framework.client.tree.TreeBuilderFactory;
@@ -49,11 +50,18 @@ public class CostAccountPriceIndexListUI extends AbstractCostAccountPriceIndexLi
 
     public void onLoad() throws Exception {
     	super.onLoad();
-    	buildProjectTree();
-//    	buildCostAccountTree(null);
+//    	buildProjectTree();
+    	buildCostAccountTree(null);
 //    	costMain.removeAllChildrenFromParent((DefaultKingdeeTreeNode)costMain.ge);
-    	costMain.setVisible(false);
+//    	costMain.setVisible(false);
     	addTreeListener();
+    	tblMain.getColumn("curProject.name").getStyleAttributes().setHided(true);
+    	String cuID = SysContext.getSysContext().getCurrentOrgUnit().getId().toString();
+		if(!cuID.equals(OrgConstants.DEF_CU_ID)) {
+			actionAddNew.setEnabled(false);
+			actionEdit.setEnabled(false);
+			actionRemove.setEnabled(false);
+		}
     }
     
     protected String getEditUIModal() {
@@ -61,22 +69,18 @@ public class CostAccountPriceIndexListUI extends AbstractCostAccountPriceIndexLi
     }
     
     public void buildProjectTree() throws Exception {
-    	ProjectTreeBuilder projectTreeBuilder = new ProjectTreeBuilder();
-		projectTreeBuilder.build(this, projectMain, actionOnLoad);
-		if (projectMain.getRowCount() > 0) {
-			projectMain.setSelectionRow(0);
-			projectMain.expandPath(projectMain.getSelectionPath());
-		}
+//    	ProjectTreeBuilder projectTreeBuilder = new ProjectTreeBuilder();
+//		projectTreeBuilder.build(this, projectMain, actionOnLoad);
+//		if (projectMain.getRowCount() > 0) {
+//			projectMain.setSelectionRow(0);
+//			projectMain.expandPath(projectMain.getSelectionPath());
+//		}
     }
    
     public void buildCostAccountTree(String cpid) throws Exception {
-    	if(cpid == null){
-    		costMain.removeAllChildrenFromParent((DefaultKingdeeTreeNode)costMain.getModel().getRoot());
-    		return;
-    	}
-    	costMain.removeAllChildrenFromParent((DefaultKingdeeTreeNode)costMain.getModel().getRoot());
+    	
     	FilterInfo filter = new FilterInfo();
-    	filter.getFilterItems().add(new FilterItemInfo("curProject.id",cpid));
+    	filter.getFilterItems().add(new FilterItemInfo("fullOrgUnit.id", OrgConstants.DEF_CU_ID, CompareType.EQUALS));
     	ITreeBuilder treeBuilder = TreeBuilderFactory.createTreeBuilder(new DefaultLNTreeNodeCtrl(CostAccountFactory.getRemoteInstance()),50,5,filter);
 		treeBuilder.buildTree(costMain);
 		TreeModel treeModel = new KingdeeTreeModel((TreeNode)((DefaultKingdeeTreeNode)costMain.getModel().getRoot()));
@@ -89,17 +93,6 @@ public class CostAccountPriceIndexListUI extends AbstractCostAccountPriceIndexLi
     }
     
     public void addTreeListener(){
-    	projectMain.addTreeSelectionListener(new TreeSelectionListener() {
-            public void valueChanged(TreeSelectionEvent e) {
-                try {
-                	projectMain_valueChanged(e);
-                } catch (Exception exc) {
-                    handUIException(exc);
-                } finally {
-                }
-            }
-        });
-    	
     	costMain.addTreeSelectionListener(new TreeSelectionListener() {
             public void valueChanged(TreeSelectionEvent e) {
                 try {
@@ -112,35 +105,11 @@ public class CostAccountPriceIndexListUI extends AbstractCostAccountPriceIndexLi
         });
     }
     
-    protected void projectMain_valueChanged(TreeSelectionEvent e) throws Exception {
-    	DefaultKingdeeTreeNode projectNode = (DefaultKingdeeTreeNode)projectMain.getLastSelectedPathComponent();
-    	if(isSelectedProjectNode()) {
-    		CurProjectInfo cpinfo = (CurProjectInfo)projectNode.getUserObject();
-    		buildCostAccountTree(cpinfo.getId().toString());
-    		getUIContext().put("curProjectNode",cpinfo);
-    	}else{
-    		buildCostAccountTree(null);
-//    		getUIContext().put("curProjectNode",null);
-    	}
-    	refreshList();
-    }
-    
     protected void costMain_valueChanged(TreeSelectionEvent e) throws Exception {
 //    	DefaultKingdeeTreeNode costNode=(DefaultKingdeeTreeNode)costMain.getLastSelectedPathComponent();
     	getUIContext().put(COST_ACCOUNT_NODE,costMain.getLastSelectedPathComponent());
     	refreshList();
     }
-    
-    private boolean isSelectedProjectNode() {
-		boolean result = false;
-		DefaultKingdeeTreeNode treeNode = getTreeNode(projectMain.getSelectionPath());
-		if (treeNode != null && treeNode.isLeaf()) {
-			if (treeNode.getUserObject() instanceof CurProjectInfo) {
-				result = true;
-			}
-		}
-		return result;
-	}
     
     public static DefaultKingdeeTreeNode getTreeNode(TreePath path) {
 		return path == null ? null : (DefaultKingdeeTreeNode) path.getLastPathComponent();
@@ -152,17 +121,10 @@ public class CostAccountPriceIndexListUI extends AbstractCostAccountPriceIndexLi
     	if(getUIContext().get(COST_ACCOUNT_NODE) != null){
     		DefaultKingdeeTreeNode costNode=(DefaultKingdeeTreeNode)getUIContext().get(COST_ACCOUNT_NODE);
     		CostAccountInfo cainfo = (CostAccountInfo)costNode.getUserObject();
-    		filter.getFilterItems().add(new FilterItemInfo("curProject.id",((CurProjectInfo)getUIContext().get("curProjectNode")).getId().toString()));
     		if(costNode.isLeaf()){
     			filter.getFilterItems().add(new FilterItemInfo("costAccount.id",cainfo.getId().toString()));
     		}else{
     			filter.getFilterItems().add(new FilterItemInfo("costAccount.longNumber",cainfo.getLongNumber()+"%",CompareType.LIKE));
-    		}
-    	}else{
-    		if(getUIContext().get("curProjectNode") != null){
-    			filter.getFilterItems().add(new FilterItemInfo("curProject.id",((CurProjectInfo)getUIContext().get("curProjectNode")).getId().toString()));
-    		}else{
-    			
     		}
     	}
     	if(newviewInfo.getFilter()!=null){

@@ -47,10 +47,7 @@ public abstract class AbstractCostAccountPriceIndexListUI extends com.kingdee.ea
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractCostAccountPriceIndexListUI.class);
     protected com.kingdee.bos.ctrl.swing.KDSplitPane kDSplitPane1;
-    protected com.kingdee.bos.ctrl.swing.KDSplitPane kDSplitPane2;
-    protected com.kingdee.bos.ctrl.swing.KDTreeView kDTreeView1;
     protected com.kingdee.bos.ctrl.swing.KDTreeView kDTreeView2;
-    protected com.kingdee.bos.ctrl.swing.KDTree projectMain;
     protected com.kingdee.bos.ctrl.swing.KDTree costMain;
     /**
      * output class constructor
@@ -73,16 +70,10 @@ public abstract class AbstractCostAccountPriceIndexListUI extends com.kingdee.ea
         this.setUITitle(resHelper.getString("this.title"));
         mainQueryPK = new MetaDataPK("com.kingdee.eas.fdc.costindexdb.database.app", "CostAccountPriceIndexQuery");
         this.kDSplitPane1 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
-        this.kDSplitPane2 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
-        this.kDTreeView1 = new com.kingdee.bos.ctrl.swing.KDTreeView();
         this.kDTreeView2 = new com.kingdee.bos.ctrl.swing.KDTreeView();
-        this.projectMain = new com.kingdee.bos.ctrl.swing.KDTree();
         this.costMain = new com.kingdee.bos.ctrl.swing.KDTree();
         this.kDSplitPane1.setName("kDSplitPane1");
-        this.kDSplitPane2.setName("kDSplitPane2");
-        this.kDTreeView1.setName("kDTreeView1");
         this.kDTreeView2.setName("kDTreeView2");
-        this.projectMain.setName("projectMain");
         this.costMain.setName("costMain");
         // CoreUI
 		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"name\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"indexType.name\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"curProject.name\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"costAccount.name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"beizhu\" t:width=\"220\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{indexType.name}</t:Cell><t:Cell>$Resource{curProject.name}</t:Cell><t:Cell>$Resource{costAccount.name}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
@@ -96,17 +87,9 @@ public abstract class AbstractCostAccountPriceIndexListUI extends com.kingdee.ea
         // kDSplitPane1		
         this.kDSplitPane1.setDividerLocation(250);		
         this.kDSplitPane1.setDividerSize(5);
-        // kDSplitPane2		
-        this.kDSplitPane2.setDividerLocation(300);		
-        this.kDSplitPane2.setDividerSize(5);		
-        this.kDSplitPane2.setOrientation(0);
-        // kDTreeView1		
-        this.kDTreeView1.setShowButton(false);		
-        this.kDTreeView1.setTitle(resHelper.getString("kDTreeView1.title"));
         // kDTreeView2		
         this.kDTreeView2.setShowButton(false);		
         this.kDTreeView2.setTitle(resHelper.getString("kDTreeView2.title"));
-        // projectMain
         // costMain
 		//Register control's property binding
 		registerBindings();
@@ -135,16 +118,11 @@ public abstract class AbstractCostAccountPriceIndexListUI extends com.kingdee.ea
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        kDSplitPane1.setBounds(new Rectangle(5, 5, 1003, 619));
-        this.add(kDSplitPane1, new KDLayout.Constraints(5, 5, 1003, 619, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDSplitPane1.setBounds(new Rectangle(5, 5, 1002, 618));
+        this.add(kDSplitPane1, new KDLayout.Constraints(5, 5, 1002, 618, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //kDSplitPane1
         kDSplitPane1.add(tblMain, "right");
-        kDSplitPane1.add(kDSplitPane2, "left");
-        //kDSplitPane2
-        kDSplitPane2.add(kDTreeView1, "top");
-        kDSplitPane2.add(kDTreeView2, "bottom");
-        //kDTreeView1
-        kDTreeView1.setTree(projectMain);
+        kDSplitPane1.add(kDTreeView2, "left");
         //kDTreeView2
         kDTreeView2.setTree(costMain);
 

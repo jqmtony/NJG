@@ -19,13 +19,12 @@ import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.basedata.org.OrgConstants;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
-import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
-import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEcostCollection;
-import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEcostFactory;
-import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEntryCollection;
-import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEntryFactory;
+import com.kingdee.eas.fdc.costindexdb.client.FormulaUtils;
 import com.kingdee.eas.fdc.costindexdb.database.FieldType;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
@@ -48,20 +47,37 @@ public class CostAccountPriceIndexEditUI extends AbstractCostAccountPriceIndexEd
     
     public void onLoad() throws Exception {
     	super.onLoad();
-    	initTable();
     	actionSubmit.setVisible(false);
     	btnSave.setIcon(btnSubmit.getIcon());
     	btnSave.setText(btnSubmit.getText());
     	btnSave.setToolTipText(btnSubmit.getToolTipText());
-    	String oql="select pointName where parent.id in(select fid from CT_COS_BaseAndSinglePoint where CFIsLatest='1' and CFProjectId='"+editData.getCurProject().getId().toString()+"')";
-    	BaseAndSinglePointEntryCollection entrys=BaseAndSinglePointEntryFactory.getRemoteInstance().getBaseAndSinglePointEntryCollection(oql);
-    	BaseAndSinglePointEcostCollection costs=BaseAndSinglePointEcostFactory.getRemoteInstance().getBaseAndSinglePointEcostCollection(oql);
+//    	String oql="select pointName where parent.id in(select fid from CT_COS_BaseAndSinglePoint where CFIsLatest='1' and CFProjectId='"+editData.getCurProject().getId().toString()+"')";
+//    	BaseAndSinglePointEntryCollection entrys=BaseAndSinglePointEntryFactory.getRemoteInstance().getBaseAndSinglePointEntryCollection(oql);
+//    	BaseAndSinglePointEcostCollection costs=BaseAndSinglePointEcostFactory.getRemoteInstance().getBaseAndSinglePointEcostCollection(oql);
     	pointSets = new HashSet<String>();
-    	for(int i = entrys.size()-1; i >= 0; i--) {
-    		pointSets.add(entrys.get(i).getPointName().trim());
-		}
-    	for(int i = costs.size()-1; i >= 0; i--) {
-    		pointSets.add(costs.get(i).getPointName().trim());
+    	pointSets.add("合同");
+    	pointSets.add("单项要素");
+    	pointSets.add("基本要素");
+    	pointSets.add("专业要素");
+//    	for(int i = entrys.size()-1; i >= 0; i--) {
+//    		pointSets.add(entrys.get(i).getPointName().trim());
+//		}
+//    	for(int i = costs.size()-1; i >= 0; i--) {
+//    		pointSets.add(costs.get(i).getPointName().trim());
+//		}
+    	actionAddNew.setVisible(false);
+    	actionFirst.setVisible(false);
+    	actionLast.setVisible(false);
+    	actionPre.setVisible(false);
+    	actionNext.setVisible(false);
+    	actionCancel.setVisible(false);
+    	actionCancelCancel.setVisible(false);
+    	String cuID = SysContext.getSysContext().getCurrentOrgUnit().getId().toString();
+		if(!cuID.equals(OrgConstants.DEF_CU_ID)) {
+			actionEdit.setEnabled(false);
+			actionRemove.setEnabled(false);
+			actionCopy.setEnabled(false);
+			actionSave.setEnabled(false);
 		}
     }
     
@@ -81,6 +97,11 @@ public class CostAccountPriceIndexEditUI extends AbstractCostAccountPriceIndexEd
 		kDContainer1.addButton(addLine);
 		kDContainer1.addButton(insetLine);
 		kDContainer1.addButton(removeLine);
+		if(OprtState.VIEW.equals(getOprtState())){
+			addLine.setEnabled(false);
+			insetLine.setEnabled(false);
+			removeLine.setEnabled(false);
+		}
 		MyActionListener baseAL = new MyActionListener(kdtEntrys);
 		addLine.addActionListener(baseAL);
 		insetLine.addActionListener(baseAL);
@@ -116,10 +137,14 @@ public class CostAccountPriceIndexEditUI extends AbstractCostAccountPriceIndexEd
     			kdtEntrys.getCell(rowIndex,"fcontent").getStyleAttributes().setLocked(false);
     		}
     	}
+//    	else if(colIndex==kdtEntrys.getColumnIndex("fcontent") && !FDCHelper.isEmpty(kdtEntrys.getCell(rowIndex,colIndex).getValue())){
+//    		String fcontent = (String)kdtEntrys.getCell(rowIndex,colIndex).getValue();
+//    	}
     }
     
     public void onShow() throws Exception {
     	super.onShow();
+    	initTable();
     	setContentStyle();
     }
     
@@ -141,26 +166,48 @@ public class CostAccountPriceIndexEditUI extends AbstractCostAccountPriceIndexEd
         			kdtEntrys.getEditManager().editCellAt(i,kdtEntrys.getColumnIndex("fcontent"));
         			SysUtil.abort();
     			}
-    			int index1 = fcontent.indexOf('/');
-    			if(index1 != -1){
-    				String fenzi = fcontent.substring(0,index1);
-    				String fenmu = fcontent.substring(index1+1);
-    				if(!pointSets.contains(fenzi)){
-    					MsgBox.showInfo("第"+(i+1)+"行公式内容中的\""+fenzi+"\"与单项要素基本要素无匹配项！");
-            			kdtEntrys.getEditManager().editCellAt(i,kdtEntrys.getColumnIndex("fcontent"));
-            			SysUtil.abort();
-    				}
-    				if(!pointSets.contains(fenmu)){
-    					MsgBox.showInfo("第"+(i+1)+"行公式内容中的\""+fenmu+"\"与单项要素基本要素无匹配项！");
-            			kdtEntrys.getEditManager().editCellAt(i,kdtEntrys.getColumnIndex("fcontent"));
-            			SysUtil.abort();
-    				}
-    			}else{
-    				MsgBox.showInfo("第"+(i+1)+"行公式内容不符合要求！");
-        			kdtEntrys.getEditManager().editCellAt(i,kdtEntrys.getColumnIndex("fcontent"));
-        			SysUtil.abort();
+    			FormulaUtils fus = new FormulaUtils(fcontent);
+    			if(!fus.checkValid()){
+    				MsgBox.showInfo(fus.Msg);
+    				SysUtil.abort();
     			}
+//    			int index1 = fcontent.indexOf('/');
+//        		String str1 = fcontent.substring(0,index1);
+//        		if(!pointSets.contains(str1.substring(0,str1.lastIndexOf(".")))){
+//        			MsgBox.showInfo("公式非法，请检查！");
+//        		}
+//        		String str2 = fcontent.substring(index1+1);
+//        		if(!pointSets.contains(str2.substring(0,str2.lastIndexOf(".")))){
+//        			MsgBox.showInfo("公式非法，请检查！");
+//        		}
+//    			if(index1 != -1){
+//    				String fenzi = fcontent.substring(0,index1);
+//    				String fenmu = fcontent.substring(index1+1);
+//    				if(!pointSets.contains(fenzi.substring(0,fenzi.lastIndexOf(".")))){
+//    					MsgBox.showInfo("第"+(i+1)+"行公式内容不符合要求！");
+//            			kdtEntrys.getEditManager().editCellAt(i,kdtEntrys.getColumnIndex("fcontent"));
+//            			SysUtil.abort();
+//    				}
+//    				if(!pointSets.contains(fenmu.substring(0,fenmu.lastIndexOf(".")))){
+//    					MsgBox.showInfo("第"+(i+1)+"行公式内容不符合要求！");
+//            			kdtEntrys.getEditManager().editCellAt(i,kdtEntrys.getColumnIndex("fcontent"));
+//            			SysUtil.abort();
+//    				}
+//    			}
+//        		else{
+//    				MsgBox.showInfo("第"+(i+1)+"行公式内容不符合要求！");
+//        			kdtEntrys.getEditManager().editCellAt(i,kdtEntrys.getColumnIndex("fcontent"));
+//        			SysUtil.abort();
+//    			}
     		}
+		}
+    }
+    
+    public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
+    	super.actionEdit_actionPerformed(arg0);
+    	Object[] objs = kDContainer1.getButtons();
+    	for(int i = 0; i < objs.length; i++) {
+    		((KDWorkButton)objs[i]).setEnabled(true);
 		}
     }
     
@@ -237,7 +284,7 @@ public class CostAccountPriceIndexEditUI extends AbstractCostAccountPriceIndexEd
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
         DefaultKingdeeTreeNode costNode=(DefaultKingdeeTreeNode)getUIContext().get("costAccountNode");
         objectValue.setCostAccount((CostAccountInfo)costNode.getUserObject());
-        objectValue.setCurProject((CurProjectInfo)getUIContext().get("curProjectNode"));
+//        objectValue.setCurProject((CurProjectInfo)getUIContext().get("curProjectNode"));
         return objectValue;
     }
 

@@ -15,7 +15,9 @@ import com.kingdee.bos.ctrl.kdf.table.util.KDTableUtil;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.costindexdb.database.BasePointTempFactory;
 import com.kingdee.eas.fdc.costindexdb.database.BasePointTempInfo;
 import com.kingdee.eas.fdc.costindexdb.database.IBasePointTemp;
@@ -52,6 +54,12 @@ public class BasePointTempListUI extends AbstractBasePointTempListUI
     	actionCancelCancel.setVisible(false);
     	actionCancel.setVisible(false);
     	tblMain.getColumn("isUse").getStyleAttributes().setHided(true);
+    	String cuID = SysContext.getSysContext().getCurrentOrgUnit().getId().toString();
+		if(!cuID.equals(OrgConstants.DEF_CU_ID)) {
+			actionAddNew.setEnabled(false);
+			actionEdit.setEnabled(false);
+			actionRemove.setEnabled(false);
+		}
     }
     
     public void tblMain_tableSelectChanged(KDTSelectEvent e){

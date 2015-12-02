@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
+import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.base.permission.UserInfo;
@@ -19,7 +20,6 @@ public class BaseAndSinglePointControllerBean extends AbstractBaseAndSinglePoint
     private static Logger logger =
         Logger.getLogger("com.kingdee.eas.fdc.costindexdb.app.BaseAndSinglePointControllerBean");
     
-    @Override
     protected void _audit(Context ctx, IObjectValue model) throws BOSException {
     	try {
     		BaseAndSinglePointInfo abinfo = (BaseAndSinglePointInfo)model;
@@ -34,13 +34,17 @@ public class BaseAndSinglePointControllerBean extends AbstractBaseAndSinglePoint
 		}
     }
     
-    @Override
     protected void _unAdudit(Context ctx, IObjectValue model) throws BOSException {
     	
     }
     
-    @Override
     protected void _refix(Context ctx, IObjectValue model) throws BOSException {
     	
+    }
+    
+    protected IObjectPK _submit(Context ctx, IObjectValue model) throws BOSException, EASBizException {
+    	BaseAndSinglePointInfo bpinfo = (BaseAndSinglePointInfo)model;
+    	bpinfo.setPointBillStatus(FDCBillStateEnum.SUBMITTED);
+    	return super._submit(ctx, model);
     }
 }

@@ -64,7 +64,6 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
         super();
     }
     
-    @Override
     public void onLoad() throws Exception {
     	// TODO Auto-generated method stub
     	super.onLoad();
@@ -112,6 +111,7 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 				return str;
 			}
 		};
+		selector.setShowParent(false);
 		prmtCostAccount.setSelector(selector);
 		prmtCostAccount.setEnabledMultiSelection(false);
 		prmtCostAccount.setDisplayFormat("$longNumber$");
@@ -158,6 +158,7 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 		insetLine.setIcon(EASResource.getIcon("imgTbtn_insert"));
 		removeLine.setIcon(EASResource.getIcon("imgTbtn_deleteline"));
 		importTemp.setIcon(EASResource.getIcon("imgTbtn_importcyclostyle"));
+		singleSplit.setIcon(EASResource.getIcon("imgTbtn_split"));
 		kdcSingle.addButton(addLine);
 		kdcSingle.addButton(singleSplit);
 		kdcSingle.addButton(importTemp);
@@ -174,11 +175,46 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 		baseTemp.setName("importBaseTemp");
 		baseTemp.setIcon(EASResource.getIcon("imgTbtn_importcyclostyle"));
 		baseSplit.setName("baseSplit");
+		baseSplit.setIcon(EASResource.getIcon("imgTbtn_split"));
 		kdcBase.addButton(baseSplit);
 		kdcBase.addButton(baseTemp);
 		MyActionListener basekdtEntrys = new MyActionListener(kdtEntrys);
 		baseTemp.addActionListener(basekdtEntrys);
 		baseSplit.addActionListener(basekdtEntrys);
+		
+    }
+    
+    public void onShow() throws Exception {
+    	super.onShow();
+    	if(OprtState.VIEW.equals(getOprtState())){
+    		setButtonStatus(false);
+    	}
+    	for(int i = 0; i < kdtEntrys.getRowCount3(); i++) {
+			if((Boolean)kdtEntrys.getCell(i,"isModel").getValue()){
+				kdtEntrys.getCell(i,"isCombo").getStyleAttributes().setLocked(true);
+			}
+		}
+		for(int i = 0; i < kdtEcost.getRowCount3(); i++) {
+			if((Boolean)kdtEcost.getCell(i,"isModel").getValue()){
+				kdtEcost.getCell(i,"isCombo").getStyleAttributes().setLocked(true);
+			}
+		}
+    }
+    
+    private void setButtonStatus(boolean flag){
+    	Object[] btns = kdcSingle.getButtons();
+		for(int i = 0; i < btns.length; i++) {
+			((KDWorkButton)btns[i]).setEnabled(flag);
+		}
+		btns = kdcBase.getButtons();
+		for(int i = 0; i < btns.length; i++) {
+			((KDWorkButton)btns[i]).setEnabled(flag);
+		}
+    }
+    
+    public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
+    	super.actionEdit_actionPerformed(arg0);
+    	setButtonStatus(true);
     }
     
     class MyActionListener implements ActionListener{
@@ -258,6 +294,12 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
     			if(!(Boolean)row.getCell("isCombo").getValue()){
     				MsgBox.showInfo("该项不需要拆分到楼号，如需要拆分，请修改");
     	            return;
+    			}else if(FDCHelper.isEmpty(row.getCell("pointName").getValue())){
+    				MsgBox.showInfo("要素不能为空！");
+    	            return;
+    			}else if(FDCHelper.isEmpty(row.getCell("pointValue").getValue())){
+    				MsgBox.showInfo("数值不能为空！");
+    	            return;
     			}
 				try {
 					UIContext uiContext = new UIContext(BaseAndSinglePointEditUI.this);
@@ -272,6 +314,7 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 					if(rs.next()){
 						state = OprtState.VIEW;
 						uiContext.put("ID",rs.getString(1));
+						uiContext.put("newData",row.getCell("pointValue").getValue());
 					}else{
 						uiContext.put("dataType",BuildSplitDataType.basePoint);
 						uiContext.put("pointName",pointName);
@@ -308,6 +351,15 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
     	        if(!(Boolean)row.getCell("isCombo").getValue()){
     				MsgBox.showInfo("该项不需要拆分到楼号，如需要拆分，请修改");
     	            return;
+    			}else if(FDCHelper.isEmpty(row.getCell("costAccount").getValue())){
+    				MsgBox.showInfo("成本科目不能为空！");
+    	            return;
+    			}else if(FDCHelper.isEmpty(row.getCell("pointName").getValue())){
+    				MsgBox.showInfo("要素不能为空！");
+    	            return;
+    			}else if(FDCHelper.isEmpty(row.getCell("pointValue").getValue())){
+    				MsgBox.showInfo("数值不能为空！");
+    	            return;
     			}
     	        try {
 					UIContext uiContext = new UIContext(BaseAndSinglePointEditUI.this);
@@ -323,6 +375,7 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 					if(rs.next()){
 						state = OprtState.VIEW;
 						uiContext.put("ID",rs.getString(1));
+						uiContext.put("newData",row.getCell("pointValue").getValue());
 					}else{
 						uiContext.put("dataType",BuildSplitDataType.singlePoint);
 						uiContext.put("pointName",pointName);
@@ -419,7 +472,18 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 	}
     
 	private void verifyForSubmit() {
-		
+		for(int i = 0; i < kdtEntrys.getRowCount3(); i++) {
+			if((Boolean)kdtEntrys.getCell(i,"isCombo").getValue() && !(Boolean)kdtEntrys.getCell(i,"isModel").getValue()){
+				MsgBox.showInfo("基本要素第"+(i+1)+"行需要拆分，实际未拆分！");
+				SysUtil.abort();
+			}
+		}
+		for(int i = 0; i < kdtEcost.getRowCount3(); i++) {
+			if((Boolean)kdtEcost.getCell(i,"isCombo").getValue() && !(Boolean)kdtEcost.getCell(i,"isModel").getValue()){
+				MsgBox.showInfo("单项要素第"+(i+1)+"行需要拆分，实际未拆分！");
+				SysUtil.abort();
+			}
+		}
 	}
 	
 	public void actionSave_actionPerformed(ActionEvent e) throws Exception {

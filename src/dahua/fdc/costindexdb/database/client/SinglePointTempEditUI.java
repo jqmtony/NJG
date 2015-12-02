@@ -19,6 +19,7 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.basedata.org.OrgConstants;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.contract.programming.client.CostAccountPromptBox;
 
@@ -77,6 +78,19 @@ public class SinglePointTempEditUI extends AbstractSinglePointTempEditUI
 		ObjectValueRender kdtCostEntries_costAccount_OVR = new ObjectValueRender();
 		kdtCostEntries_costAccount_OVR.setFormat(new BizDataFormat("$name$"));
 		kdtEntry.getColumn("costAcount").setRenderer(kdtCostEntries_costAccount_OVR);
+		//--------------
+		actionFirst.setVisible(false);
+    	actionLast.setVisible(false);
+    	actionPre.setVisible(false);
+    	actionNext.setVisible(false);
+    	String cuID = SysContext.getSysContext().getCurrentOrgUnit().getId().toString();
+		if(!cuID.equals(OrgConstants.DEF_CU_ID)) {
+			actionAddNew.setEnabled(false);
+			actionEdit.setEnabled(false);
+			actionRemove.setEnabled(false);
+			actionCopy.setEnabled(false);
+			actionSave.setEnabled(false);
+		}
     }  
     
     public void kdtEntry_editStopped(KDTEditEvent e) {
