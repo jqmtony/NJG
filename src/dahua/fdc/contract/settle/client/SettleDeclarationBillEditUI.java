@@ -282,10 +282,10 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
 			
 			MsgBox.showWarning("申报金额不能为空！");SysUtil.abort();
 		}
-    	if(UIRuleUtil.isNull(this.txtapprovalAmount.getText())){//审定金额
-			
-			MsgBox.showWarning("审定金额不能为空！");SysUtil.abort();
-		}
+//    	if(UIRuleUtil.isNull(this.txtapprovalAmount.getText())){//审定金额
+//			
+//			MsgBox.showWarning("审定金额不能为空！");SysUtil.abort();
+//		}
     	
     }
     
