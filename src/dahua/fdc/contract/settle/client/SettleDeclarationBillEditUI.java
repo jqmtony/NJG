@@ -287,6 +287,9 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
 //			MsgBox.showWarning("审定金额不能为空！");SysUtil.abort();
 //		}
     	
+    	
+    	
+    	
     }
     
     
