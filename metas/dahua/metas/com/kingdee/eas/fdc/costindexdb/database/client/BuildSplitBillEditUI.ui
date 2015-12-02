@@ -424,107 +424,6 @@
             </parent>
         </component>
         <component>
-            <name>kdtEntrys</name>
-            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildSplitBillEditUI].components.component[kdtEntrys].alias</alias>
-            <userDefined>true</userDefined>
-            <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
-            <isContainer>false</isContainer>
-            <constraints>5,59,579,180</constraints>
-            <tabIndex>0</tabIndex>
-            <herited>false</herited>
-            <bimUIObjectPK />
-            <layoutInfo>
-                <name />
-                <type>XYLayout</type>
-                <value />
-            </layoutInfo>
-            <properties>
-                <property>
-                    <name>formatXml</name>
-                    <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildSplitBillEditUI].components.component[kdtEntrys].properties.property[formatXml].value</value>
-                    <isMultiLan>true</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-            </properties>
-            <parent>
-                <key name="name" value="CoreUI" />
-            </parent>
-            <propertyBindings>
-                <propertyBinding>
-                    <propertyName>id.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>entrys.id</bindingField>
-                    <fieldType>com.kingdee.bos.util.BOSUuid</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>userObject</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>entrys</bindingField>
-                    <fieldType>com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryCollection</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>pointName.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>entrys.pointName</bindingField>
-                    <fieldType>String</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>dataValue.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>entrys.dataValue</bindingField>
-                    <fieldType>java.math.BigDecimal</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-                <propertyBinding>
-                    <propertyName>splitBuild.text</propertyName>
-                    <propertyType>java.lang.Object</propertyType>
-                    <bindingObject>editData</bindingObject>
-                    <bindingField>entrys.splitBuild</bindingField>
-                    <fieldType>boolean</fieldType>
-                    <accessType>2</accessType>
-                    <autoMode>false</autoMode>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </propertyBinding>
-            </propertyBindings>
-            <eventBindings>
-                <eventBinding>
-                    <name>editStopped</name>
-                    <eventType>com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent</eventType>
-                    <scene />
-                    <listenerType>com.kingdee.bos.ctrl.kdf.table.event.KDTEditListener</listenerType>
-                    <listenerAdapter>com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter</listenerAdapter>
-                    <methodName>kdtEntrys_editStopped</methodName>
-                    <code>
-      //write your code herea
-</code>
-                    <isBindWorkFlow>false</isBindWorkFlow>
-                    <herited>false</herited>
-                    <userDefined>true</userDefined>
-                </eventBinding>
-            </eventBindings>
-        </component>
-        <component>
             <name>contcostAccount</name>
             <alias>uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildSplitBillEditUI].components.component[contcostAccount].alias</alias>
             <userDefined>true</userDefined>
@@ -783,6 +682,25 @@
                 <name />
                 <type>TabbedPaneLayout</type>
                 <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>kDContainer1</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildSplitBillEditUI].components.component[kDContainer1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>5,57,580,180</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name>borderLayout1</name>
+                <type>BorderLayout</type>
+                <value>0,0</value>
             </layoutInfo>
             <parent>
                 <key name="name" value="CoreUI" />
@@ -1509,6 +1427,105 @@
                     <userDefined>true</userDefined>
                 </propertyBinding>
             </propertyBindings>
+        </component>
+        <component>
+            <name>kdtEntrys</name>
+            <alias>uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildSplitBillEditUI].components.component[kdtEntrys].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
+            <isContainer>false</isContainer>
+            <constraints>Center</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>formatXml</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildSplitBillEditUI].components.component[kdtEntrys].properties.property[formatXml].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="kDContainer1" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>id.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>entrys.id</bindingField>
+                    <fieldType>com.kingdee.bos.util.BOSUuid</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>userObject</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>entrys</bindingField>
+                    <fieldType>com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryCollection</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>pointName.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>entrys.pointName</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>dataValue.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>entrys.dataValue</bindingField>
+                    <fieldType>java.math.BigDecimal</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+                <propertyBinding>
+                    <propertyName>splitBuild.text</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>entrys.splitBuild</bindingField>
+                    <fieldType>boolean</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+            <eventBindings>
+                <eventBinding>
+                    <name>editStopped</name>
+                    <eventType>com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent</eventType>
+                    <scene />
+                    <listenerType>com.kingdee.bos.ctrl.kdf.table.event.KDTEditListener</listenerType>
+                    <listenerAdapter>com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter</listenerAdapter>
+                    <methodName>kdtEntrys_editStopped</methodName>
+                    <code>//write your code herea</code>
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
         </component>
         <component>
             <name>btnTraceUp</name>
@@ -2678,6 +2695,12 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildSplitBillEditUI].components.component[kDContainer1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.costindexdb.database.client.BuildSplitBillEditUI].components.component[kDDateCreateTime].alias">
             <lang locale="en_US" value="null" />
