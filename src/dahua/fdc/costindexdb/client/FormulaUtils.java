@@ -13,12 +13,12 @@ public class FormulaUtils {
 	public String Msg = "";
 	private String formula = "";
 	private int[] sym = new int[4];
-	private Vector<String> list = new Vector<String>();// 用来存放从字符串解析出来的字符
-	static Vector<Double> paras = new Vector<Double>();// 用来存放变量参数
+	public Vector<String> list = new Vector<String>();// 用来存放从字符串解析出来的字符
+	public Vector<Double> paras = new Vector<Double>();// 用来存放变量参数
 
 	/*
 	 * 构造方法，以要算的公式为参数
-	 */
+	 */ 
 	public FormulaUtils(String calRule) {
 		this.setFormula(calRule);
 	}
@@ -186,18 +186,18 @@ public class FormulaUtils {
 		String formulaStr = "", calRule = "";
 		double value = 0.0;
 		calRule = this.formula;
-		for(int i = 0; i < leftBracket; i++) {
-			int iStart = calRule.lastIndexOf("(") + 1;
-			// 获得最里层括号里的内容
-			formulaStr = calRule.substring(iStart,iStart + calRule.substring(iStart).indexOf(")")).trim();
-			symbolParse(formulaStr);
-			value = parseString();
-			iStart = calRule.lastIndexOf("(");
-			int iEnd = calRule.substring(iStart).indexOf(")") + 1;
-			calRule = calRule.substring(0, iStart).trim()+ value+ calRule.substring(iStart + iEnd, calRule.length()).trim();
+		if (checkValid()) {
+			for(int i = 0; i < leftBracket; i++) {
+				int iStart = calRule.lastIndexOf("(") + 1;
+				// 获得最里层括号里的内容
+				formulaStr = calRule.substring(iStart,iStart + calRule.substring(iStart).indexOf(")")).trim();
+				symbolParse(formulaStr);
+				value = parseString();
+				iStart = calRule.lastIndexOf("(");
+				int iEnd = calRule.substring(iStart).indexOf(")") + 1;
+				calRule = calRule.substring(0, iStart).trim()+ value+ calRule.substring(iStart + iEnd, calRule.length()).trim();
+			}
 		}
-//		if (checkValid()) {
-//		}
 		double tmp = Math.pow(10, 10);
 		value = Math.round(value * tmp) / tmp;
 		System.out.println(Msg);
