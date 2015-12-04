@@ -4768,13 +4768,65 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		if (isAutoComplete) {//申请单进度款付款比例自动为100%
 			objectValue.setPaymentProportion(FDCConstants.ONE_HUNDRED);
 		}
-
 		// 开票日期
 		objectValue.setInvoiceDate(serverDate);
+		
+		
+		//资金计划申请金额
+//		String id = editData.getId().toString();
+//		String contractId = editData.getContractId();
+//		Date bizDate = editData.getBizDate();
+		Calendar c1 = Calendar.getInstance();
+		   int year = c1.get(Calendar.YEAR);
+           int month = c1.get(Calendar.MONTH);
+           month = month+1;
+           if(month!= 1){
+        	   month = month-1;
+           }else{
+        	   month = 12;
+        	   year = year-1;
+           }
+			BigDecimal zjjh;
+			try {
+				BigDecimal je = getZjjh(year,month,objectValue.getCurProject().getId().toString(),contractBillId);
+				objectValue.setZjjhSqje(je);
+			} catch (BOSException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 
 		return objectValue;
 	}
 
+	private BigDecimal getZjjh(int year, int month, String id, String contractId) throws BOSException, SQLException{
+		BigDecimal zjjhje = BigDecimal.ZERO;
+		StringBuffer sb = new StringBuffer();
+		sb.append("select try.fReportAmount from T_FNC_ProjectMonthPlanGather ther ");
+		sb.append("left join T_FDC_CurProject  ject on ject.fid = ther.fcurprojectid ");
+		sb.append("left join T_FNC_ProjectMonthPlanGEntry entry on entry.fheadid = ther.fid ");
+		sb.append("left join T_FNC_ProjectMonthPGDateEntry try on try.fHeadEntryid = entry.fid ");
+		sb.append("where ther.FISLATEST = '1' " );
+		String m = "";
+		if(month < 10)
+			m = "0"+month;
+		else
+			m=month+"";
+		//期间的年
+		sb.append("and ther.FBizDate= { ts '").append(year+"-"+m+"-01").append("'} ");	
+//		//期间的月
+		sb.append("and try.FMONTH='").append(month+1).append("' ");	
+		//项目id
+		sb.append("and ject.fid='").append(id).append("' ");
+		//公司ID
+		sb.append("and entry.FCONTRACTBILLID = '").append(contractId).append("'");
+		IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
+		while(rowset.next()){
+			zjjhje = rowset.getBigDecimal(1);
+		}
+		return zjjhje;
+	}
+	
 	private void reloadDynamicValue() {
 
 		try {

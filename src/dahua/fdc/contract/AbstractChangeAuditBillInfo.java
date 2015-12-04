@@ -677,6 +677,94 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
     {
         setInt("delyDay", item);
     }
+    /**
+     * Object:合同变更发起's 是否影响二级节点property 
+     */
+    public boolean isSfejjd()
+    {
+        return getBoolean("Sfejjd");
+    }
+    public void setSfejjd(boolean item)
+    {
+        setBoolean("Sfejjd", item);
+    }
+    /**
+     * Object:合同变更发起's 报建指标property 
+     */
+    public boolean isBjzb()
+    {
+        return getBoolean("Bjzb");
+    }
+    public void setBjzb(boolean item)
+    {
+        setBoolean("Bjzb", item);
+    }
+    /**
+     * Object:合同变更发起's 销售承诺property 
+     */
+    public boolean isXscn()
+    {
+        return getBoolean("Xscn");
+    }
+    public void setXscn(boolean item)
+    {
+        setBoolean("Xscn", item);
+    }
+    /**
+     * Object:合同变更发起's 有无图纸property 
+     */
+    public String getYwtz()
+    {
+        return getString("Ywtz");
+    }
+    public void setYwtz(String item)
+    {
+        setString("Ywtz", item);
+    }
+    /**
+     * Object:合同变更发起's 附图编号property 
+     */
+    public String getFtbh()
+    {
+        return getString("Ftbh");
+    }
+    public void setFtbh(String item)
+    {
+        setString("Ftbh", item);
+    }
+    /**
+     * Object:合同变更发起's 变更原因property 
+     */
+    public String getBgyy()
+    {
+        return getString("Bgyy");
+    }
+    public void setBgyy(String item)
+    {
+        setString("Bgyy", item);
+    }
+    /**
+     * Object:合同变更发起's 主送property 
+     */
+    public String getZS()
+    {
+        return getString("ZS");
+    }
+    public void setZS(String item)
+    {
+        setString("ZS", item);
+    }
+    /**
+     * Object:合同变更发起's 抄送property 
+     */
+    public String getCS()
+    {
+        return getString("CS");
+    }
+    public void setCS(String item)
+    {
+        setString("CS", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("70116117");
