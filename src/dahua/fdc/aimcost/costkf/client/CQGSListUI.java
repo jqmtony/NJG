@@ -54,6 +54,8 @@ import com.kingdee.eas.util.client.EASResource;
 public class CQGSListUI extends AbstractCQGSListUI
 {
     private static final Logger logger = CoreUIObject.getLogger(CQGSListUI.class);
+	private final static String CANTUNAUDIT = "cantUnAudit";
+	private final static String CANTAUDIT = "cantAudit";
     
     /**
      * output class constructor  
@@ -211,8 +213,16 @@ public class CQGSListUI extends AbstractCQGSListUI
         return sic;
     }        
     	
+	private void checkBeforeAuditOrUnAudit(CQGSInfo cqgsinfo , FDCBillStateEnum aduit,String Waring ) {
+		//检查单据是否在审核中
+		FDCClientUtils.checkBillInWorkflow(this, cqgsinfo.getId().toString());
+		boolean b = cqgsinfo!=null&&cqgsinfo.getState()!=null&&cqgsinfo.getState().equals(aduit);
+		if(!b){
+			MsgBox.showWarning(this, FDCClientUtils.getRes(Waring));
+			SysUtil.abort();
+		}
+	} 
 	
-	@Override
 	public void actionAduit_actionPerformed(ActionEvent e) throws Exception {
 		checkSelected();//判断是否选中
 		String id = getSelectedKeyValue();
@@ -226,12 +236,19 @@ public class CQGSListUI extends AbstractCQGSListUI
 			MsgBox.showWarning("请先提交，再审核");
 			abort();
 		}
+		checkBeforeAuditOrUnAudit(cqgsinfo, FDCBillStateEnum.SUBMITTED, CANTAUDIT);
 		super.actionAduit_actionPerformed(e);
+		FDCClientUtils.showOprtOK(this);
 		refresh(null);
 
 	}
 
 	public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
+		checkSelected();//判断是否选中
+		String id = getSelectedKeyValue();
+		ICQGS remoteInstance = CQGSFactory.getRemoteInstance();
+		CQGSInfo cqgsinfo = remoteInstance.getCQGSInfo(new ObjectUuidPK(id));
+		checkBeforeAuditOrUnAudit(cqgsinfo, FDCBillStateEnum.AUDITTED, CANTUNAUDIT);
 		super.actionUnAudit_actionPerformed(e);
 		refresh(null);
 	}

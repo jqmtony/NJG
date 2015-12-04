@@ -43,8 +43,11 @@ import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.ProductTypeInfo;
+import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
+import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.framework.client.multiDetail.DetailPanel;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.util.NumericExceptionSubItem;
 
@@ -54,6 +57,35 @@ import com.kingdee.util.NumericExceptionSubItem;
 public class CQGSEditUI extends AbstractCQGSEditUI
 {	
 	private static final Logger logger = CoreUIObject.getLogger(CQGSEditUI.class);
+	private final static String CANTUNAUDITEDITSTATE = "cantUnAuditEditState";
+	private final static String CANTAUDITEDITSTATE = "cantAuditEditState";
+	private final static String CANTUNAUDIT = "cantUnAudit";
+	private final static String CANTAUDIT = "cantAudit";
+	
+	public void checkBeforeAuditOrUnAudit(FDCBillStateEnum state, String warning)
+	throws Exception {
+		// 检查单据是否在工作流中
+		FDCClientUtils.checkBillInWorkflow(this, getSelectBOID());
+
+		boolean b = editData != null && editData.getState() != null
+		&& editData.getState().equals(state);
+		if (!b) {
+			MsgBox.showWarning(this, FDCClientUtils.getRes(warning));
+			SysUtil.abort();
+		}
+
+		if (getOprtState().equals(STATUS_EDIT)) {
+			String warn = null;
+			if (state.equals(FDCBillStateEnum.AUDITTED)) {
+				warn = CANTUNAUDITEDITSTATE;
+			} else {
+				warn = CANTAUDITEDITSTATE;
+			}
+			MsgBox.showWarning(this, FDCClientUtils.getRes(warn));
+			SysUtil.abort();
+		}
+	}
+	
 
 	/**
 	 * output class constructor
@@ -92,6 +124,23 @@ public class CQGSEditUI extends AbstractCQGSEditUI
 		column.getStyleAttributes().setLocked(true);
 		
 		
+		
+	}
+	//    审核反审核
+	public void actionAduit_actionPerformed(ActionEvent e) throws Exception {
+		ControlState();
+		checkBeforeAuditOrUnAudit(FDCBillStateEnum.SUBMITTED,CANTAUDIT);
+		super.actionAduit_actionPerformed(e);
+		FDCClientUtils.showOprtOK(this);
+		loadData();
+	}
+	@Override
+	public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
+		checkBeforeAuditOrUnAudit(FDCBillStateEnum.AUDITTED,CANTUNAUDIT);
+		super.actionUnAudit_actionPerformed(e);
+		FDCClientUtils.showOprtOK(this);
+		loadData();
+		btnSubmit.setEnabled(true);
 	}
 	
 	public void onShow() throws Exception {
@@ -291,19 +340,7 @@ public class CQGSEditUI extends AbstractCQGSEditUI
 
 	}
 
-	//    审核反审核
-	public void actionAduit_actionPerformed(ActionEvent e) throws Exception {
-		ControlState();
-		super.actionAduit_actionPerformed(e);
-		loadData();
-	}
-	@Override
-	public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
-		// TODO Auto-generated method stub
-		super.actionUnAudit_actionPerformed(e);
-		loadData();
-		btnSubmit.setEnabled(true);
-	}
+
 	/**
 	 * output storeFields method
 	 */
