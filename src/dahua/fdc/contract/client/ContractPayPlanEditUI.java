@@ -732,12 +732,12 @@ public class ContractPayPlanEditUI extends AbstractContractPayPlanEditUI
 			FDCMsgBox.showWarning(this,"计划付款比例之和不为100%!!请修改!");
 			SysUtil.abort();
 		}
-		if(this.editData.getContractBill().getProgrammingContract()!=null&&this.editData.getContractBill().getProgrammingContract().getAmount()!=null){
-			if(FDCHelper.add(this.txtActAmount.getBigDecimalValue(), sum).compareTo(this.editData.getContractBill().getProgrammingContract().getAmount())>0){
-				FDCMsgBox.showWarning(this,"截止本月累计实付金额+合同付款计划总额之和大于合同关联合约规划金额！");
-				SysUtil.abort();
-			}
-		}
+//		if(this.editData.getContractBill().getProgrammingContract()!=null&&this.editData.getContractBill().getProgrammingContract().getAmount()!=null){
+//			if(FDCHelper.add(this.txtActAmount.getBigDecimalValue(), sum).compareTo(this.editData.getContractBill().getProgrammingContract().getAmount())>0){
+//				FDCMsgBox.showWarning(this,"截止本月累计实付金额+合同付款计划总额之和大于合同关联合约规划金额！");
+//				SysUtil.abort();
+//			}
+//		}
 	}
 	
 	private void checkRepeatPlan() {
