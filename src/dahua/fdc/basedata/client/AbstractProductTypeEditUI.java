@@ -662,17 +662,17 @@ public abstract class AbstractProductTypeEditUI extends com.kingdee.eas.fdc.base
     {
         this.setBounds(new Rectangle(10, 10, 290, 208));
         this.setLayout(null);
-        contName.setBounds(new Rectangle(10, 40, 270, 19));
+        contName.setBounds(new Rectangle(10, 36, 270, 19));
         this.add(contName, null);
         contNumber.setBounds(new Rectangle(10, 10, 270, 19));
         this.add(contNumber, null);
-        chkIsEnabled.setBounds(new Rectangle(235, 98, 140, 19));
+        chkIsEnabled.setBounds(new Rectangle(235, 114, 140, 19));
         this.add(chkIsEnabled, null);
-        bizDescription.setBounds(new Rectangle(10, 126, 270, 70));
+        bizDescription.setBounds(new Rectangle(10, 134, 270, 70));
         this.add(bizDescription, null);
-        kDLabel1.setBounds(new Rectangle(10, 98, 100, 19));
+        kDLabel1.setBounds(new Rectangle(10, 114, 100, 19));
         this.add(kDLabel1, null);
-        contPlanIndexType.setBounds(new Rectangle(10, 69, 270, 19));
+        contPlanIndexType.setBounds(new Rectangle(10, 89, 270, 19));
         this.add(contPlanIndexType, null);
         //contName
         contName.setBoundEditor(bizName);

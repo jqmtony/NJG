@@ -60,7 +60,7 @@ public class ProductTypeListUI extends AbstractProductTypeListUI {
 
 	
 	public void onShow() throws Exception {
-		tblMain.getColumn("PlanIndexType").getStyleAttributes().setHided(true);
+//		tblMain.getColumn("PlanIndexType").getStyleAttributes().setHided(true);
 	};
 	
 	protected String getEditUIName() {
