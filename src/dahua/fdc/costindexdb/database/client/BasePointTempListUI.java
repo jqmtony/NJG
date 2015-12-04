@@ -43,7 +43,7 @@ public class BasePointTempListUI extends AbstractBasePointTempListUI
     public void onLoad() throws Exception {
     	// TODO Auto-generated method stub
     	super.onLoad();
-    	tblMain.getSelectManager().setSelectMode(KDTSelectManager.ROW_SELECT);
+//    	tblMain.getSelectManager().setSelectMode(KDTSelectManager.ROW_SELECT);
 //    	tblMain.addKDTSelectListener(new KDTSelectListener(){
 //    		public void tableSelectChanged(KDTSelectEvent e) {
 //    			tblMain_tableSelectChanged(e);

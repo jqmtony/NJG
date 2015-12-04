@@ -63,6 +63,7 @@ public class SinglePointTempEditUI extends AbstractSinglePointTempEditUI
 				return str;
 			}
 		};
+		selector.setShowParent(false);
 		prmtCostAccount.setSelector(selector);
 		prmtCostAccount.setEnabledMultiSelection(false);
 		prmtCostAccount.setDisplayFormat("$longNumber$");

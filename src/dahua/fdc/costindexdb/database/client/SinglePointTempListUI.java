@@ -6,6 +6,7 @@ package com.kingdee.eas.fdc.costindexdb.database.client;
 import java.awt.event.*;
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.basedata.org.OrgConstants;
 import com.kingdee.eas.common.client.SysContext;
@@ -38,6 +39,7 @@ public class SinglePointTempListUI extends AbstractSinglePointTempListUI
 			actionEdit.setEnabled(false);
 			actionRemove.setEnabled(false);
 		}
+		
     }
     
     @Override

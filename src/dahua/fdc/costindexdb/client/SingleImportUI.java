@@ -75,7 +75,7 @@ public class SingleImportUI extends AbstractSingleImportUI
 		}
     	KDTable table = (KDTable)getUIContext().get("kdtable");
     	SinglePointTempEntryCollection btcoll = null;
-    	btcoll=SinglePointTempEntryFactory.getRemoteInstance().getSinglePointTempEntryCollection("select pointName,baseUnit.id,baseUnit.name,baseUnit.number,costAcount.id,costAcount.name,costAcount.number where parent.id='"+getSelectedKeyValue()+"'");
+    	btcoll=SinglePointTempEntryFactory.getRemoteInstance().getSinglePointTempEntryCollection("select pointName,baseUnit.id,baseUnit.name,baseUnit.number,costAcount.id,costAcount.name,costAcount.number where parent.id='"+getSelectedKeyValue()+"' order by seq");
     	IRow row = null;
     	SinglePointTempEntryInfo beinfo = null;
     	table.removeRows();

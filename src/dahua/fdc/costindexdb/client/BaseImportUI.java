@@ -73,7 +73,7 @@ public class BaseImportUI extends AbstractBaseImportUI
 		}
     	KDTable table = (KDTable)getUIContext().get("kdtable");
     	BasePointTempEntryCollection btcoll = null;
-    	btcoll=BasePointTempEntryFactory.getRemoteInstance().getBasePointTempEntryCollection("select pointName,unitBase.id,unitBase.name,unitBase.number where parent.id='"+getSelectedKeyValue()+"'");
+    	btcoll=BasePointTempEntryFactory.getRemoteInstance().getBasePointTempEntryCollection("select pointName,unitBase.id,unitBase.name,unitBase.number where parent.id='"+getSelectedKeyValue()+"' order by seq");
     	IRow row = null;
     	BasePointTempEntryInfo beinfo = null;
     	table.removeRows();
