@@ -1180,14 +1180,17 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 
 					//申请金额
 					String key = spYear+"year"+(spMonth-1)+"m";
+					BigDecimal reportAmount = BigDecimal.ZERO;
 					if(applyAmountMap != null) {
-						BigDecimal reportAmount = (BigDecimal) applyAmountMap.get(key);
+						reportAmount = applyAmountMap.get(key) == null ? BigDecimal.ZERO : (BigDecimal) applyAmountMap.get(key);
 						row.getCell("applyAmount").setValue(reportAmount);
 					}
 					row.getCell("lastPrice").setValue(lastPrice);
 					row.getCell("monthActPayAmount").setValue(monthActPayAmount);
 					row.getCell("actPayAmount").setValue(actPayAmount);
-					row.getCell("noPayAmount").setValue(noPayAmount);
+//					row.getCell("noPayAmount").setValue(noPayAmount);
+					//本期申请未付金额 改为 本期申请金额-本月实际付款
+					row.getCell("noPayAmount").setValue(reportAmount.subtract(monthActPayAmount == null ? BigDecimal.ZERO : monthActPayAmount));
 					
 					if(entry.getContractBill()!=null){
 						rate=FDCHelper.multiply(FDCHelper.divide(actPayAmount, lastPrice,4,BigDecimal.ROUND_HALF_UP),new BigDecimal(100));
@@ -1881,7 +1884,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 				this.contractTable.removeRows();
 				this.btnGet_actionPerformed(null);
 			} else {
-				this.cbVersionType.setSelectedItem(null);
+//				this.cbVersionType.setSelectedItem(null);
 				return;
 			}
 		}
@@ -2024,6 +2027,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
             		ContractBillInfo contractInfo=ppEntry.getHead().getContractBill();
             		String contractId=contractInfo.getId().toString();
             		
+            		//计算上报金额
             		BigDecimal reportAmount = BigDecimal.ZERO;
             		if(nextMonthKey.equals(key)) {
             			BigDecimal preTotalAmount = getPreTotalAmount(contractInfo, sYear, sMonth);
@@ -2571,10 +2575,12 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		FDCSQLBuilder _builder = new FDCSQLBuilder();
 		_builder.appendSql(" select sum(bill.famount) payAmount from t_cas_paymentbill bill");
 		_builder.appendSql(" left join t_con_contractbill contract on contract.fid=bill.fcontractbillid");
+		_builder.appendSql(" left join T_CON_ContractPayPlan conpayplan on conpayplan.FContractBillId=contract.fid");
 		_builder.appendSql(" left join t_fdc_curproject project on project.fid=contract.fcurprojectid");
 		_builder.appendSql(" left join t_Fdc_Contracttype type on type.fid=contract.fcontracttypeid");
 		_builder.appendSql(" where bill.fbillstatus=15 and type.flongnumber like 'fb%'");
 		_builder.appendSql(" and project.fid='"+info.getId().toString()+"'");
+		_builder.appendSql(" and conpayplan.fid is not null and conpayplan.fislatest='1'");
 		_builder.appendSql(" and bill.fpayDate is not null and bill.famount is not null");
 		_builder.appendSql(" and bill.fpayDate < {ts '"+FDCConstants.FORMAT_TIME.format(FDCDateHelper.getSQLEnd(FDCDateHelper.getFirstDayOfMonth(cal.getTime())))+ "'}");
 		
