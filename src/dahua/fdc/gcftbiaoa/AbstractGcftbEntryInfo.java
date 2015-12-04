@@ -30,15 +30,15 @@ public class AbstractGcftbEntryInfo extends com.kingdee.eas.framework.CoreBillEn
         put("parent", item);
     }
     /**
-     * Object:分录's 开工时间property 
+     * Object: 分录 's 工程项目 property 
      */
-    public java.util.Date getStartTime()
+    public com.kingdee.eas.fdc.basedata.CurProjectInfo getEngineeringProject()
     {
-        return getDate("startTime");
+        return (com.kingdee.eas.fdc.basedata.CurProjectInfo)get("engineeringProject");
     }
-    public void setStartTime(java.util.Date item)
+    public void setEngineeringProject(com.kingdee.eas.fdc.basedata.CurProjectInfo item)
     {
-        setDate("startTime", item);
+        put("engineeringProject", item);
     }
     /**
      * Object: 分录 's 设施名称 property 
@@ -74,6 +74,17 @@ public class AbstractGcftbEntryInfo extends com.kingdee.eas.framework.CoreBillEn
         setBigDecimal("constructionArea", item);
     }
     /**
+     * Object:分录's 开工时间property 
+     */
+    public java.util.Date getStartTime()
+    {
+        return getDate("startTime");
+    }
+    public void setStartTime(java.util.Date item)
+    {
+        setDate("startTime", item);
+    }
+    /**
      * Object:分录's 实际开工时间property 
      */
     public java.util.Date getActualStartTine()
@@ -98,13 +109,13 @@ public class AbstractGcftbEntryInfo extends com.kingdee.eas.framework.CoreBillEn
     /**
      * Object:分录's 实际竣工时间property 
      */
-    public String getActualCompeltionTime()
+    public java.util.Date getActualCompeltionTime()
     {
-        return getString("actualCompeltionTime");
+        return getDate("actualCompeltionTime");
     }
-    public void setActualCompeltionTime(String item)
+    public void setActualCompeltionTime(java.util.Date item)
     {
-        setString("actualCompeltionTime", item);
+        setDate("actualCompeltionTime", item);
     }
     /**
      * Object:分录's 成本总额property 
@@ -173,17 +184,6 @@ public class AbstractGcftbEntryInfo extends com.kingdee.eas.framework.CoreBillEn
     public void setSharePrice(java.math.BigDecimal item)
     {
         setBigDecimal("sharePrice", item);
-    }
-    /**
-     * Object: 分录 's 工程项目 property 
-     */
-    public com.kingdee.eas.fdc.basedata.CurProjectInfo getEngineeringProject()
-    {
-        return (com.kingdee.eas.fdc.basedata.CurProjectInfo)get("engineeringProject");
-    }
-    public void setEngineeringProject(com.kingdee.eas.fdc.basedata.CurProjectInfo item)
-    {
-        put("engineeringProject", item);
     }
     /**
      * Object: 分录 's 分摊项目 property 

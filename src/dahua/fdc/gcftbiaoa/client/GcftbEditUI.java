@@ -4,27 +4,52 @@
 package com.kingdee.eas.fdc.gcftbiaoa.client;
 
 import java.awt.BorderLayout;
+import java.awt.Dialog;
+import java.awt.Frame;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
+
+import javax.swing.SwingUtilities;
 
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.common.LanguageManager;
+import com.kingdee.bos.ctrl.excel.impl.facade.wizzard.WizzardIO;
+import com.kingdee.bos.ctrl.excel.io.kds.KDSBookToBook;
+import com.kingdee.bos.ctrl.excel.model.struct.Sheet;
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.export.ExportManager;
+import com.kingdee.bos.ctrl.kdf.export.KDTables2KDSBook;
+import com.kingdee.bos.ctrl.kdf.export.KDTables2KDSBookVO;
+import com.kingdee.bos.ctrl.kdf.kds.KDSBook;
+import com.kingdee.bos.ctrl.kdf.read.POIXlsReader;
+import com.kingdee.bos.ctrl.kdf.table.IColumn;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
+import com.kingdee.bos.ctrl.kdf.table.KDTMenuManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.swing.KDComboBox;
 import com.kingdee.bos.ctrl.swing.KDContainer;
+import com.kingdee.bos.ctrl.swing.KDFileChooser;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
+import com.kingdee.bos.ctrl.swing.util.SimpleFileFilter;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -34,12 +59,24 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.eas.base.permission.client.longtime.ILongTimeTask;
+import com.kingdee.eas.base.permission.client.longtime.LongTimeDialog;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.fdc.aimcost.costkf.CqgsBaseCollection;
+import com.kingdee.eas.fdc.aimcost.costkf.CqgsBaseFactory;
+import com.kingdee.eas.fdc.aimcost.costkf.ICqgsBase;
+import com.kingdee.eas.fdc.basedata.CurProjectCollection;
+import com.kingdee.eas.fdc.basedata.CurProjectFactory;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.basedata.ICurProject;
+import com.kingdee.eas.fdc.basedata.IProductType;
+import com.kingdee.eas.fdc.basedata.ProductTypeCollection;
+import com.kingdee.eas.fdc.basedata.ProductTypeFactory;
 import com.kingdee.eas.fdc.basedata.ProductTypeInfo;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
@@ -131,6 +168,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		kdtDetail.getColumn("allocationBase").getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
 		kdtDetail.getColumn("shareAmount").getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
 		
+		this.kdtDetail.getHeadRow(0).getCell("benefitProject").setValue("受益项目");
 		//连续提交设置
 		this.chkMenuItemSubmitAndAddNew.setVisible(false);
 		this.chkMenuItemSubmitAndAddNew.setSelected(false);
@@ -152,20 +190,34 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
         setTableToSumField(kdtDetail,new String[]{"allocationBase","shareAmount"});   
         
         
-        importExcelButton.setIcon(EASResource.getIcon(""));
-		outExcelButton.setIcon(EASResource.getIcon(""));
+        importExcelButton.setIcon(EASResource.getIcon("imgTbtn_importexcel"));
+		outExcelButton.setIcon(EASResource.getIcon("imgTbtn_importexcel"));
 		
 		kDContainer1.addButton(importExcelButton);
 		kDContainer1.addButton(outExcelButton);
 		
 		importExcelButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				importExcelButton_actionPerformed(e);
+				try {
+					importExcelButton_actionPerformed(e);
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (EASBizException e1) {
+					e1.printStackTrace();
+				} catch (BOSException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		outExcelButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				outExcelButton_actionPerformed(e);
+				try {
+					outExcelButton_actionPerformed(e);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 	}
@@ -183,13 +235,360 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		kDContainer.addButton(removeLinesButton);
 		kDContainer.getContentPane().add(detail.getEntryTable(),BorderLayout.CENTER);
 	}
+	//选取Excel
+	public static String showExcelSelectDlg(CoreUIObject ui){
+    	KDFileChooser chsFile = new KDFileChooser();
+    	String XLS = "xls";
+    	String Key_File = "Key_File";
+    	//筛选xls格式的文件
+    	SimpleFileFilter Filter_Excel = new SimpleFileFilter(XLS, (new StringBuilder("MS Excel")).append(LanguageManager.getLangMessage(Key_File, WizzardIO.class.getName(), "\u64CD\u4F5C\u5931\u8D25")).toString());
+    	chsFile.addChoosableFileFilter(Filter_Excel);
+    	int ret = chsFile.showOpenDialog(ui);
+    	if(ret != 0)
+    		SysUtil.abort();
+
+    	File file = chsFile.getSelectedFile();
+    	String fileName = file.getAbsolutePath();
+    	return fileName;
+    }
+
 	
-	private void importExcelButton_actionPerformed(ActionEvent e) {
+	private void importExcelButton_actionPerformed(ActionEvent e) throws FileNotFoundException, IOException, EASBizException, BOSException {
+		final String path = showExcelSelectDlg(this);//打开窗口，获得路径
+		if (path == null) {
+			return;
+		}
+		KDSBook kdsbook = POIXlsReader.parse2(path);//Excel页面集
+		if (kdsbook == null)
+			return ;
+		if(KDSBookToBook.traslate(kdsbook).getSheetCount()>1){
+			MsgBox.showWarning(this,"读EXCEL出错,EXCEl Sheet数量不匹配！");
+			return;
+		}
+		final Sheet excelSheet = KDSBookToBook.traslate(kdsbook).getSheet(0);//第一页集合
+		checkExelData(kdtEntrys, excelSheet);
 		
+		Window win = SwingUtilities.getWindowAncestor(this);
+        LongTimeDialog dialog = null;
+        if(win instanceof Frame){
+        	dialog = new LongTimeDialog((Frame)win);
+        }
+        else if(win instanceof Dialog){
+        	dialog = new LongTimeDialog((Dialog)win);
+        }
+        if(dialog==null){
+        	dialog = new LongTimeDialog(new Frame());
+        }
+        dialog.setLongTimeTask(new ILongTimeTask() {
+			public void afterExec(Object arg0) throws Exception {
+				Boolean bol=(Boolean)arg0;
+				if(bol){
+					MsgBox.showInfo("导入成功！");
+				}
+			}
+			public Object exec() throws Exception {
+				boolean bol=importExcelToTable(excelSheet,kdtEntrys);
+				return bol;
+			}
+    	}
+	    );
+	    dialog.show();
 	}
 	
-	private void outExcelButton_actionPerformed(ActionEvent e) {
+	private boolean checkExelData(KDTable table,Sheet excelSheet) throws EASBizException, BOSException{
+    	Map e_colNameMap = new HashMap();
+		int e_maxRow = excelSheet.getMaxRowIndex();
+		int e_maxColumn = excelSheet.getMaxColIndex();
+		for (int col = 0; col <= e_maxColumn; col++) {//获取Excel表头
+			String excelColName = excelSheet.getCell(0, col, true).getText();
+			e_colNameMap.put(excelColName, new Integer(col));
+		}
+		table.removeColumn(table.getColumnIndex("ftje"));
+		table.removeColumn(table.getColumnIndex("ftjs"));
+		table.removeColumn(table.getColumnIndex("syxm"));
+		IRow headRow = table.getHeadRow(0);
+		IColumn addColumn = table.addColumn();
+        addColumn.setKey("syxm");
+        headRow.getCell(addColumn.getKey()).setValue("受益项目");
+        addColumn = table.addColumn();
+        addColumn.setKey("ftjs");
+        headRow.getCell(addColumn.getKey()).setValue("分摊基数");
+        addColumn = table.addColumn();
+        addColumn.setKey("ftje");
+        headRow.getCell(addColumn.getKey()).setValue("分摊金额");
 		
+		for (int col = 0; col< table.getColumnCount(); col++) {//获取table表头
+			if (table.getColumn(col).getStyleAttributes().isHided()) {
+				continue;
+			}
+			String colName = (String) table.getHeadRow(0).getCell(col).getValue();
+			Integer colInt = (Integer) e_colNameMap.get(colName);
+			if (colInt == null) {
+				MsgBox.showWarning(this,"表头结构不一致！表格上的关键列:" + colName + "在EXCEL中没有出现！");
+				return false;
+			}
+		}
+		StringBuffer erroMsg = new StringBuffer();
+		for (int rowIndex = 1; rowIndex <= e_maxRow-1; rowIndex++) {
+			for (int col = 0; col < table.getColumnCount(); col++) { 
+				if (table.getColumn(col).getStyleAttributes().isHided()) {
+    				continue;
+    			}
+				String colName = (String) table.getHeadRow(0).getCell(col).getValue();
+				Integer colInt = (Integer) e_colNameMap.get(colName);
+				if (colInt == null) {
+					continue;
+				}
+				com.kingdee.bos.ctrl.common.variant.Variant cellRawVal = excelSheet.getCell(rowIndex, colInt.intValue(), true).getValue();
+				if (com.kingdee.bos.ctrl.common.variant.Variant.isNull(cellRawVal)) {
+					continue;
+				}
+				String colValue = cellRawVal.toString();
+				if(("工程项目").equals(colName)&&!CurProjectFactory.getRemoteInstance().exists("where name='"+colValue+"'"))
+					erroMsg.append("第["+rowIndex+"]行 工程项目 ["+colValue+"] 在系统中不存在！\n");
+				if(("设施名称").equals(colName)&&!ProductTypeFactory.getRemoteInstance().exists("where name='"+colValue+"'"))
+					erroMsg.append("第["+rowIndex+"]行 设施名称 ["+colValue+"] 在系统中不存在！\n");
+				if(("产权情况").equals(colName)&&!CqgsBaseFactory.getRemoteInstance().exists("where name='"+colValue+"'"))
+					erroMsg.append("第["+rowIndex+"]行 产权情况 ["+colValue+"] 在系统中不存在！\n");
+				if(("建筑面积").equals(colName))
+					erroMsg.append(verifyFieldFormat(rowIndex,"建筑面积", colValue, "bigdecimal"));  
+				if(("开工时间").equals(colName))
+					erroMsg.append(verifyFieldFormat(rowIndex,"开工时间", excelSheet.getCell(rowIndex, colInt.intValue(), true).getText(), "date"));
+				if(("实际开工时间").equals(colName))
+					erroMsg.append(verifyFieldFormat(rowIndex,"实际开工时间", excelSheet.getCell(rowIndex, colInt.intValue(), true).getText(), "date"));
+				if(("竣工时间").equals(colName))
+					erroMsg.append(verifyFieldFormat(rowIndex,"竣工时间", excelSheet.getCell(rowIndex, colInt.intValue(), true).getText(), "date"));
+				if(("实际竣工时间").equals(colName))
+					erroMsg.append(verifyFieldFormat(rowIndex,"实际竣工时间", excelSheet.getCell(rowIndex, colInt.intValue(), true).getText(), "date"));
+				if(("成本总额").equals(colName))
+					erroMsg.append(verifyFieldFormat(rowIndex,"成本总额", colValue, "bigdecimal"));
+				if(("已发生成本").equals(colName))
+					erroMsg.append(verifyFieldFormat(rowIndex,"已发生成本", colValue, "bigdecimal"));
+				if(("分摊指标").equals(colName)){
+					boolean flse = true;
+					Iterator iterator = AllocationIndex.getEnumList().iterator();
+					while(iterator.hasNext()){				//清除空格
+						if(iterator.next().toString().equals(colValue.trim()))
+							flse = false;
+					}
+					if(flse)
+						erroMsg.append("第["+rowIndex+"]行 分摊指标枚举类型 ["+colValue+"] 不存在！\n");
+				}
+				if(("应分摊总量").equals(colName))
+					erroMsg.append(verifyFieldFormat(rowIndex,"应分摊总量", colValue, "bigdecimal"));
+				if(("待分摊总量").equals(colName))
+					erroMsg.append(verifyFieldFormat(rowIndex,"待分摊总量", colValue, "bigdecimal"));
+				if(("分摊单价").equals(colName))
+					erroMsg.append(verifyFieldFormat(rowIndex,"分摊单价", colValue, "bigdecimal"));
+				
+				if(("受益项目").equals(colName)&&!CurProjectFactory.getRemoteInstance().exists("where name='"+colValue+"'")){
+					erroMsg.append("第["+rowIndex+"]行 受益项目 ["+colValue+"] 在系统中不存在！\n");
+				}
+				if(("分摊基数").equals(colName)){
+					erroMsg.append(verifyFieldFormat(rowIndex,"分摊基数", colValue, "bigdecimal"));  
+				}
+				if(("分摊金额").equals(colName)){
+					erroMsg.append(verifyFieldFormat(rowIndex,"分摊金额", colValue, "bigdecimal"));  
+				}
+			}
+		}
+		if(UIRuleUtil.isNotNull(erroMsg.toString())){
+			table.removeColumn(table.getColumnIndex("ftje"));
+			table.removeColumn(table.getColumnIndex("ftjs"));
+			table.removeColumn(table.getColumnIndex("syxm"));
+			FDCMsgBox.showConfirm3a("数据合法性校验失败，请查看详细信息更正！", erroMsg.toString());
+			SysUtil.abort();
+		}
+		return true;
+	}
+	
+	//读取Excel
+	private boolean importExcelToTable(Sheet excelSheet, KDTable table) throws Exception {
+    	Map e_colNameMap = new HashMap();
+		int e_maxRow = excelSheet.getMaxRowIndex();
+		int e_maxColumn = excelSheet.getMaxColIndex();
+		for (int col = 0; col <= e_maxColumn; col++) {//获取Excel表头
+			String excelColName = excelSheet.getCell(0, col, true).getText();
+			e_colNameMap.put(excelColName, new Integer(col));
+		}
+		for (int col = 0; col< table.getColumnCount(); col++) {//获取table表头
+			if (table.getColumn(col).getStyleAttributes().isHided()) {
+				continue;
+			}
+			String colName = (String) table.getHeadRow(0).getCell(col).getValue();
+			Integer colInt = (Integer) e_colNameMap.get(colName);
+			if (colInt == null) {
+				MsgBox.showWarning(this,"表头结构不一致！表格上的关键列:" + colName + "在EXCEL中没有出现！");
+				return false;
+			}
+		}
+		table.removeRows();
+		
+		storeFields();
+		//清除原来的数据
+		editData.getEntrys().clear();
+		ICurProject ICurProject = CurProjectFactory.getRemoteInstance();
+		IProductType IProductType = ProductTypeFactory.getRemoteInstance();
+		ICqgsBase IcqgsBase = CqgsBaseFactory.getRemoteInstance();
+		
+		for (int rowIndex = 1; rowIndex <= e_maxRow-1; rowIndex++) {
+			GcftbEntryInfo entry = new GcftbEntryInfo();
+			entry.setId(BOSUuid.create(entry.getBOSType()));
+			GcftbEntryDetailInfo detailInfo = new GcftbEntryDetailInfo();
+			detailInfo.setId(BOSUuid.create(detailInfo.getBOSType()));
+			for (int col = 0; col < table.getColumnCount(); col++) {
+				if (table.getColumn(col).getStyleAttributes().isHided()) {
+    				continue;
+    			}
+				String colName = (String) table.getHeadRow(0).getCell(col).getValue();
+				Integer colInt = (Integer) e_colNameMap.get(colName);
+
+				if (colInt == null) {
+					continue;
+				}
+				
+				com.kingdee.bos.ctrl.common.variant.Variant cellRawVal = excelSheet.getCell(rowIndex, colInt.intValue(), true).getValue();
+				if (com.kingdee.bos.ctrl.common.variant.Variant.isNull(cellRawVal)) {
+					continue;
+				}
+				String colValue = cellRawVal.toString();
+				//一一塞值
+				if(("工程项目").equals(colName)){
+					CurProjectCollection curProjectCollection = ICurProject.getCurProjectCollection("select id,number,name where name='"+colValue+"'");
+					entry.setEngineeringProject(curProjectCollection.size()>0?curProjectCollection.get(0):null);
+				}
+				if(("设施名称").equals(colName)){
+					ProductTypeCollection productTypeCollection = IProductType.getProductTypeCollection("select id,number,name where name='"+colValue+"'");
+					entry.setFacilityName(productTypeCollection.size()>0?productTypeCollection.get(0):null);
+				}
+				if(("产权情况").equals(colName)){
+					CqgsBaseCollection cqgsBaseCollection = IcqgsBase.getCqgsBaseCollection("select id,number,name where name='"+colValue+"'");
+					entry.setProptreyRight(cqgsBaseCollection.size()>0?cqgsBaseCollection.get(0):null);
+				}
+				if(("建筑面积").equals(colName))
+					entry.setConstructionArea(UIRuleUtil.getBigDecimal(colValue));
+				if(("开工时间").equals(colName))
+					entry.setStartTime(UIRuleUtil.getDateValue(excelSheet.getCell(rowIndex, colInt.intValue(), true).getText()));
+				if(("实际开工时间").equals(colName))
+					entry.setActualStartTine(UIRuleUtil.getDateValue(excelSheet.getCell(rowIndex, colInt.intValue(), true).getText()));
+				if(("竣工时间").equals(colName))
+					entry.setCompletionTime(UIRuleUtil.getDateValue(excelSheet.getCell(rowIndex, colInt.intValue(), true).getText()));
+				if(("实际竣工时间").equals(colName))
+					entry.setActualCompeltionTime(UIRuleUtil.getDateValue(excelSheet.getCell(rowIndex, colInt.intValue(), true).getText()));
+				if(("成本总额").equals(colName))
+					entry.setTotalCost(UIRuleUtil.getBigDecimal(colValue));
+				if(("已发生成本").equals(colName))
+					entry.setCostHasOccurred(UIRuleUtil.getBigDecimal(colValue));
+				if(("分摊指标").equals(colName)){
+					if("建筑面积".equals(colValue))
+						entry.setAllocationIndex(AllocationIndex.coveredArea);
+					else if("销售面积".equals(colValue))
+						entry.setAllocationIndex(AllocationIndex.saleArea);
+				}
+				if(("应分摊总量").equals(colName))
+					entry.setTotalAmount(UIRuleUtil.getBigDecimal(colValue));
+				if(("待分摊总量").equals(colName))
+					entry.setShare(UIRuleUtil.getBigDecimal(colValue));
+				if(("分摊单价").equals(colName))
+					entry.setSharePrice(UIRuleUtil.getBigDecimal(colValue));
+				//受益项目	分摊基数	分摊金额
+				if(("受益项目").equals(colName)){
+					CurProjectCollection curProjectCollection = ICurProject.getCurProjectCollection("select id,number,name where name='"+colValue+"'");
+					detailInfo.setBenefitProject(curProjectCollection.size()>0?curProjectCollection.get(0):null);
+				}
+				if(("分摊基数").equals(colName)){
+					detailInfo.setAllocationBase(UIRuleUtil.getBigDecimal(colValue));
+				}
+				if(("分摊金额").equals(colName)){
+					detailInfo.setShareAmount(UIRuleUtil.getBigDecimal(colValue));
+				}
+				entry.getDetail().add(detailInfo);
+			}
+			editData.getEntrys().add(entry);
+		}
+		table.removeColumn(table.getColumnIndex("ftje"));
+		table.removeColumn(table.getColumnIndex("ftjs"));
+		table.removeColumn(table.getColumnIndex("syxm"));
+		loadFields();
+		return true;
+	}	
+		
+	
+	//校验
+	private String verifyFieldFormat(int rowIndex ,String name, Object value, String dataType){
+	    if(dataType.equals("int")){
+	        String intString = (String)value;
+//		        if(!Pattern.matches("[+|-]?\\d+", intString))
+	        if(!Pattern.matches("[+]?\\d+", intString))
+	        	return "第["+rowIndex+"]行 "+name+" 不是数字格式或为负数,值["+value+"]。\n";
+	    }else if(dataType.equals("bigdecimal")){
+	        String bigDecimalStirng = (String)value;
+	        if(!Pattern.matches("[+]?\\d+(.\\d+)?(e[+]\\d+)?", bigDecimalStirng))
+//		        if(!Pattern.matches("[-|+]?\\d+(.\\d+)?(e[-|+]\\d+)?", bigDecimalStirng))
+	        	return "第["+rowIndex+"]行 "+name+" 不是数字格式或为负数,值["+value+"]。\n";
+	    }else if(dataType.equals("date")){
+	        String dateString = (String)value;
+	        if(!Pattern.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}", dateString))
+	        	return "第["+rowIndex+"]行 "+name+" 日期格式不对,值["+value+"]。\n";
+	    }else if(dataType.equals("bool") && !value.equals("true") && !value.equals("false"))
+	    	return "第["+rowIndex+"]行 "+name+" 格式不对,值["+value+"]。\n";
+	    return "";
+	}
+	
+	private void outExcelButton_actionPerformed(ActionEvent e) throws Exception {
+		ExportManager exportM = new ExportManager();
+        String path = null;
+        File tempFile = File.createTempFile("eastemp",".xls");
+        path = tempFile.getCanonicalPath();
+        
+        KDTable tempTable = new KDTable();
+        
+        IRow entryRow = kdtEntrys.getHeadRow(0);
+        IRow headRow = tempTable.addHeadRow();
+        for (int i = 0; i < this.kdtEntrys.getColumnCount(); i++) {
+        	tempTable.addColumn();
+        	headRow.getCell(i).setValue(entryRow.getCell(i).getValue());
+		}
+        
+        tempTable.removeRows();
+        IColumn addColumn = tempTable.addColumn();
+        addColumn.setKey("syxm");
+        headRow.getCell(addColumn.getKey()).setValue("受益项目");
+        addColumn = tempTable.addColumn();
+        addColumn.setKey("ftjs");
+        headRow.getCell(addColumn.getKey()).setValue("分摊基数");
+        addColumn = tempTable.addColumn();
+        addColumn.setKey("ftje");
+        headRow.getCell(addColumn.getKey()).setValue("分摊金额");
+
+        KDTables2KDSBookVO[] tablesVO = new KDTables2KDSBookVO[1];
+        tablesVO[0]=new KDTables2KDSBookVO(tempTable);
+		tablesVO[0].setTableName("工程分摊明细");
+        KDSBook book = null;
+        book = KDTables2KDSBook.getInstance().exportKDTablesToKDSBook(tablesVO,true,true);
+        exportM.exportToExcel(book, path);
+        
+		KDFileChooser fileChooser = new KDFileChooser();
+		fileChooser.setFileSelectionMode(0);
+		fileChooser.setMultiSelectionEnabled(false);
+		fileChooser.setSelectedFile(new File("公建配套工程分摊导入模板.xls"));
+		int result = fileChooser.showSaveDialog(this);
+		if (result == KDFileChooser.APPROVE_OPTION){
+			File dest = fileChooser.getSelectedFile();
+			try{
+				File src = new File(path);
+				if (dest.exists())
+					dest.delete();
+				src.renameTo(dest);
+				FDCMsgBox.showInfo("导出成功！");
+				KDTMenuManager.openFileInExcel(dest.getAbsolutePath());
+			}
+			catch (Exception e3)
+			{
+				handUIException(e3);
+			}
+		}
+		tempFile.delete();
 	}
 
 	protected void beforeStoreFields(ActionEvent arg0) throws Exception {
@@ -223,11 +622,11 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 				MsgBox.showWarning("设施名称不能为空！");
 				SysUtil.abort();
 			}
-			//if(UIRuleUtil.isNull(kdtEntrys.getCell(i,"proptreyRight").getValue
-			// ())){
-			// MsgBox.showWarning("产权情况不能为空！");
-			// SysUtil.abort();
-			// }
+			if(UIRuleUtil.isNull(kdtEntrys.getCell(i,"proptreyRight").getValue
+			 ())){
+			 MsgBox.showWarning("产权情况不能为空！");
+			 SysUtil.abort();
+			 }
 			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "constructionArea")
 					.getValue())) {
 				MsgBox.showWarning("建筑面积不能为空！");
@@ -468,9 +867,9 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		if(table.getName().equals("kdtEntrys")){
 			if(UIRuleUtil.isNull(row.getCell("costHasOccurred").getValue())){
 				//单价
-				row.getCell("sharePrice").setValue(FDCHelper.divide(row.getCell("totalCost").getValue(), row.getCell("totalAmount").getValue(),2,4));
+				row.getCell("sharePrice").setValue(FDCHelper.divide(row.getCell("totalCost").getValue(), row.getCell("totalAmount").getValue(),10,4));
 			}else{
-				row.getCell("sharePrice").setValue(FDCHelper.divide(row.getCell("costHasOccurred").getValue(), row.getCell("totalAmount").getValue(),2,4));
+				row.getCell("sharePrice").setValue(FDCHelper.divide(row.getCell("costHasOccurred").getValue(), row.getCell("totalAmount").getValue(),10,4));
 			}
 			AllocationIndex cationIndex = (AllocationIndex)row.getCell("allocationIndex").getValue();
 			updateDetailBaseAmount(-1,cationIndex);
