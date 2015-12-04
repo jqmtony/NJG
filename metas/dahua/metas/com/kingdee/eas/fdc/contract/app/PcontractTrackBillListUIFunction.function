@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functionObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.contract.app</package>
+    <name>PcontractTrackBillListUIFunction</name>
+    <alias>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].alias</alias>
+    <description>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].description</description>
+    <userDefined>true</userDefined>
+    <isBindSingleBizObject>false</isBindSingleBizObject>
+    <operations>
+        <operation>
+            <name>ActionRemove</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[ActionRemove].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[ActionRemove].description</description>
+            <reverseOperation />
+            <eventMethod>be5779dd-00fe-1000-e000-0007c0a813a9</eventMethod>
+            <event>deleteEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>74b6f5a7-0105-1000-e000-00f1c0a813a4uiaf</id>
+                <uiStatus />
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.contract.client" />
+                    <key name="name" value="PcontractTrackBillListUI" />
+                </uiObjectRef>
+                <actionRefName>ActionRemove</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billid</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[ActionRemove].uiActionRef.parameters.parameter[billid].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[ActionRemove].uiActionRef.parameters.parameter[billid].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="PcontractTrackBill" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>audit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[audit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[audit].description</description>
+            <reverseOperation />
+            <eventMethod>881aebe2-a7eb-4d22-bc4f-045c5f7ba9ae</eventMethod>
+            <event>auditEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>5c45ce72-4094-4096-bfd8-e89aebe9140fuiaf</id>
+                <uiStatus />
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.contract.client" />
+                    <key name="name" value="PcontractTrackBillListUI" />
+                </uiObjectRef>
+                <actionRefName>ActionAudit</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="PcontractTrackBill" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>unaudit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[unaudit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[unaudit].description</description>
+            <reverseOperation />
+            <eventMethod>769b88ac-6a83-4db2-8296-0fc82249fa6d</eventMethod>
+            <event>unauditEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>118c6cce-53c8-4bb3-8c4f-997170572bc3uiaf</id>
+                <uiStatus />
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.contract.client" />
+                    <key name="name" value="PcontractTrackBillListUI" />
+                </uiObjectRef>
+                <actionRefName>ActionUnaudit</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[unaudit].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[unaudit].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="PcontractTrackBill" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>fix</name>
+            <alias>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[fix].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[fix].description</description>
+            <reverseOperation />
+            <eventMethod>47929d96-9299-4b65-95f2-3ff1053ba47b</eventMethod>
+            <event>fixEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>03e1a61c-17c6-4ad3-908e-f4bd6914703duiaf</id>
+                <uiStatus />
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.contract.client" />
+                    <key name="name" value="PcontractTrackBillListUI" />
+                </uiObjectRef>
+                <actionRefName>ActionFix</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[fix].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[fix].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="PcontractTrackBill" />
+            </entityObjectRef>
+        </operation>
+    </operations>
+    <resource>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约跟踪单列表功能" />
+            <lang locale="zh_HK" value="合約跟蹤單列表功能" />
+            <lang locale="zh_TW" value="合約跟蹤單列表功能" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[ActionRemove].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="删除" />
+            <lang locale="zh_HK" value="刪除" />
+            <lang locale="zh_TW" value="刪除" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[ActionRemove].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="删除" />
+            <lang locale="zh_HK" value="刪除" />
+            <lang locale="zh_TW" value="刪除" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[ActionRemove].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[ActionRemove].uiActionRef.parameters.parameter[billid].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[ActionRemove].uiActionRef.parameters.parameter[billid].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[audit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[audit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[audit].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[fix].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="修订" />
+            <lang locale="zh_HK" value="修訂" />
+            <lang locale="zh_TW" value="修訂" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[fix].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[fix].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[fix].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[fix].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[unaudit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[unaudit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[unaudit].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[unaudit].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.contract.app.PcontractTrackBillListUIFunction].operations.operation[unaudit].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+    </resource>
+</functionObject>
+
