@@ -156,10 +156,12 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
     protected com.kingdee.bos.ctrl.swing.KDTextField txtcontractName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtOrg;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtProj;
+    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
     protected com.kingdee.bos.ctrl.swing.KDPanel pnlInviteInfo;
     protected com.kingdee.bos.ctrl.swing.KDPanel pnlDetail;
     protected com.kingdee.bos.ctrl.swing.KDPanel pnlCost;
-    protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
+    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer2;
+    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtSplitEntry;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contRemark;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contCoopLevel;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contPriceType;
@@ -210,8 +212,6 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtquantity;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable tblDetail;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable tblCost;
-    protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer2;
-    protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtSplitEntry;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtFwContract;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtControlAmount;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
@@ -544,10 +544,12 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.txtcontractName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtOrg = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtProj = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.pnlInviteInfo = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.pnlDetail = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.pnlCost = new com.kingdee.bos.ctrl.swing.KDPanel();
-        this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
+        this.kDContainer2 = new com.kingdee.bos.ctrl.swing.KDContainer();
+        this.kdtSplitEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.contRemark = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCoopLevel = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contPriceType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -598,8 +600,6 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.txtquantity = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.tblDetail = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.tblCost = new com.kingdee.bos.ctrl.kdf.table.KDTable();
-        this.kDContainer2 = new com.kingdee.bos.ctrl.swing.KDContainer();
-        this.kdtSplitEntry = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.prmtFwContract = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtControlAmount = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
@@ -738,10 +738,12 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.txtcontractName.setName("txtcontractName");
         this.txtOrg.setName("txtOrg");
         this.txtProj.setName("txtProj");
+        this.kDPanel2.setName("kDPanel2");
         this.pnlInviteInfo.setName("pnlInviteInfo");
         this.pnlDetail.setName("pnlDetail");
         this.pnlCost.setName("pnlCost");
-        this.kDPanel2.setName("kDPanel2");
+        this.kDContainer2.setName("kDContainer2");
+        this.kdtSplitEntry.setName("kdtSplitEntry");
         this.contRemark.setName("contRemark");
         this.contCoopLevel.setName("contCoopLevel");
         this.contPriceType.setName("contPriceType");
@@ -792,8 +794,6 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.txtquantity.setName("txtquantity");
         this.tblDetail.setName("tblDetail");
         this.tblCost.setName("tblCost");
-        this.kDContainer2.setName("kDContainer2");
-        this.kdtSplitEntry.setName("kdtSplitEntry");
         this.prmtFwContract.setName("prmtFwContract");
         this.txtControlAmount.setName("txtControlAmount");
         this.kDContainer1.setName("kDContainer1");
@@ -1662,10 +1662,49 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.txtOrg.setVisible(false);
         // txtProj		
         this.txtProj.setEditable(false);
+        // kDPanel2
         // pnlInviteInfo
         // pnlDetail
         // pnlCost
-        // kDPanel2
+        // kDContainer2		
+        this.kDContainer2.setEnableActive(false);		
+        this.kDContainer2.setTitle(resHelper.getString("kDContainer2.title"));
+        // kdtSplitEntry
+		String kdtSplitEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol1\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection hidden=\"true\" /><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol6\"><c:Protection hidden=\"true\" /><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol8\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol9\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol10\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol14\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol15\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol16\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol17\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol18\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol19\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol20\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol21\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" t:styleID=\"sCol0\" /><t:Column t:key=\"costAccount.curProject.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" t:styleID=\"sCol1\" /><t:Column t:key=\"costAccount.curProject.name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" t:styleID=\"sCol2\" /><t:Column t:key=\"costAccount.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" t:styleID=\"sCol3\" /><t:Column t:key=\"costAccount.name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"workLoad\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" t:styleID=\"sCol5\" /><t:Column t:key=\"price\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"programming\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"splitScale\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" t:styleID=\"sCol9\" /><t:Column t:key=\"standard\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" t:styleID=\"sCol10\" /><t:Column t:key=\"product\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"costAccount.curProject.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" t:styleID=\"sCol12\" /><t:Column t:key=\"costAccount.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" t:styleID=\"sCol13\" /><t:Column t:key=\"level\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" t:styleID=\"sCol14\" /><t:Column t:key=\"splitType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" t:styleID=\"sCol15\" /><t:Column t:key=\"apportionType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" t:styleID=\"sCol16\" /><t:Column t:key=\"apportionValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" t:styleID=\"sCol17\" /><t:Column t:key=\"directAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"18\" t:styleID=\"sCol18\" /><t:Column t:key=\"apportionValueTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"19\" t:styleID=\"sCol19\" /><t:Column t:key=\"directAmountTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"20\" t:styleID=\"sCol20\" /><t:Column t:key=\"otherRatioTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"21\" t:styleID=\"sCol21\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{costAccount.curProject.number}</t:Cell><t:Cell>$Resource{costAccount.curProject.name}</t:Cell><t:Cell>$Resource{costAccount.number}</t:Cell><t:Cell>$Resource{costAccount.name}</t:Cell><t:Cell>$Resource{workLoad}</t:Cell><t:Cell>$Resource{price}</t:Cell><t:Cell>$Resource{programming}</t:Cell><t:Cell>$Resource{splitScale}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{standard}</t:Cell><t:Cell>$Resource{product}</t:Cell><t:Cell>$Resource{costAccount.curProject.id}</t:Cell><t:Cell>$Resource{costAccount.id}</t:Cell><t:Cell>$Resource{level}</t:Cell><t:Cell>$Resource{splitType}</t:Cell><t:Cell>$Resource{apportionType.name}</t:Cell><t:Cell>$Resource{apportionValue}</t:Cell><t:Cell>$Resource{directAmount}</t:Cell><t:Cell>$Resource{apportionValueTotal}</t:Cell><t:Cell>$Resource{directAmountTotal}</t:Cell><t:Cell>$Resource{otherRatioTotal}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		
+        this.kdtSplitEntry.setFormatXml(resHelper.translateString("kdtSplitEntry",kdtSplitEntryStrXML));
+        this.kdtSplitEntry.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
+            public void editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
+                try {
+                    kdtSplitEntry_editStopped(e);
+                } catch(Exception exc) {
+                    handUIException(exc);
+                }
+            }
+        });
+
+                this.kdtSplitEntry.putBindContents("editData",new String[] {"id","","","","","workLoad","price","programmings","splitScale","amount","","product","costAccount.curProject.id","costAccount.id","level","splitType","apportionType.name","apportionValue","directAmount","apportionValueTotal","directAmountTotal","otherRatioTotal"});
+
+
+        this.kdtSplitEntry.checkParsed();
+        final KDBizPromptBox kdtSplitEntry_product_PromptBox = new KDBizPromptBox();
+        kdtSplitEntry_product_PromptBox.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7ProductTypeQuery");
+        kdtSplitEntry_product_PromptBox.setVisible(true);
+        kdtSplitEntry_product_PromptBox.setEditable(true);
+        kdtSplitEntry_product_PromptBox.setDisplayFormat("$number$");
+        kdtSplitEntry_product_PromptBox.setEditFormat("$number$");
+        kdtSplitEntry_product_PromptBox.setCommitFormat("$number$");
+        KDTDefaultCellEditor kdtSplitEntry_product_CellEditor = new KDTDefaultCellEditor(kdtSplitEntry_product_PromptBox);
+        this.kdtSplitEntry.getColumn("product").setEditor(kdtSplitEntry_product_CellEditor);
+        ObjectValueRender kdtSplitEntry_product_OVR = new ObjectValueRender();
+        kdtSplitEntry_product_OVR.setFormat(new BizDataFormat("$name$"));
+        this.kdtSplitEntry.getColumn("product").setRenderer(kdtSplitEntry_product_OVR);
+        KDComboBox kdtSplitEntry_splitType_ComboBox = new KDComboBox();
+        kdtSplitEntry_splitType_ComboBox.setName("kdtSplitEntry_splitType_ComboBox");
+        kdtSplitEntry_splitType_ComboBox.setVisible(true);
+        kdtSplitEntry_splitType_ComboBox.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.basedata.CostSplitTypeEnum").toArray());
+        KDTDefaultCellEditor kdtSplitEntry_splitType_CellEditor = new KDTDefaultCellEditor(kdtSplitEntry_splitType_ComboBox);
+        this.kdtSplitEntry.getColumn("splitType").setEditor(kdtSplitEntry_splitType_CellEditor);
         // contRemark		
         this.contRemark.setBoundLabelText(resHelper.getString("contRemark.boundLabelText"));		
         this.contRemark.setBoundLabelLength(100);		
@@ -1976,45 +2015,6 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         
 
         this.tblCost.checkParsed();
-        // kDContainer2		
-        this.kDContainer2.setEnableActive(false);		
-        this.kDContainer2.setTitle(resHelper.getString("kDContainer2.title"));
-        // kdtSplitEntry
-		String kdtSplitEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol1\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol2\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection hidden=\"true\" /><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol6\"><c:Protection hidden=\"true\" /><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol8\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol9\"><c:NumberFormat>###,##0.00</c:NumberFormat><c:Alignment horizontal=\"right\" /></c:Style><c:Style id=\"sCol10\"><c:Protection locked=\"true\" /></c:Style><c:Style id=\"sCol12\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol14\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol15\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol16\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol17\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol18\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol19\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol20\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol21\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" t:styleID=\"sCol0\" /><t:Column t:key=\"costAccount.curProject.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" t:styleID=\"sCol1\" /><t:Column t:key=\"costAccount.curProject.name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" t:styleID=\"sCol2\" /><t:Column t:key=\"costAccount.number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" t:styleID=\"sCol3\" /><t:Column t:key=\"costAccount.name\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"workLoad\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" t:styleID=\"sCol5\" /><t:Column t:key=\"price\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" t:styleID=\"sCol6\" /><t:Column t:key=\"programming\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"splitScale\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"amount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" t:styleID=\"sCol9\" /><t:Column t:key=\"standard\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" t:styleID=\"sCol10\" /><t:Column t:key=\"product\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"costAccount.curProject.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" t:styleID=\"sCol12\" /><t:Column t:key=\"costAccount.id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" t:styleID=\"sCol13\" /><t:Column t:key=\"level\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" t:styleID=\"sCol14\" /><t:Column t:key=\"splitType\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" t:styleID=\"sCol15\" /><t:Column t:key=\"apportionType.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"16\" t:styleID=\"sCol16\" /><t:Column t:key=\"apportionValue\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"17\" t:styleID=\"sCol17\" /><t:Column t:key=\"directAmount\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"18\" t:styleID=\"sCol18\" /><t:Column t:key=\"apportionValueTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"19\" t:styleID=\"sCol19\" /><t:Column t:key=\"directAmountTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"20\" t:styleID=\"sCol20\" /><t:Column t:key=\"otherRatioTotal\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"21\" t:styleID=\"sCol21\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{costAccount.curProject.number}</t:Cell><t:Cell>$Resource{costAccount.curProject.name}</t:Cell><t:Cell>$Resource{costAccount.number}</t:Cell><t:Cell>$Resource{costAccount.name}</t:Cell><t:Cell>$Resource{workLoad}</t:Cell><t:Cell>$Resource{price}</t:Cell><t:Cell>$Resource{programming}</t:Cell><t:Cell>$Resource{splitScale}</t:Cell><t:Cell>$Resource{amount}</t:Cell><t:Cell>$Resource{standard}</t:Cell><t:Cell>$Resource{product}</t:Cell><t:Cell>$Resource{costAccount.curProject.id}</t:Cell><t:Cell>$Resource{costAccount.id}</t:Cell><t:Cell>$Resource{level}</t:Cell><t:Cell>$Resource{splitType}</t:Cell><t:Cell>$Resource{apportionType.name}</t:Cell><t:Cell>$Resource{apportionValue}</t:Cell><t:Cell>$Resource{directAmount}</t:Cell><t:Cell>$Resource{apportionValueTotal}</t:Cell><t:Cell>$Resource{directAmountTotal}</t:Cell><t:Cell>$Resource{otherRatioTotal}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
-		
-        this.kdtSplitEntry.setFormatXml(resHelper.translateString("kdtSplitEntry",kdtSplitEntryStrXML));
-        this.kdtSplitEntry.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
-            public void editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
-                try {
-                    kdtSplitEntry_editStopped(e);
-                } catch(Exception exc) {
-                    handUIException(exc);
-                }
-            }
-        });
-
-                this.kdtSplitEntry.putBindContents("editData",new String[] {"id","","","","","workLoad","price","programmings","splitScale","amount","","product","costAccount.curProject.id","costAccount.id","level","splitType","apportionType.name","apportionValue","directAmount","apportionValueTotal","directAmountTotal","otherRatioTotal"});
-
-
-        this.kdtSplitEntry.checkParsed();
-        final KDBizPromptBox kdtSplitEntry_product_PromptBox = new KDBizPromptBox();
-        kdtSplitEntry_product_PromptBox.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7ProductTypeQuery");
-        kdtSplitEntry_product_PromptBox.setVisible(true);
-        kdtSplitEntry_product_PromptBox.setEditable(true);
-        kdtSplitEntry_product_PromptBox.setDisplayFormat("$number$");
-        kdtSplitEntry_product_PromptBox.setEditFormat("$number$");
-        kdtSplitEntry_product_PromptBox.setCommitFormat("$number$");
-        KDTDefaultCellEditor kdtSplitEntry_product_CellEditor = new KDTDefaultCellEditor(kdtSplitEntry_product_PromptBox);
-        this.kdtSplitEntry.getColumn("product").setEditor(kdtSplitEntry_product_CellEditor);
-        ObjectValueRender kdtSplitEntry_product_OVR = new ObjectValueRender();
-        kdtSplitEntry_product_OVR.setFormat(new BizDataFormat("$name$"));
-        this.kdtSplitEntry.getColumn("product").setRenderer(kdtSplitEntry_product_OVR);
-        KDComboBox kdtSplitEntry_splitType_ComboBox = new KDComboBox();
-        kdtSplitEntry_splitType_ComboBox.setName("kdtSplitEntry_splitType_ComboBox");
-        kdtSplitEntry_splitType_ComboBox.setVisible(true);
-        kdtSplitEntry_splitType_ComboBox.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.basedata.CostSplitTypeEnum").toArray());
-        KDTDefaultCellEditor kdtSplitEntry_splitType_CellEditor = new KDTDefaultCellEditor(kdtSplitEntry_splitType_ComboBox);
-        this.kdtSplitEntry.getColumn("splitType").setEditor(kdtSplitEntry_splitType_CellEditor);
         // prmtFwContract		
         this.prmtFwContract.setRequired(true);
         this.prmtFwContract.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
@@ -2558,10 +2558,14 @@ this.setLayout(new BorderLayout(0, 0));
         //contProj
         contProj.setBoundEditor(txtProj);
         //kDTabbedPane1
+        kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
         kDTabbedPane1.add(pnlInviteInfo, resHelper.getString("pnlInviteInfo.constraints"));
         kDTabbedPane1.add(pnlDetail, resHelper.getString("pnlDetail.constraints"));
         kDTabbedPane1.add(pnlCost, resHelper.getString("pnlCost.constraints"));
-        kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
+        //kDPanel2
+kDPanel2.setLayout(new BorderLayout(0, 0));        kDPanel2.add(kDContainer2, BorderLayout.CENTER);
+        //kDContainer2
+kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer2.getContentPane().add(kdtSplitEntry, BorderLayout.CENTER);
         //pnlInviteInfo
         pnlInviteInfo.setLayout(null);        contRemark.setBounds(new Rectangle(8, 88, 270, 19));
         pnlInviteInfo.add(contRemark, null);
@@ -2665,10 +2669,6 @@ pnlDetail.setLayout(new BorderLayout(0, 0));        pnlDetail.add(tblDetail, Bor
         pnlCost.setLayout(new KDLayout());
         pnlCost.putClientProperty("OriginalBounds", new Rectangle(0, 0, 996, 278));        tblCost.setBounds(new Rectangle(10, 10, 965, 194));
         pnlCost.add(tblCost, new KDLayout.Constraints(10, 10, 965, 194, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT));
-        //kDPanel2
-kDPanel2.setLayout(new BorderLayout(0, 0));        kDPanel2.add(kDContainer2, BorderLayout.CENTER);
-        //kDContainer2
-kDContainer2.getContentPane().setLayout(new BorderLayout(0, 0));        kDContainer2.getContentPane().add(kdtSplitEntry, BorderLayout.CENTER);
         //conContrarctRule
         conContrarctRule.setBoundEditor(prmtFwContract);
         //conControlAmount
@@ -2927,6 +2927,24 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
 		dataBinder.registerBinding("partB", com.kingdee.eas.basedata.master.cssp.SupplierInfo.class, this.prmtpartB, "data");
 		dataBinder.registerBinding("partC", com.kingdee.eas.basedata.master.cssp.SupplierInfo.class, this.prmtpartC, "data");
 		dataBinder.registerBinding("name", String.class, this.txtcontractName, "text");
+		dataBinder.registerBinding("splitEntry.id", com.kingdee.bos.util.BOSUuid.class, this.kdtSplitEntry, "id.text");
+		dataBinder.registerBinding("splitEntry", com.kingdee.eas.fdc.contract.ContractBillSplitEntryInfo.class, this.kdtSplitEntry, "userObject");
+		dataBinder.registerBinding("splitEntry.amount", java.math.BigDecimal.class, this.kdtSplitEntry, "amount.text");
+		dataBinder.registerBinding("splitEntry.product", com.kingdee.eas.fdc.basedata.ProductTypeInfo.class, this.kdtSplitEntry, "product.text");
+		dataBinder.registerBinding("splitEntry.costAccount.curProject.id", com.kingdee.bos.util.BOSUuid.class, this.kdtSplitEntry, "costAccount.curProject.id.text");
+		dataBinder.registerBinding("splitEntry.costAccount.id", com.kingdee.bos.util.BOSUuid.class, this.kdtSplitEntry, "costAccount.id.text");
+		dataBinder.registerBinding("splitEntry.level", int.class, this.kdtSplitEntry, "level.text");
+		dataBinder.registerBinding("splitEntry.apportionType.name", String.class, this.kdtSplitEntry, "apportionType.name.text");
+		dataBinder.registerBinding("splitEntry.apportionValue", java.math.BigDecimal.class, this.kdtSplitEntry, "apportionValue.text");
+		dataBinder.registerBinding("splitEntry.directAmount", java.math.BigDecimal.class, this.kdtSplitEntry, "directAmount.text");
+		dataBinder.registerBinding("splitEntry.apportionValueTotal", java.math.BigDecimal.class, this.kdtSplitEntry, "apportionValueTotal.text");
+		dataBinder.registerBinding("splitEntry.directAmountTotal", java.math.BigDecimal.class, this.kdtSplitEntry, "directAmountTotal.text");
+		dataBinder.registerBinding("splitEntry.otherRatioTotal", java.math.BigDecimal.class, this.kdtSplitEntry, "otherRatioTotal.text");
+		dataBinder.registerBinding("splitEntry.splitType", com.kingdee.eas.fdc.basedata.CostSplitTypeEnum.class, this.kdtSplitEntry, "splitType.text");
+		dataBinder.registerBinding("splitEntry.workLoad", java.math.BigDecimal.class, this.kdtSplitEntry, "workLoad.text");
+		dataBinder.registerBinding("splitEntry.price", java.math.BigDecimal.class, this.kdtSplitEntry, "price.text");
+		dataBinder.registerBinding("splitEntry.splitScale", java.math.BigDecimal.class, this.kdtSplitEntry, "splitScale.text");
+		dataBinder.registerBinding("splitEntry.programmings", com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo.class, this.kdtSplitEntry, "programming.text");
 		dataBinder.registerBinding("isSubContract", boolean.class, this.chkIsSubMainContract, "selected");
 		dataBinder.registerBinding("lowestPriceUnit", com.kingdee.eas.basedata.master.cssp.SupplierInfo.class, this.prmtlowestPriceUnit, "data");
 		dataBinder.registerBinding("lowerPriceUnit", com.kingdee.eas.basedata.master.cssp.SupplierInfo.class, this.prmtlowerPriceUnit, "data");
@@ -2952,24 +2970,6 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
 		dataBinder.registerBinding("winUnit", com.kingdee.eas.basedata.master.cssp.SupplierInfo.class, this.prmtwinUnit, "data");
 		dataBinder.registerBinding("fileNo", String.class, this.txtfileNo, "text");
 		dataBinder.registerBinding("quantity", java.math.BigDecimal.class, this.txtquantity, "value");
-		dataBinder.registerBinding("splitEntry.id", com.kingdee.bos.util.BOSUuid.class, this.kdtSplitEntry, "id.text");
-		dataBinder.registerBinding("splitEntry", com.kingdee.eas.fdc.contract.ContractBillSplitEntryInfo.class, this.kdtSplitEntry, "userObject");
-		dataBinder.registerBinding("splitEntry.amount", java.math.BigDecimal.class, this.kdtSplitEntry, "amount.text");
-		dataBinder.registerBinding("splitEntry.product", com.kingdee.eas.fdc.basedata.ProductTypeInfo.class, this.kdtSplitEntry, "product.text");
-		dataBinder.registerBinding("splitEntry.costAccount.curProject.id", com.kingdee.bos.util.BOSUuid.class, this.kdtSplitEntry, "costAccount.curProject.id.text");
-		dataBinder.registerBinding("splitEntry.costAccount.id", com.kingdee.bos.util.BOSUuid.class, this.kdtSplitEntry, "costAccount.id.text");
-		dataBinder.registerBinding("splitEntry.level", int.class, this.kdtSplitEntry, "level.text");
-		dataBinder.registerBinding("splitEntry.apportionType.name", String.class, this.kdtSplitEntry, "apportionType.name.text");
-		dataBinder.registerBinding("splitEntry.apportionValue", java.math.BigDecimal.class, this.kdtSplitEntry, "apportionValue.text");
-		dataBinder.registerBinding("splitEntry.directAmount", java.math.BigDecimal.class, this.kdtSplitEntry, "directAmount.text");
-		dataBinder.registerBinding("splitEntry.apportionValueTotal", java.math.BigDecimal.class, this.kdtSplitEntry, "apportionValueTotal.text");
-		dataBinder.registerBinding("splitEntry.directAmountTotal", java.math.BigDecimal.class, this.kdtSplitEntry, "directAmountTotal.text");
-		dataBinder.registerBinding("splitEntry.otherRatioTotal", java.math.BigDecimal.class, this.kdtSplitEntry, "otherRatioTotal.text");
-		dataBinder.registerBinding("splitEntry.splitType", com.kingdee.eas.fdc.basedata.CostSplitTypeEnum.class, this.kdtSplitEntry, "splitType.text");
-		dataBinder.registerBinding("splitEntry.workLoad", java.math.BigDecimal.class, this.kdtSplitEntry, "workLoad.text");
-		dataBinder.registerBinding("splitEntry.price", java.math.BigDecimal.class, this.kdtSplitEntry, "price.text");
-		dataBinder.registerBinding("splitEntry.splitScale", java.math.BigDecimal.class, this.kdtSplitEntry, "splitScale.text");
-		dataBinder.registerBinding("splitEntry.programmings", com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo.class, this.kdtSplitEntry, "programming.text");
 		dataBinder.registerBinding("programmingContract", com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo.class, this.prmtFwContract, "data");
 		dataBinder.registerBinding("programmingContract.controlBalance", java.math.BigDecimal.class, this.txtControlAmount, "value");
 		dataBinder.registerBinding("payItems.payItemDate", java.util.Date.class, this.tblEconItem, "date.text");
@@ -3173,6 +3173,24 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
 		getValidateHelper().registerBindProperty("partB", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("partC", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.id", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.amount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.product", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.costAccount.curProject.id", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.costAccount.id", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.level", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.apportionType.name", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.apportionValue", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.directAmount", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.apportionValueTotal", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.directAmountTotal", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.otherRatioTotal", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.splitType", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.workLoad", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.price", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.splitScale", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("splitEntry.programmings", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("isSubContract", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lowestPriceUnit", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lowerPriceUnit", ValidateHelper.ON_SAVE);    
@@ -3198,24 +3216,6 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
 		getValidateHelper().registerBindProperty("winUnit", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("fileNo", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("quantity", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.id", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.amount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.product", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.costAccount.curProject.id", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.costAccount.id", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.level", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.apportionType.name", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.apportionValue", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.directAmount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.apportionValueTotal", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.directAmountTotal", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.otherRatioTotal", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.splitType", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.workLoad", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.price", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.splitScale", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("splitEntry.programmings", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("programmingContract", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("programmingContract.controlBalance", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("payItems.payItemDate", ValidateHelper.ON_SAVE);    
@@ -3486,6 +3486,14 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
     }
 
     /**
+     * output kdtSplitEntry_editStopped method
+     */
+    protected void kdtSplitEntry_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
+    {
+        //write your code here1
+    }
+
+    /**
      * output prmtMainContract_willShow method
      */
     protected void prmtMainContract_willShow(com.kingdee.bos.ctrl.swing.event.SelectorEvent e) throws Exception
@@ -3511,14 +3519,6 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
      */
     protected void tblCost_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
     {
-    }
-
-    /**
-     * output kdtSplitEntry_editStopped method
-     */
-    protected void kdtSplitEntry_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
-    {
-        //write your code here1
     }
 
     /**
@@ -3724,6 +3724,45 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
         	sic.add(new SelectorItemInfo("partC.name"));
 		}
         sic.add(new SelectorItemInfo("name"));
+    	sic.add(new SelectorItemInfo("splitEntry.id"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("splitEntry.*"));
+		}
+		else{
+		}
+    	sic.add(new SelectorItemInfo("splitEntry.amount"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("splitEntry.product.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("splitEntry.product.id"));
+			sic.add(new SelectorItemInfo("splitEntry.product.name"));
+        	sic.add(new SelectorItemInfo("splitEntry.product.number"));
+		}
+    	sic.add(new SelectorItemInfo("splitEntry.costAccount.curProject.id"));
+    	sic.add(new SelectorItemInfo("splitEntry.costAccount.id"));
+    	sic.add(new SelectorItemInfo("splitEntry.level"));
+    	sic.add(new SelectorItemInfo("splitEntry.apportionType.name"));
+    	sic.add(new SelectorItemInfo("splitEntry.apportionValue"));
+    	sic.add(new SelectorItemInfo("splitEntry.directAmount"));
+    	sic.add(new SelectorItemInfo("splitEntry.apportionValueTotal"));
+    	sic.add(new SelectorItemInfo("splitEntry.directAmountTotal"));
+    	sic.add(new SelectorItemInfo("splitEntry.otherRatioTotal"));
+    	sic.add(new SelectorItemInfo("splitEntry.splitType"));
+    	sic.add(new SelectorItemInfo("splitEntry.workLoad"));
+    	sic.add(new SelectorItemInfo("splitEntry.price"));
+    	sic.add(new SelectorItemInfo("splitEntry.splitScale"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("splitEntry.programmings.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("splitEntry.programmings.id"));
+			sic.add(new SelectorItemInfo("splitEntry.programmings.name"));
+        	sic.add(new SelectorItemInfo("splitEntry.programmings.number"));
+		}
         sic.add(new SelectorItemInfo("isSubContract"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
@@ -3813,45 +3852,6 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
 		}
         sic.add(new SelectorItemInfo("fileNo"));
         sic.add(new SelectorItemInfo("quantity"));
-    	sic.add(new SelectorItemInfo("splitEntry.id"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("splitEntry.*"));
-		}
-		else{
-		}
-    	sic.add(new SelectorItemInfo("splitEntry.amount"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("splitEntry.product.*"));
-		}
-		else{
-	    	sic.add(new SelectorItemInfo("splitEntry.product.id"));
-			sic.add(new SelectorItemInfo("splitEntry.product.name"));
-        	sic.add(new SelectorItemInfo("splitEntry.product.number"));
-		}
-    	sic.add(new SelectorItemInfo("splitEntry.costAccount.curProject.id"));
-    	sic.add(new SelectorItemInfo("splitEntry.costAccount.id"));
-    	sic.add(new SelectorItemInfo("splitEntry.level"));
-    	sic.add(new SelectorItemInfo("splitEntry.apportionType.name"));
-    	sic.add(new SelectorItemInfo("splitEntry.apportionValue"));
-    	sic.add(new SelectorItemInfo("splitEntry.directAmount"));
-    	sic.add(new SelectorItemInfo("splitEntry.apportionValueTotal"));
-    	sic.add(new SelectorItemInfo("splitEntry.directAmountTotal"));
-    	sic.add(new SelectorItemInfo("splitEntry.otherRatioTotal"));
-    	sic.add(new SelectorItemInfo("splitEntry.splitType"));
-    	sic.add(new SelectorItemInfo("splitEntry.workLoad"));
-    	sic.add(new SelectorItemInfo("splitEntry.price"));
-    	sic.add(new SelectorItemInfo("splitEntry.splitScale"));
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
-			sic.add(new SelectorItemInfo("splitEntry.programmings.*"));
-		}
-		else{
-	    	sic.add(new SelectorItemInfo("splitEntry.programmings.id"));
-			sic.add(new SelectorItemInfo("splitEntry.programmings.name"));
-        	sic.add(new SelectorItemInfo("splitEntry.programmings.number"));
-		}
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("programmingContract.*"));
@@ -5111,7 +5111,7 @@ contPayItem.getContentPane().setLayout(new BorderLayout(0, 0));        contPayIt
      * output getDetailTable method
      */
     protected KDTable getDetailTable() {
-        return tblDetail;
+        return kdtSplitEntry;
 	}
     /**
      * output applyDefaultValue method

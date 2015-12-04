@@ -320,11 +320,11 @@ public class ContractSettlementBillEditUI extends
 			IRowSet rs = null;
 			FDCSQLBuilder cpBuilder = new FDCSQLBuilder();
 			cpBuilder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
-			cpBuilder.appendSql("where bill.CFDataType='contract' and bill.CFContractLevel='change' and bill.CFProjectNameID=? and bill.CFCostAccountID=? and bill.CFSourceNumber=?");
+			cpBuilder.appendSql("where bill.CFDataType='contract' and bill.CFContractLevel='endCal' and bill.CFProjectNameID=? and bill.CFCostAccountID=? and bill.CFSourceNumber=?");
 			//校验专业要素的楼号拆分
 			FDCSQLBuilder proBuilder = new FDCSQLBuilder();
 			proBuilder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
-			proBuilder.appendSql("where bill.CFDataType='professPoint' and bill.CFContractLevel='change' and bill.CFProjectNameID=? and bill.CFCostAccountID=? and bill.CFSourceNumber=?");
+			proBuilder.appendSql("where bill.CFDataType='professPoint' and bill.CFContractLevel='endCal' and bill.CFProjectNameID=? and bill.CFCostAccountID=? and bill.CFSourceNumber=?");
 			String billNumber = txtNumber.getText();
 			String projectId = null;
 			String costId = null;
@@ -354,19 +354,20 @@ public class ContractSettlementBillEditUI extends
 				proBuilder.getParamaters().clear();
 			}
 			UIContext uiContext = new UIContext(this);
-			uiContext.put("contractInfo", contractBill);
-			uiContext.put("contractStationType", "settle");
-			String state = OprtState.ADDNEW;
 			FDCSQLBuilder builder = new FDCSQLBuilder();
-			builder.appendSql("select fid from CT_COS_BuildPriceIndex where CFContractId='"+editData.getId().toString()+"' and CFContractStation='30'");
+			builder.appendSql("select fid from CT_COS_BuildPriceIndex where CFContractId='"+contractBill.getId().toString()+"' and CFContractStation='30' and FSourceBillID='"+editData.getId().toString()+"'");
 			rs = builder.executeQuery();
+			String state = null;
 			if(rs.next() && rs.getString(1) != null){
 				state = OprtState.VIEW;
 				uiContext.put("ID", rs.getString(1));
+			}else{
+				state = OprtState.ADDNEW;
+				uiContext.put("contractInfo", contractBill);
+				uiContext.put("contractStationType", "settle");
+				uiContext.put("sourceBillId", editData.getId().toString());
 			}
-			IUIWindow uiWindow = UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(
-					BuildPriceIndexEditUI.class.getName(), uiContext, null,state);
-			uiWindow.show();
+			UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(BuildPriceIndexEditUI.class.getName(), uiContext, null,state).show();
 		}
 	}
 

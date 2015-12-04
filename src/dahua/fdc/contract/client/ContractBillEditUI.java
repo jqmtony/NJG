@@ -1935,7 +1935,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		
 		// modify by yxl 20151111 拆分页签表格初始化合约规划列，打开编辑界面时，默认加载拆分页签
 		txtMIndexType.setRequired(true);
-		kDTabbedPane1.setSelectedComponent(kDPanel2);
+//		kDTabbedPane1.setSelectedComponent(kDPanel2);
 		
 		if(editData.getCurProject()!=null){
 			SelectorItemCollection sic = new SelectorItemCollection();
@@ -3097,6 +3097,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		this.actionSplitBotUp.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_showsubflow"));
 		this.actionSplitProd.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_citetree"));
 		this.actionRemoveSplit.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_deleteline"));
+		actionContractPriceSplit.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_split"));
+		actionProfessionSplit.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_split"));
 		this.actionAcctSelect.setEnabled(true);
 		this.actionSplitProj.setEnabled(true);
 		this.actionSplitProd.setEnabled(true);
@@ -3339,7 +3341,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
         }
         CurProjectInfo projectInfo = null;
         if(isWholeAgeProject){
-        	String proId = (String)row.getCell("costAccount.curProject.id").getValue();
+        	BOSUuid proId = (BOSUuid)row.getCell("costAccount.curProject.id").getValue();
         	projectInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(proId));
         }else
         	projectInfo = editData.getCurProject();
@@ -3735,9 +3737,9 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 
 		kDTabbedPane1.removeAll();
 
+		kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
 		kDTabbedPane1.add(pnlDetail, resHelper.getString("pnlDetail.constraints"));
 		kDTabbedPane1.add(pnlInviteInfo, resHelper.getString("pnlInviteInfo.constraints"));
-		kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
 		//亿达需要，万科先注销
 		//		kDTabbedPane1.add(pnlCost, "成本信息");		
 	}

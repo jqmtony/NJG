@@ -8,12 +8,10 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.ItemEvent;
-import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -79,7 +77,6 @@ import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
-import com.kingdee.bos.ui.face.ItemAction;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.AttachmentInfo;
@@ -115,11 +112,9 @@ import com.kingdee.eas.fdc.basedata.FDCBasedataException;
 import com.kingdee.eas.fdc.basedata.FDCBillInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
-import com.kingdee.eas.fdc.basedata.FDCCostSplit;
 import com.kingdee.eas.fdc.basedata.FDCDateHelper;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
-import com.kingdee.eas.fdc.basedata.FDCSplitBillEntryCollection;
 import com.kingdee.eas.fdc.basedata.JobTypeFactory;
 import com.kingdee.eas.fdc.basedata.JobTypeInfo;
 import com.kingdee.eas.fdc.basedata.SourceTypeEnum;
@@ -130,7 +125,6 @@ import com.kingdee.eas.fdc.basedata.client.FDCClientHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCClientVerifyHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
-import com.kingdee.eas.fdc.basedata.client.FDCSplitClientHelper;
 import com.kingdee.eas.fdc.basedata.util.KDDetailedArea;
 import com.kingdee.eas.fdc.basedata.util.KDDetailedAreaUtil;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
@@ -149,11 +143,9 @@ import com.kingdee.eas.fdc.contract.ConChangeSplitCollection;
 import com.kingdee.eas.fdc.contract.ConChangeSplitEntryFactory;
 import com.kingdee.eas.fdc.contract.ConChangeSplitEntryInfo;
 import com.kingdee.eas.fdc.contract.ConChangeSplitFactory;
-import com.kingdee.eas.fdc.contract.ConChangeSplitInfo;
 import com.kingdee.eas.fdc.contract.ContractBillCollection;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
-import com.kingdee.eas.fdc.contract.ContractBillSplitEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractChangeBillCollection;
 import com.kingdee.eas.fdc.contract.ContractChangeBillFactory;
 import com.kingdee.eas.fdc.contract.ContractChangeBillInfo;
@@ -2109,75 +2101,73 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 	}
 	
 	protected void btnCostIndex_actionPerformed(ActionEvent e) throws Exception {
-		if(editData.getId() == null){
-			MsgBox.showInfo("请先保存单据！");
-		}else{
-			if(kdtSuppEntry.getRowCount3() == 0){
-				MsgBox.showInfo("请先选择登记下发单位中的合同号！");
-				abort();
-			}else if(kdtSuppEntry.getCell(0,"content").getValue() == null){
-				MsgBox.showInfo("请先选择登记下发单位中的合同号！");
-				abort();
-			}
-			KDTable kdtSplitEntry = null;
-			IRowSet rs = null;
-			String billNumber = txtNumber.getText();
-			String projectId = null;
-			String costId = null;
-			String title = null;
-			for(int j = 0; j < kDTabbedPane1.getTabCount(); j++) {
-				kdtSplitEntry = ((ConChangeSplitEditUI)((KDPanel)kDTabbedPane1.getComponentAt(j)).getUserObject()).getDetailTable();
-				FDCSQLBuilder cpBuilder = new FDCSQLBuilder();
-				cpBuilder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
-				cpBuilder.appendSql("where bill.CFDataType='contract' and bill.CFContractLevel='change' and bill.CFProjectNameID=? and bill.CFCostAccountID=? and bill.CFSourceNumber=?");
-				//校验专业要素的楼号拆分
-				FDCSQLBuilder proBuilder = new FDCSQLBuilder();
-				proBuilder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
-				proBuilder.appendSql("where bill.CFDataType='professPoint' and bill.CFContractLevel='change' and bill.CFProjectNameID=? and bill.CFCostAccountID=? and bill.CFSourceNumber=?");
-				title = kDTabbedPane1.getTitleAt(j);
-				for(int i = 0; i < kdtSplitEntry.getRowCount(); i++) {
-					if((Integer)kdtSplitEntry.getCell(i,"level").getValue()!=0)
-						continue;
-					projectId = ((BOSUuid)kdtSplitEntry.getCell(i,"costAccount.curProject.id").getValue()).toString();
-					costId = ((BOSUuid)kdtSplitEntry.getCell(i,"costAccount.id").getValue()).toString();
-					cpBuilder.addParam(projectId);
-					cpBuilder.addParam(costId);
-					cpBuilder.addParam(billNumber);
-					rs = cpBuilder.executeQuery();
-					if(rs.size() == 0){
-						MsgBox.showInfo("变更拆分的"+title+"页签第"+(i+1)+"行记录没有做合同价拆分！");
-						abort();
-					}
-					//校验专业要素
-					proBuilder.addParam(projectId);
-					proBuilder.addParam(costId);
-					proBuilder.addParam(billNumber);
-					rs = proBuilder.executeQuery();
-					if(rs.size() == 0){
-						MsgBox.showInfo("变更拆分的"+title+"页签第"+(i+1)+"行记录没有做专业要素拆分！");
-						abort();
-					}
-					cpBuilder.getParamaters().clear();
-					proBuilder.getParamaters().clear();
-				}
-				UIContext uiContext = new UIContext(this);
-				ContractBillInfo cinfo = (ContractBillInfo)kdtSuppEntry.getCell(0,"content").getValue();
-				String state = null;
-				FDCSQLBuilder builder = new FDCSQLBuilder();
-				builder.appendSql("select fid from CT_COS_BuildPriceIndex where CFContractId='"+cinfo.getId().toString()+"' and CFContractStation='30' and FSourceBillID='"+editData.getId().toString()+"'");
-				rs = builder.executeQuery();
-				if(rs.next() && rs.getString(1) != null){
-					state = OprtState.VIEW;
-					uiContext.put("ID", rs.getString(1));
-				}else{
-					state = OprtState.ADDNEW;
-					uiContext.put("contractInfo", cinfo);
-					uiContext.put("contractStationType", "change");
-					uiContext.put("sourceBillId", editData.getId().toString());
-				}
-				UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(BuildPriceIndexEditUI.class.getName(), uiContext, null,state).show();
-			}
+		Component selectedComponent = this.kDTabbedPane1.getSelectedComponent();
+		if(selectedComponent==null){
+			MsgBox.showInfo("请选择一个变更拆分！");
+			return;
 		}
+		ConChangeSplitEditUI changeSplitui = (ConChangeSplitEditUI)((KDPanel)selectedComponent).getUserObject();
+		KDTable kdtSplitEntry = changeSplitui.getDetailTable();
+		IRowSet rs = null;
+		FDCSQLBuilder cpBuilder = new FDCSQLBuilder();
+		cpBuilder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
+		cpBuilder.appendSql("where bill.CFDataType='contract' and bill.CFContractLevel='change' and bill.CFProjectNameID=? and bill.CFCostAccountID=? and bill.CFSourceNumber=?");
+		//校验专业要素的楼号拆分
+		FDCSQLBuilder proBuilder = new FDCSQLBuilder();
+		proBuilder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
+		proBuilder.appendSql("where bill.CFDataType='professPoint' and bill.CFContractLevel='change' and bill.CFProjectNameID=? and bill.CFCostAccountID=? and bill.CFSourceNumber=?");
+		String billNumber = txtNumber.getText();
+		String projectId = null;
+		String costId = null;
+		String title = kDTabbedPane1.getTitleAt(kDTabbedPane1.getTabCount()-1);
+		for(int i = 0; i < kdtSplitEntry.getRowCount(); i++) {
+			if((Integer)kdtSplitEntry.getCell(i,"level").getValue()!=0)
+				continue;
+			projectId = ((BOSUuid)kdtSplitEntry.getCell(i,"costAccount.curProject.id").getValue()).toString();
+			costId = ((BOSUuid)kdtSplitEntry.getCell(i,"costAccount.id").getValue()).toString();
+			cpBuilder.addParam(projectId);
+			cpBuilder.addParam(costId);
+			cpBuilder.addParam(billNumber);
+			rs = cpBuilder.executeQuery();
+			if(rs.size() == 0){
+				MsgBox.showInfo("变更拆分的"+title+"页签第"+(i+1)+"行记录没有做合同价拆分！");
+				abort();
+			}
+			//校验专业要素
+			proBuilder.addParam(projectId);
+			proBuilder.addParam(costId);
+			proBuilder.addParam(billNumber);
+			rs = proBuilder.executeQuery();
+			if(rs.size() == 0){
+				MsgBox.showInfo("变更拆分的"+title+"页签第"+(i+1)+"行记录没有做专业要素拆分！");
+				abort();
+			}
+			cpBuilder.getParamaters().clear();
+			proBuilder.getParamaters().clear();
+		}
+		UIContext uiContext = new UIContext(this);
+		ContractBillInfo cinfo = changeSplitui.editData.getContractBill();
+		String state = null;
+		FDCSQLBuilder builder = new FDCSQLBuilder();
+		builder.appendSql("select fid from CT_COS_BuildPriceIndex where CFContractId='"+cinfo.getId().toString()+"' and CFContractStation='20' and FSourceBillID='"+editData.getId().toString()+"'");
+		rs = builder.executeQuery();
+		if(rs.next() && rs.getString(1) != null){
+			state = OprtState.VIEW;
+			uiContext.put("ID", rs.getString(1));
+		}else{
+			state = OprtState.ADDNEW;
+			SelectorItemCollection sic = new SelectorItemCollection();
+			sic.add("number");
+			sic.add("name");
+			sic.add("curProject.id");
+			sic.add("curProject.name");
+			sic.add("curProject.number");
+			cinfo=ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(cinfo.getId()),sic);
+			uiContext.put("contractInfo", cinfo);
+			uiContext.put("contractStationType", "change");
+			uiContext.put("sourceBillId", editData.getId().toString());
+		}
+		UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(BuildPriceIndexEditUI.class.getName(), uiContext, null,state).show();
 	}
 	
 	private void sortPanel() {
@@ -2974,6 +2964,8 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 		actionSplitProd.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_citetree"));
 		actionImpContrSplit.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_collect"));
 		actionRemoveSplitEntry.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_deleteline"));
+		actionContractPriceSplit.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_split"));
+		actionProfessionSplit.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_split"));
 		actionAcctSelect.setEnabled(true);
 		actionSplitProj.setEnabled(true);
 		actionSplitProd.setEnabled(true);
