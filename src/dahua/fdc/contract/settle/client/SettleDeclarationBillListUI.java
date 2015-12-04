@@ -79,6 +79,7 @@ import com.kingdee.eas.framework.client.tree.KDTreeNode;
 import com.kingdee.eas.framework.client.tree.TreeBuilderFactory;
 import com.kingdee.eas.rptclient.newrpt.util.MsgBox;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.app.DbUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.jdbc.rowset.IRowSet;
 
@@ -115,6 +116,9 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
     	this.btnLocate.setVisible(false);
         this.btnAttachment.setVisible(false);
         this.btnAuditResult.setVisible(false);
+//        this.btnCopyTo.setVisible(true);
+//        actionCopyTo.setEnabled(true);
+        
     	super.onLoad();
     	initUI();
     	
@@ -129,6 +133,8 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
         KDTableHelper.setSortedColumn(this.kDTable1, fields);
 
         this.tblMain.getColumn("id").getStyleAttributes().setHided(true);
+        this.tblMain.getColumn("bizDate").getStyleAttributes().setHided(true);
+        this.tblMain.getColumn("description").getStyleAttributes().setHided(true);
     	
 //    	showQueryDate(this.kDTable1, "com.kingdee.eas.fdc.contract.app.ContractBillQuery",null);
     	
@@ -371,7 +377,7 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
 				
 				FilterInfo f = new FilterInfo();
 
-				f.getFilterItems().add(new FilterItemInfo("orgUnit.isCostOrgUnit", Boolean.TRUE));//TODO
+				f.getFilterItems().add(new FilterItemInfo("orgUnit.isCostOrgUnit", Boolean.TRUE));
 //				f.getFilterItems().add(new FilterItemInfo("orgUnit.id", authorizedOrgs,CompareType.INCLUDE));
 				f.getFilterItems().add(new FilterItemInfo("orgUnit.longNumber", orgUnitLongNumber + "%", CompareType.LIKE));
 				
@@ -582,15 +588,17 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
         String id = getSelectedKeyValue();
         ISettleDeclarationBill Iexpen = SettleDeclarationBillFactory.getRemoteInstance();
         SettleDeclarationBillInfo info = Iexpen.getSettleDeclarationBillInfo(new ObjectUuidPK(id));
-        if (info.getState().equals(TrialStatusEnum.Review)) {
+        this.btnInTrial.setEnabled(false);
+        this.btnApproved.setEnabled(false);
+        if (info.getState().equals(TrialStatusEnum.Review) && info.getBillState().equals(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.AUDIT)) {
           this.btnInTrial.setEnabled(true);
           this.btnApproved.setEnabled(false);
         }
-        if (info.getState().equals(TrialStatusEnum.InTrial)) {
+        if (info.getState().equals(TrialStatusEnum.InTrial) && info.getBillState().equals(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.AUDIT)) {
           this.btnInTrial.setEnabled(false);
           this.btnApproved.setEnabled(true);
         }
-        if (info.getState().equals(TrialStatusEnum.Approved)) {
+        if (info.getState().equals(TrialStatusEnum.Approved) && info.getBillState().equals(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.AUDIT)) {
           this.btnInTrial.setEnabled(false);
           this.btnApproved.setEnabled(false);
         }
@@ -619,7 +627,7 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
         ISettleDeclarationBill Iexpen = SettleDeclarationBillFactory.getRemoteInstance();
         SettleDeclarationBillInfo info = Iexpen.getSettleDeclarationBillInfo(new ObjectUuidPK(id));
 
-        SettleDeclarationBillFactory.getRemoteInstance().Approved(info.getId());
+        SettleDeclarationBillFactory.getRemoteInstance().Approved(info);
       
     }
     
@@ -854,8 +862,19 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
     /**
      * output actionAddNew_actionPerformed
      */
-    public void actionAddNew_actionPerformed(ActionEvent e) throws Exception
-    {
+    public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {//新增 TODO
+    	
+    	int selectIndex = this.kDTable1.getSelectManager().getActiveRowIndex();
+    	
+    	String orderId = this.kDTable1.getCell(selectIndex, "id").getValue().toString();
+    	
+    	String sql = " select * from CT_CON_SettleDeclarationBill where  CFIsVersion='1' and CFBillState='40' and CFContractNumberID ='" + orderId + "'";
+    	IRowSet rowset = new FDCSQLBuilder().appendSql(sql.toString()).executeQuery();
+        if(rowset.size()>0){
+        	 MsgBox.showWarning("已存在单据状态为已审核的单据，不能新增！");
+             SysUtil.abort();
+        }
+    	
         super.actionAddNew_actionPerformed(e);
     }
 
@@ -870,8 +889,7 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
     /**
      * output actionEdit_actionPerformed
      */
-    public void actionEdit_actionPerformed(ActionEvent e) throws Exception
-    {
+    public void actionEdit_actionPerformed(ActionEvent e) throws Exception {//修改
         checkSelected();
 
         String id = getSelectedKeyValue();
@@ -884,14 +902,18 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
           MsgBox.showWarning("不是最新版本，不能修改！");
           SysUtil.abort();
         }
+        if(Info.getBillState().equals(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.AUDIT)){
+        	MsgBox.showWarning("单据为审核状态，不能修改！");
+            SysUtil.abort();
+        }
         if (Info.isIsVersion())
           if (WorkflowXRHelper.checkInProInst(Info.getId().toString())) {
             MsgBox.showWarning("此单据记录有流程正在运行!");
             SysUtil.abort();
           }
-          else {
-            super.actionEdit_actionPerformed(e);
-          }
+          
+       super.actionEdit_actionPerformed(e);
+          
       }
 
     /**
@@ -906,7 +928,16 @@ public class SettleDeclarationBillListUI extends AbstractSettleDeclarationBillLi
         ISettleDeclarationBill Iexpen = SettleDeclarationBillFactory.getRemoteInstance();
 
         SettleDeclarationBillInfo Info = Iexpen.getSettleDeclarationBillInfo(new ObjectUuidPK(id));
-
+        
+        if (WorkflowXRHelper.checkInProInst(Info.getId().toString())) {
+            MsgBox.showWarning("此单据记录有流程正在运行!");
+            SysUtil.abort();
+          }
+		if(Info.getBillState().equals(com.kingdee.eas.fdc.contract.settle.app.BillStateEnum.AUDIT)){
+			 MsgBox.showWarning("单据已审核，不能删除！");
+	            SysUtil.abort();
+		}
+        
         if(getSelectedIdValues().size()>1){
        	 MsgBox.showWarning("只能选择最新版本删除！");
             SysUtil.abort();

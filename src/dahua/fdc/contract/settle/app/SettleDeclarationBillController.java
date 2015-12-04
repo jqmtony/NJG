@@ -16,11 +16,11 @@ import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.bos.util.*;
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
+import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.bos.framework.*;
 import com.kingdee.eas.fdc.contract.settle.SettleDeclarationBillInfo;
 import com.kingdee.eas.fdc.contract.settle.SettleDeclarationBillCollection;
-import com.kingdee.bos.util.BOSUuid;
 
 import java.rmi.RemoteException;
 import com.kingdee.bos.framework.ejb.BizController;
@@ -33,8 +33,8 @@ public interface SettleDeclarationBillController extends CoreBillBaseController
     public SettleDeclarationBillInfo getSettleDeclarationBillInfo(Context ctx, IObjectPK pk) throws BOSException, EASBizException, RemoteException;
     public SettleDeclarationBillInfo getSettleDeclarationBillInfo(Context ctx, IObjectPK pk, SelectorItemCollection selector) throws BOSException, EASBizException, RemoteException;
     public SettleDeclarationBillInfo getSettleDeclarationBillInfo(Context ctx, String oql) throws BOSException, EASBizException, RemoteException;
-    public void InTrial(Context ctx, BOSUuid model) throws BOSException, RemoteException;
-    public void Approved(Context ctx, BOSUuid model) throws BOSException, RemoteException;
-    public void Audit(Context ctx, BOSUuid model) throws BOSException, RemoteException;
-    public void UnAudit(Context ctx, BOSUuid model) throws BOSException, RemoteException;
+    public void InTrial(Context ctx, IObjectValue model) throws BOSException, RemoteException;
+    public void Approved(Context ctx, IObjectValue model) throws BOSException, RemoteException;
+    public void Audit(Context ctx, IObjectValue model) throws BOSException, RemoteException;
+    public void UnAudit(Context ctx, IObjectValue model) throws BOSException, RemoteException;
 }

@@ -26,12 +26,12 @@ import com.kingdee.eas.common.EASBizException;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.eas.framework.CoreBaseCollection;
+import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.eas.framework.CoreBillBaseCollection;
 import com.kingdee.eas.framework.CoreBaseInfo;
 import com.kingdee.eas.fdc.contract.settle.SettleDeclarationBillInfo;
 import com.kingdee.eas.framework.app.CoreBillBaseControllerBean;
 import com.kingdee.eas.fdc.contract.settle.SettleDeclarationBillCollection;
-import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.framework.ObjectBaseCollection;
 
 
@@ -191,7 +191,7 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
         return super._getValue(ctx, oql);
     }
 
-    public void InTrial(Context ctx, BOSUuid model) throws BOSException
+    public void InTrial(Context ctx, IObjectValue model) throws BOSException
     {
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("1cb89076-2069-483f-b093-283c5c2cd1b1"), new Object[]{ctx, model});
@@ -207,12 +207,12 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
             super.cleanUpServiceState();
         }
     }
-    protected void _InTrial(Context ctx, BOSUuid model) throws BOSException
+    protected void _InTrial(Context ctx, IObjectValue model) throws BOSException
     {    	
         return;
     }
 
-    public void Approved(Context ctx, BOSUuid model) throws BOSException
+    public void Approved(Context ctx, IObjectValue model) throws BOSException
     {
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("0736aad0-4855-4fb1-95bf-311c461f6e14"), new Object[]{ctx, model});
@@ -228,12 +228,12 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
             super.cleanUpServiceState();
         }
     }
-    protected void _Approved(Context ctx, BOSUuid model) throws BOSException
+    protected void _Approved(Context ctx, IObjectValue model) throws BOSException
     {    	
         return;
     }
 
-    public void Audit(Context ctx, BOSUuid model) throws BOSException
+    public void Audit(Context ctx, IObjectValue model) throws BOSException
     {
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("061a92c1-ff58-4c72-bfa9-990c04745786"), new Object[]{ctx, model});
@@ -249,12 +249,12 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
             super.cleanUpServiceState();
         }
     }
-    protected void _Audit(Context ctx, BOSUuid model) throws BOSException
+    protected void _Audit(Context ctx, IObjectValue model) throws BOSException
     {    	
         return;
     }
 
-    public void UnAudit(Context ctx, BOSUuid model) throws BOSException
+    public void UnAudit(Context ctx, IObjectValue model) throws BOSException
     {
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("39798fe0-3464-4436-b132-452d69233e05"), new Object[]{ctx, model});
@@ -270,7 +270,7 @@ public abstract class AbstractSettleDeclarationBillControllerBean extends CoreBi
             super.cleanUpServiceState();
         }
     }
-    protected void _UnAudit(Context ctx, BOSUuid model) throws BOSException
+    protected void _UnAudit(Context ctx, IObjectValue model) throws BOSException
     {    	
         return;
     }

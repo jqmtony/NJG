@@ -41,9 +41,15 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     public SettleDeclarationBillEditUI() throws Exception
     {
         super();
+        prmtcontractNumber.setDisplayFormat("$number$");
+    	prmtcontractNumber.setEditFormat("$number$");
+    	prmtcontractNumber.setCommitFormat("$number$");
         
     }
     public void onLoad() throws Exception {
+    	
+//    	this.btnCopyFrom.setVisible(true);
+//    	this.btnCopyFrom.setEnabled(true);
 
         this.btnRemove.setVisible(false);
         this.btnCopy.setVisible(false);
@@ -57,7 +63,7 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
         this.btnAuditResult.setVisible(false);
         this.btnMultiapprove.setVisible(false);
         this.btnNextPerson.setVisible(false);
-
+//
         this.contstate.setEnabled(false);
         this.contbillState.setEnabled(false);
 
@@ -82,6 +88,7 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
 
     	    }
     	if (getOprtState().equals(OprtState.VIEW)) {
+    		
     	      this.actionAddNew.setEnabled(false);
     	      this.actionEdit.setEnabled(false);
     	      this.actionSave.setEnabled(false);
@@ -89,24 +96,41 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     	      this.actionSubmit.setEnabled(false);
     	      this.actionAudit.setEnabled(false);
     	      this.actionUnAudit.setEnabled(false);
+    	      
     	      this.btnAudit.setEnabled(false);
     	      this.btnUnAudit.setEnabled(false);
     	      this.btnInTrial.setEnabled(false);
     	      this.btnApproved.setEnabled(false);
+    	      
+    	      if (this.editData.getBillState().equals(BillStateEnum.AUDIT)&&this.editData.isIsVersion()) {
+    	    	  this.actionAddNew.setEnabled(false);
+        	      this.actionEdit.setEnabled(false);
+        	      this.actionSave.setEnabled(false);
+        	      this.actionRemove.setEnabled(false);
+        	      this.actionSubmit.setEnabled(false);
+        	      this.actionAudit.setEnabled(false);
+        	      this.actionUnAudit.setEnabled(true);
+        	      
+        	      this.btnAudit.setEnabled(false);
+        	      this.btnUnAudit.setEnabled(true);
+        	      this.btnInTrial.setEnabled(true);
+        	      this.btnApproved.setEnabled(false);
+     		 }
     	    }
+    	
     	 if ((getOprtState().equals(OprtState.EDIT)) && (this.editData.isIsVersion())) {
     	      if (this.editData.getBillState().equals(BillStateEnum.SAVE)) {
     	        this.actionAddNew.setEnabled(false);
-    	        this.actionEdit.setEnabled(true);
-    	        this.actionSave.setEnabled(false);
+    	        this.actionEdit.setEnabled(false);
+    	        this.actionSave.setEnabled(true);
     	        this.actionRemove.setEnabled(false);
     	        this.actionSubmit.setEnabled(true);
     	        this.actionAudit.setEnabled(false);
     	        this.actionUnAudit.setEnabled(false);
 
     	        this.btnAddNew.setEnabled(false);
-    	        this.btnEdit.setEnabled(true);
-    	        this.btnSave.setEnabled(false);
+    	        this.btnEdit.setEnabled(false);
+    	        this.btnSave.setEnabled(true);
     	        this.btnRemove.setEnabled(false);
     	        this.btnSubmit.setEnabled(true);
     	        this.btnAudit.setEnabled(false);
@@ -143,7 +167,7 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     	          this.actionRemove.setEnabled(false);
     	          this.actionSubmit.setEnabled(false);
     	          this.actionAudit.setEnabled(false);
-    	          this.actionUnAudit.setEnabled(false);
+    	          this.actionUnAudit.setEnabled(true);
 
     	          this.btnAddNew.setEnabled(false);
     	          this.btnEdit.setEnabled(false);
@@ -211,6 +235,10 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     	 
     	 
     }
+    public boolean checkBeforeWindowClosing() {
+    	return super.checkBeforeWindowClosing();
+    }
+
     public void onShow() throws Exception {
     	super.onShow();
     }
@@ -237,9 +265,9 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     	    this.contstate.setEnabled(false);
     	    this.contbillState.setEnabled(false);
     	    
-    	    prmtcontractNumber.setDisplayFormat("$name$");
-        	prmtcontractNumber.setEditFormat("$name$");
-        	prmtcontractNumber.setCommitFormat("$number$");
+//    	    prmtcontractNumber.setDisplayFormat("$name$");
+//        	prmtcontractNumber.setEditFormat("$name$");
+//        	prmtcontractNumber.setCommitFormat("$number$");
         	
         	this.txtdecAmount.setHorizontalAlignment(2);		
             this.txtdecAmount.setDataType(1);		
@@ -307,7 +335,7 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     
     public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {//新增
     	super.actionAddNew_actionPerformed(e);
-    	this.actionAddNew.setEnabled(false);//新增
+    	this.actionAddNew.setEnabled(true);//新增
 		this.actionEdit.setEnabled(false);//修改
     	this.actionSave.setEnabled(true);//保存
     	this.actionRemove.setEnabled(false);//删除
@@ -373,10 +401,10 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     }
     
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {//提交
-
+    	
         this.billState.setSelectedItem(BillStateEnum.SUBMIT);
         this.state.setSelectedItem(TrialStatusEnum.Review);
-
+        super.actionSave_actionPerformed(e);
         this.actionAddNew.setEnabled(false);
         this.actionEdit.setEnabled(false);
         this.actionSave.setEnabled(false);
@@ -386,16 +414,17 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
         this.actionUnAudit.setEnabled(false);
         this.btnInTrial.setEnabled(false);
         this.btnApproved.setEnabled(false);
-        this.state.setSelectedItem(TrialStatusEnum.Review);
+//        this.state.setSelectedItem(TrialStatusEnum.Review);
+        
     }
     
-    public void actionAudit_actionPerformed(ActionEvent e) throws Exception {//审批
+    public void actionAudit_actionPerformed(ActionEvent e) throws Exception {//审核
 //    	if(WorkflowXRHelper.checkInProInst(editData.getId().toString())){
 //			MsgBox.showWarning("此单据记录有流程正在运行!");
 //			SysUtil.abort();
 //		}
-    	SettleDeclarationBillFactory.getRemoteInstance().Audit(this.editData.getId());
     	super.actionAudit_actionPerformed(e);
+    	SettleDeclarationBillFactory.getRemoteInstance().Audit(editData);
     	refEditUI();
     	this.actionAddNew.setEnabled(false);//新增
     	this.actionEdit.setEnabled(false);//修改
@@ -405,8 +434,8 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     	this.actionAudit.setEnabled(false);//审批
     	btnAudit.setEnabled(false);
     	this.actionUnAudit.setEnabled(true);//反审批
-    	 this.btnInTrial.setEnabled(true);
-    	    this.btnApproved.setEnabled(false);
+    	this.btnInTrial.setEnabled(true);
+    	this.btnApproved.setEnabled(false);
     }
     
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {//反审批
@@ -415,8 +444,8 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
 //			MsgBox.showWarning("此单据记录有流程正在运行!");
 //			SysUtil.abort();
 //		}
-    	SettleDeclarationBillFactory.getRemoteInstance().UnAudit(this.editData.getId());
     	super.actionUnAudit_actionPerformed(e);
+    	SettleDeclarationBillFactory.getRemoteInstance().UnAudit(editData);
     	refEditUI();
     	this.actionAddNew.setEnabled(false);//新增
     	this.actionEdit.setEnabled(true);//修改
@@ -432,7 +461,7 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     }
     
     public void actionInTrial_actionPerformed(ActionEvent e) throws Exception {//送审
-    	SettleDeclarationBillFactory.getRemoteInstance().InTrial(this.editData.getId());
+    	SettleDeclarationBillFactory.getRemoteInstance().InTrial(editData);
     	super.actionInTrial_actionPerformed(e);
     	 this.actionAddNew.setEnabled(false);
     	    this.actionEdit.setEnabled(false);
@@ -447,7 +476,7 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     }
     
     public void actionApproved_actionPerformed(ActionEvent e) throws Exception {//审定
-    	SettleDeclarationBillFactory.getRemoteInstance().Approved(this.editData.getId());
+    	SettleDeclarationBillFactory.getRemoteInstance().Approved(editData);
     	super.actionApproved_actionPerformed(e);
     	this.btnInTrial.setEnabled(false);
         this.btnApproved.setEnabled(false);
