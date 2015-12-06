@@ -61,6 +61,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtSplitProject_detailPanel = null;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer6;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkprojectEnd;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chqk;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanelCost;
@@ -417,6 +418,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.kdtSplitProject = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDLabelContainer6 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.chkprojectEnd = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.chqk = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDPanelCost = new com.kingdee.bos.ctrl.swing.KDPanel();
@@ -457,6 +459,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.kdtSplitProject.setName("kdtSplitProject");
         this.kDLabelContainer6.setName("kDLabelContainer6");
         this.chkprojectEnd.setName("chkprojectEnd");
+        this.chqk.setName("chqk");
         this.txtName.setName("txtName");
         this.txtNumber.setName("txtNumber");
         this.kDPanelCost.setName("kDPanelCost");
@@ -686,6 +689,20 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.chkprojectEnd.setText(resHelper.getString("chkprojectEnd.text"));		
         this.chkprojectEnd.setVisible(true);		
         this.chkprojectEnd.setHorizontalAlignment(2);
+        // chqk		
+        this.chqk.setText(resHelper.getString("chqk.text"));
+        this.chqk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    chqk_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // txtName		
         this.txtName.setRequired(true);		
         this.txtName.setMaxLength(80);
@@ -901,7 +918,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.add(kDLabelContainer2, null);
         kDLabelContainer4.setBounds(new Rectangle(358, 36, 270, 19));
         this.add(kDLabelContainer4, null);
-        chkIsDevPrj.setBounds(new Rectangle(156, 88, 95, 19));
+        chkIsDevPrj.setBounds(new Rectangle(97, 87, 95, 19));
         this.add(chkIsDevPrj, null);
         kDLabelContainer5.setBounds(new Rectangle(358, 88, 270, 19));
         this.add(kDLabelContainer5, null);
@@ -914,6 +931,8 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.add(kDLabelContainer6, null);
         chkprojectEnd.setBounds(new Rectangle(263, 88, 270, 19));
         this.add(chkprojectEnd, null);
+        chqk.setBounds(new Rectangle(178, 90, 140, 19));
+        this.add(chqk, null);
         //contName
         contName.setBoundEditor(txtName);
         //contLongNumber
@@ -1084,6 +1103,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
 		dataBinder.registerBinding("SplitProject", com.kingdee.eas.fdc.basedata.CurProjectSplitProjectInfo.class, this.kdtSplitProject, "userObject");
 		dataBinder.registerBinding("SplitProject.splitProject", java.lang.Object.class, this.kdtSplitProject, "splitProject.text");
 		dataBinder.registerBinding("projectEnd", boolean.class, this.chkprojectEnd, "selected");
+		dataBinder.registerBinding("qk", boolean.class, this.chqk, "selected");
 		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("landDeveloper", com.kingdee.eas.fdc.basedata.LandDeveloperInfo.class, this.bizLandDeveloper, "data");
@@ -1232,6 +1252,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
 		getValidateHelper().registerBindProperty("SplitProject", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("SplitProject.splitProject", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("projectEnd", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("qk", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("landDeveloper", ValidateHelper.ON_SAVE);    
@@ -1324,6 +1345,13 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
     }
 
     /**
+     * output chqk_actionPerformed method
+     */
+    protected void chqk_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+    }
+
+    /**
      * output txtNumber_focusLost method
      */
     protected void txtNumber_focusLost(java.awt.event.FocusEvent e) throws Exception
@@ -1410,6 +1438,7 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         	sic.add(new SelectorItemInfo("SplitProject.splitProject.number"));
 		}
         sic.add(new SelectorItemInfo("projectEnd"));
+        sic.add(new SelectorItemInfo("qk"));
         sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("number"));
 		if(selectorAll.equalsIgnoreCase("true"))

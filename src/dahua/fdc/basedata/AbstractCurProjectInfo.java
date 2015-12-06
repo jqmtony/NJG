@@ -187,6 +187,17 @@ public class AbstractCurProjectInfo extends com.kingdee.eas.fdc.basedata.Project
     {
         setBoolean("projectEnd", item);
     }
+    /**
+     * Object:当前工程项目's 合同计划金额是否强控合同付款申请单property 
+     */
+    public boolean isQk()
+    {
+        return getBoolean("qk");
+    }
+    public void setQk(boolean item)
+    {
+        setBoolean("qk", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("F9E5E92B");
