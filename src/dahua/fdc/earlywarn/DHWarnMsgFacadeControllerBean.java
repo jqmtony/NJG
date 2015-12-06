@@ -85,7 +85,7 @@ public class DHWarnMsgFacadeControllerBean extends AbstractDHWarnMsgFacadeContro
 			sb.append(" select c.fname_l2,b.CFCostAccount,b.CFLevel from CT_AIM_ProjectDynamicCost a ");
 			sb.append(" left join CT_AIM_ProjectDCEA b on b.fparentid=a.fid ");
 			sb.append(" left join t_fdc_curproject c on c.fid=a.CFCurProjectID");
-			sb.append(" where b.CFLevel<=3 and a.fid='"+billId+"' and b.CFAlertIndex>b.CFDiffRate *100 order by b.CFLevel ");
+			sb.append(" where b.CFLevel<=3 and a.fid='"+billId+"' and b.CFAlertIndex<b.CFDiffRate *100 order by b.CFLevel ");
 			executeQuery = DbUtil.executeQuery(ctx, sb.toString());
 			while(executeQuery.next()){
 				String projectName = executeQuery.getString(1);
