@@ -51,10 +51,12 @@ public abstract class AbstractProjectDynamicCostListUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.swing.KDTree treeMain;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAudit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnAudit;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnRevise;
     protected ActionTDPrint actionTDPrint = null;
     protected ActionTDPrintPreview actionTDPrintPreview = null;
     protected ActionAudit actionAudit = null;
     protected ActionUnAudit actionUnAudit = null;
+    protected ActionRevise actionRevise = null;
     public final static String STATUS_VIEW = "VIEW";
     /**
      * output class constructor
@@ -116,21 +118,27 @@ public abstract class AbstractProjectDynamicCostListUI extends com.kingdee.eas.f
         this.actionUnAudit.setExtendProperty("isObjectUpdateLock", "false");
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionRevise
+        this.actionRevise = new ActionRevise(this);
+        getActionManager().registerAction("actionRevise", actionRevise);
+         this.actionRevise.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.kDSplitPane1 = new com.kingdee.bos.ctrl.swing.KDSplitPane();
         this.kDTreeView1 = new com.kingdee.bos.ctrl.swing.KDTreeView();
         this.treeMain = new com.kingdee.bos.ctrl.swing.KDTree();
         this.btnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnUnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnRevise = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.kDSplitPane1.setName("kDSplitPane1");
         this.kDTreeView1.setName("kDTreeView1");
         this.treeMain.setName("treeMain");
         this.btnAudit.setName("btnAudit");
         this.btnUnAudit.setName("btnUnAudit");
+        this.btnRevise.setName("btnRevise");
         // CoreUI
-		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"curProject.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"version\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"firstLevelPos.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"secondLevelPos.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"thirdLevelPos.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{curProject.name}</t:Cell><t:Cell>$Resource{version}</t:Cell><t:Cell>$Resource{state}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{firstLevelPos.name}</t:Cell><t:Cell>$Resource{secondLevelPos.name}</t:Cell><t:Cell>$Resource{thirdLevelPos.name}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol13\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol14\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol15\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"0\" t:styleID=\"sCol0\" /><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"1\" /><t:Column t:key=\"isLatest\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"2\" /><t:Column t:key=\"bizDate\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"curProject.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"version\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"createTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"creator.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" /><t:Column t:key=\"auditTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"9\" /><t:Column t:key=\"auditor.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"10\" /><t:Column t:key=\"lastUpdateTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"11\" /><t:Column t:key=\"lastUpdateUser.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"12\" /><t:Column t:key=\"firstLevelPos.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"13\" t:styleID=\"sCol13\" /><t:Column t:key=\"secondLevelPos.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"14\" t:styleID=\"sCol14\" /><t:Column t:key=\"thirdLevelPos.name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"15\" t:styleID=\"sCol15\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{isLatest}</t:Cell><t:Cell>$Resource{bizDate}</t:Cell><t:Cell>$Resource{curProject.name}</t:Cell><t:Cell>$Resource{version}</t:Cell><t:Cell>$Resource{state}</t:Cell><t:Cell>$Resource{createTime}</t:Cell><t:Cell>$Resource{creator.name}</t:Cell><t:Cell>$Resource{auditTime}</t:Cell><t:Cell>$Resource{auditor.name}</t:Cell><t:Cell>$Resource{lastUpdateTime}</t:Cell><t:Cell>$Resource{lastUpdateUser.name}</t:Cell><t:Cell>$Resource{firstLevelPos.name}</t:Cell><t:Cell>$Resource{secondLevelPos.name}</t:Cell><t:Cell>$Resource{thirdLevelPos.name}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
-                this.tblMain.putBindContents("mainQuery",new String[] {"id","number","bizDate","curProject.name","version","state","createTime","creator.name","auditTime","auditor.name","lastUpdateTime","lastUpdateUser.name","firstLevelPos.name","secondLevelPos.name","thirdLevelPos.name"});
+                this.tblMain.putBindContents("mainQuery",new String[] {"id","number","isLatest","bizDate","curProject.name","version","state","createTime","creator.name","auditTime","auditor.name","lastUpdateTime","lastUpdateUser.name","firstLevelPos.name","secondLevelPos.name","thirdLevelPos.name"});
 
 
         this.tblMain.checkParsed();
@@ -165,6 +173,9 @@ public abstract class AbstractProjectDynamicCostListUI extends com.kingdee.eas.f
         // btnUnAudit
         this.btnUnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionUnAudit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnUnAudit.setText(resHelper.getString("btnUnAudit.text"));
+        // btnRevise
+        this.btnRevise.setAction((IItemAction)ActionProxyFactory.getProxy(actionRevise, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnRevise.setText(resHelper.getString("btnRevise.text"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -338,6 +349,7 @@ public abstract class AbstractProjectDynamicCostListUI extends com.kingdee.eas.f
         this.toolBar.add(btnWFViewdoProccess);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAudit);
+        this.toolBar.add(btnRevise);
 
 
     }
@@ -478,6 +490,7 @@ public abstract class AbstractProjectDynamicCostListUI extends com.kingdee.eas.f
         sic.add(new SelectorItemInfo("firstLevelPos.name"));
         sic.add(new SelectorItemInfo("secondLevelPos.name"));
         sic.add(new SelectorItemInfo("thirdLevelPos.name"));
+        sic.add(new SelectorItemInfo("isLatest"));
         return sic;
     }            protected java.util.List getQuerySorterFields() 
     { 
@@ -552,6 +565,14 @@ com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostFactory.getRemo
 com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostInfo editData = (com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostInfo)getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
 com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostFactory.getRemoteInstance().unAudit(editData);
     }
+    	
+
+    /**
+     * output actionRevise_actionPerformed method
+     */
+    public void actionRevise_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionRemove(itemAction);		
 		if (request != null) {
@@ -605,6 +626,17 @@ com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostFactory.getRemo
     }
 	
 	public boolean isPrepareActionUnAudit() {
+    	return false;
+    }
+	public RequestContext prepareActionRevise(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionRevise() {
     	return false;
     }
 
@@ -729,6 +761,36 @@ com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostFactory.getRemo
     }
 
     /**
+     * output ActionRevise class
+     */     
+    protected class ActionRevise extends ItemAction {     
+    
+        public ActionRevise()
+        {
+            this(null);
+        }
+
+        public ActionRevise(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionRevise.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionRevise.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionRevise.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractProjectDynamicCostListUI.this, "ActionRevise", "actionRevise_actionPerformed", e);
+        }
+    }
+
+    /**
      * output getMetaDataPK method
      */
     public IMetaDataPK getMetaDataPK()
@@ -773,7 +835,7 @@ com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostFactory.getRemo
      */
     public String[] getMergeColumnKeys()
     {
-        return new String[] {"id","number","bizDate","curProject.name","version","state","createTime","creator.name","auditTime","auditor.name","lastUpdateTime","lastUpdateUser.name","firstLevelPos.name","secondLevelPos.name","thirdLevelPos.name"};
+        return new String[] {"id","number","isLatest","bizDate","curProject.name","version","state","createTime","creator.name","auditTime","auditor.name","lastUpdateTime","lastUpdateUser.name","firstLevelPos.name","secondLevelPos.name","thirdLevelPos.name"};
     }
 
 

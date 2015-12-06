@@ -4,13 +4,17 @@
 package com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.client;
 
 import java.awt.event.*;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
+
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -20,13 +24,21 @@ import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.eas.base.permission.PermissionFactory;
 import com.kingdee.eas.basedata.org.OrgStructureInfo;
 import com.kingdee.eas.basedata.org.OrgType;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.IProjectDynamicCost;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostFactory;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostInfo;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
+import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.util.SysUtil;
@@ -90,16 +102,63 @@ public class ProjectDynamicCostListUI extends AbstractProjectDynamicCostListUI
     	return UIFactoryName.NEWTAB;
     }
     /**
+     * 获取对象
+     * @param billId
+     * @return
+     * @throws Exception 
+     */
+    private ProjectDynamicCostInfo getSelectedBillInfo(String billId) throws Exception {
+    	ProjectDynamicCostInfo info = null;
+    	IProjectDynamicCost iProDynamicCost = ProjectDynamicCostFactory.getRemoteInstance();
+    	SelectorItemCollection sic = new SelectorItemCollection();
+    	sic.add(new SelectorItemInfo("*"));
+    	sic.add(new SelectorItemInfo("firstLevelPos.*"));
+    	sic.add(new SelectorItemInfo("secondLevelPos.*"));
+    	sic.add(new SelectorItemInfo("thirdLevelPos.*"));
+    	sic.add(new SelectorItemInfo("curProject.*"));
+    	sic.add(new SelectorItemInfo("entrys.*"));
+    	sic.add(new SelectorItemInfo("EntrysAccount.*"));
+    	sic.add(new SelectorItemInfo("EntryPosition.*"));
+    	sic.add(new SelectorItemInfo("EntryPosition.position.*"));
+    	info = iProDynamicCost.getProjectDynamicCostInfo(new ObjectUuidPK(billId), sic);
+    	return info;
+    }
+    /**
+     * 修订
+     */
+    public void actionRevise_actionPerformed(ActionEvent e) throws Exception {
+    	checkSelected();
+    	String id = getSelectedKeyValue();
+    	ProjectDynamicCostInfo selectedBillInfo = getSelectedBillInfo(id);
+    	if(!selectedBillInfo.getState().equals(FDCBillStateEnum.AUDITTED)) {
+    		MsgBox.showWarning("非已审核单据无法修订!");
+    		SysUtil.abort();
+    	}
+    	UIContext uiContext = new UIContext(this);
+    	uiContext.put("info", selectedBillInfo);
+    	UIFactory.createUIFactory(getEditUIModal()).create(ProjectDynamicCostEditUI.class.getName(), uiContext, null,OprtState.ADDNEW).show();
+    }
+    /**
      * 审核
      */
     public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
-    	super.actionAudit_actionPerformed(e);
+    	checkSelected();
+    	String id = getSelectedKeyValue();
+    	ProjectDynamicCostInfo selectedBillInfo = getSelectedBillInfo(id);
+    	ProjectDynamicCostFactory.getRemoteInstance().audit(selectedBillInfo);
+    	
+    	refresh(null);
     }
     /**
      * 反审核
      */
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
-    	super.actionUnAudit_actionPerformed(e);
+    	checkSelected();
+    	String id = getSelectedKeyValue();
+    	ProjectDynamicCostInfo selectedBillInfo = getSelectedBillInfo(id);
+    	ProjectDynamicCostFactory.getRemoteInstance().unAudit(selectedBillInfo);
+    	
+    	refresh(null);
     }
     /**
      * output treeMain_valueChanged method

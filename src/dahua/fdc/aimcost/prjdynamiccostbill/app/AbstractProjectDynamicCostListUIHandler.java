@@ -34,4 +34,9 @@ public abstract class AbstractProjectDynamicCostListUIHandler extends com.kingde
 	}
 	protected void _handleActionUnAudit(RequestContext request,ResponseContext response, Context context) throws Exception {
 	}
+	public void handleActionRevise(RequestContext request,ResponseContext response, Context context) throws Exception {
+		_handleActionRevise(request,response,context);
+	}
+	protected void _handleActionRevise(RequestContext request,ResponseContext response, Context context) throws Exception {
+	}
 }

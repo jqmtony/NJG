@@ -153,6 +153,17 @@ public class AbstractProjectDynamicCostInfo extends com.kingdee.eas.framework.Co
     {
         return (com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryPositionCollection)get("EntryPosition");
     }
+    /**
+     * Object:工程动态成本跟踪表's 是否最新版property 
+     */
+    public boolean isIsLatest()
+    {
+        return getBoolean("isLatest");
+    }
+    public void setIsLatest(boolean item)
+    {
+        setBoolean("isLatest", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("75CD9A79");

@@ -46,8 +46,16 @@ import com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo;
 import com.kingdee.eas.fdc.aimcost.IForecastChangeVis;
 import com.kingdee.eas.fdc.aimcost.client.AbstractForecastChangeVisEditUI;
 import com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryCollection;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryInfo;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryPositionCollection;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryPositionInfo;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrysAccountCollection;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrysAccountInfo;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostInfo;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
+import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
 import com.kingdee.eas.fdc.basedata.FDCDateHelper;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
@@ -1530,6 +1538,11 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	}
     }
     /**
+     * –ﬁ∂©
+     */
+    public void actionRevise_actionPerformed(ActionEvent e) throws Exception {
+    }
+    /**
      * …Û∫À
      */
     public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
@@ -2151,13 +2164,36 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     protected com.kingdee.bos.dao.IObjectValue createNewData()
     {
     	CurProjectInfo curProject = (CurProjectInfo) getUIContext().get("project");
-        com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostInfo objectValue = new com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostInfo();
-        objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
-		
-        objectValue.setCurProject(curProject);
-        objectValue.setBizDate(Calendar.getInstance().getTime());
-        objectValue.setVersion(1);
-        return objectValue;
+    	ProjectDynamicCostInfo info = (ProjectDynamicCostInfo) getUIContext().get("info");
+    	if(info == null) {
+    		info = new ProjectDynamicCostInfo();
+    		info.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
+    		
+    		info.setCurProject(curProject);
+    		info.setVersion(1);
+    		info.setBizDate(Calendar.getInstance().getTime());
+    	} else {
+    		info.setId(BOSUuid.create(info.getBOSType()));
+    		info.setVersion(info.getVersion()+1);
+    		ProjectDynamicCostEntryCollection entrys = info.getEntrys();
+    		ProjectDynamicCostEntrysAccountCollection entrysAccount = info.getEntrysAccount();
+    		ProjectDynamicCostEntryPositionCollection entryPosition = info.getEntryPosition();
+    		for(int i = 0; i < entrys.size(); i++) {
+    			ProjectDynamicCostEntryInfo entryInfo = entrys.get(i);
+    			entryInfo.setId(null);
+    		}
+    		for(int i = 0; i < entrysAccount.size(); i++) {
+    			ProjectDynamicCostEntrysAccountInfo entryInfo = entrysAccount.get(i);
+    			entryInfo.setId(null);
+    		}
+    		for(int i = 0; i < entryPosition.size(); i++) {
+    			ProjectDynamicCostEntryPositionInfo entryInfo = entryPosition.get(i);
+    			entryInfo.setId(null);
+    		}
+    	}
+    	info.setState(FDCBillStateEnum.SAVED);
+    	info.setIsLatest(false);
+        return info;
     }
 
 }

@@ -69,6 +69,7 @@ public abstract class AbstractProjectDynamicCostEditUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contthirdLevelPos;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntryPosition;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntryPosition_detailPanel = null;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox chkisLatest;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker kDDateCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -109,9 +110,11 @@ public abstract class AbstractProjectDynamicCostEditUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtthirdLevelPos;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAudit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnAduit;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnRevise;
     protected com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostInfo editData = null;
     protected ActionAudit actionAudit = null;
     protected ActionUnAudit actionUnAudit = null;
+    protected ActionRevise actionRevise = null;
     /**
      * output class constructor
      */
@@ -191,6 +194,10 @@ public abstract class AbstractProjectDynamicCostEditUI extends com.kingdee.eas.f
         this.actionUnAudit.setExtendProperty("isObjectUpdateLock", "false");
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
+        //actionRevise
+        this.actionRevise = new ActionRevise(this);
+        getActionManager().registerAction("actionRevise", actionRevise);
+         this.actionRevise.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -213,6 +220,7 @@ public abstract class AbstractProjectDynamicCostEditUI extends com.kingdee.eas.f
         this.contsecondLevelPos = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contthirdLevelPos = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kdtEntryPosition = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.chkisLatest = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDDateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -251,6 +259,7 @@ public abstract class AbstractProjectDynamicCostEditUI extends com.kingdee.eas.f
         this.prmtthirdLevelPos = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.btnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnUnAduit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnRevise = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -273,6 +282,7 @@ public abstract class AbstractProjectDynamicCostEditUI extends com.kingdee.eas.f
         this.contsecondLevelPos.setName("contsecondLevelPos");
         this.contthirdLevelPos.setName("contthirdLevelPos");
         this.kdtEntryPosition.setName("kdtEntryPosition");
+        this.chkisLatest.setName("chkisLatest");
         this.prmtCreator.setName("prmtCreator");
         this.kDDateCreateTime.setName("kDDateCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -311,6 +321,7 @@ public abstract class AbstractProjectDynamicCostEditUI extends com.kingdee.eas.f
         this.prmtthirdLevelPos.setName("prmtthirdLevelPos");
         this.btnAudit.setName("btnAudit");
         this.btnUnAduit.setName("btnUnAduit");
+        this.btnRevise.setName("btnRevise");
         // CoreUI		
         this.btnAddLine.setVisible(false);		
         this.btnCopyLine.setVisible(false);		
@@ -461,6 +472,10 @@ public abstract class AbstractProjectDynamicCostEditUI extends com.kingdee.eas.f
         ObjectValueRender kdtEntryPosition_position_OVR = new ObjectValueRender();
         kdtEntryPosition_position_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtEntryPosition.getColumn("position").setRenderer(kdtEntryPosition_position_OVR);
+        // chkisLatest		
+        this.chkisLatest.setText(resHelper.getString("chkisLatest.text"));		
+        this.chkisLatest.setVisible(true);		
+        this.chkisLatest.setHorizontalAlignment(2);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);
         // kDDateCreateTime		
@@ -1063,7 +1078,10 @@ public abstract class AbstractProjectDynamicCostEditUI extends com.kingdee.eas.f
         // btnUnAduit
         this.btnUnAduit.setAction((IItemAction)ActionProxyFactory.getProxy(actionUnAudit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnUnAduit.setText(resHelper.getString("btnUnAduit.text"));
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtcurProject,txtversion,state,pkauditTime,prmtfirstLevelPos,prmtsecondLevelPos,prmtthirdLevelPos}));
+        // btnRevise
+        this.btnRevise.setAction((IItemAction)ActionProxyFactory.getProxy(actionRevise, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnRevise.setText(resHelper.getString("btnRevise.text"));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {prmtcurProject,txtversion,state,pkauditTime,prmtfirstLevelPos,prmtsecondLevelPos,prmtthirdLevelPos,chkisLatest}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -1137,6 +1155,8 @@ public abstract class AbstractProjectDynamicCostEditUI extends com.kingdee.eas.f
         kdtEntryPosition.setBounds(new Rectangle(724, 549, 600, 170));
         kdtEntryPosition_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntryPosition,new com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryPositionInfo(),null,false);
         this.add(kdtEntryPosition_detailPanel, new KDLayout.Constraints(724, 549, 600, 170, 0));
+        chkisLatest.setBounds(new Rectangle(285, 591, 270, 19));
+        this.add(chkisLatest, new KDLayout.Constraints(285, 591, 270, 19, 0));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1397,6 +1417,7 @@ vo.put("accountIndex","LAND");
         this.toolBar.add(btnNextPerson);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnUnAduit);
+        this.toolBar.add(btnRevise);
 
 
     }
@@ -1408,6 +1429,7 @@ vo.put("accountIndex","LAND");
 		dataBinder.registerBinding("EntryPosition", com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryPositionInfo.class, this.kdtEntryPosition, "userObject");
 		dataBinder.registerBinding("EntryPosition.level", int.class, this.kdtEntryPosition, "level.text");
 		dataBinder.registerBinding("EntryPosition.position", java.lang.Object.class, this.kdtEntryPosition, "position.text");
+		dataBinder.registerBinding("isLatest", boolean.class, this.chkisLatest, "selected");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.kDDateCreateTime, "value");
 		dataBinder.registerBinding("lastUpdateUser", com.kingdee.eas.base.permission.UserInfo.class, this.prmtLastUpdateUser, "data");
@@ -1611,6 +1633,7 @@ vo.put("accountIndex","LAND");
 		getValidateHelper().registerBindProperty("EntryPosition", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EntryPosition.level", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("EntryPosition.position", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("isLatest", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("lastUpdateUser", ValidateHelper.ON_SAVE);    
@@ -1755,6 +1778,7 @@ vo.put("accountIndex","LAND");
 			sic.add(new SelectorItemInfo("EntryPosition.position.name"));
         	sic.add(new SelectorItemInfo("EntryPosition.position.number"));
 		}
+        sic.add(new SelectorItemInfo("isLatest"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));
@@ -1948,6 +1972,14 @@ vo.put("accountIndex","LAND");
     {
         com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostFactory.getRemoteInstance().unAudit(editData);
     }
+    	
+
+    /**
+     * output actionRevise_actionPerformed method
+     */
+    public void actionRevise_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -2001,6 +2033,17 @@ vo.put("accountIndex","LAND");
     }
 	
 	public boolean isPrepareActionUnAudit() {
+    	return false;
+    }
+	public RequestContext prepareActionRevise(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionRevise() {
     	return false;
     }
 
@@ -2061,6 +2104,36 @@ vo.put("accountIndex","LAND");
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractProjectDynamicCostEditUI.this, "ActionUnAudit", "actionUnAudit_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionRevise class
+     */     
+    protected class ActionRevise extends ItemAction {     
+    
+        public ActionRevise()
+        {
+            this(null);
+        }
+
+        public ActionRevise(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionRevise.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionRevise.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionRevise.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractProjectDynamicCostEditUI.this, "ActionRevise", "actionRevise_actionPerformed", e);
         }
     }
 
