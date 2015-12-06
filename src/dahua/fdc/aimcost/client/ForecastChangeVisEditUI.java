@@ -151,6 +151,7 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
 	private HashMap entrysMap = new HashMap(); 
 	private ForecastChangeVisSplitEntryCollection entrys = null;
     protected FDCCostSplitForSL fdcCostSplit=new FDCCostSplitForSL(null);
+    public com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo editData2;
 
 	private final static String CANTUNAUDIT = "cantUnAudit";
 
@@ -201,7 +202,7 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
     	this.txtBanane.setHorizontalAlignment(JTextField.RIGHT);
 //    	DecimalFormat df2 = new DecimalFormat("V###,##0.0");
 //    	this.txtversion.setFormatterFactory(new DefaultFormatterFactory(new NumberFormatter(df2)));
-    	
+    	editData2 = editData;
     }
     
     public void onShow() throws Exception {
@@ -681,6 +682,7 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
     public void storeFields()
     {
         super.storeFields();
+        editData2 = editData;
     }
 
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
