@@ -1094,6 +1094,37 @@
                 <key name="name" value="CurProjectQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>qk</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[qk].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9a7c1e37-d383-49f4-8d15-f4be93abcf5e</key>
+                    <parentUnit>
+                        <key name="name" value="qk" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="CurProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="qk" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProjectQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1689,6 +1720,12 @@
             <lang locale="zh_CN" value="项目系列名称" />
             <lang locale="zh_HK" value="項目系列名稱" />
             <lang locale="zh_TW" value="項目系列名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[qk].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同计划金额是否强控合同付款申请单" />
+            <lang locale="zh_HK" value="合同計畫金額是否強控合同付款申請單" />
+            <lang locale="zh_TW" value="合同計畫金額是否強控合同付款申請單" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.basedata.app.CurProjectQuery].units.queryField[sortNo].displayName">
             <lang locale="en_US" value="null" />
