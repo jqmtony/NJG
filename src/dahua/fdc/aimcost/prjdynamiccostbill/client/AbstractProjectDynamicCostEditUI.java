@@ -413,6 +413,16 @@ public abstract class AbstractProjectDynamicCostEditUI extends com.kingdee.eas.f
         this.kDLabelContainer1.setBoundLabelLength(100);		
         this.kDLabelContainer1.setBoundLabelUnderline(true);
         // spMonth
+        this.spMonth.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent e) {
+                try {
+                    spMonth_stateChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // kDLabel1		
         this.kDLabel1.setText(resHelper.getString("kDLabel1.text"));
         // kDLabel2		
@@ -510,6 +520,16 @@ public abstract class AbstractProjectDynamicCostEditUI extends com.kingdee.eas.f
         this.txtversion.setSupportedEmpty(true);		
         this.txtversion.setRequired(false);
         // spYear
+        this.spYear.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent e) {
+                try {
+                    spYear_stateChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // state		
         this.state.setVisible(true);		
         this.state.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.basedata.FDCBillStateEnum").toArray());		
@@ -1719,6 +1739,20 @@ vo.put("accountIndex","LAND");
      * output btnLoadData_actionPerformed method
      */
     protected void btnLoadData_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output spMonth_stateChanged method
+     */
+    protected void spMonth_stateChanged(javax.swing.event.ChangeEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output spYear_stateChanged method
+     */
+    protected void spYear_stateChanged(javax.swing.event.ChangeEvent e) throws Exception
     {
     }
 

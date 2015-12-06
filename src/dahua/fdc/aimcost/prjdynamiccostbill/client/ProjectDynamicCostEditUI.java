@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.swing.SpinnerNumberModel;
+import javax.swing.event.ChangeEvent;
 
 import org.apache.log4j.Logger;
 
@@ -35,8 +36,10 @@ import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
+import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
@@ -46,12 +49,14 @@ import com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo;
 import com.kingdee.eas.fdc.aimcost.IForecastChangeVis;
 import com.kingdee.eas.fdc.aimcost.client.AbstractForecastChangeVisEditUI;
 import com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.IProjectDynamicCost;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryCollection;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryInfo;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryPositionCollection;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryPositionInfo;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrysAccountCollection;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrysAccountInfo;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostFactory;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostInfo;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
@@ -60,6 +65,8 @@ import com.kingdee.eas.fdc.basedata.FDCConstants;
 import com.kingdee.eas.fdc.basedata.FDCDateHelper;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
+import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.programming.IProgrammingContract;
@@ -67,9 +74,14 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostCollection
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContracCostInfo;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
+import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherCollection;
+import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherFactory;
+import com.kingdee.eas.fdc.finance.VersionTypeEnum;
 import com.kingdee.eas.fm.ecore.app.bean.commercialdraft.ContractInformation;
 import com.kingdee.eas.framework.*;
+import com.kingdee.eas.framework.client.FrameWorkClientUtils;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
@@ -117,6 +129,11 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	
     	if(getOprtState().equals(OprtState.VIEW))
     		this.btnLoadData.setEnabled(false);
+    	this.spYear.setEnabled(false);
+    	this.spMonth.setEnabled(false);
+    	this.btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
+    	this.btnUnAduit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
+    	this.btnRevise.setIcon(EASResource.getIcon("imgTbtn_duizsetting"));
     	super.onLoad();
     	if(this.editData.getBizDate()!=null){
 			Calendar cal = Calendar.getInstance();
@@ -203,6 +220,11 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	
     	this.kDContainer2.getContentPane().add(kdtEntrysContract);
     	this.kDContainer1.getContentPane().add(kdtEntrysAccount);
+    	
+    	
+    	this.kdtEntrysContract.getColumn("curMonthOtherId").getStyleAttributes().setHided(true);
+    	this.kdtEntrysContract.getColumn("ForecastChangeVisID").getStyleAttributes().setHided(true);
+    	this.kdtEntrysContract.getColumn("programmingId").getStyleAttributes().setHided(true);
     	
     	this.kdtEntrysAccount.getColumn("Comment").getStyleAttributes().setLocked(false);
     	this.kdtEntrysAccount.getColumn("accountIndex").getStyleAttributes().setHided(true);
@@ -1542,19 +1564,73 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
      * 修订
      */
     public void actionRevise_actionPerformed(ActionEvent e) throws Exception {
+    	if(editData.getId() == null) {
+    		MsgBox.showWarning("请先保存!");
+    		SysUtil.abort();
+    	}
+    	if(!editData.getState().equals(FDCBillStateEnum.AUDITTED)) {
+    		MsgBox.showWarning("非已审核单据无法修订!");
+    		SysUtil.abort();
+    	}
+    	UIContext uiContext = new UIContext(this);
+    	uiContext.put("info", editData);
+    	UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(ProjectDynamicCostEditUI.class.getName(), uiContext, null,OprtState.ADDNEW).show();
+    	syncDataFromDB();
     }
     /**
      * 审核
      */
     public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
+    	if(editData.getId() == null) {
+    		MsgBox.showWarning("请先保存!");
+    		SysUtil.abort();
+    	}
+    	if(!editData.getState().equals(FDCBillStateEnum.SUBMITTED)) {
+    		MsgBox.showWarning("非提交状态单据无法审核!");
+    		SysUtil.abort();
+    	}
+    	FDCClientUtils.checkBillInWorkflow(this,getSelectBOID());
     	super.actionAudit_actionPerformed(e);
+    	syncDataFromDB();
+    	MsgBox.showInfo("审核成功!");
     }
     /**
      * 反审核
      */
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
+    	if(editData.getId() == null) {
+    		MsgBox.showWarning("请先保存!");
+    		SysUtil.abort();
+    	}
+    	if(!editData.getState().equals(FDCBillStateEnum.AUDITTED)) {
+    		MsgBox.showWarning("非审核状态单据无法反审核!");
+    		SysUtil.abort();
+    	}
+    	FDCClientUtils.checkBillInWorkflow(this,getSelectBOID());
     	super.actionUnAudit_actionPerformed(e);
+    	syncDataFromDB();
+    	MsgBox.showInfo("反审核成功!");
     }
+    protected void spMonth_stateChanged(ChangeEvent e) throws Exception {
+    }
+    protected void spYear_stateChanged(ChangeEvent e) throws Exception {
+    }
+    /**
+	 * 同步数据库数据到界面,用于审批/反审批后显示审批人,审批日期
+	 * @throws Exception
+	 */
+	protected void syncDataFromDB() throws Exception {
+		//由传递过来的ID获取值对象
+        if(getUIContext().get(UIContext.ID) == null)
+        {
+            String s = EASResource.getString(FrameWorkClientUtils.strResource + "Msg_IDIsNull");
+            MsgBox.showError(s);
+            SysUtil.abort();
+        }
+        IObjectPK pk = new ObjectUuidPK(BOSUuid.read(getUIContext().get(UIContext.ID).toString()));
+        setDataObject(getValue(pk));
+        loadFields();
+	}
     /**
      * output btnAddLine_actionPerformed method
      */
@@ -1811,6 +1887,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     {
     	savePosition();
         super.actionSubmit_actionPerformed(e);
+        syncDataFromDB();
     }
 
     /**
@@ -1898,6 +1975,12 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
+    	FDCClientUtils.checkBillInWorkflow(this,getSelectBOID());
+    	if(!(editData.getState().equals(FDCBillStateEnum.SAVED) || 
+    		 editData.getState().equals(FDCBillStateEnum.SUBMITTED))) {
+    		MsgBox.showWarning("非保存或者提交单据无法修改!");
+    		SysUtil.abort();
+    	}
         super.actionEdit_actionPerformed(e);
         this.btnLoadData.setEnabled(true);
     }
@@ -1907,6 +1990,12 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
      */
     public void actionRemove_actionPerformed(ActionEvent e) throws Exception
     {
+    	FDCClientUtils.checkBillInWorkflow(this,getSelectBOID());
+    	if(!(editData.getState().equals(FDCBillStateEnum.SAVED) || 
+       		 editData.getState().equals(FDCBillStateEnum.SUBMITTED))) {
+    		MsgBox.showWarning("非保存状态单据无法删除!");
+    		SysUtil.abort();
+    	}
         super.actionRemove_actionPerformed(e);
     }
 
@@ -2174,7 +2263,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     		info.setVersion(1);
     		info.setBizDate(Calendar.getInstance().getTime());
     	} else {
-    		info.setId(BOSUuid.create(info.getBOSType()));
+    		info.setId(null);
     		info.setVersion(info.getVersion()+1);
     		ProjectDynamicCostEntryCollection entrys = info.getEntrys();
     		ProjectDynamicCostEntrysAccountCollection entrysAccount = info.getEntrysAccount();

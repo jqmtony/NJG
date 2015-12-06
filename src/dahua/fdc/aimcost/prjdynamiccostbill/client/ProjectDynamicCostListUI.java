@@ -39,9 +39,11 @@ import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostFactory;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostInfo;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 
 /**
@@ -95,6 +97,9 @@ public class ProjectDynamicCostListUI extends AbstractProjectDynamicCostListUI
     }
 
     public void onLoad() throws Exception {
+    	this.btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
+    	this.btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
+    	this.btnRevise.setIcon(EASResource.getIcon("imgTbtn_duizsetting"));
     	super.onLoad();
     	buildProjectTree();
     }
@@ -145,6 +150,11 @@ public class ProjectDynamicCostListUI extends AbstractProjectDynamicCostListUI
     	checkSelected();
     	String id = getSelectedKeyValue();
     	ProjectDynamicCostInfo selectedBillInfo = getSelectedBillInfo(id);
+    	FDCClientUtils.checkBillInWorkflow(this,id);
+    	if(!selectedBillInfo.getState().equals(FDCBillStateEnum.SUBMITTED)) {
+    		MsgBox.showWarning("非提交单据无法审核!");
+    		SysUtil.abort();
+    	}
     	ProjectDynamicCostFactory.getRemoteInstance().audit(selectedBillInfo);
     	
     	refresh(null);
@@ -156,6 +166,15 @@ public class ProjectDynamicCostListUI extends AbstractProjectDynamicCostListUI
     	checkSelected();
     	String id = getSelectedKeyValue();
     	ProjectDynamicCostInfo selectedBillInfo = getSelectedBillInfo(id);
+    	FDCClientUtils.checkBillInWorkflow(this,id);
+    	if(!selectedBillInfo.getState().equals(FDCBillStateEnum.AUDITTED)) {
+    		MsgBox.showWarning("非已审核单据无法反审核!");
+    		SysUtil.abort();
+    	}
+    	if(!selectedBillInfo.isIsLatest()) {
+    		MsgBox.showWarning("非最新版无法反审核!");
+    		SysUtil.abort();
+    	}
     	ProjectDynamicCostFactory.getRemoteInstance().unAudit(selectedBillInfo);
     	
     	refresh(null);
@@ -462,6 +481,15 @@ public class ProjectDynamicCostListUI extends AbstractProjectDynamicCostListUI
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
+    	checkSelected();
+    	String id = getSelectedKeyValue();
+    	ProjectDynamicCostInfo selectedBillInfo = getSelectedBillInfo(id);
+    	FDCClientUtils.checkBillInWorkflow(this,id);
+    	if(!(selectedBillInfo.getState().equals(FDCBillStateEnum.SAVED) || 
+    		 selectedBillInfo.getState().equals(FDCBillStateEnum.SUBMITTED))) {
+    		MsgBox.showWarning("非保存或者提交单据无法修改!");
+    		SysUtil.abort();
+    	}
         super.actionEdit_actionPerformed(e);
     }
 
@@ -470,6 +498,15 @@ public class ProjectDynamicCostListUI extends AbstractProjectDynamicCostListUI
      */
     public void actionRemove_actionPerformed(ActionEvent e) throws Exception
     {
+    	checkSelected();
+    	String id = getSelectedKeyValue();
+    	ProjectDynamicCostInfo selectedBillInfo = getSelectedBillInfo(id);
+    	FDCClientUtils.checkBillInWorkflow(this,id);
+    	if(!(selectedBillInfo.getState().equals(FDCBillStateEnum.SAVED) || 
+       		 selectedBillInfo.getState().equals(FDCBillStateEnum.SUBMITTED))) {
+    		MsgBox.showWarning("非保存或者提交单据无法删除!");
+    		SysUtil.abort();
+    	}
         super.actionRemove_actionPerformed(e);
     }
 
