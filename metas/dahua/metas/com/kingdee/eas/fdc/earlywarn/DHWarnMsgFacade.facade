@@ -55,6 +55,26 @@
             <transactionAttribute>Supports</transactionAttribute>
             <userDefined>true</userDefined>
             <userDefinedLogic />
+            <parameters>
+                <parameter>
+                    <name>billId</name>
+                    <alias>facade[com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacade].methods.method[programmingGZWarnMsg].parameters.parameter[billId].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacade].methods.method[programmingGZWarnMsg].parameters.parameter[billId].description</description>
+                    <direction>in</direction>
+                    <dataType>String</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+                <parameter>
+                    <name>day</name>
+                    <alias>facade[com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacade].methods.method[programmingGZWarnMsg].parameters.parameter[day].alias</alias>
+                    <description>facade[com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacade].methods.method[programmingGZWarnMsg].parameters.parameter[day].description</description>
+                    <direction>in</direction>
+                    <dataType>Integer</dataType>
+                    <metadataRef />
+                    <userDefined>true</userDefined>
+                </parameter>
+            </parameters>
             <configured>false</configured>
         </method>
         <method>
@@ -101,6 +121,11 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="facade[com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacade].extendedProperty.genBusinessImplCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="facade[com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacade].extendedProperty.userDefined">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
@@ -140,6 +165,28 @@
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacade].methods.method[programmingGZWarnMsg].parameters.parameter[billId].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据ID" />
+            <lang locale="zh_HK" value="單據ID" />
+            <lang locale="zh_TW" value="單據ID" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacade].methods.method[programmingGZWarnMsg].parameters.parameter[billId].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacade].methods.method[programmingGZWarnMsg].parameters.parameter[day].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="提前预警天数" />
+            <lang locale="zh_HK" value="提前預警天數" />
+            <lang locale="zh_TW" value="提前預警天數" />
+        </rs>
+        <rs key="facade[com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacade].methods.method[programmingGZWarnMsg].parameters.parameter[day].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="facade[com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacade].methods.method[programmingWarnMsg].alias">
