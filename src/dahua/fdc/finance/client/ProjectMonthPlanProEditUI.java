@@ -1418,7 +1418,7 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 		
 		if(comYear==0)begin=FDCDateHelper.getFirstDayOfMonth(this.editData.getBizDate());
 		
-		FDCClientVerifyHelper.verifyEmpty(this, this.prmtRespPerson);
+		FDCClientVerifyHelper.verifyEmpty(this, this.prmtRespPerson);//‘»Œ»À
 		
 		EntityViewInfo view=new EntityViewInfo();
 		FilterInfo filter=new FilterInfo();
