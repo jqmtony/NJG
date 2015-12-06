@@ -192,26 +192,20 @@
                 <key name="name" value="R_Gcftb_GcftbEntry_entrys" />
             </relationship>
         </linkProperty>
-        <ownProperty>
-            <name>startTime</name>
-            <alias>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[startTime].alias</alias>
-            <description>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[startTime].description</description>
+        <linkProperty>
+            <name>engineeringProject</name>
+            <alias>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.linkProperty[engineeringProject].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.linkProperty[engineeringProject].description</description>
             <userDefined>true</userDefined>
             <configured>false</configured>
-            <dataType>Date</dataType>
-            <metadataRef />
-            <isMultilingual>false</isMultilingual>
-            <isNullable>false</isNullable>
-            <formula />
-            <length>8</length>
-            <precision>0</precision>
-            <decimalDigits>0</decimalDigits>
-            <defaultValue>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[startTime].defaultValue</defaultValue>
-            <displayFormat />
             <mappingField>
-                <key name="name" value="CFStartTime" />
+                <key name="name" value="CFEngineeringProje" />
             </mappingField>
-        </ownProperty>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.gcftbiaoa.app" />
+                <key name="name" value="R_GcftbEntry_CurProject_engineeringProject" />
+            </relationship>
+        </linkProperty>
         <linkProperty>
             <name>facilityName</name>
             <alias>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.linkProperty[facilityName].alias</alias>
@@ -261,6 +255,26 @@
             </mappingField>
         </ownProperty>
         <ownProperty>
+            <name>startTime</name>
+            <alias>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[startTime].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[startTime].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>Date</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>8</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[startTime].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFStartTime" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
             <name>actualStartTine</name>
             <alias>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[actualStartTine].alias</alias>
             <description>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[actualStartTine].description</description>
@@ -306,12 +320,12 @@
             <description>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[actualCompeltionTime].description</description>
             <userDefined>true</userDefined>
             <configured>false</configured>
-            <dataType>String</dataType>
+            <dataType>Date</dataType>
             <metadataRef />
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>100</length>
+            <length>8</length>
             <precision>0</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[actualCompeltionTime].defaultValue</defaultValue>
@@ -440,20 +454,6 @@
                 <key name="name" value="CFSharePrice" />
             </mappingField>
         </ownProperty>
-        <linkProperty>
-            <name>engineeringProject</name>
-            <alias>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.linkProperty[engineeringProject].alias</alias>
-            <description>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.linkProperty[engineeringProject].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <mappingField>
-                <key name="name" value="CFEngineeringProje" />
-            </mappingField>
-            <relationship>
-                <key name="package" value="com.kingdee.eas.fdc.gcftbiaoa.app" />
-                <key name="name" value="R_GcftbEntry_CurProject_engineeringProject" />
-            </relationship>
-        </linkProperty>
         <linkProperty>
             <name>Detail</name>
             <alias>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.linkProperty[Detail].alias</alias>
@@ -799,8 +799,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[actualCompeltionTime].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[actualCompeltionTime].description">
@@ -815,9 +814,9 @@
             <lang locale="zh_TW" value="50" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[actualCompeltionTime].extendedProperty.bizDataType">
-            <lang locale="en_US" value="STRING" />
-            <lang locale="zh_CN" value="STRING" />
-            <lang locale="zh_TW" value="STRING" />
+            <lang locale="en_US" value="DATE" />
+            <lang locale="zh_CN" value="DATE" />
+            <lang locale="zh_TW" value="DATE" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[actualCompeltionTime].extendedProperty.enableFieldPermission">
             <lang locale="en_US" value="false" />
@@ -862,8 +861,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[actualStartTine].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[actualStartTine].description">
@@ -993,8 +991,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[completionTime].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[completionTime].description">
@@ -1308,8 +1305,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[startTime].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.GcftbEntry].properties.ownProperty[startTime].description">
