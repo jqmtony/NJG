@@ -365,6 +365,7 @@ public class ContractSettlementBillEditUI extends
 				state = OprtState.ADDNEW;
 				uiContext.put("contractInfo", contractBill);
 				uiContext.put("contractStationType", "settle");
+				uiContext.put("kdtable", kdtSplitEntry);
 				uiContext.put("sourceBillId", editData.getId().toString());
 			}
 			UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(BuildPriceIndexEditUI.class.getName(), uiContext, null,state).show();
@@ -1206,8 +1207,10 @@ public class ContractSettlementBillEditUI extends
 		actionProfessionSplit.setEnabled(true);
 		KDWorkButton btnContractPriceSplit = (KDWorkButton)this.kDContainer1.add(actionContractPriceSplit);
 		btnContractPriceSplit.setText("合同价拆分");
+		btnContractPriceSplit.setIcon((EASResource.getIcon("imgTbtn_split")));
 		KDWorkButton btnProfessionSplit = (KDWorkButton)this.kDContainer1.add(actionProfessionSplit);
 		btnProfessionSplit.setText("专业要素拆分");
+		btnProfessionSplit.setIcon((EASResource.getIcon("imgTbtn_split")));
 		this.kDContainer1.addButton(btnImportSplit);
 		this.kDContainer1.addButton(btnRemoveSplit);
 	}
@@ -1241,7 +1244,9 @@ public class ContractSettlementBillEditUI extends
 		Iterator iterator = uiSet.iterator();
 		if(!iterator.hasNext())
 			return;
-		KDTable kdtSplitEntry = ((SettlementCostSplitEditUI)iterator.next()).getDetailTable();
+		SettlementCostSplitEditUI cseditui = (SettlementCostSplitEditUI)iterator.next();
+		cseditui.getOprtState();
+		KDTable kdtSplitEntry = cseditui.getDetailTable();
 		if(kdtSplitEntry.getSelectManager().size() == 0){
             MsgBox.showInfo("没有选中分录，无法拆分到楼号！");
             return;

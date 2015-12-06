@@ -17,6 +17,7 @@ import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.contract.PcontractTrackBillInfo;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
@@ -73,8 +74,12 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
     	builder.appendSql(" select pcont.fid,pcont.FLEVEL,pcont.FLONGNUMBER,pcparent.FLONGNUMBER,pcont.fname_l2,pcType.CFHyType,pcont.Famount,pcont.FreservedChangeRate,pcont.FcontrolAmount, ");
     	builder.appendSql("pcont.CFSgtDate,pcont.CFContSignDate,pcont.CFStartDate,pcont.CFEndDate,pcont.CFCsendDate ");
     	//pcont.CFStartDate,pcont.CFEndDate,pcont.CFCsendDate
+//    	builder.appendSql("case when ctype.fnumber in('施工003','建安008') then max(contbill.FAUDITTIME) else null end, ");
+//    	builder.appendSql("case when ctype.fnumber in('施工003','建安008') then max(contbill.FAUDITTIME) else null end ");
     	builder.appendSql("from T_CON_ProgrammingContract pcont left join T_CON_Programming program on pcont.FPROGRAMMINGID=program.fid ");
     	builder.appendSql("left join T_CON_ProgrammingContract pcparent on pcparent.fid=pcont.fparentid ");
+//    	builder.appendSql("left join T_CON_ContractBill contbill on pcont.fid=contbill.FProgrammingContract ");
+//    	builder.appendSql("left join T_FDC_ContractType ctype on ctype.fid=contbill.FCONTRACTTYPEID ");
     	builder.appendSql("left join CT_CON_PcType pcType on pcType.fid=pcont.CFHyTypeID where program.FIsLatest=1 ");
     	builder.appendSql("and program.fprojectid='"+editData.getCurProject().getId().toString()+"' order by pcont.FLONGNUMBER");
     	IRowSet rs = builder.executeQuery();
@@ -149,6 +154,7 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
      */
     public void actionUnaudit_actionPerformed(ActionEvent e) throws Exception
     {
+    	FDCClientUtils.checkBillInWorkflow(this, getSelectBOID());
     	if(!FDCBillStateEnum.AUDITTED.equals(editData.getTrackBillStatus())){
     		MsgBox.showInfo("已审核的单据才能进行反审核操作！");
     		return;
@@ -166,6 +172,11 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
         MsgBox.showInfo("反审核成功！");
     }
 
+    public void actionEdit_actionPerformed(ActionEvent e) throws Exception {
+    	FDCClientUtils.checkBillInWorkflow(this, getSelectBOID());
+    	super.actionEdit_actionPerformed(e);
+    }
+    
     /**
      * output actionFix_actionPerformed
      */

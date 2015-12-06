@@ -3441,7 +3441,7 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 		String billNumber = txtNumber.getText();
 		String projectId = null;
 		String costId = null;
-		String title = kDTabbedPane1.getTitleAt(kDTabbedPane1.getTabCount()-1);
+		String title = kDTabbedPane1.getTitleAt(kDTabbedPane1.getSelectedIndex());
 		for(int i = 0; i < kdtSplitEntry.getRowCount(); i++) {
 			if((Integer)kdtSplitEntry.getCell(i,"level").getValue()!=0)
 				continue;
@@ -3488,6 +3488,7 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 			uiContext.put("contractInfo", cinfo);
 			uiContext.put("contractStationType", "change");
 			uiContext.put("sourceBillId", editData.getId().toString());
+			uiContext.put("kdtable", kdtSplitEntry);
 		}
 		UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(BuildPriceIndexEditUI.class.getName(), uiContext, null,state).show();
     }

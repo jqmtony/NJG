@@ -2204,6 +2204,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				state = OprtState.ADDNEW;
 				uiContext.put("contractInfo", editData);
 				uiContext.put("contractStationType", "sign");
+				uiContext.put("kdtable", kdtSplitEntry);
 				uiContext.put("sourceBillId", editData.getId().toString());
 			}
 			IUIWindow uiWindow = UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(
