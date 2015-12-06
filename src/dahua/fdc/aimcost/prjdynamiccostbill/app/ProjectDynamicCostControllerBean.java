@@ -46,6 +46,15 @@ public class ProjectDynamicCostControllerBean extends AbstractProjectDynamicCost
     private static Logger logger =
         Logger.getLogger("com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostControllerBean");
     /**
+     * Ã·Ωª
+     */
+    protected IObjectPK _submit(Context ctx, IObjectValue model)
+    		throws BOSException, EASBizException {
+    	ProjectDynamicCostInfo info = (ProjectDynamicCostInfo) model;
+    	info.setState(FDCBillStateEnum.SUBMITTED);
+    	return super._submit(ctx, info);
+    }
+    /**
      * …Û∫À
      */
     protected void _audit(Context ctx, IObjectValue model) throws BOSException {
