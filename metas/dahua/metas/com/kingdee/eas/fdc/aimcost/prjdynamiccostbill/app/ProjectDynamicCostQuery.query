@@ -1014,6 +1014,37 @@
                 <key name="name" value="ProjectDynamicCostQuery" />
             </query>
         </propertyUnit>
+        <queryField>
+            <name>isLatest</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[isLatest].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Boolean</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>19a05218-4614-4a50-a5c7-885dc5b08664</key>
+                    <parentUnit>
+                        <key name="name" value="isLatest" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="isLatest" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1537,6 +1568,22 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[isLatest].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否最新版" />
+            <lang locale="zh_HK" value="是否最新版" />
+            <lang locale="zh_TW" value="是否最新版" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[isLatest].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[isLatest].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[lastUpdateTime].displayName">
             <lang locale="en_US" value="null" />
