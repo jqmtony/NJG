@@ -549,8 +549,8 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
         	tempTable.addColumn();
         	headRow.getCell(i).setValue(entryRow.getCell(i).getValue());
 		}
-        
-        tempTable.removeRows();
+        tempTable.getColumn(0).getStyleAttributes().setHided(true);
+//        tempTable.removeRows();
         IColumn addColumn = tempTable.addColumn();
         addColumn.setKey("syxm");
         headRow.getCell(addColumn.getKey()).setValue("受益项目");
