@@ -877,16 +877,20 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		}else{
 			//判断项目是否结束
 			CurProjectInfo syxmInfo = (CurProjectInfo)row.getCell("benefitProject").getValue();
-			boolean end = syxmInfo.isProjectEnd();
-			if(end == false){
-				int activeRowIndex = this.kdtEntrys.getSelectManager().getActiveRowIndex();
-				if(activeRowIndex==-1)return;
-				AllocationIndex cationIndex = (AllocationIndex)this.kdtEntrys.getCell(activeRowIndex, "allocationIndex").getValue();
-				updateDetailBaseAmount(indexRow,cationIndex);
-				this.kdtEntrys.getCell(activeRowIndex, "share").setValue(FDCHelper.subtract(this.kdtEntrys.getCell(activeRowIndex,"totalAmount").getValue(), UIRuleUtil.sum(kdtDetail, "allocationBase")));
+			if(syxmInfo != null){
+				boolean end = syxmInfo.isProjectEnd();
+				if(end == false){
+					int activeRowIndex = this.kdtEntrys.getSelectManager().getActiveRowIndex();
+					if(activeRowIndex==-1)return;
+					AllocationIndex cationIndex = (AllocationIndex)this.kdtEntrys.getCell(activeRowIndex, "allocationIndex").getValue();
+					updateDetailBaseAmount(indexRow,cationIndex);
+					this.kdtEntrys.getCell(activeRowIndex, "share").setValue(FDCHelper.subtract(this.kdtEntrys.getCell(activeRowIndex,"totalAmount").getValue(), UIRuleUtil.sum(kdtDetail, "allocationBase")));
+				}else{
+					MsgBox.showWarning("项目已结束，请选择别的项目");
+					SysUtil.abort();
+				}
 			}else{
-				MsgBox.showWarning("项目已结束，请选择别的项目");
-				SysUtil.abort();
+				MsgBox.showWarning("请选择项目");
 			}
 		}
 	} 
