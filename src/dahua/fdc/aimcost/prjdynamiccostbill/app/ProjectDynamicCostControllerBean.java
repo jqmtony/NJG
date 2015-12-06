@@ -33,6 +33,7 @@ import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostCollecti
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacadeFactory;
 import com.kingdee.eas.framework.SystemEnum;
 import com.kingdee.eas.framework.CoreBillBaseCollection;
 import com.kingdee.eas.framework.CoreBaseInfo;
@@ -67,7 +68,7 @@ public class ProjectDynamicCostControllerBean extends AbstractProjectDynamicCost
 			_updatePartial(ctx, info, sic);
 			
 
-			FDCSQLBuilder fdcSB = new FDCSQLBuilder(ctx);
+			FDCSQLBuilder fdcSB = new FDCSQLBuilder(ctx); 
 			fdcSB.setBatchType(FDCSQLBuilder.STATEMENT_TYPE);
 			
 			StringBuilder sql = new StringBuilder();
@@ -78,6 +79,8 @@ public class ProjectDynamicCostControllerBean extends AbstractProjectDynamicCost
 			sql.append(" and CFVersion='"+version+"'");
 			fdcSB.appendSql(sql.toString());
 			fdcSB.execute();
+			//审批通过发送预警消息
+			DHWarnMsgFacadeFactory.getLocalInstance(ctx).aimCostDiffWarnMsg(info.getId().toString());
 		} catch (EASBizException e) {
 			e.printStackTrace();
 		}

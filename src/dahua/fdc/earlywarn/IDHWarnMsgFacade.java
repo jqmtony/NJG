@@ -18,5 +18,5 @@ public interface IDHWarnMsgFacade extends IBizCtrl
     public void dhScheduleWarnMsg() throws BOSException;
     public void programmingGZWarnMsg(String billId, int day) throws BOSException;
     public void settleDeclarationWarnMsg() throws BOSException;
-    public void aimCostDiffWarnMsg() throws BOSException;
+    public void aimCostDiffWarnMsg(String billId) throws BOSException;
 }

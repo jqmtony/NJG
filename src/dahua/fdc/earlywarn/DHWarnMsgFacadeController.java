@@ -21,5 +21,5 @@ public interface DHWarnMsgFacadeController extends BizController
     public void dhScheduleWarnMsg(Context ctx) throws BOSException, RemoteException;
     public void programmingGZWarnMsg(Context ctx, String billId, int day) throws BOSException, RemoteException;
     public void settleDeclarationWarnMsg(Context ctx) throws BOSException, RemoteException;
-    public void aimCostDiffWarnMsg(Context ctx) throws BOSException, RemoteException;
+    public void aimCostDiffWarnMsg(Context ctx, String billId) throws BOSException, RemoteException;
 }

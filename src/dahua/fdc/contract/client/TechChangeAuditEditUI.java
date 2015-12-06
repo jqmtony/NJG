@@ -1433,6 +1433,10 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 			}
 			
 		});
+		this.conquality.setEnabled(false);
+		this.conimeLi.setEnabled(false);
+		this.conSale.setEnabled(false);
+		this.txtchangeEstimate.setEnabled(false);
 		super.onLoad();
 		this.actionAddNew.setEnabled(false);
 		this.btnAttenTwo.setIcon(EASResource.getIcon("imgTbtn_addline"));

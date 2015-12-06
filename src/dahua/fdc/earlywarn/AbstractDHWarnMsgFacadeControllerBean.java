@@ -115,13 +115,13 @@ public abstract class AbstractDHWarnMsgFacadeControllerBean extends AbstractBizC
         return;
     }
 
-    public void aimCostDiffWarnMsg(Context ctx) throws BOSException
+    public void aimCostDiffWarnMsg(Context ctx, String billId) throws BOSException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("1187e0d8-2db5-41f8-8919-d52de034f0a0"), new Object[]{ctx});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("1187e0d8-2db5-41f8-8919-d52de034f0a0"), new Object[]{ctx, billId});
             invokeServiceBefore(svcCtx);
               if(!svcCtx.invokeBreak()) {
-            _aimCostDiffWarnMsg(ctx);
+            _aimCostDiffWarnMsg(ctx, billId);
             }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
@@ -130,7 +130,7 @@ public abstract class AbstractDHWarnMsgFacadeControllerBean extends AbstractBizC
             super.cleanUpServiceState();
         }
     }
-    protected void _aimCostDiffWarnMsg(Context ctx) throws BOSException
+    protected void _aimCostDiffWarnMsg(Context ctx, String billId) throws BOSException
     {    	
         return;
     }

@@ -139,6 +139,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	this.kDTabbedPane2.remove(2);
     	this.kDTabbedPane2.remove(1);
     	this.kDTabbedPane2.remove(0);
+    	kdtEntrysAccount.getColumn("diffRate").getStyleAttributes().setNumberFormat("0.00%");
     }
     /**
      * output loadFields method

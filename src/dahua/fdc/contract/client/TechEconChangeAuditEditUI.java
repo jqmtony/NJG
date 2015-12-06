@@ -1445,6 +1445,10 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 			}
 			
 		});
+		this.conquality.setEnabled(false);
+		this.conimeLi.setEnabled(false);
+		this.conSale.setEnabled(false);
+		this.txtchangeEstimate.setEnabled(false);
 		super.onLoad();
 		
 		this.txtdelyDay.setPrecision(0);

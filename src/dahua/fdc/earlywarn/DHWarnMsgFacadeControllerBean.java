@@ -59,7 +59,64 @@ public class DHWarnMsgFacadeControllerBean extends AbstractDHWarnMsgFacadeContro
     /**
      * 动态成本差异率预警
      */
-    protected void _aimCostDiffWarnMsg(Context ctx) throws BOSException {
+    protected void _aimCostDiffWarnMsg(Context ctx, String billId)throws BOSException {
+    	StringBuffer sb = new StringBuffer();
+    	sb.append(" select b.CFPositionID,b.CFLevel from CT_AIM_ProjectDynamicCost a left join CT_AIM_ProjectDCEP b on b.fparentid=a.fid where a.fid='").append(billId).append("'");
+		try {
+			Map<Integer,Set<String>> positionMap = new HashMap<Integer, Set<String>>();
+			Map<String,Set<String>> sendMap = new HashMap<String,Set<String>>();
+			
+			IRowSet executeQuery = DbUtil.executeQuery(ctx, sb.toString());
+			while(executeQuery.next()){
+				String postionId = executeQuery.getString(1);
+				int Level = executeQuery.getInt(2);
+				
+				Set<String> set = positionMap.get(Level);
+				if(set!=null){
+					set.add(postionId);
+					positionMap.put(Level, set);
+				}else{
+					set = new HashSet<String>();
+					set.add(postionId);
+					positionMap.put(Level, set);
+				}
+			}
+			sb = new StringBuffer();
+			sb.append(" select c.fname_l2,b.CFCostAccount,b.CFLevel from CT_AIM_ProjectDynamicCost a ");
+			sb.append(" left join CT_AIM_ProjectDCEA b on b.fparentid=a.fid ");
+			sb.append(" left join t_fdc_curproject c on c.fid=a.CFCurProjectID");
+			sb.append(" where b.CFLevel<=3 and a.fid='"+billId+"' and b.CFAlertIndex>b.CFDiffRate *100 order by b.CFLevel ");
+			executeQuery = DbUtil.executeQuery(ctx, sb.toString());
+			while(executeQuery.next()){
+				String projectName = executeQuery.getString(1);
+				String costName = executeQuery.getString(2);
+				int Level = executeQuery.getString(3)!=null?executeQuery.getInt(3):0;
+				if(Level==0)
+					continue;
+				
+				Set<String> set = positionMap.get(Level);
+				if(set==null)
+					continue;
+				String msg = projectName+" 项目中 ["+costName+"] 成本科目的动态成本差异率超过了“警示指标”，请查看动态跟踪表，查找、分析原因。";
+				for(Iterator<String> iterator=set.iterator();iterator.hasNext();)
+					addForMAP(sendMap,iterator.next(),msg);
+				
+			}
+			for(Iterator<Entry<String, Set<String>>> iterator=sendMap.entrySet().iterator();iterator.hasNext();){
+    			Entry<String, Set<String>> next = iterator.next();
+    			String positionId = next.getKey();
+    			Set<String> msgSet = next.getValue();  
+    			Set<UserInfo> userSet = getPositionPersonSet(ctx, positionId);
+    			
+    			String receivesIds = getReceivesIds(userSet);
+    			for(Iterator<String> it=msgSet.iterator();it.hasNext();){
+    				String msg = it.next(); 
+    				sendBMCMsgInfo(ctx, msg, msg, receivesIds);
+    			}
+    		}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
     }
     
     /**

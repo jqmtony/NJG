@@ -55,6 +55,7 @@ import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
+import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.IFDCBill;
@@ -780,6 +781,7 @@ public class DesignChangeAuditListUI extends AbstractDesignChangeAuditListUI
     	EntityViewInfo view = new EntityViewInfo();
 		try {
 			FilterInfo filter = getTreeFilter();
+			filter.getFilterItems().add(new FilterItemInfo("state", FDCBillStateEnum.AUDITTED.getValue()));
 			if(view.getFilter()!=null){
 				view.getFilter().mergeFilter(filter,"and");
 			}else{

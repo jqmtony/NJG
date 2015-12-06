@@ -85,11 +85,12 @@ public class DHWarnMsgFacade extends AbstractBizCtrl implements IDHWarnMsgFacade
     }
     /**
      *动态成本差异率预警-User defined method
+     *@param billId 单据ID
      */
-    public void aimCostDiffWarnMsg() throws BOSException
+    public void aimCostDiffWarnMsg(String billId) throws BOSException
     {
         try {
-            getController().aimCostDiffWarnMsg(getContext());
+            getController().aimCostDiffWarnMsg(getContext(), billId);
         }
         catch(RemoteException err) {
             throw new EJBRemoteException(err);

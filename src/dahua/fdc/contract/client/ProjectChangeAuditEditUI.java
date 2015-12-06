@@ -1509,6 +1509,10 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 			}
 			
 		});
+		this.conquality.setEnabled(false);
+		this.conimeLi.setEnabled(false);
+		this.txtchangeEstimate.setEnabled(false);
+		this.conSale.setEnabled(false);
 		super.onLoad();
 		this.actionAddNew.setEnabled(false);
 		this.btnAttenTwo.setIcon(EASResource.getIcon("imgTbtn_addline"));
