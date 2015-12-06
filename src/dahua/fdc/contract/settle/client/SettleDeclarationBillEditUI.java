@@ -85,6 +85,7 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     	      this.btnUnAudit.setEnabled(false);
     	      this.btnInTrial.setEnabled(false);
     	      this.btnApproved.setEnabled(false);
+    	      
 
     	    }
     	if (getOprtState().equals(OprtState.VIEW)) {
@@ -219,9 +220,7 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     	        }
     	      }
     	    }
-    	 kDPanel4.setEnabled(false);//工程部确认信息
-    	 kDPanel3.setEnabled(false);//合约审算确认信息
-    	 contapprovalAmount.setEnabled(false);//审定金额
+    	
     	
     	 if (getOprtState().equals("工程部确认信息")) {
     		 kDPanel4.setEnabled(true);
@@ -256,6 +255,9 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     }
     
     protected void initUI() throws Exception{
+    	 kDPanel4.setEnabled(false);//工程部确认信息
+    	 kDPanel3.setEnabled(false);//合约审算确认信息
+    	 contapprovalAmount.setEnabled(false);//审定金额
     	 this.txtdecAmount.setRequired(true);
     	    this.txtapprovalAmount.setRequired(true);
     	    this.btnAudit.setEnabled(true);
@@ -444,6 +446,14 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
 //			MsgBox.showWarning("此单据记录有流程正在运行!");
 //			SysUtil.abort();
 //		}
+    	if(editData.getState().equals(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.InTrial)){
+    		MsgBox.showWarning("此单据已经在审，不能反审批!");
+			SysUtil.abort();
+    	}
+    	if(editData.getState().equals(com.kingdee.eas.fdc.contract.settle.app.TrialStatusEnum.InTrial)){
+    		MsgBox.showWarning("此单据已经审定，不能反审批!");
+    		SysUtil.abort();
+    	}
     	super.actionUnAudit_actionPerformed(e);
     	SettleDeclarationBillFactory.getRemoteInstance().UnAudit(editData);
     	refEditUI();
