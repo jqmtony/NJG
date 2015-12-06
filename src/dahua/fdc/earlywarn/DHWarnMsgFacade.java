@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 import com.kingdee.bos.framework.AbstractBizCtrl;
 import com.kingdee.bos.orm.template.ORMObject;
 
+import java.lang.String;
 import com.kingdee.bos.util.*;
 import com.kingdee.eas.fdc.earlywarn.*;
 import com.kingdee.bos.Context;
@@ -58,11 +59,13 @@ public class DHWarnMsgFacade extends AbstractBizCtrl implements IDHWarnMsgFacade
     }
     /**
      *合约跟踪单预警-User defined method
+     *@param billId 单据ID
+     *@param day 提前预警天数
      */
-    public void programmingGZWarnMsg() throws BOSException
+    public void programmingGZWarnMsg(String billId, int day) throws BOSException
     {
         try {
-            getController().programmingGZWarnMsg(getContext());
+            getController().programmingGZWarnMsg(getContext(), billId, day);
         }
         catch(RemoteException err) {
             throw new EJBRemoteException(err);

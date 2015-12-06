@@ -63,6 +63,33 @@ public class DHWarnMsgFacadeControllerBean extends AbstractDHWarnMsgFacadeContro
     }
     
     /**
+     * 结算申报单预警
+     */
+    protected void _settleDeclarationWarnMsg(Context ctx) throws BOSException {
+    	StringBuffer sb = new StringBuffer();
+    	sb.append(" select DISTINCT cur.fname_l2,conbill.fname,e3.CFYujingrenyuanID,to_char(settDec.CFJswcsjyq,'yyyy-mm-dd') from CT_CON_SettleDeclarationBill settDec ");
+    	sb.append(" left join T_CON_contractbill conbill on conbill.fid=settDec.CFContractNumberID ");
+    	sb.append(" left join CT_CON_SettleDeclarationBillE3 e3 on e3.FParentID=settDec.fid ");
+    	sb.append(" left join T_FDC_CurProject cur on cur.fid=conbill.FCurProjectID ");
+    	sb.append(" left join T_CON_ContractSettlementBill setbill on setbill.FContractBillID=settDec.CFContractNumberID ");
+    	sb.append(" where settDec.CFIsVersion=1 and settDec.CFJswcsjyq is not null and (setbill.FState='1SAVED' or setbill.fid is null) ");
+    	sb.append(" and to_char(settDec.CFJswcsjyq,'yyyy-mm-dd')<to_char(sysdate,'yyyy-mm-dd') order by cur.fname_l2,conbill.fname");
+    
+    	Map<String,Set<String>> sendMap = new HashMap<String,Set<String>>();
+    	addSettleDeclarationWarnForMap(ctx, sb.toString(), sendMap);
+    	
+    	for(Iterator<Entry<String, Set<String>>> iterator=sendMap.entrySet().iterator();iterator.hasNext();){
+    		Entry<String, Set<String>> next = iterator.next();
+    		String msg = next.getKey();
+    		Set<String> personSet = next.getValue();  
+    		Set<UserInfo> userSet = getPersonForUserSet(ctx, personSet);
+    		
+    		String receivesIds = getReceivesIds(userSet);
+    		sendBMCMsgInfo(ctx, msg, msg, receivesIds);
+    	}
+    }
+    
+    /**
      * 进度项预警
      */
     protected void _dhScheduleWarnMsg(Context ctx) throws BOSException {
@@ -70,8 +97,39 @@ public class DHWarnMsgFacadeControllerBean extends AbstractDHWarnMsgFacadeContro
     
     /**
      * 合约跟踪单预警
+     * 1、如果审批预警则需要传入审批单据ID 且只需要预警逾期项  id in('id','ID')
+     * 2、如果是后台自动生成数据预警 ID传null即可
+     * 3、提前天数， 后台事务设置参数即可
      */
-    protected void _programmingGZWarnMsg(Context ctx) throws BOSException {
+    protected void _programmingGZWarnMsg(Context ctx, String billId, int day)throws BOSException {
+    	if(UIRuleUtil.isNotNull(billId)){
+    		StringBuffer sb = new StringBuffer();
+    		sb.append(" select cur.fname_l2,c.fname_l2,prog.CFyjDesignID,prog.CFyjCostID,prog.CFyjProjectID,prog.CFyjMaterialID ,b.CFSgtOverdue,b.CFCsOverdue,b.CFStartOverdue,b.CFEndOverdue,b.CFCsendOverdue ");
+    		sb.append(" from CT_CON_PcontractTrackBill a  ");
+    		sb.append(" left join T_FDC_CurProject cur on cur.fid=a.CFCurProjectID ");
+    		sb.append(" left join CT_CON_PcontractTrackBillentry b on b.FParentID=a.fid ");
+    		sb.append(" left join T_CON_ProgrammingContract c on c.fid=b.CFPcid ");
+    		sb.append(" left join T_CON_Programming prog on prog.fid=c.FProgrammingID ");
+    		sb.append(" where a.fid ='"+billId+"' and (b.CFSgtOverdue =1 or b.CFCsOverdue =1 or b.CFStartOverdue =1 or b.CFEndOverdue =1 or b.CFCsendOverdue=1) ");
+    		sb.append(" order by cur.fname_l2 ");
+    		Map<String,Set<String>> sendMap = new HashMap<String,Set<String>>();
+    		addProgrammingGZWarnMsgForMap(ctx, sb.toString(), sendMap);
+    		
+    		for(Iterator<Entry<String, Set<String>>> iterator=sendMap.entrySet().iterator();iterator.hasNext();){
+    			Entry<String, Set<String>> next = iterator.next();
+    			String positionId = next.getKey();
+    			Set<String> msgSet = next.getValue();  
+    			Set<UserInfo> userSet = getPositionPersonSet(ctx, positionId);
+    			
+    			String receivesIds = getReceivesIds(userSet);
+    			for(Iterator<String> it=msgSet.iterator();it.hasNext();){
+    				String msg = it.next(); 
+    				sendBMCMsgInfo(ctx, msg, msg, receivesIds);
+    			}
+    		}
+    	}else{
+    		//TODO 后台自动生成的数据预警 暂时不做了
+    	}
     }
     
     /**
@@ -140,7 +198,7 @@ public class DHWarnMsgFacadeControllerBean extends AbstractDHWarnMsgFacadeContro
 					String depName = executeQuery.getString(8);
 					String planDate = executeQuery.getString(9);
 					
-					String msg = projectName+" 的合约规划名称 "+programmingName+" 的副项中，"+ItemName+" 事项即将到完成时间  完成时间："+planDate+"，请注意确保该事项按时完成。";
+					String msg = projectName+" 的合约规划名称 ["+programmingName+"] 的副项中，"+ItemName+" 事项即将到完成时间  完成时间："+planDate+"，请注意确保该事项按时完成。";
 					if(depName.equals("设计部")&&UIRuleUtil.isNotNull(yjDesignID)){
 						addForMAP(sendMap, yjDesignID, msg);
 					}
@@ -171,25 +229,25 @@ public class DHWarnMsgFacadeControllerBean extends AbstractDHWarnMsgFacadeContro
 				
 					
 					if(UIRuleUtil.isNotNull(designDate)&&UIRuleUtil.isNotNull(yjDesignID)){
-						String msg = projectName+" 的合约规划名称 "+programmingName+" 的主项中，施工图完成交接时间即将到期  到期日："+designDate+"，请注意确保该事项按时完成。";
+						String msg = projectName+" 的合约规划名称 ["+programmingName+"] 的主项中，施工图完成交接时间即将到期  到期日："+designDate+"，请注意确保该事项按时完成。";
 						addForMAP(sendMap, yjDesignID, msg);
 					}
 					if(UIRuleUtil.isNotNull(costDate)&&UIRuleUtil.isNotNull(yjCostID)){
-						String msg = projectName+" 的合约规划名称 "+programmingName+" 的主项中，合同签订完成时间即将到期  到期日："+costDate+"，请注意确保该事项按时完成。";
+						String msg = projectName+" 的合约规划名称 ["+programmingName+"] 的主项中，合同签订完成时间即将到期  到期日："+costDate+"，请注意确保该事项按时完成。";
 						addForMAP(sendMap, yjCostID, msg);
 					}
 					if((UIRuleUtil.isNotNull(planDate)||UIRuleUtil.isNotNull(projectDate))&&UIRuleUtil.isNotNull(yjProjectID)){
 						if(UIRuleUtil.isNotNull(planDate)){
-							String msg = projectName+" 的合约规划名称 "+programmingName+" 的主项中，开工时间即将到期  到期日："+planDate+"，请注意确保该事项按时完成。";
+							String msg = projectName+" 的合约规划名称 ["+programmingName+"] 的主项中，开工时间即将到期  到期日："+planDate+"，请注意确保该事项按时完成。";
 							addForMAP(sendMap, yjProjectID, msg);
 						}
 						if(UIRuleUtil.isNotNull(projectDate)){
-							String msg = projectName+" 的合约规划名称 "+programmingName+" 的主项中，竣工时间即将到期  到期日："+projectDate+"，请注意确保该事项按时完成。";
+							String msg = projectName+" 的合约规划名称 ["+programmingName+"] 的主项中，竣工时间即将到期  到期日："+projectDate+"，请注意确保该事项按时完成。";
 							addForMAP(sendMap, yjProjectID, msg);
 						}
 					}
 					if(UIRuleUtil.isNotNull(materialDate)&&UIRuleUtil.isNotNull(yjMaterialID)){
-						String msg = projectName+" 的合约规划名称 "+programmingName+" 的主项中，合同签订完成时间即将到期  到期日："+materialDate+"，请注意确保该事项按时完成。";
+						String msg = projectName+" 的合约规划名称 ["+programmingName+"] 的主项中，合同签订完成时间即将到期  到期日："+materialDate+"，请注意确保该事项按时完成。";
 						addForMAP(sendMap, yjMaterialID, msg);
 					}
 				}
@@ -201,31 +259,49 @@ public class DHWarnMsgFacadeControllerBean extends AbstractDHWarnMsgFacadeContro
 		}
     }
     
-    /**
-     * 结算申报单预警
-     */
-    protected void _settleDeclarationWarnMsg(Context ctx) throws BOSException {
-    	StringBuffer sb = new StringBuffer();
-    	sb.append(" select DISTINCT cur.fname_l2,conbill.fname,e3.CFYujingrenyuanID,to_char(settDec.CFJswcsjyq,'yyyy-mm-dd') from CT_CON_SettleDeclarationBill settDec ");
-    	sb.append(" left join T_CON_contractbill conbill on conbill.fid=settDec.CFContractNumberID ");
-    	sb.append(" left join CT_CON_SettleDeclarationBillE3 e3 on e3.FParentID=settDec.fid ");
-    	sb.append(" left join T_FDC_CurProject cur on cur.fid=conbill.FCurProjectID ");
-    	sb.append(" left join T_CON_ContractSettlementBill setbill on setbill.FContractBillID=settDec.CFContractNumberID ");
-    	sb.append(" where settDec.CFIsVersion=1 and settDec.CFJswcsjyq is not null and (setbill.FState='1SAVED' or setbill.fid is null) ");
-    	sb.append(" and to_char(settDec.CFJswcsjyq,'yyyy-mm-dd')<to_char(sysdate,'yyyy-mm-dd') order by cur.fname_l2,conbill.fname");
-    
-    	Map<String,Set<String>> sendMap = new HashMap<String,Set<String>>();
-    	addSettleDeclarationWarnForMap(ctx, sb.toString(), sendMap);
-    	
-    	for(Iterator<Entry<String, Set<String>>> iterator=sendMap.entrySet().iterator();iterator.hasNext();){
-    		Entry<String, Set<String>> next = iterator.next();
-    		String msg = next.getKey();
-    		Set<String> personSet = next.getValue();  
-    		Set<UserInfo> userSet = getPersonForUserSet(ctx, personSet);
-    		
-    		String receivesIds = getReceivesIds(userSet);
-    		sendBMCMsgInfo(ctx, msg, msg, receivesIds);
-    	}
+    private void addProgrammingGZWarnMsgForMap(Context ctx,String sql,Map<String,Set<String>> sendMap){
+		try {
+			IRowSet executeQuery = DbUtil.executeQuery(ctx, sql.toString());
+			while(executeQuery.next()){
+				String projectName = executeQuery.getString(1);
+				String programmingName = executeQuery.getString(2);
+				String yjCostID = executeQuery.getString(3);
+				String yjDesignID = executeQuery.getString(4);
+				String yjMaterialID = executeQuery.getString(5);
+				String yjProjectID = executeQuery.getString(6);
+				
+				boolean isSgtOverdue = executeQuery.getBoolean(7);
+				boolean isCsOverdue = executeQuery.getBoolean(8);
+				boolean isStartOverdue = executeQuery.getBoolean(9);
+				boolean isEndOverdue = executeQuery.getBoolean(10);
+				boolean isCsendOverdue = executeQuery.getBoolean(11);
+				
+				if(isSgtOverdue&&UIRuleUtil.isNotNull(yjDesignID)){
+					String msg = projectName+" 项目的合约规划 "+programmingName+" 下的 [施工图交接时间] 已经逾期，请前往合约跟踪单查看。";
+					addForMAP(sendMap, yjDesignID, msg);
+				}
+				if(isCsOverdue&&UIRuleUtil.isNotNull(yjCostID)){
+					String msg = projectName+" 项目的合约规划 "+programmingName+" 下的 [合同签订时间] 已经逾期，请前往合约跟踪单查看。";
+					addForMAP(sendMap, yjCostID, msg);
+				}
+				if((isStartOverdue||isEndOverdue)&&UIRuleUtil.isNotNull(yjProjectID)){
+					String msg = "";
+					if(isStartOverdue)
+						msg = projectName+" 项目的合约规划 "+programmingName+" 下的 [开工时间] 已经逾期，请前往合约跟踪单查看。";
+					if(isEndOverdue)
+						msg = projectName+" 项目的合约规划 "+programmingName+" 下的 [竣工时间] 已经逾期，请前往合约跟踪单查看。";
+					addForMAP(sendMap, yjProjectID, msg);
+				}
+				if(isCsendOverdue&&UIRuleUtil.isNotNull(yjMaterialID)){
+					String msg = projectName+" 项目的合约规划 "+programmingName+" 下的 [合同签订完成时间] 已经逾期，请前往合约跟踪单查看。";
+					addForMAP(sendMap, yjMaterialID, msg);
+				}
+			}
+		} catch (BOSException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
     }
     
     private void addSettleDeclarationWarnForMap(Context ctx,String sql,Map<String,Set<String>> sendMap){
@@ -237,7 +313,7 @@ public class DHWarnMsgFacadeControllerBean extends AbstractDHWarnMsgFacadeContro
 				String person = executeQuery.getString(3);
 				String jssj = executeQuery.getString(4);
 				
-				String msg = projectName+" 项目的 "+conName+" 合同，已经超过结算完成时间还没有结算 ，结算要求完成时间:"+jssj+"，请尽快安排结算事宜！";
+				String msg = projectName+" 项目的 ["+conName+"] 合同，已经超过结算完成时间还没有结算 ，结算要求完成时间:"+jssj+"，请尽快安排结算事宜！";
 				
 				addForMAP(sendMap, msg, person);
 			}

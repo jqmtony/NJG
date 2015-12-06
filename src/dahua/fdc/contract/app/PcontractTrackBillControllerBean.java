@@ -35,6 +35,7 @@ import com.kingdee.eas.framework.app.CoreBillBaseControllerBean;
 import com.kingdee.eas.framework.ObjectBaseCollection;
 import com.kingdee.eas.fdc.contract.PcontractTrackBillInfo;
 import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointInfo;
+import com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacadeFactory;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.app.DbUtil;
 
@@ -58,6 +59,8 @@ public class PcontractTrackBillControllerBean extends AbstractPcontractTrackBill
 			abinfo.setAuditTime(SysUtil.getAppServerTime(ctx));
 			abinfo.setIsNew(true);
 			update(ctx,new ObjectUuidPK(abinfo.getId()),abinfo);
+			//·¢ËÍÔ¤¾¯ÏûÏ¢
+			DHWarnMsgFacadeFactory.getLocalInstance(ctx).programmingGZWarnMsg(abinfo.getId().toString(), 0);
 			DbUtil.execute(ctx,"update CT_CON_PcontractTrackBill set CFIsNew=0 where CFTrackBillStatus='4AUDITTED' and CFCurProjectID='"+abinfo.getCurProject().getId().toString()+"' and fid<>'"+abinfo.getId().toString()+"'");
 		} catch (EASBizException e) {
 			e.printStackTrace();

@@ -20,6 +20,7 @@ import com.kingdee.eas.framework.LineResult;
 import com.kingdee.eas.framework.exception.EASMultiException;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 
+import java.lang.String;
 
 
 
@@ -74,13 +75,13 @@ public abstract class AbstractDHWarnMsgFacadeControllerBean extends AbstractBizC
         return;
     }
 
-    public void programmingGZWarnMsg(Context ctx) throws BOSException
+    public void programmingGZWarnMsg(Context ctx, String billId, int day) throws BOSException
     {
         try {
-            ServiceContext svcCtx = createServiceContext(new MetaDataPK("9fc33a35-6362-4d3f-8977-3f6774732041"), new Object[]{ctx});
+            ServiceContext svcCtx = createServiceContext(new MetaDataPK("9fc33a35-6362-4d3f-8977-3f6774732041"), new Object[]{ctx, billId, new Integer(day)});
             invokeServiceBefore(svcCtx);
               if(!svcCtx.invokeBreak()) {
-            _programmingGZWarnMsg(ctx);
+            _programmingGZWarnMsg(ctx, billId, day);
             }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
@@ -89,7 +90,7 @@ public abstract class AbstractDHWarnMsgFacadeControllerBean extends AbstractBizC
             super.cleanUpServiceState();
         }
     }
-    protected void _programmingGZWarnMsg(Context ctx) throws BOSException
+    protected void _programmingGZWarnMsg(Context ctx, String billId, int day) throws BOSException
     {    	
         return;
     }
