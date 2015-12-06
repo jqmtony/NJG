@@ -84,6 +84,7 @@ import com.kingdee.bos.ui.face.IUIFactory;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.ItemAction;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.ui.face.WinStyle;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.BoAttchAssoFactory;
@@ -166,6 +167,8 @@ import com.kingdee.eas.fdc.basedata.util.CostAccountHelper;
 import com.kingdee.eas.fdc.basedata.util.FdcManagementUtil;
 import com.kingdee.eas.fdc.basedata.util.client.RENoteDataProvider;
 import com.kingdee.eas.fdc.contract.FDCUtils;
+import com.kingdee.eas.fdc.gcftbiaoa.AllocationIndex;
+import com.kingdee.eas.fdc.gcftbiaoa.GcftbInfo;
 import com.kingdee.eas.fi.gl.GlUtils;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.framework.client.CoreUI;
@@ -500,6 +503,35 @@ public class AimMeasureCostEditUI extends AbstractAimMeasureCostEditUI {
 		return cost;
 	}
 
+	//默认带出合价
+	private Map getAmount(String projectId) throws BOSException, SQLException {
+		StringBuffer sb = new StringBuffer();
+		// 产品建筑指标 == 动态——竣工查账 优先取：项目规划指标 == 目标指标
+		sb.append(" select ");
+		sb.append(" sum(case when entry.CFEngineeringProje=il.CFBenefitProjectID  then il.CFShareAmount else 0 end) 内,");
+		sb.append(" sum(case when entry.CFEngineeringProje<>il.CFBenefitProjectID  then il.CFShareAmount else 0 end) 外,cat.fname_l2  二级产品");
+		sb.append(" from CT_001_Gcftbentry entry ");
+		sb.append(" left join T_FDC_ProductType type on type.fid = entry.CFFacilityNameID");
+		sb.append(" left join CT_BD_ProductTypeCategory cat on cat.fid=type.cfcategoryid");
+		sb.append(" left join CT_001_GcftbDetail il on il.FParentID = entry.fid");
+		sb.append("  left join CT_001_Gcftb b on b.fid  = entry.FParentID");
+		sb.append(" where b.CFIsLast = 1 and il.CFBenefitProjectID='").append(projectId).append("'");
+		sb.append(" group by cat.fname_l2");
+		IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
+		Map	 map =new  HashMap();
+		while(rowset.next())
+		{
+		BigDecimal NAmount = UIRuleUtil.getBigDecimal(rowset.getString("内"));
+		BigDecimal WAmount = UIRuleUtil.getBigDecimal(rowset.getString("外"));
+		String lx = UIRuleUtil.getString(rowset.getString("二级产品"));
+		BigDecimal[]  amount = new BigDecimal[2];
+		amount[0]=NAmount;
+		amount[1]=WAmount;
+		 map.put(lx,amount);
+		}
+		return map;
+	}
+	
 	/**
 	 * 新增目标成本测算时，把上一版本数据初始化至当前新增版本
 	 * 
@@ -1356,6 +1388,10 @@ public class AimMeasureCostEditUI extends AbstractAimMeasureCostEditUI {
 		row.getCell("acctNumber").setValue(longNumber);
 		row.getCell("acctName").setValue(costAcct.getName());
 		row.setUserObject(costAcct);
+		//单据对象得到id ----------------------------------------add by lipeng
+		addAimToFor(row);
+		//-----------------------------------
+		//------------
 		if (node.isLeaf() && node.getLevel() > 0) {
 			String key = costAcct.getId().toString();
 			if (product != null) {
@@ -1401,6 +1437,77 @@ public class AimMeasureCostEditUI extends AbstractAimMeasureCostEditUI {
 			}
 			row.getStyleAttributes().setLocked(true);
 			row.getStyleAttributes().setBackground(new Color(0xF0EDD9));
+		}
+	}
+	
+	/**
+	 * lipeng
+	 * @throws SQLException 
+	 * @throws BOSException 
+	 */
+	private void addAimToFor(IRow row) throws BOSException, SQLException{
+		if(project==null)return;
+		String projectID = project.getId().toString();
+		Map map =getAmount(projectID);
+		Iterator entries = map.entrySet().iterator(); 
+		while (entries.hasNext()) {
+			Map.Entry entry = (Map.Entry) entries.next();  
+		    String  key = (String)entry.getKey();  
+		    BigDecimal[] amount = (BigDecimal[])entry.getValue();
+		    BigDecimal n= amount[0];
+		    BigDecimal w= amount[0];
+		    //小胖的代码写在这里
+		    String value = (String) row.getCell("acctName").getValue();
+		    if(value != null && value.indexOf(key)>-1){
+		    	if(("项目内独立式停车设施分摊费").equals(value)){
+		    	row.getCell("COL_SUM_PRICE").setValue(n);
+		    	row.getCell("amount").setValue(n);	
+		    	}
+		    	else if(("项目外独立式停车设施分摊费").equals(value)){
+		    		row.getCell("COL_SUM_PRICE").setValue(w);
+		    		row.getCell("amount").setValue(w);	
+		    	}
+		    	else if(("项目内独立商业网点分摊费").equals(value)){
+		    		row.getCell("COL_SUM_PRICE").setValue(n);
+		    		row.getCell("amount").setValue(n);	
+		    	}
+		    	else if(("项目外独立商业网点分摊费").equals(value)){
+		    		row.getCell("COL_SUM_PRICE").setValue(w);
+		    		row.getCell("amount").setValue(w);	
+		    	}
+		    	else if(("项目内独立文化教育分摊费").equals(value)){
+		    		row.getCell("COL_SUM_PRICE").setValue(n);
+		    		row.getCell("amount").setValue(n);	
+		    	}
+		    	else if(("项目外独立文化教育分摊费").equals(value)){
+		    		row.getCell("COL_SUM_PRICE").setValue(w);
+		    		row.getCell("amount").setValue(w);	
+		    	}
+		    	else if(("项目内独立会所分摊费").equals(value)){
+		    		row.getCell("COL_SUM_PRICE").setValue(n);
+		    		row.getCell("amount").setValue(n);	
+		    	}
+		    	else if(("项目外独立会所分摊费").equals(value)){
+		    		row.getCell("COL_SUM_PRICE").setValue(w);
+		    		row.getCell("amount").setValue(w);	
+		    	}
+		    	else if(("项目内独立医疗设施分摊费").equals(value)){
+		    		row.getCell("COL_SUM_PRICE").setValue(n);
+		    		row.getCell("amount").setValue(n);	
+		    	}
+		    	else if(("项目外独立医疗设施分摊费").equals(value)){
+		    		row.getCell("COL_SUM_PRICE").setValue(w);
+		    		row.getCell("amount").setValue(w);	
+		    	}
+		    	else if(("项目内其他独立公建设施分摊费").equals(value)){
+		    		row.getCell("COL_SUM_PRICE").setValue(n);
+		    		row.getCell("amount").setValue(n);	
+		    	}
+		    	else if(("项目外其他独立公建设施分摊费").equals(value)){
+		    		row.getCell("COL_SUM_PRICE").setValue(w);
+		    		row.getCell("amount").setValue(w);	
+		    	}
+		    }
 		}
 	}
 
