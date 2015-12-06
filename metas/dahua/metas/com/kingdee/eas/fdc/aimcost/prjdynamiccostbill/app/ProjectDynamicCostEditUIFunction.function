@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functionObject xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app</package>
+    <name>ProjectDynamicCostEditUIFunction</name>
+    <alias>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].alias</alias>
+    <description>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].description</description>
+    <userDefined>true</userDefined>
+    <isBindSingleBizObject>false</isBindSingleBizObject>
+    <operations>
+        <operation>
+            <name>ActionSubmit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[ActionSubmit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[ActionSubmit].description</description>
+            <reverseOperation />
+            <eventMethod>dfd2c083-00fa-1000-e000-001fc0a813e6</eventMethod>
+            <event>submitEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>50cf5dac-0105-1000-e000-00cac0a813a4uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.client" />
+                    <key name="name" value="ProjectDynamicCostEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionSubmit</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[ActionSubmit].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[ActionSubmit].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCost" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>audit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[audit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[audit].description</description>
+            <reverseOperation />
+            <eventMethod>e629f414-ea82-4975-941c-ac51cbd61f9f</eventMethod>
+            <event>auditEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>3fea475c-a1be-46aa-b309-981498ec613fuiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.client" />
+                    <key name="name" value="ProjectDynamicCostEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionAudit</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCost" />
+            </entityObjectRef>
+        </operation>
+        <operation>
+            <name>unAudit</name>
+            <alias>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[unAudit].alias</alias>
+            <description>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[unAudit].description</description>
+            <reverseOperation />
+            <eventMethod>4d20d81e-57fb-4072-a6d8-a583f24418de</eventMethod>
+            <event>unAuditEvent</event>
+            <userDefined>true</userDefined>
+            <uiActionRef>
+                <id>db0ebd19-0299-4a17-bb6b-1f3beaf94738uiaf</id>
+                <uiStatus>EDIT</uiStatus>
+                <webUIStatus />
+                <userDefined>true</userDefined>
+                <uiObjectRef>
+                    <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.client" />
+                    <key name="name" value="ProjectDynamicCostEditUI" />
+                </uiObjectRef>
+                <actionRefName>ActionUnAudit</actionRefName>
+                <webActionRefName />
+                <parameters>
+                    <parameter>
+                        <name>billID</name>
+                        <alias>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[unAudit].uiActionRef.parameters.parameter[billID].alias</alias>
+                        <description>functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[unAudit].uiActionRef.parameters.parameter[billID].description</description>
+                        <direction>in</direction>
+                        <dataType>BOSUuid</dataType>
+                        <metadataRef />
+                        <userDefined>true</userDefined>
+                    </parameter>
+                </parameters>
+            </uiActionRef>
+            <entityObjectRef>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCost" />
+            </entityObjectRef>
+        </operation>
+    </operations>
+    <resource>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].alias">
+            <lang locale="en_US" value="多分录基础单据编辑界面业务功能" />
+            <lang locale="zh_CN" value="工程动态成本跟踪表编辑功能" />
+            <lang locale="zh_HK" value="工程動態成本跟蹤表編輯功能" />
+            <lang locale="zh_TW" value="工程動態成本跟蹤表編輯功能" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].description">
+            <lang locale="en_US" value="多分录基础单据编辑界面业务功能" />
+            <lang locale="zh_CN" value="多分录基础单据编辑界面业务功能" />
+            <lang locale="zh_HK" value="多分錄基礎單據編輯介面業務功能" />
+            <lang locale="zh_TW" value="多分錄基礎單據編輯介面業務功能" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[ActionSubmit].alias">
+            <lang locale="en_US" value="提交" />
+            <lang locale="zh_CN" value="提交" />
+            <lang locale="zh_HK" value="提交" />
+            <lang locale="zh_TW" value="提交" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[ActionSubmit].description">
+            <lang locale="en_US" value="提交" />
+            <lang locale="zh_CN" value="提交" />
+            <lang locale="zh_HK" value="提交" />
+            <lang locale="zh_TW" value="提交" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[ActionSubmit].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[ActionSubmit].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="单据内码" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[ActionSubmit].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="单据内码" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[audit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核" />
+            <lang locale="zh_HK" value="審核" />
+            <lang locale="zh_TW" value="審核" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[audit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[audit].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[audit].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[unAudit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="反审核" />
+            <lang locale="zh_HK" value="反審核" />
+            <lang locale="zh_TW" value="反審核" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[unAudit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[unAudit].extendedProperty.userDefined">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[unAudit].uiActionRef.parameters.parameter[billID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+        <rs key="functionObject[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostEditUIFunction].operations.operation[unAudit].uiActionRef.parameters.parameter[billID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据内码" />
+            <lang locale="zh_HK" value="單據內碼" />
+            <lang locale="zh_TW" value="單據內碼" />
+        </rs>
+    </resource>
+</functionObject>
+

@@ -1,0 +1,1655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joinQuery xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app</package>
+    <name>ProjectDynamicCostQuery</name>
+    <alias>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].alias</alias>
+    <description>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].description</description>
+    <userDefined>true</userDefined>
+    <reportDataSource />
+    <bizUnitPK>com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCost</bizUnitPK>
+    <connectionProvider />
+    <subObjects>
+        <subEntity>
+            <name>ProjectDynamicCost</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[ProjectDynamicCost].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCost" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>auditor</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[auditor].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>creator</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[creator].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>lastUpdateUser</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[lastUpdateUser].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.base.permission.app" />
+                <key name="name" value="User" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>curProject</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[curProject].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProject" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>firstLevelPos</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[firstLevelPos].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="Position" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>secondLevelPos</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[secondLevelPos].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="Position" />
+            </entityRef>
+        </subEntity>
+        <subEntity>
+            <name>thirdLevelPos</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[thirdLevelPos].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.basedata.org.app" />
+                <key name="name" value="Position" />
+            </entityRef>
+        </subEntity>
+    </subObjects>
+    <units>
+        <propertyUnit>
+            <name>NewUnit0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[NewUnit0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditor" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit1</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[NewUnit1].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit1" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit2</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[NewUnit2].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit2" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="creator" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit3</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[NewUnit3].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit3" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit4</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[NewUnit4].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit4" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateUser" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>NewUnit5</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[NewUnit5].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="NewUnit5" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>id</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[id].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="id" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>number</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[number].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="number" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="number" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>bizDate</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[bizDate].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="bizDate" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="bizDate" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>curProject.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[curProject.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>779bdc23-c668-4c3b-88d1-532d81dbaee4</key>
+                    <parentUnit>
+                        <key name="name" value="curProject.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>version</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[version].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Int</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0844ce3e-25bf-4265-a592-74f05f11dcb0</key>
+                    <parentUnit>
+                        <key name="name" value="version" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="version" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>state</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[state].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>cab910b6-3153-4e0d-bd6d-a9e6cfd78cd0</key>
+                    <parentUnit>
+                        <key name="name" value="state" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="state" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>createTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[createTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="createTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="createTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>creator.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[creator.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="creator.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="creator" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditTime</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[auditTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Date</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c5db9631-91ec-451a-b2d2-9d726eb982a2</key>
+                    <parentUnit>
+                        <key name="name" value="auditTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="auditTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>auditor.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[auditor.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="auditor.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="auditor" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateTime</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[lastUpdateTime].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Timestamp</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateTime" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="lastUpdateTime" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>lastUpdateUser.name</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[lastUpdateUser.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>0</key>
+                    <parentUnit>
+                        <key name="name" value="lastUpdateUser.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="lastUpdateUser" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>06f0a9f4-ee39-4417-9e64-f09a130212bb</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[06f0a9f4-ee39-4417-9e64-f09a130212bb].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>f2c3e908-12b5-4337-848c-5bb3b3c4e145</key>
+                    <parentUnit>
+                        <key name="name" value="06f0a9f4-ee39-4417-9e64-f09a130212bb" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="curProject" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>d609bf49-0114-4113-ad0e-ee5f9d7fe9b0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[d609bf49-0114-4113-ad0e-ee5f9d7fe9b0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>d38398c1-35e3-4d73-9b77-411a09d1a92a</key>
+                    <parentUnit>
+                        <key name="name" value="d609bf49-0114-4113-ad0e-ee5f9d7fe9b0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>firstLevelPos.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[firstLevelPos.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1fe2b5fe-a5cb-4108-903b-5bfb48f3c02b</key>
+                    <parentUnit>
+                        <key name="name" value="firstLevelPos.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="firstLevelPos" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>47591354-3ab0-4b81-92f9-7cdd30654ca5</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[47591354-3ab0-4b81-92f9-7cdd30654ca5].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>d2be0c6e-aad2-4764-b7b5-a820c54fedc2</key>
+                    <parentUnit>
+                        <key name="name" value="47591354-3ab0-4b81-92f9-7cdd30654ca5" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="firstLevelPos" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>953551e5-0447-42c0-88ad-57be000ca02b</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[953551e5-0447-42c0-88ad-57be000ca02b].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>43fc9fa9-60ec-45b9-b277-353240a869b4</key>
+                    <parentUnit>
+                        <key name="name" value="953551e5-0447-42c0-88ad-57be000ca02b" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="firstLevelPos" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>secondLevelPos.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[secondLevelPos.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>c2a05718-e68f-4471-a108-0d96b8b9ad08</key>
+                    <parentUnit>
+                        <key name="name" value="secondLevelPos.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="secondLevelPos" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>6e626317-280c-4de0-b170-81ab719de280</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[6e626317-280c-4de0-b170-81ab719de280].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>0fdd5eff-347b-4f13-816e-6c604220aeca</key>
+                    <parentUnit>
+                        <key name="name" value="6e626317-280c-4de0-b170-81ab719de280" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="secondLevelPos" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>269fe2f2-57c3-467a-8b54-5484722236b5</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[269fe2f2-57c3-467a-8b54-5484722236b5].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>7efb33de-3458-440d-9c1c-829852e1c1e5</key>
+                    <parentUnit>
+                        <key name="name" value="269fe2f2-57c3-467a-8b54-5484722236b5" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="secondLevelPos" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>thirdLevelPos.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[thirdLevelPos.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>2d7ed2ca-3b59-4c90-8ecc-36ee7a66bec9</key>
+                    <parentUnit>
+                        <key name="name" value="thirdLevelPos.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="thirdLevelPos" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>0a69c7e7-5231-4916-a82b-21dce714cffe</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[0a69c7e7-5231-4916-a82b-21dce714cffe].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>50ea8530-75f8-440b-960c-fb7d67a9d58d</key>
+                    <parentUnit>
+                        <key name="name" value="0a69c7e7-5231-4916-a82b-21dce714cffe" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="ProjectDynamicCost" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="thirdLevelPos" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>906534cb-ccad-44b1-a577-df9a82eacd88</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[906534cb-ccad-44b1-a577-df9a82eacd88].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>81d8f0bd-b99e-4ef6-994e-c368b2a60da7</key>
+                    <parentUnit>
+                        <key name="name" value="906534cb-ccad-44b1-a577-df9a82eacd88" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="thirdLevelPos" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </propertyUnit>
+    </units>
+    <defaultFilter>
+        <name>defaultFilter</name>
+        <formulaString />
+        <query>
+            <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+            <key name="name" value="ProjectDynamicCostQuery" />
+        </query>
+    </defaultFilter>
+    <defaultSorters>
+        <querySorterItem>
+            <propertyName>number</propertyName>
+            <sortType>ASC</sortType>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+            <configured>false</configured>
+        </querySorterItem>
+    </defaultSorters>
+    <queryPK>
+        <name>QueryPK</name>
+        <alias>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].queryPK[QueryPK].alias</alias>
+        <description>joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].queryPK[QueryPK].description</description>
+        <keyProperties>
+            <queryField>
+                <key name="name" value="id" />
+            </queryField>
+        </keyProperties>
+    </queryPK>
+    <isDistinct>false</isDistinct>
+    <joins>
+        <join>
+            <name>NewJoin0</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ProjectDynamicCost" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="auditor" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit1" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin0" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin1</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ProjectDynamicCost" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="creator" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit2" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit3" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin1" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </join>
+        <join>
+            <name>NewJoin2</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ProjectDynamicCost" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="lastUpdateUser" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="NewUnit4" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="NewUnit5" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="NewJoin2" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </join>
+        <join>
+            <name>6c1fece8-479b-44e9-bd01-08dc65eb94b1</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ProjectDynamicCost" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="curProject" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>4825267b-bac7-4971-95f9-4f0e974ef4d1</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="06f0a9f4-ee39-4417-9e64-f09a130212bb" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="d609bf49-0114-4113-ad0e-ee5f9d7fe9b0" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="6c1fece8-479b-44e9-bd01-08dc65eb94b1" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </join>
+        <join>
+            <name>a4a84603-a7d2-4298-a590-7b1e81613794</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ProjectDynamicCost" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="firstLevelPos" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>3edfef6a-d1eb-4f53-aa4f-5395a08db6a1</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="47591354-3ab0-4b81-92f9-7cdd30654ca5" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="953551e5-0447-42c0-88ad-57be000ca02b" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="a4a84603-a7d2-4298-a590-7b1e81613794" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </join>
+        <join>
+            <name>becb5cd1-9ae7-4b19-b29c-1ff5c8a51d4e</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ProjectDynamicCost" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="secondLevelPos" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>c9a789d0-5ec4-46fe-b2f5-0a45fb567fe0</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="6e626317-280c-4de0-b170-81ab719de280" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="269fe2f2-57c3-467a-8b54-5484722236b5" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="becb5cd1-9ae7-4b19-b29c-1ff5c8a51d4e" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </join>
+        <join>
+            <name>8f683ad1-4a9c-4f7b-88aa-13368c8cad5d</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ProjectDynamicCost" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="thirdLevelPos" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>7ba09a86-2a5b-4214-8258-ac44f1b0f434</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="0a69c7e7-5231-4916-a82b-21dce714cffe" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="906534cb-ccad-44b1-a577-df9a82eacd88" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="8f683ad1-4a9c-4f7b-88aa-13368c8cad5d" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+                <key name="name" value="ProjectDynamicCostQuery" />
+            </query>
+        </join>
+    </joins>
+    <resource>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程动态成本跟踪表" />
+            <lang locale="zh_HK" value="工程動態成本跟蹤表" />
+            <lang locale="zh_TW" value="工程動態成本跟蹤表" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].defaultSorters.querySorterItemextendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="多分录基础单据模板" />
+            <lang locale="zh_CN" value="多分录基础单据模板" />
+            <lang locale="zh_TW" value="多分录基础单据模板" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="多分录基础单据查询" />
+            <lang locale="zh_HK" value="多分錄基礎單據查詢" />
+            <lang locale="zh_TW" value="多分錄基礎單據查詢" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].extendedProperty.F7WindowTitle">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.client.PrjdynamiccostbillResource.ProjectDynamicCostQueryF7WindowTitle" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.client.PrjdynamiccostbillResource.ProjectDynamicCostQueryF7WindowTitle" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.client.PrjdynamiccostbillResource.ProjectDynamicCostQueryF7WindowTitle" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="工程动态成本跟踪表" />
+            <lang locale="zh_CN" value="工程动态成本跟踪表" />
+            <lang locale="zh_TW" value="工程动态成本跟踪表" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].queryPK[QueryPK].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].queryPK[QueryPK].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[ProjectDynamicCost].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[auditor].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[creator].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[curProject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[firstLevelPos].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[lastUpdateUser].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[secondLevelPos].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].subObjects.subEntity[thirdLevelPos].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[06f0a9f4-ee39-4417-9e64-f09a130212bb].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[0a69c7e7-5231-4916-a82b-21dce714cffe].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[269fe2f2-57c3-467a-8b54-5484722236b5].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[47591354-3ab0-4b81-92f9-7cdd30654ca5].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[6e626317-280c-4de0-b170-81ab719de280].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[906534cb-ccad-44b1-a577-df9a82eacd88].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[953551e5-0447-42c0-88ad-57be000ca02b].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[NewUnit0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[NewUnit1].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[NewUnit2].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[NewUnit3].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[NewUnit4].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[NewUnit5].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.propertyUnit[d609bf49-0114-4113-ad0e-ee5f9d7fe9b0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[auditTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核时间" />
+            <lang locale="zh_HK" value="審核時間" />
+            <lang locale="zh_TW" value="審核時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[auditTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[auditTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[auditor.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[bizDate].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
+            <lang locale="zh_TW" value="業務日期" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[bizDate].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[bizDate].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[createTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[creator.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建人" />
+            <lang locale="zh_HK" value="創建人" />
+            <lang locale="zh_TW" value="創建人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[curProject.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目名称" />
+            <lang locale="zh_HK" value="項目名稱" />
+            <lang locale="zh_TW" value="項目名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[curProject.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[curProject.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[curProject.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[firstLevelPos.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="一级科目预警职位" />
+            <lang locale="zh_HK" value="一級科目預警職位" />
+            <lang locale="zh_TW" value="一級科目預警職位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[firstLevelPos.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[firstLevelPos.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[firstLevelPos.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[id].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[lastUpdateTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[lastUpdateTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[lastUpdateUser.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改人" />
+            <lang locale="zh_HK" value="最後修改人" />
+            <lang locale="zh_TW" value="最後修改人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[number].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[secondLevelPos.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="二级科目预警职位" />
+            <lang locale="zh_HK" value="二級科目預警職位" />
+            <lang locale="zh_TW" value="二級科目預警職位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[secondLevelPos.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[secondLevelPos.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[secondLevelPos.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[state].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="状态" />
+            <lang locale="zh_HK" value="狀態" />
+            <lang locale="zh_TW" value="狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[state].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[state].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[thirdLevelPos.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="三级科目预警职位" />
+            <lang locale="zh_HK" value="三級科目預警職位" />
+            <lang locale="zh_TW" value="三級科目預警職位" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[thirdLevelPos.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[thirdLevelPos.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[thirdLevelPos.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[version].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="版本号" />
+            <lang locale="zh_HK" value="版本號" />
+            <lang locale="zh_TW" value="版本號" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[version].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.ProjectDynamicCostQuery].units.queryField[version].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+    </resource>
+</joinQuery>
+
