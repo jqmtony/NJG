@@ -46,7 +46,7 @@ public class PhotoNumberEditUI extends AbstractPhotoNumberEditUI
     {
         super.actionPageSetup_actionPerformed(e);
     }
-
+    
     /**
      * output actionExitCurrent_actionPerformed
      */

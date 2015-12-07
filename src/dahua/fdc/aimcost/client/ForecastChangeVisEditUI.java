@@ -73,6 +73,7 @@ import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.aimcost.ForecastChangeVisFactory;
@@ -2361,6 +2362,7 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
     			SysUtil.abort();
     		}
     		ContractBillInfo conInfo = (ContractBillInfo)getUIContext().get("contractInfo");
+    		objectValue.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
     		objectValue.setContractNumber(conInfo);
     		objectValue.setContractName(conInfo.getName());
     		objectValue.setContractAmount(conInfo.getAmount());
