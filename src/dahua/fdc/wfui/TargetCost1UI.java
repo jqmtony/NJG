@@ -220,7 +220,7 @@ public class TargetCost1UI extends AbstractTargetCost1UI
     	
     	String billId = editData.getId()!=null?editData.getId().toString():"wgnhf9P3R26Ot1IJWj08opkZNJQ="; //锁定单子ID
     	StringBuffer sb = new StringBuffer();
-    	sb.append(" select b.fname_l2,c.fname_l2,a.CFaddress,,to_char(a.FBizDate,'yyyy-mm-dd') 提出时间");
+    	sb.append(" select b.fname_l2,c.fname_l2,a.CFaddress,to_char(a.FBizDate,'yyyy-mm-dd') 提出时间");
     	sb.append(" from  T_AIM_MeasureCost  a  ");
     	sb.append(" left join T_FDC_CurProject  b on a.FProjectID=b.fid ");
     	sb.append(" left join T_ORG_BaseUnit  c on b.FFullOrgUnit=c.fid ");
