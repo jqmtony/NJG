@@ -100,6 +100,19 @@
                 <key name="name" value="CostAccount" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>curProject</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].subObjects.subEntity[curProject].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.app" />
+                <key name="name" value="BuildPriceIndexQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProject" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <propertyUnit>
@@ -970,6 +983,161 @@
                 <key name="name" value="BuildPriceIndexQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>curProject.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[curProject.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>9ed7fed0-e035-455d-9e82-6baad88bf9a1</key>
+                    <parentUnit>
+                        <key name="name" value="curProject.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.app" />
+                <key name="name" value="BuildPriceIndexQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>b325585a-e2b3-4d91-87b2-946b05c4dd7b</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.propertyUnit[b325585a-e2b3-4d91-87b2-946b05c4dd7b].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>4cd61ba0-f0c2-4442-9c6c-99b77b96fdc2</key>
+                    <parentUnit>
+                        <key name="name" value="b325585a-e2b3-4d91-87b2-946b05c4dd7b" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="BuildPriceIndex" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="curProject" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.app" />
+                <key name="name" value="BuildPriceIndexQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>40f9912c-d905-49b5-9f50-8451d799a3da</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.propertyUnit[40f9912c-d905-49b5-9f50-8451d799a3da].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>1317b38b-60b1-435a-9401-41d1a86ae6c2</key>
+                    <parentUnit>
+                        <key name="name" value="40f9912c-d905-49b5-9f50-8451d799a3da" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.app" />
+                <key name="name" value="BuildPriceIndexQuery" />
+            </query>
+        </propertyUnit>
+        <queryField>
+            <name>entrys.projectId0</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[entrys.projectId0].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>4b77a0ec-26b5-4dfc-9a1b-7a2f704bc5e3</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.projectId0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectId" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.app" />
+                <key name="name" value="BuildPriceIndexQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>entrys.projectName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[entrys.projectName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>6236ea77-f19f-4af9-b2ad-b8fd87c8a2d0</key>
+                    <parentUnit>
+                        <key name="name" value="entrys.projectName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="entrys" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="projectName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.app" />
+                <key name="name" value="BuildPriceIndexQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1183,6 +1351,36 @@
                 <key name="name" value="BuildPriceIndexQuery" />
             </query>
         </join>
+        <join>
+            <name>1ed767f3-7522-4e9a-8a4f-ac76bfc33105</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="BuildPriceIndex" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="curProject" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>c2bf7a1e-69bb-4dc3-9f61-89500cf815e8</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="b325585a-e2b3-4d91-87b2-946b05c4dd7b" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="40f9912c-d905-49b5-9f50-8451d799a3da" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="1ed767f3-7522-4e9a-8a4f-ac76bfc33105" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.app" />
+                <key name="name" value="BuildPriceIndexQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].alias">
@@ -1208,9 +1406,9 @@
             <lang locale="zh_TW" value="com.kingdee.eas.fdc.costindexdb.client.CostindexdbResource.BuildPriceIndexQueryF7WindowTitle" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].extendedProperty.f7WindowTitle">
-            <lang locale="en_US" value="造价指标库" />
-            <lang locale="zh_CN" value="造价指标库" />
-            <lang locale="zh_TW" value="造价指标库" />
+            <lang locale="en_US" value="成本指标库" />
+            <lang locale="zh_CN" value="成本指标库" />
+            <lang locale="zh_TW" value="成本指标库" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].queryPK[QueryPK].alias">
             <lang locale="en_US" value="null" />
@@ -1242,6 +1440,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].subObjects.subEntity[curProject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].subObjects.subEntity[entrys].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1267,6 +1471,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.propertyUnit[21ac375e-f61b-48ea-827e-8db662239016].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.propertyUnit[40f9912c-d905-49b5-9f50-8451d799a3da].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -1338,6 +1548,12 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.propertyUnit[b325585a-e2b3-4d91-87b2-946b05c4dd7b].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[auditor.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="审核人" />
@@ -1398,6 +1614,16 @@
             <lang locale="zh_HK" value="合同ID" />
             <lang locale="zh_TW" value="合同ID" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[contractId].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[contractId].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[contractInfo].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="合同信息" />
@@ -1451,6 +1677,59 @@
             <lang locale="zh_CN" value="创建人" />
             <lang locale="zh_HK" value="創建人" />
             <lang locale="zh_TW" value="創建人" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[curProject.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[curProject.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[curProject.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[curProject.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[entrys.projectId0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目ID" />
+            <lang locale="zh_HK" value="項目ID" />
+            <lang locale="zh_TW" value="項目ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[entrys.projectId0].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[entrys.projectId0].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[entrys.projectName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目名称" />
+            <lang locale="zh_HK" value="項目名稱" />
+            <lang locale="zh_TW" value="項目名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[entrys.projectName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[entrys.projectName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[id].displayName">
             <lang locale="en_US" value="null" />
@@ -1517,6 +1796,16 @@
             <lang locale="zh_CN" value="项目ID" />
             <lang locale="zh_HK" value="項目ID" />
             <lang locale="zh_TW" value="項目ID" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[projectId].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[projectId].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.app.BuildPriceIndexQuery].units.queryField[projectStation].displayName">
             <lang locale="en_US" value="null" />

@@ -674,30 +674,48 @@
             <key name="name" value="ProfessionPointQuery" />
         </query>
     </defaultFilter>
-    <defaultSorters>
-        <querySorterItem>
-            <propertyName>number</propertyName>
-            <sortType>ASC</sortType>
-            <userDefined>true</userDefined>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
-                <key name="name" value="ProfessionPointQuery" />
-            </query>
-            <configured>false</configured>
-        </querySorterItem>
-    </defaultSorters>
     <queryPK>
         <name>QueryPK</name>
         <alias>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.ProfessionPointQuery].queryPK[QueryPK].alias</alias>
         <description>joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.ProfessionPointQuery].queryPK[QueryPK].description</description>
         <keyProperties>
             <queryField>
-                <key name="name" value="id" />
+                <key name="name" value="Entry.id" />
             </queryField>
         </keyProperties>
     </queryPK>
     <isDistinct>false</isDistinct>
     <joins>
+        <join>
+            <name>21ba6e9d-b37c-44ad-b010-26e22739d6be</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="ProfessionPoint" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="Entry" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>59da3465-835d-47c1-8115-31b7ddbea6c1</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="200239d0-1f49-49a5-9a71-9fb1fa241ff3" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="657d31e0-296a-4753-8588-ea72c5c9932d" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="21ba6e9d-b37c-44ad-b010-26e22739d6be" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
+                <key name="name" value="ProfessionPointQuery" />
+            </query>
+        </join>
         <join>
             <name>NewJoin0</name>
             <formulaString>#0</formulaString>
@@ -749,37 +767,7 @@
                         <key name="name" value="f2f6a36d-ff98-43cf-bcc1-ee5d069d5240" />
                     </rightField>
                     <join>
-                        <key name="name" value="NewJoin0" />
-                    </join>
-                </joinItem>
-            </joinItems>
-            <query>
-                <key name="package" value="com.kingdee.eas.fdc.costindexdb.database.app" />
-                <key name="name" value="ProfessionPointQuery" />
-            </query>
-        </join>
-        <join>
-            <name>21ba6e9d-b37c-44ad-b010-26e22739d6be</name>
-            <formulaString>#0</formulaString>
-            <type>LEFT OUTER JOIN</type>
-            <leftObject>
-                <key name="name" value="ProfessionPoint" />
-            </leftObject>
-            <rightObject>
-                <key name="name" value="Entry" />
-            </rightObject>
-            <joinItems>
-                <joinItem>
-                    <name>59da3465-835d-47c1-8115-31b7ddbea6c1</name>
-                    <compareType>=</compareType>
-                    <leftField>
-                        <key name="name" value="200239d0-1f49-49a5-9a71-9fb1fa241ff3" />
-                    </leftField>
-                    <rightField>
-                        <key name="name" value="657d31e0-296a-4753-8588-ea72c5c9932d" />
-                    </rightField>
-                    <join>
-                        <key name="name" value="21ba6e9d-b37c-44ad-b010-26e22739d6be" />
+                        <key name="name" value="NewJoin1" />
                     </join>
                 </joinItem>
             </joinItems>
@@ -825,31 +813,6 @@
             <lang locale="zh_CN" value="专业要素维护表" />
             <lang locale="zh_HK" value="專業要素維護表" />
             <lang locale="zh_TW" value="專業要素維護表" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.ProfessionPointQuery].defaultSorters.querySorterItemextendedProperty.ColWidthInKDTable">
-            <lang locale="en_US" value="50" />
-            <lang locale="zh_CN" value="50" />
-            <lang locale="zh_TW" value="50" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.ProfessionPointQuery].defaultSorters.querySorterItemextendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.ProfessionPointQuery].defaultSorters.querySorterItemextendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.ProfessionPointQuery].defaultSorters.querySorterItemextendedProperty.isUsingF7">
-            <lang locale="en_US" value="false" />
-            <lang locale="zh_CN" value="false" />
-            <lang locale="zh_TW" value="false" />
-        </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.ProfessionPointQuery].defaultSorters.querySorterItemextendedProperty.isVisibleForKDTable">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.ProfessionPointQuery].description">
             <lang locale="en_US" value="null" />
@@ -989,14 +952,14 @@
             <lang locale="zh_TW" value="成本科目" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.ProfessionPointQuery].units.queryField[Entry.costAccount.name].extendedProperty.isCommonQueryFilter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.ProfessionPointQuery].units.queryField[Entry.costAccount.name].extendedProperty.isCommonQuerySorter">
-            <lang locale="en_US" value="true" />
-            <lang locale="zh_CN" value="true" />
-            <lang locale="zh_TW" value="true" />
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.costindexdb.database.app.ProfessionPointQuery].units.queryField[Entry.costAccount.name].extendedProperty.isUsingF7">
             <lang locale="en_US" value="true" />
