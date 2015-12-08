@@ -923,17 +923,25 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		}
 		CurProjectInfo projectInfo = (CurProjectInfo)row.getCell("benefitProject").getValue();
 		BigDecimal baseAmount = getBaseAmount(projectInfo.getId().toString(), cationIndex);
-		row.getCell("allocationBase").setValue(baseAmount);
-		detailInfo.setAllocationBase(baseAmount);
-		
+		BigDecimal area = getCQGSarea(projectInfo.getId().toString(), cationIndex);
 		BigDecimal sharePrice = BigDecimal.ZERO;
 		int activeRowIndex = this.kdtEntrys.getSelectManager().getActiveRowIndex();
 		if(activeRowIndex!=-1)
 			sharePrice = UIRuleUtil.getBigDecimal(this.kdtEntrys.getCell(activeRowIndex, "sharePrice").getValue());
-		row.getCell("shareAmount").setValue(FDCHelper.multiply(baseAmount, sharePrice,4));
-		detailInfo.setShareAmount(FDCHelper.multiply(baseAmount, sharePrice,4));
+		if(baseAmount.compareTo(BigDecimal.ZERO)!=0){
+			row.getCell("allocationBase").setValue(baseAmount);//分摊基数
+			detailInfo.setAllocationBase(baseAmount);
+			row.getCell("shareAmount").setValue(FDCHelper.multiply(baseAmount, sharePrice,4));//分摊金额
+			detailInfo.setShareAmount(FDCHelper.multiply(baseAmount, sharePrice,4));
+		}else{
+			row.getCell("allocationBase").setValue(area);
+			detailInfo.setAllocationBase(area);
+			row.getCell("shareAmount").setValue(FDCHelper.multiply(area, sharePrice,4));
+			detailInfo.setShareAmount(FDCHelper.multiply(area, sharePrice,4));
+		}
 	}
 	
+	//取面积指标管理中的 面积
 	private BigDecimal getBaseAmount(String projectId,AllocationIndex index) throws BOSException, SQLException{
 		BigDecimal amount = BigDecimal.ZERO;
 		StringBuffer sb = new StringBuffer();
@@ -961,6 +969,21 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		return amount;
 	}
 	
+	//取产权归属表中的 面积
+	private BigDecimal getCQGSarea(String projectId,AllocationIndex index) throws BOSException, SQLException{
+		BigDecimal area = BigDecimal.ZERO;
+		StringBuffer sb = new StringBuffer();
+		sb.append(" select sum(entry.CFBuidlingArea),sum(entry.CFSaleArea)");
+		sb.append("  from CT_COS_CQGSEntry entry ");
+		sb.append(" left join CT_COS_CQGS bt on bt.fid = entry.FParentID ");
+		sb.append(" where bt.CFProjectNameID='").append(projectId).append("'");
+		sb.append(" and bt.CFLasted = '1' ");
+		sb.append(" and entry.CFBuildingNameID is null");
+		IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
+		while(rowset.next())
+			area = index.equals(AllocationIndex.coveredArea)?UIRuleUtil.getBigDecimal(rowset.getBigDecimal(1)):UIRuleUtil.getBigDecimal(rowset.getBigDecimal(2));
+		return area;
+	}
 	/**
 	 * output loadFields method
 	 */
