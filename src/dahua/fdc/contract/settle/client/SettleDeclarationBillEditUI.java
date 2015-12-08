@@ -40,6 +40,7 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
     
     public SettleDeclarationBillEditUI() throws Exception
     {
+    	
         super();
         prmtcontractNumber.setDisplayFormat("$number$");
     	prmtcontractNumber.setEditFormat("$number$");
