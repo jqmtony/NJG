@@ -24,9 +24,13 @@ import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.eas.basedata.org.OrgConstants;
+import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
+import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.contract.programming.client.CostAccountPromptBox;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 
@@ -70,6 +74,8 @@ public class ProfessionPointEditUI extends AbstractProfessionPointEditUI
     
     public void onShow() throws Exception {
     	super.onShow();
+    	kdtEntry.getColumn("costAccount").setRequired(true);
+    	kdtEntry.getColumn("pointName").setRequired(true);
     	kdtEntry.getSelectManager().setSelectMode(KDTSelectManager.ROW_SELECT);
     	kDContainer1.getContentPane().remove(kdtEntry_detailPanel);
     	kDContainer1.getContentPane().add(kdtEntry, BorderLayout.CENTER);
@@ -94,6 +100,17 @@ public class ProfessionPointEditUI extends AbstractProfessionPointEditUI
 		insetLine.addActionListener(baseAL);
 		removeLine.addActionListener(baseAL);
 		copyLine.addActionListener(baseAL);
+		if(OprtState.VIEW.equals(getOprtState())){
+    		setButtonStatus(false);
+    	}
+    }
+    
+    private void setButtonStatus(boolean flag){
+    	Object[] btns = kDContainer1.getButtons();
+		for(int i = 0; i < btns.length; i++) {
+			((KDWorkButton)btns[i]).setEnabled(flag);
+		}
+		
     }
 
     class MyActionListener implements ActionListener{
@@ -189,6 +206,36 @@ public class ProfessionPointEditUI extends AbstractProfessionPointEditUI
 		kdtEntry.getColumn("costAccount").setRenderer(kdtCostEntries_costAccount_OVR);
 	}
     
+	protected void verifyInput(ActionEvent e) throws Exception {
+		//先校验一遍有没有空的要素，再把两边的空格去掉，重新写入单元格
+		int rowCount = kdtEntry.getRowCount3();
+		for(int i = 0; i < rowCount; i++) {
+			if(kdtEntry.getCell(i,"costAccount").getValue() == null){
+				FDCMsgBox.showInfo("第"+(i+1)+"行的成本科目不能为空！");
+				SysUtil.abort();
+			}
+			if(FDCHelper.isEmpty(kdtEntry.getCell(i,"pointName").getValue())){
+				FDCMsgBox.showInfo("第"+(i+1)+"行的要素不能为空！");
+				SysUtil.abort();
+			}
+		}
+		//判断要素有没有重复的
+		for(int i = 0; i < rowCount; i++) {
+			String pointName = (String)kdtEntry.getCell(i,"pointName").getValue();
+			for(int j = i+1; j < rowCount; j++) {
+				if(pointName.equals(kdtEntry.getCell(j,"pointName").getValue())){
+					FDCMsgBox.showInfo("第"+(i+1)+"行的要素与第"+(j+1)+"行的要素名称重复！");
+					SysUtil.abort();
+				}
+			}
+		}
+	}
+	
+	public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
+		super.actionEdit_actionPerformed(arg0);
+		setButtonStatus(true);
+	}
+	
 
     /**
      * output getBizInterface method

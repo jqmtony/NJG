@@ -20,14 +20,14 @@ public class AbstractBuildPriceIndexInfo extends com.kingdee.eas.framework.CoreB
         put("EindexData", new com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataCollection());
     }
     /**
-     * Object: 造价指标库 's 分录 property 
+     * Object: 成本指标库 's 分录 property 
      */
     public com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryCollection getEntrys()
     {
         return (com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryCollection)get("entrys");
     }
     /**
-     * Object:造价指标库's 所属组织property 
+     * Object:成本指标库's 所属组织property 
      */
     public String getOrgName()
     {
@@ -38,7 +38,7 @@ public class AbstractBuildPriceIndexInfo extends com.kingdee.eas.framework.CoreB
         setString("orgName", item);
     }
     /**
-     * Object:造价指标库's 合同信息property 
+     * Object:成本指标库's 合同信息property 
      */
     public String getContractInfo()
     {
@@ -49,7 +49,7 @@ public class AbstractBuildPriceIndexInfo extends com.kingdee.eas.framework.CoreB
         setString("contractInfo", item);
     }
     /**
-     * Object:造价指标库's 备注property 
+     * Object:成本指标库's 备注property 
      */
     public String getBeizhu()
     {
@@ -60,7 +60,7 @@ public class AbstractBuildPriceIndexInfo extends com.kingdee.eas.framework.CoreB
         setString("beizhu", item);
     }
     /**
-     * Object:造价指标库's 单据状态property 
+     * Object:成本指标库's 单据状态property 
      */
     public com.kingdee.eas.fdc.basedata.FDCBillStateEnum getBuildPriceBillStatus()
     {
@@ -73,7 +73,7 @@ public class AbstractBuildPriceIndexInfo extends com.kingdee.eas.framework.CoreB
 		}
     }
     /**
-     * Object:造价指标库's 项目阶段property 
+     * Object:成本指标库's 项目阶段property 
      */
     public com.kingdee.eas.fdc.costindexdb.ProjectStationEnum getProjectStation()
     {
@@ -86,7 +86,7 @@ public class AbstractBuildPriceIndexInfo extends com.kingdee.eas.framework.CoreB
 		}
     }
     /**
-     * Object:造价指标库's 合同阶段property 
+     * Object:成本指标库's 合同阶段property 
      */
     public com.kingdee.eas.fdc.costindexdb.ContractStationEnum getContractStation()
     {
@@ -99,14 +99,14 @@ public class AbstractBuildPriceIndexInfo extends com.kingdee.eas.framework.CoreB
 		}
     }
     /**
-     * Object: 造价指标库 's 指标数据 property 
+     * Object: 成本指标库 's 指标数据 property 
      */
     public com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataCollection getEindexData()
     {
         return (com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataCollection)get("EindexData");
     }
     /**
-     * Object:造价指标库's 项目IDproperty 
+     * Object:成本指标库's 项目IDproperty 
      */
     public String getProjectId()
     {
@@ -117,7 +117,7 @@ public class AbstractBuildPriceIndexInfo extends com.kingdee.eas.framework.CoreB
         setString("projectId", item);
     }
     /**
-     * Object:造价指标库's 合同IDproperty 
+     * Object:成本指标库's 合同IDproperty 
      */
     public String getContractId()
     {
@@ -126,6 +126,17 @@ public class AbstractBuildPriceIndexInfo extends com.kingdee.eas.framework.CoreB
     public void setContractId(String item)
     {
         setString("contractId", item);
+    }
+    /**
+     * Object: 成本指标库 's 工程项目 property 
+     */
+    public com.kingdee.eas.fdc.basedata.CurProjectInfo getCurProject()
+    {
+        return (com.kingdee.eas.fdc.basedata.CurProjectInfo)get("curProject");
+    }
+    public void setCurProject(com.kingdee.eas.fdc.basedata.CurProjectInfo item)
+    {
+        put("curProject", item);
     }
     public BOSObjectType getBOSType()
     {

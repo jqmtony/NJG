@@ -39,6 +39,7 @@ import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.contract.programming.client.CostAccountPromptBox;
 import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointInfo;
 import com.kingdee.eas.fdc.costindexdb.database.BuildSplitDataType;
@@ -477,12 +478,14 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 				MsgBox.showInfo("基本要素第"+(i+1)+"行需要拆分，实际未拆分！");
 				SysUtil.abort();
 			}
+			
 		}
 		for(int i = 0; i < kdtEcost.getRowCount3(); i++) {
 			if((Boolean)kdtEcost.getCell(i,"isCombo").getValue() && !(Boolean)kdtEcost.getCell(i,"isModel").getValue()){
 				MsgBox.showInfo("单项要素第"+(i+1)+"行需要拆分，实际未拆分！");
 				SysUtil.abort();
 			}
+			
 		}
 	}
 	

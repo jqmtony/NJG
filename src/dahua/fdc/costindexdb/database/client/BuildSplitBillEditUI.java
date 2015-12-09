@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -56,6 +57,7 @@ import com.kingdee.eas.fdc.costindexdb.database.IProfessionPointEntry;
 import com.kingdee.eas.fdc.costindexdb.database.ProfessionPointEntryCollection;
 import com.kingdee.eas.fdc.costindexdb.database.ProfessionPointEntryFactory;
 import com.kingdee.eas.fdc.costindexdb.database.ProfessionPointEntryInfo;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 
@@ -283,6 +285,25 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
     protected void applyDefaultValue(IObjectValue vo) {
     	
     }
+    
+    protected void verifyInput(ActionEvent e) throws Exception {
+    	String key = null;
+    	KDTable table = null;
+    	for(Iterator<String> it=tables.keySet().iterator(); it.hasNext();){
+    		key = it.next();
+    		table = tables.get(key);
+			if(table.getRowCount3() == 0){
+				MsgBox.showInfo(key+"页签没有拆分到楼号！");
+				SysUtil.abort();
+			}
+			for(int i = 0; i < table.getRowCount3(); i++) {
+				if(table.getCell(i,"buildNumber").getValue() == null){
+					MsgBox.showInfo(key+"页签的第"+(i+1)+"行楼号不能为空！");
+					SysUtil.abort();
+				}
+			}
+		}
+    }
 
     private void setBuutonAndTableState(boolean flag){
     	for(Iterator<String> it=tables.keySet().iterator(); it.hasNext();){
@@ -496,6 +517,7 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
     {
         com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillInfo objectValue = new com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
+        objectValue.setBizDate(new Date());
         Map ctx = getUIContext();
         objectValue.setDataType((BuildSplitDataType)ctx.get("dataType"));
         objectValue.setProjectName((CurProjectInfo)ctx.get("projectName"));

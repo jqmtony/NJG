@@ -62,6 +62,7 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcontractStation;
     protected com.kingdee.bos.ctrl.swing.KDContainer kDContainer1;
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcurProject;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker kDDateCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -79,6 +80,7 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
     protected com.kingdee.bos.ctrl.swing.KDComboBox contractStation;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kdtEntrys;
 	protected com.kingdee.eas.framework.client.multiDetail.DetailPanel kdtEntrys_detailPanel = null;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtcurProject;
     protected com.kingdee.eas.fdc.costindexdb.BuildPriceIndexInfo editData = null;
     /**
      * output class constructor
@@ -159,6 +161,7 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.contcontractStation = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDContainer1 = new com.kingdee.bos.ctrl.swing.KDContainer();
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
+        this.contcurProject = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDDateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -175,6 +178,7 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.projectStation = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.contractStation = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.kdtEntrys = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.prmtcurProject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -191,6 +195,7 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.contcontractStation.setName("contcontractStation");
         this.kDContainer1.setName("kDContainer1");
         this.kDTabbedPane1.setName("kDTabbedPane1");
+        this.contcurProject.setName("contcurProject");
         this.prmtCreator.setName("prmtCreator");
         this.kDDateCreateTime.setName("kDDateCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -207,6 +212,7 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.projectStation.setName("projectStation");
         this.contractStation.setName("contractStation");
         this.kdtEntrys.setName("kdtEntrys");
+        this.prmtcurProject.setName("prmtcurProject");
         // CoreUI		
         this.btnAddLine.setVisible(false);		
         this.btnCopyLine.setVisible(false);		
@@ -257,8 +263,7 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.contBizDate.setBoundLabelText(resHelper.getString("contBizDate.boundLabelText"));		
         this.contBizDate.setBoundLabelLength(100);		
         this.contBizDate.setBoundLabelUnderline(true);		
-        this.contBizDate.setBoundLabelAlignment(7);		
-        this.contBizDate.setVisible(false);
+        this.contBizDate.setBoundLabelAlignment(7);
         // contDescription		
         this.contDescription.setBoundLabelText(resHelper.getString("contDescription.boundLabelText"));		
         this.contDescription.setBoundLabelLength(100);		
@@ -302,6 +307,11 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.contcontractStation.setVisible(true);
         // kDContainer1
         // kDTabbedPane1
+        // contcurProject		
+        this.contcurProject.setBoundLabelText(resHelper.getString("contcurProject.boundLabelText"));		
+        this.contcurProject.setBoundLabelLength(100);		
+        this.contcurProject.setBoundLabelUnderline(true);		
+        this.contcurProject.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);
         // kDDateCreateTime		
@@ -354,11 +364,11 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.contractStation.setRequired(false);		
         this.contractStation.setEnabled(false);
         // kdtEntrys
-		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"accountNumber\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accountName\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isInput\" t:width=\"120\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{accountNumber}</t:Cell><t:Cell>$Resource{accountName}</t:Cell><t:Cell>$Resource{isInput}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol4\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol5\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"accountNumber\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"accountName\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isInput\" t:width=\"120\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectId\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"projectName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol5\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{accountNumber}</t:Cell><t:Cell>$Resource{accountName}</t:Cell><t:Cell>$Resource{isInput}</t:Cell><t:Cell>$Resource{projectId}</t:Cell><t:Cell>$Resource{projectName}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
 
-                this.kdtEntrys.putBindContents("editData",new String[] {"id","accountNumber","accountName","isInput"});
+                this.kdtEntrys.putBindContents("editData",new String[] {"id","accountNumber","accountName","isInput","projectId","projectName"});
 
 
         this.kdtEntrys.checkParsed();
@@ -383,7 +393,26 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         kdtEntrys_isInput_CheckBox.setName("kdtEntrys_isInput_CheckBox");
         KDTDefaultCellEditor kdtEntrys_isInput_CellEditor = new KDTDefaultCellEditor(kdtEntrys_isInput_CheckBox);
         this.kdtEntrys.getColumn("isInput").setEditor(kdtEntrys_isInput_CellEditor);
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtorgName,txtcontractInfo,txtbeizhu,buildPriceBillStatus,projectStation,contractStation,kDDateLastUpdateTime,prmtLastUpdateUser,kDDateCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,kdtEntrys}));
+        KDTextField kdtEntrys_projectId_TextField = new KDTextField();
+        kdtEntrys_projectId_TextField.setName("kdtEntrys_projectId_TextField");
+        kdtEntrys_projectId_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtEntrys_projectId_CellEditor = new KDTDefaultCellEditor(kdtEntrys_projectId_TextField);
+        this.kdtEntrys.getColumn("projectId").setEditor(kdtEntrys_projectId_CellEditor);
+        KDTextField kdtEntrys_projectName_TextField = new KDTextField();
+        kdtEntrys_projectName_TextField.setName("kdtEntrys_projectName_TextField");
+        kdtEntrys_projectName_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtEntrys_projectName_CellEditor = new KDTDefaultCellEditor(kdtEntrys_projectName_TextField);
+        this.kdtEntrys.getColumn("projectName").setEditor(kdtEntrys_projectName_CellEditor);
+        // prmtcurProject		
+        this.prmtcurProject.setQueryInfo("com.kingdee.eas.fdc.basedata.app.CurProjectQuery");		
+        this.prmtcurProject.setVisible(true);		
+        this.prmtcurProject.setEditable(true);		
+        this.prmtcurProject.setDisplayFormat("$name$");		
+        this.prmtcurProject.setEditFormat("$number$");		
+        this.prmtcurProject.setCommitFormat("$number$");		
+        this.prmtcurProject.setRequired(false);		
+        this.prmtcurProject.setEnabled(false);
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtorgName,txtcontractInfo,txtbeizhu,buildPriceBillStatus,projectStation,contractStation,kDDateLastUpdateTime,prmtLastUpdateUser,kDDateCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,kdtEntrys,prmtcurProject}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -412,22 +441,22 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.setBounds(new Rectangle(0, 0, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1013, 629));
-        contCreator.setBounds(new Rectangle(364, 578, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(364, 578, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCreateTime.setBounds(new Rectangle(736, 576, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(736, 576, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contLastUpdateUser.setBounds(new Rectangle(364, 603, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(364, 603, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateTime.setBounds(new Rectangle(736, 601, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(736, 601, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contCreator.setBounds(new Rectangle(364, 582, 270, 19));
+        this.add(contCreator, new KDLayout.Constraints(364, 582, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreateTime.setBounds(new Rectangle(736, 580, 270, 19));
+        this.add(contCreateTime, new KDLayout.Constraints(736, 580, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contLastUpdateUser.setBounds(new Rectangle(364, 605, 270, 19));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(364, 605, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateTime.setBounds(new Rectangle(736, 603, 270, 19));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(736, 603, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contNumber.setBounds(new Rectangle(740, 78, 270, 19));
         this.add(contNumber, new KDLayout.Constraints(740, 78, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contBizDate.setBounds(new Rectangle(18, 605, 270, 19));
-        this.add(contBizDate, new KDLayout.Constraints(18, 605, 270, 19, 0));
-        contDescription.setBounds(new Rectangle(14, 589, 270, 19));
-        this.add(contDescription, new KDLayout.Constraints(14, 589, 270, 19, 0));
-        contAuditor.setBounds(new Rectangle(18, 581, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(18, 581, 270, 19, 0));
+        contBizDate.setBounds(new Rectangle(740, 124, 270, 19));
+        this.add(contBizDate, new KDLayout.Constraints(740, 124, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contDescription.setBounds(new Rectangle(14, 600, 270, 19));
+        this.add(contDescription, new KDLayout.Constraints(14, 600, 270, 19, 0));
+        contAuditor.setBounds(new Rectangle(20, 591, 270, 19));
+        this.add(contAuditor, new KDLayout.Constraints(20, 591, 270, 19, 0));
         contorgName.setBounds(new Rectangle(8, 30, 635, 19));
         this.add(contorgName, new KDLayout.Constraints(8, 30, 635, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contcontractInfo.setBounds(new Rectangle(8, 7, 635, 19));
@@ -440,10 +469,12 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         this.add(contprojectStation, new KDLayout.Constraints(740, 30, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contcontractStation.setBounds(new Rectangle(740, 53, 270, 19));
         this.add(contcontractStation, new KDLayout.Constraints(740, 53, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDContainer1.setBounds(new Rectangle(8, 96, 633, 213));
-        this.add(kDContainer1, new KDLayout.Constraints(8, 96, 633, 213, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDTabbedPane1.setBounds(new Rectangle(8, 314, 999, 253));
-        this.add(kDTabbedPane1, new KDLayout.Constraints(8, 314, 999, 253, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDContainer1.setBounds(new Rectangle(8, 96, 633, 190));
+        this.add(kDContainer1, new KDLayout.Constraints(8, 96, 633, 190, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDTabbedPane1.setBounds(new Rectangle(8, 292, 999, 286));
+        this.add(kDTabbedPane1, new KDLayout.Constraints(8, 292, 999, 286, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contcurProject.setBounds(new Rectangle(740, 101, 270, 19));
+        this.add(contcurProject, new KDLayout.Constraints(740, 101, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -477,6 +508,8 @@ public abstract class AbstractBuildPriceIndexEditUI extends com.kingdee.eas.fram
         //kDContainer1
 kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntrys_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtEntrys,new com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryInfo(),null,false);
         kDContainer1.getContentPane().add(kdtEntrys_detailPanel, BorderLayout.CENTER);
+        //contcurProject
+        contcurProject.setBoundEditor(prmtcurProject);
 
     }
 
@@ -666,7 +699,10 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("entrys", com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryInfo.class, this.kdtEntrys, "userObject");
 		dataBinder.registerBinding("entrys.accountNumber", java.lang.Object.class, this.kdtEntrys, "accountNumber.text");
 		dataBinder.registerBinding("entrys.accountName", String.class, this.kdtEntrys, "accountName.text");
-		dataBinder.registerBinding("entrys.isInput", boolean.class, this.kdtEntrys, "isInput.text");		
+		dataBinder.registerBinding("entrys.isInput", boolean.class, this.kdtEntrys, "isInput.text");
+		dataBinder.registerBinding("entrys.projectId", String.class, this.kdtEntrys, "projectId.text");
+		dataBinder.registerBinding("entrys.projectName", String.class, this.kdtEntrys, "projectName.text");
+		dataBinder.registerBinding("curProject", com.kingdee.eas.fdc.basedata.CurProjectInfo.class, this.prmtcurProject, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -819,7 +855,10 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		getValidateHelper().registerBindProperty("entrys", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.accountNumber", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.accountName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("entrys.isInput", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("entrys.isInput", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.projectId", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.projectName", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("curProject", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -904,6 +943,17 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		}
     	sic.add(new SelectorItemInfo("entrys.accountName"));
     	sic.add(new SelectorItemInfo("entrys.isInput"));
+    	sic.add(new SelectorItemInfo("entrys.projectId"));
+    	sic.add(new SelectorItemInfo("entrys.projectName"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("curProject.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("curProject.id"));
+        	sic.add(new SelectorItemInfo("curProject.number"));
+        	sic.add(new SelectorItemInfo("curProject.name"));
+		}
         return sic;
     }        
     	

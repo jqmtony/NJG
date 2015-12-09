@@ -7,6 +7,8 @@ import java.awt.event.*;
 import org.apache.log4j.Logger;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.dao.IObjectValue;
+import com.kingdee.eas.basedata.org.OrgConstants;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.framework.*;
 
 /**
@@ -26,6 +28,12 @@ public class IndexTypeListUI extends AbstractIndexTypeListUI
 
     public void onLoad() throws Exception {
     	super.onLoad();
+    	String cuID = SysContext.getSysContext().getCurrentOrgUnit().getId().toString();
+		if(!cuID.equals(OrgConstants.DEF_CU_ID)) {
+			actionAddNew.setEnabled(false);
+			actionEdit.setEnabled(false);
+			actionRemove.setEnabled(false);
+		}
     }
     
     protected String getEditUIModal() {

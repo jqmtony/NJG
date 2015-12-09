@@ -248,8 +248,7 @@ public abstract class AbstractBuildSplitBillEditUI extends com.kingdee.eas.frame
         this.contBizDate.setBoundLabelText(resHelper.getString("contBizDate.boundLabelText"));		
         this.contBizDate.setBoundLabelLength(100);		
         this.contBizDate.setBoundLabelUnderline(true);		
-        this.contBizDate.setBoundLabelAlignment(7);		
-        this.contBizDate.setVisible(false);
+        this.contBizDate.setBoundLabelAlignment(7);
         // contDescription		
         this.contDescription.setBoundLabelText(resHelper.getString("contDescription.boundLabelText"));		
         this.contDescription.setBoundLabelLength(100);		
@@ -416,7 +415,7 @@ public abstract class AbstractBuildSplitBillEditUI extends com.kingdee.eas.frame
         this.add(contLastUpdateTime, null);
         contNumber.setBounds(new Rectangle(371, 7, 270, 19));
         this.add(contNumber, null);
-        contBizDate.setBounds(new Rectangle(39, 589, 270, 19));
+        contBizDate.setBounds(new Rectangle(737, 57, 270, 19));
         this.add(contBizDate, null);
         contDescription.setBounds(new Rectangle(22, 594, 270, 19));
         this.add(contDescription, null);
@@ -432,7 +431,7 @@ public abstract class AbstractBuildSplitBillEditUI extends com.kingdee.eas.frame
         this.add(contdataType, null);
         contcontractLevel.setBounds(new Rectangle(371, 32, 270, 19));
         this.add(contcontractLevel, null);
-        kDTabbedPane1.setBounds(new Rectangle(5, 248, 998, 329));
+        kDTabbedPane1.setBounds(new Rectangle(5, 243, 998, 334));
         this.add(kDTabbedPane1, null);
         kDContainer1.setBounds(new Rectangle(5, 57, 580, 180));
         this.add(kDContainer1, null);

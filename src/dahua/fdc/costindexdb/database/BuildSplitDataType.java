@@ -13,7 +13,7 @@ import com.kingdee.util.enums.StringEnum;
  */
 public class BuildSplitDataType extends StringEnum
 {
-    public static final String BASEPOINT_VALUE = "basePoint";//alias=基础要素
+    public static final String BASEPOINT_VALUE = "basePoint";//alias=基本要素
     public static final String SINGLEPOINT_VALUE = "singlePoint";//alias=单项要素
     public static final String CONTRACT_VALUE = "contract";//alias=合同
     public static final String PROFESSPOINT_VALUE = "professPoint";//alias=专业要素

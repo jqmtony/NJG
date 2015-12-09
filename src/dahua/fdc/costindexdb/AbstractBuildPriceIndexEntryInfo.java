@@ -61,6 +61,28 @@ public class AbstractBuildPriceIndexEntryInfo extends com.kingdee.eas.framework.
     {
         setBoolean("isInput", item);
     }
+    /**
+     * Object:分录's 项目IDproperty 
+     */
+    public String getProjectId()
+    {
+        return getString("projectId");
+    }
+    public void setProjectId(String item)
+    {
+        setString("projectId", item);
+    }
+    /**
+     * Object:分录's 项目名称property 
+     */
+    public String getProjectName()
+    {
+        return getString("projectName");
+    }
+    public void setProjectName(String item)
+    {
+        setString("projectName", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("96D234C1");
