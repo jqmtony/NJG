@@ -908,9 +908,11 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 	private void updateDetail(int rowIndex,AllocationIndex cationIndex) throws BOSException, SQLException{
 		IRow row = this.kdtDetail.getRow(rowIndex);
 		CurProjectInfo syxmInfo = (CurProjectInfo)row.getCell("benefitProject").getValue();
-		//项目结束就不联动；
-		if(syxmInfo.isProjectEnd())
-			return;
+		if(syxmInfo != null){
+			//项目结束就不联动；
+			if(syxmInfo.isProjectEnd())
+				return;
+		}
 		GcftbEntryDetailInfo detailInfo = new GcftbEntryDetailInfo();
 		if(row.getUserObject()!=null && (row.getUserObject() instanceof GcftbEntryDetailInfo))
 			detailInfo = (GcftbEntryDetailInfo)row.getUserObject();
