@@ -4166,6 +4166,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
     	sic.add(new SelectorItemInfo("yjMaterial.name"));
     	sic.add(new SelectorItemInfo("yjDays"));
     	sic.add(new SelectorItemInfo("entries.FxbdEntry.id"));
+    	sic.add(new SelectorItemInfo("entries.FxbdEntry.depType.id"));
     	sic.add(new SelectorItemInfo("entries.FxbdEntry.recordSeq"));
     	sic.add(new SelectorItemInfo("entries.FxbdEntry.itemName"));
     	sic.add(new SelectorItemInfo("entries.FxbdEntry.planDate"));

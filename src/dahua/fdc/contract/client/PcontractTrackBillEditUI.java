@@ -70,19 +70,26 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
     }
     
     protected void btnGrabData_actionPerformed(ActionEvent e) throws Exception {
+//    	String table = " select cbill.FAUDITTIME,cbill.FProgrammingContract from T_CON_ContractBill cbill left join T_FDC_ContractType ctype on ctype.fid=cbill.FCONTRACTTYPEID where ctype.fnumber in('施工003','建安008') ";
+//    	String sql = "select t.FAUDITTIME,t.FProgrammingContract from ("+table+") t " +"where not exists(select 1 from ("+table+") FProgrammingContract=t.FProgrammingContract and FAUDITTIME<t.FAUDITTIME)";
+    	
     	FDCSQLBuilder builder = new FDCSQLBuilder();
     	builder.appendSql(" select pcont.fid,pcont.FLEVEL,pcont.FLONGNUMBER,pcparent.FLONGNUMBER,pcont.fname_l2,pcType.CFHyType,pcont.Famount,pcont.FreservedChangeRate,pcont.FcontrolAmount, ");
-    	builder.appendSql("pcont.CFSgtDate,pcont.CFContSignDate,pcont.CFStartDate,pcont.CFEndDate,pcont.CFCsendDate ");
+    	builder.appendSql("pcont.CFSgtDate,pcont.CFContSignDate,pcont.CFStartDate,pcont.CFEndDate,pcont.CFCsendDate,contbill.FAUDITTIME ");
     	//pcont.CFStartDate,pcont.CFEndDate,pcont.CFCsendDate
 //    	builder.appendSql("case when ctype.fnumber in('施工003','建安008') then max(contbill.FAUDITTIME) else null end, ");
 //    	builder.appendSql("case when ctype.fnumber in('施工003','建安008') then max(contbill.FAUDITTIME) else null end ");
     	builder.appendSql("from T_CON_ProgrammingContract pcont left join T_CON_Programming program on pcont.FPROGRAMMINGID=program.fid ");
     	builder.appendSql("left join T_CON_ProgrammingContract pcparent on pcparent.fid=pcont.fparentid ");
-//    	builder.appendSql("left join T_CON_ContractBill contbill on pcont.fid=contbill.FProgrammingContract ");
+    	builder.appendSql("left join (select max(cbill.FAUDITTIME) FAUDITTIME,cbill.FProgrammingContract from T_CON_ContractBill cbill left join T_FDC_ContractType ctype on ctype.fid=cbill.FCONTRACTTYPEID ");
+    	builder.appendSql("where ctype.fnumber in('施工003','建安008') group by cbill.FProgrammingContract) contbill on pcont.fid=contbill.FProgrammingContract ");
 //    	builder.appendSql("left join T_FDC_ContractType ctype on ctype.fid=contbill.FCONTRACTTYPEID ");
+    	builder.appendSql("left join (select max(cbill.FAUDITTIME) FAUDITTIME,cbill.FProgrammingContract from T_CON_ContractBill cbill left join T_FDC_ContractType ctype on ctype.fid=cbill.FCONTRACTTYPEID ");
+    	builder.appendSql("where ctype.fnumber in('施工003','建安008') group by cbill.FProgrammingContract) contbill on pcont.fid=contbill.FProgrammingContract ");
     	builder.appendSql("left join CT_CON_PcType pcType on pcType.fid=pcont.CFHyTypeID where program.FIsLatest=1 ");
     	builder.appendSql("and program.fprojectid='"+editData.getCurProject().getId().toString()+"' order by pcont.FLONGNUMBER");
     	IRowSet rs = builder.executeQuery();
+    	
     	kdtEntrys.removeRows();
     	if(rs.size() == 0) {
     		MsgBox.showInfo("没有数据可以提取！");

@@ -502,6 +502,8 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		for (int k = 1; k < kdtfxbd.getColumnCount(); k=k+3) {
 			number = kdtfxbd.getColumnKey(k).substring(0,3);
 			for (int j = kdtfxbd.getRowCount3()-1; j >=0; j--) {
+				if(FDCHelper.isEmpty(kdtfxbd.getCell(j,k).getValue()))
+					continue;
 				fxbdinfo = new ProgrammingContractFxbdEntryInfo();
 				fxbdinfo.setItemName((String)kdtfxbd.getCell(j,k).getValue());
 				fxbdinfo.setPlanDate((Date)kdtfxbd.getCell(j,number+"date").getValue());
@@ -692,7 +694,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 						key = it.next();
 						feinfo = fxentrys.get(key+row0.getRowIndex());
 //						if(i == maxSize)
-//							row0.getCell(key+"name").getStyleAttributes().setBackground(FDCSplitClientHelper.COLOR_NOSPLIT);
+//							row0.getCell(key+"name").getStyleAttributes().setBackground(chCSplitClientHelper.COLOR_NOSPLIT);
 						if(feinfo != null){
 							row0.getCell("isNew").setValue(feinfo.isIsNew());
 							if(feinfo.getItemName() != null){
