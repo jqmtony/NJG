@@ -642,6 +642,18 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.kDLabelContainer4.setBoundLabelUnderline(true);
         // chkIsDevPrj		
         this.chkIsDevPrj.setText(resHelper.getString("chkIsDevPrj.text"));
+        this.chkIsDevPrj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    chkIsDevPrj_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         this.chkIsDevPrj.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 try {
@@ -689,6 +701,18 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.chkprojectEnd.setText(resHelper.getString("chkprojectEnd.text"));		
         this.chkprojectEnd.setVisible(true);		
         this.chkprojectEnd.setHorizontalAlignment(2);
+        this.chkprojectEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    chkprojectEnd_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // chqk		
         this.chqk.setText(resHelper.getString("chqk.text"));
         this.chqk.addActionListener(new java.awt.event.ActionListener() {
@@ -918,20 +942,20 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
         this.add(kDLabelContainer2, null);
         kDLabelContainer4.setBounds(new Rectangle(358, 36, 270, 19));
         this.add(kDLabelContainer4, null);
-        chkIsDevPrj.setBounds(new Rectangle(97, 87, 95, 19));
+        chkIsDevPrj.setBounds(new Rectangle(96, 89, 121, 19));
         this.add(chkIsDevPrj, null);
         kDLabelContainer5.setBounds(new Rectangle(358, 88, 270, 19));
         this.add(kDLabelContainer5, null);
-        chkisWholeAgeStage.setBounds(new Rectangle(12, 88, 108, 19));
+        chkisWholeAgeStage.setBounds(new Rectangle(12, 90, 121, 19));
         this.add(chkisWholeAgeStage, null);
         kdtSplitProject.setBounds(new Rectangle(522, 124, 78, 46));
         kdtSplitProject_detailPanel = (com.kingdee.eas.framework.client.multiDetail.DetailPanel)com.kingdee.eas.framework.client.multiDetail.HMDUtils.buildDetail(this,dataBinder,kdtSplitProject,new com.kingdee.eas.fdc.basedata.CurProjectSplitProjectInfo(),null,false);
         this.add(kdtSplitProject_detailPanel, null);
-        kDLabelContainer6.setBounds(new Rectangle(10, 115, 618, 19));
+        kDLabelContainer6.setBounds(new Rectangle(10, 115, 277, 19));
         this.add(kDLabelContainer6, null);
-        chkprojectEnd.setBounds(new Rectangle(263, 88, 270, 19));
+        chkprojectEnd.setBounds(new Rectangle(180, 90, 121, 19));
         this.add(chkprojectEnd, null);
-        chqk.setBounds(new Rectangle(178, 90, 140, 19));
+        chqk.setBounds(new Rectangle(358, 115, 270, 19));
         this.add(chqk, null);
         //contName
         contName.setBoundEditor(txtName);
@@ -1341,6 +1365,20 @@ public abstract class AbstractProjectEditUI extends com.kingdee.eas.framework.cl
      * output chkIsDevPrj_mouseClicked method
      */
     protected void chkIsDevPrj_mouseClicked(java.awt.event.MouseEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output chkIsDevPrj_actionPerformed method
+     */
+    protected void chkIsDevPrj_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output chkprojectEnd_actionPerformed method
+     */
+    protected void chkprojectEnd_actionPerformed(java.awt.event.ActionEvent e) throws Exception
     {
     }
 
