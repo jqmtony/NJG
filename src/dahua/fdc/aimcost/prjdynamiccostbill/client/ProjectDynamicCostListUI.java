@@ -4,6 +4,7 @@
 package com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.client;
 
 import java.awt.event.*;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -127,6 +128,25 @@ public class ProjectDynamicCostListUI extends AbstractProjectDynamicCostListUI
     	sic.add(new SelectorItemInfo("EntryPosition.position.*"));
     	info = iProDynamicCost.getProjectDynamicCostInfo(new ObjectUuidPK(billId), sic);
     	return info;
+    }
+    /**
+     * 校验是否存在日期为当前年月的单据
+     */
+    private void checkRepeatBill(CurProjectInfo info) throws Exception{
+    	Calendar cal = Calendar.getInstance();
+    	int year = cal.get(Calendar.YEAR);
+    	int month = cal.get(Calendar.MONTH)+1;
+    	String projectId = info.getId().toString();
+    	
+    	FilterInfo filter = new FilterInfo();
+    	filter.getFilterItems().add(new FilterItemInfo("year", year));
+    	filter.getFilterItems().add(new FilterItemInfo("month", month));
+    	filter.getFilterItems().add(new FilterItemInfo("curProject.id", projectId));
+    	
+    	if(ProjectDynamicCostFactory.getRemoteInstance().exists(filter)) {
+    		MsgBox.showWarning("已存在日期为"+year+"年"+month+"月的单据!请对已存在单据修订!");
+    		SysUtil.abort();
+    	}
     }
     /**
      * 修订
@@ -464,6 +484,7 @@ public class ProjectDynamicCostListUI extends AbstractProjectDynamicCostListUI
     		SysUtil.abort();
     	}
     	CurProjectInfo project = (CurProjectInfo) node.getUserObject();
+    	checkRepeatBill(project);
     	getUIContext().put("project", project);
         super.actionAddNew_actionPerformed(e);
     }

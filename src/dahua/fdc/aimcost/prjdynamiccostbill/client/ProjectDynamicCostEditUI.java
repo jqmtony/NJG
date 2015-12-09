@@ -129,8 +129,8 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	
     	if(getOprtState().equals(OprtState.VIEW))
     		this.btnLoadData.setEnabled(false);
-    	this.spYear.setEnabled(false);
-    	this.spMonth.setEnabled(false);
+//    	this.spYear.setEnabled(false);
+//    	this.spMonth.setEnabled(false);
     	this.btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
     	this.btnUnAduit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
     	this.btnRevise.setIcon(EASResource.getIcon("imgTbtn_duizsetting"));
@@ -168,7 +168,24 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
         setContractTableMerge();
         restorePosition();
     }
-
+    /**
+     * 校验是否存在日期为当前年月的单据
+     */
+    private void checkRepeatBill() throws Exception{
+    	int year = spYear.getIntegerVlaue().intValue();
+    	int month = spMonth.getIntegerVlaue().intValue();
+    	String projectId = editData.getCurProject().getId().toString();
+    	
+    	FilterInfo filter = new FilterInfo();
+    	filter.getFilterItems().add(new FilterItemInfo("year", year));
+    	filter.getFilterItems().add(new FilterItemInfo("month", month));
+    	filter.getFilterItems().add(new FilterItemInfo("curProject.id", projectId));
+    	
+    	if(ProjectDynamicCostFactory.getRemoteInstance().exists(filter)) {
+    		MsgBox.showWarning("已存在日期为"+year+"年"+month+"月的单据!请对已存在单据修订!");
+    		SysUtil.abort();
+    	}
+    }
     /**
      * output storeFields method
      */
@@ -229,6 +246,14 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	this.kdtEntrysAccount.getColumn("Comment").getStyleAttributes().setLocked(false);
     	this.kdtEntrysAccount.getColumn("accountIndex").getStyleAttributes().setHided(true);
     	this.kdtEntrysAccount.getColumn("level").getStyleAttributes().setHided(true);
+    }
+    /**
+     * 将对应编码的数据提取到对应的tab
+     * @param table
+     * @param codingNumber
+     */
+    private void loadDataToTab(KDTable table, String codingNumber) {
+    	
     }
     /**
      * 提取最新数据按钮
@@ -371,7 +396,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     			row.getCell("ForecastChangeVisID").setValue(forecastInfo.getId().toString());
     			if(actForecastAmount != null) {
     				BigDecimal balance = forecasetChangeamount.subtract(actForecastAmount);
-    				if(!forecastInfo.isBanZreo())
+    				if(!forecastInfo.isBanZreo()) //是否余额清零
     					row.getCell("EstimateChangeBalance").setValue(balance);
     				else
     					row.getCell("EstimateChangeBalance").setValue(BigDecimal.ZERO);
@@ -1606,6 +1631,10 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     		MsgBox.showWarning("非审核状态单据无法反审核!");
     		SysUtil.abort();
     	}
+    	if(!editData.isIsLatest()) {
+    		MsgBox.showWarning("非最新版无法反审核!");
+    		SysUtil.abort();
+    	}
     	FDCClientUtils.checkBillInWorkflow(this,getSelectBOID());
     	super.actionUnAudit_actionPerformed(e);
     	syncDataFromDB();
@@ -1967,6 +1996,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
      */
     public void actionAddNew_actionPerformed(ActionEvent e) throws Exception
     {
+    	checkRepeatBill();
         super.actionAddNew_actionPerformed(e);
     }
 

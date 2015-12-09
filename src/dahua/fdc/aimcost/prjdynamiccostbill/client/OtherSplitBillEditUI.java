@@ -29,6 +29,7 @@ import com.kingdee.eas.fdc.finance.utils.TableHelper;
 import com.kingdee.eas.fm.ecore.app.bean.commercialdraft.ContractInformation;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
@@ -70,6 +71,8 @@ public class OtherSplitBillEditUI extends AbstractOtherSplitBillEditUI
     	this.txtadjustAmount.setRequired(true);
     	this.prmtcontract.setRequired(true);
     	this.btnRemove.setVisible(false);
+    	this.btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
+    	this.btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
     	super.onLoad();
     	if(this.editData.getBizDate()!=null){
 			Calendar cal = Calendar.getInstance();

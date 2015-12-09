@@ -33,6 +33,7 @@ import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 
 /**
@@ -51,6 +52,8 @@ public class OtherSplitBillListUI extends AbstractOtherSplitBillListUI
     }
 
     public void onLoad() throws Exception {
+    	this.btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
+    	this.btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
     	super.onLoad();
     	buildProjectTree();
     }
