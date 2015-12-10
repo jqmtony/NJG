@@ -642,23 +642,26 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 				SysUtil.abort();
 			}
 			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "totalCost").getValue())) {
-				MsgBox.showWarning("已发生成本不能为空！");
+				MsgBox.showWarning("成本总额不能为空！");
 				SysUtil.abort();
 			}
-			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "totalAmount")
-					.getValue())) {
+			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "costHasOccurred").getValue())) {
+				MsgBox.showWarning("已发生不能为空！");
+				SysUtil.abort();
+			}
+			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "totalAmount").getValue())) {
 				MsgBox.showWarning("应分摊总量不能为空！");
 				SysUtil.abort();
 			}
-			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "share").getValue())){
-				MsgBox.showWarning("待分摊总量不能为空！");
-				SysUtil.abort();
-			}else{
+//			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "share").getValue())){
+//				MsgBox.showWarning("待分摊总量不能为空！");
+//				SysUtil.abort();
+//			}else{
 				if(((BigDecimal) (kdtEntrys.getCell(i, "share").getValue())).compareTo(BigDecimal.ZERO)==-1){
 					MsgBox.showWarning("待分摊总量不能为负数！");
 					SysUtil.abort();
 				}
-			}
+//			}
 			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "sharePrice").getValue())) {
 				MsgBox.showWarning("分摊单价不能为空！");
 				SysUtil.abort();
@@ -692,14 +695,14 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 					MsgBox.showWarning(gcftbEntryInfo.getEngineeringProject().getName()+ "对应的分摊项目不能为空！");
 					SysUtil.abort();
 				}
-				if (UIRuleUtil.isNull(detailInfo.getAllocationBase())) {
-					MsgBox.showWarning(gcftbEntryInfo.getEngineeringProject().getName()+ "对应的分摊基数不能为空！");
-					SysUtil.abort();
-				}
-				if (UIRuleUtil.isNull(detailInfo.getShareAmount())) {
-					MsgBox.showWarning(gcftbEntryInfo.getEngineeringProject().getName()+ "对应的分摊金额不能为空！");
-					SysUtil.abort();
-				}
+//				if (UIRuleUtil.isNull(detailInfo.getAllocationBase())) {
+//					MsgBox.showWarning(gcftbEntryInfo.getEngineeringProject().getName()+ "对应的分摊基数不能为空！");
+//					SysUtil.abort();
+//				}
+//				if (UIRuleUtil.isNull(detailInfo.getShareAmount())) {
+//					MsgBox.showWarning(gcftbEntryInfo.getEngineeringProject().getName()+ "对应的分摊金额不能为空！");
+//					SysUtil.abort();
+//				}
 				projectSet.add(detailInfo.getBenefitProject().getId().toString());
 			}
 			
