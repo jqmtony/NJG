@@ -51,6 +51,7 @@ import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.CostAccountFactory;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
+import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.ICostAccount;
@@ -82,6 +83,7 @@ import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataInfo;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryCollection;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryInfo;
 import com.kingdee.eas.fdc.costindexdb.ContractStationEnum;
+import com.kingdee.eas.fdc.costindexdb.ProjectStationEnum;
 import com.kingdee.eas.fdc.costindexdb.database.BuildNumberInfo;
 import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillCollection;
 import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryCollection;
@@ -149,19 +151,19 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     
     public void onLoad() throws Exception {
     	super.onLoad();
-    	if("ADDNEW".equals(getOprtState())){
-    		String contractStationType = (String)getUIContext().get("contractStationType");
-    		if("sign".equals(contractStationType)){
-//    			objectValue.setContractStation(ContractStationEnum.contractSign);
-    			contractStation.setSelectedItem(ContractStationEnum.contractSign);
-    		}else if("settle".equals(contractStationType)){
-//    			objectValue.setContractStation(ContractStationEnum.contractEnd);
-    			contractStation.setSelectedItem(ContractStationEnum.contractEnd);
-    		}else if("change".equals(contractStationType)){
-//    			objectValue.setContractStation(ContractStationEnum.contractChange);
-    			contractStation.setSelectedItem(ContractStationEnum.contractChange);
-    		}
-    	}
+//    	if("ADDNEW".equals(getOprtState())){
+//    		String contractStationType = (String)getUIContext().get("contractStationType");
+//    		if("sign".equals(contractStationType)){
+////    			objectValue.setContractStation(ContractStationEnum.contractSign);
+//    			contractStation.setSelectedItem(ContractStationEnum.contractSign);
+//    		}else if("settle".equals(contractStationType)){
+////    			objectValue.setContractStation(ContractStationEnum.contractEnd);
+//    			contractStation.setSelectedItem(ContractStationEnum.contractEnd);
+//    		}else if("change".equals(contractStationType)){
+////    			objectValue.setContractStation(ContractStationEnum.contractChange);
+//    			contractStation.setSelectedItem(ContractStationEnum.contractChange);
+//    		}
+//    	}
     	costTabMap = new HashMap<String,String[]>();
     	contentMap = new HashMap<String,String>();
     	//得到成本科目与指标的关联表，用于根据明细科目创建指标表
@@ -172,8 +174,15 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     	//capinfo.getIndexType().getNumber()+"@"+cainfo.getLongNumber();
     	
     	getBaseDXForMAP();
-    	getContractPriceSplitForMAP();
-    	getZYSplitForMAP();
+    	String contractLevel = "";
+    	if(ContractStationEnum.contractSign.equals(editData.getContractStation()))
+    		contractLevel = "sign";
+    	else if(ContractStationEnum.contractChange.equals(editData.getContractStation()))
+    		contractLevel = "change";
+    	else if(ContractStationEnum.contractEnd.equals(editData.getContractStation()))
+    		contractLevel = "endCal";
+    	getContractPriceSplitForMAP(contractLevel);
+    	getZYSplitForMAP(contractLevel);
 		
     	EntityViewInfo viewInfo = new EntityViewInfo();
 		FilterInfo filterInfo = new FilterInfo();
@@ -239,8 +248,9 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
      * 获取合同价 ，以MAP的形式缓存
      * @throws BOSException 
      */
-    private void getContractPriceSplitForMAP() throws BOSException{
-    	BuildSplitBillEntryDetailCollection splitBillCollection = BuildSplitBillEntryDetailFactory.getRemoteInstance().getBuildSplitBillEntryDetailCollection("select parent1.parent.contractLevel,parent1.parent.costAccount.longnumber,parent1.parent.dataType,parent1.pointName,buildNumber.id,dataValue where parent1.parent.dataType ='contract' and modelBuild=1 and parent1.parent.projectName.id='"+editData.getProjectId()+"'");
+    private void getContractPriceSplitForMAP(String clevel) throws BOSException{
+    	String oql="select parent1.parent.contractLevel,parent1.parent.costAccount.longnumber,parent1.parent.dataType,parent1.pointName,buildNumber.id,dataValue where parent1.parent.dataType='contract' and parent1.parent.contractLevel='"+clevel+"' and modelBuild=1 and parent1.parent.projectName.id='"+editData.getProjectId()+"'";
+    	BuildSplitBillEntryDetailCollection splitBillCollection = BuildSplitBillEntryDetailFactory.getRemoteInstance().getBuildSplitBillEntryDetailCollection(oql);
     	for (int i = 0; i < splitBillCollection.size(); i++) {//获取楼号拆分数据
     		BuildSplitBillEntryDetailInfo entryInfo = splitBillCollection.get(i);
     		BuildNumberInfo buildInfo = entryInfo.getBuildNumber();  
@@ -258,7 +268,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     		ContractPriceSplitForMAP.put(dataType.getAlias()+pointName+buildInfo.getId()+costAccountLongNumber, dataValue);
 		}
     	//直接获取要素 这样存放到时候可以根据分录是否有典型楼号 获取Value
-    	BuildSplitBillEntryCollection entryCollection = BuildSplitBillEntryFactory.getRemoteInstance().getBuildSplitBillEntryCollection("select parent.contractLevel,parent.costAccount.longnumber,parent.dataType,pointName,buildNumber.id,dataValue where parent.dataType ='contract' and parent.projectName.id='"+editData.getProjectId()+"'");
+    	oql="select parent.contractLevel,parent.costAccount.longnumber,parent.dataType,pointName,buildNumber.id,dataValue where parent.dataType='contract' and parent.contractLevel='"+clevel+"' and parent.projectName.id='"+editData.getProjectId()+"'";
+    	BuildSplitBillEntryCollection entryCollection = BuildSplitBillEntryFactory.getRemoteInstance().getBuildSplitBillEntryCollection(oql);
     	for (int i = 0; i < entryCollection.size(); i++) {//获取楼号拆分数据
     		BuildSplitBillEntryInfo entryInfo = entryCollection.get(i);
     		String pointName = entryInfo.getPointName();
@@ -279,8 +290,9 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
      * 获取专业要素拆分 ，以MAP的形式缓存
      * @throws BOSException 
      */
-    private void getZYSplitForMAP() throws BOSException{
-    	BuildSplitBillEntryDetailCollection splitBillCollection = BuildSplitBillEntryDetailFactory.getRemoteInstance().getBuildSplitBillEntryDetailCollection("select parent1.parent.contractLevel,parent1.parent.costAccount.longnumber,parent1.parent.dataType,parent1.pointName,buildNumber.id,dataValue where parent1.parent.dataType ='professPoint' and modelBuild=1 and parent1.parent.projectName.id='"+editData.getProjectId()+"'");
+    private void getZYSplitForMAP(String clevel) throws BOSException{
+    	String oql="select parent1.parent.contractLevel,parent1.parent.costAccount.longnumber,parent1.parent.dataType,parent1.pointName,buildNumber.id,dataValue where parent1.parent.dataType='professPoint' and parent1.parent.contractLevel='"+clevel+"' and modelBuild=1 and parent1.parent.projectName.id='"+editData.getProjectId()+"'";
+    	BuildSplitBillEntryDetailCollection splitBillCollection = BuildSplitBillEntryDetailFactory.getRemoteInstance().getBuildSplitBillEntryDetailCollection(oql);
     	for (int i = 0; i < splitBillCollection.size(); i++) {//获取楼号拆分数据
     		BuildSplitBillEntryDetailInfo entryInfo = splitBillCollection.get(i);
     		BuildNumberInfo buildInfo = entryInfo.getBuildNumber();  
@@ -298,7 +310,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     		ZYSplitForMAP.put(dataType.getAlias()+pointName+buildInfo.getId()+costAccountLongNumber, dataValue);
     	}
     	//直接获取要素 这样存放到时候可以根据分录是否有典型楼号 获取Value
-    	BuildSplitBillEntryCollection entryCollection = BuildSplitBillEntryFactory.getRemoteInstance().getBuildSplitBillEntryCollection("select parent.contractLevel,parent.costAccount.longnumber,parent.dataType,pointName,buildNumber.id,dataValue where parent.dataType ='professPoint' and parent.projectName.id='"+editData.getProjectId()+"'");
+    	oql="select parent.contractLevel,parent.costAccount.longnumber,parent.dataType,pointName,buildNumber.id,dataValue where parent.dataType='professPoint' and parent.contractLevel='"+clevel+"' and parent.projectName.id='"+editData.getProjectId()+"'";
+    	BuildSplitBillEntryCollection entryCollection = BuildSplitBillEntryFactory.getRemoteInstance().getBuildSplitBillEntryCollection(oql);
     	for (int i = 0; i < entryCollection.size(); i++) {//获取楼号拆分数据
     		BuildSplitBillEntryInfo entryInfo = entryCollection.get(i);
     		String pointName = entryInfo.getPointName();
@@ -457,9 +470,13 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 					contentMap.put(key+"@"+entryInfo.getFieldType().getName()+j,entryInfo.getFcontent());
 				}else if(FieldType.BUILDNUM.equals(entryInfo.getFieldType())){
 					initColumnForBuildNum(icol,projectId);
+					icol.setRequired(true);
 				}
 				if(entryInfo.isFieldInput()){
 					icol.setRequired(true);
+				}
+				if(entryInfo.isFieldHide()){
+					icol.getStyleAttributes().setHided(true);
 				}
 				icol.setKey(entryInfo.getFieldType().getName()+j);
 			}
@@ -865,7 +882,7 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     	            MsgBox.showInfo(EASResource.getString("com.kingdee.eas.framework.FrameWorkResource.Msg_NoneEntry"));
     	            return;
     	        }
-    	        if((Boolean)row.getCell("isInput").getValue()){
+    	        if(table == kdtEntrys && (Boolean)row.getCell("isInput").getValue()){
     	        	MsgBox.showInfo("科目已录入指标数据，不能删除！");
     	            return;
     	        }
@@ -985,6 +1002,10 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     	sic.add("Entrys.fcontent");
     	sic.add("Entrys.fieldType");
     	return sic;
+    }
+    
+    protected void applyDefaultValue(IObjectValue vo) {
+
     }
     
     public SelectorItemCollection getSelectors() {
@@ -1222,6 +1243,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 //				handUIException(e);
 //			}
 //		}
+		objectValue.setProjectStation(ProjectStationEnum.runing);
+		objectValue.setBuildPriceBillStatus(FDCBillStateEnum.SAVED);
         return objectValue;
     }
 
