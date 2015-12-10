@@ -645,10 +645,10 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 				MsgBox.showWarning("成本总额不能为空！");
 				SysUtil.abort();
 			}
-			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "costHasOccurred").getValue())) {
-				MsgBox.showWarning("已发生不能为空！");
-				SysUtil.abort();
-			}
+//			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "costHasOccurred").getValue())) {
+//				MsgBox.showWarning("已发生不能为空！");
+//				SysUtil.abort();
+//			}
 			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "totalAmount").getValue())) {
 				MsgBox.showWarning("应分摊总量不能为空！");
 				SysUtil.abort();
