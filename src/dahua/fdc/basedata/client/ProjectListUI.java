@@ -106,7 +106,7 @@ public class ProjectListUI extends AbstractProjectListUI {
 							strTemp = value
 									.toString();
 							strTemp = strTemp.replace('!', '.');
-							tblMain.getRow(i).getCell(1).setValue(strTemp);
+							tblMain.getRow(i).getCell("longNumber").setValue(strTemp);
 						}
 					}
 				});
