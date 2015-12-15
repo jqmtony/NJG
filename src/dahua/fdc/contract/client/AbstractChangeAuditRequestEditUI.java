@@ -74,6 +74,9 @@ public abstract class AbstractChangeAuditRequestEditUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contSpecialtyType;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contJobType;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox Sfejjd;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox Bjzb;
+    protected com.kingdee.bos.ctrl.swing.KDCheckBox Xscn;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
@@ -315,6 +318,9 @@ public abstract class AbstractChangeAuditRequestEditUI extends com.kingdee.eas.f
         this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.contSpecialtyType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contJobType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.Sfejjd = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.Bjzb = new com.kingdee.bos.ctrl.swing.KDCheckBox();
+        this.Xscn = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -421,6 +427,9 @@ public abstract class AbstractChangeAuditRequestEditUI extends com.kingdee.eas.f
         this.kDPanel1.setName("kDPanel1");
         this.contSpecialtyType.setName("contSpecialtyType");
         this.contJobType.setName("contJobType");
+        this.Sfejjd.setName("Sfejjd");
+        this.Bjzb.setName("Bjzb");
+        this.Xscn.setName("Xscn");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.txtNumber.setName("txtNumber");
@@ -639,6 +648,12 @@ public abstract class AbstractChangeAuditRequestEditUI extends com.kingdee.eas.f
         this.contJobType.setBoundLabelLength(100);		
         this.contJobType.setBoundLabelUnderline(true);		
         this.contJobType.setVisible(false);
+        // Sfejjd		
+        this.Sfejjd.setText(resHelper.getString("Sfejjd.text"));
+        // Bjzb		
+        this.Bjzb.setText(resHelper.getString("Bjzb.text"));
+        // Xscn		
+        this.Xscn.setText(resHelper.getString("Xscn.text"));
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setDisplayFormat("$name$");		
@@ -1077,30 +1092,30 @@ public abstract class AbstractChangeAuditRequestEditUI extends com.kingdee.eas.f
         this.add(contAuditTime, new KDLayout.Constraints(377, 563, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCurProject.setBounds(new Rectangle(730, 12, 270, 19));
         this.add(contCurProject, new KDLayout.Constraints(730, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditType.setBounds(new Rectangle(731, 106, 270, 19));
-        this.add(contAuditType, new KDLayout.Constraints(731, 106, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contChangeReason.setBounds(new Rectangle(12, 208, 270, 19));
-        this.add(contChangeReason, new KDLayout.Constraints(12, 208, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contAuditType.setBounds(new Rectangle(655, 17, 31, 19));
+        this.add(contAuditType, new KDLayout.Constraints(655, 17, 31, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contChangeReason.setBounds(new Rectangle(298, 49, 28, 19));
+        this.add(contChangeReason, new KDLayout.Constraints(298, 49, 28, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contChangeState.setBounds(new Rectangle(377, 84, 270, 19));
         this.add(contChangeState, new KDLayout.Constraints(377, 84, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         tbpChangAudit.setBounds(new Rectangle(9, 184, 993, 344));
         this.add(tbpChangAudit, new KDLayout.Constraints(9, 184, 993, 344, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAheadDisPatch.setBounds(new Rectangle(623, 588, 991, 27));
         this.add(contAheadDisPatch, new KDLayout.Constraints(623, 588, 991, 27, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contOrg.setBounds(new Rectangle(12, 105, 270, 19));
-        this.add(contOrg, new KDLayout.Constraints(12, 105, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contOrg.setBounds(new Rectangle(296, 29, 38, 19));
+        this.add(contOrg, new KDLayout.Constraints(296, 29, 38, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contConductDept.setBounds(new Rectangle(12, 60, 270, 19));
         this.add(contConductDept, new KDLayout.Constraints(12, 60, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer1.setBounds(new Rectangle(12, 36, 270, 19));
         this.add(kDLabelContainer1, new KDLayout.Constraints(12, 36, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer2.setBounds(new Rectangle(12, 127, 270, 19));
-        this.add(kDLabelContainer2, new KDLayout.Constraints(12, 127, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contReaDesc.setBounds(new Rectangle(12, 115, 988, 43));
-        this.add(contReaDesc, new KDLayout.Constraints(12, 115, 988, 43, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDLabelContainer2.setBounds(new Rectangle(289, 5, 40, 19));
+        this.add(kDLabelContainer2, new KDLayout.Constraints(289, 5, 40, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contReaDesc.setBounds(new Rectangle(12, 127, 988, 31));
+        this.add(contReaDesc, new KDLayout.Constraints(12, 127, 988, 31, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         kDLabelContainer3.setBounds(new Rectangle(659, 211, 270, 19));
         this.add(kDLabelContainer3, new KDLayout.Constraints(659, 211, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contbillType.setBounds(new Rectangle(378, 106, 270, 19));
-        this.add(contbillType, new KDLayout.Constraints(378, 106, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contbillType.setBounds(new Rectangle(653, 42, 34, 19));
+        this.add(contbillType, new KDLayout.Constraints(653, 42, 34, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contputForwardTime.setBounds(new Rectangle(377, 36, 270, 19));
         this.add(contputForwardTime, new KDLayout.Constraints(377, 36, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contquality.setBounds(new Rectangle(730, 36, 270, 19));
@@ -1119,6 +1134,12 @@ public abstract class AbstractChangeAuditRequestEditUI extends com.kingdee.eas.f
         this.add(contSpecialtyType, new KDLayout.Constraints(377, 208, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contJobType.setBounds(new Rectangle(730, 208, 270, 19));
         this.add(contJobType, new KDLayout.Constraints(730, 208, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        Sfejjd.setBounds(new Rectangle(15, 107, 266, 19));
+        this.add(Sfejjd, new KDLayout.Constraints(15, 107, 266, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        Bjzb.setBounds(new Rectangle(378, 108, 266, 19));
+        this.add(Bjzb, new KDLayout.Constraints(378, 108, 266, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        Xscn.setBounds(new Rectangle(731, 108, 263, 19));
+        this.add(Xscn, new KDLayout.Constraints(731, 108, 263, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1444,6 +1465,9 @@ ctnSuppEntrys.getContentPane().setLayout(new BorderLayout(0, 0));        ctnSupp
 
 	//Regiester control's property binding.
 	private void registerBindings(){
+		dataBinder.registerBinding("Sfejjd", boolean.class, this.Sfejjd, "selected");
+		dataBinder.registerBinding("Bjzb", boolean.class, this.Bjzb, "selected");
+		dataBinder.registerBinding("Xscn", boolean.class, this.Xscn, "selected");
 		dataBinder.registerBinding("creator", com.kingdee.eas.base.permission.UserInfo.class, this.prmtCreator, "data");
 		dataBinder.registerBinding("createTime", java.sql.Timestamp.class, this.pkCreateTime, "value");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
@@ -1557,6 +1581,9 @@ ctnSuppEntrys.getContentPane().setLayout(new BorderLayout(0, 0));        ctnSupp
 	 */
 	protected void registerValidator() {
     	getValidateHelper().setCustomValidator( getValidator() );
+		getValidateHelper().registerBindProperty("Sfejjd", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Bjzb", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Xscn", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("creator", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("createTime", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
@@ -1715,6 +1742,9 @@ ctnSuppEntrys.getContentPane().setLayout(new BorderLayout(0, 0));        ctnSupp
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
+        sic.add(new SelectorItemInfo("Sfejjd"));
+        sic.add(new SelectorItemInfo("Bjzb"));
+        sic.add(new SelectorItemInfo("Xscn"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
 			sic.add(new SelectorItemInfo("creator.*"));
