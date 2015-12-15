@@ -326,7 +326,7 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	String billId = editData.getId()!=null?editData.getId().toString():"q7emQGR4RXO5s86vNyJxJXARYRc=";
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1 ,ChangeAB.FNumber 申请编号2 , ChangeAB.Freadesc 适用范围 ,BaseU.Fname_l2 提出部门 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间5");
-    	sb.append(" ,ChangeAE.FChangeContent,bill.FNumber,u.Fname_l2,u.Fname_l2,ChangeAE.FIsBack isBack");
+    	sb.append(" ,ChangeAB.CFBgyy 变更原因,bill.FNumber,u.Fname_l2,u.Fname_l2,ChangeAE.FIsBack isBack");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");

@@ -400,15 +400,18 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	}
     	this.kDTable2.getIndexColumn().getStyleAttributes().setHided(true);
     	
-    	String billId = editData.getId()!=null?editData.getId().toString():"NuDk97fJRYGlkjRCTg9zcnARYRc=";
+    	String billId = editData.getId()!=null?editData.getId().toString():"2MBmc4+oSsaUTg2k2uOxx3ARYRc=";
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 申请编号2 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间, ChangeAB.Freadesc 事由,BaseU.Fname_l2 提出部门,");
-    	sb.append(" contractB.fname 合同名称6,contractB.fnumber 合同编号7,ChangeAB.cfzs,ChangeAB.cfcs,ChangeAE.FChangeContent,u.Fname_l2,ChangeAE.FIsBack isBack");
+    	sb.append(" contractB.fname 合同名称6,contractB.fnumber 合同编号7,lier.fname_l2  主送,Su.fname_l2  抄送,ChangeAE.FChangeContent,u.Fname_l2,ChangeAE.FIsBack isBack");
 //    	sb.append(" ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
     	sb.append(" left join T_CON_ChangeSupplierEntry ChangeSE on ChangeAB.fid=ChangeSE.FParentID");
+    	sb.append(" left join T_CON_CopySupplierEntry copySE on ChangeSE.fid=copySE.FParentID");
+    	sb.append(" left join T_BD_Supplier lier on lier.fid =  ChangeSE.FMainSuppID");
+    	sb.append(" left join T_BD_Supplier Su on Su.fid =  copySE.fCopySuppID");
     	sb.append(" left join T_CON_ContractBill contractB on contractB.fid=ChangeSE.FContractBillID");
       	sb.append(" left join T_PM_User u on u.fid = ChangeAB.FCreatorID");
     	sb.append(" where ChangeAB.fid = '").append(billId).append("'");

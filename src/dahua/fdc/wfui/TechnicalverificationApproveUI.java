@@ -398,7 +398,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	
     	String billId = editData.getId()!=null?editData.getId().toString():"099ZGQatSJe5KUx/CzBJ03ARYRc=";
     	StringBuffer sb = new StringBuffer();
-    	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 核定编号,contractB.fname 合同名称3,contractB.fnumber 合同编号4 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间, ChangeAB.Freadesc 核定内容");
+    	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 核定编号,contractB.fname 合同名称3,contractB.fnumber 合同编号4 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间, ChangeAB.Freadesc 核定内容,");
     	sb.append(" BaseU.Fname_l2  提出方,ChangeAE.FIsBack isBack");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
