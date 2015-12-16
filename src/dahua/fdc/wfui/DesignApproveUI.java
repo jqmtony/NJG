@@ -478,11 +478,11 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		}else if(i > 1){
     			FDCMsgBox.showInfo("你只能勾选一个");
     			SysUtil.abort();
-			if((Boolean)kDTable1.getCell(3, 2).getValue()){
-				editData.setYwtz("有图纸");
+			if((Boolean) kDTable1.getCell(3, 2).getValue()){
+				editData.setYwtz(Boolean.TRUE);
 			}
 			else if((Boolean)kDTable1.getCell(3, 4).getValue()) 		
-				editData.setYwtz("无图纸");
+				editData.setYwtz(Boolean.TRUE);
     		
     		}
     	}
