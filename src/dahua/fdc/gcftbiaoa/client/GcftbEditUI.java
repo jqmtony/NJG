@@ -100,8 +100,7 @@ import com.kingdee.jdbc.rowset.IRowSet;
  * output class name
  */
 public class GcftbEditUI extends AbstractGcftbEditUI {
-	private static final Logger logger = CoreUIObject
-			.getLogger(GcftbEditUI.class);
+	private static final Logger logger = CoreUIObject.getLogger(GcftbEditUI.class);
 	private final static String CANTUNAUDIT = "cantUnAudit";
 	private final static String CANTAUDIT = "cantAudit";
 	private final static String CANTUNAUDITEDITSTATE = "cantUnAuditEditState";
@@ -431,7 +430,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		IProductType IProductType = ProductTypeFactory.getRemoteInstance();
 		ICqgsBase IcqgsBase = CqgsBaseFactory.getRemoteInstance();
 		
-		for (int rowIndex = 1; rowIndex <= e_maxRow-1; rowIndex++) {
+		for (int rowIndex = 1; rowIndex <= e_maxRow; rowIndex++) {
 			GcftbEntryInfo entry = new GcftbEntryInfo();
 			entry.setId(BOSUuid.create(entry.getBOSType()));
 			GcftbEntryDetailInfo detailInfo = new GcftbEntryDetailInfo();
@@ -868,6 +867,17 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		if(indexRow==-1)return;
 		IRow row = table.getRow(indexRow);
 		if(table.getName().equals("kdtEntrys")){
+			//判断项目是否全部分摊
+			boolean Ft = (Boolean) row.getCell("allshare").getValue();
+			CurProjectInfo projectInfo = (CurProjectInfo)row.getCell("engineeringProject").getValue();
+			ProductTypeInfo cplxInfo=(ProductTypeInfo)row.getCell("facilityName").getValue();
+			BigDecimal jzmj = getjzmj(projectInfo.getId().toString());
+			BigDecimal cqgsJzmj = getCQGSjzmj(projectInfo.getId().toString(), cplxInfo.getId().toString());
+			if(Ft){
+				row.getCell("constructionArea").setValue(jzmj);
+			}else{
+				row.getCell("constructionArea").setValue(cqgsJzmj);
+			}
 			if(UIRuleUtil.isNull(row.getCell("costHasOccurred").getValue())){
 				//单价
 				row.getCell("sharePrice").setValue(FDCHelper.divide(row.getCell("totalCost").getValue(), row.getCell("totalAmount").getValue(),10,4));
@@ -946,7 +956,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		}
 	}
 	
-	//取面积指标管理中的 面积
+	//分摊面积取面积指标管理中的 面积
 	private BigDecimal getBaseAmount(String projectId,AllocationIndex index) throws BOSException, SQLException{
 		BigDecimal amount = BigDecimal.ZERO;
 		StringBuffer sb = new StringBuffer();
@@ -974,7 +984,38 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		return amount;
 	}
 	
-	//取产权归属表中的 面积
+	//建筑面积取面积指标管理中的 面积
+	private BigDecimal getjzmj(String projectId) throws BOSException, SQLException{
+		BigDecimal jzmj = BigDecimal.ZERO;
+		StringBuffer sb = new StringBuffer();
+		// 产品建筑指标 == 动态——竣工查账 优先取：项目规划指标 == 目标指标
+		sb.append(" select case when max(case when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end)=0 ");
+		sb.append(" and max(case when pe.fname_l2 ='建筑面积' and data.FVerName ='1AIMCOSTAREA' then isnull(entry.FIndexValue,0) else 0 end ) = 0");
+		sb.append(" then max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end) else");
+		sb.append(" max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end) end,");
+		sb.append("   ");
+		sb.append(" select case when max(case when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end)=0 ");
+		sb.append(" and max(case when pe.fname_l2 ='建筑面积' and data.FVerName ='1AIMCOSTAREA' then isnull(entry.FIndexValue,0) else 0 end ) = 0");
+		sb.append(" then max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='1AIMCOSTAREA' then isnull(entry.FIndexValue,0) else 0 end) else");
+		sb.append(" max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='1AIMCOSTAREA' then isnull(entry.FIndexValue,0) else 0 end) end,");
+		sb.append(" from T_FDC_ProjectIndexDataEntry entry  ");
+		sb.append(" left join T_FDC_ApportionType  pe on pe.fid = entry.FApportionTypeID");
+		sb.append(" left join T_FDC_ProjectIndexData data on data.fid=entry.FParentID ");
+		sb.append(" left join T_FDC_CurProject  ct on ct.fid = data.FProjOrOrgID ");
+		sb.append(" left join T_FDC_TargetType  tag on tag.fid =entry.FTargetTypeID ");
+		sb.append(" where ct.fid ='").append(projectId).append("'");
+		sb.append(" and (data.fisLatestVer=1 OR data.fisLatestSubVer=1)");
+		sb.append(" and data.FProductTypeID is null");
+		IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
+		while(rowset.next())
+			if(UIRuleUtil.getBigDecimal(rowset.getBigDecimal(1)).compareTo(BigDecimal.ZERO)!=0){
+				jzmj = UIRuleUtil.getBigDecimal(rowset.getBigDecimal(1));
+			}else{
+				jzmj = UIRuleUtil.getBigDecimal(rowset.getBigDecimal(2));
+			}
+		return jzmj;
+	}
+	//分摊面积取产权归属表中的 面积
 	private BigDecimal getCQGSarea(String projectId,AllocationIndex index) throws BOSException, SQLException{
 		BigDecimal area = BigDecimal.ZERO;
 		StringBuffer sb = new StringBuffer();
@@ -987,6 +1028,21 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
 		while(rowset.next())
 			area = index.equals(AllocationIndex.coveredArea)?UIRuleUtil.getBigDecimal(rowset.getBigDecimal(1)):UIRuleUtil.getBigDecimal(rowset.getBigDecimal(2));
+		return area;
+	}
+	//建筑面积取产权归属表中的 面积
+	private BigDecimal getCQGSjzmj(String projectId,String BuilDingNameId) throws BOSException, SQLException{
+		BigDecimal area = BigDecimal.ZERO;
+		StringBuffer sb = new StringBuffer();
+		sb.append(" select entry.CFBuidlingArea");
+		sb.append("  from CT_COS_CQGSEntry entry ");
+		sb.append(" left join CT_COS_CQGS bt on bt.fid = entry.FParentID ");
+		sb.append(" where bt.CFProjectNameID='").append(projectId).append("'");
+		sb.append(" and entry.CFBUILDINGNAMEID ='").append(BuilDingNameId).append("'");
+		sb.append(" and bt.CFLasted = '1' ");
+		IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
+		while(rowset.next())
+			area = UIRuleUtil.getBigDecimal(rowset.getBigDecimal(1));
 		return area;
 	}
 	/**

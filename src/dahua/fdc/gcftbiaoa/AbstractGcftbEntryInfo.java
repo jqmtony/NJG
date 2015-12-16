@@ -192,6 +192,17 @@ public class AbstractGcftbEntryInfo extends com.kingdee.eas.framework.CoreBillEn
     {
         return (com.kingdee.eas.fdc.gcftbiaoa.GcftbEntryDetailCollection)get("Detail");
     }
+    /**
+     * Object:分录's 待分摊是否整体工程项目property 
+     */
+    public boolean isAllshare()
+    {
+        return getBoolean("allshare");
+    }
+    public void setAllshare(boolean item)
+    {
+        setBoolean("allshare", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("58157E21");
