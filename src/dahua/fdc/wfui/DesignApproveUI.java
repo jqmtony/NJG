@@ -482,18 +482,18 @@ public class DesignApproveUI extends AbstractDesignApproveUI
 				editData.setYwtz(Boolean.TRUE);
 			}
 			else if((Boolean)kDTable1.getCell(3, 4).getValue()) 		
-				editData.setYwtz(Boolean.TRUE);
+				editData.setYwtz(Boolean.FALSE);
     		
     		}
     	}
     	//成本部
     	if(getOprtState().equals("成本部修改")){
     		 i = 0;
-    		if((Boolean)kDTable1.getCell(13, 3).getValue())
+    		if((Boolean)kDTable1.getCell(6, 2).getValue())
     			i++;
-    		if((Boolean)kDTable1.getCell(13, 5).getValue())
+    		if((Boolean)kDTable1.getCell(6, 4).getValue())
     			i++;			
-    		if((Boolean)kDTable1.getCell(13, 7).getValue())
+    		if((Boolean)kDTable1.getCell(6, 6).getValue())
     			i++;			
     		if(i == 0){
     			FDCMsgBox.showInfo("你并没有勾选");
@@ -502,13 +502,13 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     			FDCMsgBox.showInfo("你只能勾选一个");
     			SysUtil.abort();
     		}
-			if((Boolean)kDTable1.getCell(13, 3).getValue()){
+			if((Boolean)kDTable1.getCell(6, 2).getValue()){
 				editData.setCost("增加");
 			}
-			else if((Boolean)kDTable1.getCell(13, 5).getValue()) 		
+			else if((Boolean)kDTable1.getCell(6, 4).getValue()) 		
 				editData.setCost("减少");
-			else if((Boolean)kDTable1.getCell(13, 7).getValue()) 		
-				editData.setCost("无影响");
+			else if((Boolean)kDTable1.getCell(6, 6).getValue()) 		
+				editData.setCost("零");
 		}
 	}
     

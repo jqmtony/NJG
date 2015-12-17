@@ -237,6 +237,9 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	addRowelev.getCell(5).setEditor(editor);
     	addRowelev.getCell(5).setValue(Boolean.FALSE);
     	addRowelev.getCell(6).setValue("不利");
+    	addRowelev.getCell(7).setEditor(editor);
+    	addRowelev.getCell(7).setValue(Boolean.FALSE);
+    	addRowelev.getCell(8).setValue("无影响");
 
 
     	//第十二行
@@ -535,15 +538,15 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     			editData.setTimeLi("延长");
     		else if((Boolean)kDTable1.getCell(7, 7).getValue())
     			editData.setTimeLi("无影响");
-
+    		
     		if((Boolean)kDTable1.getCell(9, 5).getValue())
     			i++;
     		if((Boolean)kDTable1.getCell(9, 7).getValue())
     			i++;
-    		if(i == 0){
+    		if(i == 1){
     			FDCMsgBox.showInfo("你并没有勾选");
     			SysUtil.abort();
-    		}else if(i > 1){
+    		}else if(i > 2){
     			FDCMsgBox.showInfo("你只能勾选一个");
     			SysUtil.abort();
     		}		
@@ -551,14 +554,16 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     			editData.setSfejjd(true);
     		}
     		else if((Boolean)kDTable1.getCell(9, 7).getValue()) 		
-    			editData.setSfejjd(true);
+    			editData.setSfejjd(false);
     	}
     	//营销部反写
-    	if(getOprtState().equals("营销部改")){
+    	if(getOprtState().equals("营销部修改")){
     		i= 0;
     		if((Boolean)kDTable1.getCell(10, 3).getValue())
     			i++;
     		if((Boolean)kDTable1.getCell(10, 5).getValue())
+    			i++;			
+    		if((Boolean)kDTable1.getCell(10, 7).getValue())
     			i++;			
     		if(i == 0){
     			FDCMsgBox.showInfo("你并没有勾选");
@@ -571,15 +576,17 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     			editData.setSale("有利");
     		else if((Boolean)kDTable1.getCell(10, 5).getValue())
     			editData.setSale("不利");
+    		else if((Boolean)kDTable1.getCell(10, 7).getValue())
+    			editData.setSale("无影响");
 
     		if((Boolean)kDTable1.getCell(11, 3).getValue())
     			i++;
     		if((Boolean)kDTable1.getCell(11, 5).getValue())
     			i++;
-    		if(i == 0){
+    		if(i == 1){
     			FDCMsgBox.showInfo("你并没有勾选");
     			SysUtil.abort();
-    		}else if(i > 1){
+    		}else if(i > 2){
     			FDCMsgBox.showInfo("你只能勾选一个");
     			SysUtil.abort();
     		}		
@@ -587,7 +594,7 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     			editData.setXscn(true);
     		}
     		else if((Boolean)kDTable1.getCell(11, 5).getValue()) 		
-    			editData.setXscn(true);
+    			editData.setXscn(false);
     	}
     	//前期配套部反写
     	if(getOprtState().equals("前期配套部修改")){
@@ -606,7 +613,7 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     				editData.setBjzb(true);
     			}
     			else if((Boolean)kDTable1.getCell(11, 5).getValue()) 		
-    				editData.setBjzb(true);
+    				editData.setBjzb(false);
     		}	
     	}	
     	//成本部反写

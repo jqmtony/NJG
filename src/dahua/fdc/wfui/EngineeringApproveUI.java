@@ -256,6 +256,9 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	addRow211.getCell(7).setEditor(editor);
     	addRow211.getCell(7).setValue(Boolean.FALSE);
     	addRow211.getCell(8).setValue("不利");
+    	addRow211.getCell(9).setEditor(editor);
+    	addRow211.getCell(9).setValue(Boolean.FALSE);
+    	addRow211.getCell(10).setValue("无影响");
     	mergeManager2.mergeBlock(10, 2, 10, 3);
     	
     	IRow addRow212 = this.kDTable2.addRow();
@@ -477,7 +480,58 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     		this.kDTable1.getCell(9, 3).setValue(person);
 
     	}
-
+    	if(apporveResultForMap.get("设计部") != null){
+    		String result = apporveResultForMap.get("设计部");
+    		
+    		String person = result.substring(0,result.indexOf("!"));  		
+    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		this.kDTable2.getCell(7, 12).setValue(yijian);  		
+    		this.kDTable2.getCell(7, 11).setValue(person);
+    	}
+    	if(apporveResultForMap.get("工程部") != null){
+    		String result = apporveResultForMap.get("工程部");
+    		
+    		String person = result.substring(0,result.indexOf("!"));  		
+    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		this.kDTable2.getCell(8, 12).setValue(yijian);  		
+    		this.kDTable2.getCell(8, 11).setValue(person);
+    		this.kDTable2.getCell(9, 12).setValue(yijian);  		
+    		this.kDTable2.getCell(9, 11).setValue(person);
+    	}
+    	if(apporveResultForMap.get("销售部") != null){
+    		String result = apporveResultForMap.get("销售部");
+    		
+    		String person = result.substring(0,result.indexOf("!"));  		
+    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		this.kDTable2.getCell(10, 12).setValue(yijian);  		
+    		this.kDTable2.getCell(10, 11).setValue(person);
+    		this.kDTable2.getCell(11, 12).setValue(yijian);  		
+    		this.kDTable2.getCell(11, 11).setValue(person);
+    	}
+    	if(apporveResultForMap.get("前期配套部") != null){
+    		String result = apporveResultForMap.get("前期配套部");
+    		
+    		String person = result.substring(0,result.indexOf("!"));  		
+    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		this.kDTable2.getCell(12, 12).setValue(yijian);  		
+    		this.kDTable2.getCell(12, 11).setValue(person);
+    	}
+    	if(apporveResultForMap.get("成本部") != null){
+    		String result = apporveResultForMap.get("成本部");
+    		
+    		String person = result.substring(0,result.indexOf("!"));  		
+    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		this.kDTable2.getCell(13, 12).setValue(yijian);  		
+    		this.kDTable2.getCell(13, 11).setValue(person);
+    		this.kDTable2.getCell(14, 12).setValue(yijian);  		
+    		this.kDTable2.getCell(14, 11).setValue(person);
+    		this.kDTable2.getCell(15, 12).setValue(yijian);  		
+    		this.kDTable2.getCell(15, 11).setValue(person);
+    		this.kDTable2.getCell(16, 12).setValue(yijian);  		
+    		this.kDTable2.getCell(16, 11).setValue(person);
+    		this.kDTable2.getCell(17, 12).setValue(yijian);  		
+    		this.kDTable2.getCell(17, 11).setValue(person);
+    	}
     	if(apporveResultForMap.get("公司第一负责人") != null){
     		//总意见
     		String result = apporveResultForMap.get("公司第一负责人");
@@ -522,9 +576,10 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     
     protected void verifyInput(ActionEvent actionevent) throws Exception {
     	super.verifyInput(actionevent);
-    	int i = 0;
+    	
     	//设计部修改
     	if(getOprtState().equals("设计部修改")){
+    		int i = 0;
     		if((Boolean)kDTable2.getCell(7, 5).getValue())
     			i++;
     		if((Boolean)kDTable2.getCell(7, 7).getValue())
@@ -539,17 +594,19 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     			SysUtil.abort();
     		}
     		//产品品质
-    		if((Boolean)kDTable2.getCell(8, 5).getValue()){
-    			editData.setQuality("缩短");
+    		if((Boolean)kDTable2.getCell(7, 5).getValue()){
+    			editData.setQuality("提高");
 			}
-			else if((Boolean)kDTable2.getCell(8, 7).getValue()) 		
-				editData.setQuality("延长");
-			else if((Boolean)kDTable2.getCell(8, 7).getValue()) 		
+			else if((Boolean)kDTable2.getCell(7, 7).getValue()) 		
+				editData.setQuality("降低");
+			else if((Boolean)kDTable2.getCell(7, 7).getValue()) 		
 				editData.setQuality("无影响");
     	}
     		
     	//工程部修改
     	if(getOprtState().equals("工程部修改")){
+    		int i = 0;
+    		//二级节点
     		if((Boolean)kDTable2.getCell(5, 5).getValue())
     			i++;
     		if((Boolean)kDTable2.getCell(5, 7).getValue())
@@ -561,27 +618,26 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     			FDCMsgBox.showInfo("你只能勾选一个");
     			SysUtil.abort();
     		}
-    		//二级节点
 			if((Boolean)kDTable2.getCell(5, 5).getValue()){
 				editData.setSfejjd(Boolean.TRUE);
 			}
 			else if((Boolean)kDTable2.getCell(5, 7).getValue()) 		
-				editData.setSfejjd(Boolean.TRUE);
+				editData.setSfejjd(Boolean.FALSE);
 			
+			//工期
 			if((Boolean)kDTable2.getCell(8, 5).getValue())
     			i++;
     		if((Boolean)kDTable2.getCell(8, 7).getValue())
     			i++;
     		if((Boolean)kDTable2.getCell(8, 9).getValue())
     			i++;
-    		if(i == 0){
+    		if(i == 1){
     			FDCMsgBox.showInfo("你并没有勾选");
     			SysUtil.abort();
-    		}else if(i > 1){
+    		}else if(i > 2){
     			FDCMsgBox.showInfo("你只能勾选一个");
     			SysUtil.abort();
     		}
-    		//工期
     		if((Boolean)kDTable2.getCell(8, 5).getValue()){
     			editData.setTimeLi("缩短");
 			}
@@ -592,9 +648,13 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	}
     	//销售部修改
     	if(getOprtState().equals("销售部修改")){
+    		int i = 0;
+    		//销售
     		if((Boolean)kDTable2.getCell(10, 5).getValue())
     			i++;
     		if((Boolean)kDTable2.getCell(10, 7).getValue())
+    			i++;			
+    		if((Boolean)kDTable2.getCell(10, 9).getValue())
     			i++;			
     		if(i == 0){
     			FDCMsgBox.showInfo("你并没有勾选");
@@ -603,34 +663,35 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     			FDCMsgBox.showInfo("你只能勾选一个");
     			SysUtil.abort();
     		}
-    		//销售
 			if((Boolean)kDTable2.getCell(10, 5).getValue()){
 				editData.setSale("有利");
 			}
 			else if((Boolean)kDTable2.getCell(10, 7).getValue()) 		
 				editData.setSale("无利");
+			else if((Boolean)kDTable1.getCell(10, 9).getValue())
+    			editData.setSale("无影响");
 			//销售承诺
 			if((Boolean)kDTable2.getCell(11, 5).getValue())
     			i++;
     		if((Boolean)kDTable2.getCell(11, 7).getValue())
     			i++;
-
-    		if(i == 0){
+    		if(i == 1){
     			FDCMsgBox.showInfo("你并没有勾选");
     			SysUtil.abort();
-    		}else if(i > 1){
+    		}else if(i > 2){
     			FDCMsgBox.showInfo("你只能勾选一个");
     			SysUtil.abort();
     		}
-    		//工期
     		if((Boolean)kDTable2.getCell(11, 5).getValue()){
     			editData.setXscn(Boolean.TRUE);
 			}
 			else if((Boolean)kDTable2.getCell(11, 7).getValue()) 		
-				editData.setXscn(Boolean.TRUE);
+				editData.setXscn(Boolean.FALSE);
     	}
     	//前期配套部修改
     	if(getOprtState().equals("前期配套部修改")){
+    		int i = 0;
+    		//报建指标
     		if((Boolean)kDTable2.getCell(12, 5).getValue())
     			i++;
     		if((Boolean)kDTable2.getCell(12, 7).getValue())
@@ -642,12 +703,11 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     			FDCMsgBox.showInfo("你只能勾选一个");
     			SysUtil.abort();
     		}
-    		//报建指标
 			if((Boolean)kDTable2.getCell(12, 5).getValue()){
 				editData.setBjzb(Boolean.TRUE);
 			}
 			else if((Boolean)kDTable2.getCell(12, 7).getValue()) 		
-				editData.setBjzb(Boolean.TRUE);
+				editData.setBjzb(Boolean.FALSE);
     	}
     }
     
