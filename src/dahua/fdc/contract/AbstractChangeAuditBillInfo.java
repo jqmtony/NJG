@@ -713,13 +713,13 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
     /**
      * Object:合同变更发起's 有无图纸property 
      */
-    public String getYwtz()
+    public boolean isYwtz()
     {
-        return getString("Ywtz");
+        return getBoolean("Ywtz");
     }
-    public void setYwtz(String item)
+    public void setYwtz(boolean item)
     {
-        setString("Ywtz", item);
+        setBoolean("Ywtz", item);
     }
     /**
      * Object:合同变更发起's 附图编号property 
@@ -742,28 +742,6 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
     public void setBgyy(String item)
     {
         setString("Bgyy", item);
-    }
-    /**
-     * Object:合同变更发起's 主送property 
-     */
-    public String getZS()
-    {
-        return getString("ZS");
-    }
-    public void setZS(String item)
-    {
-        setString("ZS", item);
-    }
-    /**
-     * Object:合同变更发起's 抄送property 
-     */
-    public String getCS()
-    {
-        return getString("CS");
-    }
-    public void setCS(String item)
-    {
-        setString("CS", item);
     }
     public BOSObjectType getBOSType()
     {
