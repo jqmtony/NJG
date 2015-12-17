@@ -626,11 +626,11 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 			 MsgBox.showWarning("产权情况不能为空！");
 			 SysUtil.abort();
 			 }
-			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "constructionArea")
-					.getValue())) {
-				MsgBox.showWarning("建筑面积不能为空！");
-				SysUtil.abort();
-			}
+//			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "constructionArea")
+//					.getValue())) {
+//				MsgBox.showWarning("建筑面积不能为空！");
+//				SysUtil.abort();
+//			}
 			if (UIRuleUtil.isNull(kdtEntrys.getCell(i, "startTime").getValue())) {
 				MsgBox.showWarning("开工时间不能为空！");
 				SysUtil.abort();
@@ -721,13 +721,13 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		 if(colIndex == kdtEntrys.getColumnIndex("engineeringProject") &&
 		 kdtEntrys.getCell(rowIndex, colIndex).getValue() != null)
 		 {
-		 CurProjectInfo xminfo = (CurProjectInfo)kdtEntrys.getCell(rowIndex,
-		 colIndex).getValue();
-		 boolean end = xminfo.isProjectEnd();
-		 if(end == true){
-		 MsgBox.showWarning("项目已结束，请选择别的项目");
-		 SysUtil.abort();
-		 }
+			 CurProjectInfo xminfo = (CurProjectInfo)kdtEntrys.getCell(rowIndex,
+			 colIndex).getValue();
+			 boolean end = xminfo.isProjectEnd();
+			 if(end == true){
+			 MsgBox.showWarning("项目已结束，请选择别的项目");
+			 SysUtil.abort();
+			 }
 		 }
 		changeTableDataLinens(kdtEntrys);
 		 setTableToSumField(kdtEntrys,new String[]{"totalCost","totalAmount","costHasOccurred","share"});
@@ -870,9 +870,19 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 			//判断项目是否全部分摊
 			boolean Ft = (Boolean) row.getCell("allshare").getValue();
 			CurProjectInfo projectInfo = (CurProjectInfo)row.getCell("engineeringProject").getValue();
+			BigDecimal jzmj = null;
+			BigDecimal cqgsJzmj = null;
+			if(projectInfo != null){
+				jzmj = getjzmj(projectInfo.getId().toString());
+			}else{
+				MsgBox.showWarning("请选择项目");
+			}
 			ProductTypeInfo cplxInfo=(ProductTypeInfo)row.getCell("facilityName").getValue();
-			BigDecimal jzmj = getjzmj(projectInfo.getId().toString());
-			BigDecimal cqgsJzmj = getCQGSjzmj(projectInfo.getId().toString(), cplxInfo.getId().toString());
+			if(cplxInfo != null){
+				cqgsJzmj = getCQGSjzmj(projectInfo.getId().toString(), cplxInfo.getId().toString());
+			}else{
+				MsgBox.showWarning("请选择设施");
+			}
 			if(Ft){
 				row.getCell("constructionArea").setValue(jzmj);
 			}else{
@@ -992,13 +1002,13 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		sb.append(" select case when max(case when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end)=0 ");
 		sb.append(" and max(case when pe.fname_l2 ='建筑面积' and data.FVerName ='1AIMCOSTAREA' then isnull(entry.FIndexValue,0) else 0 end ) = 0");
 		sb.append(" then max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end) else");
-		sb.append(" max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end) end,");
+		sb.append(" max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end)  end,");
 		sb.append("   ");
-		sb.append(" select case when max(case when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end)=0 ");
+		sb.append(" case when max(case when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end)=0 ");
 		sb.append(" and max(case when pe.fname_l2 ='建筑面积' and data.FVerName ='1AIMCOSTAREA' then isnull(entry.FIndexValue,0) else 0 end ) = 0");
 		sb.append(" then max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='1AIMCOSTAREA' then isnull(entry.FIndexValue,0) else 0 end) else");
-		sb.append(" max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='1AIMCOSTAREA' then isnull(entry.FIndexValue,0) else 0 end) end,");
-		sb.append(" from T_FDC_ProjectIndexDataEntry entry  ");
+		sb.append(" max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='1AIMCOSTAREA' then isnull(entry.FIndexValue,0) else 0 end)  end");
+		sb.append(" from T_FDC_ProjectIndexDataEntry entry");
 		sb.append(" left join T_FDC_ApportionType  pe on pe.fid = entry.FApportionTypeID");
 		sb.append(" left join T_FDC_ProjectIndexData data on data.fid=entry.FParentID ");
 		sb.append(" left join T_FDC_CurProject  ct on ct.fid = data.FProjOrOrgID ");
