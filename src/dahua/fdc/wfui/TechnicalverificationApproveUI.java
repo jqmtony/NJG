@@ -476,7 +476,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		String result = apporveResultForMap.get("设计部");
     		
     		String person = result.substring(0,result.indexOf("!"));  		
-    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
     		this.kDTable2.getCell(7, 12).setValue(yijian);  		
     		this.kDTable2.getCell(7, 11).setValue(person);
     	}
@@ -484,7 +484,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		String result = apporveResultForMap.get("工程部");
     		
     		String person = result.substring(0,result.indexOf("!"));  		
-    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
     		this.kDTable2.getCell(8, 12).setValue(yijian);  		
     		this.kDTable2.getCell(8, 11).setValue(person);
     		this.kDTable2.getCell(9, 12).setValue(yijian);  		
@@ -494,7 +494,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		String result = apporveResultForMap.get("销售部");
     		
     		String person = result.substring(0,result.indexOf("!"));  		
-    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
     		this.kDTable2.getCell(10, 12).setValue(yijian);  		
     		this.kDTable2.getCell(10, 11).setValue(person);
     		this.kDTable2.getCell(11, 12).setValue(yijian);  		
@@ -504,7 +504,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		String result = apporveResultForMap.get("前期配套部");
     		
     		String person = result.substring(0,result.indexOf("!"));  		
-    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
     		this.kDTable2.getCell(12, 12).setValue(yijian);  		
     		this.kDTable2.getCell(12, 11).setValue(person);
     	}
@@ -512,7 +512,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		String result = apporveResultForMap.get("成本部");
     		
     		String person = result.substring(0,result.indexOf("!"));  		
-    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
     		this.kDTable2.getCell(13, 12).setValue(yijian);  		
     		this.kDTable2.getCell(13, 11).setValue(person);
     		this.kDTable2.getCell(14, 12).setValue(yijian);  		

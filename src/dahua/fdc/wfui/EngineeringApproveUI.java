@@ -48,21 +48,21 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	this.kDTable2.getStyleAttributes().setWrapText(true);
     	initUI();
     	
-    	kDTable1.getStyleAttributes().setLocked(true);
+    	kDTable2.getStyleAttributes().setLocked(true);
     	if (getOprtState().equals("设计部修改")){
-    		kDTable1.getRow(7).getStyleAttributes().setLocked(false);
+    		kDTable2.getRow(7).getStyleAttributes().setLocked(false);
     	}
     	if (getOprtState().equals("工程部修改")){
-    		kDTable1.getRow(5).getStyleAttributes().setLocked(false);
-    		kDTable1.getRow(8).getStyleAttributes().setLocked(false);
-    		kDTable1.getRow(9).getStyleAttributes().setLocked(false);
+    		kDTable2.getRow(5).getStyleAttributes().setLocked(false);
+    		kDTable2.getRow(8).getStyleAttributes().setLocked(false);
+//    		kDTable2.getRow(9).getStyleAttributes().setLocked(false);
     	}
     	if (getOprtState().equals("销售部修改")){
-    		kDTable1.getRow(10).getStyleAttributes().setLocked(false);
-    		kDTable1.getRow(11).getStyleAttributes().setLocked(false);
+    		kDTable2.getRow(10).getStyleAttributes().setLocked(false);
+    		kDTable2.getRow(11).getStyleAttributes().setLocked(false);
     	}
     	if (getOprtState().equals("前期配套部修改")){
-    		kDTable1.getRow(12).getStyleAttributes().setLocked(false);
+    		kDTable2.getRow(12).getStyleAttributes().setLocked(false);
     	}
 //    	if (getOprtState().equals("成本部修改")){
 //    		kDTable1.getRow(6).getStyleAttributes().setLocked(false);
@@ -484,7 +484,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     		String result = apporveResultForMap.get("设计部");
     		
     		String person = result.substring(0,result.indexOf("!"));  		
-    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
     		this.kDTable2.getCell(7, 12).setValue(yijian);  		
     		this.kDTable2.getCell(7, 11).setValue(person);
     	}
@@ -492,7 +492,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     		String result = apporveResultForMap.get("工程部");
     		
     		String person = result.substring(0,result.indexOf("!"));  		
-    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
     		this.kDTable2.getCell(8, 12).setValue(yijian);  		
     		this.kDTable2.getCell(8, 11).setValue(person);
     		this.kDTable2.getCell(9, 12).setValue(yijian);  		
@@ -502,7 +502,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     		String result = apporveResultForMap.get("销售部");
     		
     		String person = result.substring(0,result.indexOf("!"));  		
-    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
     		this.kDTable2.getCell(10, 12).setValue(yijian);  		
     		this.kDTable2.getCell(10, 11).setValue(person);
     		this.kDTable2.getCell(11, 12).setValue(yijian);  		
@@ -512,7 +512,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     		String result = apporveResultForMap.get("前期配套部");
     		
     		String person = result.substring(0,result.indexOf("!"));  		
-    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
     		this.kDTable2.getCell(12, 12).setValue(yijian);  		
     		this.kDTable2.getCell(12, 11).setValue(person);
     	}
@@ -520,7 +520,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     		String result = apporveResultForMap.get("成本部");
     		
     		String person = result.substring(0,result.indexOf("!"));  		
-    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
     		this.kDTable2.getCell(13, 12).setValue(yijian);  		
     		this.kDTable2.getCell(13, 11).setValue(person);
     		this.kDTable2.getCell(14, 12).setValue(yijian);  		
