@@ -563,10 +563,10 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
 //    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
 //    }
     
-    protected void kDTable2_tableClicked(KDTMouseEvent e) throws Exception {
-    	super.kDTable2_tableClicked(e);
-    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
-    }
+//    protected void kDTable2_tableClicked(KDTMouseEvent e) throws Exception {
+//    	super.kDTable2_tableClicked(e);
+//    	FDCMsgBox.showInfo("行："+e.getRowIndex()+"\n列："+e.getColIndex());
+//    }
     
 
     public void actionSave_actionPerformed(ActionEvent e) throws Exception {
