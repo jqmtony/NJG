@@ -868,21 +868,21 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		IRow row = table.getRow(indexRow);
 		if(table.getName().equals("kdtEntrys")){
 			//判断项目是否全部分摊
-			boolean Ft = (Boolean) row.getCell("allshare").getValue();
+			boolean Ft = UIRuleUtil.getBooleanValue(row.getCell("allshare").getValue());
 			CurProjectInfo projectInfo = (CurProjectInfo)row.getCell("engineeringProject").getValue();
 			BigDecimal jzmj = null;
 			BigDecimal cqgsJzmj = null;
-			if(projectInfo != null){
-				jzmj = getjzmj(projectInfo.getId().toString());
-			}else{
+			if(projectInfo == null){
 				MsgBox.showWarning("请选择项目");
+				SysUtil.abort();
 			}
 			ProductTypeInfo cplxInfo=(ProductTypeInfo)row.getCell("facilityName").getValue();
-			if(cplxInfo != null){
-				cqgsJzmj = getCQGSjzmj(projectInfo.getId().toString(), cplxInfo.getId().toString());
-			}else{
+			if(cplxInfo == null){
 				MsgBox.showWarning("请选择设施");
+				SysUtil.abort();
 			}
+			cqgsJzmj = getCQGSjzmj(projectInfo.getId().toString(), cplxInfo.getId().toString());
+			jzmj = getjzmj(projectInfo.getId().toString());
 			if(Ft){
 				row.getCell("constructionArea").setValue(jzmj);
 			}else{
