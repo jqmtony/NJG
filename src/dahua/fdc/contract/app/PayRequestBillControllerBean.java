@@ -39,6 +39,7 @@ import com.kingdee.eas.base.btp.BTPManagerFactory;
 import com.kingdee.eas.base.btp.BTPTransformResult;
 import com.kingdee.eas.base.btp.IBTPManager;
 import com.kingdee.eas.base.codingrule.CodingRuleException;
+import com.kingdee.eas.base.codingrule.CodingRuleManagerFactory;
 import com.kingdee.eas.basedata.assistant.PeriodInfo;
 import com.kingdee.eas.basedata.master.cssp.SupplierCompanyInfoInfo;
 import com.kingdee.eas.basedata.master.cssp.SupplierFactory;
@@ -47,6 +48,8 @@ import com.kingdee.eas.basedata.org.CtrlUnitInfo;
 import com.kingdee.eas.basedata.org.FullOrgUnitFactory;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
+import com.kingdee.eas.common.client.SysContext;
+import com.kingdee.eas.fdc.basedata.ContractTypeFactory;
 import com.kingdee.eas.fdc.basedata.CurProjectFactory;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.DeductTypeCollection;
@@ -105,7 +108,9 @@ import com.kingdee.eas.fdc.contract.PayRequestBillCollection;
 import com.kingdee.eas.fdc.contract.PayRequestBillConfirmEntryCollection;
 import com.kingdee.eas.fdc.contract.PayRequestBillConfirmEntryFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillConfirmEntryInfo;
+import com.kingdee.eas.fdc.contract.PayRequestBillEntryCollection;
 import com.kingdee.eas.fdc.contract.PayRequestBillEntryFactory;
+import com.kingdee.eas.fdc.contract.PayRequestBillEntryInfo;
 import com.kingdee.eas.fdc.contract.PayRequestBillException;
 import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
@@ -144,6 +149,7 @@ import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.util.DateTimeUtils;
 import com.kingdee.util.NumericExceptionSubItem;
 import com.kingdee.util.StringUtils;
+import com.kingdee.util.UuidException;
 
 public class PayRequestBillControllerBean extends AbstractPayRequestBillControllerBean
 {
@@ -285,10 +291,113 @@ public class PayRequestBillControllerBean extends AbstractPayRequestBillControll
 			unAudit(ctx, BOSUuid.read(id));
 		}	
 	}
+	
+	private String getZbhetId(Context ctx, String proId) throws BOSException, SQLException{
+		String id = null;
+		FDCSQLBuilder fdc = new FDCSQLBuilder(ctx);
+		fdc.clear();
+		fdc.appendSql("select contract.fid from T_CON_ContractBill contract left outer join T_FDC_ContractType ctype on " );
+		fdc.appendSql("contract.FCONTRACTTYPEID=ctype.FID where contract.FCURPROJECTID=? and ctype.fname_l2='[建安]' ");
+		fdc.appendSql("and contract.fcontrolunitid=? and contract.FcontractPropert='DIRECT'");
+		fdc.addParam(proId);
+		fdc.addParam(ContextUtil.getCurrentCtrlUnit(ctx).getId().toString());
+		IRowSet sets = fdc.executeQuery();
+		if(sets.next()){
+			id = sets.getString(1);
+		}
+		return id;
+	}
+	
+	/** 获取编码规则生成的编码 
+     * @throws UuidException 
+     * @throws BOSException 
+     * @throws EASBizException */
+	public String getAutoCode(Context ctx ,IObjectValue objValue) throws EASBizException, BOSException, UuidException {
+		    String NumberCode = "";
+		    String companyId = "";
+			com.kingdee.eas.base.codingrule.ICodingRuleManager codeRuleMgr = null;
+			if(ctx == null){
+				companyId = SysContext.getSysContext().getCurrentFIUnit().getId().toString();
+				codeRuleMgr = CodingRuleManagerFactory.getRemoteInstance();
+			}else{
+				companyId = ContextUtil.getCurrentFIUnit(ctx).getId().toString();
+				codeRuleMgr = CodingRuleManagerFactory.getLocalInstance(ctx);
+			}
 
-	protected void _audit(Context ctx, BOSUuid billId) throws BOSException, EASBizException
-	{
-		
+			if (codeRuleMgr.isExist(objValue, companyId)) {
+				if (codeRuleMgr.isUseIntermitNumber(objValue, companyId)) {
+					NumberCode = codeRuleMgr.readNumber(objValue, companyId);
+				} else {
+					NumberCode = codeRuleMgr.getNumber(objValue, companyId);
+				}
+			}
+		return NumberCode;
+	}
+
+	protected void _audit(Context ctx, BOSUuid billId) throws BOSException, EASBizException {
+		PayRequestBillInfo payReqInfo = PayRequestBillFactory.getLocalInstance(ctx).getPayRequestBillInfo(new ObjectUuidPK(billId));
+		BOSObjectType bosType = BOSUuid.read(payReqInfo.getContractId()).getType();
+		if(bosType != null && bosType.equals(new ContractBillInfo().getBOSType())) {
+			ContractBillInfo astContract = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(payReqInfo.getContractId()));
+			String typeName = ContractTypeFactory.getLocalInstance(ctx).getContractTypeInfo(new ObjectUuidPK(astContract.getContractType().getId())).getName();
+			//throw new EASBizException(new NumericExceptionSubItem("100", "总包合同付款申请单由系统自动生成，用户不能进行审核操作！"));
+			if("[施工]".equals(typeName) || "[材料]".equals(typeName) || "[分包]".equals(typeName)) {
+				realAudit(ctx, billId);
+				//在总包下生成一个付款申请单
+				String zbhtId = null;
+				try {
+					zbhtId = getZbhetId(ctx, payReqInfo.getCurProject().getId().toString());
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				//main contract
+				ContractBillInfo mainContract = ContractBillFactory.getLocalInstance(ctx).getContractBillInfo(new ObjectUuidPK(zbhtId));
+				payReqInfo.setHasClosed(false);
+				//auto code number for pay request
+				payReqInfo.setNumber(getAutoCode(ctx, payReqInfo));
+				//SupplierInfo supplier = SupplierFactory.getLocalInstance(ctx).getSupplierInfo(new ObjectUuidPK(mainContract.getPartB().getId()));
+				payReqInfo.setRealSupplier(mainContract.getPartB());
+				payReqInfo.setSupplier(mainContract.getPartB());
+				payReqInfo.setSourceBillId(payReqInfo.getId().toString());
+				String astContractNum = astContract.getNumber();
+				//分包合同中的乙方理论上是付款申请单的收款单位，但付款申请单的收款单位可以修改，会出现两者不一样的情况
+				//我的处理是按照分包合同中的乙方，然后将合同编码简写+乙方名称填写在备注里
+				//SupplierInfo supplier = SupplierFactory.getLocalInstance(ctx).getSupplierInfo(new ObjectUuidPK(astContract.getPartB().getId()));
+				if("[施工]".equals(typeName))
+					payReqInfo.setMoneyDesc(astContractNum.substring(astContractNum.length()-5)+payReqInfo.getProcess());
+				else
+					payReqInfo.setMoneyDesc(astContractNum.substring(astContractNum.length()-5));
+				payReqInfo.setContractBase(mainContract.getContractBaseData());
+				payReqInfo.setContractId(mainContract.getId().toString());
+				payReqInfo.setContractName(mainContract.getName());
+				payReqInfo.setContractNo(mainContract.getNumber());
+				payReqInfo.setContractPrice(mainContract.getAmount());
+				payReqInfo.setState(FDCBillStateEnum.SUBMITTED);
+				payReqInfo.setId(BOSUuid.create(payReqInfo.getBOSType()));
+				PayRequestBillEntryCollection entrys = payReqInfo.getEntrys();
+				PayRequestBillEntryInfo tempEntryInfo = null;
+				for(int i=0; i<entrys.size(); i++){
+					tempEntryInfo = entrys.get(i);
+					tempEntryInfo.setId(BOSUuid.create(tempEntryInfo.getBOSType()));
+					tempEntryInfo.setPaymentBill(null);
+					tempEntryInfo.setParent(payReqInfo);
+				}
+				payReqInfo.setLatestPrice(mainContract.getAmount());
+				PayRequestBillFactory.getLocalInstance(ctx).addnew(payReqInfo);
+				//由生成的申请单生成付款单
+				realAudit(ctx, payReqInfo.getId());
+			}
+			else {
+				realAudit(ctx, billId);
+			}
+		}else {
+			realAudit(ctx, billId);
+		}
+//		realAudit(ctx, billId);
+	}
+	//modify by yxl 20151215 将原来的审核逻辑拿出来，方便之前对付款申请单修改（之前是放在beanEx里）
+	private void realAudit(Context ctx, BOSUuid billId) throws BOSException,
+			EASBizException, PayRequestBillException {
 		checkBillForAudit( ctx,billId,null);
 		
 		PayRequestBillInfo billInfo = new PayRequestBillInfo();
@@ -427,10 +536,7 @@ public class PayRequestBillControllerBean extends AbstractPayRequestBillControll
 				throw new EASBizException(new NumericExceptionSubItem("100","更新房地产付款单中间表时出错:"+e.getMessage()),e);
 			}
 		}
-		
-		
 		updateContractExecInfos(ctx, payRequestBillInfo.getContractId(), billId.toString(), true);
-
 	}
 
 	/**
@@ -1492,92 +1598,145 @@ public class PayRequestBillControllerBean extends AbstractPayRequestBillControll
 		String progressID="Ga7RLQETEADgAAC6wKgOlOwp3Sw=";//进度款
 		String keepID="Ga7RLQETEADgAADDwKgOlOwp3Sw=";//保修款
 */		
-		if(payReq.getContractId()==null||payReq.getPaymentType()==null||payReq.getPaymentType().getPayType()==null){
-			return;
-		}
-		PaymentTypeInfo type=payReq.getPaymentType();
-		FilterInfo filter=new FilterInfo();
-		filter.appendFilterItem("paymentType.payType.id", PaymentTypeInfo.settlementID);
-		filter.appendFilterItem("contractId", payReq.getContractId());
-		if(payReq.getId()!=null){
-			filter.getFilterItems().add(new FilterItemInfo("id",payReq.getId(),CompareType.NOTEQUALS));
-		}
-		if(type.getPayType().getId().toString().equals(PaymentTypeInfo.keepID)){
-			String orgUnitId = FDCUtils.findCostCenterOrgId(ctx, payReq.getCurProject().getId().toString());
-			boolean isKeepBefore = FDCUtils.getDefaultFDCParamByKey(ctx, orgUnitId, FDCConstants.FDC_PARAM_KEEPBEFORESETTLEMENT);
-			if(!_exists(ctx,filter)){
-				if(!isKeepBefore){
-					throw new PayRequestBillException(PayRequestBillException.CANTSELECTKEEPAMT);
-				}
-//				MsgBox.showError(prmtPayment,"付完结算款后才能付保修款,即存在付款类型的类型为“结算款”的付款申请单时才能选择“保修款”类型付款类型");
-			}
-			
-			//保修款总金额不能大于结算单上的质保金
-			FilterInfo myfilter=new FilterInfo();
-			myfilter.appendFilterItem("contractBill.id", payReq.getContractId());
-			EntityViewInfo view=new EntityViewInfo();
-			view.setFilter(myfilter);
-			view.getSelector().add("qualityGuarante");
-			// by Cassiel_peng
-			SorterItemInfo sorterItem = new SorterItemInfo();
-			sorterItem.setPropertyName("qualityGuarante");
-			sorterItem.setSortType(SortType.DESCEND);
-			view.getSorter().add(sorterItem);
-			ContractSettlementBillCollection c = ContractSettlementBillFactory.getLocalInstance(ctx).getContractSettlementBillCollection(view);
-			BigDecimal amount=FDCHelper.ZERO;
-			// by Cassiel_peng
-			if(c!=null&&c.size()!=0){
-				amount=FDCHelper.toBigDecimal(FDCHelper.toBigDecimal(c.get(0).getQualityGuarante()));
-			}
-			/**
-			 * 由于系统原来只支持合同的单笔结算，所以取累计保修款金额的时候按照如下处理无误，但是支持合同的多笔结算之后仍然这样处理
-			 * 就会导致数据重复累加，我们要做的只是取该合同的累计保修款而不是每笔结算单的累计保修款之和   by Cassiel_peng
-			 */
-//			for(int i=0;i<c.size();i++){
-//				 amount= amount.add(FDCHelper.toBigDecimal(c.get(i).getQualityGuarante()));
+//		if(payReq.getContractId()==null||payReq.getPaymentType()==null||payReq.getPaymentType().getPayType()==null){
+//			return;
+//		}
+//		PaymentTypeInfo type=payReq.getPaymentType();
+//		FilterInfo filter=new FilterInfo();
+//		filter.appendFilterItem("paymentType.payType.id", PaymentTypeInfo.settlementID);
+//		filter.appendFilterItem("contractId", payReq.getContractId());
+//		if(payReq.getId()!=null){
+//			filter.getFilterItems().add(new FilterItemInfo("id",payReq.getId(),CompareType.NOTEQUALS));
+//		}
+//		if(type.getPayType().getId().toString().equals(PaymentTypeInfo.keepID)){
+//			String orgUnitId = FDCUtils.findCostCenterOrgId(ctx, payReq.getCurProject().getId().toString());
+//			boolean isKeepBefore = FDCUtils.getDefaultFDCParamByKey(ctx, orgUnitId, FDCConstants.FDC_PARAM_KEEPBEFORESETTLEMENT);
+//			if(!_exists(ctx,filter)){
+//				if(!isKeepBefore){
+//					throw new PayRequestBillException(PayRequestBillException.CANTSELECTKEEPAMT);
+//				}
+////				MsgBox.showError(prmtPayment,"付完结算款后才能付保修款,即存在付款类型的类型为“结算款”的付款申请单时才能选择“保修款”类型付款类型");
 //			}
-			//付款申请单的累计保修金额
-			view=new EntityViewInfo();
-			filter=new FilterInfo();
-			filter.appendFilterItem("contractId",payReq.getContractId());
-			filter.appendFilterItem("paymentType.payType.id",PaymentTypeInfo.keepID);
-			view.setFilter(filter);
-			view.getSelector().add("amount");
-			PayRequestBillCollection payRequestBillC = getPayRequestBillCollection(ctx, view);
-			BigDecimal payReqAmount=FDCHelper.ZERO;
-			for(int i=0;i<payRequestBillC.size();i++){
-				PayRequestBillInfo info=payRequestBillC.get(i);
-				if(info.getId().equals(payReq.getId())){
-					continue;//略过当前单据
-				}
-				payReqAmount=payReqAmount.add(FDCHelper.toBigDecimal(info.getAmount()));
-			}
-			//
-			payReqAmount=payReqAmount.add(FDCHelper.toBigDecimal(payReq.getAmount()));
-//			if(FDCHelper.toBigDecimal(payReq.getAmount()).compareTo(amount)>0){
-			if(FDCHelper.toBigDecimal(payReqAmount).compareTo(amount)>0){
-				throw new PayRequestBillException(PayRequestBillException.MORETHANQUALITYGUARANTE);
-			}
-			
-		}
-		
-		if(type.getPayType().getId().toString().equals(PaymentTypeInfo.progressID)){
-			if(_exists(ctx,filter)){
-				//之前的提示信息错误 by zhiyuan_tang 2010/12/21
-				throw new PayRequestBillException(PayRequestBillException.CANTSELECTPROGRESSAMT);
-//				MsgBox.showError(prmtPayment,"付完结算款后不能付进度款,即存在付款类型的类型为“结算款”的付款申请单时不能选择“进度款”类型付款类型");
-			}
-		}
-		
-		if(type.getPayType().getId().toString().equals(PaymentTypeInfo.settlementID)){
-			FilterInfo myfilter=new FilterInfo();
-			myfilter.appendFilterItem("id", payReq.getContractId());
-			myfilter.appendFilterItem("hasSettled", Boolean.TRUE);
-			if(!ContractBillFactory.getLocalInstance(ctx).exists(myfilter)){
-				throw new PayRequestBillException(PayRequestBillException.MUSTSETTLE);
-//				MsgBox.showError(prmtPayment,"合同必须结算之后才能做结算款类别的付款申请单");
-			}
-		}
+//			//保修款总金额不能大于结算单上的质保金
+//			FilterInfo myfilter=new FilterInfo();
+//			myfilter.appendFilterItem("contractBill.id", payReq.getContractId());
+//			EntityViewInfo view=new EntityViewInfo();
+//			view.setFilter(myfilter);
+//			view.getSelector().add("qualityGuarante");
+//			// by Cassiel_peng
+//			SorterItemInfo sorterItem = new SorterItemInfo();
+//			sorterItem.setPropertyName("qualityGuarante");
+//			sorterItem.setSortType(SortType.DESCEND);
+//			view.getSorter().add(sorterItem);
+//			ContractSettlementBillCollection c = ContractSettlementBillFactory.getLocalInstance(ctx).getContractSettlementBillCollection(view);
+//			BigDecimal amount=FDCHelper.ZERO;
+//			// by Cassiel_peng
+//			if(c!=null&&c.size()!=0){
+//				amount=FDCHelper.toBigDecimal(FDCHelper.toBigDecimal(c.get(0).getQualityGuarante()));
+//			}
+//			/**
+//			 * 由于系统原来只支持合同的单笔结算，所以取累计保修款金额的时候按照如下处理无误，但是支持合同的多笔结算之后仍然这样处理
+//			 * 就会导致数据重复累加，我们要做的只是取该合同的累计保修款而不是每笔结算单的累计保修款之和   by Cassiel_peng
+//			 */
+////			for(int i=0;i<c.size();i++){
+////				 amount= amount.add(FDCHelper.toBigDecimal(c.get(i).getQualityGuarante()));
+////			}
+//			//付款申请单的累计保修金额
+//			view=new EntityViewInfo();
+//			filter=new FilterInfo();
+//			filter.appendFilterItem("contractId",payReq.getContractId());
+//			filter.appendFilterItem("paymentType.payType.id",PaymentTypeInfo.keepID);
+//			view.setFilter(filter);
+//			view.getSelector().add("amount");
+//			PayRequestBillCollection payRequestBillC = getPayRequestBillCollection(ctx, view);
+//			BigDecimal payReqAmount=FDCHelper.ZERO;
+//			for(int i=0;i<payRequestBillC.size();i++){
+//				PayRequestBillInfo info=payRequestBillC.get(i);
+//				if(info.getId().equals(payReq.getId())){
+//					continue;//略过当前单据
+//				}
+//				payReqAmount=payReqAmount.add(FDCHelper.toBigDecimal(info.getAmount()));
+//			}
+//			payReqAmount=payReqAmount.add(FDCHelper.toBigDecimal(payReq.getAmount()));
+////			if(FDCHelper.toBigDecimal(payReq.getAmount()).compareTo(amount)>0){
+//			if(FDCHelper.toBigDecimal(payReqAmount).compareTo(amount)>0){
+//				throw new PayRequestBillException(PayRequestBillException.MORETHANQUALITYGUARANTE);
+//			}
+//		}
+//		if(type.getPayType().getId().toString().equals(PaymentTypeInfo.progressID)){
+//			if(_exists(ctx,filter)){
+//				//之前的提示信息错误 by zhiyuan_tang 2010/12/21
+//				throw new PayRequestBillException(PayRequestBillException.CANTSELECTPROGRESSAMT);
+////				MsgBox.showError(prmtPayment,"付完结算款后不能付进度款,即存在付款类型的类型为“结算款”的付款申请单时不能选择“进度款”类型付款类型");
+//			}
+//		}
+//		if(type.getPayType().getId().toString().equals(PaymentTypeInfo.settlementID)){
+//			FilterInfo myfilter=new FilterInfo();
+//			myfilter.appendFilterItem("id", payReq.getContractId());
+//			myfilter.appendFilterItem("hasSettled", Boolean.TRUE);
+//			if(!ContractBillFactory.getLocalInstance(ctx).exists(myfilter)){
+//				throw new PayRequestBillException(PayRequestBillException.MUSTSETTLE);
+////				MsgBox.showError(prmtPayment,"合同必须结算之后才能做结算款类别的付款申请单");
+//			}
+//		}
+		if(payReq.getContractId() == null || payReq.getPaymentType() == null || payReq.getPaymentType().getPayType() == null)
+	        return;
+	    PaymentTypeInfo type = payReq.getPaymentType();
+	    FilterInfo filter = new FilterInfo();
+	    filter.appendFilterItem("paymentType.payType.id", "Ga7RLQETEADgAAC/wKgOlOwp3Sw=");
+	    filter.appendFilterItem("sourceBillId", null); // add by wp  -- 不校验从分包合同过来的付款申请
+	    filter.appendFilterItem("contractId", payReq.getContractId());
+	    if(payReq.getId() != null)
+	        filter.getFilterItems().add(new FilterItemInfo("id", payReq.getId(), CompareType.NOTEQUALS));
+	    if(type.getPayType().getId().toString().equals("Ga7RLQETEADgAADDwKgOlOwp3Sw="))
+	    {
+	        String orgUnitId = FDCUtils.findCostCenterOrgId(ctx, payReq.getCurProject().getId().toString());
+	        boolean isKeepBefore = FDCUtils.getDefaultFDCParamByKey(ctx, orgUnitId, "FDC600_KEEPBEFORESETTLEMENT");
+	        if(!_exists(ctx, filter) && !isKeepBefore)
+	            throw new PayRequestBillException(PayRequestBillException.CANTSELECTKEEPAMT);
+	        FilterInfo myfilter = new FilterInfo();
+	        myfilter.appendFilterItem("contractBill.id", payReq.getContractId());
+	        EntityViewInfo view = new EntityViewInfo();
+	        view.setFilter(myfilter);
+	        view.getSelector().add("qualityGuarante");
+	        SorterItemInfo sorterItem = new SorterItemInfo();
+	        sorterItem.setPropertyName("qualityGuarante");
+	        sorterItem.setSortType(SortType.DESCEND);
+	        view.getSorter().add(sorterItem);
+	        ContractSettlementBillCollection c = ContractSettlementBillFactory.getLocalInstance(ctx).getContractSettlementBillCollection(view);
+	        BigDecimal amount = FDCHelper.ZERO;
+	        if(c != null && c.size() != 0)
+	            amount = FDCHelper.toBigDecimal(FDCHelper.toBigDecimal(c.get(0).getQualityGuarante()));
+	        view = new EntityViewInfo();
+	        filter = new FilterInfo();
+	        filter.appendFilterItem("contractId", payReq.getContractId());
+	        filter.appendFilterItem("sourceBillId", null); // add by wp  -- 不校验从分包合同过来的付款申请
+	        filter.appendFilterItem("paymentType.payType.id", "Ga7RLQETEADgAADDwKgOlOwp3Sw=");
+	        view.setFilter(filter);
+	        view.getSelector().add("amount");
+	        PayRequestBillCollection payRequestBillC = getPayRequestBillCollection(ctx, view);
+	        BigDecimal payReqAmount = FDCHelper.ZERO;
+	        for(int i = 0; i < payRequestBillC.size(); i++)
+	        {
+	            PayRequestBillInfo info = payRequestBillC.get(i);
+	            if(!info.getId().equals(payReq.getId()))
+	                payReqAmount = payReqAmount.add(FDCHelper.toBigDecimal(info.getAmount()));
+	        }
+	
+	        payReqAmount = payReqAmount.add(FDCHelper.toBigDecimal(payReq.getAmount()));
+	        if(FDCHelper.toBigDecimal(payReqAmount).compareTo(amount) > 0)
+	            throw new PayRequestBillException(PayRequestBillException.MORETHANQUALITYGUARANTE);
+	    }
+	    if(type.getPayType().getId().toString().equals("Ga7RLQETEADgAAC6wKgOlOwp3Sw=") && _exists(ctx, filter))
+	        throw new PayRequestBillException(PayRequestBillException.CANTSELECTPROGRESSAMT);
+	    if(type.getPayType().getId().toString().equals("Ga7RLQETEADgAAC/wKgOlOwp3Sw="))
+	    {
+	        FilterInfo myfilter = new FilterInfo();
+	        myfilter.appendFilterItem("id", payReq.getContractId());
+	        myfilter.appendFilterItem("hasSettled", Boolean.TRUE);
+	        if(!ContractBillFactory.getLocalInstance(ctx).exists(myfilter))
+	            throw new PayRequestBillException(PayRequestBillException.MUSTSETTLE);
+	    }
 	
 	}
 	

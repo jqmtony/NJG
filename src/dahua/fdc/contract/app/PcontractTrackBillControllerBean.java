@@ -60,7 +60,7 @@ public class PcontractTrackBillControllerBean extends AbstractPcontractTrackBill
 			abinfo.setIsNew(true);
 			update(ctx,new ObjectUuidPK(abinfo.getId()),abinfo);
 			//·¢ËÍÔ¤¾¯ÏûÏ¢
-			DHWarnMsgFacadeFactory.getLocalInstance(ctx).programmingGZWarnMsg(abinfo.getId().toString(), 0);
+//			DHWarnMsgFacadeFactory.getLocalInstance(ctx).programmingGZWarnMsg(abinfo.getId().toString(), 0);
 			DbUtil.execute(ctx,"update CT_CON_PcontractTrackBill set CFIsNew=0 where CFTrackBillStatus='4AUDITTED' and CFCurProjectID='"+abinfo.getCurProject().getId().toString()+"' and fid<>'"+abinfo.getId().toString()+"'");
 		} catch (EASBizException e) {
 			e.printStackTrace();

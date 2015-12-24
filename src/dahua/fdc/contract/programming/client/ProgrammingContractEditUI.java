@@ -208,6 +208,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 			}
 		});
 		txtAmount.setEnabled(false);
+		txtContractContUI.setMaxLength(2000);
 	}
 
 	public void onLoad() throws Exception {

@@ -245,20 +245,16 @@ public abstract class AbstractPTEEditUI extends com.kingdee.eas.framework.client
         // kDScrollPane2
         // txtScope		
         this.txtScope.setMaxLength(1024);		
-        this.txtScope.setRows(3);		
         this.txtScope.setText(resHelper.getString("txtScope.text"));
         // kDScrollPane3
         // txtAttachWork		
-        this.txtAttachWork.setMaxLength(1024);		
-        this.txtAttachWork.setRows(3);
+        this.txtAttachWork.setMaxLength(1024);
         // kDScrollPane4
         // txtContractContUI		
-        this.txtContractContUI.setMaxLength(1024);		
-        this.txtContractContUI.setRows(3);
+        this.txtContractContUI.setMaxLength(2048);
         // kDScrollPane5
         // txtAttContract		
-        this.txtAttContract.setMaxLength(1024);		
-        this.txtAttContract.setRows(3);
+        this.txtAttContract.setMaxLength(1024);
         // kdcCost		
         this.kdcCost.setTitle(resHelper.getString("kdcCost.title"));
         // kdcEconomy		

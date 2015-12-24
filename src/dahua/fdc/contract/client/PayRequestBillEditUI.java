@@ -6309,6 +6309,8 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 		projectInfo.isQk();
 		BigDecimal yb = editData.getAmount();
 		BigDecimal zjjhSqje = editData.getZjjhSqje();
+		if(zjjhSqje == null)
+			zjjhSqje = BigDecimal.ZERO;
 		if (projectInfo.isQk()) {
 			if (yb.compareTo(zjjhSqje) > 0) {
 				MsgBox.showWarning("本次付款申请单大于资金计划申请金额，不能提交，请修改。");

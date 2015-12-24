@@ -119,6 +119,7 @@ public class PTEEditUI extends AbstractPTEEditUI implements REAutoCompletionData
 
 	public PTEEditUI() throws Exception {
 		super();
+		txtContractContUI.setMaxLength(2000);
 	}
 
 	public void onLoad() throws Exception {

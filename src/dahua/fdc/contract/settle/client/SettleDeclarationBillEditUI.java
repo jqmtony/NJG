@@ -20,6 +20,7 @@ import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.settle.SettleDeclarationBillFactory;
@@ -604,6 +605,7 @@ public class SettleDeclarationBillEditUI extends AbstractSettleDeclarationBillEd
 //		} catch (BOSException e) {
 //			e.printStackTrace();
 //		}
+        objectValue.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
         return objectValue;
     }
 

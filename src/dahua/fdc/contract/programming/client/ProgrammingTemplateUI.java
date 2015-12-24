@@ -1315,7 +1315,7 @@ public class ProgrammingTemplateUI extends AbstractProgrammingTemplateUI {
 					return;
 				String l3[] = l2.toString().split("\\.");
 				for (int j = 0; j < l.length; j++) {
-					if (l3[j] != null && l3[j].length() > 0) {
+					if (j<l3.length && l3[j] != null && l3[j].length() > 0) {
 						l3[j] = l[j];
 					}
 				}
