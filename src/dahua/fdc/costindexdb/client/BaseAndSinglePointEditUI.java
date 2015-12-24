@@ -6,10 +6,16 @@ package com.kingdee.eas.fdc.costindexdb.client;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
@@ -23,23 +29,29 @@ import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.WinStyle;
-import com.kingdee.eas.basedata.org.OrgConstants;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.fdc.aimcost.AimCostCollection;
+import com.kingdee.eas.fdc.aimcost.AimCostFactory;
+import com.kingdee.eas.fdc.aimcost.AimCostInfo;
+import com.kingdee.eas.fdc.basedata.CostAccountFactory;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.CurProjectFactory;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
-import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
+import com.kingdee.eas.fdc.basedata.ICostAccount;
 import com.kingdee.eas.fdc.contract.programming.client.CostAccountPromptBox;
 import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointInfo;
 import com.kingdee.eas.fdc.costindexdb.database.BuildSplitDataType;
@@ -135,6 +147,7 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 	}
     
     public void initKdtable() throws Exception {
+    	kdtEntrys.getColumn("isCombo").getStyleAttributes().setLocked(true);
     	kdtEntrys.getColumn("isModel").getStyleAttributes().setLocked(true);
     	kdtEcost.getColumn("isModel").getStyleAttributes().setLocked(true);
     	kdtEntrys.getSelectManager().setSelectMode(KDTSelectManager.CELL_SELECT);
@@ -150,19 +163,23 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 		KDWorkButton removeLine = new KDWorkButton("删除行");
 		KDWorkButton importTemp = new KDWorkButton("导入模板");
 		KDWorkButton singleSplit = new KDWorkButton("拆分到楼号");
+		KDWorkButton grabNewData = new KDWorkButton("提取最新数据");
 		addLine.setName("addLine");
 		insetLine.setName("insetLine");
 		removeLine.setName("removeLine");
 		importTemp.setName("importSingleTemp");
 		singleSplit.setName("singleSplit");
+		grabNewData.setName("grabNewData");
 		addLine.setIcon(EASResource.getIcon("imgTbtn_addline"));
 		insetLine.setIcon(EASResource.getIcon("imgTbtn_insert"));
 		removeLine.setIcon(EASResource.getIcon("imgTbtn_deleteline"));
 		importTemp.setIcon(EASResource.getIcon("imgTbtn_importcyclostyle"));
 		singleSplit.setIcon(EASResource.getIcon("imgTbtn_split"));
-		kdcSingle.addButton(addLine);
+		grabNewData.setIcon(EASResource.getIcon("imgTbtn_choosein"));
 		kdcSingle.addButton(singleSplit);
+		kdcSingle.addButton(addLine);
 		kdcSingle.addButton(importTemp);
+		kdcSingle.addButton(grabNewData);
 		kdcSingle.addButton(insetLine);
 		kdcSingle.addButton(removeLine);
 		MyActionListener baseAL = new MyActionListener(kdtEcost);
@@ -171,6 +188,7 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 		insetLine.addActionListener(baseAL);
 		removeLine.addActionListener(baseAL);
 		importTemp.addActionListener(baseAL);
+		grabNewData.addActionListener(baseAL);
 		KDWorkButton baseTemp = new KDWorkButton("导入模板");
 		KDWorkButton baseSplit = new KDWorkButton("拆分到楼号");
 		baseTemp.setName("importBaseTemp");
@@ -190,13 +208,16 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
     	if(OprtState.VIEW.equals(getOprtState())){
     		setButtonStatus(false);
     	}
-    	for(int i = 0; i < kdtEntrys.getRowCount3(); i++) {
-			if((Boolean)kdtEntrys.getCell(i,"isModel").getValue()){
-				kdtEntrys.getCell(i,"isCombo").getStyleAttributes().setLocked(true);
-			}
-		}
+//    	for(int i = 0; i < kdtEntrys.getRowCount3(); i++) {
+//			if((Boolean)kdtEntrys.getCell(i,"isModel").getValue()){
+//				kdtEntrys.getCell(i,"isCombo").getStyleAttributes().setLocked(true);
+//			}
+//		}
+    	
 		for(int i = 0; i < kdtEcost.getRowCount3(); i++) {
-			if((Boolean)kdtEcost.getCell(i,"isModel").getValue()){
+			if(!FDCHelper.isEmpty(kdtEcost.getCell(i,"beizhu").getValue()))
+				kdtEcost.getCell(i,"isCombo").getStyleAttributes().setLocked(true);
+			else if((Boolean)kdtEcost.getCell(i,"isModel").getValue()){
 				kdtEcost.getCell(i,"isCombo").getStyleAttributes().setLocked(true);
 			}
 		}
@@ -260,6 +281,7 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
     			//单项要素的模板导入
     			UIContext uiContext = new UIContext(BaseAndSinglePointEditUI.this);
     			uiContext.put("kdtable", table);
+    			uiContext.put("curProject", editData.getProjectId());
     			IUIWindow ui = null;
 				try {
 					ui = UIFactory.createUIFactory(UIFactoryName.MODEL).create(SingleImportUI.class.getName(),uiContext,null,OprtState.VIEW,
@@ -329,10 +351,10 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 					rs = builder.executeQuery();
 					if(rs.next()){
 						row.getCell("isModel").setValue(Boolean.TRUE);
-						row.getCell("isCombo").getStyleAttributes().setLocked(true);
+//						row.getCell("isCombo").getStyleAttributes().setLocked(true);
 					}else{
 						row.getCell("isModel").setValue(Boolean.FALSE);
-						row.getCell("isCombo").getStyleAttributes().setLocked(false);
+//						row.getCell("isCombo").getStyleAttributes().setLocked(false);
 					}
 				} catch (Exception e1) {
 					handUIException(e1);
@@ -391,16 +413,105 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 					rs = builder.executeQuery();
 					if(rs.next()){
 						row.getCell("isModel").setValue(Boolean.TRUE);
-						row.getCell("isCombo").getStyleAttributes().setLocked(true);
+						if(FDCHelper.isEmpty(row.getCell("beizhu").getValue()))
+							row.getCell("isCombo").getStyleAttributes().setLocked(true);
 					}else{
 						row.getCell("isModel").setValue(Boolean.FALSE);
-						row.getCell("isCombo").getStyleAttributes().setLocked(false);
+						if(FDCHelper.isEmpty(row.getCell("beizhu").getValue()))
+							row.getCell("isCombo").getStyleAttributes().setLocked(false);
 					}
 				} catch (Exception e1) {
 					handUIException(e1);
 				}
+    		}else if("grabNewData".equals(type)){
+    			if(MsgBox.OK != MsgBox.showConfirm2(BaseAndSinglePointEditUI.this, "最新数据将覆盖当前数据，继续吗？")) {
+    				return;
+    			}
+				try {
+					AimCostInfo aimCostInfo = getLastAimCostByCurProject(editData.getProjectId());
+					Map<String,BigDecimal> goalCostMap = new HashMap<String,BigDecimal>();
+					if(aimCostInfo != null){
+						FDCSQLBuilder builder = new FDCSQLBuilder();
+						builder.appendSql("select costAccount.flongnumber,sum(costEntry.FCostAmount) from T_AIM_CostEntry costEntry ");
+						builder.appendSql("left join T_FDC_CostAccount costAccount on costEntry.FCostAccountID = costAccount.FID ");
+						builder.appendSql("left join T_FDC_CurProject project on costAccount.FCurProject = project.FID where ");
+//    	    		builder.appendSql("where costAccount.fid = ? and ");
+						builder.appendSql("costEntry.FHeadID ='"+aimCostInfo.getId().toString()+"' group by costAccount.flongnumber");
+						IRowSet rowSet = builder.executeQuery();
+						while(rowSet.next()){
+							goalCostMap.put(rowSet.getString(1),rowSet.getBigDecimal(2));
+						}
+					}
+					String costLongNumber = null;
+					CostAccountInfo costInfo = null;
+					SelectorItemCollection sic = new SelectorItemCollection();
+					sic.add("id");
+					sic.add("longNumber");
+					sic.add("isLeaf");
+					ICostAccount ica = CostAccountFactory.getRemoteInstance();
+					for(int i = 0; i < table.getRowCount3(); i++) {
+						if(FDCHelper.isEmpty(table.getCell(i,"beizhu").getValue()))
+							continue;
+						costInfo = ica.getCostAccountInfo(new ObjectUuidPK(((CostAccountInfo)table.getCell(i,"costAccount").getValue()).getId()),sic);
+						costLongNumber = costInfo.getLongNumber();
+						if(goalCostMap.containsKey(costLongNumber))
+							table.getCell(i,"pointValue").setValue(goalCostMap.get(costLongNumber));
+			    		else if(!costInfo.isIsLeaf()){
+			    			table.getCell(i,"pointValue").setValue(getUpLevelValue(costLongNumber,goalCostMap));
+			    		}
+					}
+					MsgBox.showInfo("提取数据成功！");
+				} catch (BOSException e1) {
+					handUIException(e1);
+				} catch (SQLException e2) {
+					handUIException(e2);
+				} catch (EASBizException e3) {
+					handUIException(e3);
+				}
     		}
     	}
+    }
+    
+    /**
+	 * 获取当前工程项目最新版本的目标成本
+	 * @param curProject
+	 * @throws BOSException
+	 * @author zhaoqin
+	 * @date 2013/10/22
+	 */
+	private AimCostInfo getLastAimCostByCurProject(String curProjectId) throws BOSException {
+		if(null == curProjectId )
+			return null;
+		SelectorItemCollection selector = new SelectorItemCollection();
+		selector.add("id");
+		selector.add("versionNumber");
+		selector.add("versionName");
+		selector.add("orgOrProId");
+		selector.add("state");
+		EntityViewInfo view = new EntityViewInfo();
+		FilterInfo filter = new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("orgOrProId", curProjectId));
+		filter.getFilterItems().add(new FilterItemInfo("state", FDCBillStateEnum.AUDITTED_VALUE));
+		filter.getFilterItems().add(new FilterItemInfo("isLastVersion", Boolean.TRUE));
+		view.setFilter(filter);
+		view.setSelector(selector);
+		AimCostCollection coll = AimCostFactory.getRemoteInstance().getAimCostCollection(view);
+		if(coll.size() > 0)
+			return coll.get(0);
+		return null;
+	}
+	
+	//根据科目的长编码，汇总本级总金额
+    private BigDecimal getUpLevelValue(String costLongNumber, Map<String,BigDecimal> goalCostMap){
+    	BigDecimal temp = BigDecimal.ZERO;
+		String key = null;
+		for(Iterator<String> it=goalCostMap.keySet().iterator(); it.hasNext();) {
+			key = it.next();
+			if(key.startsWith(costLongNumber))
+				temp = temp.add(goalCostMap.get(key));
+		}
+		goalCostMap.put(costLongNumber,temp);
+		return temp;
     }
     
     /**
@@ -492,11 +603,27 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 	public void actionSave_actionPerformed(ActionEvent e) throws Exception {
 		setSaveAction(true);
 		super.actionSave_actionPerformed(e);
+		//更新单项要素表格的是否需要拆分列样式
+		for(int i = 0; i < kdtEcost.getRowCount3(); i++) {
+			if(!FDCHelper.isEmpty(kdtEcost.getCell(i,"beizhu").getValue()))
+				kdtEcost.getCell(i,"isCombo").getStyleAttributes().setLocked(true);
+			else if((Boolean)kdtEcost.getCell(i,"isModel").getValue()){
+				kdtEcost.getCell(i,"isCombo").getStyleAttributes().setLocked(true);
+			}
+		}
 	}
 	
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
 		setSaveAction(false);
 		super.actionSubmit_actionPerformed(e);
+		//更新单项要素表格的是否需要拆分列样式
+		for(int i = 0; i < kdtEcost.getRowCount3(); i++) {
+			if(!FDCHelper.isEmpty(kdtEcost.getCell(i,"beizhu").getValue()))
+				kdtEcost.getCell(i,"isCombo").getStyleAttributes().setLocked(true);
+			else if((Boolean)kdtEcost.getCell(i,"isModel").getValue()){
+				kdtEcost.getCell(i,"isCombo").getStyleAttributes().setLocked(true);
+			}
+		}
 	}
 
     /**
@@ -562,6 +689,7 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
         	for(int i=0;i<objectValue.getEntrys().size();i++){
         		objectValue.getEntrys().get(i).setId(null);
         	}
+        	objectValue.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
         }
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
         return objectValue;

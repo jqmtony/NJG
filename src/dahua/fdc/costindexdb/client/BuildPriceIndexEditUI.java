@@ -8,6 +8,8 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -41,6 +43,7 @@ import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
@@ -54,6 +57,7 @@ import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.ICostAccount;
 import com.kingdee.eas.fdc.basedata.IFDCBill;
 import com.kingdee.eas.fdc.basedata.ProductTypeInfo;
@@ -92,7 +96,6 @@ import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryDetailFactory
 import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryDetailInfo;
 import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryFactory;
 import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryInfo;
-import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillFactory;
 import com.kingdee.eas.fdc.costindexdb.database.BuildSplitDataType;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexCollection;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexEntryCollection;
@@ -103,6 +106,7 @@ import com.kingdee.eas.fdc.costindexdb.database.FieldType;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
  * output class name
@@ -130,16 +134,16 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     /**
      * 获取所有基本要素、单项要素楼号集合 ，以MAP的形式缓存
      */
-    private Map<String,BigDecimal> BaseDXForMAP = new HashMap<String, BigDecimal>();
+    private Map<String,BigDecimal> baseAndSingle = new HashMap<String, BigDecimal>();
     
     /**
      * 获取合同价 ，以MAP的形式缓存
      */
-    private Map<String,BigDecimal> ContractPriceSplitForMAP = new HashMap<String, BigDecimal>();
+    private Map<String,BigDecimal> contractPrice = new HashMap<String, BigDecimal>();
     /**
      * 获取专业要素拆分 ，以MAP的形式缓存
      */
-    private Map<String,BigDecimal> ZYSplitForMAP = new HashMap<String, BigDecimal>();
+    private Map<String,BigDecimal> zySplit = new HashMap<String, BigDecimal>();
     
     /**
      * output class constructor
@@ -168,164 +172,280 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     	contentMap = new HashMap<String,String>();
     	//得到成本科目与指标的关联表，用于根据明细科目创建指标表
     	capcoll=CostAccountPriceIndexFactory.getRemoteInstance().getCostAccountPriceIndexCollection("select costAccount.id,costAccount.longnumber,costAccount.isLeaf,number,name,indexType.id,indexType.number,indexType.name,Entrys.fieldName,Entrys.fieldHide,Entrys.fieldInput,Entrys.fcontent,Entrys.fieldType");
-    	String sql="select fid from CT_COS_BaseAndSinglePoint where CFPROJECTID='"+editData.getProjectId()+"' and CFISLATEST=1 and CFPOINTBILLSTATUS='4AUDITTED'";
-    	bsentrys=BaseAndSinglePointEntryFactory.getRemoteInstance().getBaseAndSinglePointEntryCollection("select pointName,pointValue where parent.id in("+sql+")");
-    	bsecosts=BaseAndSinglePointEcostFactory.getRemoteInstance().getBaseAndSinglePointEcostCollection("select costAccount.id,costAccount.longNumber,costAccount.isLeaf,pointName,pointValue where parent.id in("+sql+")");
-    	//capinfo.getIndexType().getNumber()+"@"+cainfo.getLongNumber();
-    	
-    	getBaseDXForMAP();
-    	String contractLevel = "";
-    	if(ContractStationEnum.contractSign.equals(editData.getContractStation()))
-    		contractLevel = "sign";
-    	else if(ContractStationEnum.contractChange.equals(editData.getContractStation()))
-    		contractLevel = "change";
-    	else if(ContractStationEnum.contractEnd.equals(editData.getContractStation()))
-    		contractLevel = "endCal";
-    	getContractPriceSplitForMAP(contractLevel);
-    	getZYSplitForMAP(contractLevel);
 		
-    	EntityViewInfo viewInfo = new EntityViewInfo();
-		FilterInfo filterInfo = new FilterInfo();
-		filterInfo.getFilterItems().add(new FilterItemInfo("projectName.id", editData.getProjectId()));
-		viewInfo.setFilter(filterInfo);
-		SelectorItemCollection sic = new SelectorItemCollection();
-    	sic.add("costAccount.id");
-    	sic.add("costAccount.longNumber");
-    	sic.add("costAccount.isLeaf");
-    	sic.add("sourceNumber");
-    	sic.add("dataType");
-    	sic.add("contractLevel");
-    	sic.add("entrys.id");
-    	sic.add("entrys.pointName");
-    	sic.add("entrys.dataValue");
-    	sic.add("entrys.Details.id");
-    	sic.add("entrys.Details.buildNumber.id");
-    	sic.add("entrys.Details.buildNumber.name");
-    	sic.add("entrys.Details.buildNumber.number");
-    	sic.add("entrys.Details.modelBuild");
-    	sic.add("entrys.Details.dataValue");
-		viewInfo.setSelector(sic);
-    	bscoll=BuildSplitBillFactory.getRemoteInstance().getBuildSplitBillCollection(viewInfo);
+//    	EntityViewInfo viewInfo = new EntityViewInfo();
+//		FilterInfo filterInfo = new FilterInfo();
+//		filterInfo.getFilterItems().add(new FilterItemInfo("projectName.id", editData.getProjectId()));
+//		viewInfo.setFilter(filterInfo);
+//		SelectorItemCollection sic = new SelectorItemCollection();
+//    	sic.add("costAccount.id");
+//    	sic.add("costAccount.longNumber");
+//    	sic.add("costAccount.isLeaf");
+//    	sic.add("sourceNumber");
+//    	sic.add("dataType");
+//    	sic.add("contractLevel");
+//    	sic.add("entrys.id");
+//    	sic.add("entrys.pointName");
+//    	sic.add("entrys.dataValue");
+//    	sic.add("entrys.Details.id");
+//    	sic.add("entrys.Details.buildNumber.id");
+//    	sic.add("entrys.Details.buildNumber.name");
+//    	sic.add("entrys.Details.buildNumber.number");
+//    	sic.add("entrys.Details.modelBuild");
+//    	sic.add("entrys.Details.dataValue");
+//		viewInfo.setSelector(sic);
+//    	bscoll=BuildSplitBillFactory.getRemoteInstance().getBuildSplitBillCollection(viewInfo);
     	setSmallButtonStatus();
+    }
+    
+    private String getStringFromSet(Set<String> projectIdSet){
+    	StringBuffer sb = new StringBuffer();
+	    for(Iterator<String> it=projectIdSet.iterator(); it.hasNext();) {
+	    	 sb.append("'");
+	    	 sb.append(it.next());
+	    	 sb.append("',");
+	    }
+	    if(sb.length() > 1){
+	    	sb.setLength(sb.length()-1);
+	    	return sb.toString();
+	    }
+	    return "'999'";
     }
     
     /**
      * 获取所有基本要素、单项要素楼号集合 ，以MAP的形式缓存
      * @throws BOSException 
+     * @throws SQLException 
      */
-    private void getBaseDXForMAP() throws BOSException{
-    	BuildSplitBillEntryDetailCollection splitBillCollection = BuildSplitBillEntryDetailFactory.getRemoteInstance().getBuildSplitBillEntryDetailCollection("select parent1.parent.costAccount.longnumber,parent1.parent.dataType,parent1.pointName,buildNumber.id,dataValue where parent1.parent.dataType in ('singlePoint','basePoint') and modelBuild=1 and parent1.parent.projectName.id='"+editData.getProjectId()+"'");
-    	for (int i = 0; i < splitBillCollection.size(); i++) {
-    		BuildSplitBillEntryDetailInfo entryInfo = splitBillCollection.get(i);
-    		BuildNumberInfo buildInfo = entryInfo.getBuildNumber();  
-    		String pointName = entryInfo.getParent1().getPointName(); 
-    		BuildSplitDataType dataType = entryInfo.getParent1().getParent().getDataType();
-    		
-    		CostAccountInfo costAccount = entryInfo.getParent1().getParent().getCostAccount();
-    		String costAccountLongNumber = "";
-    		if(costAccount!=null)
-    			costAccountLongNumber = costAccount.getLongNumber();
-    		
-    		BigDecimal dataValue = UIRuleUtil.getBigDecimal(entryInfo.getDataValue()); 
-    		if(buildInfo==null)
-    			continue;//数据类型(单项要素XXX)+要素名称+典型楼号的ID+科目长编码
-    		BaseDXForMAP.put(dataType.getAlias()+pointName+buildInfo.getId()+costAccountLongNumber, dataValue);
+    private void getBaseDXForMAP(String idString) throws BOSException, SQLException{
+//    	EntityViewInfo viewInfo = new EntityViewInfo();
+//		FilterInfo filterInfo = new FilterInfo();
+//		filterInfo.getFilterItems().add(new FilterItemInfo("parent1.parent.projectName.id",projectIdSet,CompareType.INCLUDE));
+//		filterInfo.getFilterItems().add(new FilterItemInfo("modelBuild",1));
+//		filterInfo.getFilterItems().add(new FilterItemInfo("parent1.parent.dataType","singlePoint"));
+//		filterInfo.getFilterItems().add(new FilterItemInfo("parent1.parent.dataType","basePoint"));
+//		filterInfo.setMaskString("#0 and #1 and (#2 or #3)");
+//		viewInfo.setFilter(filterInfo);
+//		SelectorItemCollection sic = new SelectorItemCollection();
+//		sic.add("parent1.parent.projectName.id");
+//    	sic.add("parent1.parent.costAccount.longnumber");
+//    	sic.add("parent1.parent.dataType,parent1.pointName");
+//    	sic.add("buildNumber.id");
+//    	sic.add("dataValue");
+//		viewInfo.setSelector(sic);
+		FDCSQLBuilder builder = new FDCSQLBuilder();
+		builder.appendSql("select sbill.CFProjectNameID,costAcc.FlongNumber,entry.CFPointName,details.CFBuildNumberID,details.CFDataValue from CT_DAT_BuildSplitBillDetails details ");
+		builder.appendSql("left join CT_DAT_BuildSplitBillEntry entry on details.FParentID=entry.fid left join CT_DAT_BuildSplitBill sbill on entry.FParentID=sbill.fid ");
+//		builder.appendSql("left join CT_DAT_BuildNumber buildNum on details.CFBuildNumberID=buildNum.fid ");
+		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where details.CFModelBuild=1 ");
+		builder.appendSql("and sbill.CFDataType in ('singlePoint','basePoint') and sbill.CFProjectNameID in ("+idString+")");
+		IRowSet rs = builder.executeQuery();
+		while(rs.next()){
+			String caLongNumber = "";
+			if(rs.getString(2) != null)
+				caLongNumber = rs.getString(2);
+			if(rs.getString(4) == null)
+				continue;
+			//数据类型--->项目id+要素名称+典型楼号的ID+科目长编码
+			baseAndSingle.put(rs.getString(1)+rs.getString(3)+rs.getString(4)+caLongNumber,rs.getBigDecimal(5));
 		}
+		//获取单项要素 
+		builder.clear();
+		builder.appendSql("select entry.CFPROJECTID,details.CFPointName,costAcc.FlongNumber,details.CFPointValue from CT_COS_BaseAndSinglePointEcost details ");
+		builder.appendSql("left join CT_COS_BaseAndSinglePoint entry on details.FParentID=entry.fid  ");
+		builder.appendSql("left join T_FDC_CostAccount costAcc on details.CFCostAccountID=costAcc.fid ");
+		builder.appendSql("where entry.CFISLATEST=1 and entry.CFPOINTBILLSTATUS='4AUDITTED' and entry.CFPROJECTID in ("+idString+")");
+		//CFPROJECTID='"+editData.getProjectId()+"' and CFISLATEST=1 and CFPOINTBILLSTATUS='4AUDITTED'
+		rs = builder.executeQuery();
+		while(rs.next()){
+			//数据类型--->项目id+要素名称+科目长编码
+			String caLongNumber = "";
+			if(rs.getString(3) != null)
+				caLongNumber = rs.getString(3);
+			baseAndSingle.put(rs.getString(1)+rs.getString(2)+caLongNumber,rs.getBigDecimal(4));
+		}
+		//获得基本要素
+		builder.clear();
+		builder.appendSql("select entry.CFPROJECTID,details.CFPointName,details.CFPointValue from CT_COS_BaseAndSinglePointEntry details ");
+		builder.appendSql("left join CT_COS_BaseAndSinglePoint entry on details.FParentID=entry.fid  ");
+		builder.appendSql("where entry.CFISLATEST=1 and entry.CFPOINTBILLSTATUS='4AUDITTED' and entry.CFPROJECTID in ("+idString+")");
+		//CFPROJECTID='"+editData.getProjectId()+"' and CFISLATEST=1 and CFPOINTBILLSTATUS='4AUDITTED'
+		rs = builder.executeQuery();
+		while(rs.next()){
+			//数据类型--->项目id+要素名称
+			baseAndSingle.put(rs.getString(1)+rs.getString(2),rs.getBigDecimal(3));
+		}
+//    	BuildSplitBillEntryDetailCollection splitColl=BuildSplitBillEntryDetailFactory.getRemoteInstance().getBuildSplitBillEntryDetailCollection(viewInfo);
+//    	for (int i = 0; i < splitColl.size(); i++) {
+//    		BuildSplitBillEntryDetailInfo entryInfo = splitColl.get(i);
+//    		BuildNumberInfo buildInfo = entryInfo.getBuildNumber();  
+//    		String pointName = entryInfo.getParent1().getPointName(); 
+//    		BuildSplitDataType dataType = entryInfo.getParent1().getParent().getDataType();
+//    		
+//    		CostAccountInfo costAccount = entryInfo.getParent1().getParent().getCostAccount();
+//    		String costAccountLongNumber = "";
+//    		if(costAccount!=null)
+//    			costAccountLongNumber = costAccount.getLongNumber();
+//    		String projectId = entryInfo.getParent1().getParent().getProjectName().getId().toString();
+//    		if(buildInfo==null)
+//    			continue;//数据类型(单项要素XXX)+要素名称+典型楼号的ID+科目长编码
+//    		baseAndSingle.put(dataType.getAlias()+pointName+buildInfo.getId()+costAccountLongNumber, entryInfo.getDataValue());
+//		}
+    	
     	//直接获取要素 这样存放到时候可以根据分录是否有典型楼号 获取Value
-		for(int i = bsentrys.size()-1; i >=0; i--) {
-			BaseAndSinglePointEntryInfo einfo = bsentrys.get(i);
-			BaseDXForMAP.put("基本要素"+einfo.getPointName(),einfo.getPointValue());
-		}
-        
-        //获得单项要素
-		for(int i = bsecosts.size()-1; i >=0; i--) {
-			BaseAndSinglePointEcostInfo einfo = bsecosts.get(i);
-			BaseDXForMAP.put("单项要素"+einfo.getPointName()+einfo.getCostAccount().getLongNumber(),einfo.getPointValue());
-		}
+//		for(int i = bsentrys.size()-1; i >=0; i--) {
+//			BaseAndSinglePointEntryInfo einfo = bsentrys.get(i);
+//			baseAndSingle.put("基本要素"+einfo.getPointName(),einfo.getPointValue());
+//		}
+//        
+//        //获得单项要素
+//		for(int i = bsecosts.size()-1; i >=0; i--) {
+//			BaseAndSinglePointEcostInfo einfo = bsecosts.get(i);
+//			baseAndSingle.put("单项要素"+einfo.getPointName()+einfo.getCostAccount().getLongNumber(),einfo.getPointValue());
+//		}
     }
     
     /**
      * 获取合同价 ，以MAP的形式缓存
      * @throws BOSException 
+     * @throws SQLException 
      */
-    private void getContractPriceSplitForMAP(String clevel) throws BOSException{
-    	String oql="select parent1.parent.contractLevel,parent1.parent.costAccount.longnumber,parent1.parent.dataType,parent1.pointName,buildNumber.id,dataValue where parent1.parent.dataType='contract' and parent1.parent.contractLevel='"+clevel+"' and modelBuild=1 and parent1.parent.projectName.id='"+editData.getProjectId()+"'";
-    	BuildSplitBillEntryDetailCollection splitBillCollection = BuildSplitBillEntryDetailFactory.getRemoteInstance().getBuildSplitBillEntryDetailCollection(oql);
-    	for (int i = 0; i < splitBillCollection.size(); i++) {//获取楼号拆分数据
-    		BuildSplitBillEntryDetailInfo entryInfo = splitBillCollection.get(i);
-    		BuildNumberInfo buildInfo = entryInfo.getBuildNumber();  
-    		String pointName = entryInfo.getParent1().getPointName();
-    		BuildSplitDataType dataType = entryInfo.getParent1().getParent().getDataType();
-    		
-    		CostAccountInfo costAccount = entryInfo.getParent1().getParent().getCostAccount();
-    		String costAccountLongNumber = "";
-    		if(costAccount!=null)
-    			costAccountLongNumber = costAccount.getLongNumber();
-    		
-    		BigDecimal dataValue = UIRuleUtil.getBigDecimal(entryInfo.getDataValue()); 
-    		if(buildInfo==null)
-    			continue;//数据类型(单项要素XXX)+要素名称+典型楼号的ID+科目长编码
-    		ContractPriceSplitForMAP.put(dataType.getAlias()+pointName+buildInfo.getId()+costAccountLongNumber, dataValue);
+    private void getContractPriceSplitForMAP(String clevel,String idString) throws BOSException, SQLException{
+    	FDCSQLBuilder builder = new FDCSQLBuilder();
+		builder.appendSql("select sbill.CFProjectNameID,costAcc.FlongNumber,entry.CFPointName,details.CFBuildNumberID,details.CFDataValue from CT_DAT_BuildSplitBillDetails details ");
+		builder.appendSql("left join CT_DAT_BuildSplitBillEntry entry on details.FParentID=entry.fid left join CT_DAT_BuildSplitBill sbill on entry.FParentID=sbill.fid ");
+		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where details.CFModelBuild=1 ");
+		builder.appendSql("and sbill.CFDataType='contract' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
+		IRowSet rs = builder.executeQuery();
+		while(rs.next()){
+			String caLongNumber = "";
+			if(rs.getString(2) != null)
+				caLongNumber = rs.getString(2);
+			if(rs.getString(4) == null)
+				continue;
+			//数据类型--->项目id+要素名称+典型楼号的ID+科目长编码
+			contractPrice.put(rs.getString(1)+rs.getString(3)+rs.getString(4)+caLongNumber,rs.getBigDecimal(5));
 		}
-    	//直接获取要素 这样存放到时候可以根据分录是否有典型楼号 获取Value
-    	oql="select parent.contractLevel,parent.costAccount.longnumber,parent.dataType,pointName,buildNumber.id,dataValue where parent.dataType='contract' and parent.contractLevel='"+clevel+"' and parent.projectName.id='"+editData.getProjectId()+"'";
-    	BuildSplitBillEntryCollection entryCollection = BuildSplitBillEntryFactory.getRemoteInstance().getBuildSplitBillEntryCollection(oql);
-    	for (int i = 0; i < entryCollection.size(); i++) {//获取楼号拆分数据
-    		BuildSplitBillEntryInfo entryInfo = entryCollection.get(i);
-    		String pointName = entryInfo.getPointName();
-    		BuildSplitDataType dataType = entryInfo.getParent().getDataType();
-    		
-    		CostAccountInfo costAccount = entryInfo.getParent().getCostAccount();
-    		String costAccountLongNumber = "";
-    		if(costAccount!=null)
-    			costAccountLongNumber = costAccount.getLongNumber();
-    		
-    		BigDecimal dataValue = UIRuleUtil.getBigDecimal(entryInfo.getDataValue()); 
-    		//数据类型(单项要素XXX)+要素名称+科目长编码
-    		ContractPriceSplitForMAP.put(dataType.getAlias()+pointName+costAccountLongNumber, dataValue);
+		//数据类型--->项目id+要素名称+科目长编码
+		builder.clear();
+		builder.appendSql("select sbill.CFProjectNameID,costAcc.FlongNumber,entry.CFPointName,entry.CFDataValue from CT_DAT_BuildSplitBillEntry entry ");
+		builder.appendSql("left join CT_DAT_BuildSplitBill sbill on entry.FParentID=sbill.fid ");
+		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");
+		builder.appendSql("sbill.CFDataType='contract' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
+		rs = builder.executeQuery();
+		while(rs.next()){
+			String caLongNumber = "";
+			if(rs.getString(2) != null)
+				caLongNumber = rs.getString(2);
+			//数据类型--->项目id+要素名称+科目长编码
+			contractPrice.put(rs.getString(1)+rs.getString(3)+caLongNumber,rs.getBigDecimal(4));
 		}
+		
+//    	String oql="select parent1.parent.contractLevel,parent1.parent.costAccount.longnumber,parent1.parent.dataType,parent1.pointName,buildNumber.id,dataValue where parent1.parent.dataType='contract' and parent1.parent.contractLevel='"+clevel+"' and modelBuild=1 and parent1.parent.projectName.id='"+editData.getProjectId()+"'";
+//    	BuildSplitBillEntryDetailCollection splitBillCollection = BuildSplitBillEntryDetailFactory.getRemoteInstance().getBuildSplitBillEntryDetailCollection(oql);
+//    	for (int i = 0; i < splitBillCollection.size(); i++) {//获取楼号拆分数据
+//    		BuildSplitBillEntryDetailInfo entryInfo = splitBillCollection.get(i);
+//    		BuildNumberInfo buildInfo = entryInfo.getBuildNumber();  
+////    		String pointName = entryInfo.getParent1().getPointName();
+////    		BuildSplitDataType dataType = entryInfo.getParent1().getParent().getDataType();
+//    		
+//    		CostAccountInfo costAccount = entryInfo.getParent1().getParent().getCostAccount();
+//    		String costAccountLongNumber = "";
+//    		if(costAccount!=null)
+//    			costAccountLongNumber = costAccount.getLongNumber();
+//    		
+//    		if(buildInfo==null)
+//    			continue;//数据类型(单项要素XXX)+要素名称+典型楼号的ID+科目长编码
+////    		ContractPriceSplitForMAP.put(dataType.getAlias()+pointName+buildInfo.getId()+costAccountLongNumber, entryInfo.getDataValue());
+//    		contractPrice.put(entryInfo.getParent1().getPointName()+buildInfo.getId()+costAccountLongNumber, entryInfo.getDataValue());
+//		}
+//    	//直接获取要素 这样存放到时候可以根据分录是否有典型楼号 获取Value
+//    	oql="select parent.contractLevel,parent.costAccount.longnumber,parent.dataType,pointName,buildNumber.id,dataValue where parent.dataType='contract' and parent.contractLevel='"+clevel+"' and parent.projectName.id='"+editData.getProjectId()+"'";
+//    	BuildSplitBillEntryCollection entryCollection = BuildSplitBillEntryFactory.getRemoteInstance().getBuildSplitBillEntryCollection(oql);
+//    	for (int i = 0; i < entryCollection.size(); i++) {//获取楼号拆分数据
+//    		BuildSplitBillEntryInfo entryInfo = entryCollection.get(i);
+////    		String pointName = entryInfo.getPointName();
+////    		BuildSplitDataType dataType = entryInfo.getParent().getDataType();
+//    		CostAccountInfo costAccount = entryInfo.getParent().getCostAccount();
+//    		String costAccountLongNumber = "";
+//    		if(costAccount!=null)
+//    			costAccountLongNumber = costAccount.getLongNumber();
+////    		BigDecimal dataValue = UIRuleUtil.getBigDecimal(entryInfo.getDataValue()); 
+//    		//数据类型--->要素名称+科目长编码
+////    		ContractPriceSplitForMAP.put(dataType.getAlias()+pointName+costAccountLongNumber, dataValue);
+//    		contractPrice.put(entryInfo.getPointName()+costAccountLongNumber, entryInfo.getDataValue());
+//		}
     }
     
     /**
      * 获取专业要素拆分 ，以MAP的形式缓存
      * @throws BOSException 
+     * @throws SQLException 
      */
-    private void getZYSplitForMAP(String clevel) throws BOSException{
-    	String oql="select parent1.parent.contractLevel,parent1.parent.costAccount.longnumber,parent1.parent.dataType,parent1.pointName,buildNumber.id,dataValue where parent1.parent.dataType='professPoint' and parent1.parent.contractLevel='"+clevel+"' and modelBuild=1 and parent1.parent.projectName.id='"+editData.getProjectId()+"'";
-    	BuildSplitBillEntryDetailCollection splitBillCollection = BuildSplitBillEntryDetailFactory.getRemoteInstance().getBuildSplitBillEntryDetailCollection(oql);
-    	for (int i = 0; i < splitBillCollection.size(); i++) {//获取楼号拆分数据
-    		BuildSplitBillEntryDetailInfo entryInfo = splitBillCollection.get(i);
-    		BuildNumberInfo buildInfo = entryInfo.getBuildNumber();  
-    		String pointName = entryInfo.getParent1().getPointName();
-    		BuildSplitDataType dataType = entryInfo.getParent1().getParent().getDataType();
-    		
-    		CostAccountInfo costAccount = entryInfo.getParent1().getParent().getCostAccount();
-    		String costAccountLongNumber = "";
-    		if(costAccount!=null)
-    			costAccountLongNumber = costAccount.getLongNumber();
-    		
-    		BigDecimal dataValue = UIRuleUtil.getBigDecimal(entryInfo.getDataValue()); 
-    		if(buildInfo==null)
-    			continue;//数据类型(单项要素XXX)+要素名称+典型楼号的ID+科目长编码
-    		ZYSplitForMAP.put(dataType.getAlias()+pointName+buildInfo.getId()+costAccountLongNumber, dataValue);
-    	}
-    	//直接获取要素 这样存放到时候可以根据分录是否有典型楼号 获取Value
-    	oql="select parent.contractLevel,parent.costAccount.longnumber,parent.dataType,pointName,buildNumber.id,dataValue where parent.dataType='professPoint' and parent.contractLevel='"+clevel+"' and parent.projectName.id='"+editData.getProjectId()+"'";
-    	BuildSplitBillEntryCollection entryCollection = BuildSplitBillEntryFactory.getRemoteInstance().getBuildSplitBillEntryCollection(oql);
-    	for (int i = 0; i < entryCollection.size(); i++) {//获取楼号拆分数据
-    		BuildSplitBillEntryInfo entryInfo = entryCollection.get(i);
-    		String pointName = entryInfo.getPointName();
-    		BuildSplitDataType dataType = entryInfo.getParent().getDataType();
-    		
-    		CostAccountInfo costAccount = entryInfo.getParent().getCostAccount();
-    		String costAccountLongNumber = "";
-    		if(costAccount!=null)
-    			costAccountLongNumber = costAccount.getLongNumber();
-    		
-    		BigDecimal dataValue = UIRuleUtil.getBigDecimal(entryInfo.getDataValue()); 
-    		//数据类型(单项要素XXX)+要素名称+科目长编码
-    		ZYSplitForMAP.put(dataType.getAlias()+pointName+costAccountLongNumber, dataValue);
-    	}
+    private void getZYSplitForMAP(String clevel,String idString) throws BOSException, SQLException{
+    	FDCSQLBuilder builder = new FDCSQLBuilder();
+		builder.appendSql("select sbill.CFProjectNameID,costAcc.FlongNumber,entry.CFPointName,details.CFBuildNumberID,details.CFDataValue from CT_DAT_BuildSplitBillDetails details ");
+		builder.appendSql("left join CT_DAT_BuildSplitBillEntry entry on details.FParentID=entry.fid left join CT_DAT_BuildSplitBill sbill on entry.FParentID=sbill.fid ");
+		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where details.CFModelBuild=1 ");
+		builder.appendSql("and sbill.CFDataType='professPoint' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
+		IRowSet rs = builder.executeQuery();
+		while(rs.next()){
+			String caLongNumber = "";
+			if(rs.getString(2) != null)
+				caLongNumber = rs.getString(2);
+			if(rs.getString(4) == null)
+				continue;
+			//数据类型--->项目id+要素名称+典型楼号的ID+科目长编码
+			zySplit.put(rs.getString(1)+rs.getString(3)+rs.getString(4)+caLongNumber,rs.getBigDecimal(5));
+		}
+		//数据类型--->项目id+要素名称+科目长编码
+		builder.clear();
+		builder.appendSql("select sbill.CFProjectNameID,costAcc.FlongNumber,entry.CFPointName,entry.CFDataValue from CT_DAT_BuildSplitBillEntry entry ");
+		builder.appendSql("left join CT_DAT_BuildSplitBill sbill on entry.FParentID=sbill.fid ");
+		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");
+		builder.appendSql("sbill.CFDataType='professPoint' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
+		rs = builder.executeQuery();
+		while(rs.next()){
+			String caLongNumber = "";
+			if(rs.getString(2) != null)
+				caLongNumber = rs.getString(2);
+			//数据类型--->项目id+要素名称+科目长编码
+			zySplit.put(rs.getString(1)+rs.getString(3)+caLongNumber,rs.getBigDecimal(4));
+		}
+    	
+//    	String oql="select parent1.parent.contractLevel,parent1.parent.costAccount.longnumber,parent1.parent.dataType,parent1.pointName,buildNumber.id,dataValue where parent1.parent.dataType='professPoint' and parent1.parent.contractLevel='"+clevel+"' and modelBuild=1 and parent1.parent.projectName.id='"+editData.getProjectId()+"'";
+//    	BuildSplitBillEntryDetailCollection splitBillCollection = BuildSplitBillEntryDetailFactory.getRemoteInstance().getBuildSplitBillEntryDetailCollection(oql);
+//    	for (int i = 0; i < splitBillCollection.size(); i++) {//获取楼号拆分数据
+//    		BuildSplitBillEntryDetailInfo entryInfo = splitBillCollection.get(i);
+//    		BuildNumberInfo buildInfo = entryInfo.getBuildNumber();  
+////    		String pointName = entryInfo.getParent1().getPointName();
+////    		BuildSplitDataType dataType = entryInfo.getParent1().getParent().getDataType();
+//    		CostAccountInfo costAccount = entryInfo.getParent1().getParent().getCostAccount();
+//    		String costAccountLongNumber = "";
+//    		if(costAccount!=null)
+//    			costAccountLongNumber = costAccount.getLongNumber();
+//    		
+////    		BigDecimal dataValue = UIRuleUtil.getBigDecimal(entryInfo.getDataValue()); 
+//    		if(buildInfo==null)
+//    			continue;//数据类型(单项要素XXX)+要素名称+典型楼号的ID+科目长编码
+//    		zySplit.put(entryInfo.getParent1().getPointName()+buildInfo.getId()+costAccountLongNumber,entryInfo.getDataValue());
+//    	}
+//    	//直接获取要素 这样存放到时候可以根据分录是否有典型楼号 获取Value
+//    	oql="select parent.contractLevel,parent.costAccount.longnumber,parent.dataType,pointName,buildNumber.id,dataValue where parent.dataType='professPoint' and parent.contractLevel='"+clevel+"' and parent.projectName.id='"+editData.getProjectId()+"'";
+//    	BuildSplitBillEntryCollection entryCollection = BuildSplitBillEntryFactory.getRemoteInstance().getBuildSplitBillEntryCollection(oql);
+//    	for (int i = 0; i < entryCollection.size(); i++) {//获取楼号拆分数据
+//    		BuildSplitBillEntryInfo entryInfo = entryCollection.get(i);
+////    		String pointName = entryInfo.getPointName();
+////    		BuildSplitDataType dataType = entryInfo.getParent().getDataType();
+//    		CostAccountInfo costAccount = entryInfo.getParent().getCostAccount();
+//    		String costAccountLongNumber = "";
+//    		if(costAccount!=null)
+//    			costAccountLongNumber = costAccount.getLongNumber();
+//    		
+////    		BigDecimal dataValue = UIRuleUtil.getBigDecimal(entryInfo.getDataValue()); 
+//    		//数据类型(单项要素XXX)+要素名称+科目长编码
+//    		zySplit.put(entryInfo.getPointName()+costAccountLongNumber, entryInfo.getDataValue());
+//    	}
     }
 
 	private void setSmallButtonStatus() {
@@ -449,8 +569,10 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 			capinfo = entrycolls.get(i);
 			entrycoll = capinfo.getEntrys();
 			row = table.addHeadRow();
+			//key有项目ID，指标编码，科目长编码组成 	modify by yxl 20151216
 			key = capinfo.getIndexType().getNumber()+"@"+cainfo.getLongNumber();
 			table.setName(key);
+			table.setID(projectId);
 			for (int j = 0; j < entrycoll.size(); j++) {
 				entryInfo = entrycoll.get(j);
 				icol = table.addColumn();
@@ -748,8 +870,9 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     	}else if(e.getColIndex() == kdtEntrys.getColumnIndex("isInput")){
     		CostAccountInfo cainfo=(CostAccountInfo)kdtEntrys.getCell(e.getRowIndex(),"accountNumber").getValue();
     		if((Boolean)kdtEntrys.getCell(e.getRowIndex(),e.getColIndex()).getValue()){
-    			initIndexTable(cainfo,(String)kdtEntrys.getCell(e.getRowIndex(),"projectId").getValue());
-    		}else
+    			if(cainfo != null)
+    				initIndexTable(cainfo,(String)kdtEntrys.getCell(e.getRowIndex(),"projectId").getValue());
+    		}else if(cainfo != null)
     			removeIndexTable(cainfo);
     	}
     }
@@ -839,7 +962,7 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     				for(int i = 0; i < table.getColumnCount(); i++) {
     					if(table.getColumnKey(i).startsWith("COMPUTE")){
     						//得到公式内容，解析内容，填充数据
-    						praseContent(table.getName(),table.getColumnKey(i),row,-1);
+    						praseContent(table.getID(),table.getName(),table.getColumnKey(i),row,-1);
     					}
 					}
     			}
@@ -867,7 +990,7 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     				for(int i = 0; i < table.getColumnCount(); i++) {
     					if(table.getColumnKey(i).startsWith("COMPUTE")){
     						//得到公式内容，解析内容，填充数据
-    						praseContent(table.getName(),table.getColumnKey(i),row,-1);
+    						praseContent(table.getID(),table.getName(),table.getColumnKey(i),row,-1);
     					}
 					}
     			}
@@ -896,17 +1019,19 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     	KDTable table = (KDTable)e.getSource();
     	IRow row = table.getRow(e.getRowIndex());
     	if(table.getColumnKey(e.getColIndex()).startsWith("BUILDNUM") && row.getCell(e.getColIndex()).getValue()!=null){
+    		String projectId = table.getID();
+    		String key = table.getName();
     		for(int i = 0; i < table.getColumnCount(); i++) {
     			if(table.getColumnKey(i).startsWith("COMPUTE")){
     				//得到公式内容，解析内容，填充数据
-    				praseContent(table.getName(),table.getColumnKey(i),row,e.getColIndex());
+    				praseContent(projectId,key,table.getColumnKey(i),row,e.getColIndex());
     			}
     		}
     	}
 	}
     
     //解析公式内容，并将得到的数据填充到单元格
-    private void praseContent(String key, String colName, IRow row, int buildNumIndex){
+    private void praseContent(String projectId, String key, String colName, IRow row, int buildNumIndex){
 //    	FormulaUtils fus = new FormulaUtils(content);
 //		if(UIRuleUtil.isNull(content)||!fus.checkValid())
 //			return ;
@@ -922,41 +1047,74 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 			BuildNumberInfo binfo = (BuildNumberInfo)row.getCell(buildNumIndex).getValue();
 			buildId = binfo.getId().toString();
 		}
+		boolean isZero = false;
 		while(iterator.hasNext()){
 			String next = iterator.next().trim();
 			int index = next.indexOf(".");
 			
 			String type = next.substring(0, index);
-			String ysName = next.substring(index+1, next.length());
+			String ysName = next.substring(index+1, next.length()).trim();
 			
 			BigDecimal amount = BigDecimal.ZERO;
-			if(type.equals("合同")&&ysName.equals("合同价")){
+			if("合同".equals(type) && "合同价".equals(ysName)){
 				if(isDx)
-					amount = UIRuleUtil.getBigDecimal(ContractPriceSplitForMAP.get("合同"+ysName+buildId+costNumber));
+					amount = UIRuleUtil.getBigDecimal(contractPrice.get(projectId+ysName+buildId+costNumber));
 				else
-					amount = UIRuleUtil.getBigDecimal(ContractPriceSplitForMAP.get("合同"+ysName+costNumber));
-			}else if(type.equals("基本要素")){
+					amount = UIRuleUtil.getBigDecimal(contractPrice.get(projectId+ysName+costNumber));
+			}else if("基本要素".equals(type)){
 				if(isDx)
-					amount = UIRuleUtil.getBigDecimal(BaseDXForMAP.get("基本要素"+ysName+buildId));
+					amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(projectId+ysName+buildId));
 				else
-					amount = UIRuleUtil.getBigDecimal(BaseDXForMAP.get("基本要素"+ysName));
-			}else if(type.equals("单项要素")){
+					amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(projectId+ysName));
+			}else if("单项要素".equals(type)){
+				if(isDx){
+					String keyValue = projectId+ysName+buildId+costNumber;
+					if(baseAndSingle.containsKey(keyValue))
+						amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(keyValue));
+					else{
+						while(keyValue.lastIndexOf("!") != -1){
+							keyValue = keyValue.substring(0,keyValue.lastIndexOf("!"));
+							if(baseAndSingle.containsKey(keyValue)){
+								amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(keyValue));
+								break;
+							}
+						}
+					}
+				}else{
+					String keyValue = projectId+ysName+costNumber;
+					if(baseAndSingle.containsKey(keyValue))
+						amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(keyValue));
+					else{
+						while(keyValue.lastIndexOf("!") != -1){
+							keyValue = keyValue.substring(0,keyValue.lastIndexOf("!"));
+							if(baseAndSingle.containsKey(keyValue)){
+								amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(keyValue));
+								break;
+							}
+						}
+					}
+				}
+			}else if("专业要素".equals(type)){
 				if(isDx)
-					amount = UIRuleUtil.getBigDecimal(BaseDXForMAP.get("单项要素"+ysName+buildId));
+					amount = UIRuleUtil.getBigDecimal(zySplit.get(projectId+ysName+buildId+costNumber));
 				else
-					amount = UIRuleUtil.getBigDecimal(BaseDXForMAP.get("单项要素"+ysName));
-			}else if(type.equals("专业要素")){
-				if(isDx)
-					amount = UIRuleUtil.getBigDecimal(ZYSplitForMAP.get("专业要素"+ysName+buildId+costNumber));
-				else
-					amount = UIRuleUtil.getBigDecimal(ZYSplitForMAP.get("专业要素"+ysName+costNumber));
+					amount = UIRuleUtil.getBigDecimal(zySplit.get(projectId+ysName+costNumber));
 			}
 			
+			if(amount.compareTo(BigDecimal.ZERO) == 0){
+				isZero = true;
+				break;
+			}
 			resformat = resformat.replaceAll(next, String.valueOf(amount));
 //			resultForMap.put(next, amount);
 		}
-		FormulaUtils formulaUtils = new FormulaUtils(resformat);
-		row.getCell(colName).setValue(UIRuleUtil.getBigDecimal(formulaUtils.getResult()));
+		if(isZero){
+			row.getCell(colName).setValue(BigDecimal.ZERO);
+		}else{
+			FormulaUtils formulaUtils = new FormulaUtils(resformat);
+			row.getCell(colName).setValue(UIRuleUtil.getBigDecimal(formulaUtils.getResult()).setScale(2,RoundingMode.HALF_UP));
+		}
+//		row.getCell(colName).setValue(formulaUtils.getResult());
     }
     
     
@@ -1068,19 +1226,41 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     	rebuildCostAccount();
     	BuildPriceIndexEntryCollection indexEntrys = editData.getEntrys();
     	BuildPriceIndexEntryInfo entryInfo = null;
+    	Set<String> projectIdSet = new HashSet<String>();
     	for(int i = 0; i < indexEntrys.size(); i++) {
     		entryInfo = indexEntrys.get(i);
-			if(entryInfo.isIsInput())
+			if(entryInfo.isIsInput() && entryInfo.getAccountNumber() != null){
 				initIndexTable(entryInfo.getAccountNumber(),entryInfo.getProjectId());
+				projectIdSet.add(entryInfo.getProjectId());
+			}
 		}
     	loadIndexData();
     	if(OprtState.VIEW.equals(getOprtState())){
     		setBuutonAndTableState(false);
     	}
-    	
+    	initDatas(projectIdSet);
     }
     
-    private void setBuutonAndTableState(boolean flag){
+    private void initDatas(Set<String> projectIdSet) throws BOSException, SQLException {
+//    	String sql="select fid from CT_COS_BaseAndSinglePoint where CFPROJECTID='"+editData.getProjectId()+"' and CFISLATEST=1 and CFPOINTBILLSTATUS='4AUDITTED'";
+//    	bsentrys=BaseAndSinglePointEntryFactory.getRemoteInstance().getBaseAndSinglePointEntryCollection("select pointName,pointValue where parent.id in("+sql+")");
+//    	bsecosts=BaseAndSinglePointEcostFactory.getRemoteInstance().getBaseAndSinglePointEcostCollection("select costAccount.id,costAccount.longNumber,costAccount.isLeaf,pointName,pointValue where parent.id in("+sql+")");
+    	//capinfo.getIndexType().getNumber()+"@"+cainfo.getLongNumber();
+    	String idString = getStringFromSet(projectIdSet);
+    	getBaseDXForMAP(idString);
+    	String contractLevel = "";
+    	if(ContractStationEnum.contractSign.equals(editData.getContractStation()))
+    		contractLevel = "sign";
+    	else if(ContractStationEnum.contractChange.equals(editData.getContractStation()))
+    		contractLevel = "change";
+    	else if(ContractStationEnum.contractEnd.equals(editData.getContractStation()))
+    		contractLevel = "endCal";
+    	getContractPriceSplitForMAP(contractLevel,idString);
+    	getZYSplitForMAP(contractLevel,idString);
+		
+	}
+
+	private void setBuutonAndTableState(boolean flag){
     	for(Iterator<String> it=tables.keySet().iterator(); it.hasNext();){
 			tables.get(it.next()).setEditable(flag);
 		}
@@ -1157,6 +1337,7 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
         com.kingdee.eas.fdc.costindexdb.BuildPriceIndexInfo objectValue = new com.kingdee.eas.fdc.costindexdb.BuildPriceIndexInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
         objectValue.setBizDate(new Date());
+        objectValue.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
         Map ctx = getUIContext();
         ContractBillInfo cbinfo = (ContractBillInfo)ctx.get("contractInfo");
         if(cbinfo == null)

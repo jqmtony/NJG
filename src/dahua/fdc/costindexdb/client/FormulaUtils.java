@@ -200,7 +200,7 @@ public class FormulaUtils {
 		}
 		double tmp = Math.pow(10, 10);
 		value = Math.round(value * tmp) / tmp;
-		System.out.println(Msg);
+//		System.out.println(Msg);
 		return value;
 	}
 

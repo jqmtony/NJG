@@ -27,6 +27,15 @@ public class BuildNumberEditUI extends AbstractBuildNumberEditUI
     public void onLoad() throws Exception {
     	super.onLoad();
     	prmtcurProject.setEnabled(false);
+    	actionCancelCancel.setVisible(false);
+    	actionCancel.setVisible(false);
+    	actionSubmit.setVisible(false);
+    	btnSave.setIcon(btnSubmit.getIcon());
+    	btnSave.setText(btnSubmit.getText());
+    	actionFirst.setVisible(false);
+    	actionLast.setVisible(false);
+    	actionPre.setVisible(false);
+    	actionNext.setVisible(false);
     }
     
     /**

@@ -41,11 +41,15 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.fdc.basedata.CostAccountInfo;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.IProductType;
 import com.kingdee.eas.fdc.basedata.ProductTypeFactory;
 import com.kingdee.eas.fdc.basedata.ProductTypeInfo;
+import com.kingdee.eas.fdc.costindexdb.database.BuildNumberCollection;
+import com.kingdee.eas.fdc.costindexdb.database.BuildNumberFactory;
 import com.kingdee.eas.fdc.costindexdb.database.BuildNumberInfo;
 import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryCollection;
 import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryDetailCollection;
@@ -160,6 +164,7 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
 //    	kdtEntrys_detailPanel.getRemoveLinesButton().setVisible(false);
 //    	kdtEntrys_detailPanel.getInsertLineButton().setVisible(false);
 //    	kdtEntrys_detailPanel.getAddNewLineButton().setVisible(false);
+    	kDContainer1.setTitle("要素列表");
     	kDContainer1.getContentPane().remove(kdtEntrys_detailPanel);
     	kDContainer1.getContentPane().add(kdtEntrys, BorderLayout.CENTER);
     	kdtEntrys.getColumn("pointName").getStyleAttributes().setLocked(true);
@@ -172,6 +177,7 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
     	buttons = new ArrayList<KDWorkButton>();
     	grabData = new KDWorkButton("提取最新数据");
     	grabData.setName("grabData");
+    	grabData.setIcon(EASResource.getIcon("imgTbtn_choosein"));
     	grabData.addActionListener(new MyActionListener(kdtEntrys));
     	kDContainer1.addButton(grabData);
     	if(!OprtState.EDIT.equals(getOprtState())){
@@ -289,20 +295,49 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
     protected void verifyInput(ActionEvent e) throws Exception {
     	String key = null;
     	KDTable table = null;
-    	for(Iterator<String> it=tables.keySet().iterator(); it.hasNext();){
-    		key = it.next();
+    	//基本要素的销售均价除外，其他的分录金额等于所有拆分金额之和
+    	for(int i = 0; i < kdtEntrys.getRowCount3(); i++) {
+    		if(FDCHelper.isEmpty(kdtEntrys.getCell(i,"dataValue").getValue())){
+    			MsgBox.showInfo("要素列表第"+(i+1)+"行数值不能为空！");
+				SysUtil.abort();
+    		}
+    		key = (String)kdtEntrys.getCell(i,"pointName").getValue();
+    		if(!(Boolean)kdtEntrys.getCell(i,"splitBuild").getValue())
+    			continue;
     		table = tables.get(key);
-			if(table.getRowCount3() == 0){
+    		if(table.getRowCount3() == 0){
 				MsgBox.showInfo(key+"页签没有拆分到楼号！");
 				SysUtil.abort();
 			}
-			for(int i = 0; i < table.getRowCount3(); i++) {
-				if(table.getCell(i,"buildNumber").getValue() == null){
-					MsgBox.showInfo(key+"页签的第"+(i+1)+"行楼号不能为空！");
+    		BigDecimal pointValue = BigDecimal.ZERO;
+			for(int j = 0; j < table.getRowCount3(); j++) {
+				if(table.getCell(j,"buildNumber").getValue() == null){
+					MsgBox.showInfo(key+"页签的第"+(j+1)+"行楼号不能为空！");
 					SysUtil.abort();
 				}
+				if(!FDCHelper.isEmpty(table.getCell(j,"dataValue").getValue())){
+					pointValue = pointValue.add(UIRuleUtil.getBigDecimal(table.getCell(j,"dataValue").getValue()));
+	    		}
+			}
+			if(!(BuildSplitDataType.basePoint.equals(editData.getDataType()) && "销售均价".equals(key)) && pointValue.compareTo(UIRuleUtil.getBigDecimal(kdtEntrys.getCell(i,"dataValue").getValue()))!=0){
+				MsgBox.showInfo(key+"页签的拆分金额之和不等于要素数值！");
+				SysUtil.abort();
 			}
 		}
+//    	for(Iterator<String> it=tables.keySet().iterator(); it.hasNext();){
+//    		key = it.next();
+//    		table = tables.get(key);
+//			if(table.getRowCount3() == 0){
+//				MsgBox.showInfo(key+"页签没有拆分到楼号！");
+//				SysUtil.abort();
+//			}
+//			for(int i = 0; i < table.getRowCount3(); i++) {
+//				if(table.getCell(i,"buildNumber").getValue() == null){
+//					MsgBox.showInfo(key+"页签的第"+(i+1)+"行楼号不能为空！");
+//					SysUtil.abort();
+//				}
+//			}
+//		}
     }
 
     private void setBuutonAndTableState(boolean flag){
@@ -518,12 +553,23 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
         com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillInfo objectValue = new com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillInfo();
         objectValue.setCreator((com.kingdee.eas.base.permission.UserInfo)(com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentUser()));
         objectValue.setBizDate(new Date());
+        objectValue.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
         Map ctx = getUIContext();
         objectValue.setDataType((BuildSplitDataType)ctx.get("dataType"));
-        objectValue.setProjectName((CurProjectInfo)ctx.get("projectName"));
+        CurProjectInfo pinfo = (CurProjectInfo)ctx.get("projectName");
+        objectValue.setProjectName(pinfo);
         objectValue.setCostAccount((CostAccountInfo)ctx.get("costAccount"));
         objectValue.setContractLevel((BuildSplitContract)ctx.get("contractLevel"));
         objectValue.setSourceNumber((String)ctx.get("sourceNumber"));
+        //默认带出项目下所有楼号信息
+        if(pinfo == null)
+        	return objectValue;
+        BuildNumberCollection buildColl = null;
+        try {
+        	buildColl=BuildNumberFactory.getRemoteInstance().getBuildNumberCollection("select id,name,number,modelBuild,productType.id,productType.name,productType.number where curProject.id='"+pinfo.getId().toString()+"'");
+		} catch (BOSException e1) {
+			handUIException(e1);
+		}
         if(BuildSplitDataType.professPoint.equals(objectValue.getDataType())){
         	CostAccountInfo costInfo = objectValue.getCostAccount();
 			try {
@@ -558,6 +604,15 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
 					BuildSplitBillEntryInfo entryInfo = new BuildSplitBillEntryInfo();
 		        	entryInfo.setPointName(key);
 		        	entryInfo.setSplitBuild(points.get(key));
+		        	if(points.get(key) && buildColl != null){
+		        		for(int i = 0; i < buildColl.size(); i++) {
+		        			BuildSplitBillEntryDetailInfo detailInfo = new BuildSplitBillEntryDetailInfo();
+		        			detailInfo.setBuildNumber(buildColl.get(i));
+		        			detailInfo.setProductType(buildColl.get(i).getProductType());
+		        			detailInfo.setModelBuild(buildColl.get(i).isModelBuild());
+		        			entryInfo.getDetails().add(detailInfo);
+						}
+		        	}
 		        	objectValue.getEntrys().add(entryInfo);
 				}
 			} catch (BOSException e) {
@@ -568,6 +623,15 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
         	entryInfo.setPointName((String)ctx.get("pointName"));
         	entryInfo.setDataValue((BigDecimal)ctx.get("pointValue"));
         	entryInfo.setSplitBuild(true);
+        	if(buildColl != null){
+        		for(int i = 0; i < buildColl.size(); i++) {
+        			BuildSplitBillEntryDetailInfo detailInfo = new BuildSplitBillEntryDetailInfo();
+        			detailInfo.setBuildNumber(buildColl.get(i));
+        			detailInfo.setProductType(buildColl.get(i).getProductType());
+        			detailInfo.setModelBuild(buildColl.get(i).isModelBuild());
+        			entryInfo.getDetails().add(detailInfo);
+				}
+        	}
         	objectValue.getEntrys().add(entryInfo);
         }
         return objectValue;

@@ -73,7 +73,7 @@ public class BaseImportUI extends AbstractBaseImportUI
 		}
     	KDTable table = (KDTable)getUIContext().get("kdtable");
     	BasePointTempEntryCollection btcoll = null;
-    	btcoll=BasePointTempEntryFactory.getRemoteInstance().getBasePointTempEntryCollection("select pointName,unitBase.id,unitBase.name,unitBase.number where parent.id='"+getSelectedKeyValue()+"' order by seq");
+    	btcoll=BasePointTempEntryFactory.getRemoteInstance().getBasePointTempEntryCollection("select pointName,unitBase.id,unitBase.name,unitBase.number,isCombo where parent.id='"+getSelectedKeyValue()+"' order by seq");
     	IRow row = null;
     	BasePointTempEntryInfo beinfo = null;
     	table.removeRows();
@@ -82,7 +82,7 @@ public class BaseImportUI extends AbstractBaseImportUI
     		row = table.addRow();
     		row.getCell("pointName").setValue(beinfo.getPointName());
     		row.getCell("baseUnit").setValue(beinfo.getUnitBase());
-    		row.getCell("isCombo").setValue(Boolean.FALSE);
+    		row.getCell("isCombo").setValue(beinfo.isIsCombo());
     		row.getCell("isModel").setValue(Boolean.FALSE);
 		}
     	MsgBox.showInfo(this, "导入成功");

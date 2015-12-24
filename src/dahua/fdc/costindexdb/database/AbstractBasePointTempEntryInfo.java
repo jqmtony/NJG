@@ -61,6 +61,17 @@ public class AbstractBasePointTempEntryInfo extends com.kingdee.eas.framework.Co
     {
         setString("beizhu", item);
     }
+    /**
+     * Object:分录's 是否需要拆分property 
+     */
+    public boolean isIsCombo()
+    {
+        return getBoolean("isCombo");
+    }
+    public void setIsCombo(boolean item)
+    {
+        setBoolean("isCombo", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("FE15A4E6");

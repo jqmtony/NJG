@@ -126,11 +126,11 @@ public abstract class AbstractSinglePointTempEditUI extends com.kingdee.eas.fram
         this.chkisUse.setHorizontalAlignment(2);		
         this.chkisUse.setVisible(false);
         // kdtEntry
-		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"accouNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costAcount\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"pointName\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"baseUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beizhu\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{accouNumber}</t:Cell><t:Cell>$Resource{costAcount}</t:Cell><t:Cell>$Resource{pointName}</t:Cell><t:Cell>$Resource{baseUnit}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntryStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"accouNumber\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"costAcount\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"pointName\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"baseUnit\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isCombo\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beizhu\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{accouNumber}</t:Cell><t:Cell>$Resource{costAcount}</t:Cell><t:Cell>$Resource{pointName}</t:Cell><t:Cell>$Resource{baseUnit}</t:Cell><t:Cell>$Resource{isCombo}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntry.setFormatXml(resHelper.translateString("kdtEntry",kdtEntryStrXML));
 
-                this.kdtEntry.putBindContents("editData",new String[] {"seq","accouNumber","costAcount","pointName","baseUnit","beizhu"});
+                this.kdtEntry.putBindContents("editData",new String[] {"seq","accouNumber","costAcount","pointName","baseUnit","isCombo","beizhu"});
 
 
         this.kdtEntry.checkParsed();
@@ -168,6 +168,10 @@ public abstract class AbstractSinglePointTempEditUI extends com.kingdee.eas.fram
         ObjectValueRender kdtEntry_baseUnit_OVR = new ObjectValueRender();
         kdtEntry_baseUnit_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtEntry.getColumn("baseUnit").setRenderer(kdtEntry_baseUnit_OVR);
+        KDCheckBox kdtEntry_isCombo_CheckBox = new KDCheckBox();
+        kdtEntry_isCombo_CheckBox.setName("kdtEntry_isCombo_CheckBox");
+        KDTDefaultCellEditor kdtEntry_isCombo_CellEditor = new KDTDefaultCellEditor(kdtEntry_isCombo_CheckBox);
+        this.kdtEntry.getColumn("isCombo").setEditor(kdtEntry_isCombo_CellEditor);
         KDTextField kdtEntry_beizhu_TextField = new KDTextField();
         kdtEntry_beizhu_TextField.setName("kdtEntry_beizhu_TextField");
         kdtEntry_beizhu_TextField.setMaxLength(100);
@@ -345,6 +349,7 @@ public abstract class AbstractSinglePointTempEditUI extends com.kingdee.eas.fram
 		dataBinder.registerBinding("Entry.beizhu", String.class, this.kdtEntry, "beizhu.text");
 		dataBinder.registerBinding("Entry.costAcount", java.lang.Object.class, this.kdtEntry, "costAcount.text");
 		dataBinder.registerBinding("Entry.accouNumber", String.class, this.kdtEntry, "accouNumber.text");
+		dataBinder.registerBinding("Entry.isCombo", boolean.class, this.kdtEntry, "isCombo.text");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
 		dataBinder.registerBinding("simpleName", String.class, this.txtSimpleName, "text");
@@ -503,6 +508,7 @@ public abstract class AbstractSinglePointTempEditUI extends com.kingdee.eas.fram
 		getValidateHelper().registerBindProperty("Entry.beizhu", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.costAcount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entry.accouNumber", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entry.isCombo", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("simpleName", ValidateHelper.ON_SAVE);    
@@ -574,6 +580,7 @@ public abstract class AbstractSinglePointTempEditUI extends com.kingdee.eas.fram
         	sic.add(new SelectorItemInfo("Entry.costAcount.number"));
 		}
     	sic.add(new SelectorItemInfo("Entry.accouNumber"));
+    	sic.add(new SelectorItemInfo("Entry.isCombo"));
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("simpleName"));

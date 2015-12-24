@@ -83,6 +83,17 @@ public class AbstractSinglePointTempEntryInfo extends com.kingdee.eas.framework.
     {
         setString("accouNumber", item);
     }
+    /**
+     * Object:分录's 是否需要拆分property 
+     */
+    public boolean isIsCombo()
+    {
+        return getBoolean("isCombo");
+    }
+    public void setIsCombo(boolean item)
+    {
+        setBoolean("isCombo", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("E05DC85D");

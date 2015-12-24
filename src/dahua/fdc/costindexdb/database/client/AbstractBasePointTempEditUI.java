@@ -123,15 +123,14 @@ public abstract class AbstractBasePointTempEditUI extends com.kingdee.eas.framew
         this.kDLabelContainer4.setVisible(false);
         // chkisUse		
         this.chkisUse.setText(resHelper.getString("chkisUse.text"));		
-        this.chkisUse.setVisible(true);		
         this.chkisUse.setHorizontalAlignment(2);		
         this.chkisUse.setEnabled(false);
         // kdtEntrys
-		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"pointName\" t:width=\"240\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"unitBase\" t:width=\"100\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beizhu\" t:width=\"250\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{pointName}</t:Cell><t:Cell>$Resource{unitBase}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /><c:NumberFormat>&amp;int</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"seq\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"pointName\" t:width=\"240\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"unitBase\" t:width=\"100\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"isCombo\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"beizhu\" t:width=\"250\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{seq}</t:Cell><t:Cell>$Resource{pointName}</t:Cell><t:Cell>$Resource{unitBase}</t:Cell><t:Cell>$Resource{isCombo}</t:Cell><t:Cell>$Resource{beizhu}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
 
-                this.kdtEntrys.putBindContents("editData",new String[] {"seq","pointName","unitBase","beizhu"});
+                this.kdtEntrys.putBindContents("editData",new String[] {"seq","pointName","unitBase","isCombo","beizhu"});
 
 
         this.kdtEntrys.checkParsed();
@@ -152,6 +151,10 @@ public abstract class AbstractBasePointTempEditUI extends com.kingdee.eas.framew
         ObjectValueRender kdtEntrys_unitBase_OVR = new ObjectValueRender();
         kdtEntrys_unitBase_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtEntrys.getColumn("unitBase").setRenderer(kdtEntrys_unitBase_OVR);
+        KDCheckBox kdtEntrys_isCombo_CheckBox = new KDCheckBox();
+        kdtEntrys_isCombo_CheckBox.setName("kdtEntrys_isCombo_CheckBox");
+        KDTDefaultCellEditor kdtEntrys_isCombo_CellEditor = new KDTDefaultCellEditor(kdtEntrys_isCombo_CheckBox);
+        this.kdtEntrys.getColumn("isCombo").setEditor(kdtEntrys_isCombo_CellEditor);
         KDTextField kdtEntrys_beizhu_TextField = new KDTextField();
         kdtEntrys_beizhu_TextField.setName("kdtEntrys_beizhu_TextField");
         kdtEntrys_beizhu_TextField.setMaxLength(100);
@@ -163,7 +166,7 @@ public abstract class AbstractBasePointTempEditUI extends com.kingdee.eas.framew
         // txtSimpleName		
         this.txtSimpleName.setMaxLength(80);
         // txtDescription
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {chkisUse}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtName,txtNumber,txtDescription,txtSimpleName,chkisUse,kdtEntrys}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -327,6 +330,7 @@ public abstract class AbstractBasePointTempEditUI extends com.kingdee.eas.framew
 		dataBinder.registerBinding("Entrys.pointName", String.class, this.kdtEntrys, "pointName.text");
 		dataBinder.registerBinding("Entrys.unitBase", java.lang.Object.class, this.kdtEntrys, "unitBase.text");
 		dataBinder.registerBinding("Entrys.beizhu", String.class, this.kdtEntrys, "beizhu.text");
+		dataBinder.registerBinding("Entrys.isCombo", boolean.class, this.kdtEntrys, "isCombo.text");
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
 		dataBinder.registerBinding("simpleName", String.class, this.txtSimpleName, "text");
@@ -374,7 +378,7 @@ public abstract class AbstractBasePointTempEditUI extends com.kingdee.eas.framew
     public void onShow() throws Exception
     {
         super.onShow();
-        this.chkisUse.requestFocusInWindow();
+        this.txtName.requestFocusInWindow();
     }
 
 	
@@ -483,6 +487,7 @@ public abstract class AbstractBasePointTempEditUI extends com.kingdee.eas.framew
 		getValidateHelper().registerBindProperty("Entrys.pointName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entrys.unitBase", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Entrys.beizhu", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("Entrys.isCombo", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("simpleName", ValidateHelper.ON_SAVE);    
@@ -544,6 +549,7 @@ public abstract class AbstractBasePointTempEditUI extends com.kingdee.eas.framew
         	sic.add(new SelectorItemInfo("Entrys.unitBase.number"));
 		}
     	sic.add(new SelectorItemInfo("Entrys.beizhu"));
+    	sic.add(new SelectorItemInfo("Entrys.isCombo"));
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("simpleName"));

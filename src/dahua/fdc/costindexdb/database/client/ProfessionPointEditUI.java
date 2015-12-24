@@ -220,15 +220,15 @@ public class ProfessionPointEditUI extends AbstractProfessionPointEditUI
 			}
 		}
 		//判断要素有没有重复的
-		for(int i = 0; i < rowCount; i++) {
-			String pointName = (String)kdtEntry.getCell(i,"pointName").getValue();
-			for(int j = i+1; j < rowCount; j++) {
-				if(pointName.equals(kdtEntry.getCell(j,"pointName").getValue())){
-					FDCMsgBox.showInfo("第"+(i+1)+"行的要素与第"+(j+1)+"行的要素名称重复！");
-					SysUtil.abort();
-				}
-			}
-		}
+//		for(int i = 0; i < rowCount; i++) {
+//			String pointName = (String)kdtEntry.getCell(i,"pointName").getValue();
+//			for(int j = i+1; j < rowCount; j++) {
+//				if(pointName.equals(kdtEntry.getCell(j,"pointName").getValue())){
+//					FDCMsgBox.showInfo("第"+(i+1)+"行的要素与第"+(j+1)+"行的要素名称重复！");
+//					SysUtil.abort();
+//				}
+//			}
+//		}
 	}
 	
 	public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
