@@ -1233,6 +1233,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 			objectValue.setGsmc(conInfo.getCompany().getName());
 			objectValue.setBbh("1");
 			objectValue.setBizDate(new Date());
+			objectValue.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
 			// objectValue.setAmount(BigDecimal.ZERO);
 			return objectValue;
 

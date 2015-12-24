@@ -262,6 +262,9 @@ public class GcftbListUI extends AbstractGcftbListUI
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
+		sic.add(new SelectorItemInfo("CU.id"));
+		sic.add(new SelectorItemInfo("CU.name"));
+		sic.add(new SelectorItemInfo("CU.number"));
     	sic.add(new SelectorItemInfo("entrys.id"));
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
