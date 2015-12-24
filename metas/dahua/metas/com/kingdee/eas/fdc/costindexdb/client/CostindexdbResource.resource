@@ -38,10 +38,10 @@
             <lang locale="zh_TW" value="基本要素-單項要素" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.fdc.costindexdb.client.CostindexdbResource].resourceItems.resourceItem[BuildPriceIndexQueryF7WindowTitle].value">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="造价指标库" />
-            <lang locale="zh_HK" value="造價指標庫" />
-            <lang locale="zh_TW" value="造價指標庫" />
+            <lang locale="en_US" value="" />
+            <lang locale="zh_CN" value="成本指标库" />
+            <lang locale="zh_HK" value="成本指標庫" />
+            <lang locale="zh_TW" value="成本指標庫" />
         </rs>
     </resource>
 </i18nResource>
