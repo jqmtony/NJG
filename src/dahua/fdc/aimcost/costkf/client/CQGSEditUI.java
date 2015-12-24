@@ -1073,7 +1073,7 @@ public class CQGSEditUI extends AbstractCQGSEditUI
 			CQGSEntryInfo cqgsEntryInfo = new CQGSEntryInfo(); //new一个对象塞2个报错
 			objectValue.getEntrys().add(new CQGSEntryInfo());	
 			objectValue.getEntrys().add(new CQGSEntryInfo());	//新增行
-			
+			objectValue.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
 			objectValue.setVersion(1); 
 			return objectValue;
 		}

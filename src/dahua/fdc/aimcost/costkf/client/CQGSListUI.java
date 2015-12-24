@@ -260,7 +260,8 @@ public class CQGSListUI extends AbstractCQGSListUI
 	    DefaultKingdeeTreeNode node = (DefaultKingdeeTreeNode)treeMain.getLastSelectedPathComponent();//最后选中的节点
     	if (node != null) {//选中最后的节点不为空，
     		String allSpIdStr = FDCTreeHelper.getStringFromSet(getAllObjectIdMap(node).keySet());//将返还的set转换成字符串
-    		filterItems.add(new FilterItemInfo("ProjectName.id", allSpIdStr, CompareType.INNER));
+    		if(!allSpIdStr.equals(""))
+    			filterItems.add(new FilterItemInfo("ProjectName.id", allSpIdStr, CompareType.INNER));
     	}else{
     		filterItems.add(new FilterItemInfo("ProjectName.id", "99", CompareType.EQUALS));
     	}
