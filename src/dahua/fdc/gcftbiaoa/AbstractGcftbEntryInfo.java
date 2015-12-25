@@ -203,6 +203,17 @@ public class AbstractGcftbEntryInfo extends com.kingdee.eas.framework.CoreBillEn
     {
         setBoolean("allshare", item);
     }
+    /**
+     * Object:·ÖÂ¼'s ±¸×¢property 
+     */
+    public String getRemark()
+    {
+        return getString("Remark");
+    }
+    public void setRemark(String item)
+    {
+        setString("Remark", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("58157E21");

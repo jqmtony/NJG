@@ -174,7 +174,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		
 		setDetailPanel(kdtEntrys_detailPanel, kDContainer1);
 		setDetailPanel(kdtDetail_detailPanel, kDContainer2);
-		
+		//重构枚举
 		KDComboBox kdtEntrys_allocationIndex_ComboBox = new KDComboBox();
         kdtEntrys_allocationIndex_ComboBox.setName("kdtEntrys_allocationIndex_ComboBox");
         kdtEntrys_allocationIndex_ComboBox.setVisible(true);
@@ -188,13 +188,13 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
         setTableToSumField(kdtEntrys,new String[]{"totalCost","totalAmount","costHasOccurred","share"});
         setTableToSumField(kdtDetail,new String[]{"allocationBase","shareAmount"});   
         
-        
+        //导入导出的图标
         importExcelButton.setIcon(EASResource.getIcon("imgTbtn_importexcel"));
 		outExcelButton.setIcon(EASResource.getIcon("imgTbtn_importexcel"));
 		
 		kDContainer1.addButton(importExcelButton);
 		kDContainer1.addButton(outExcelButton);
-		
+		//按钮监听
 		importExcelButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -220,7 +220,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 			}
 		});
 	}
-	
+	//设置按钮
 	private void setDetailPanel(DetailPanel detail,KDContainer kDContainer){
 		KDWorkButton addNewLineButton = detail.getAddNewLineButton();
 		KDWorkButton insertLineButton = detail.getInsertLineButton();
@@ -251,7 +251,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
     	return fileName;
     }
 
-	
+	//导入表格
 	private void importExcelButton_actionPerformed(ActionEvent e) throws FileNotFoundException, IOException, EASBizException, BOSException {
 		final String path = showExcelSelectDlg(this);//打开窗口，获得路径
 		if (path == null) {
@@ -318,7 +318,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		
 		for (int col = 0; col< table.getColumnCount(); col++) {//获取table表头
 			if (table.getColumn(col).getStyleAttributes().isHided()) {
-				continue;
+				continue;//表头的就直接跳出
 			}
 			String colName = (String) table.getHeadRow(0).getCell(col).getValue();
 			Integer colInt = (Integer) e_colNameMap.get(colName);
@@ -328,7 +328,8 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 			}
 		}
 		StringBuffer erroMsg = new StringBuffer();
-		for (int rowIndex = 1; rowIndex <= e_maxRow-1; rowIndex++) {
+		
+		for (int rowIndex = 1; rowIndex <= e_maxRow; rowIndex++) {
 			for (int col = 0; col < table.getColumnCount(); col++) { 
 				if (table.getColumn(col).getStyleAttributes().isHided()) {
     				continue;
@@ -345,6 +346,8 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 				String colValue = cellRawVal.toString();
 				if(("工程项目").equals(colName)&&!CurProjectFactory.getRemoteInstance().exists("where name='"+colValue+"'"))
 					erroMsg.append("第["+rowIndex+"]行 工程项目 ["+colValue+"] 在系统中不存在！\n");
+				if(("待分摊是否整体工程项目").equals(colName))
+					erroMsg.append(verifyFieldFormat(rowIndex,"待分摊是否整体工程项目", colValue, "bool"));
 				if(("设施名称").equals(colName)&&!ProductTypeFactory.getRemoteInstance().exists("where name='"+colValue+"'"))
 					erroMsg.append("第["+rowIndex+"]行 设施名称 ["+colValue+"] 在系统中不存在！\n");
 				if(("产权情况").equals(colName)&&!CqgsBaseFactory.getRemoteInstance().exists("where name='"+colValue+"'"))
@@ -383,7 +386,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 				if(("受益项目").equals(colName)&&!CurProjectFactory.getRemoteInstance().exists("where name='"+colValue+"'")){
 					erroMsg.append("第["+rowIndex+"]行 受益项目 ["+colValue+"] 在系统中不存在！\n");
 				}
-				if(("分摊基数").equals(colName)){
+				if("分摊基数".equals(colName)){
 					erroMsg.append(verifyFieldFormat(rowIndex,"分摊基数", colValue, "bigdecimal"));  
 				}
 				if(("分摊金额").equals(colName)){
@@ -456,6 +459,15 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 					CurProjectCollection curProjectCollection = ICurProject.getCurProjectCollection("select id,number,name where name='"+colValue+"'");
 					entry.setEngineeringProject(curProjectCollection.size()>0?curProjectCollection.get(0):null);
 				}
+				if(("待分摊是否整体工程项目").equals(colName))
+					if("是".equals(colValue))
+					entry.setAllshare(Boolean.TRUE);
+					else if ("否".equals(colValue)){
+						entry.setAllshare(Boolean.FALSE);
+						}
+					else if ("".equals(colValue)){
+						entry.setAllshare(Boolean.FALSE);
+						}
 				if(("设施名称").equals(colName)){
 					ProductTypeCollection productTypeCollection = IProductType.getProductTypeCollection("select id,number,name where name='"+colValue+"'");
 					entry.setFacilityName(productTypeCollection.size()>0?productTypeCollection.get(0):null);
@@ -490,6 +502,8 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 					entry.setShare(UIRuleUtil.getBigDecimal(colValue));
 				if(("分摊单价").equals(colName))
 					entry.setSharePrice(UIRuleUtil.getBigDecimal(colValue));
+				if(("备注").equals(colName))
+					entry.setRemark(UIRuleUtil.getString(colValue));
 				//受益项目	分摊基数	分摊金额
 				if(("受益项目").equals(colName)){
 					CurProjectCollection curProjectCollection = ICurProject.getCurProjectCollection("select id,number,name where name='"+colValue+"'");
@@ -529,11 +543,11 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 	        String dateString = (String)value;
 	        if(!Pattern.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}", dateString))
 	        	return "第["+rowIndex+"]行 "+name+" 日期格式不对,值["+value+"]。\n";
-	    }else if(dataType.equals("bool") && !value.equals("true") && !value.equals("false"))
+	    }else if(dataType.equals("bool") && !value.equals("是") && !value.equals("否"))
 	    	return "第["+rowIndex+"]行 "+name+" 格式不对,值["+value+"]。\n";
 	    return "";
 	}
-	
+	//导出表格
 	private void outExcelButton_actionPerformed(ActionEvent e) throws Exception {
 		ExportManager exportM = new ExportManager();
         String path = null;
@@ -734,7 +748,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 	     setTableToSumField(kdtDetail,new String[]{"allocationBase","shareAmount"});    
 	}
 
-	
+	//子分录的按钮构造(只有两个)
 	private void setEntryDetailButtonAction() {
 		ActionListener[] actions = kdtDetail_detailPanel.getRemoveLinesButton().getActionListeners();
 		if (actions != null && actions.length > 0)
@@ -775,7 +789,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 			}
 		});
 	}
-	
+	//分录的三个按钮构造
 	private void setEntryButtonAction() {
 		ActionListener[] actions = kdtEntrys_detailPanel.getRemoveLinesButton().getActionListeners();
 		if (actions != null && actions.length > 0)
@@ -812,7 +826,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 			}
 		});
 	}
-	
+	//子分录(删除控制)
 	private void removeDetailEntry(){
 		int activeRowIndex = kdtDetail.getSelectManager().getActiveRowIndex();
 		if(activeRowIndex==-1)return;
@@ -840,7 +854,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		}
 	}
 	
-
+	//分录的对应
 	private GcftbEntryInfo checkSelectEntry(){
 		int activeRowIndex = this.kdtEntrys.getSelectManager().getActiveRowIndex();
 		if(this.kdtEntrys.getSelectManager().getActiveRowIndex()==-1){
@@ -861,7 +875,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		
 	}
 	
-	
+	//分录表格监听
 	private void changeTableDataLinens(KDTable table) throws BOSException, SQLException{
 		int indexRow = table.getSelectManager().getActiveRowIndex();
 		if(indexRow==-1)return;
@@ -888,8 +902,9 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 			}else{
 				row.getCell("constructionArea").setValue(cqgsJzmj);
 			}
+			
 			if(UIRuleUtil.isNull(row.getCell("costHasOccurred").getValue())){
-				//单价
+				//单价(已发生成本/总量)
 				row.getCell("sharePrice").setValue(FDCHelper.divide(row.getCell("totalCost").getValue(), row.getCell("totalAmount").getValue(),10,4));
 			}else{
 				row.getCell("sharePrice").setValue(FDCHelper.divide(row.getCell("costHasOccurred").getValue(), row.getCell("totalAmount").getValue(),10,4));
@@ -898,9 +913,10 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 			updateDetailBaseAmount(-1,cationIndex);
 			row.getCell("share").setValue(FDCHelper.subtract(row.getCell("totalAmount").getValue(), UIRuleUtil.sum(kdtDetail, "allocationBase")));
 		}else{
-			//判断项目是否结束
+			//判断项目是否有
 			CurProjectInfo syxmInfo = (CurProjectInfo)row.getCell("benefitProject").getValue();
 			if(syxmInfo != null){
+				//判断项目是否结束
 				boolean end = syxmInfo.isProjectEnd();
 				if(end == false){
 					int activeRowIndex = this.kdtEntrys.getSelectManager().getActiveRowIndex();
@@ -927,7 +943,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 			updateDetail(rowIndex, cationIndex);
 		}
 	}
-	
+	//子分录的数据的联动
 	private void updateDetail(int rowIndex,AllocationIndex cationIndex) throws BOSException, SQLException{
 		IRow row = this.kdtDetail.getRow(rowIndex);
 		CurProjectInfo syxmInfo = (CurProjectInfo)row.getCell("benefitProject").getValue();
