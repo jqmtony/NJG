@@ -6,7 +6,7 @@
     <description>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].description</description>
     <userDefined>false</userDefined>
     <reportDataSource />
-    <bizUnitPK />
+    <bizUnitPK>com.kingdee.eas.fdc.aimcost.AimAimCostAdjust</bizUnitPK>
     <connectionProvider />
     <subObjects>
         <subEntity>
@@ -903,6 +903,37 @@
                 <key name="name" value="AimAimCostAdjustQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>BIMUDF0031</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[BIMUDF0031].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>Number</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fb0ee00d-497d-4ae3-8a13-ba7b02997e85</key>
+                    <parentUnit>
+                        <key name="name" value="BIMUDF0031" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="AimAimCostAdjust" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="BIMUDF0031" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.app" />
+                <key name="name" value="AimAimCostAdjustQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1157,220 +1188,291 @@
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].alias">
-            <lang locale="zh_CN" value="目标成本调整单查询" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="目标成本调整单查询" />
             <lang locale="zh_HK" value="目標成本調整單查詢" />
             <lang locale="zh_TW" value="目標成本調整單查詢" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].description">
-            <lang locale="zh_CN" value="目标成本调整单查询" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="目标成本调整单查询" />
             <lang locale="zh_HK" value="目標成本調整單查詢" />
             <lang locale="zh_TW" value="目標成本調整單查詢" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].extendedProperty.f7WindowTitle">
+            <lang locale="en_US" value="目标成本调整单" />
+            <lang locale="zh_CN" value="目标成本调整单" />
+            <lang locale="zh_TW" value="目标成本调整单" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].subObjects.subEntity[AimAimCostAdjust].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].subObjects.subEntity[CU].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].subObjects.subEntity[auditor].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].subObjects.subEntity[creator].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].subObjects.subEntity[curProject].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].subObjects.subEntity[handler].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].subObjects.subEntity[lastUpdateUser].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].subObjects.subEntity[orgUnit].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].subObjects.subEntity[period].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[02a2457a-1b66-4167-8f70-41e4fee0c6d9].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[0b99bd0b-3c76-4a59-9e62-fa91f69a60bd].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[0f312dfc-0f13-4b7b-98dc-d18b2d768e4b].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[3c4f00f3-be4d-4076-85c7-09b14a32edfc].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[4f5ab31a-d921-407f-841d-f2c67630ea52].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[5010b919-d700-4fe7-9cf1-8974365910ae].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[703fe925-9e53-491e-a068-63e7290962b0].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[776b2287-0ed2-4460-981d-6baa3b1b684a].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[881389e8-3379-4342-b497-bb880a5d08bb].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[9e455548-f519-4677-aa4b-1e9a08351932].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[a38e4319-eb9a-4219-a4ce-628c3fa36bdb].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[b1356b22-affa-4dd3-aa78-60dd3c0ce40b].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[ca90d49c-13e8-4274-bef0-3f5926e53af8].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[d867cdce-2f26-4158-8fad-db6471251b5a].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[e0dab64e-39e1-480a-b345-884adaeda4d8].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.propertyUnit[e4c86648-e4d0-43c4-94d8-108dd38b0cff].displayName">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
-        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[auditTime].displayName">
-            <lang locale="zh_CN" value="审批时间" />
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[BIMUDF0031].displayName">
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="金额" />
+            <lang locale="zh_HK" value="金額" />
+            <lang locale="zh_TW" value="金額" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[BIMUDF0031].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[BIMUDF0031].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[auditTime].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批时间" />
             <lang locale="zh_HK" value="審批時間" />
             <lang locale="zh_TW" value="審批時間" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[auditTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[auditTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[auditor.name].displayName">
-            <lang locale="zh_CN" value="用户实名" />
             <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="用户实名" />
             <lang locale="zh_HK" value="用戶實名" />
             <lang locale="zh_TW" value="用戶實名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[createTime].displayName">
-            <lang locale="zh_CN" value="创建时间" />
             <lang locale="en_US" value="createTime" />
+            <lang locale="zh_CN" value="创建时间" />
             <lang locale="zh_HK" value="創建時間" />
             <lang locale="zh_TW" value="創建時間" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[createTime].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[createTime].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[creator.name].displayName">
-            <lang locale="zh_CN" value="用户实名" />
             <lang locale="en_US" value="用户别名" />
+            <lang locale="zh_CN" value="用户实名" />
             <lang locale="zh_HK" value="用戶實名" />
             <lang locale="zh_TW" value="用戶實名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[curProject.name].displayName">
-            <lang locale="zh_CN" value="名称" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
             <lang locale="zh_HK" value="名稱" />
             <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[id].displayName">
-            <lang locale="zh_CN" value="ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[name].displayName">
-            <lang locale="zh_CN" value="名称" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="名称" />
             <lang locale="zh_HK" value="名稱" />
             <lang locale="zh_TW" value="名稱" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[number].displayName">
-            <lang locale="zh_CN" value="单据编号" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
             <lang locale="zh_HK" value="單據編號" />
             <lang locale="zh_TW" value="單據編號" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[number].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[state].displayName">
-            <lang locale="zh_CN" value="状态" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="状态" />
             <lang locale="zh_HK" value="狀態" />
             <lang locale="zh_TW" value="狀態" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[state].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery].units.queryField[state].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
     </resource>
 </joinQuery>

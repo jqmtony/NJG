@@ -133,6 +133,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFUsesID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.aimcost.costkf.app.CT_COS_CQGSEntry].columns.column[CFUsesID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.aimcost.costkf.app.CT_COS_CQGSEntry].columns.column[CFUsesID].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_COS_CQGSEntrn</name>
@@ -201,6 +215,25 @@
                     </refColumn>
                     <fkColumn>
                         <key name="name" value="CFPropertyRightID" />
+                    </fkColumn>
+                </fkColumnPair>
+            </fkColumnPairs>
+        </foreignKey>
+        <foreignKey>
+            <name>CFK_COS_COS_CQGSn8</name>
+            <userDefined>true</userDefined>
+            <refTable>
+                <key name="package" value="com.kingdee.eas.fdc.aimcost.costkf.app" />
+                <key name="name" value="CT_COS_Uses" />
+            </refTable>
+            <fkColumnPairs>
+                <fkColumnPair>
+                    <sequence>0</sequence>
+                    <refColumn>
+                        <key name="name" value="FID" />
+                    </refColumn>
+                    <fkColumn>
+                        <key name="name" value="CFUsesID" />
                     </fkColumn>
                 </fkColumnPair>
             </fkColumnPairs>
@@ -280,6 +313,18 @@
             <lang locale="zh_TW" value="用途" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.costkf.app.CT_COS_CQGSEntry].columns.column[CFUse].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用途" />
+            <lang locale="zh_HK" value="用途" />
+            <lang locale="zh_TW" value="用途" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.costkf.app.CT_COS_CQGSEntry].columns.column[CFUsesID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="用途" />
+            <lang locale="zh_HK" value="用途" />
+            <lang locale="zh_TW" value="用途" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.costkf.app.CT_COS_CQGSEntry].columns.column[CFUsesID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="用途" />
             <lang locale="zh_HK" value="用途" />

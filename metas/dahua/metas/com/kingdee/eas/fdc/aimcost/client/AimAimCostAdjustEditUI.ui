@@ -10,7 +10,7 @@
     <title>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].title</title>
     <uitype />
     <defaultbutton />
-    <bizUnitPK />
+    <bizUnitPK>com.kingdee.eas.fdc.aimcost.AimAimCostAdjust</bizUnitPK>
     <parent>
         <key name="package" value="com.kingdee.eas.fdc.basedata.client" />
         <key name="name" value="FDCBillEditUI" />
@@ -136,7 +136,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>10,10,329,20,261</constraints>
+            <constraints>12,10,329,20,261</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -227,7 +227,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>460,10,329,20,385</constraints>
+            <constraints>907,8,329,20,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -318,7 +318,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>911,10,329,20,137</constraints>
+            <constraints>907,38,329,20,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -388,7 +388,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>10,40,1230,200,77</constraints>
+            <constraints>10,62,1230,178,77</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -397,6 +397,55 @@
                 <type>BorderLayout</type>
                 <value>0,0</value>
             </layoutInfo>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>contdfzb</name>
+            <alias>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contdfzb].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>12,37,328,19,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contdfzb].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contdfzb].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contdfzb].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contdfzb].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
             <parent>
                 <key name="name" value="CoreUI" />
             </parent>
@@ -985,6 +1034,96 @@
             </eventBindings>
         </component>
         <component>
+            <name>txtdfzb</name>
+            <alias>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDFormattedTextField</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>dataType</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[dataType].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>supportedEmpty</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[supportedEmpty].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>minimumValue</name>
+                    <type>java.math.BigDecimal</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[minimumValue].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maximumValue</name>
+                    <type>java.math.BigDecimal</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[maximumValue].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>precision</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[precision].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contdfzb" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>value</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>BIMUDF0031</bindingField>
+                    <fieldType>java.math.BigDecimal</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
             <name>btnAddNew</name>
             <alias>uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnAddNew].alias</alias>
             <userDefined>false</userDefined>
@@ -1494,554 +1633,584 @@
     </dataObjects>
     <resource>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].alias">
-            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="zh_HK" value="目標成本調整單" />
             <lang locale="zh_TW" value="目標成本調整單" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[CoreUI].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnAddNew].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnAddNew].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnAddNew].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnAuditResult].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnAuditResult].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnAuditResult].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnCalculator].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnCalculator].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnCalculator].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnCopy].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnCopy].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnCopy].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnCreateFrom].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnCreateFrom].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnCreateFrom].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnCreateTo].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnCreateTo].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnDelVoucher].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnDelVoucher].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnFirst].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnFirst].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnFirst].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnLast].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnLast].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnLast].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnMultiapprove].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnMultiapprove].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnMultiapprove].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnNextPerson].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnNextPerson].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnNextPerson].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnNext].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnNext].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnNext].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnPageSetup].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnPageSetup].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnPre].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnPre].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnPre].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnPrintPreview].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnPrintPreview].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnPrint].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnPrint].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnRemove].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnRemove].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnRemove].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnTraceDown].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnTraceDown].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnTraceDown].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnTraceUp].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnTraceUp].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnTraceUp].properties.property[visible].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnVoucher].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[btnVoucher].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contAuditTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contAuditTime].properties.property[boundLabelLength].value">
-            <lang locale="zh_CN" value="100" />
             <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
             <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contAuditTime].properties.property[boundLabelText].value">
-            <lang locale="zh_CN" value="审核日期" />
             <lang locale="en_US" value="审批时间" />
+            <lang locale="zh_CN" value="审核日期" />
             <lang locale="zh_HK" value="審核日期" />
             <lang locale="zh_TW" value="審核日期" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contAuditTime].properties.property[boundLabelUnderline].value">
-            <lang locale="zh_CN" value="true" />
             <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contAuditTime].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contAuditor].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contAuditor].properties.property[boundLabelLength].value">
-            <lang locale="zh_CN" value="100" />
             <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
             <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contAuditor].properties.property[boundLabelText].value">
-            <lang locale="zh_CN" value="审核人" />
             <lang locale="en_US" value="审核人" />
+            <lang locale="zh_CN" value="审核人" />
             <lang locale="zh_HK" value="審核人" />
             <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contAuditor].properties.property[boundLabelUnderline].value">
-            <lang locale="zh_CN" value="true" />
             <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contAuditor].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCreateTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCreateTime].properties.property[boundLabelLength].value">
-            <lang locale="zh_CN" value="100" />
             <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
             <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCreateTime].properties.property[boundLabelText].value">
-            <lang locale="zh_CN" value="制单日期" />
             <lang locale="en_US" value="创建时间" />
+            <lang locale="zh_CN" value="制单日期" />
             <lang locale="zh_HK" value="制單日期" />
             <lang locale="zh_TW" value="制單日期" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCreateTime].properties.property[boundLabelUnderline].value">
-            <lang locale="zh_CN" value="true" />
             <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCreateTime].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCreator].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCreator].properties.property[boundLabelLength].value">
-            <lang locale="zh_CN" value="100" />
             <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
             <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCreator].properties.property[boundLabelText].value">
-            <lang locale="zh_CN" value="制单人" />
             <lang locale="en_US" value="创建者" />
+            <lang locale="zh_CN" value="制单人" />
             <lang locale="zh_HK" value="制單人" />
             <lang locale="zh_TW" value="制單人" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCreator].properties.property[boundLabelUnderline].value">
-            <lang locale="zh_CN" value="true" />
             <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCreator].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCurProject].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCurProject].properties.property[boundLabelLength].value">
-            <lang locale="zh_CN" value="100" />
             <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
             <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCurProject].properties.property[boundLabelText].value">
-            <lang locale="zh_CN" value="工程项目" />
             <lang locale="en_US" value="工程项目" />
+            <lang locale="zh_CN" value="工程项目" />
             <lang locale="zh_HK" value="工程項目" />
             <lang locale="zh_TW" value="工程項目" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contCurProject].properties.property[boundLabelUnderline].value">
-            <lang locale="zh_CN" value="true" />
             <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contName].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contName].properties.property[boundLabelLength].value">
-            <lang locale="zh_CN" value="100" />
             <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
             <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contName].properties.property[boundLabelText].value">
-            <lang locale="zh_CN" value="单据名称" />
             <lang locale="en_US" value="名称" />
+            <lang locale="zh_CN" value="单据名称" />
             <lang locale="zh_HK" value="單據名稱" />
             <lang locale="zh_TW" value="單據名稱" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contName].properties.property[boundLabelUnderline].value">
-            <lang locale="zh_CN" value="true" />
             <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contNumber].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contNumber].properties.property[boundLabelLength].value">
-            <lang locale="zh_CN" value="100" />
             <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
             <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contNumber].properties.property[boundLabelText].value">
-            <lang locale="zh_CN" value="单据编码" />
             <lang locale="en_US" value="单据编号" />
+            <lang locale="zh_CN" value="单据编码" />
             <lang locale="zh_HK" value="單據編碼" />
             <lang locale="zh_TW" value="單據編碼" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contNumber].properties.property[boundLabelUnderline].value">
-            <lang locale="zh_CN" value="true" />
             <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contdfzb].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contdfzb].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contdfzb].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单方指标" />
+            <lang locale="zh_HK" value="單方指標" />
+            <lang locale="zh_TW" value="單方指標" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contdfzb].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[contdfzb].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[ctnEntrys].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[ctnItems].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[ctnItems].properties.property[title].value">
-            <lang locale="zh_CN" value="申请事由" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="申请事由" />
             <lang locale="zh_HK" value="申請事由" />
             <lang locale="zh_TW" value="申請事由" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[kdtEntrys].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
@@ -2052,176 +2221,235 @@
             <lang locale="zh_TW" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol1&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;costAccountNumber&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;true&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;costAccountName&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;true&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol1&quot; /&gt;&lt;t:Column t:key=&quot;adjustType&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;2&quot; /&gt;&lt;t:Column t:key=&quot;workload&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;3&quot; /&gt;&lt;t:Column t:key=&quot;unit&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;4&quot; /&gt;&lt;t:Column t:key=&quot;price&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;5&quot; /&gt;&lt;t:Column t:key=&quot;adjustAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;true&quot; t:index=&quot;6&quot; /&gt;&lt;t:Column t:key=&quot;product&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;7&quot; /&gt;&lt;t:Column t:key=&quot;description&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;8&quot; /&gt;&lt;t:Column t:key=&quot;changeReason&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;9&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header1&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;成本科目編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;成本科目名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;調整類型&lt;/t:Cell&gt;&lt;t:Cell&gt;工作量&lt;/t:Cell&gt;&lt;t:Cell&gt;單位&lt;/t:Cell&gt;&lt;t:Cell&gt;單價&lt;/t:Cell&gt;&lt;t:Cell&gt;調整金額&lt;/t:Cell&gt;&lt;t:Cell&gt;歸屬產品&lt;/t:Cell&gt;&lt;t:Cell&gt;備註&lt;/t:Cell&gt;&lt;t:Cell&gt;變化原因&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt;" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[kdtItems].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[kdtItems].properties.property[formatXml].value">
-            <lang locale="zh_CN" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol1&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol2&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol3&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol5&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol6&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol7&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol9&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol10&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol11&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol12&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol13&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;costAccountNumber&quot; t:width=&quot;100&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;costAccountName&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol1&quot; /&gt;&lt;t:Column t:key=&quot;aimCost&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol2&quot; /&gt;&lt;t:Column t:key=&quot;occurredAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol3&quot; /&gt;&lt;t:Column t:key=&quot;overAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;contract&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol5&quot; /&gt;&lt;t:Column t:key=&quot;changeContract&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;6&quot; t:styleID=&quot;sCol6&quot; /&gt;&lt;t:Column t:key=&quot;settleContract&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;7&quot; t:styleID=&quot;sCol7&quot; /&gt;&lt;t:Column t:key=&quot;overDescription&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;8&quot; /&gt;&lt;t:Column t:key=&quot;contarctID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol9&quot; /&gt;&lt;t:Column t:key=&quot;conChangeID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol10&quot; /&gt;&lt;t:Column t:key=&quot;conSettleID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol11&quot; /&gt;&lt;t:Column t:key=&quot;isSettled&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol12&quot; /&gt;&lt;t:Column t:key=&quot;costAccountID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol13&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;成本科目编码&lt;/t:Cell&gt;&lt;t:Cell&gt;成本科目名称&lt;/t:Cell&gt;&lt;t:Cell&gt;目标成本&lt;/t:Cell&gt;&lt;t:Cell&gt;已发生成本&lt;/t:Cell&gt;&lt;t:Cell&gt;超支金额&lt;/t:Cell&gt;&lt;t:Cell&gt;已发生成本事项&lt;/t:Cell&gt;&lt;t:Cell&gt;cell7&lt;/t:Cell&gt;&lt;t:Cell&gt;cell8&lt;/t:Cell&gt;&lt;t:Cell&gt;超支说明&lt;/t:Cell&gt;&lt;t:Cell&gt;合同ID&lt;/t:Cell&gt;&lt;t:Cell&gt;变更单ID&lt;/t:Cell&gt;&lt;t:Cell&gt;结算单ID&lt;/t:Cell&gt;&lt;t:Cell&gt;是否已结算&lt;/t:Cell&gt;&lt;t:Cell&gt;成本科目ID&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;t:Row t:name=&quot;header2&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;cell1&lt;/t:Cell&gt;&lt;t:Cell&gt;cell2&lt;/t:Cell&gt;&lt;t:Cell&gt;cell3&lt;/t:Cell&gt;&lt;t:Cell&gt;cell7&lt;/t:Cell&gt;&lt;t:Cell&gt;cell8&lt;/t:Cell&gt;&lt;t:Cell&gt;合同&lt;/t:Cell&gt;&lt;t:Cell&gt;变更&lt;/t:Cell&gt;&lt;t:Cell&gt;结算&lt;/t:Cell&gt;&lt;t:Cell&gt;cell9&lt;/t:Cell&gt;&lt;t:Cell&gt;cell10&lt;/t:Cell&gt;&lt;t:Cell&gt;cell11&lt;/t:Cell&gt;&lt;t:Cell&gt;cell12&lt;/t:Cell&gt;&lt;t:Cell&gt;cell13&lt;/t:Cell&gt;&lt;t:Cell&gt;cell14&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;0&quot; t:bottom=&quot;1&quot; t:right=&quot;0&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;1&quot; t:bottom=&quot;1&quot; t:right=&quot;1&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;2&quot; t:bottom=&quot;1&quot; t:right=&quot;2&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;3&quot; t:bottom=&quot;1&quot; t:right=&quot;3&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;4&quot; t:bottom=&quot;1&quot; t:right=&quot;4&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;5&quot; t:bottom=&quot;0&quot; t:right=&quot;7&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;8&quot; t:bottom=&quot;1&quot; t:right=&quot;8&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;9&quot; t:bottom=&quot;1&quot; t:right=&quot;9&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;10&quot; t:bottom=&quot;1&quot; t:right=&quot;10&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;11&quot; t:bottom=&quot;1&quot; t:right=&quot;11&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;12&quot; t:bottom=&quot;1&quot; t:right=&quot;12&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;13&quot; t:bottom=&quot;1&quot; t:right=&quot;13&quot; /&gt;&lt;/t:Head&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
             <lang locale="en_US" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles /&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;workload&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;price&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;adjustAmt&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;t:Column t:key=&quot;description&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;workload&lt;/t:Cell&gt;&lt;t:Cell&gt;price&lt;/t:Cell&gt;&lt;t:Cell&gt;adjustAmt&lt;/t:Cell&gt;&lt;t:Cell&gt;description&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head /&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
+            <lang locale="zh_CN" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol1&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol2&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol3&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol5&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol6&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol7&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol9&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol10&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol11&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol12&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol13&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;costAccountNumber&quot; t:width=&quot;100&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;costAccountName&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol1&quot; /&gt;&lt;t:Column t:key=&quot;aimCost&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol2&quot; /&gt;&lt;t:Column t:key=&quot;occurredAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol3&quot; /&gt;&lt;t:Column t:key=&quot;overAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;contract&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol5&quot; /&gt;&lt;t:Column t:key=&quot;changeContract&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;6&quot; t:styleID=&quot;sCol6&quot; /&gt;&lt;t:Column t:key=&quot;settleContract&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;7&quot; t:styleID=&quot;sCol7&quot; /&gt;&lt;t:Column t:key=&quot;overDescription&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;8&quot; /&gt;&lt;t:Column t:key=&quot;contarctID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol9&quot; /&gt;&lt;t:Column t:key=&quot;conChangeID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol10&quot; /&gt;&lt;t:Column t:key=&quot;conSettleID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol11&quot; /&gt;&lt;t:Column t:key=&quot;isSettled&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol12&quot; /&gt;&lt;t:Column t:key=&quot;costAccountID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol13&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;成本科目编码&lt;/t:Cell&gt;&lt;t:Cell&gt;成本科目名称&lt;/t:Cell&gt;&lt;t:Cell&gt;目标成本&lt;/t:Cell&gt;&lt;t:Cell&gt;已发生成本&lt;/t:Cell&gt;&lt;t:Cell&gt;超支金额&lt;/t:Cell&gt;&lt;t:Cell&gt;已发生成本事项&lt;/t:Cell&gt;&lt;t:Cell&gt;cell7&lt;/t:Cell&gt;&lt;t:Cell&gt;cell8&lt;/t:Cell&gt;&lt;t:Cell&gt;超支说明&lt;/t:Cell&gt;&lt;t:Cell&gt;合同ID&lt;/t:Cell&gt;&lt;t:Cell&gt;变更单ID&lt;/t:Cell&gt;&lt;t:Cell&gt;结算单ID&lt;/t:Cell&gt;&lt;t:Cell&gt;是否已结算&lt;/t:Cell&gt;&lt;t:Cell&gt;成本科目ID&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;t:Row t:name=&quot;header2&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;cell1&lt;/t:Cell&gt;&lt;t:Cell&gt;cell2&lt;/t:Cell&gt;&lt;t:Cell&gt;cell3&lt;/t:Cell&gt;&lt;t:Cell&gt;cell7&lt;/t:Cell&gt;&lt;t:Cell&gt;cell8&lt;/t:Cell&gt;&lt;t:Cell&gt;合同&lt;/t:Cell&gt;&lt;t:Cell&gt;变更&lt;/t:Cell&gt;&lt;t:Cell&gt;结算&lt;/t:Cell&gt;&lt;t:Cell&gt;cell9&lt;/t:Cell&gt;&lt;t:Cell&gt;cell10&lt;/t:Cell&gt;&lt;t:Cell&gt;cell11&lt;/t:Cell&gt;&lt;t:Cell&gt;cell12&lt;/t:Cell&gt;&lt;t:Cell&gt;cell13&lt;/t:Cell&gt;&lt;t:Cell&gt;cell14&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;0&quot; t:bottom=&quot;1&quot; t:right=&quot;0&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;1&quot; t:bottom=&quot;1&quot; t:right=&quot;1&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;2&quot; t:bottom=&quot;1&quot; t:right=&quot;2&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;3&quot; t:bottom=&quot;1&quot; t:right=&quot;3&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;4&quot; t:bottom=&quot;1&quot; t:right=&quot;4&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;5&quot; t:bottom=&quot;0&quot; t:right=&quot;7&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;8&quot; t:bottom=&quot;1&quot; t:right=&quot;8&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;9&quot; t:bottom=&quot;1&quot; t:right=&quot;9&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;10&quot; t:bottom=&quot;1&quot; t:right=&quot;10&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;11&quot; t:bottom=&quot;1&quot; t:right=&quot;11&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;12&quot; t:bottom=&quot;1&quot; t:right=&quot;12&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;13&quot; t:bottom=&quot;1&quot; t:right=&quot;13&quot; /&gt;&lt;/t:Head&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
             <lang locale="zh_HK" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol1&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol2&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol3&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol5&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol6&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol7&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol9&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol10&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol11&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol12&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol13&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;costAccountNumber&quot; t:width=&quot;100&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;costAccountName&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol1&quot; /&gt;&lt;t:Column t:key=&quot;aimCost&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol2&quot; /&gt;&lt;t:Column t:key=&quot;occurredAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol3&quot; /&gt;&lt;t:Column t:key=&quot;overAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;contract&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol5&quot; /&gt;&lt;t:Column t:key=&quot;changeContract&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;6&quot; t:styleID=&quot;sCol6&quot; /&gt;&lt;t:Column t:key=&quot;settleContract&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;7&quot; t:styleID=&quot;sCol7&quot; /&gt;&lt;t:Column t:key=&quot;overDescription&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;8&quot; /&gt;&lt;t:Column t:key=&quot;contarctID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol9&quot; /&gt;&lt;t:Column t:key=&quot;conChangeID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol10&quot; /&gt;&lt;t:Column t:key=&quot;conSettleID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol11&quot; /&gt;&lt;t:Column t:key=&quot;isSettled&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol12&quot; /&gt;&lt;t:Column t:key=&quot;costAccountID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol13&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;成本科目編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;成本科目名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;目標成本&lt;/t:Cell&gt;&lt;t:Cell&gt;已發生成本&lt;/t:Cell&gt;&lt;t:Cell&gt;超支金額&lt;/t:Cell&gt;&lt;t:Cell&gt;已發生成本事項&lt;/t:Cell&gt;&lt;t:Cell&gt;cell7&lt;/t:Cell&gt;&lt;t:Cell&gt;cell8&lt;/t:Cell&gt;&lt;t:Cell&gt;超支說明&lt;/t:Cell&gt;&lt;t:Cell&gt;合同ID&lt;/t:Cell&gt;&lt;t:Cell&gt;變更單ID&lt;/t:Cell&gt;&lt;t:Cell&gt;結算單ID&lt;/t:Cell&gt;&lt;t:Cell&gt;是否已結算&lt;/t:Cell&gt;&lt;t:Cell&gt;成本科目ID&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;t:Row t:name=&quot;header2&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;cell1&lt;/t:Cell&gt;&lt;t:Cell&gt;cell2&lt;/t:Cell&gt;&lt;t:Cell&gt;cell3&lt;/t:Cell&gt;&lt;t:Cell&gt;cell7&lt;/t:Cell&gt;&lt;t:Cell&gt;cell8&lt;/t:Cell&gt;&lt;t:Cell&gt;合同&lt;/t:Cell&gt;&lt;t:Cell&gt;變更&lt;/t:Cell&gt;&lt;t:Cell&gt;結算&lt;/t:Cell&gt;&lt;t:Cell&gt;cell9&lt;/t:Cell&gt;&lt;t:Cell&gt;cell10&lt;/t:Cell&gt;&lt;t:Cell&gt;cell11&lt;/t:Cell&gt;&lt;t:Cell&gt;cell12&lt;/t:Cell&gt;&lt;t:Cell&gt;cell13&lt;/t:Cell&gt;&lt;t:Cell&gt;cell14&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;0&quot; t:bottom=&quot;1&quot; t:right=&quot;0&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;1&quot; t:bottom=&quot;1&quot; t:right=&quot;1&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;2&quot; t:bottom=&quot;1&quot; t:right=&quot;2&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;3&quot; t:bottom=&quot;1&quot; t:right=&quot;3&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;4&quot; t:bottom=&quot;1&quot; t:right=&quot;4&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;5&quot; t:bottom=&quot;0&quot; t:right=&quot;7&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;8&quot; t:bottom=&quot;1&quot; t:right=&quot;8&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;9&quot; t:bottom=&quot;1&quot; t:right=&quot;9&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;10&quot; t:bottom=&quot;1&quot; t:right=&quot;10&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;11&quot; t:bottom=&quot;1&quot; t:right=&quot;11&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;12&quot; t:bottom=&quot;1&quot; t:right=&quot;12&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;13&quot; t:bottom=&quot;1&quot; t:right=&quot;13&quot; /&gt;&lt;/t:Head&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
             <lang locale="zh_TW" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;DocRoot xmlns:c=&quot;http://www.kingdee.com/Common&quot; xmlns:f=&quot;http://www.kingdee.com/Form&quot; xmlns:t=&quot;http://www.kingdee.com/Table&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.kingdee.com/KDF KDFSchema.xsd&quot; version=&quot;0.0&quot;&gt;&lt;Styles&gt;&lt;c:Style id=&quot;sCol0&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol1&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol2&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol3&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol4&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol5&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol6&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol7&quot;&gt;&lt;c:Protection locked=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol9&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol10&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol11&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol12&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;c:Style id=&quot;sCol13&quot;&gt;&lt;c:Protection hidden=&quot;true&quot; /&gt;&lt;/c:Style&gt;&lt;/Styles&gt;&lt;Table id=&quot;KDTable&quot;&gt;&lt;t:Sheet name=&quot;sheet1&quot;&gt;&lt;t:Table t:selectMode=&quot;15&quot; t:mergeMode=&quot;0&quot; t:dataRequestMode=&quot;0&quot; t:pageRowCount=&quot;100&quot;&gt;&lt;t:ColumnGroup&gt;&lt;t:Column t:key=&quot;costAccountNumber&quot; t:width=&quot;100&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol0&quot; /&gt;&lt;t:Column t:key=&quot;costAccountName&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol1&quot; /&gt;&lt;t:Column t:key=&quot;aimCost&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol2&quot; /&gt;&lt;t:Column t:key=&quot;occurredAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol3&quot; /&gt;&lt;t:Column t:key=&quot;overAmount&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol4&quot; /&gt;&lt;t:Column t:key=&quot;contract&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol5&quot; /&gt;&lt;t:Column t:key=&quot;changeContract&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;6&quot; t:styleID=&quot;sCol6&quot; /&gt;&lt;t:Column t:key=&quot;settleContract&quot; t:width=&quot;150&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;7&quot; t:styleID=&quot;sCol7&quot; /&gt;&lt;t:Column t:key=&quot;overDescription&quot; t:width=&quot;250&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;8&quot; /&gt;&lt;t:Column t:key=&quot;contarctID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol9&quot; /&gt;&lt;t:Column t:key=&quot;conChangeID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol10&quot; /&gt;&lt;t:Column t:key=&quot;conSettleID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol11&quot; /&gt;&lt;t:Column t:key=&quot;isSettled&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol12&quot; /&gt;&lt;t:Column t:key=&quot;costAccountID&quot; t:width=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot; t:moveable=&quot;true&quot; t:group=&quot;false&quot; t:required=&quot;false&quot; t:index=&quot;-1&quot; t:styleID=&quot;sCol13&quot; /&gt;&lt;/t:ColumnGroup&gt;&lt;t:Head&gt;&lt;t:Row t:name=&quot;header&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;成本科目編碼&lt;/t:Cell&gt;&lt;t:Cell&gt;成本科目名稱&lt;/t:Cell&gt;&lt;t:Cell&gt;目標成本&lt;/t:Cell&gt;&lt;t:Cell&gt;已發生成本&lt;/t:Cell&gt;&lt;t:Cell&gt;超支金額&lt;/t:Cell&gt;&lt;t:Cell&gt;已發生成本事項&lt;/t:Cell&gt;&lt;t:Cell&gt;cell7&lt;/t:Cell&gt;&lt;t:Cell&gt;cell8&lt;/t:Cell&gt;&lt;t:Cell&gt;超支說明&lt;/t:Cell&gt;&lt;t:Cell&gt;合同ID&lt;/t:Cell&gt;&lt;t:Cell&gt;變更單ID&lt;/t:Cell&gt;&lt;t:Cell&gt;結算單ID&lt;/t:Cell&gt;&lt;t:Cell&gt;是否已結算&lt;/t:Cell&gt;&lt;t:Cell&gt;成本科目ID&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;t:Row t:name=&quot;header2&quot; t:height=&quot;-1&quot; t:mergeable=&quot;true&quot; t:resizeable=&quot;true&quot;&gt;&lt;t:Cell&gt;cell1&lt;/t:Cell&gt;&lt;t:Cell&gt;cell2&lt;/t:Cell&gt;&lt;t:Cell&gt;cell3&lt;/t:Cell&gt;&lt;t:Cell&gt;cell7&lt;/t:Cell&gt;&lt;t:Cell&gt;cell8&lt;/t:Cell&gt;&lt;t:Cell&gt;合同&lt;/t:Cell&gt;&lt;t:Cell&gt;變更&lt;/t:Cell&gt;&lt;t:Cell&gt;結算&lt;/t:Cell&gt;&lt;t:Cell&gt;cell9&lt;/t:Cell&gt;&lt;t:Cell&gt;cell10&lt;/t:Cell&gt;&lt;t:Cell&gt;cell11&lt;/t:Cell&gt;&lt;t:Cell&gt;cell12&lt;/t:Cell&gt;&lt;t:Cell&gt;cell13&lt;/t:Cell&gt;&lt;t:Cell&gt;cell14&lt;/t:Cell&gt;&lt;/t:Row&gt;&lt;/t:Head&gt;&lt;/t:Table&gt;&lt;t:SheetOptions&gt;&lt;t:MergeBlocks&gt;&lt;t:Head&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;0&quot; t:bottom=&quot;1&quot; t:right=&quot;0&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;1&quot; t:bottom=&quot;1&quot; t:right=&quot;1&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;2&quot; t:bottom=&quot;1&quot; t:right=&quot;2&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;3&quot; t:bottom=&quot;1&quot; t:right=&quot;3&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;4&quot; t:bottom=&quot;1&quot; t:right=&quot;4&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;5&quot; t:bottom=&quot;0&quot; t:right=&quot;7&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;8&quot; t:bottom=&quot;1&quot; t:right=&quot;8&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;9&quot; t:bottom=&quot;1&quot; t:right=&quot;9&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;10&quot; t:bottom=&quot;1&quot; t:right=&quot;10&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;11&quot; t:bottom=&quot;1&quot; t:right=&quot;11&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;12&quot; t:bottom=&quot;1&quot; t:right=&quot;12&quot; /&gt;&lt;t:Block t:top=&quot;0&quot; t:left=&quot;13&quot; t:bottom=&quot;1&quot; t:right=&quot;13&quot; /&gt;&lt;/t:Head&gt;&lt;/t:MergeBlocks&gt;&lt;/t:SheetOptions&gt;&lt;/t:Sheet&gt;&lt;/Table&gt;&lt;/DocRoot&gt; " />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[pkAuditTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="审批时间" />
+            <lang locale="zh_HK" value="審批時間" />
+            <lang locale="zh_TW" value="審批時間" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[pkAuditTime].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[pkCreateTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[pkCreateTime].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtAuditor].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtAuditor].properties.property[commitFormat].value">
-            <lang locale="zh_CN" value="$name$" />
             <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
             <lang locale="zh_HK" value="$name$" />
             <lang locale="zh_TW" value="$name$" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtAuditor].properties.property[displayFormat].value">
-            <lang locale="zh_CN" value="$name$" />
             <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
             <lang locale="zh_HK" value="$name$" />
             <lang locale="zh_TW" value="$name$" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtAuditor].properties.property[editFormat].value">
-            <lang locale="zh_CN" value="$name$" />
             <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
             <lang locale="zh_HK" value="$name$" />
             <lang locale="zh_TW" value="$name$" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtAuditor].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtCreator].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtCreator].properties.property[commitFormat].value">
-            <lang locale="zh_CN" value="$name$" />
             <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
             <lang locale="zh_HK" value="$name$" />
             <lang locale="zh_TW" value="$name$" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtCreator].properties.property[displayFormat].value">
-            <lang locale="zh_CN" value="$name$" />
             <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
             <lang locale="zh_HK" value="$name$" />
             <lang locale="zh_TW" value="$name$" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtCreator].properties.property[editFormat].value">
-            <lang locale="zh_CN" value="$name$" />
             <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
             <lang locale="zh_HK" value="$name$" />
             <lang locale="zh_TW" value="$name$" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtCreator].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtCurProject].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtCurProject].properties.property[commitFormat].value">
-            <lang locale="zh_CN" value="$name$" />
             <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
             <lang locale="zh_HK" value="$name$" />
             <lang locale="zh_TW" value="$name$" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtCurProject].properties.property[displayFormat].value">
-            <lang locale="zh_CN" value="$name$" />
             <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
             <lang locale="zh_HK" value="$name$" />
             <lang locale="zh_TW" value="$name$" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtCurProject].properties.property[editFormat].value">
-            <lang locale="zh_CN" value="$name$" />
             <lang locale="en_US" value="$name$" />
+            <lang locale="zh_CN" value="$name$" />
             <lang locale="zh_HK" value="$name$" />
             <lang locale="zh_TW" value="$name$" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[prmtCurProject].properties.property[enabled].value">
-            <lang locale="zh_CN" value="false" />
             <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtName].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtName].properties.property[maxLength].value">
-            <lang locale="zh_CN" value="80" />
             <lang locale="en_US" value="80" />
+            <lang locale="zh_CN" value="80" />
             <lang locale="zh_HK" value="80" />
             <lang locale="zh_TW" value="80" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtName].properties.property[required].value">
-            <lang locale="zh_CN" value="true" />
             <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtNumber].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtNumber].properties.property[maxLength].value">
-            <lang locale="zh_CN" value="80" />
             <lang locale="en_US" value="80" />
+            <lang locale="zh_CN" value="80" />
             <lang locale="zh_HK" value="80" />
             <lang locale="zh_TW" value="80" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtNumber].properties.property[required].value">
-            <lang locale="zh_CN" value="true" />
             <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="金额" />
+            <lang locale="zh_HK" value="金額" />
+            <lang locale="zh_TW" value="金額" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].extendedProperty.requiredPrompt">
+            <lang locale="en_US" value="金额" />
+            <lang locale="zh_CN" value="金额" />
+            <lang locale="zh_TW" value="金额" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[dataType].value">
+            <lang locale="en_US" value="1" />
+            <lang locale="zh_CN" value="1" />
+            <lang locale="zh_HK" value="1" />
+            <lang locale="zh_TW" value="1" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[maximumValue].value">
+            <lang locale="en_US" value="&quot;1.0E18&quot;" />
+            <lang locale="zh_CN" value="&quot;1.0E18&quot;" />
+            <lang locale="zh_HK" value="&quot;1.0E18&quot;" />
+            <lang locale="zh_TW" value="&quot;1.0E18&quot;" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[minimumValue].value">
+            <lang locale="en_US" value="&quot;-1.0E18&quot;" />
+            <lang locale="zh_CN" value="&quot;-1.0E18&quot;" />
+            <lang locale="zh_HK" value="&quot;-1.0E18&quot;" />
+            <lang locale="zh_TW" value="&quot;-1.0E18&quot;" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[precision].value">
+            <lang locale="en_US" value="2" />
+            <lang locale="zh_CN" value="2" />
+            <lang locale="zh_HK" value="2" />
+            <lang locale="zh_TW" value="2" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[required].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[supportedEmpty].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].components.component[txtdfzb].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].description">
-            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="zh_HK" value="目標成本調整單" />
             <lang locale="zh_TW" value="目標成本調整單" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI].title">
-            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="zh_HK" value="目標成本調整單" />
             <lang locale="zh_TW" value="目標成本調整單" />
         </rs>

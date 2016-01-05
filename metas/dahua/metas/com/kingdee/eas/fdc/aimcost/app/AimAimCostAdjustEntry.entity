@@ -36,6 +36,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>exists</name>
@@ -61,6 +62,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>exists</name>
@@ -86,6 +88,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>getValue</name>
@@ -111,6 +114,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>getValue</name>
@@ -145,6 +149,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>getValue</name>
@@ -170,6 +175,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>addnew</name>
@@ -195,6 +201,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>addnew</name>
@@ -229,6 +236,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>update</name>
@@ -263,6 +271,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>updatePartial</name>
@@ -297,6 +306,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>updateBigObject</name>
@@ -331,6 +341,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>delete</name>
@@ -356,6 +367,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>getPKList</name>
@@ -370,6 +382,7 @@
             <transactionAttribute>Supports</transactionAttribute>
             <userDefined>false</userDefined>
             <userDefinedLogic />
+            <configured>false</configured>
         </method>
         <method>
             <name>getPKList</name>
@@ -395,6 +408,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>getPKList</name>
@@ -429,6 +443,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>getCollection</name>
@@ -443,6 +458,7 @@
             <transactionAttribute>Supports</transactionAttribute>
             <userDefined>false</userDefined>
             <userDefinedLogic />
+            <configured>false</configured>
         </method>
         <method>
             <name>getCollection</name>
@@ -468,6 +484,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>getCollection</name>
@@ -493,6 +510,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>delete</name>
@@ -518,6 +536,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>delete</name>
@@ -543,6 +562,7 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
         <method>
             <name>delete</name>
@@ -568,10 +588,11 @@
                     <userDefined>false</userDefined>
                 </parameter>
             </parameters>
+            <configured>false</configured>
         </method>
     </methods>
     <isAbstract>false</isAbstract>
-    <bizUnitPK />
+    <bizUnitPK>com.kingdee.eas.fdc.aimcost.AimAimCostAdjust</bizUnitPK>
     <baseEntity>
         <key name="package" value="com.kingdee.eas.framework.app" />
         <key name="name" value="BillEntryBase" />
@@ -667,7 +688,7 @@
             <isNullable>false</isNullable>
             <formula />
             <length>255</length>
-            <precision>0</precision>
+            <precision>255</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[description].defaultValue</defaultValue>
             <displayFormat />
@@ -742,7 +763,7 @@
             <isMultilingual>false</isMultilingual>
             <isNullable>false</isNullable>
             <formula />
-            <length>80</length>
+            <length>255</length>
             <precision>0</precision>
             <decimalDigits>0</decimalDigits>
             <defaultValue>entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[changeReason].defaultValue</defaultValue>
@@ -774,502 +795,517 @@
     </defaultView>
     <resource>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].alias">
-            <lang locale="zh_CN" value="目标成本调理单分录" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="目標成本調理單分錄" />
-            <lang locale="zh_TW" value="目標成本調理單分錄" />
+            <lang locale="zh_CN" value="分录" />
+            <lang locale="zh_HK" value="分錄" />
+            <lang locale="zh_TW" value="分錄" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].defaultViewalias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].defaultViewdescription">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].description">
-            <lang locale="zh_CN" value="目标成本调理单分录" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="目標成本調理單分錄" />
-            <lang locale="zh_TW" value="目標成本調理單分錄" />
+            <lang locale="zh_CN" value="分录" />
+            <lang locale="zh_HK" value="分錄" />
+            <lang locale="zh_TW" value="分錄" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].logicalKey[id].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].logicalKey[id].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[addnew].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[addnew].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[addnew].parameters.parameter[model].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[addnew].parameters.parameter[model].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[addnew].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[addnew].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[delete].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[delete].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[delete].parameters.parameter[arrayPK].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[delete].parameters.parameter[arrayPK].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[delete].parameters.parameter[filter].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[delete].parameters.parameter[filter].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[delete].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[delete].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[delete].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[delete].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[exists].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[exists].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[exists].parameters.parameter[filter].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[exists].parameters.parameter[filter].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[exists].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[exists].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[exists].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[exists].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getCollection].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getCollection].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getCollection].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getCollection].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getCollection].parameters.parameter[view].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getCollection].parameters.parameter[view].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getPKList].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getPKList].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getPKList].parameters.parameter[filter].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getPKList].parameters.parameter[filter].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getPKList].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getPKList].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getPKList].parameters.parameter[sorter].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getPKList].parameters.parameter[sorter].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getValue].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getValue].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getValue].parameters.parameter[oql].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getValue].parameters.parameter[oql].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getValue].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getValue].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getValue].parameters.parameter[selector].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[getValue].parameters.parameter[selector].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[updateBigObject].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[updateBigObject].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[updateBigObject].parameters.parameter[model].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[updateBigObject].parameters.parameter[model].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[updateBigObject].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[updateBigObject].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[updatePartial].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[updatePartial].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[updatePartial].parameters.parameter[model].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[updatePartial].parameters.parameter[model].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[updatePartial].parameters.parameter[selector].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[updatePartial].parameters.parameter[selector].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[update].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[update].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[update].parameters.parameter[model].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[update].parameters.parameter[model].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[update].parameters.parameter[pk].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].methods.method[update].parameters.parameter[pk].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.linkProperty[adjustType].alias">
-            <lang locale="zh_CN" value="调整类型" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整类型" />
             <lang locale="zh_HK" value="調整類型" />
             <lang locale="zh_TW" value="調整類型" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.linkProperty[adjustType].description">
-            <lang locale="zh_CN" value="调整类型" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整类型" />
             <lang locale="zh_HK" value="調整類型" />
             <lang locale="zh_TW" value="調整類型" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.linkProperty[costAccount].alias">
-            <lang locale="zh_CN" value="成本科目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本科目" />
             <lang locale="zh_HK" value="成本科目" />
             <lang locale="zh_TW" value="成本科目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.linkProperty[costAccount].description">
-            <lang locale="zh_CN" value="成本科目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本科目" />
             <lang locale="zh_HK" value="成本科目" />
             <lang locale="zh_TW" value="成本科目" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.linkProperty[parent].alias">
-            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="zh_HK" value="目標成本調整單" />
             <lang locale="zh_TW" value="目標成本調整單" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.linkProperty[parent].description">
-            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="zh_HK" value="目標成本調整單" />
             <lang locale="zh_TW" value="目標成本調整單" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.linkProperty[product].alias">
-            <lang locale="zh_CN" value="归属产品" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="归属产品" />
             <lang locale="zh_HK" value="歸屬產品" />
             <lang locale="zh_TW" value="歸屬產品" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.linkProperty[product].description">
-            <lang locale="zh_CN" value="归属产品" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="归属产品" />
             <lang locale="zh_HK" value="歸屬產品" />
             <lang locale="zh_TW" value="歸屬產品" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.linkProperty[unit].alias">
-            <lang locale="zh_CN" value="单位" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单位" />
             <lang locale="zh_HK" value="單位" />
             <lang locale="zh_TW" value="單位" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.linkProperty[unit].description">
-            <lang locale="zh_CN" value="单位" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单位" />
             <lang locale="zh_HK" value="單位" />
             <lang locale="zh_TW" value="單位" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[adjustAmt].alias">
-            <lang locale="zh_CN" value="调整金额" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整金额" />
             <lang locale="zh_HK" value="調整金額" />
             <lang locale="zh_TW" value="調整金額" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[adjustAmt].defaultValue">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[adjustAmt].description">
-            <lang locale="zh_CN" value="调整金额" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="调整金额" />
             <lang locale="zh_HK" value="調整金額" />
             <lang locale="zh_TW" value="調整金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[adjustAmt].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[adjustAmt].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[adjustAmt].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[changeReason].alias">
             <lang locale="en_US" value="null" />
@@ -1289,59 +1325,119 @@
             <lang locale="zh_HK" value="變化原因" />
             <lang locale="zh_TW" value="變化原因" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[changeReason].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[changeReason].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[changeReason].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[description].alias">
-            <lang locale="zh_CN" value="备注" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
             <lang locale="zh_HK" value="備註" />
             <lang locale="zh_TW" value="備註" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[description].defaultValue">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[description].description">
-            <lang locale="zh_CN" value="备注" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="备注" />
             <lang locale="zh_HK" value="備註" />
             <lang locale="zh_TW" value="備註" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[description].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[description].extendedProperty.bizDataType">
+            <lang locale="en_US" value="STRING" />
+            <lang locale="zh_CN" value="STRING" />
+            <lang locale="zh_TW" value="STRING" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[description].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[price].alias">
-            <lang locale="zh_CN" value="单价" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单价" />
             <lang locale="zh_HK" value="單價" />
             <lang locale="zh_TW" value="單價" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[price].defaultValue">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[price].description">
-            <lang locale="zh_CN" value="单价" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单价" />
             <lang locale="zh_HK" value="單價" />
             <lang locale="zh_TW" value="單價" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[price].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[price].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[price].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[workload].alias">
-            <lang locale="zh_CN" value="工作量" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工作量" />
             <lang locale="zh_HK" value="工作量" />
             <lang locale="zh_TW" value="工作量" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[workload].defaultValue">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[workload].description">
-            <lang locale="zh_CN" value="工作量" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工作量" />
             <lang locale="zh_HK" value="工作量" />
             <lang locale="zh_TW" value="工作量" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[workload].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[workload].extendedProperty.bizDataType">
+            <lang locale="en_US" value="DECIMAL" />
+            <lang locale="zh_CN" value="DECIMAL" />
+            <lang locale="zh_TW" value="DECIMAL" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustEntry].properties.ownProperty[workload].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
         </rs>
     </resource>
 </entityObject>

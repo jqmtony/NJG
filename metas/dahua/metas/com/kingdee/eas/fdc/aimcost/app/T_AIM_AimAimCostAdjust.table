@@ -5,7 +5,7 @@
     <alias>dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].alias</alias>
     <description>dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].description</description>
     <userDefined>false</userDefined>
-    <bizUnitPK />
+    <bizUnitPK>com.kingdee.eas.fdc.aimcost.AimAimCostAdjust</bizUnitPK>
     <columns>
         <column>
             <name>FCurProjectID</name>
@@ -343,6 +343,20 @@
             <scale>0</scale>
             <precision>44</precision>
         </column>
+        <column>
+            <name>CFBIMUDF0031</name>
+            <alias>dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[CFBIMUDF0031].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[CFBIMUDF0031].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>28</length>
+            <scale>10</scale>
+            <precision>28</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_AIM_CostAdjust</name>
@@ -359,295 +373,313 @@
     </primaryKey>
     <resource>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].alias">
-            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="zh_HK" value="目標成本調整單" />
             <lang locale="zh_TW" value="目標成本調整單" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FAmount].alias">
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
+        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[CFBIMUDF0031].alias">
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单方指标" />
+            <lang locale="zh_HK" value="單方指標" />
+            <lang locale="zh_TW" value="單方指標" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[CFBIMUDF0031].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单方指标" />
+            <lang locale="zh_HK" value="單方指標" />
+            <lang locale="zh_TW" value="單方指標" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本位币金额" />
+            <lang locale="zh_HK" value="本位幣金額" />
+            <lang locale="zh_TW" value="本位幣金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FAmount].description">
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="本位币金额" />
+            <lang locale="zh_HK" value="本位幣金額" />
+            <lang locale="zh_TW" value="本位幣金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FAuditTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="审批时间" />
+            <lang locale="zh_HK" value="審批時間" />
+            <lang locale="zh_TW" value="審批時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FAuditTime].description">
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审批时间" />
+            <lang locale="zh_HK" value="審批時間" />
+            <lang locale="zh_TW" value="審批時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FAuditorID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="审核人" />
+            <lang locale="zh_HK" value="審核人" />
+            <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FAuditorID].description">
-            <lang locale="zh_CN" value="审核人" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="审核人" />
             <lang locale="zh_HK" value="審核人" />
             <lang locale="zh_TW" value="審核人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FBizDate].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="业务日期" />
+            <lang locale="zh_HK" value="業務日期" />
+            <lang locale="zh_TW" value="業務日期" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FBizDate].description">
-            <lang locale="zh_CN" value="业务日期" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="业务日期" />
             <lang locale="zh_HK" value="業務日期" />
             <lang locale="zh_TW" value="業務日期" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FBookedDate].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="业务记录日期" />
+            <lang locale="zh_HK" value="業務記錄日期" />
+            <lang locale="zh_TW" value="業務記錄日期" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FBookedDate].description">
-            <lang locale="zh_CN" value="该日期用来计算所在的期间" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="该日期用来计算所在的期间" />
             <lang locale="zh_HK" value="該日期用來計算所在的期間" />
             <lang locale="zh_TW" value="該日期用來計算所在的期間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FControlUnitID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
+            <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FControlUnitID].description">
-            <lang locale="zh_CN" value="控制单元" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="控制单元" />
             <lang locale="zh_HK" value="控制單元" />
             <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FCreateTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FCreateTime].description">
-            <lang locale="zh_CN" value="创建时间" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
             <lang locale="zh_HK" value="創建時間" />
             <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FCreatorID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FCreatorID].description">
-            <lang locale="zh_CN" value="创建者" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="创建者" />
             <lang locale="zh_HK" value="創建者" />
             <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FCurProjectID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FCurProjectID].description">
-            <lang locale="zh_CN" value="工程项目" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
             <lang locale="zh_HK" value="工程項目" />
             <lang locale="zh_TW" value="工程項目" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FDescription].alias">
-            <lang locale="zh_CN" value="备注" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="備註" />
-            <lang locale="zh_TW" value="備註" />
+            <lang locale="zh_CN" value="参考信息" />
+            <lang locale="zh_HK" value="參考信息" />
+            <lang locale="zh_TW" value="參考信息" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FDescription].description">
-            <lang locale="zh_CN" value="备注" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="備註" />
-            <lang locale="zh_TW" value="備註" />
+            <lang locale="zh_CN" value="参考信息" />
+            <lang locale="zh_HK" value="參考信息" />
+            <lang locale="zh_TW" value="參考信息" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FHandlerID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="经手人" />
+            <lang locale="zh_HK" value="經手人" />
+            <lang locale="zh_TW" value="經手人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FHandlerID].description">
-            <lang locale="zh_CN" value="经手人" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="经手人" />
             <lang locale="zh_HK" value="經手人" />
             <lang locale="zh_TW" value="經手人" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FHasEffected].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="是否曾经生效" />
+            <lang locale="zh_HK" value="是否曾經生效" />
+            <lang locale="zh_TW" value="是否曾經生效" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FHasEffected].description">
-            <lang locale="zh_CN" value="是否曾经生效" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否曾经生效" />
             <lang locale="zh_HK" value="是否曾經生效" />
             <lang locale="zh_TW" value="是否曾經生效" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FIsRespite].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="是否暂缓" />
+            <lang locale="zh_HK" value="是否暫緩" />
+            <lang locale="zh_TW" value="是否暫緩" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FIsRespite].description">
-            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是否暂缓" />
             <lang locale="zh_HK" value="是否暫緩" />
             <lang locale="zh_TW" value="是否暫緩" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FLastUpdateTime].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FLastUpdateTime].description">
-            <lang locale="zh_CN" value="最后修改时间" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
             <lang locale="zh_HK" value="最後修改時間" />
             <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FLastUpdateUserID].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FLastUpdateUserID].description">
-            <lang locale="zh_CN" value="最后修改者" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
             <lang locale="zh_HK" value="最後修改者" />
             <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FName].alias">
-            <lang locale="zh_CN" value="单据名称" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="單據名稱" />
-            <lang locale="zh_TW" value="單據名稱" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FName].description">
-            <lang locale="zh_CN" value="单据名称" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="單據名稱" />
-            <lang locale="zh_TW" value="單據名稱" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FNumber].alias">
-            <lang locale="zh_CN" value="单据编码" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="單據編碼" />
-            <lang locale="zh_TW" value="單據編碼" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FNumber].description">
-            <lang locale="zh_CN" value="单据编码" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="單據編碼" />
-            <lang locale="zh_TW" value="單據編碼" />
+            <lang locale="zh_CN" value="单据编号" />
+            <lang locale="zh_HK" value="單據編號" />
+            <lang locale="zh_TW" value="單據編號" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FOrgUnitID].alias">
-            <lang locale="zh_CN" value="创建组织" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="創建組織" />
-            <lang locale="zh_TW" value="創建組織" />
+            <lang locale="zh_CN" value="组织" />
+            <lang locale="zh_HK" value="組織" />
+            <lang locale="zh_TW" value="組織" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FOrgUnitID].description">
-            <lang locale="zh_CN" value="创建组织" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="創建組織" />
-            <lang locale="zh_TW" value="創建組織" />
+            <lang locale="zh_CN" value="组织" />
+            <lang locale="zh_HK" value="組織" />
+            <lang locale="zh_TW" value="組織" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FOriginalAmount].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="原币金额" />
+            <lang locale="zh_HK" value="原幣金額" />
+            <lang locale="zh_TW" value="原幣金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FOriginalAmount].description">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="原币金额" />
+            <lang locale="zh_HK" value="原幣金額" />
+            <lang locale="zh_TW" value="原幣金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FPeriodId].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="期间" />
+            <lang locale="zh_HK" value="期間" />
+            <lang locale="zh_TW" value="期間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FPeriodId].description">
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="期间" />
+            <lang locale="zh_HK" value="期間" />
+            <lang locale="zh_TW" value="期間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FSourceBillID].alias">
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="原始单据ID" />
+            <lang locale="zh_HK" value="原始單據ID" />
+            <lang locale="zh_TW" value="原始單據ID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FSourceBillID].description">
-            <lang locale="zh_CN" value="原始单据ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="原始单据ID" />
             <lang locale="zh_HK" value="原始單據ID" />
             <lang locale="zh_TW" value="原始單據ID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FSourceFunction].alias">
-            <lang locale="zh_CN" value="" />
-            <lang locale="zh_TW" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="来源功能" />
+            <lang locale="zh_HK" value="來源功能" />
+            <lang locale="zh_TW" value="來源功能" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FSourceFunction].description">
-            <lang locale="zh_CN" value="来源功能" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="来源功能" />
             <lang locale="zh_HK" value="來源功能" />
             <lang locale="zh_TW" value="來源功能" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FState].alias">
-            <lang locale="zh_CN" value="单据状态" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="單據狀態" />
-            <lang locale="zh_TW" value="單據狀態" />
+            <lang locale="zh_CN" value="状态" />
+            <lang locale="zh_HK" value="狀態" />
+            <lang locale="zh_TW" value="狀態" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].columns.column[FState].description">
-            <lang locale="zh_CN" value="单据状态" />
             <lang locale="en_US" value="null" />
-            <lang locale="zh_HK" value="單據狀態" />
-            <lang locale="zh_TW" value="單據狀態" />
+            <lang locale="zh_CN" value="状态" />
+            <lang locale="zh_HK" value="狀態" />
+            <lang locale="zh_TW" value="狀態" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.aimcost.app.T_AIM_AimAimCostAdjust].description">
-            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="目标成本调整单" />
             <lang locale="zh_HK" value="目標成本調整單" />
             <lang locale="zh_TW" value="目標成本調整單" />
         </rs>
