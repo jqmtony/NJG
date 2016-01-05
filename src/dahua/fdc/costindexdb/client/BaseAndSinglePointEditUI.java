@@ -276,6 +276,9 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
     	            MsgBox.showInfo(EASResource.getString("com.kingdee.eas.framework.FrameWorkResource.Msg_NoneEntry"));
     	            return;
     	        }
+    	        if(MsgBox.OK != MsgBox.showConfirm2(BaseAndSinglePointEditUI.this, "确认删除当前数据？")) {
+    				return;
+    			}
     	        table.removeRow(top);
     		}else if("importSingleTemp".equals(type)){
     			//单项要素的模板导入
@@ -452,13 +455,15 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 					for(int i = 0; i < table.getRowCount3(); i++) {
 						if(FDCHelper.isEmpty(table.getCell(i,"beizhu").getValue()))
 							continue;
-						costInfo = ica.getCostAccountInfo(new ObjectUuidPK(((CostAccountInfo)table.getCell(i,"costAccount").getValue()).getId()),sic);
-						costLongNumber = costInfo.getLongNumber();
-						if(goalCostMap.containsKey(costLongNumber))
-							table.getCell(i,"pointValue").setValue(goalCostMap.get(costLongNumber));
-			    		else if(!costInfo.isIsLeaf()){
-			    			table.getCell(i,"pointValue").setValue(getUpLevelValue(costLongNumber,goalCostMap));
-			    		}
+						if("目标成本".equals(table.getCell(i,"pointName").getValue())){
+							costInfo = ica.getCostAccountInfo(new ObjectUuidPK(((CostAccountInfo)table.getCell(i,"costAccount").getValue()).getId()),sic);
+							costLongNumber = costInfo.getLongNumber();
+							if(goalCostMap.containsKey(costLongNumber))
+								table.getCell(i,"pointValue").setValue(goalCostMap.get(costLongNumber));
+							else if(!costInfo.isIsLeaf()){
+								table.getCell(i,"pointValue").setValue(getUpLevelValue(costLongNumber,goalCostMap));
+							}
+						}
 					}
 					MsgBox.showInfo("提取数据成功！");
 				} catch (BOSException e1) {

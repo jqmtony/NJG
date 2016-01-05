@@ -43,7 +43,6 @@ import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
-import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
@@ -63,13 +62,8 @@ import com.kingdee.eas.fdc.basedata.IFDCBill;
 import com.kingdee.eas.fdc.basedata.ProductTypeInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.contract.programming.client.CostAccountPromptBox;
-import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEcostCollection;
-import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEcostFactory;
-import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEcostInfo;
-import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEntryCollection;
-import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEntryFactory;
-import com.kingdee.eas.fdc.costindexdb.BaseAndSinglePointEntryInfo;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataCollection;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataEbaseUnitCollection;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEindexDataEbaseUnitInfo;
@@ -88,21 +82,17 @@ import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryCollection;
 import com.kingdee.eas.fdc.costindexdb.BuildPriceIndexEntryInfo;
 import com.kingdee.eas.fdc.costindexdb.ContractStationEnum;
 import com.kingdee.eas.fdc.costindexdb.ProjectStationEnum;
+import com.kingdee.eas.fdc.costindexdb.database.BuildNumberCollection;
+import com.kingdee.eas.fdc.costindexdb.database.BuildNumberFactory;
 import com.kingdee.eas.fdc.costindexdb.database.BuildNumberInfo;
 import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillCollection;
-import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryCollection;
-import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryDetailCollection;
-import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryDetailFactory;
-import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryDetailInfo;
-import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryFactory;
-import com.kingdee.eas.fdc.costindexdb.database.BuildSplitBillEntryInfo;
-import com.kingdee.eas.fdc.costindexdb.database.BuildSplitDataType;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexCollection;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexEntryCollection;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexEntryInfo;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexFactory;
 import com.kingdee.eas.fdc.costindexdb.database.CostAccountPriceIndexInfo;
 import com.kingdee.eas.fdc.costindexdb.database.FieldType;
+import com.kingdee.eas.fdc.costindexdb.database.IBuildNumber;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
@@ -121,9 +111,9 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     //成本科目与造价指标关联表
     private CostAccountPriceIndexCollection capcoll = null;
     //基本要素
-    private BaseAndSinglePointEntryCollection bsentrys = null;
+//    private BaseAndSinglePointEntryCollection bsentrys = null;
     //单项要素
-    private BaseAndSinglePointEcostCollection bsecosts = null;
+//    private BaseAndSinglePointEcostCollection bsecosts = null;
     //楼号拆分单
     BuildSplitBillCollection bscoll = null;
     //用于保存科目与页签的关系，在删除页签时候用到
@@ -237,8 +227,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 		builder.appendSql("select sbill.CFProjectNameID,costAcc.FlongNumber,entry.CFPointName,details.CFBuildNumberID,details.CFDataValue from CT_DAT_BuildSplitBillDetails details ");
 		builder.appendSql("left join CT_DAT_BuildSplitBillEntry entry on details.FParentID=entry.fid left join CT_DAT_BuildSplitBill sbill on entry.FParentID=sbill.fid ");
 //		builder.appendSql("left join CT_DAT_BuildNumber buildNum on details.CFBuildNumberID=buildNum.fid ");
-		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where details.CFModelBuild=1 ");
-		builder.appendSql("and sbill.CFDataType in ('singlePoint','basePoint') and sbill.CFProjectNameID in ("+idString+")");
+		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");//details.CFModelBuild=1
+		builder.appendSql("sbill.CFDataType in ('singlePoint','basePoint') and sbill.CFProjectNameID in ("+idString+")");
 		IRowSet rs = builder.executeQuery();
 		while(rs.next()){
 			String caLongNumber = "";
@@ -314,8 +304,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     	FDCSQLBuilder builder = new FDCSQLBuilder();
 		builder.appendSql("select sbill.CFProjectNameID,costAcc.FlongNumber,entry.CFPointName,details.CFBuildNumberID,details.CFDataValue from CT_DAT_BuildSplitBillDetails details ");
 		builder.appendSql("left join CT_DAT_BuildSplitBillEntry entry on details.FParentID=entry.fid left join CT_DAT_BuildSplitBill sbill on entry.FParentID=sbill.fid ");
-		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where details.CFModelBuild=1 ");
-		builder.appendSql("and sbill.CFDataType='contract' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
+		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");//details.CFModelBuild=1
+		builder.appendSql("sbill.CFDataType='contract' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
 		IRowSet rs = builder.executeQuery();
 		while(rs.next()){
 			String caLongNumber = "";
@@ -386,8 +376,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     	FDCSQLBuilder builder = new FDCSQLBuilder();
 		builder.appendSql("select sbill.CFProjectNameID,costAcc.FlongNumber,entry.CFPointName,details.CFBuildNumberID,details.CFDataValue from CT_DAT_BuildSplitBillDetails details ");
 		builder.appendSql("left join CT_DAT_BuildSplitBillEntry entry on details.FParentID=entry.fid left join CT_DAT_BuildSplitBill sbill on entry.FParentID=sbill.fid ");
-		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where details.CFModelBuild=1 ");
-		builder.appendSql("and sbill.CFDataType='professPoint' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
+		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");//details.CFModelBuild=1
+		builder.appendSql("sbill.CFDataType='professPoint' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
 		IRowSet rs = builder.executeQuery();
 		while(rs.next()){
 			String caLongNumber = "";
@@ -530,7 +520,7 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 		
 	}
 	
-	public void initIndexTable(CostAccountInfo cainfo, String projectId){
+	public void initIndexTable(CostAccountInfo cainfo, String projectPcIds){
 		CostAccountPriceIndexInfo capinfo = null;
 		List<CostAccountPriceIndexInfo> entrycolls = new ArrayList<CostAccountPriceIndexInfo>();
 		for(int i = capcoll.size()-1; i >=0; i--) {
@@ -564,15 +554,16 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 		IRow row = null;
 		String key = null;
 		String[] tabNames = new String[entrycolls.size()];
+		String realPorjectId = projectPcIds.substring(0,projectPcIds.indexOf("@"));
 		for (int i = 0; i < entrycolls.size(); i++) {
 			table = new KDTable();
 			capinfo = entrycolls.get(i);
 			entrycoll = capinfo.getEntrys();
 			row = table.addHeadRow();
 			//key有项目ID，指标编码，科目长编码组成 	modify by yxl 20151216
-			key = capinfo.getIndexType().getNumber()+"@"+cainfo.getLongNumber();
+			key = capinfo.getNumber()+"@"+cainfo.getLongNumber();
 			table.setName(key);
-			table.setID(projectId);
+			table.setID(projectPcIds);
 			for (int j = 0; j < entrycoll.size(); j++) {
 				entryInfo = entrycoll.get(j);
 				icol = table.addColumn();
@@ -591,7 +582,7 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 					initColumnForNum(icol);
 					contentMap.put(key+"@"+entryInfo.getFieldType().getName()+j,entryInfo.getFcontent());
 				}else if(FieldType.BUILDNUM.equals(entryInfo.getFieldType())){
-					initColumnForBuildNum(icol,projectId);
+					initColumnForBuildNum(icol,realPorjectId);
 					icol.setRequired(true);
 				}
 				if(entryInfo.isFieldInput()){
@@ -948,7 +939,7 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     		if("addLine".equals(type)){
     			row = table.addRow();
     			if(table == kdtEntrys){
-    				row.getCell("projectId").setValue(editData.getProjectId());
+    				row.getCell("projectId").setValue(editData.getProjectId()+"@999");
     				row.getCell("isInput").setValue(Boolean.FALSE);
     			}else{
 //    				boolean flse = false;
@@ -1029,15 +1020,33 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     		}
     	}
 	}
+    //根据合约规划的id和成本科目的长编码取得对应的规划金额
+    public BigDecimal getPlanAmount(String pcid, String costNumber){
+		try {
+			FDCSQLBuilder builder = new FDCSQLBuilder();
+			builder.appendSql("select pcost.FContractAssign from T_CON_ProgrammingContracCost pcost left join T_FDC_CostAccount cacc on cacc.fid=pcost.FCostAccountID ");
+			builder.appendSql("where pcost.FContractID='"+pcid+"' and cacc.FlongNumber='"+costNumber+"' ");
+			IRowSet rs = builder.executeQuery();
+			if(rs.next())
+				return rs.getBigDecimal(1);
+		} catch (BOSException e) {
+			handUIException(e);
+		} catch (SQLException e) {
+			handUIException(e);
+		}
+		return BigDecimal.ZERO;
+    }
     
     //解析公式内容，并将得到的数据填充到单元格
-    private void praseContent(String projectId, String key, String colName, IRow row, int buildNumIndex){
+    private void praseContent(String projectPcIds, String key, String colName, IRow row, int buildNumIndex){
 //    	FormulaUtils fus = new FormulaUtils(content);
 //		if(UIRuleUtil.isNull(content)||!fus.checkValid())
 //			return ;
 		String buildId = "";
     	String content = contentMap.get(key+"@"+colName);
 		String costNumber = key.substring(key.indexOf("@")+1);
+		String projectId = projectPcIds.substring(0,projectPcIds.indexOf("@"));
+		String pcid = projectPcIds.substring(projectPcIds.indexOf("@")+1);//合约规划id
 		Set<String> variableForSet = getVariableForSet(content);
 		Iterator<String> iterator = variableForSet.iterator();
 //		Map<String, BigDecimal> resultForMap = new HashMap<String, BigDecimal>();
@@ -1051,10 +1060,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 		while(iterator.hasNext()){
 			String next = iterator.next().trim();
 			int index = next.indexOf(".");
-			
 			String type = next.substring(0, index);
 			String ysName = next.substring(index+1, next.length()).trim();
-			
 			BigDecimal amount = BigDecimal.ZERO;
 			if("合同".equals(type) && "合同价".equals(ysName)){
 				if(isDx)
@@ -1067,29 +1074,33 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 				else
 					amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(projectId+ysName));
 			}else if("单项要素".equals(type)){
-				if(isDx){
-					String keyValue = projectId+ysName+buildId+costNumber;
-					if(baseAndSingle.containsKey(keyValue))
-						amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(keyValue));
-					else{
-						while(keyValue.lastIndexOf("!") != -1){
-							keyValue = keyValue.substring(0,keyValue.lastIndexOf("!"));
-							if(baseAndSingle.containsKey(keyValue)){
-								amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(keyValue));
-								break;
+				if("规划金额".equals(ysName)){
+					amount = UIRuleUtil.getBigDecimal(getPlanAmount(pcid,costNumber));
+				}else{
+					if(isDx){
+						String keyValue = projectId+ysName+buildId+costNumber;
+						if(baseAndSingle.containsKey(keyValue))
+							amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(keyValue));
+						else{
+							while(keyValue.lastIndexOf("!") != -1){
+								keyValue = keyValue.substring(0,keyValue.lastIndexOf("!"));
+								if(baseAndSingle.containsKey(keyValue)){
+									amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(keyValue));
+									break;
+								}
 							}
 						}
-					}
-				}else{
-					String keyValue = projectId+ysName+costNumber;
-					if(baseAndSingle.containsKey(keyValue))
-						amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(keyValue));
-					else{
-						while(keyValue.lastIndexOf("!") != -1){
-							keyValue = keyValue.substring(0,keyValue.lastIndexOf("!"));
-							if(baseAndSingle.containsKey(keyValue)){
-								amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(keyValue));
-								break;
+					}else{
+						String keyValue = projectId+ysName+costNumber;
+						if(baseAndSingle.containsKey(keyValue))
+							amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(keyValue));
+						else{
+							while(keyValue.lastIndexOf("!") != -1){
+								keyValue = keyValue.substring(0,keyValue.lastIndexOf("!"));
+								if(baseAndSingle.containsKey(keyValue)){
+									amount = UIRuleUtil.getBigDecimal(baseAndSingle.get(keyValue));
+									break;
+								}
 							}
 						}
 					}
@@ -1100,7 +1111,6 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 				else
 					amount = UIRuleUtil.getBigDecimal(zySplit.get(projectId+ysName+costNumber));
 			}
-			
 			if(amount.compareTo(BigDecimal.ZERO) == 0){
 				isZero = true;
 				break;
@@ -1116,7 +1126,6 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 		}
 //		row.getCell(colName).setValue(formulaUtils.getResult());
     }
-    
     
     
     private Set<String> getVariableForSet(String content){
@@ -1227,11 +1236,13 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     	BuildPriceIndexEntryCollection indexEntrys = editData.getEntrys();
     	BuildPriceIndexEntryInfo entryInfo = null;
     	Set<String> projectIdSet = new HashSet<String>();
+    	String projectPcIds = null;
     	for(int i = 0; i < indexEntrys.size(); i++) {
     		entryInfo = indexEntrys.get(i);
 			if(entryInfo.isIsInput() && entryInfo.getAccountNumber() != null){
-				initIndexTable(entryInfo.getAccountNumber(),entryInfo.getProjectId());
-				projectIdSet.add(entryInfo.getProjectId());
+				projectPcIds = entryInfo.getProjectId();
+				initIndexTable(entryInfo.getAccountNumber(),projectPcIds);
+				projectIdSet.add(projectPcIds.substring(0,projectPcIds.indexOf("@")));
 			}
 		}
     	loadIndexData();
@@ -1239,6 +1250,61 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
     		setBuutonAndTableState(false);
     	}
     	initDatas(projectIdSet);
+    	//新增时将默认值带出
+//    	if(table.getColumnKey(e.getColIndex()).startsWith("BUILDNUM") && row.getCell(e.getColIndex()).getValue()!=null){
+//    		String projectId = table.getID();
+//    		String key = table.getName();
+//    		for(int i = 0; i < table.getColumnCount(); i++) {
+//    			if(table.getColumnKey(i).startsWith("COMPUTE")){
+//    				//得到公式内容，解析内容，填充数据
+//    				praseContent(projectId,key,table.getColumnKey(i),row,e.getColIndex());
+//    			}
+//    		}
+//    	}
+    	if("ADDNEW".equals(getOprtState())){
+    		BuildNumberCollection buildColl = null;
+    		IBuildNumber ibn = BuildNumberFactory.getRemoteInstance();
+    		KDTable table = null;
+    		IRow row = null;
+        	for(Iterator<String> it=tables.keySet().iterator(); it.hasNext();){
+        		table = tables.get(it.next());
+        		String projectId = table.getID();
+        		String key = table.getName();
+        		buildColl = ibn.getBuildNumberCollection("select id,name,number where curProject.id='"+projectId.substring(0,projectId.indexOf("@"))+"'");
+        		//第一次循环所有列，检查是否有楼号字段
+        		int buildIndex = -1;
+        		for(int i = 0; i < table.getColumnCount(); i++) {
+        			if(table.getColumnKey(i).startsWith("BUILDNUM")){
+        				buildIndex = i;
+        				break;
+        			}
+    			}
+        		//第二次循环所有列，赋值
+        		if(buildIndex == -1){
+        			//没有楼号字段，则新增一行
+        			row = table.addRow();
+        			for(int i = 0; i < table.getColumnCount(); i++) {
+        				if(table.getColumnKey(i).startsWith("COMPUTE")){
+            				//得到公式内容，解析内容，填充数据
+            				praseContent(projectId,key,table.getColumnKey(i),row,buildIndex);
+            			}
+        			}
+        		}else{
+        			//有楼号字段，则新增条数为楼号集合大小
+        			for(int j = 0; j < buildColl.size(); j++) {
+        				row = table.addRow();
+        				for(int i = 0; i < table.getColumnCount(); i++) {
+        					if(i == buildIndex)
+    							row.getCell(i).setValue(buildColl.get(j));
+        					else if(table.getColumnKey(i).startsWith("COMPUTE")){
+                				//得到公式内容，解析内容，填充数据
+                				praseContent(projectId,key,table.getColumnKey(i),row,buildIndex);
+                			}
+            			}
+					}
+        		}
+    		}
+    	}
     }
     
     private void initDatas(Set<String> projectIdSet) throws BOSException, SQLException {
@@ -1378,13 +1444,20 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 			CostAccountInfo cinfo = null;
 			try {
 				ICostAccount ica = CostAccountFactory.getRemoteInstance();
+				//modify by yxl 分录的项目id原本只存项目id，现在把合约规划的id拼接到项目id的后面，省个字段
+				String projectPcIds = null;
 				for(int i = 0; i < table.getRowCount3(); i++) {
 					if((Integer)table.getCell(i,"level").getValue()==0){
 						entryInfo = new BuildPriceIndexEntryInfo();
 						cinfo = ica.getCostAccountInfo(new ObjectUuidPK((BOSUuid)table.getCell(i,"costAccount.id").getValue()));
 						entryInfo.setAccountNumber(cinfo);
 						entryInfo.setAccountName(cinfo.getName());
-						entryInfo.setProjectId(((BOSUuid)table.getCell(i,"costAccount.curProject.id").getValue()).toString());
+						projectPcIds = ((BOSUuid)table.getCell(i,"costAccount.curProject.id").getValue()).toString()+"@";
+						if(table.getCell(i,"programming").getValue() != null)
+							projectPcIds = projectPcIds+((ProgrammingContractInfo)table.getCell(i,"programming").getValue()).getId().toString();
+						else
+							projectPcIds = projectPcIds+"999";
+						entryInfo.setProjectId(projectPcIds);
 						entryInfo.setIsInput(true);
 						objectValue.getEntrys().add(entryInfo);
 					}

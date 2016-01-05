@@ -48,6 +48,7 @@ import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.IProductType;
 import com.kingdee.eas.fdc.basedata.ProductTypeFactory;
 import com.kingdee.eas.fdc.basedata.ProductTypeInfo;
+import com.kingdee.eas.fdc.costindexdb.client.BaseAndSinglePointEditUI;
 import com.kingdee.eas.fdc.costindexdb.database.BuildNumberCollection;
 import com.kingdee.eas.fdc.costindexdb.database.BuildNumberFactory;
 import com.kingdee.eas.fdc.costindexdb.database.BuildNumberInfo;
@@ -490,6 +491,9 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
     	            MsgBox.showInfo(EASResource.getString("com.kingdee.eas.framework.FrameWorkResource.Msg_NoneEntry"));
     	            return;
     	        }
+    	        if(MsgBox.OK != MsgBox.showConfirm2(BuildSplitBillEditUI.this, "确认删除当前数据？")) {
+    				return;
+    			}
     	        table.removeRow(top);
     		}else if("grabData".equals(type)){
     			if(getUIContext().get("newData")!=null && UIRuleUtil.getBigDecimal(getUIContext().get("newData")).compareTo(UIRuleUtil.getBigDecimal(kdtEntrys.getCell(0,"dataValue").getValue()))!=0){

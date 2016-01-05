@@ -118,11 +118,13 @@ public class SingleImportUI extends AbstractSingleImportUI
     		row.getCell("baseUnit").setValue(beinfo.getBaseUnit());
     		costInfo = beinfo.getCostAcount();
     		row.getCell("costAccount").setValue(costInfo);
-    		costLongNumber = costInfo.getLongNumber();
-    		if(goalCostMap.containsKey(costLongNumber))
-    			row.getCell("pointValue").setValue(goalCostMap.get(costLongNumber));
-    		else if(!costInfo.isIsLeaf()){
-    			row.getCell("pointValue").setValue(getUpLevelValue(costLongNumber,goalCostMap));
+    		if("目标成本".equals(beinfo.getPointName())){
+    			costLongNumber = costInfo.getLongNumber();
+    			if(goalCostMap.containsKey(costLongNumber))
+    				row.getCell("pointValue").setValue(goalCostMap.get(costLongNumber));
+    			else if(!costInfo.isIsLeaf()){
+    				row.getCell("pointValue").setValue(getUpLevelValue(costLongNumber,goalCostMap));
+    			}
     		}
     		row.getCell("isModel").setValue(Boolean.FALSE);
     		row.getCell("beizhu").setValue("temp");
