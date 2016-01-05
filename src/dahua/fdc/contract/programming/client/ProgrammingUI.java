@@ -159,6 +159,8 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingException;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingInfo;
 import com.kingdee.eas.fdc.contract.programming.SendContWay;
+import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleEntryCollection;
+import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleEntryFactory;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleDatazCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleDatazInfo;
@@ -1308,21 +1310,34 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 	
 	public void updateSchduleTime_actionPerformed(ActionEvent e) throws Exception {
 //		Set pcids = new HashSet();
-//		for (int i = 0; i < kdtEntries.getRowCount(); i++) {
+		Map<String,Integer> pcidMap = new HashMap<String,Integer>();
+		for(int i = 0; i < kdtEntries.getRowCount(); i++) {
 //			pcids.add(kdtEntries.getCell(i,"id").getValue());
-//		}
-//		if(pcids.size() > 0){
-//			DahuaScheduleEntryCollection dscoll = null;//" where progamming.id='"+id+"'"
-//			EntityViewInfo evi = new EntityViewInfo();
-//			FilterInfo filter = new FilterInfo();
-//			filter.getFilterItems().add(new FilterItemInfo("progamming.id",pcids,CompareType.INCLUDE));
-//			evi.setFilter(filter);
-//			dscoll=DahuaScheduleEntryFactory.getRemoteInstance().getDahuaScheduleEntryCollection(evi);
-//			if(dscoll.size() == 0){
-//				FDCMsgBox.showInfo("合约规划与明源进度项未关联！");
-//				return;
-//			}
-//		}
+			pcidMap.put(((BOSUuid)kdtEntries.getCell(i,"id").getValue()).toString(),i);
+		}
+		if(pcidMap.size() > 0){
+			StringBuffer sb = new StringBuffer();
+			for(Iterator<String> it=pcidMap.keySet().iterator(); it.hasNext();) {
+				sb.append("'");
+		    	sb.append(it.next());
+		    	sb.append("',");
+			}
+			if(sb.length() > 1){
+		    	sb.setLength(sb.length()-1);
+		    }
+			FDCSQLBuilder builder = new FDCSQLBuilder();
+			builder.appendSql("select entry.CFProgammingID,entry.CFStartDate,entry.CFEndDate from CT_SCH_DahuaScheduleEntry entry left join CT_SCH_DahuaSchedule ");
+			builder.appendSql("sched on sched.fid=entry.fparentid where sched.CFProjectID='"+editData.getProject().getId().toString()+"' and entry.CFProgammingID in ("+sb.toString()+")");
+			IRowSet rs = builder.executeQuery();
+			if(rs.size() == 0){
+				FDCMsgBox.showInfo("合约规划与明源进度项未关联！");
+				return;
+			}else{
+				while(rs.next()){
+					
+				}
+			}
+		}
 		
 	}
 
