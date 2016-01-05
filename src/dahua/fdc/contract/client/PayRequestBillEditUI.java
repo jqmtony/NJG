@@ -3670,6 +3670,8 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 		sic.add("exchangeRate");
 		sic.add("process");
 		sic.add("lastUpdateTime");
+		// 款项内容
+		sic.add("Kxnr");
 
 		sic.add("paymentProportion");
 		sic.add("costAmount");
@@ -3678,6 +3680,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 
 		// 合同类型
 		sic.add("contractType.*");
+	
 		// 1
 		sic.add("contractName");
 		sic.add("changeAmt");

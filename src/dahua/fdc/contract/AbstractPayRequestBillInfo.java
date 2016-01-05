@@ -1024,13 +1024,13 @@ public class AbstractPayRequestBillInfo extends com.kingdee.eas.fdc.basedata.FDC
     /**
      * Object:付款申请单's 款项内容property 
      */
-    public char getKxnr()
+    public String getKxnr()
     {
-        return ((Character)get("Kxnr")).charValue();
+        return getString("Kxnr");
     }
-    public void setKxnr(char item)
+    public void setKxnr(String item)
     {
-        put("Kxnr", new Character(item));
+        setString("Kxnr", item);
     }
     /**
      * Object:付款申请单's 资金计划申请金额property 
@@ -1042,6 +1042,17 @@ public class AbstractPayRequestBillInfo extends com.kingdee.eas.fdc.basedata.FDC
     public void setZjjhSqje(java.math.BigDecimal item)
     {
         setBigDecimal("ZjjhSqje", item);
+    }
+    /**
+     * Object:付款申请单's 是否超资金计划付款property 
+     */
+    public boolean isSfczjjhfk()
+    {
+        return getBoolean("sfczjjhfk");
+    }
+    public void setSfczjjhfk(boolean item)
+    {
+        setBoolean("sfczjjhfk", item);
     }
     public BOSObjectType getBOSType()
     {
