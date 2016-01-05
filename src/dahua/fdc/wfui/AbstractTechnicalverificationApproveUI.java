@@ -49,6 +49,7 @@ public abstract class AbstractTechnicalverificationApproveUI extends com.kingdee
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
+    protected com.kingdee.bos.ctrl.swing.KDButton yd;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
@@ -78,6 +79,7 @@ public abstract class AbstractTechnicalverificationApproveUI extends com.kingdee
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
         this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.yd = new com.kingdee.bos.ctrl.swing.KDButton();
         this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
@@ -87,6 +89,7 @@ public abstract class AbstractTechnicalverificationApproveUI extends com.kingdee
         this.kDTabbedPane1.setName("kDTabbedPane1");
         this.kDLabelContainer1.setName("kDLabelContainer1");
         this.kDLabelContainer2.setName("kDLabelContainer2");
+        this.yd.setName("yd");
         this.kDPanel1.setName("kDPanel1");
         this.kDPanel2.setName("kDPanel2");
         this.kDTable1.setName("kDTable1");
@@ -125,6 +128,20 @@ public abstract class AbstractTechnicalverificationApproveUI extends com.kingdee
         // kDLabelContainer2		
         this.kDLabelContainer2.setBoundLabelText(resHelper.getString("kDLabelContainer2.boundLabelText"));		
         this.kDLabelContainer2.setBoundLabelLength(80);
+        // yd		
+        this.yd.setText(resHelper.getString("yd.text"));
+        this.yd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    yd_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // kDPanel1
         // kDPanel2
         // kDTable1
@@ -188,8 +205,10 @@ public abstract class AbstractTechnicalverificationApproveUI extends com.kingdee
         this.add(kDTabbedPane1, new KDLayout.Constraints(191, 43, 603, 581, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer1.setBounds(new Rectangle(191, 11, 200, 19));
         this.add(kDLabelContainer1, new KDLayout.Constraints(191, 11, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer2.setBounds(new Rectangle(594, 11, 200, 19));
-        this.add(kDLabelContainer2, new KDLayout.Constraints(594, 11, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer2.setBounds(new Rectangle(440, 11, 200, 19));
+        this.add(kDLabelContainer2, new KDLayout.Constraints(440, 11, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        yd.setBounds(new Rectangle(689, 10, 103, 21));
+        this.add(yd, new KDLayout.Constraints(689, 10, 103, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //kDTabbedPane1
         kDTabbedPane1.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
         kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
@@ -450,6 +469,13 @@ public abstract class AbstractTechnicalverificationApproveUI extends com.kingdee
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output yd_actionPerformed method
+     */
+    protected void yd_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
     }
 
     /**

@@ -49,6 +49,7 @@ public abstract class AbstractEngineeringApproveUI extends com.kingdee.eas.frame
     protected com.kingdee.bos.ctrl.swing.KDTabbedPane kDTabbedPane1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
+    protected com.kingdee.bos.ctrl.swing.KDButton yd;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
@@ -78,6 +79,7 @@ public abstract class AbstractEngineeringApproveUI extends com.kingdee.eas.frame
         this.kDTabbedPane1 = new com.kingdee.bos.ctrl.swing.KDTabbedPane();
         this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.yd = new com.kingdee.bos.ctrl.swing.KDButton();
         this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
@@ -87,6 +89,7 @@ public abstract class AbstractEngineeringApproveUI extends com.kingdee.eas.frame
         this.kDTabbedPane1.setName("kDTabbedPane1");
         this.kDLabelContainer2.setName("kDLabelContainer2");
         this.kDLabelContainer1.setName("kDLabelContainer1");
+        this.yd.setName("yd");
         this.kDPanel1.setName("kDPanel1");
         this.kDPanel2.setName("kDPanel2");
         this.kDTable1.setName("kDTable1");
@@ -125,6 +128,20 @@ public abstract class AbstractEngineeringApproveUI extends com.kingdee.eas.frame
         // kDLabelContainer1		
         this.kDLabelContainer1.setBoundLabelText(resHelper.getString("kDLabelContainer1.boundLabelText"));		
         this.kDLabelContainer1.setBoundLabelLength(80);
+        // yd		
+        this.yd.setText(resHelper.getString("yd.text"));
+        this.yd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    yd_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // kDPanel1		
         this.kDPanel1.setBorder(null);
         // kDPanel2
@@ -187,10 +204,12 @@ public abstract class AbstractEngineeringApproveUI extends com.kingdee.eas.frame
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
         kDTabbedPane1.setBounds(new Rectangle(186, 42, 609, 584));
         this.add(kDTabbedPane1, new KDLayout.Constraints(186, 42, 609, 584, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer2.setBounds(new Rectangle(595, 12, 200, 19));
-        this.add(kDLabelContainer2, new KDLayout.Constraints(595, 12, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer2.setBounds(new Rectangle(419, 12, 200, 19));
+        this.add(kDLabelContainer2, new KDLayout.Constraints(419, 12, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer1.setBounds(new Rectangle(186, 12, 200, 19));
         this.add(kDLabelContainer1, new KDLayout.Constraints(186, 12, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        yd.setBounds(new Rectangle(652, 11, 138, 21));
+        this.add(yd, new KDLayout.Constraints(652, 11, 138, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //kDTabbedPane1
         kDTabbedPane1.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
         kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
@@ -451,6 +470,13 @@ public abstract class AbstractEngineeringApproveUI extends com.kingdee.eas.frame
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output yd_actionPerformed method
+     */
+    protected void yd_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
     }
 
     /**

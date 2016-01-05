@@ -112,10 +112,12 @@ public class TargetcostApproveUI extends AbstractTargetcostApproveUI
     	
     	//第六行
     	IRow addRowsix = this.kDTable1.addRow();
-    	addRowsix.getCell(0).setValue("成本调增");
+    	addRowsix.getCell(0).setValue("成本变化");
 //    	addRowsix.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
-    	mergeManager.mergeBlock(5, 1, 5, 9);
+    	mergeManager.mergeBlock(5, 1, 5, 4);
+    	addRowsix.getCell(5).setValue("单方指标");
+    	mergeManager.mergeBlock(5, 6, 5, 9);
     	
     	//第七行
     	IRow addRowseven = this.kDTable1.addRow();
@@ -281,12 +283,11 @@ public class TargetcostApproveUI extends AbstractTargetcostApproveUI
     	{
     		kDTable1.getColumn(i).setWidth(80);
     	}
-//    	wangsz
     	
 //    	String billId = "7v36HV4ES6+HQ7TfX3B27QTHsvM=";
     	String billId = editData.getId()!=null?editData.getId().toString():"7v36HV4ES6+HQ7TfX3B27QTHsvM=";
     	StringBuffer sb = new StringBuffer();
-    	sb.append(" select distinct fdc.Fname_l2,org.Fname_l2,try.FChangeReason,try.FAdjustAmt,try.FDescription from T_AIM_AimAimCostAdjust atm ");
+    	sb.append(" select distinct fdc.Fname_l2,org.Fname_l2,try.FChangeReason,try.FAdjustAmt,try.FDescription,atm.CFBIMUDF0031  from T_AIM_AimAimCostAdjust atm ");
     	sb.append(" left join T_FDC_CurProject fdc on fdc.fid =atm.FCurProjectID ");
     	sb.append(" left join T_ORG_BaseUnit org on org.fid = fdc.FFullOrgUnit  ");
     	sb.append(" left join T_AIM_AimAimCostAdjustEntry try on try.FParentID = atm.fid ");
@@ -308,6 +309,7 @@ public class TargetcostApproveUI extends AbstractTargetcostApproveUI
     	this.kDTable1.getCell(2, 1).setValue(yuanYin.toString());
     	this.kDTable1.getCell(2, 1).getStyleAttributes().setWrapText(true);
     	this.kDTable1.getCell(5, 1).setValue(sum);
+    	this.kDTable1.getCell(5, 6).setValue(6);
     	this.kDTable1.getCell(16, 1).setValue(beiZu.toString());
     	this.kDTable1.getCell(16, 1).getStyleAttributes().setWrapText(true);
     	
