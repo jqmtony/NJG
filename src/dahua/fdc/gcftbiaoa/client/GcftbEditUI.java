@@ -624,6 +624,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 		}
 	}
 	
+	//ะฃั้
 	protected void verifyInput(ActionEvent e) throws Exception {
 		super.verifyInput(e);
 		for (int i = 0; i < kdtEntrys.getRowCount(); i++) {
