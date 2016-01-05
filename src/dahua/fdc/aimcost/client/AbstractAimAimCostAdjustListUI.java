@@ -84,11 +84,15 @@ public abstract class AbstractAimAimCostAdjustListUI extends com.kingdee.eas.fdc
          this.actionRemove.addService(new com.kingdee.eas.framework.client.service.UserMonitorService());
         // CoreUI		
         this.btnPageSetup.setEnabled(false);		
-        this.menuTool.setVisible(false);		
-        this.tblMain.setFormatXml(resHelper.getString("tblMain.formatXml"));
-                this.tblMain.putBindContents("mainQuery",new String[] {"number","name","curProject.name","state","creator.name","createTime","auditor.name","auditTime","id"});
-
+        this.menuTool.setVisible(false);
+		String tblMainStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol8\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol9\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"number\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"name\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"projectName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"state\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" /><t:Column t:key=\"creatorName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" /><t:Column t:key=\"creatorTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" /><t:Column t:key=\"auditorName\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"6\" /><t:Column t:key=\"auditorTime\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"7\" /><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"8\" t:styleID=\"sCol8\" /><t:Column t:key=\"BIMUDF0031\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol9\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header1\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{number}</t:Cell><t:Cell>$Resource{name}</t:Cell><t:Cell>$Resource{projectName}</t:Cell><t:Cell>$Resource{state}</t:Cell><t:Cell>$Resource{creatorName}</t:Cell><t:Cell>$Resource{creatorTime}</t:Cell><t:Cell>$Resource{auditorName}</t:Cell><t:Cell>$Resource{auditorTime}</t:Cell><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{BIMUDF0031}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
+        this.tblMain.setFormatXml(resHelper.translateString("tblMain",tblMainStrXML));
+                this.tblMain.putBindContents("mainQuery",new String[] {"number","name","curProject.name","state","creator.name","createTime","auditor.name","auditTime","id","BIMUDF0031"});
+
+
+        this.tblMain.checkParsed();
+        this.tblMain.getGroupManager().setGroup(true);		
         this.btnLocate.setEnabled(false);		
         this.btnLocate.setVisible(false);		
         this.btnQuery.setEnabled(false);		
@@ -99,27 +103,39 @@ public abstract class AbstractAimAimCostAdjustListUI extends com.kingdee.eas.fdc
         this.btnCancelCancel.setEnabled(false);		
         this.btnQueryScheme.setEnabled(false);		
         this.btnQueryScheme.setVisible(false);		
-        this.btnVoucher.setEnabled(false);		
-        this.btnDelVoucher.setEnabled(false);		
         this.btnCreateTo.setEnabled(false);		
         this.btnCopyTo.setEnabled(false);		
         this.btnTraceUp.setEnabled(false);		
         this.btnTraceDown.setEnabled(false);		
-        this.btnAuditResult.setEnabled(false);		
-        this.btnMultiapprove.setEnabled(false);		
-        this.menuItemNextPerson.setVisible(false);		
-        this.menuItemMultiapprove.setVisible(false);		
-        this.btnNextPerson.setEnabled(false);		
-        this.menuItemAuditResult.setVisible(true);		
         this.btnWorkFlowG.setEnabled(false);		
         this.btnWorkFlowG.setVisible(false);		
-        this.menuItemWorkFlowList.setVisible(false);
+        this.btnVoucher.setEnabled(false);		
+        this.btnDelVoucher.setEnabled(false);		
+        this.btnMultiapprove.setEnabled(false);		
+        this.btnNextPerson.setEnabled(false);		
+        this.btnAuditResult.setEnabled(false);		
+        this.menuItemMultiapprove.setVisible(false);		
+        this.menuItemWorkFlowList.setVisible(false);		
+        this.menuItemNextPerson.setVisible(false);		
+        this.menuItemAuditResult.setVisible(true);
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
 
 
     }
+
+	public com.kingdee.bos.ctrl.swing.KDToolBar[] getUIMultiToolBar(){
+		java.util.List list = new java.util.ArrayList();
+		com.kingdee.bos.ctrl.swing.KDToolBar[] bars = super.getUIMultiToolBar();
+		if (bars != null) {
+			list.addAll(java.util.Arrays.asList(bars));
+		}
+		return (com.kingdee.bos.ctrl.swing.KDToolBar[])list.toArray(new com.kingdee.bos.ctrl.swing.KDToolBar[list.size()]);
+	}
+
+
+
 
     /**
      * output initUIContentLayout method
@@ -145,6 +161,7 @@ public abstract class AbstractAimAimCostAdjustListUI extends com.kingdee.eas.fdc
     {
         this.menuBar.add(menuFile);
         this.menuBar.add(menuEdit);
+        this.menuBar.add(MenuService);
         this.menuBar.add(menuView);
         this.menuBar.add(menuBiz);
         this.menuBar.add(menuTool);
@@ -154,10 +171,14 @@ public abstract class AbstractAimAimCostAdjustListUI extends com.kingdee.eas.fdc
         //menuFile
         menuFile.add(menuItemAddNew);
         menuFile.add(menuItemImportData);
+        menuFile.add(menuItemCloudFeed);
         menuFile.add(menuItemExportData);
+        menuFile.add(menuItemCloudScreen);
         menuFile.add(separatorFile1);
+        menuFile.add(menuItemCloudShare);
         menuFile.add(MenuItemAttachment);
         menuFile.add(kDSeparator1);
+        menuFile.add(kdSeparatorFWFile1);
         menuFile.add(menuItemPageSetup);
         menuFile.add(menuItemPrint);
         menuFile.add(menuItemPrintPreview);
@@ -170,15 +191,22 @@ public abstract class AbstractAimAimCostAdjustListUI extends com.kingdee.eas.fdc
         menuEdit.add(menuItemCreateTo);
         menuEdit.add(menuItemCopyTo);
         menuEdit.add(kDSeparator4);
+        //MenuService
+        MenuService.add(MenuItemKnowStore);
+        MenuService.add(MenuItemAnwser);
+        MenuService.add(SepratorService);
+        MenuService.add(MenuItemRemoteAssist);
         //menuView
         menuView.add(menuItemView);
         menuView.add(menuItemLocate);
         menuView.add(kDSeparator5);
         menuView.add(menuItemQuery);
         menuView.add(menuItemRefresh);
+        menuView.add(menuItemSwitchView);
         menuView.add(separatorView1);
         menuView.add(menuItemTraceUp);
         menuView.add(menuItemTraceDown);
+        menuView.add(menuItemQueryScheme);
         menuView.add(kDSeparator6);
         //menuBiz
         menuBiz.add(menuItemCancelCancel);
@@ -190,6 +218,7 @@ public abstract class AbstractAimAimCostAdjustListUI extends com.kingdee.eas.fdc
         //menuTool
         menuTool.add(menuItemSendMessage);
         menuTool.add(menuItemCalculator);
+        menuTool.add(menuItemToolBarCustom);
         //menuWorkFlow
         menuWorkFlow.add(menuItemViewDoProccess);
         menuWorkFlow.add(menuItemMultiapprove);
@@ -226,7 +255,9 @@ public abstract class AbstractAimAimCostAdjustListUI extends com.kingdee.eas.fdc
     public void initUIToolBarLayout()
     {
         this.toolBar.add(btnAddNew);
+        this.toolBar.add(btnCloud);
         this.toolBar.add(btnView);
+        this.toolBar.add(kDSeparatorCloud);
         this.toolBar.add(btnEdit);
         this.toolBar.add(btnRemove);
         this.toolBar.add(btnRefresh);
@@ -250,15 +281,17 @@ public abstract class AbstractAimAimCostAdjustListUI extends com.kingdee.eas.fdc
         this.toolBar.add(btnTraceUp);
         this.toolBar.add(btnTraceDown);
         this.toolBar.add(btnWorkFlowG);
-        this.toolBar.add(btnWFViewdoProccess);
         this.toolBar.add(btnWorkFlowList);
+        this.toolBar.add(btnWFViewdoProccess);
         this.toolBar.add(btnSignature);
         this.toolBar.add(btnAudit);
         this.toolBar.add(btnViewSignature);
         this.toolBar.add(btnUnAudit);
         this.toolBar.add(separatorFW4);
+        this.toolBar.add(btnNumberSign);
         this.toolBar.add(btnCancel);
         this.toolBar.add(btnCancelCancel);
+
 
     }
 
@@ -301,6 +334,33 @@ public abstract class AbstractAimAimCostAdjustListUI extends com.kingdee.eas.fdc
         IObjectValue ov = dataObject;        	    	
         super.setDataObject(ov);
     }
+	protected void Remove() throws Exception {
+    	IObjectValue editData = getBizInterface().getValue(new com.kingdee.bos.dao.ormapping.ObjectUuidPK(BOSUuid.read(getSelectedKeyValue())));
+    	super.Remove();
+    	recycleNumberByOrg(editData,"",editData.getString("number"));
+    }
+    protected void recycleNumberByOrg(IObjectValue editData,String orgType,String number) {
+        if (!StringUtils.isEmpty(number))
+        {
+            try {
+            	String companyID = null;            
+				com.kingdee.eas.base.codingrule.ICodingRuleManager iCodingRuleManager = com.kingdee.eas.base.codingrule.CodingRuleManagerFactory.getRemoteInstance();
+				if(!com.kingdee.util.StringUtils.isEmpty(orgType) && !"NONE".equalsIgnoreCase(orgType) && com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentOrgUnit(com.kingdee.eas.basedata.org.OrgType.getEnum(orgType))!=null) {
+					companyID =com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentOrgUnit(com.kingdee.eas.basedata.org.OrgType.getEnum(orgType)).getString("id");
+				}
+				else if (com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentOrgUnit() != null) {
+					companyID = ((com.kingdee.eas.basedata.org.OrgUnitInfo)com.kingdee.eas.common.client.SysContext.getSysContext().getCurrentOrgUnit()).getString("id");
+            	}				
+				if (!StringUtils.isEmpty(companyID) && iCodingRuleManager.isExist(editData, companyID) && iCodingRuleManager.isUseIntermitNumber(editData, companyID)) {
+					iCodingRuleManager.recycleNumber(editData,companyID,number);					
+				}
+            }
+            catch (Exception e)
+            {
+                handUIException(e);
+            }
+        }
+    }
 
     /**
      * output loadFields method
@@ -334,12 +394,21 @@ public abstract class AbstractAimAimCostAdjustListUI extends com.kingdee.eas.fdc
         super.setOprtState(oprtType);
     }
 
+	public SelectorItemCollection getBOTPSelectors() {
+			SelectorItemCollection sic = new SelectorItemCollection();
+			return sic;
+	}
+
     /**
      * output getSelectors method
      */
     public SelectorItemCollection getSelectors()
     {
         SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
         sic.add(new SelectorItemInfo("id"));
         sic.add(new SelectorItemInfo("number"));
         sic.add(new SelectorItemInfo("name"));
@@ -349,8 +418,14 @@ public abstract class AbstractAimAimCostAdjustListUI extends com.kingdee.eas.fdc
         sic.add(new SelectorItemInfo("auditor.name"));
         sic.add(new SelectorItemInfo("createTime"));
         sic.add(new SelectorItemInfo("auditTime"));
+        sic.add(new SelectorItemInfo("BIMUDF0031"));
         return sic;
-    }        
+    }            protected java.util.List getQuerySorterFields() 
+    { 
+        java.util.List sorterFieldList = new ArrayList(); 
+        return sorterFieldList; 
+    } 
+
     	
 
     /**
@@ -359,6 +434,17 @@ public abstract class AbstractAimAimCostAdjustListUI extends com.kingdee.eas.fdc
     public void actionRemove_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionRemove_actionPerformed(e);
+    }
+	public RequestContext prepareActionRemove(IItemAction itemAction) throws Exception {
+			RequestContext request = super.prepareActionRemove(itemAction);		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionRemove() {
+    	return false;
     }
 
     /**
@@ -376,7 +462,46 @@ public abstract class AbstractAimAimCostAdjustListUI extends com.kingdee.eas.fdc
         return true;
     }
 
+    /**
+     * output getEditUIName method
+     */
+    protected String getEditUIName()
+    {
+        return com.kingdee.eas.fdc.aimcost.client.AimAimCostAdjustEditUI.class.getName();
+    }
+
+    /**
+     * output getBizInterface method
+     */
+    protected com.kingdee.eas.framework.ICoreBase getBizInterface() throws Exception
+    {
+        return com.kingdee.eas.fdc.aimcost.AimAimCostAdjustFactory.getRemoteInstance();
+    }
+
+    /**
+     * output createNewData method
+     */
+    protected IObjectValue createNewData()
+    {
+        com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo objectValue = new com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo();		
+        return objectValue;
+    }
+
+    /**
+     * output getMergeColumnKeys method
+     */
+    public String[] getMergeColumnKeys()
+    {
+        return new String[] {"number","name","projectName","state","creatorName","creatorTime","auditorName","auditorTime","id","BIMUDF0031"};
+    }
 
 
+
+	protected String getTDFileName() {
+    	return "/bim/fdc/aimcost/AimAimCostAdjust";
+	}
+    protected IMetaDataPK getTDQueryPK() {
+    	return new MetaDataPK("com.kingdee.eas.fdc.aimcost.app.AimAimCostAdjustQuery");
+	}
 
 }

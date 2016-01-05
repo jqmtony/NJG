@@ -55,10 +55,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("106a6634-bcaf-4ffc-90f0-81720464fd6d"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, pk);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -77,10 +80,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("f1e39380-369e-4794-a493-4ffa83bd9525"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, filter);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -99,10 +105,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("6c435fa6-2ede-4b41-8b73-6c2c567b5a5c"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, oql);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -121,10 +130,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("530cc5b2-e2fc-4329-b016-e5b635d28f0d"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             AimAimCostAdjustInfo retValue = (AimAimCostAdjustInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (AimAimCostAdjustInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -143,10 +155,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("6e6201dc-74a0-4df7-9867-8b4fa5ef2ad6"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             AimAimCostAdjustInfo retValue = (AimAimCostAdjustInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (AimAimCostAdjustInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -165,10 +180,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("9ed82083-117c-43d4-a5c9-ffb451c35bea"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             AimAimCostAdjustInfo retValue = (AimAimCostAdjustInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (AimAimCostAdjustInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -187,10 +205,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("5e0f2199-5d19-4fef-9326-549a03dfa5d0"), new Object[]{ctx, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK retValue = (IObjectPK)_addnew(ctx, model);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -211,7 +232,9 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("6f4bb8d2-0199-4105-a450-9ec2930dc136"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _addnew(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -233,7 +256,9 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("c4dfe7b5-4c06-4d6e-b739-f4e8e1eb59eb"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _update(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -255,7 +280,9 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("3b660f5b-59e1-48c4-8b59-393f487234e9"), new Object[]{ctx, model, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updatePartial(ctx, model, selector);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -277,7 +304,9 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("b3d545f3-46d6-4b23-aff4-7de72bff2893"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updateBigObject(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -296,7 +325,9 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("886d12a1-a131-4ab6-a589-5bfda6fdd992"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, pk);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -318,10 +349,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("8bff498a-633a-4c8a-8647-12fee98e6bba"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -340,10 +374,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("ab762ff5-15be-4ea2-9a36-d461e892638e"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -362,10 +399,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("f74492b3-c325-4bfe-8300-f6ccaf8a2fac"), new Object[]{ctx, filter, sorter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, filter, sorter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -384,10 +424,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("546e911d-f244-4377-b26e-347b5a3379fe"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             AimAimCostAdjustCollection retValue = (AimAimCostAdjustCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (AimAimCostAdjustCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -404,10 +447,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("ce755881-a6aa-4ba1-9c6f-8e110376de93"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             AimAimCostAdjustCollection retValue = (AimAimCostAdjustCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (AimAimCostAdjustCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -424,10 +470,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("068f617f-aa50-49f8-8b9a-af3150dcdde2"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             AimAimCostAdjustCollection retValue = (AimAimCostAdjustCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (AimAimCostAdjustCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -444,10 +493,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("fe493596-2fc4-43e0-9c13-33d48179b9e9"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, filter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -468,10 +520,13 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("3c6e401c-436c-4cf6-b3de-d8970490d350"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -492,7 +547,9 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("d54d7455-9af4-4f80-925a-41bf82d09c1d"), new Object[]{ctx, arrayPK});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, arrayPK);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -514,7 +571,9 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("ba550b77-03d6-4d21-8c18-96483ac38073"), new Object[]{ctx, billId});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _setAuttingForWF(ctx, billId);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -533,7 +592,9 @@ public abstract class AbstractAimAimCostAdjustControllerBean extends FDCBillCont
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("77e259eb-67bd-4f33-8508-44576376f0c4"), new Object[]{ctx, billId});
             invokeServiceBefore(svcCtx);
+              if(!svcCtx.invokeBreak()) {
             _setSubmitState(ctx, billId);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();

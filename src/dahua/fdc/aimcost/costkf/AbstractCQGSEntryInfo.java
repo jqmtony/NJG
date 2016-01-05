@@ -94,6 +94,17 @@ public class AbstractCQGSEntryInfo extends com.kingdee.eas.framework.CoreBillEnt
     {
         put("PropertyRight", item);
     }
+    /**
+     * Object: ·ÖÂ¼ 's ÓÃÍ¾ property 
+     */
+    public com.kingdee.eas.fdc.aimcost.costkf.UsesInfo getUses()
+    {
+        return (com.kingdee.eas.fdc.aimcost.costkf.UsesInfo)get("Uses");
+    }
+    public void setUses(com.kingdee.eas.fdc.aimcost.costkf.UsesInfo item)
+    {
+        put("Uses", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("0515C4AF");

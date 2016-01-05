@@ -1436,6 +1436,7 @@ public class AimAimCostAdjustEditUI extends AbstractAimAimCostAdjustEditUI {
 		sic.add(new SelectorItemInfo("number"));
 		sic.add(new SelectorItemInfo("name"));
 		sic.add(new SelectorItemInfo("state"));
+		sic.add(new SelectorItemInfo("BIMUDF0031"));
 		sic.add(new SelectorItemInfo("orgUnit.id"));
 		sic.add(new SelectorItemInfo("creator.id"));
 		sic.add(new SelectorItemInfo("creator.name"));

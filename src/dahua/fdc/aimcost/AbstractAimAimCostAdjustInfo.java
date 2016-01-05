@@ -36,6 +36,17 @@ public class AbstractAimAimCostAdjustInfo extends com.kingdee.eas.fdc.basedata.F
     {
         put("curProject", item);
     }
+    /**
+     * Object:目标成本调整单's 单方指标property 
+     */
+    public java.math.BigDecimal getBIMUDF0031()
+    {
+        return getBigDecimal("BIMUDF0031");
+    }
+    public void setBIMUDF0031(java.math.BigDecimal item)
+    {
+        setBigDecimal("BIMUDF0031", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("04C7B2F3");

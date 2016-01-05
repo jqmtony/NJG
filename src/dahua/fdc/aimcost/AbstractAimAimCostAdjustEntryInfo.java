@@ -18,7 +18,7 @@ public class AbstractAimAimCostAdjustEntryInfo extends com.kingdee.eas.framework
         super(pkField);
     }
     /**
-     * Object: 目标成本调理单分录 's 成本科目 property 
+     * Object: 分录 's 成本科目 property 
      */
     public com.kingdee.eas.fdc.basedata.CostAccountInfo getCostAccount()
     {
@@ -29,7 +29,7 @@ public class AbstractAimAimCostAdjustEntryInfo extends com.kingdee.eas.framework
         put("costAccount", item);
     }
     /**
-     * Object:目标成本调理单分录's 工作量property 
+     * Object:分录's 工作量property 
      */
     public java.math.BigDecimal getWorkload()
     {
@@ -40,7 +40,7 @@ public class AbstractAimAimCostAdjustEntryInfo extends com.kingdee.eas.framework
         setBigDecimal("workload", item);
     }
     /**
-     * Object:目标成本调理单分录's 单价property 
+     * Object:分录's 单价property 
      */
     public java.math.BigDecimal getPrice()
     {
@@ -51,7 +51,7 @@ public class AbstractAimAimCostAdjustEntryInfo extends com.kingdee.eas.framework
         setBigDecimal("price", item);
     }
     /**
-     * Object:目标成本调理单分录's 调整金额property 
+     * Object:分录's 调整金额property 
      */
     public java.math.BigDecimal getAdjustAmt()
     {
@@ -62,7 +62,7 @@ public class AbstractAimAimCostAdjustEntryInfo extends com.kingdee.eas.framework
         setBigDecimal("adjustAmt", item);
     }
     /**
-     * Object:目标成本调理单分录's 备注property 
+     * Object:分录's 备注property 
      */
     public String getDescription()
     {
@@ -73,7 +73,7 @@ public class AbstractAimAimCostAdjustEntryInfo extends com.kingdee.eas.framework
         setString("description", item);
     }
     /**
-     * Object: 目标成本调理单分录 's 单位 property 
+     * Object: 分录 's 单位 property 
      */
     public com.kingdee.eas.basedata.assistant.MeasureUnitInfo getUnit()
     {
@@ -84,7 +84,7 @@ public class AbstractAimAimCostAdjustEntryInfo extends com.kingdee.eas.framework
         put("unit", item);
     }
     /**
-     * Object: 目标成本调理单分录 's 归属产品 property 
+     * Object: 分录 's 归属产品 property 
      */
     public com.kingdee.eas.fdc.basedata.ProductTypeInfo getProduct()
     {
@@ -95,7 +95,7 @@ public class AbstractAimAimCostAdjustEntryInfo extends com.kingdee.eas.framework
         put("product", item);
     }
     /**
-     * Object: 目标成本调理单分录 's 目标成本调整单 property 
+     * Object: 分录 's 目标成本调整单 property 
      */
     public com.kingdee.eas.fdc.aimcost.AimAimCostAdjustInfo getParent()
     {
@@ -106,7 +106,7 @@ public class AbstractAimAimCostAdjustEntryInfo extends com.kingdee.eas.framework
         put("parent", item);
     }
     /**
-     * Object: 目标成本调理单分录 's 调整类型 property 
+     * Object: 分录 's 调整类型 property 
      */
     public com.kingdee.eas.fdc.basedata.AdjustTypeInfo getAdjustType()
     {
@@ -117,7 +117,7 @@ public class AbstractAimAimCostAdjustEntryInfo extends com.kingdee.eas.framework
         put("adjustType", item);
     }
     /**
-     * Object:目标成本调理单分录's 变化原因property 
+     * Object:分录's 变化原因property 
      */
     public String getChangeReason()
     {

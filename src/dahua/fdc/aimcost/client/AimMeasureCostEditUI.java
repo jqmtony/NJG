@@ -1461,51 +1461,64 @@ public class AimMeasureCostEditUI extends AbstractAimMeasureCostEditUI {
 		    if(value != null && value.indexOf(key)>-1){
 		    	if(("项目内独立式停车设施分摊费").equals(value)){
 		    	row.getCell("COL_SUM_PRICE").setValue(n);
-		    	row.getCell("amount").setValue(n);	
+		    	row.getCell("amount").setValue(n);
+		    	row.getStyleAttributes().setLocked(false);
 		    	}
 		    	else if(("项目外独立式停车设施分摊费").equals(value)){
 		    		row.getCell("COL_SUM_PRICE").setValue(w);
-		    		row.getCell("amount").setValue(w);	
+		    		row.getCell("amount").setValue(w);
+		    		row.getStyleAttributes().setLocked(false);
 		    	}
 		    	else if(("项目内独立商业网点分摊费").equals(value)){
 		    		row.getCell("COL_SUM_PRICE").setValue(n);
-		    		row.getCell("amount").setValue(n);	
+		    		row.getCell("amount").setValue(n);
+		    		row.getStyleAttributes().setLocked(false);
 		    	}
+		    	
 		    	else if(("项目外独立商业网点分摊费").equals(value)){
 		    		row.getCell("COL_SUM_PRICE").setValue(w);
-		    		row.getCell("amount").setValue(w);	
+		    		row.getCell("amount").setValue(w);
+		    		row.getStyleAttributes().setLocked(false);
 		    	}
 		    	else if(("项目内独立文化教育分摊费").equals(value)){
 		    		row.getCell("COL_SUM_PRICE").setValue(n);
-		    		row.getCell("amount").setValue(n);	
+		    		row.getCell("amount").setValue(n);
+		    		row.getStyleAttributes().setLocked(false);
 		    	}
 		    	else if(("项目外独立文化教育分摊费").equals(value)){
 		    		row.getCell("COL_SUM_PRICE").setValue(w);
-		    		row.getCell("amount").setValue(w);	
+		    		row.getCell("amount").setValue(w);
+		    		row.getStyleAttributes().setLocked(false);
 		    	}
 		    	else if(("项目内独立会所分摊费").equals(value)){
 		    		row.getCell("COL_SUM_PRICE").setValue(n);
-		    		row.getCell("amount").setValue(n);	
+		    		row.getCell("amount").setValue(n);
+		    		row.getStyleAttributes().setLocked(false);
 		    	}
 		    	else if(("项目外独立会所分摊费").equals(value)){
 		    		row.getCell("COL_SUM_PRICE").setValue(w);
-		    		row.getCell("amount").setValue(w);	
+		    		row.getCell("amount").setValue(w);
+		    		row.getStyleAttributes().setLocked(false);
 		    	}
 		    	else if(("项目内独立医疗设施分摊费").equals(value)){
 		    		row.getCell("COL_SUM_PRICE").setValue(n);
-		    		row.getCell("amount").setValue(n);	
+		    		row.getCell("amount").setValue(n);
+		    		row.getStyleAttributes().setLocked(false);
 		    	}
 		    	else if(("项目外独立医疗设施分摊费").equals(value)){
 		    		row.getCell("COL_SUM_PRICE").setValue(w);
-		    		row.getCell("amount").setValue(w);	
+		    		row.getCell("amount").setValue(w);
+		    		row.getStyleAttributes().setLocked(false);
 		    	}
 		    	else if(("项目内其他独立公建设施分摊费").equals(value)){
 		    		row.getCell("COL_SUM_PRICE").setValue(n);
-		    		row.getCell("amount").setValue(n);	
+		    		row.getCell("amount").setValue(n);
+		    		row.getStyleAttributes().setLocked(false);
 		    	}
 		    	else if(("项目外其他独立公建设施分摊费").equals(value)){
 		    		row.getCell("COL_SUM_PRICE").setValue(w);
-		    		row.getCell("amount").setValue(w);	
+		    		row.getCell("amount").setValue(w);
+		    		row.getStyleAttributes().setLocked(false);
 		    	}
 		    }
 		}
