@@ -79,7 +79,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.swing.KDCheckBox Bjzb;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox Xscn;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox sfyjjd;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contChangeReasons;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contChangeReason;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
@@ -137,7 +137,6 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contConductUnit;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contDesignUnit;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox chkIsImportChange;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contChangeReason;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contSpecialtyType;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer3;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contJobType;
@@ -150,7 +149,6 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtConstrUnit;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtConductUnit;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtDesignUnit;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtChangeReason;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtSpecialtyType;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtSpecialtyType;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtJobType;
@@ -162,7 +160,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.swing.KDComboBox conquality;
     protected com.kingdee.bos.ctrl.swing.KDComboBox conimeLi;
     protected com.kingdee.bos.ctrl.swing.KDComboBox conSale;
-    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtChangeReasons;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtChangeReason;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewContract;
     protected javax.swing.JToolBar.Separator separator4;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAttenTwo;
@@ -382,7 +380,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.Bjzb = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.Xscn = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.sfyjjd = new com.kingdee.bos.ctrl.swing.KDCheckBox();
-        this.contChangeReasons = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contChangeReason = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -440,7 +438,6 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.contConductUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contDesignUnit = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.chkIsImportChange = new com.kingdee.bos.ctrl.swing.KDCheckBox();
-        this.contChangeReason = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contSpecialtyType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer3 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contJobType = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -453,7 +450,6 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.prmtConstrUnit = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtConductUnit = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtDesignUnit = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.prmtChangeReason = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.prmtSpecialtyType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtSpecialtyType = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.prmtJobType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -465,7 +461,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.conquality = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.conimeLi = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.conSale = new com.kingdee.bos.ctrl.swing.KDComboBox();
-        this.prmtChangeReasons = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.prmtChangeReason = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.btnViewContract = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.separator4 = new javax.swing.JToolBar.Separator();
         this.btnAttenTwo = new com.kingdee.bos.ctrl.swing.KDWorkButton();
@@ -507,7 +503,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.Bjzb.setName("Bjzb");
         this.Xscn.setName("Xscn");
         this.sfyjjd.setName("sfyjjd");
-        this.contChangeReasons.setName("contChangeReasons");
+        this.contChangeReason.setName("contChangeReason");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.txtNumber.setName("txtNumber");
@@ -565,7 +561,6 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.contConductUnit.setName("contConductUnit");
         this.contDesignUnit.setName("contDesignUnit");
         this.chkIsImportChange.setName("chkIsImportChange");
-        this.contChangeReason.setName("contChangeReason");
         this.contSpecialtyType.setName("contSpecialtyType");
         this.kDLabelContainer3.setName("kDLabelContainer3");
         this.contJobType.setName("contJobType");
@@ -578,7 +573,6 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.prmtConstrUnit.setName("prmtConstrUnit");
         this.prmtConductUnit.setName("prmtConductUnit");
         this.prmtDesignUnit.setName("prmtDesignUnit");
-        this.prmtChangeReason.setName("prmtChangeReason");
         this.prmtSpecialtyType.setName("prmtSpecialtyType");
         this.txtSpecialtyType.setName("txtSpecialtyType");
         this.prmtJobType.setName("prmtJobType");
@@ -590,7 +584,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.conquality.setName("conquality");
         this.conimeLi.setName("conimeLi");
         this.conSale.setName("conSale");
-        this.prmtChangeReasons.setName("prmtChangeReasons");
+        this.prmtChangeReason.setName("prmtChangeReason");
         this.btnViewContract.setName("btnViewContract");
         this.separator4.setName("separator4");
         this.btnAttenTwo.setName("btnAttenTwo");
@@ -775,10 +769,10 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         });
         // sfyjjd		
         this.sfyjjd.setText(resHelper.getString("sfyjjd.text"));
-        // contChangeReasons		
-        this.contChangeReasons.setBoundLabelText(resHelper.getString("contChangeReasons.boundLabelText"));		
-        this.contChangeReasons.setBoundLabelLength(100);		
-        this.contChangeReasons.setBoundLabelUnderline(true);
+        // contChangeReason		
+        this.contChangeReason.setBoundLabelText(resHelper.getString("contChangeReason.boundLabelText"));		
+        this.contChangeReason.setBoundLabelLength(100);		
+        this.contChangeReason.setBoundLabelUnderline(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setDisplayFormat("$name$");		
@@ -1069,11 +1063,6 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.contDesignUnit.setBoundLabelUnderline(true);
         // chkIsImportChange		
         this.chkIsImportChange.setText(resHelper.getString("chkIsImportChange.text"));
-        // contChangeReason		
-        this.contChangeReason.setBoundLabelText(resHelper.getString("contChangeReason.boundLabelText"));		
-        this.contChangeReason.setBoundLabelLength(100);		
-        this.contChangeReason.setBoundLabelUnderline(true);		
-        this.contChangeReason.setVisible(false);
         // contSpecialtyType		
         this.contSpecialtyType.setBoundLabelText(resHelper.getString("contSpecialtyType.boundLabelText"));		
         this.contSpecialtyType.setBoundLabelLength(100);		
@@ -1125,13 +1114,6 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.prmtDesignUnit.setCommitFormat("$number$");		
         this.prmtDesignUnit.setEditFormat("$number$");		
         this.prmtDesignUnit.setDisplayFormat("$number$ $name$");
-        // prmtChangeReason		
-        this.prmtChangeReason.setEditable(true);		
-        this.prmtChangeReason.setDisplayFormat("$name$");		
-        this.prmtChangeReason.setEditFormat("$number$");		
-        this.prmtChangeReason.setCommitFormat("$number$");		
-        this.prmtChangeReason.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7ChangeReasonQuery");		
-        this.prmtChangeReason.setRequired(true);
         // prmtSpecialtyType		
         this.prmtSpecialtyType.setDisplayFormat("$name$");		
         this.prmtSpecialtyType.setEditFormat("$number$");		
@@ -1201,7 +1183,13 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         // conquality
         // conimeLi
         // conSale
-        // prmtChangeReasons
+        // prmtChangeReason		
+        this.prmtChangeReason.setEditable(true);		
+        this.prmtChangeReason.setDisplayFormat("$name$");		
+        this.prmtChangeReason.setEditFormat("$number$");		
+        this.prmtChangeReason.setCommitFormat("$number$");		
+        this.prmtChangeReason.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7ChangeReasonQuery");		
+        this.prmtChangeReason.setRequired(true);
         // btnViewContract
         this.btnViewContract.setAction((IItemAction)ActionProxyFactory.getProxy(actionViewContract, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnViewContract.setText(resHelper.getString("btnViewContract.text"));		
@@ -1324,8 +1312,8 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.add(Xscn, new KDLayout.Constraints(881, 162, 129, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         sfyjjd.setBounds(new Rectangle(732, 189, 140, 19));
         this.add(sfyjjd, new KDLayout.Constraints(732, 189, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contChangeReasons.setBounds(new Rectangle(378, 157, 270, 19));
-        this.add(contChangeReasons, new KDLayout.Constraints(378, 157, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contChangeReason.setBounds(new Rectangle(378, 160, 270, 19));
+        this.add(contChangeReason, new KDLayout.Constraints(378, 160, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1442,8 +1430,6 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
         kDPanel1.add(contDesignUnit, new KDLayout.Constraints(709, 70, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         chkIsImportChange.setBounds(new Rectangle(9, 142, 146, 19));
         kDPanel1.add(chkIsImportChange, new KDLayout.Constraints(9, 142, 146, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contChangeReason.setBounds(new Rectangle(151, 95, 270, 19));
-        kDPanel1.add(contChangeReason, new KDLayout.Constraints(151, 95, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contSpecialtyType.setBounds(new Rectangle(432, 92, 270, 19));
         kDPanel1.add(contSpecialtyType, new KDLayout.Constraints(432, 92, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer3.setBounds(new Rectangle(152, 116, 270, 19));
@@ -1468,8 +1454,6 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
         contConductUnit.setBoundEditor(prmtConductUnit);
         //contDesignUnit
         contDesignUnit.setBoundEditor(prmtDesignUnit);
-        //contChangeReason
-        contChangeReason.setBoundEditor(prmtChangeReason);
         //contSpecialtyType
         contSpecialtyType.setBoundEditor(prmtSpecialtyType);
         //kDLabelContainer3
@@ -1492,8 +1476,8 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
         conttimeLi.setBoundEditor(conimeLi);
         //contsale
         contsale.setBoundEditor(conSale);
-        //contChangeReasons
-        contChangeReasons.setBoundEditor(prmtChangeReasons);
+        //contChangeReason
+        contChangeReason.setBoundEditor(prmtChangeReason);
 
     }
 
@@ -1722,7 +1706,6 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
 		dataBinder.registerBinding("constrUnit", com.kingdee.eas.basedata.master.cssp.SupplierInfo.class, this.prmtConstrUnit, "data");
 		dataBinder.registerBinding("conductUnit", com.kingdee.eas.basedata.master.cssp.SupplierInfo.class, this.prmtConductUnit, "data");
 		dataBinder.registerBinding("designUnit", com.kingdee.eas.basedata.master.cssp.SupplierInfo.class, this.prmtDesignUnit, "data");
-		dataBinder.registerBinding("changeReason", com.kingdee.eas.fdc.basedata.ChangeReasonInfo.class, this.prmtChangeReason, "data");
 		dataBinder.registerBinding("specialtyType", com.kingdee.eas.fdc.basedata.SpecialtyTypeInfo.class, this.prmtSpecialtyType, "data");
 		dataBinder.registerBinding("specialName", String.class, this.txtSpecialtyType, "text");
 		dataBinder.registerBinding("jobType", com.kingdee.eas.fdc.basedata.JobTypeInfo.class, this.prmtJobType, "data");
@@ -1730,7 +1713,7 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
 		dataBinder.registerBinding("contractAmPro", java.math.BigDecimal.class, this.txtcontractAmPro, "value");
 		dataBinder.registerBinding("totalChangeAmount", java.math.BigDecimal.class, this.txttotalChangeAmount, "value");
 		dataBinder.registerBinding("designChangeAmount", java.math.BigDecimal.class, this.txtdesignChangeAmount, "value");
-		dataBinder.registerBinding("changeReason", com.kingdee.eas.fdc.basedata.ChangeReasonInfo.class, this.prmtChangeReasons, "data");		
+		dataBinder.registerBinding("changeReason", com.kingdee.eas.fdc.basedata.ChangeReasonInfo.class, this.prmtChangeReason, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){					 	        		
@@ -1844,7 +1827,6 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
 		getValidateHelper().registerBindProperty("constrUnit", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("conductUnit", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("designUnit", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("changeReason", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("specialtyType", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("specialName", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("jobType", ValidateHelper.ON_SAVE);    
@@ -2140,15 +2122,6 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
 		}
 		if(selectorAll.equalsIgnoreCase("true"))
 		{
-			sic.add(new SelectorItemInfo("changeReason.*"));
-		}
-		else{
-        	sic.add(new SelectorItemInfo("changeReason.id"));
-        	sic.add(new SelectorItemInfo("changeReason.number"));
-        	sic.add(new SelectorItemInfo("changeReason.name"));
-		}
-		if(selectorAll.equalsIgnoreCase("true"))
-		{
 			sic.add(new SelectorItemInfo("specialtyType.*"));
 		}
 		else{
@@ -2175,6 +2148,9 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
 			sic.add(new SelectorItemInfo("changeReason.*"));
 		}
 		else{
+        	sic.add(new SelectorItemInfo("changeReason.id"));
+        	sic.add(new SelectorItemInfo("changeReason.number"));
+        	sic.add(new SelectorItemInfo("changeReason.name"));
 		}
         return sic;
     }        

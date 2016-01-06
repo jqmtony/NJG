@@ -3672,6 +3672,8 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 		sic.add("lastUpdateTime");
 		// 款项内容
 		sic.add("Kxnr");
+		// 是否超资金计划
+		sic.add("sfczjjhfk");
 
 		sic.add("paymentProportion");
 		sic.add("costAmount");

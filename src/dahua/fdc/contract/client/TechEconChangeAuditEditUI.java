@@ -4324,7 +4324,7 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 		}
 	}
 
-	private void verfySuppEntrys(){
+	private void verfySuppEntrys() throws Exception{
 		if (getSecondTable().getExpandedRowCount()<=0){
 			if(isOfferAndConstrReq){
 				return;//中渝模式可不录
@@ -4333,6 +4333,7 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 			SysUtil.abort();
     	}
 		FDCClientVerifyHelper.verifyUIControlEmpty(this);
+//		infut();
 		int number = getSecondTable().getRowCount();
 		int count = number/suppRows;
 		List list=new ArrayList();
@@ -5233,5 +5234,21 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 			kdtSpecialtyType.addRow().getCell("specialtyTypeID").setValue(info);
 			txtSpecialtyType.setText(info.getName());
 		}
+	}
+	//校验
+	protected void infut() throws Exception {
+		if(txtNumber.getText() == null){
+			MsgBox.showWarning("审批表编号不能为空。");
+		}
+		if(prmtConductDept.getValue() == null){
+			MsgBox.showWarning("提出部门不能为空。");
+		}
+		if(txtName.getText() == null){
+			MsgBox.showWarning("事项名称不能为空。");
+		}
+		if(pkputForwardTime.getValue() == null){
+			MsgBox.showWarning("提出时间不能为空。");
+		}
+	
 	}
 }
