@@ -4,6 +4,7 @@
 package com.kingdee.eas.fdc.contract.client;
 
 import java.awt.event.ActionEvent;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,6 +21,8 @@ import com.kingdee.bos.ctrl.kdf.table.KDTSelectBlock;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
+import com.kingdee.bos.dao.ObjectNotFoundException;
+import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
@@ -31,6 +34,9 @@ import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.eas.basedata.master.auxacct.GeneralAsstActTypeFactory;
+import com.kingdee.eas.basedata.master.auxacct.GeneralAsstActTypeInfo;
+import com.kingdee.eas.basedata.master.cssp.SupplierFactory;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
@@ -40,14 +46,28 @@ import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.IFDCBill;
 import com.kingdee.eas.fdc.basedata.client.FDCClientHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
+import com.kingdee.eas.fdc.contract.ContractBillCollection;
 import com.kingdee.eas.fdc.contract.ContractBillEntryCollection;
+import com.kingdee.eas.fdc.contract.ContractBillEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractBillReviseCollection;
+import com.kingdee.eas.fdc.contract.ContractBillReviseEntryCollection;
+import com.kingdee.eas.fdc.contract.ContractBillReviseEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractBillReviseFactory;
 import com.kingdee.eas.fdc.contract.ContractBillReviseInfo;
+import com.kingdee.eas.fdc.contract.ContractPropertyEnum;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.framework.ICoreBillBase;
+import com.kingdee.eas.minghua.contract.BcxyDocFactory;
+import com.kingdee.eas.minghua.contract.BcxyDocInfo;
+import com.kingdee.eas.minghua.contract.ZcbhtDocFactory;
+import com.kingdee.eas.minghua.contract.ZcbhtDocInfo;
+import com.kingdee.eas.minghua.contract.ZyfbhtDocFactory;
+import com.kingdee.eas.minghua.contract.ZyfbhtDocInfo;
+import com.kingdee.eas.minghua.jczlwh.mj.SfshEnum;
+import com.kingdee.eas.minghua.material.Jzygclcght2DocFactory;
+import com.kingdee.eas.minghua.material.Jzygclcght2DocInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 
@@ -142,6 +162,9 @@ public class ContractBillReviseListUI extends AbstractContractBillReviseListUI {
 	
 //	审批时加上数据互斥
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
+		if(CustomerContractUtil.currentDCenterIsSync()) {
+			beforeAudit();
+		}
 //		获取用户选择的块
 		List idList =ContractClientUtils.getSelectedIdValues(getBillListTable(), getKeyFieldName());
 		boolean hasMutex = false;
@@ -167,6 +190,209 @@ public class ContractBillReviseListUI extends AbstractContractBillReviseListUI {
 		}
 		this.btnAttachment.setEnabled(true);
 	    this.btnAttachment.setVisible(true);
+	}
+	
+	private void beforeAudit() throws Exception {
+		checkSelected(tblContractRev);
+		int rowIndex = tblContractRev.getSelectManager().getActiveRowIndex();
+		String typeName = (String)tblContractRev.getCell(rowIndex, "contractType.name").getValue();
+		if("[建安]".equals(typeName) || "[施工]".equals(typeName) ||"[材料]".equals(typeName) ||"[分包]".equals(typeName)) {
+			ContractBillReviseInfo reviseInfo = (ContractBillReviseInfo)tblContractRev.getRow(rowIndex).getUserObject();
+			if(!FDCBillStateEnum.SUBMITTED.equals(reviseInfo.getState())) {
+				MsgBox.showWarning("存在不符合审批条件的记录，请重新选择，保证所选的记录都是已提交状态的");
+				SysUtil.abort();
+			}
+			ContractBillInfo oldBillInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(reviseInfo.getContractBill().getId()));
+			if("[建安]".equals(typeName)) {
+				String suName = SupplierFactory.getRemoteInstance().getSupplierInfo(new ObjectUuidPK(oldBillInfo.getPartB().getId())).getName();
+				//合同编码被修改了，先是同步大华这边的分包合同编码
+				if(!oldBillInfo.getNumber().trim().equals(reviseInfo.getNumber().trim())) {
+					syncFBNumberByZB(oldBillInfo, oldBillInfo.getNumber().trim(), reviseInfo.getName(), reviseInfo.getNumber().trim(),suName);
+				}
+				if(CustomerContractUtil.SHLS.equals(suName)) {
+					return;
+				}
+				String contractName = null;
+				BigDecimal contractAmount = null;
+				//名称改变
+				if(!oldBillInfo.getName().trim().equals(reviseInfo.getName().trim())) {
+					contractName = reviseInfo.getName().trim();
+				}
+				//金额改变
+				if(reviseInfo.getOriginalAmount().compareTo(reviseInfo.getRevAmount()) != 0) {
+					contractAmount = reviseInfo.getRevAmount();
+				}
+				if(contractName != null || contractAmount != null) {
+					try {
+						ZcbhtDocInfo zcbht = ZcbhtDocFactory.getRemoteInstance().getZcbhtDocInfo("select djzt,name where sourceBillId='"+oldBillInfo.getId().toString()+"'");
+						if(SfshEnum.yes.equals(zcbht.getDjzt())) {
+							showMsgAndAbort();
+						}
+						SelectorItemCollection sic = new SelectorItemCollection();
+						if(contractName != null) {
+							sic.add("htmc");
+							zcbht.setHtmc(contractName);
+						}
+						if(contractAmount != null) {
+							sic.add("zzj");
+							zcbht.setZzj(contractAmount);
+						}
+						ZcbhtDocFactory.getRemoteInstance().updatePartial(zcbht, sic);
+					} catch (ObjectNotFoundException e2) {
+					}
+				}	
+			}
+			else {
+				ContractBillReviseInfo realInfo = ContractBillReviseFactory.getRemoteInstance().getContractBillReviseInfo("select landDeveloper.name,partb.name where id='"+reviseInfo.getId().toString()+"'");
+				if(CustomerContractUtil.SHLS.equals(realInfo.getLandDeveloper().getName())) {
+					return;
+				}
+				GeneralAsstActTypeInfo gaa = null;
+				//乙方改变
+				if(!oldBillInfo.getPartB().getId().equals(realInfo.getPartB().getId())) {
+					String cuid = CustomerContractUtil.getCUIDByName(realInfo.getLandDeveloper().getName());
+//					MsgBox.showInfo(realInfo.getLandDeveloper().getName());
+//					MsgBox.showInfo(cuid);
+//					MsgBox.showInfo(CustomerContractUtil.getInfoByName(realInfo.getPartB(),cuid,"iXhSqAEUEADgBLXBwKgA0gXSzQw=").getId().toString());
+					System.out.println("cuid--"+cuid+"--"+realInfo.getLandDeveloper().getName());
+					System.out.println(CustomerContractUtil.getInfoByName(realInfo.getPartB(),cuid,"iXhSqAEUEADgBLXBwKgA0gXSzQw=").getId().toString());
+					try {
+						gaa = GeneralAsstActTypeFactory.getRemoteInstance().getGeneralAsstActTypeInfo("select id where name='"+realInfo.getPartB().getName()+"'" +
+								" and cu.ID='"+cuid+"'");
+					} catch (ObjectNotFoundException onfe) {
+						if(cuid != null) {
+							gaa = CustomerContractUtil.getInfoByName(realInfo.getPartB(),cuid,"iXhSqAEUEADgBLXBwKgA0gXSzQw=");
+						}
+					}
+				}
+				checkFBChange(oldBillInfo, reviseInfo, gaa);
+			}
+		}
+	}
+
+	private void checkFBChange(ContractBillInfo oldBillInfo,ContractBillReviseInfo reviseInfo,GeneralAsstActTypeInfo gaa) throws BOSException, EASBizException {
+		SelectorItemCollection sic = new SelectorItemCollection();
+		if("[施工]".equals(reviseInfo.getContractType().getName())) {
+			try {
+				BcxyDocInfo bcxy = BcxyDocFactory.getRemoteInstance().getBcxyDocInfo("select djzt,jsfhtbh.id where sourceBillId='"+oldBillInfo.getId().toString()+"'");
+				if(bcxy.getDjzt().equals(SfshEnum.yes)) {
+					showMsgAndAbort();
+				}
+				if(gaa != null) {
+					bcxy.setGcchfbf(gaa);
+					sic.add("gcchfbf.id");
+				}
+				//名称改变
+				if(!oldBillInfo.getName().trim().equals(reviseInfo.getName().trim())) {
+					sic.add("htmc");
+					bcxy.setHtmc(reviseInfo.getName().trim());
+				}
+				//金额改变
+				if(reviseInfo.getOriginalAmount().compareTo(reviseInfo.getRevAmount()) != 0) {
+					sic.add("zzj");
+					bcxy.setZzj(reviseInfo.getRevAmount());
+				}
+				if(!oldBillInfo.getNumber().trim().equals(reviseInfo.getNumber().trim())) {
+					CustomerContractUtil.syncGaaInfo(reviseInfo.getName(),reviseInfo.getNumber().trim(), bcxy.getJsfhtbh().getId().toString());
+				}
+				ContractBillEntryCollection oldes = ContractBillEntryFactory.getRemoteInstance().getContractBillEntryCollection("where parent.id='"+oldBillInfo.getId().toString()+"'");
+				ContractBillReviseEntryCollection newes = ContractBillReviseEntryFactory.getRemoteInstance().getContractBillReviseEntryCollection("where parent.id='"+reviseInfo.getId().toString()+"'");
+				if(oldes.get(0).getContent()!=null && !oldes.get(0).getContent().equals(newes.get(0).getContent())) {
+					sic.add("bz");
+					bcxy.setBz(newes.get(0).getContent()+newes.get(0).getDesc());
+				}
+				if(sic.size() > 0) {
+					BcxyDocFactory.getRemoteInstance().updatePartial(bcxy, sic);
+				}
+				
+			} catch (ObjectNotFoundException e2) {
+			}
+		}else if("[分包]".equals(reviseInfo.getContractType().getName())) {
+			try {
+				ZyfbhtDocInfo zyfb = ZyfbhtDocFactory.getRemoteInstance().getZyfbhtDocInfo("select djzt,zyfbhtbh.id where sourceBillId='"+oldBillInfo.getId().toString()+"'");
+				if(zyfb.getDjzt().equals(SfshEnum.yes)) {
+					showMsgAndAbort();
+				}
+				if(gaa != null) {
+					zyfb.setFbf(gaa);
+					sic.add("fbf.id");
+				}
+				if(!oldBillInfo.getName().trim().equals(reviseInfo.getName().trim())) {
+					sic.add("htmc");
+					zyfb.setHtmc(reviseInfo.getName().trim());
+				}
+				if(reviseInfo.getOriginalAmount().compareTo(reviseInfo.getRevAmount()) != 0) {
+					sic.add("hshtje");
+					zyfb.setHshtje(reviseInfo.getRevAmount());
+				}
+				if(!oldBillInfo.getNumber().trim().equals(reviseInfo.getNumber().trim())) {
+					CustomerContractUtil.syncGaaInfo(reviseInfo.getName(),reviseInfo.getNumber().trim(), zyfb.getZyfbhtbh().getId().toString());
+				}
+				if(sic.size() > 0) {
+					ZyfbhtDocFactory.getRemoteInstance().updatePartial(zyfb, sic);
+				}
+				
+			} catch (ObjectNotFoundException e2) {
+			}
+		}
+		else {
+			try {
+				Jzygclcght2DocInfo jzyg = Jzygclcght2DocFactory.getRemoteInstance().getJzygclcght2DocInfo("select djzt,cghtbh.id where sourceBillId='"+oldBillInfo.getId().toString()+"'");
+				if(jzyg.getDjzt().equals(SfshEnum.yes)) {
+					showMsgAndAbort();
+				}
+				if(!oldBillInfo.getName().trim().equals(reviseInfo.getName().trim())) {
+					sic.add("htmc");
+					jzyg.setHtmc(reviseInfo.getName().trim());
+				}
+				if(reviseInfo.getOriginalAmount().compareTo(reviseInfo.getRevAmount()) != 0) {
+					sic.add("htje");
+					jzyg.setHtje(reviseInfo.getRevAmount());
+				}
+				if(!oldBillInfo.getNumber().trim().equals(reviseInfo.getNumber().trim())) {
+					CustomerContractUtil.syncGaaInfo(reviseInfo.getName(),reviseInfo.getNumber().trim(), jzyg.getCghtbh().getId().toString());
+				}
+				if(sic.size() > 0) {
+					Jzygclcght2DocFactory.getRemoteInstance().updatePartial(jzyg, sic);
+				}
+			} catch (ObjectNotFoundException e) {
+			}
+		}
+	}
+
+	private void showMsgAndAbort() {
+		MsgBox.showInfo("该合同对应的名华合同已审批，无法执行此操作！");
+		SysUtil.abort();
+	}
+	
+	private void syncFBNumberByZB(ContractBillInfo oldBillInfo, String oldNumber, String name, String newNumber, String sname) throws BOSException, EASBizException {
+		ZcbhtDocInfo zcbht = null;
+		try {
+			zcbht = ZcbhtDocFactory.getRemoteInstance().getZcbhtDocInfo("select djzt,jfhtbh.id where sourceBillId='"+oldBillInfo.getId().toString()+"'");
+			if(SfshEnum.yes.equals(zcbht.getDjzt())) {
+				showMsgAndAbort();
+			}
+			CustomerContractUtil.syncGaaInfo(name,newNumber, zcbht.getJfhtbh().getId().toString());
+		} catch (ObjectNotFoundException e2) {
+		}
+		SelectorItemCollection sic = new SelectorItemCollection();
+		sic.add("number");
+		sic.add("contractPropert");
+		ContractBillCollection bills = CustomerContractUtil.contractFilter(oldBillInfo, sic);;
+		ContractBillInfo tempInfo = null;
+		for(int i=0, size=bills.size(); i<size; i++) {
+			tempInfo = bills.get(i);
+			if(tempInfo.getNumber().indexOf(oldNumber) != -1) {
+				tempInfo.setNumber(newNumber+tempInfo.getNumber().substring(oldNumber.length()));
+				ContractBillFactory.getRemoteInstance().updatePartial(tempInfo, sic);
+				if(CustomerContractUtil.SHLS.equals(sname)) {
+					continue;
+				}
+				if(ContractPropertyEnum.DIRECT.equals(tempInfo.getContractPropert())) {
+					CustomerContractUtil.syncFBNumber(tempInfo.getContractType().getName(), tempInfo.getName(),tempInfo.getNumber(), tempInfo.getId().toString());
+				}
+			}
+		}
 	}
 	
 	/**

@@ -1600,8 +1600,10 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 												}
 											}
 										}
-										editData.setTotalCost(amount);
-										txtTotalCost.setValue(amount);
+//										editData.setTotalCost(amount);
+//										txtTotalCost.setValue(amount);
+										editData.setDesignChangeAmount(amount);
+										txtdesignChangeAmount.setValue(amount);
 									}
 								}
 							}
@@ -2184,8 +2186,10 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 				}
 			}
 		}
-		editData.setTotalCost(amount);
-		txtTotalCost.setValue(amount);
+//		editData.setTotalCost(amount);
+//		txtTotalCost.setValue(amount);
+		editData.setDesignChangeAmount(amount);
+		txtdesignChangeAmount.setValue(amount);
 	}
 	
 	public void loadValues(ChangeSupplierEntryInfo info) throws BOSException {
@@ -3553,8 +3557,10 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 				}
 			}
 		}
-		editData.setTotalCost(amount);
-		txtTotalCost.setValue(amount);
+//		editData.setTotalCost(amount);
+//		txtTotalCost.setValue(amount);
+		editData.setDesignChangeAmount(amount);
+		txtdesignChangeAmount.setValue(amount);
 		changeAmount();
     }
     
@@ -3693,8 +3699,10 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 						}
 					}
 				}
-				editData.setTotalCost(amount);
-				txtTotalCost.setValue(amount);
+//				editData.setTotalCost(amount);
+//				txtTotalCost.setValue(amount);
+				editData.setDesignChangeAmount(amount);
+				txtdesignChangeAmount.setValue(amount);
 				
 				editData.setAmountDutySupp(amountDedut);
 				txtDutyAmount.setValue(amountDedut);
@@ -3930,8 +3938,10 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 					amount = amount.subtract(FDCHelper.toBigDecimal(e.getOldValue()));
 					amount = amount.add(FDCHelper.toBigDecimal(e.getValue()));
 				}
-				editData.setTotalCost(amount);
-				txtTotalCost.setValue(amount);
+//				editData.setTotalCost(amount);
+//				txtTotalCost.setValue(amount);
+				editData.setDesignChangeAmount(amount);
+				txtdesignChangeAmount.setValue(amount);
 			}
 		}
 		
@@ -4008,9 +4018,12 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 					BigDecimal newCostAmt = FDCHelper.toBigDecimal(obj).multiply(newValue);
 					BigDecimal oldCostAmt = FDCHelper.toBigDecimal(obj).multiply(oldValue);
 					getSecondTable().getCell(e.getRowIndex()+1, e.getColIndex()).setValue(newCostAmt);
-					BigDecimal totalCost = FDCHelper.toBigDecimal(editData.getTotalCost());
-					this.editData.setTotalCost(totalCost.subtract(oldCostAmt).add(newCostAmt));
-					this.txtTotalCost.setValue(editData.getTotalCost());
+//					BigDecimal totalCost = FDCHelper.toBigDecimal(editData.getTotalCost());
+//					this.editData.setTotalCost(totalCost.subtract(oldCostAmt).add(newCostAmt));
+//					this.txtTotalCost.setValue(editData.getTotalCost());
+					BigDecimal totalCost = FDCHelper.toBigDecimal(editData.getDesignChangeAmount());
+					this.editData.setDesignChangeAmount(totalCost.subtract(oldCostAmt).add(newCostAmt));
+					this.txtdesignChangeAmount.setValue(editData.getDesignChangeAmount());
 				}
 			}
 		}
@@ -4029,13 +4042,15 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 	}
 	
 	private void changeAmount() throws BOSException{
-		this.txtdesignChangeAmount.setValue(FDCHelper.subtract(this.txtTotalCost.getBigDecimalValue(), this.txtreworkVisa.getBigDecimalValue()));
-		Set<String> contractSetId = new HashSet<String>();contractSetId.add("9");
-		
+		//txtTotalCost 估算工程费用金额 ， txtreworkVisa  返工签证费用估算， txtdesignChangeAmount 设计变更金额
+		//估算工程费金额=设计变更金额+返工签证费用估算   汇总到估算工程费金额，改为汇总到设计变更金额
+//		this.txtdesignChangeAmount.setValue(FDCHelper.subtract(this.txtTotalCost.getBigDecimalValue(),this.txtreworkVisa.getBigDecimalValue()));
+		this.txtTotalCost.setValue(FDCHelper.add(this.txtdesignChangeAmount.getBigDecimalValue(),this.txtreworkVisa.getBigDecimalValue()));
+		Set<String> contractSetId = new HashSet<String>();
+		contractSetId.add("9");
 		for (int j = 0; j < getSecondTable().getRowCount(); j++) {
 			if(j%suppRows==ROW_contractNum){
 				Object contentCA = getSecondTable().getCell(j, "content").getValue();
-				
 				if(contentCA ==null||!(contentCA instanceof ContractBillInfo))
 					continue;
 				contractSetId.add(((ContractBillInfo)contentCA).getId().toString());
@@ -4043,10 +4058,8 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 		}
 		BigDecimal totalContractAmount = getContractAmount(contractSetId);
 		BigDecimal ChangeAuditAmount = getTotalChangeAuditAmount(contractSetId);
-		
 		this.txtcontractAmPro.setValue(FDCHelper.multiply(FDCHelper.divide(this.txtTotalCost.getBigDecimalValue(), totalContractAmount,4),new BigDecimal("100"),2));
 		this.txttotalChangeAmount.setValue(FDCHelper.multiply(FDCHelper.divide(ChangeAuditAmount, totalContractAmount,4),new BigDecimal("100"),2));
-		
 		hasSaveAddSu = false;
 	}
 	

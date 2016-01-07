@@ -725,8 +725,10 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 							row0.getCell(key+"name").setValue(einfo.getFieldName());
 							row0.getCell(key+"yj").setValue(Boolean.FALSE);
 							if(einfo.getCkDate()!=null && ckDates.get(einfo.getCkDate().getName())!=null){
+								//在主项时间的基础上提前或者退后-einfo.getTqDays()天，现在还要跳过周六、周日
 								c1.setTime(ckDates.get(einfo.getCkDate().getName()));
-								c1.add(Calendar.DATE,-einfo.getTqDays());
+//								c1.add(Calendar.DATE,-einfo.getTqDays());
+								setBeforeOrAfterDays(c1,einfo.getTqDays());
 								row0.getCell(key+"date").setValue(c1.getTime());
 							}
 						}else{
@@ -746,6 +748,24 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 			kdtfxbd.getSelectManager().setSelectMode(KDTSelectManager.CELL_SELECT);
 		}
 	}
+	//在给定的时间和天数上，不计算非工作日（周六、周日）
+	private void setBeforeOrAfterDays(Calendar c1, int tqDays){
+		boolean flag = true;
+		if(tqDays < 0){
+			tqDays = -tqDays;
+			flag = false;
+		}
+		int count = 0;
+		while(tqDays != count){
+			if(flag)
+				c1.add(Calendar.DATE,-1);
+			else
+				c1.add(Calendar.DATE,1);
+			if(c1.get(Calendar.DAY_OF_WEEK)==1 || c1.get(Calendar.DAY_OF_WEEK)==7)
+				continue;
+			count++;
+		}
+	}
 	
 	private String isDateChange(String key,Date editDate,Calendar c1){
 		PcTypeEntryInfo einfo = ptentrys.get(key);
@@ -759,7 +779,8 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 			if(ckdate==null)
 				return null;
 			c1.setTime(ckdate);
-			c1.add(Calendar.DATE,-einfo.getTqDays());
+//			c1.add(Calendar.DATE,-einfo.getTqDays());
+			setBeforeOrAfterDays(c1,einfo.getTqDays());
 			Timestamp ck = new Timestamp(c1.getTime().getTime());
 			Timestamp sj = new Timestamp(editDate.getTime());
 			if(sj.compareTo(ck) > 0)
@@ -807,7 +828,8 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		if(pinfo!=null && pinfo.getCkDate()!=null && ckDates.get(pinfo.getCkDate().getName())!=null){
 			Calendar c1 = Calendar.getInstance();
 			c1.setTime(ckDates.get(pinfo.getCkDate().getName()));
-			c1.add(Calendar.DATE,-pinfo.getTqDays());
+//			c1.add(Calendar.DATE,-pinfo.getTqDays());
+			setBeforeOrAfterDays(c1,pinfo.getTqDays());
 			Timestamp ckdate = new Timestamp(c1.getTime().getTime());
 			Timestamp editdate = new Timestamp(((Date)kdtfxbd.getCell(rowIndex,colIndex).getValue()).getTime());
 			//强控

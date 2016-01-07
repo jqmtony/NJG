@@ -170,6 +170,7 @@ public class ContractSettlementBillEditUI extends
 	
 	private KDWorkButton btnImportSplit = new KDWorkButton("引入拆分");
 	private KDWorkButton btnRemoveSplit = new KDWorkButton("删除分录");
+	private KDWorkButton btnProductSplit = new KDWorkButton("产品拆分");
 	
 	/**
 	 * 汇率是否取合同签订时的汇率
@@ -1193,6 +1194,16 @@ public class ContractSettlementBillEditUI extends
 				}
 			}
 		});
+		btnProductSplit.setIcon(EASResource.getIcon("imgTbtn_citetree"));
+		btnProductSplit.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					btnProductSplit_actionPerformed(e);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnRemoveSplit.setIcon(EASResource.getIcon("imgTbtn_deleteline"));
 		btnRemoveSplit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -1212,6 +1223,7 @@ public class ContractSettlementBillEditUI extends
 		btnProfessionSplit.setText("专业要素拆分");
 		btnProfessionSplit.setIcon((EASResource.getIcon("imgTbtn_split")));
 		this.kDContainer1.addButton(btnImportSplit);
+		this.kDContainer1.addButton(btnProductSplit);
 		this.kDContainer1.addButton(btnRemoveSplit);
 	}
 	
@@ -1219,6 +1231,12 @@ public class ContractSettlementBillEditUI extends
 		Iterator iterator = uiSet.iterator();
 		while(iterator.hasNext()){
 			((SettlementCostSplitEditUI)iterator.next()).actionImpContrSplit_actionPerformed(e);
+		}
+	}
+	private void btnProductSplit_actionPerformed(ActionEvent e) throws Exception {
+		Iterator iterator = uiSet.iterator();
+		while(iterator.hasNext()){
+			((SettlementCostSplitEditUI)iterator.next()).actionSplitProd_actionPerformed(e);
 		}
 	}
 	private void btnRemoveSplit_actionPerformed(ActionEvent e) throws Exception {
@@ -1232,6 +1250,7 @@ public class ContractSettlementBillEditUI extends
 		boolean flse = (getOprtState().equals("ADDNEW")||getOprtState().equals("EDIT"))?true:false;
 		this.btnImportSplit.setEnabled(flse);
 		this.btnRemoveSplit.setEnabled(flse);
+		this.btnProductSplit.setEnabled(flse);
 		actionContractPriceSplit.setEnabled(flse);
 		actionProfessionSplit.setEnabled(flse);
 		Iterator iterator = uiSet.iterator();
@@ -1294,7 +1313,7 @@ public class ContractSettlementBillEditUI extends
 			handUIException(e1);
 		}
 	}
-	
+	//结算拆分页签的专业要素拆分功能
 	public void actionProfessionSplit_actionPerformed(ActionEvent e) throws Exception {
 		Iterator iterator = uiSet.iterator();
 		if(!iterator.hasNext())

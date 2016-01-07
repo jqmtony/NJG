@@ -43,6 +43,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTEditHelper;
 import com.kingdee.bos.ctrl.kdf.table.KDTTransferAction;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.KDTableHelper;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
@@ -100,6 +101,7 @@ import com.kingdee.eas.fdc.basedata.ContractDetailDefCollection;
 import com.kingdee.eas.fdc.basedata.ContractDetailDefFactory;
 import com.kingdee.eas.fdc.basedata.ContractDetailDefInfo;
 import com.kingdee.eas.fdc.basedata.ContractSourceInfo;
+import com.kingdee.eas.fdc.basedata.ContractTypeFactory;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.CostSplitStateEnum;
 import com.kingdee.eas.fdc.basedata.CurProjectFactory;
@@ -174,6 +176,7 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
 	 * 当前光标激活的Table
 	 */
 	private KDTable table=tblEconItem;
+	private String typeName = null;
 	
     /**
      * output class constructor
@@ -1013,8 +1016,6 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
     }
 
 	public void onLoad() throws Exception {
-
-		
 		//金额靠右
 		txtamount.setHorizontalAlignment(JTextField.RIGHT);
 		// modified by zhaoqin for R130905-0190 on 2013/09/12 start
@@ -1028,17 +1029,13 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
 		
 		txtLocalAmount.setHorizontalAlignment(JTextField.RIGHT);
 		txtGrtAmount.setHorizontalAlignment(JTextField.RIGHT);
-		
 		txtExRate.setDataType(KDFormattedTextField.BIGDECIMAL_TYPE);
 		txtExRate.setPrecision(2);
-		
 		tblDetail.checkParsed();
-		
 		actionContractPlan.setVisible(false);
 		actionContractPlan.setEnabled(false);
 //		init currency
 		FDCClientHelper.initCurrency(comboCurrency);
-		
 		txtcontractName.setMaxLength(200);////此句代码必须在super之前,否则在加载保存好的数据的时候只会截取前80个字符显示 by Cassiel_peng
 		handleEconTab();	// modified by zhaoqin for R130916-0218 on 2013/9/26
 		super.onLoad();
@@ -1053,7 +1050,6 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
 		viewContractSource.setFilter(filterSource);
 		this.contractSource.setEntityViewInfo(viewContractSource);
 		updateButtonStatus();
-	
 		
 		// 初始化合同类型F7
 		prmtcontractType.setSelector(new ContractTypePromptSelector(this));
@@ -1083,14 +1079,10 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
 		this.btnAttachment.setEnabled(true);
 		actionAttachment.setVisible(true);
 		actionAttachment.setEnabled(true);
-		
-		
 		actionAddLine.setEnabled(false);
 		actionAddLine.setVisible(false);
-		
 		actionInsertLine.setEnabled(false);
 		actionInsertLine.setVisible(false);
-		
 		actionRemoveLine.setEnabled(false);
 		actionRemoveLine.setVisible(false);
 
@@ -1114,19 +1106,15 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
 //			}
 //		}
 		setContractType();
-		
 		setPrecision();
-		
 		if(editData != null && (editData.getState()==FDCBillStateEnum.CANCEL || editData.isIsArchived())){
 			actionEdit.setEnabled(false);
 			btnEdit.setEnabled(false);
 			actionSplit.setEnabled(false);
 			btnSplit.setEnabled(false);
 		}
-		
 		txtCreator.setAccessAuthority(0);
 	
-		
 		//初始化供应商F7
 		FDCClientUtils.initSupplierF7(this, prmtpartB, cuId);
 		FDCClientUtils.initSupplierF7(this, prmtpartC, cuId);
@@ -1203,7 +1191,6 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
 				}
 			}});
 	    this.prmtMainContract.addDataChangeListener(new DataChangeListener(){
-
 			public void dataChanged(DataChangeEvent eventObj) {
 				// TODO Auto-generated method stub
 				if(eventObj.getNewValue() != null){
@@ -1238,7 +1225,6 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
 
 			public void willShow(SelectorEvent e) {
 				EntityViewInfo view = null;
-				
 				FilterInfo filter = new FilterInfo();
 				filter.getFilterItems().add(new FilterItemInfo("isSubContract",Boolean.FALSE));
 				filter.getFilterItems().add(new FilterItemInfo("state",FDCBillStateEnum.AUDITTED.getValue()));
@@ -1258,8 +1244,8 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
 	    	
 	    });
 	    
-	    this.tblDetail.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
-            public void editStopping(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
+	    this.tblDetail.addKDTEditListener(new KDTEditAdapter() {
+            public void editStopping(KDTEditEvent e) {
                 try {
                     tblDetail_editStopping(e);
                 } catch(Exception exc) {
@@ -1269,15 +1255,6 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
         });
 	    
 	    handConDetailDef();
-	    
-	    // Add by zhiyuan_tang 增加“新增分录”，“删除分录”按钮和方法
-		//handleEconTab();	// modified by zhaoqin for R130916-0218 on 2013/9/26 start
-		//	    
-		// if (getOprtState() == STATUS_EDIT) {
-		// EcoItemHelper.setPayItemRowBackColorWhenInit(this.tblEconItem);
-		// EcoItemHelper.setBailRowBackColorWhenInit(this.tblBail,
-		// txtBailOriAmount, txtBailRate);
-		// }
 		this.btnPrint.setVisible(true);
 		this.actionPrint.setVisible(true);
 		this.actionPrintPreview.setVisible(true);
@@ -1292,6 +1269,69 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
 		this.menuItemPrintPreview.setVisible(true);
 		//this.isCoseSplit = editData.isIsCoseSplit();	// modified by zhaoqin on 2013/9/30
 		this.chkCostSplit.setSelected(isCoseSplit);
+		if("ADDNEW".equals(getOprtState())) {
+			String billId = (String)getUIContext().get("contractBillId");
+			typeName = ContractBillFactory.getRemoteInstance().getContractBillInfo("select contractType.name where id='"+billId+"'").getContractType().getName();
+			
+		}else {
+			typeName = ContractTypeFactory.getRemoteInstance().getContractTypeInfo(new ObjectUuidPK(editData.getContractType().getId())).getName();
+		}
+		if("[建安]".equals(typeName)) {
+			prmtcontractType.setEnabled(false);
+			prmtlandDeveloper.setEnabled(false);
+			prmtpartB.setEnabled(false);
+		}else if("[施工]".equals(typeName) || "[材料]".equals(typeName) || "[分包]".equals(typeName)){
+			prmtlandDeveloper.setEnabled(false);
+			prmtcontractType.setEnabled(false);
+			if("[施工]".equals(typeName)) {
+				tblDetail.getCell(0,"content").getStyleAttributes().setLocked(true);
+				tblDetail.getColumn("desc").setRequired(true);
+				tblDetail.addKDTEditListener(new KDTEditAdapter(){
+					public void editStopped(KDTEditEvent e) {
+						tblDetail_editStopped(e);
+					}
+				});
+			}
+		}
+	}
+	
+	protected void tblDetail_editStopped(KDTEditEvent evt) {
+		if(evt.getOldValue() != null && evt.getOldValue().equals(evt.getValue())) {
+			return;
+		}
+		if(evt.getRowIndex() == 0 && evt.getColIndex() == tblDetail.getColumnIndex("desc")) {
+			String desc = (String)tblDetail.getCell(0,"desc").getValue();
+			boolean flag = false;
+			if(desc != null && !"".equals(desc)) {
+				int index = desc.indexOf(".");
+				if(index == -1) {
+					if(!desc.matches("^[0-9]*$")){
+						flag = true;
+					}
+				}
+				else if(index == desc.length()-1){
+					flag = true;
+				}
+				else {
+					String leftstr = desc.substring(0,index);
+					if(!leftstr.matches("^[0-9]*$")) {
+						flag = true;
+					}
+					String rightstr = desc.substring(index+1);
+					if(rightstr.indexOf(".") != -1 || !rightstr.matches("^[0-9]*$")) {
+						flag = true;
+					}
+				}
+				if(flag) {
+					MsgBox.showInfo("三大材造价格式有误，请重新填写！");
+					tblDetail.getSelectManager().select(0,tblDetail.getColumnIndex("desc"),0,tblDetail.getColumnIndex("desc"));
+					return;
+				}
+				tblDetail.getCell(0,"content").setValue("三大材造价（原币金额）："+FDCClientHelper.getChineseFormat(new BigDecimal(desc), false));
+			}else {
+				tblDetail.getCell(0,"content").setValue("三大材造价（原币金额）：元");
+			}
+		}
 	}
 	
 	/**
@@ -2841,15 +2881,18 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
 		}
 	}
 	
+	private void showErrorInformation() {
+		MsgBox.showInfo("三大材造价格式有误，请重新填写！");
+		tblDetail.getSelectManager().select(0,tblDetail.getColumnIndex("desc"),0,tblDetail.getColumnIndex("desc"));
+		SysUtil.abort();
+	}
+	
 	protected void verifyInput(ActionEvent e) throws Exception {
-
 		if(!chkCostSplit.isSelected()){
 			FDCMsgBox.showInfo(this, ContractClientUtils.getRes("NotEntryCost"));
 		}
-		
 		super.verifyInput(e);
 		if(txtamount.getNumberValue() instanceof BigDecimal){
-			
 			//不能小于0
 			if(((BigDecimal)txtamount.getNumberValue()).signum()<0){
 				FDCMsgBox.showError(this, ContractClientUtils.getRes("cantLessZero"));
@@ -2860,7 +2903,6 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
 				checkPrjPriceInContract();
 			}			
 		}
-		
 		/*
 		 * 补充合同必须录入主合同编码
 		 */
@@ -2883,7 +2925,6 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
 		}
 		
 		checkStampMatch();
-	
 		checkProjStatus();
 		
 		if(editData.getInformation() != null && editData.getInformation().length() > 255){
@@ -2895,6 +2936,32 @@ public class ContractBillReviseEditUI extends AbstractContractBillReviseEditUI
 			if(prmtMainContract.getData() == null){
 				FDCMsgBox.showError("录入战略子合同时，战略主合同编码不能为空！");
 				abort();
+			}
+		}
+		if("[施工]".equals(typeName)) {
+			String desc = (String)tblDetail.getCell(0,"desc").getValue();
+			if(desc == null || "".equals(desc)) {
+				showErrorInformation();
+			}else {
+				int index = desc.indexOf(".");
+				if(index == -1) {
+					if(!desc.matches("^[0-9]*$")){
+						showErrorInformation();
+					}
+				}
+				else if(index == desc.length()-1){
+					showErrorInformation();
+				}
+				else {
+					String leftstr = desc.substring(0,index);
+					if(!leftstr.matches("^[0-9]*$")) {
+						showErrorInformation();
+					}
+					String rightstr = desc.substring(index+1);
+					if(rightstr.indexOf(".") != -1 || !rightstr.matches("^[0-9]*$")) {
+						showErrorInformation();
+					}
+				}
 			}
 		}
 	}

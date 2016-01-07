@@ -129,7 +129,7 @@ public class SettlementCostSplitEditUI extends
         params.put(FDCConstants.FDC_PARAM_IMPORTCONSPLIT, comPK);
         params = ParamControlFactory.getRemoteInstance().getParamHashMap((HashMap)params);
         
-        this.kdtEntrys.getColumn("programming").getStyleAttributes().setHided(true);
+//        this.kdtEntrys.getColumn("programming").getStyleAttributes().setHided(true);
 	}
 	
 	/**
@@ -336,13 +336,11 @@ public class SettlementCostSplitEditUI extends
 		}
 		/* modified by zhaoqin for R130927-0088 on 2013/12/12 end */
 	}
-
 	protected void initWorkButton() {
 		super.initWorkButton();
-		actionSplit.putValue(Action.SMALL_ICON, EASResource
-				.getIcon("imgTbtn_showparent"));
+		actionSplit.putValue(Action.SMALL_ICON, EASResource.getIcon("imgTbtn_showparent"));
 		actionSplitBotUp.setVisible(false);
-		actionSplitProd.setVisible(false);
+//		actionSplitProd.setVisible(false);
 		actionSplitProj.setVisible(false);
 		//actionAcctSelect.setVisible(false);
 		//actionRemoveLine.setVisible(false);
@@ -362,7 +360,7 @@ public class SettlementCostSplitEditUI extends
 		//actionAcctSelect.setVisible(false);
 		//actionRemoveLine.setVisible(false);
 		//actionRemoveLine.setEnabled(false);
-		actionSplitProd.setEnabled(false);
+//		actionSplitProd.setEnabled(false);
 		
 		/* modified by zhaoqin for R130927-0088 on 2013/12/12 start */
 		actionAcctSelect.setVisible(true);

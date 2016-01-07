@@ -1018,49 +1018,45 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
 		}
 		iBill.disPatch(FDCHelper.CollectionToArrayPK(selectedIdValues));
 		iBill.visa(objectPk,contractChangeBillColl);
-		
+		//审核变更拆分单据
 		oql = "select contractChange.id where sourceBillId='"+billInfo.getId()+"'";
 		ConChangeSplitCollection conChangeSplitColl = IConChangeSplit.getConChangeSplitCollection(oql);
 		for (int i = 0; i < conChangeSplitColl.size(); i++) 
 			IConChangeSplit.audit(conChangeSplitColl.get(i).getId());
-		
-		for (int i = 0; i < changeBillInfo.length; i++) {
-			ContractChangeBillInfo contractChangeBillInfo = changeBillInfo[i];
-			
-			BigDecimal seteeAmount = UIRuleUtil.getBigDecimal(contractChangeBillInfo.getOriginalAmount());
-			contractChangeBillInfo.setBalanceAmount(seteeAmount);
-			contractChangeBillInfo.setOriBalanceAmount(seteeAmount);
-			
-			BigDecimal balanceAmount =  FDCHelper.ZERO;
-			if(contractChangeBillInfo.isHasSettled()){
-				balanceAmount = contractChangeBillInfo.getBalanceAmount();
-			}else{
-				balanceAmount = contractChangeBillInfo.getAmount();
-			}
-			if (!isConChangeAuditInWF(ctx)) {
-				contractChangeBillInfo.setHasSettled(true);
-				contractChangeBillInfo.setSettleTime(DateTimeUtils.truncateDate(new Date()));
-				
-				ConChangeSplitFactory.getLocalInstance(ctx).changeSettle(contractChangeBillInfo);
-				ContractChangeBillFactory.getLocalInstance(ctx).changeSettle(contractChangeBillInfo.getId());
-				
-				ContractChangeBillFactory.getLocalInstance(ctx).submitForWF(contractChangeBillInfo);
-			}else{
-				iBill.submit(contractChangeBillInfo);
-			}
-			
-			try {
-				synContractProgAmt(ctx,balanceAmount, contractChangeBillInfo, true);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			
-			/**
-			 * 更新合同付款计划
-			 * 这尼玛,中断后就脏数据了.不能回滚啊
-			 */
-//			ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(contractChangeBillInfo.getContractBill().getId().toString(), false);
-		}
+	//变更签证确认单自动结算代码暂时注释	
+//		for (int i = 0; i < changeBillInfo.length; i++) {
+//			ContractChangeBillInfo contractChangeBillInfo = changeBillInfo[i];
+//			BigDecimal seteeAmount = UIRuleUtil.getBigDecimal(contractChangeBillInfo.getOriginalAmount());
+//			contractChangeBillInfo.setBalanceAmount(seteeAmount);
+//			contractChangeBillInfo.setOriBalanceAmount(seteeAmount);
+//			
+//			BigDecimal balanceAmount =  FDCHelper.ZERO;
+//			if(contractChangeBillInfo.isHasSettled()){
+//				balanceAmount = contractChangeBillInfo.getBalanceAmount();
+//			}else{
+//				balanceAmount = contractChangeBillInfo.getAmount();
+//			}
+//			if (!isConChangeAuditInWF(ctx)) {
+//				contractChangeBillInfo.setHasSettled(true);
+//				contractChangeBillInfo.setSettleTime(DateTimeUtils.truncateDate(new Date()));
+//				ConChangeSplitFactory.getLocalInstance(ctx).changeSettle(contractChangeBillInfo);
+//				ContractChangeBillFactory.getLocalInstance(ctx).changeSettle(contractChangeBillInfo.getId());
+//				
+//				ContractChangeBillFactory.getLocalInstance(ctx).submitForWF(contractChangeBillInfo);
+//			}else{
+//				iBill.submit(contractChangeBillInfo);
+//			}
+//			try {
+//				synContractProgAmt(ctx,balanceAmount, contractChangeBillInfo, true);
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//			/**
+//			 * 更新合同付款计划
+//			 * 这尼玛,中断后就脏数据了.不能回滚啊
+//			 */
+////			ConPayPlanFactory.getLocalInstance(ctx).importPayPlan(contractChangeBillInfo.getContractBill().getId().toString(), false);
+//		}
 	}
 	
 	/**

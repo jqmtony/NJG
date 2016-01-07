@@ -206,9 +206,7 @@ import com.kingdee.util.DateTimeUtils;
  * @version EAS7.0
  * @see
  */
-public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
-		implements IWorkflowUISupport {
-
+public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implements IWorkflowUISupport {
 	/**
 	 * 未结算合同的实付款不能大于已实现产值【合同实付款=已关闭的付款申请单对应的付款单合同内工程款合计 + 未关闭的付款申 请单合同内工程款合计】
 	 */
@@ -218,8 +216,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 
 	private BigDecimal totalPayAmtByReqId = FDCHelper.ZERO;
 
-	private static final Logger logger = CoreUIObject
-			.getLogger(PayRequestBillEditUI.class);
+	private static final Logger logger = CoreUIObject.getLogger(PayRequestBillEditUI.class);
 
 	private boolean isFirstLoad = true;// 是否第一次加载,用来控制表格的加载显示
 
@@ -231,7 +228,6 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 
 	/** 是否多次付款 */
 	private boolean isMoreSettlement = false;
-
 	/**
 	 * 合同（合同或无文本）是否进入动态成本
 	 */
@@ -248,12 +244,10 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 
 	// 月度滚动计划控制付款申请策略
 	protected String CONTROLPAYREQUEST = "不控制";
-
 	/**
 	 * 调整扣款项窗口
 	 */
 	private IUIWindow deductUIwindow = null;
-
 	/**
 	 * 用于绑定cell进行值操作的map key为属性的info属性名，value为cell的引用
 	 */
@@ -405,6 +399,9 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 	private static final int PAYMENTPROPORTION = 2;
 
 	protected boolean ctrl = false;
+	//[施工]类型的合同
+	protected boolean isShiGongContract = false;
+	protected FilterInfo originalAmount = null;
 
 	/**
 	 * 构造器
@@ -414,19 +411,6 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 		jbInit();
 	}
 
-	/**
-	 * description 界面标题
-	 * 
-	 * @author 蒲磊
-	 *         <p>
-	 * @createDate 2011-8-31
-	 *             <p>
-	 * @param
-	 * @return
-	 * 
-	 * @version EAS7.0
-	 * @see
-	 */
 	private void jbInit() {
 		titleMain = getUITitle();
 	}
@@ -554,13 +538,6 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 	/**
 	 * description 设置监听器
 	 * 
-	 * @author 蒲磊
-	 *         <p>
-	 * @createDate 2011-8-31
-	 *             <p>
-	 * 
-	 * @version EAS 7.0
-	 * @see com.kingdee.eas.fdc.basedata.client.FDCBillEditUI#attachListeners()
 	 */
 	protected void attachListeners() {
 		txtcompletePrjAmt.addDataChangeListener(completePrjAmtListener);
@@ -584,13 +561,6 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 	/**
 	 * description 移除监听
 	 * 
-	 * @author 蒲磊
-	 *         <p>
-	 * @createDate 2011-8-31
-	 *             <p>
-	 * 
-	 * @version EAS 7.0
-	 * @see com.kingdee.eas.fdc.basedata.client.FDCBillEditUI#detachListeners()
 	 */
 	protected void detachListeners() {
 		txtcompletePrjAmt.removeDataChangeListener(completePrjAmtListener);
@@ -612,13 +582,6 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 	/**
 	 * description 加载数据
 	 * 
-	 * @author 蒲磊
-	 *         <p>
-	 * @createDate 2011-8-31
-	 *             <p>
-	 * 
-	 * @version EAS 7.0
-	 * @see com.kingdee.eas.fdc.contract.client.AbstractPayRequestBillEditUI#loadFields()
 	 */
 	public void loadFields() {
 
@@ -1754,21 +1717,55 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 		if ("不控制".equals(CONTROLPAYREQUEST)) {
 			kdLplanState.setVisible(false);
 		}
-
 		this.setKdDepPlanStateValue();
 
-		////////////////////////////////////////////////////////////////////////
-		// ////////
-		////////////////////////////////////////////////////////////////////////
-		// ////////
-
 		// 取得每行的单元格值Map
-		Map rowValuesMap = FDCTableHelper
-				.getRowValuesMap(this.getDetailTable());
+		Map rowValuesMap = FDCTableHelper.getRowValuesMap(this.getDetailTable());
 		MapUtils.debugPrint(System.out, "每行的单元格值Map", rowValuesMap);
 
 		// 打印绑定单元格Map
 		printBindCellMap();
+		//合并13年开发的内容，施工类型合同增加三材金额字段
+		if(orgUnitInfo != null){
+            Map param = null;
+            param = FDCUtils.getDefaultFDCParam(null, orgUnitInfo.getId().toString());
+            isMbgCtrl = Boolean.valueOf(param.get("FDC001_STARTMG").toString()).booleanValue();
+            isAutoComplete = Boolean.valueOf(param.get("FDC072_PAYPROGRESS").toString()).booleanValue();
+        }
+        Map paramItem = null;
+        paramItem = FDCUtils.getDefaultFDCParam(null, company.getId().toString());
+        if(paramItem.get("FDC003_INCORPORATION") != null)
+            isIncorporation = Boolean.valueOf(paramItem.get("FDC003_INCORPORATION").toString()).booleanValue();
+        if(paramItem.get("FDC003_INCORPORATION") != null)
+            isIncorporation = Boolean.valueOf(paramItem.get("FDC003_INCORPORATION").toString()).booleanValue();
+        if(paramItem.get("FDC025_SIMPLEFINACIAL") != null)
+            isSimpleFinancial = Boolean.valueOf(paramItem.get("FDC025_SIMPLEFINACIAL").toString()).booleanValue();
+        if(paramItem.get("CS050") != null)
+            usageLegth = Integer.valueOf(paramItem.get("CS050").toString()).intValue();
+        if(paramItem.get("FDC303_NOTENTERCAS") != null)
+            isNotEnterCAS = Boolean.valueOf(paramItem.get("FDC303_NOTENTERCAS").toString()).booleanValue();
+        fdcBudgetParam = com.kingdee.eas.fdc.finance.FDCBudgetCtrlStrategy.FDCBudgetParam.getInstance(paramItem);
+        HashMap paramMap = FDCUtils.getDefaultFDCParam(null, null);
+        isRealizedZeroCtrl = FDCUtils.getParamValue(paramMap, "FDC315_REALIZEDZEROCTRL");
+        if(paramItem.get("FDC317_SEPARATEFROMPAYMENT") != null)
+            isSeparate = Boolean.valueOf(paramItem.get("FDC317_SEPARATEFROMPAYMENT").toString()).booleanValue();
+        if(paramItem.get("FDC068_FROMPROJECTFILL") != null){
+            boolean tempBoolean = Boolean.valueOf(paramItem.get("FDC068_FROMPROJECTFILL").toString()).booleanValue();
+            isFromProjectFillBill = tempBoolean && !isSeparate && !isAutoComplete;
+        }
+        isWorkLoadContarctType();
+        if("0".equals(CONTROLPAYREQUEST))
+            CONTROLPAYREQUEST = "\u4E25\u683C\u63A7\u5236";
+        else if("1".equals(CONTROLPAYREQUEST))
+            CONTROLPAYREQUEST = "\u63D0\u793A\u63A7\u5236";
+        else
+            CONTROLPAYREQUEST = "\u4E0D\u63A7\u5236";
+		
+		completePrjAmtValue = editData.getCompletePrjAmt();
+		paymentProportionValue = editData.getPaymentProportion();
+		ContractTypeInfo typeInfo=ContractTypeFactory.getRemoteInstance().getContractTypeInfo(new ObjectUuidPK(contractBill.getContractType().getId()));
+		if(typeInfo != null && "[施工]".equals(typeInfo.getName()))
+			isShiGongContract = true;
 	}
 
 	/**
@@ -2895,7 +2892,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 	/**
 	 * 根据“本期完工工程量”和“本次申请本币”，则自动反算“进度款付款比例”
 	 */
-	private void caculatePaymentProp() {
+	private void caculatePaymentProp_Old() {
 		if (/* isSeparate && */!isFromProjectFillBill && !isAutoComplete) {
 			BigDecimal completePrjAmt = FDCNumberHelper
 					.toBigDecimal(txtcompletePrjAmt.getBigDecimalValue());
@@ -3670,6 +3667,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 		sic.add("exchangeRate");
 		sic.add("process");
 		sic.add("lastUpdateTime");
+		sic.add("threeCaiAmount");
 		// 款项内容
 		sic.add("Kxnr");
 		// 是否超资金计划
@@ -4854,7 +4852,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 		addOrgPriceForEntryTable(kdtEntrys, bindCellMap, contractBill);
 	}
 
-	private void setTxtEnable(PaymentTypeInfo type) throws EASBizException,
+	private void setTxtEnable_Old(PaymentTypeInfo type) throws EASBizException,
 			BOSException, Exception {
 		if (type != null) {
 			/*
@@ -5013,16 +5011,301 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 		}
 	}
 
+	private void prmtPayment_dataChanged(DataChangeEvent eventObj)
+    {
+        Object obj = eventObj.getNewValue();
+        Object oldObj = eventObj.getOldValue();
+        if(obj != null && (obj instanceof PaymentTypeInfo))
+        {
+            PaymentTypeInfo _type = (PaymentTypeInfo)obj;
+            if(!_type.getPayType().getId().toString().equals("Bd2bh+CHRDenvdQS3D72ouwp3Sw=") && kdtEntrys.getCell(4, 4) != null && !isPartACon)
+                kdtEntrys.getCell(4, 4).getStyleAttributes().setLocked(false);
+        }
+        if(prmtPayment.getUserObject() != null && prmtPayment.getUserObject().equals("noExec"))
+            return;
+        if((obj instanceof PaymentTypeInfo) && isRealizedZeroCtrl)
+        {
+            PaymentTypeInfo type = (PaymentTypeInfo)obj;
+            if(FDCHelper.isNullZero(txtTotalSettlePrice.getBigDecimalValue()) && type.getName() != null && !type.getName().equals("\u9884\u4ED8\u6B3E"))
+            {
+                java.util.EventListener listeners[] = prmtPayment.getListeners(com.kingdee.bos.ctrl.swing.event.DataChangeListener.class);
+                for(int i = 0; i < listeners.length; i++)
+                    prmtPayment.removeDataChangeListener((DataChangeListener)listeners[i]);
+
+                prmtPayment.setData(eventObj.getOldValue());
+                FDCMsgBox.showError(prmtPayment, "\u5DF2\u5B9E\u73B0\u4EA7\u503C\u4E3A0\u53EA\u5141\u8BB8\u9009\u62E9\"\u9884\u4ED8\u6B3E\"\uFF01");
+                for(int i = 0; i < listeners.length; i++)
+                    prmtPayment.addDataChangeListener((DataChangeListener)listeners[i]);
+
+                setCellEnabled(oldObj);
+                SysUtil.abort();
+            }
+        }
+        if(obj instanceof PaymentTypeInfo)
+            try
+            {
+                String settlementID = "Ga7RLQETEADgAAC/wKgOlOwp3Sw=";
+                String progressID = "Ga7RLQETEADgAAC6wKgOlOwp3Sw=";
+                String keepID = "Ga7RLQETEADgAADDwKgOlOwp3Sw=";
+                String tempID = "Bd2bh+CHRDenvdQS3D72ouwp3Sw=";
+                PaymentTypeInfo type = (PaymentTypeInfo)obj;
+                if(type.getPayType().getId().toString().equals(tempID))
+                    if(!isSimpleInvoice)
+                    {
+                        prmtPayment.setValue(null);
+                        prmtPayment.setText(null);
+                        FDCMsgBox.showWarning("\u542F\u7528\u201C\u8D22\u52A1\u5E10\u52A1\u4EE5\u53D1\u7968\u91D1\u989D\u4E3A\u51C6\u8BA1\u5F00\u53D1\u6210\u672C\u201D\u53C2\u6570\u540E\u624D\u80FD\u9009\u62E9\u672C\u7C7B\u522B\u7684\u4ED8\u6B3E\u7C7B\u578B\uFF0C\u8BF7\u5148\u542F\u7528\u5BF9\u5E94\u53C2\u6570\uFF01");
+                        SysUtil.abort();
+                    } else
+                    {
+                        kdtEntrys.getStyleAttributes().setLocked(true);
+                        if(kdtEntrys.getCell(4, 4) != null)
+                        {
+                            kdtEntrys.getCell(4, 4).setValue(null);
+                            kdtEntrys.getCell(4, 5).setValue(null);
+                            kdtEntrys.getCell(4, 4).getStyleAttributes().setLocked(true);
+                        }
+                    }
+                FilterInfo filter;
+                if(type.getName().toString().equals("预付款"))
+                {
+                    filter = new FilterInfo();
+                    filter.appendFilterItem("paymentType.name", "\u9884\u4ED8\u6B3E");
+                    filter.appendFilterItem("contractId", editData.getContractId());
+                    EntityViewInfo evi = new EntityViewInfo();
+                    evi.setFilter(filter);
+                    PayRequestBillCollection cols = PayRequestBillFactory.getRemoteInstance().getPayRequestBillCollection(evi);
+                    int number = getAdvancePaymentNumber();
+                    if(!OprtState.EDIT.equals(getOprtState()) && cols.size() >= number)
+                    {
+                        FDCMsgBox.showWarning((new StringBuilder()).append("\u4E00\u4E2A\u5408\u540C\u53EA\u5141\u8BB8\u5F55").append(number).append("\u6B21\u9884\u4ED8\u6B3E.").toString());
+                        prmtPayment.setData(null);
+                        setCellEnabled(oldObj);
+                        abort();
+                    }
+                    txtpaymentProportion.setValue(FDCHelper.ZERO, false);
+                    txtpaymentProportion.setRequired(false);
+                    txtpaymentProportion.setEnabled(false);
+                    txtcompletePrjAmt.setValue(FDCHelper.ZERO, false);
+                    txtcompletePrjAmt.setRequired(false);
+                    txtcompletePrjAmt.setEnabled(false);
+                } else
+                {
+                    txtpaymentProportion.setValue(paymentProportionValue, false);
+                    txtcompletePrjAmt.setValue(completePrjAmtValue, false);
+                    if(type.getPayType().getId().toString().equals(progressID))
+                    {
+                        BigDecimal originalAmount = FDCHelper.divide(FDCHelper.multiply(completePrjAmtValue, paymentProportionValue), FDCHelper.ONE_HUNDRED, 2, 4);
+                        if(getConfirmAmts().compareTo(FDCHelper.ZERO) == 0)
+                        {
+                            kdtEntrys.getCell(rowIndex, columnIndex).setValue(originalAmount);
+                            setLocalAmountOfThisTime(originalAmount);
+                            caculatePaymentProp();
+                        }
+                    }
+                    txtpaymentProportion.setRequired(true);
+                    txtpaymentProportion.setEnabled(true);
+                    txtcompletePrjAmt.setRequired(!isSeparate);
+                    txtcompletePrjAmt.setEnabled(!isSeparate);
+                }
+                originalAmount = new FilterInfo();
+                originalAmount.appendFilterItem("id", editData.getContractId());
+                originalAmount.appendFilterItem("sourceBillId", null);// add by wp  -- 不校验从分包合同过来的付款申请
+                originalAmount.appendFilterItem("hasSettled", Boolean.TRUE);
+                if(type.getPayType().getId().toString().equals(keepID) && !ContractBillFactory.getRemoteInstance().exists(originalAmount))
+                {
+                    java.util.EventListener listeners[] = prmtPayment.getListeners(com.kingdee.bos.ctrl.swing.event.DataChangeListener.class);
+                    for(int i = 0; i < listeners.length; i++)
+                        prmtPayment.removeDataChangeListener((DataChangeListener)listeners[i]);
+
+                    prmtPayment.setData(eventObj.getOldValue());
+                    FDCMsgBox.showError(prmtPayment, "\u5408\u540C\u7ED3\u7B97\u540E\u624D\u80FD\u4ED8\u4FDD\u4FEE\u6B3E");
+                    for(int i = 0; i < listeners.length; i++)
+                        prmtPayment.addDataChangeListener((DataChangeListener)listeners[i]);
+
+                    setCellEnabled(oldObj);
+                    SysUtil.abort();
+                }
+                originalAmount = new FilterInfo();
+                originalAmount.appendFilterItem("paymentType.payType.id", settlementID);
+                originalAmount.appendFilterItem("sourceBillId", null);// add by wp  -- 不校验从分包合同过来的付款申请
+                originalAmount.appendFilterItem("contractId", editData.getContractId());
+                if(type.getPayType().getId().toString().equals(progressID))
+                    if(PayRequestBillFactory.getRemoteInstance().exists(originalAmount))
+                    {
+                        java.util.EventListener listeners[] = prmtPayment.getListeners(com.kingdee.bos.ctrl.swing.event.DataChangeListener.class);
+                        for(int i = 0; i < listeners.length; i++)
+                            prmtPayment.removeDataChangeListener((DataChangeListener)listeners[i]);
+
+                        prmtPayment.setData(eventObj.getOldValue());
+                        FDCMsgBox.showError(prmtPayment, "\u4ED8\u5B8C\u7ED3\u7B97\u6B3E\u540E\u4E0D\u80FD\u4ED8\u8FDB\u5EA6\u6B3E,\u5373\u5B58\u5728\u4ED8\u6B3E\u7C7B\u578B\u7684\u7C7B\u578B\u4E3A\u201C\u7ED3\u7B97\u6B3E\u201D\u7684\u4ED8\u6B3E\u7533\u8BF7\u5355\u65F6\u4E0D\u80FD\u9009\u62E9\u201C\u8FDB\u5EA6\u6B3E\u201D\u7C7B\u578B\u4ED8\u6B3E\u7C7B\u578B");
+                        for(int i = 0; i < listeners.length; i++)
+                            prmtPayment.addDataChangeListener((DataChangeListener)listeners[i]);
+
+                        setCellEnabled(oldObj);
+                        SysUtil.abort();
+                    } else
+                    {
+                        FilterInfo myfilter = new FilterInfo();
+                        myfilter.appendFilterItem("id", editData.getContractId());
+                        myfilter.appendFilterItem("sourceBillId", null);// add by wp  -- 不校验从分包合同过来的付款申请
+                        myfilter.appendFilterItem("hasSettled", Boolean.TRUE);
+                        if(ContractBillFactory.getRemoteInstance().exists(myfilter))
+                        {
+                            java.util.EventListener listeners[] = prmtPayment.getListeners(com.kingdee.bos.ctrl.swing.event.DataChangeListener.class);
+                            for(int i = 0; i < listeners.length; i++)
+                                prmtPayment.removeDataChangeListener((DataChangeListener)listeners[i]);
+
+                            prmtPayment.setData(eventObj.getOldValue());
+                            FDCMsgBox.showError(prmtPayment, "\u5408\u540C\u7ED3\u7B97\u4E4B\u540E\u4E0D\u80FD\u4ED8\u8FDB\u5EA6\u6B3E\uFF01");
+                            for(int i = 0; i < listeners.length; i++)
+                                prmtPayment.addDataChangeListener((DataChangeListener)listeners[i]);
+
+                            setCellEnabled(oldObj);
+                            SysUtil.abort();
+                        }
+                    }
+                if(type.getPayType().getId().toString().equals(settlementID))
+                {
+                    FilterInfo myfilter = new FilterInfo();
+                    myfilter.appendFilterItem("id", editData.getContractId());
+                    myfilter.appendFilterItem("sourceBillId", null);// add by wp  -- 不校验从分包合同过来的付款申请
+                    myfilter.appendFilterItem("hasSettled", Boolean.TRUE);
+                    if(!ContractBillFactory.getRemoteInstance().exists(myfilter))
+                    {
+                        java.util.EventListener listeners[] = prmtPayment.getListeners(com.kingdee.bos.ctrl.swing.event.DataChangeListener.class);
+                        for(int i = 0; i < listeners.length; i++)
+                            prmtPayment.removeDataChangeListener((DataChangeListener)listeners[i]);
+
+                        prmtPayment.setData(eventObj.getOldValue());
+                        FDCMsgBox.showError(prmtPayment, "\u5408\u540C\u5FC5\u987B\u7ED3\u7B97\u4E4B\u540E\u624D\u80FD\u505A\u7ED3\u7B97\u6B3E\u7C7B\u522B\u7684\u4ED8\u6B3E\u7533\u8BF7\u5355");
+                        for(int i = 0; i < listeners.length; i++)
+                            prmtPayment.addDataChangeListener((DataChangeListener)listeners[i]);
+
+                        setCellEnabled(oldObj);
+                        SysUtil.abort();
+                    }
+                    txtpaymentProportion.setValue(FDCConstants.ZERO);
+                }
+                if(!type.getName().toString().equals("\u9884\u4ED8\u6B3E"))
+                {
+                    txtpaymentProportion.setRequired(txtpaymentProportion.isVisible() && !isAutoComplete);
+                    txtpaymentProportion.setEditable(!isAutoComplete);
+                }
+                setTxtEnable(type);
+            }
+            catch(Exception e) {
+                handUIExceptionAndAbort(e);
+            }
+        if(isFromProjectFillBill){
+            txtcompletePrjAmt.setEditable(false);
+            if(FDCHelper.toBigDecimal(txtcompletePrjAmt.getBigDecimalValue()).compareTo(FDCHelper.ZERO) == 0)
+                txtpaymentProportion.setEditable(false);
+        }
+        if(obj instanceof PaymentTypeInfo){
+            PaymentTypeInfo type = (PaymentTypeInfo)obj;
+            if(contractBill != null && contractBill.getContractType() != null && "Ga7RLQETEADgAAC6wKgOlOwp3Sw=".equals(type.getPayType().getId().toString()))
+            {
+                ContractTypeInfo contractType = contractBill.getContractType();
+                SelectorItemCollection sic = new SelectorItemCollection();
+                sic.add("isWorkLoadConfirm");
+                try{
+                    ContractTypeInfo contractTypeInfo = ContractTypeFactory.getRemoteInstance().getContractTypeInfo(new ObjectUuidPK(contractType.getId().toString()), sic);
+                    if(!contractTypeInfo.isIsWorkLoadConfirm()) {
+                        txtpaymentProportion.setEnabled(false);
+                        txtcompletePrjAmt.setEnabled(false);
+                        txtpaymentProportion.setRequired(false);
+                        txtcompletePrjAmt.setRequired(false);
+                    } else
+                    if(isSeparate && FDCHelper.toBigDecimal(txtcompletePrjAmt.getBigDecimalValue()).compareTo(FDCHelper.ZERO) == 0){
+                        if(isAutoComplete)
+                            txtpaymentProportion.setValue(FDCHelper.ZERO);
+                        txtpaymentProportion.setEnabled(false);
+                    }
+                }
+                catch(EASBizException e){
+                    handUIExceptionAndAbort(e);
+                }
+                catch(BOSException e){
+                    handUIExceptionAndAbort(e);
+                }
+            }
+        }
+    }
+	
+	 private void setTxtEnable(PaymentTypeInfo type) throws EASBizException, BOSException, Exception{
+	     if(type != null){
+	         if(type.getPayType().getId().toString().equals("Ga7RLQETEADgAADDwKgOlOwp3Sw=")){
+		         txtpaymentProportion.setEditable(false);
+		         txtpaymentProportion.setRequired(false);
+		         txtpaymentProportion.setValue(FDCHelper.ZERO, false);
+		         txtcompletePrjAmt.setEditable(false);
+		         txtcompletePrjAmt.setValue(FDCHelper.ZERO, false);
+		         txtcompletePrjAmt.setRequired(false);
+	         }
+	         if(type.getPayType().getId().toString().equals("Ga7RLQETEADgAAC/wKgOlOwp3Sw="))
+	             if(contractBill != null && contractBill.isHasSettled() && isSimpleFinancial){
+	                 txtcompletePrjAmt.setEnabled(false);
+	                 txtpaymentProportion.setValue(FDCHelper.ZERO, false);
+	                 txtpaymentProportion.setEnabled(false);
+	                 setTxtcompletePrjAmtValue();
+	             } else{
+	                 txtcompletePrjAmt.setEditable(false);
+	                 txtcompletePrjAmt.setValue(FDCHelper.toBigDecimal(editData.getSettleAmt()));
+	                 txtpaymentProportion.setEditable(false);
+	                 txtpaymentProportion.setRequired(false);
+	             }
+	     }
+	 }
+	 private void setTxtcompletePrjAmtValue() throws EASBizException, BOSException, Exception{
+	     if(contractBill == null)
+	         return;
+	     if(!OprtState.ADDNEW.equals(getOprtState()))
+	         return;
+	     FilterInfo filter = new FilterInfo();
+	     filter.getFilterItems().add(new FilterItemInfo("contractId", contractBill.getId().toString()));
+	     filter.getFilterItems().add(new FilterItemInfo("paymentType.payType.id", "Ga7RLQETEADgAAC/wKgOlOwp3Sw="));
+	     filter.getFilterItems().add(new FilterItemInfo("sourceBillId", null));// add by wp  -- 不校验从分包合同过来的付款申请
+	     if(editData.getId() != null)
+	         filter.getFilterItems().add(new FilterItemInfo("id", editData.getId(), CompareType.NOTEQUALS));
+	     if(getBizInterface().exists(filter)){
+	         txtcompletePrjAmt.setValue(FDCHelper.ZERO);
+	     } else{
+	         FDCSQLBuilder builder = new FDCSQLBuilder();
+	         builder.appendSql((new StringBuilder()).append("select sum(FCompletePrjAmt) as allComAmt from T_CON_PayRequestBill where FContractId ='").append(contractBill.getId().toString()).append("'").toString());
+	         IRowSet rowSet = builder.executeQuery();
+	         BigDecimal allComAmt = FDCHelper.ZERO;
+	         if(rowSet.next())
+	             allComAmt = rowSet.getBigDecimal("allComAmt");
+	         txtcompletePrjAmt.setEditable(true);
+	         BigDecimal bigDecimal = FDCHelper.subtract(contractBill.getSettleAmt(), allComAmt);
+	         removeDataChangeListener(txtcompletePrjAmt);
+	         txtcompletePrjAmt.setValue(bigDecimal);
+	         addDataChangeListener(txtcompletePrjAmt);
+	     }
+ 	}
+	private void caculatePaymentProp(){
+        if(!isFromProjectFillBill && !isAutoComplete){
+            BigDecimal completePrjAmt = FDCNumberHelper.toBigDecimal(txtcompletePrjAmt.getBigDecimalValue());
+            BigDecimal originalAmount = FDCHelper.toBigDecimal(getDetailTable().getCell(rowIndex, columnIndex).getValue());
+            if(FDCNumberHelper.ZERO.compareTo(completePrjAmt) != 0)
+                if(FDCNumberHelper.ZERO.compareTo(originalAmount) == 0)
+                    txtpaymentProportion.setValue(FDCNumberHelper.ZERO, false);
+                else
+                    txtpaymentProportion.setValue(FDCNumberHelper.multiply(FDCNumberHelper.divide(originalAmount, completePrjAmt), FDCHelper.ONE_HUNDRED), false);
+        }
+    }
+	 private void setCellEnabled(Object oldObj){
+        if(oldObj != null && (oldObj instanceof PaymentTypeInfo)){
+            PaymentTypeInfo _type = (PaymentTypeInfo)oldObj;
+            if(_type.getPayType().getId().toString().equals("Bd2bh+CHRDenvdQS3D72ouwp3Sw=") && kdtEntrys.getCell(4, 4) != null)
+                kdtEntrys.getCell(4, 4).getStyleAttributes().setLocked(true);
+        }
+    }
+	
 	/**
 	 * description 调整款项操作
 	 * 
-	 * @author 蒲磊
-	 *         <p>
-	 * @createDate 2011-9-1
-	 *             <p>
-	 * 
-	 * @version EAS 7.0
-	 * @see com.kingdee.eas.fdc.contract.client.AbstractPayRequestBillEditUI#actionAdjustDeduct_actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionAdjustDeduct_actionPerformed(ActionEvent e)
 			throws Exception {
@@ -5031,28 +5314,11 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 			FDCMsgBox.showWarning(getRes("beforeAdjustDeduct"));
 			SysUtil.abort();
 		}
-
-		// 币别
-		// CurrencyInfo cur = editData.getCurrency();
-		// if (!cur.getId().toString().equals(baseCurrency.getId().toString()))
-		// {
-		// // 须保存警告
-		// FDCMsgBox.showWarning("外币不允许调整款项");
-		// SysUtil.abort();
-		// }
 		showSelectDeductList(e);
 	}
 
 	/**
 	 * description 付款申请单关闭操作
-	 * 
-	 * @author 蒲磊
-	 *         <p>
-	 * @createDate 2011-9-1
-	 *             <p>
-	 * 
-	 * @version EAS 7.0
-	 * @see com.kingdee.eas.fdc.contract.client.AbstractPayRequestBillEditUI#actionClose_actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionClose_actionPerformed(ActionEvent e) throws Exception {
 		if (OprtState.ADDNEW.equals(getOprtState())) {
@@ -5895,7 +6161,6 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 	}
 
 	protected void verifyInput(ActionEvent e) throws Exception {
-
 		super.verifyInput(e);
 		checkFDCProDep();
 		/*
@@ -6271,7 +6536,11 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 				}
 			}
 		}
-
+		if(isShiGongContract && txtThreeCai.getBigDecimalValue()==null){
+			MsgBox.showInfo("当合同类型为[施工]时应该填写三材金额信息！");
+			txtThreeCai.grabFocus();
+			SysUtil.abort();
+		}
 	}
 
 	/**
@@ -8744,7 +9013,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 	 * @version EAS7.0
 	 * @see
 	 */
-	private void prmtPayment_dataChanged(DataChangeEvent eventObj) {
+	private void prmtPayment_dataChanged_Old(DataChangeEvent eventObj) {
 
 		Object obj = eventObj.getNewValue();
 		Object oldObj = eventObj.getOldValue();
@@ -9084,7 +9353,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 	 * @Author：keyan_zhao
 	 * @CreateTime：2012-9-25
 	 */
-	private void setTxtcompletePrjAmtValue() throws EASBizException,
+	private void setTxtcompletePrjAmtValue_Old() throws EASBizException,
 			BOSException, Exception {
 		if (contractBill == null) {
 			return;
@@ -9138,7 +9407,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI
 	 * @version EAS7.0
 	 * @see
 	 */
-	private void setCellEnabled(Object oldObj) {
+	private void setCellEnabled_Old(Object oldObj) {
 		if (oldObj != null && oldObj instanceof PaymentTypeInfo) {
 			PaymentTypeInfo _type = (PaymentTypeInfo) oldObj;
 			if (_type.getPayType().getId().toString().equals(

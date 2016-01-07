@@ -29,6 +29,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTDataFillListener;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTDataRequestEvent;
+import com.kingdee.bos.ctrl.kdf.table.util.KDTableUtil;
 import com.kingdee.bos.ctrl.swing.KDFileChooser;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.IObjectPK;
@@ -86,11 +87,15 @@ import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.util.FdcWfUtil;
 import com.kingdee.eas.fdc.basedata.util.FullOrgUnitHelper;
+import com.kingdee.eas.fdc.contract.ContractBillEntryCollection;
+import com.kingdee.eas.fdc.contract.ContractBillEntryFactory;
+import com.kingdee.eas.fdc.contract.ContractBillEntryInfo;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractContentCollection;
 import com.kingdee.eas.fdc.contract.ContractContentFactory;
 import com.kingdee.eas.fdc.contract.ContractContentInfo;
+import com.kingdee.eas.fdc.contract.ContractPropertyEnum;
 import com.kingdee.eas.fdc.contract.ContractUtil;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.ForWriteMarkHelper;
@@ -104,6 +109,15 @@ import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.framework.ICoreBillBase;
 import com.kingdee.eas.framework.IFWEntityStruct;
 import com.kingdee.eas.framework.TreeBaseInfo;
+import com.kingdee.eas.minghua.contract.BcxyDocFactory;
+import com.kingdee.eas.minghua.contract.BcxyDocInfo;
+import com.kingdee.eas.minghua.contract.ZcbhtDocFactory;
+import com.kingdee.eas.minghua.contract.ZcbhtDocInfo;
+import com.kingdee.eas.minghua.contract.ZyfbhtDocFactory;
+import com.kingdee.eas.minghua.contract.ZyfbhtDocInfo;
+import com.kingdee.eas.minghua.jczlwh.mj.SfshEnum;
+import com.kingdee.eas.minghua.material.Jzygclcght2DocFactory;
+import com.kingdee.eas.minghua.material.Jzygclcght2DocInfo;
 import com.kingdee.eas.tools.datatask.DatataskMode;
 import com.kingdee.eas.tools.datatask.DatataskParameter;
 import com.kingdee.eas.tools.datatask.client.DatataskCaller;
@@ -404,6 +418,24 @@ public class ContractBillListUI extends AbstractContractBillListUI {
 	}
 	//审批时加上数据互斥
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
+		if(CustomerContractUtil.currentDCenterIsSync()) {
+			int[] rows = KDTableUtil.getSelectedRows(tblMain);
+			String typeName = null;
+			List idList = new ArrayList();
+			for(int i=0; i<rows.length; i++) {
+				typeName = (String)tblMain.getCell(rows[i],"contractType.name").getValue();
+				if("[建安]".equals(typeName)||"[施工]".equals(typeName)||"[材料]".equals(typeName)||"[分包]".equals(typeName)||"[其他]".equals(typeName)) {
+					String billId = (String)tblMain.getCell(rows[i],"id").getValue();
+					ContractBillInfo billInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo("select curProject,contractPropert,state where id='"+billId+"'");
+					if(FDCBillStateEnum.SUBMITTED.equals(billInfo.getState()))
+						idList.add(tblMain.getCell(rows[i],"id").getValue());
+				}
+			}
+			if(idList.size() > 0 && idList.size() == rows.length) {
+				CustomerContractUtil.syncData(idList);
+			}
+		}
+		
 		isCanOperation();
 //		获取用户选择的块
 		List idList =ContractClientUtils.getSelectedIdValues(getBillListTable(), getKeyFieldName());
@@ -450,40 +482,313 @@ public class ContractBillListUI extends AbstractContractBillListUI {
 		return isRealtedTask;
 	}
 	
-	public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
-		isCanOperation();
-		
-		/* modified by zhaoqin for R140109-0016 on 2014/01/15 start */
-		//FDCClientHelper.checkAuditor(getSelectedIdValues(), "t_con_ContractBill");
-		FDCClientHelper.checkAuditor(getSelectedIdValues(), auditMap);
-		/* modified by zhaoqin for R140109-0016 on 2014/01/15 end */
-		
-		
-		//R110603-0148:如果存在变更签证申请，则不允许反审批
-	    if (ContractUtil.hasChangeAuditBill(null, getSelectedIdValues())) {
-    		FDCMsgBox.showWarning(this, EASResource.getString("com.kingdee.eas.fdc.contract.client.ContractResource", "hasChangeAuditBill"));
-			this.abort();
-    	}
-    	
-    	//R110603-0148:如果存在变更签证确认，则不允许反审批
-    	if (ContractUtil.hasContractChangeBill(null, getSelectedIdValues())) {
-    		FDCMsgBox.showWarning(this, EASResource.getString("com.kingdee.eas.fdc.contract.client.ContractResource", "hasContractChangeBill"));
-			this.abort();
-    	}
-    	
-		if(isRelatedTask()){
-			checkConRelatedTaskDelUnAudit();
+	private List beforeUnAudit() throws BOSException, EASBizException {
+		int[] rows = KDTableUtil.getSelectedRows(tblMain);
+		ContractBillInfo contractInfo = null;
+		String typeName = null;
+		String billId = null;
+		List idList = new ArrayList();
+		for(int i=0; i<rows.length; i++) {
+			billId = (String)tblMain.getCell(rows[i],"id").getValue();
+			contractInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo("select contractPropert where id='"+billId+"'");
+			typeName = (String)tblMain.getCell(rows[i],"contractType.name").getValue();
+			if(ContractPropertyEnum.DIRECT.equals(contractInfo.getContractPropert())) {
+				if("[施工]".equals(typeName)) {
+					if(BcxyDocFactory.getRemoteInstance().exists("where sourceBillId='"+billId+"'")) {
+						BcxyDocInfo bcxy = BcxyDocFactory.getRemoteInstance().getBcxyDocInfo("select djzt where sourceBillId='"+billId+"'");
+						if(SfshEnum.yes.equals(bcxy.getDjzt())) {
+							showMsgAndAbort(rows[i]+1);
+						}
+					}
+				}else if("[材料]".equals(typeName)) {
+					if(Jzygclcght2DocFactory.getRemoteInstance().exists("where sourceBillId='"+billId+"'")) {
+						Jzygclcght2DocInfo jzyg = Jzygclcght2DocFactory.getRemoteInstance().getJzygclcght2DocInfo("select djzt where sourceBillId='"+billId+"'");
+						if(SfshEnum.yes.equals(jzyg.getDjzt())) {
+							showMsgAndAbort(rows[i]+1);
+						}
+					}
+				}else if("[分包]".equals(typeName)) {
+					if(ZyfbhtDocFactory.getRemoteInstance().exists("where sourceBillId='"+billId+"'")) {
+						ZyfbhtDocInfo zyfb = ZyfbhtDocFactory.getRemoteInstance().getZyfbhtDocInfo("select djzt where sourceBillId='"+billId+"'");
+						if(SfshEnum.yes.equals(zyfb.getDjzt())) {
+							showMsgAndAbort(rows[i]+1);
+						}
+					}
+				}else if("[建安]".equals(typeName)) {
+					if(ZcbhtDocFactory.getRemoteInstance().exists("where sourceBillId='"+billId+"'")){
+						ZcbhtDocInfo zcb = ZcbhtDocFactory.getRemoteInstance().getZcbhtDocInfo("select djzt where sourceBillId='"+billId+"'");
+						if(SfshEnum.yes.equals(zcb.getDjzt())) {
+							showMsgAndAbort(rows[i]+1);
+						}
+					}
+				}
+			}else if(ContractPropertyEnum.SUPPLY.equals(contractInfo.getContractPropert())) {
+				if("[建安]".equals(typeName)||"[施工]".equals(typeName)||"[材料]".equals(typeName)||"[分包]".equals(typeName)) {
+					idList.add(billId);
+				}
+			}
 		}
-		super.actionUnAudit_actionPerformed(e);
+		return idList;
+	}
+	
+	private void afterUnAudit(List idList) throws BOSException, EASBizException {
+		if(idList.size() > 0) {
+			ContractBillInfo billInfo = null;
+			String id = null;
+			String contractType = null;
+			for(int k=0; k<idList.size(); k++) {
+				id = (String)idList.get(k);
+				billInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo("select state,contractType.name,ceremonyb where id='"+id+"'");
+				if(FDCBillStateEnum.SUBMITTED.equals(billInfo.getState())) {
+					contractType = billInfo.getContractType().getName();
+					ContractBillEntryCollection coll = null;
+					coll = ContractBillEntryFactory.getRemoteInstance().getContractBillEntryCollection("select content where rowKey='nu' and parent.id='"+billInfo.getId().toString()+"'");
+					if(coll.size() > 0) {
+						String mainContractId = coll.get(0).getContent();
+						SelectorItemCollection sic = new SelectorItemCollection();
+						if("[建安]".equals(contractType) && ZcbhtDocFactory.getRemoteInstance().exists("where sourcebillid='"+mainContractId+"'")) {
+							ZcbhtDocInfo zcbht = ZcbhtDocFactory.getRemoteInstance().getZcbhtDocInfo("select zzj where sourcebillid='"+mainContractId+"'");
+							sic.add("zzj");
+							zcbht.setZzj(zcbht.getZzj().subtract(billInfo.getCeremonyb()));
+							ZcbhtDocFactory.getRemoteInstance().updatePartial(zcbht, sic);	
+						}else if("[施工]".equals(contractType) && BcxyDocFactory.getRemoteInstance().exists("where sourcebillid='"+mainContractId+"'")){
+							BcxyDocInfo bcxy = BcxyDocFactory.getRemoteInstance().getBcxyDocInfo("select zzj where sourcebillid='"+mainContractId+"'");
+							sic.add("zzj");
+							bcxy.setZzj(bcxy.getZzj().subtract(billInfo.getCeremonyb()));
+							ContractBillEntryCollection newes = ContractBillEntryFactory.getRemoteInstance().getContractBillEntryCollection("where parent.id='"+id+"'");
+							String desc = newes.get(0).getDesc();
+							if(desc != null && !"".equals(desc)) {
+								ContractBillEntryCollection oldes = ContractBillEntryFactory.getRemoteInstance().getContractBillEntryCollection("where parent.id='"+mainContractId+"'");
+								ContractBillEntryInfo entryInfo = oldes.get(0);
+								BigDecimal oldValue = new BigDecimal(entryInfo.getDesc());
+								BigDecimal nValue = oldValue.subtract(new BigDecimal(desc));
+								entryInfo.setContent("三大材造价（原币金额）："+FDCClientHelper.getChineseFormat(nValue, false));
+								entryInfo.setDesc(nValue.toString());
+								SelectorItemCollection sicoll = new SelectorItemCollection();
+								sicoll.add("content");
+								sicoll.add("desc");
+								ContractBillEntryFactory.getRemoteInstance().updatePartial(entryInfo,sicoll);
+								sic.add("bz");
+								bcxy.setBz(entryInfo.getContent()+entryInfo.getDesc());
+							}
+							BcxyDocFactory.getRemoteInstance().updatePartial(bcxy, sic);
+						}else if("[材料]".equals(contractType) && Jzygclcght2DocFactory.getRemoteInstance().exists("where sourcebillid='"+mainContractId+"'")){
+							Jzygclcght2DocInfo jzyg = Jzygclcght2DocFactory.getRemoteInstance().getJzygclcght2DocInfo("select htje where sourcebillid='"+mainContractId+"'");
+							sic.add("htje");
+							jzyg.setHtje(jzyg.getHtje().subtract(billInfo.getCeremonyb()));
+							Jzygclcght2DocFactory.getRemoteInstance().updatePartial(jzyg, sic);
+						}else if(ZyfbhtDocFactory.getRemoteInstance().exists("where sourcebillid='"+mainContractId+"'")){
+							ZyfbhtDocInfo zyht = ZyfbhtDocFactory.getRemoteInstance().getZyfbhtDocInfo("select hshtje where sourcebillid='"+mainContractId+"'");
+							sic.add("hshtje");
+							zyht.setHshtje(zyht.getHshtje().subtract(billInfo.getCeremonyb()));
+							ZyfbhtDocFactory.getRemoteInstance().updatePartial(zyht, sic);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public void actionAuditResult_actionPerformed(ActionEvent e)throws Exception {
+		super.actionAuditResult_actionPerformed(e);
+		if(CustomerContractUtil.currentDCenterIsSync()) {
+			int[] rows = KDTableUtil.getSelectedRows(tblMain);
+			String typeName = null;
+			List idList = new ArrayList();
+			for(int i=0; i<rows.length; i++) {
+				typeName = (String)tblMain.getCell(rows[i],"contractType.name").getValue();
+				if("[建安]".equals(typeName)||"[施工]".equals(typeName)||"[材料]".equals(typeName)||"[分包]".equals(typeName)||"[其他]".equals(typeName)) {
+					idList.add(tblMain.getCell(rows[i],"id").getValue());
+				}
+			}
+			if(idList.size() > 0 && idList.size() == rows.length) {
+				CustomerContractUtil.syncData(idList);
+			}
+		}
+	}
+	
+	public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
+		if(CustomerContractUtil.currentDCenterIsSync()) {
+			List idList = beforeUnAudit();
+			isCanOperation();
+			/* modified by zhaoqin for R140109-0016 on 2014/01/15 start */
+			//FDCClientHelper.checkAuditor(getSelectedIdValues(), "t_con_ContractBill");
+			FDCClientHelper.checkAuditor(getSelectedIdValues(), auditMap);
+			/* modified by zhaoqin for R140109-0016 on 2014/01/15 end */
+			//R110603-0148:如果存在变更签证申请，则不允许反审批
+		    if (ContractUtil.hasChangeAuditBill(null, getSelectedIdValues())) {
+	    		FDCMsgBox.showWarning(this, EASResource.getString("com.kingdee.eas.fdc.contract.client.ContractResource", "hasChangeAuditBill"));
+				this.abort();
+	    	}
+	    	//R110603-0148:如果存在变更签证确认，则不允许反审批
+	    	if (ContractUtil.hasContractChangeBill(null, getSelectedIdValues())) {
+	    		FDCMsgBox.showWarning(this, EASResource.getString("com.kingdee.eas.fdc.contract.client.ContractResource", "hasContractChangeBill"));
+				this.abort();
+	    	}
+			if(isRelatedTask()){
+				checkConRelatedTaskDelUnAudit();
+			}
+			super.actionUnAudit_actionPerformed(e);
+			afterUnAudit(idList);
+			
+		}else {
+			isCanOperation();
+			/* modified by zhaoqin for R140109-0016 on 2014/01/15 start */
+			//FDCClientHelper.checkAuditor(getSelectedIdValues(), "t_con_ContractBill");
+			FDCClientHelper.checkAuditor(getSelectedIdValues(), auditMap);
+			/* modified by zhaoqin for R140109-0016 on 2014/01/15 end */
+			//R110603-0148:如果存在变更签证申请，则不允许反审批
+		    if (ContractUtil.hasChangeAuditBill(null, getSelectedIdValues())) {
+	    		FDCMsgBox.showWarning(this, EASResource.getString("com.kingdee.eas.fdc.contract.client.ContractResource", "hasChangeAuditBill"));
+				this.abort();
+	    	}
+	    	//R110603-0148:如果存在变更签证确认，则不允许反审批
+	    	if (ContractUtil.hasContractChangeBill(null, getSelectedIdValues())) {
+	    		FDCMsgBox.showWarning(this, EASResource.getString("com.kingdee.eas.fdc.contract.client.ContractResource", "hasContractChangeBill"));
+				this.abort();
+	    	}
+			if(isRelatedTask()){
+				checkConRelatedTaskDelUnAudit();
+			}
+			super.actionUnAudit_actionPerformed(e);
+		}
+	}
+	
+	private HashMap beforeRemove() throws BOSException, EASBizException {
+		int[] rows = KDTableUtil.getSelectedRows(tblMain);
+		ContractBillInfo billInfo = null;
+		String typeName = null;
+		String billId = null;
+		HashMap c2c = new HashMap();
+		for(int i=0; i<rows.length; i++) {
+			billId = (String)tblMain.getCell(rows[i],"id").getValue();
+			billInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo("select curProject,contractPropert where id='"+billId+"'");
+			if(ContractPropertyEnum.DIRECT.equals(billInfo.getContractPropert())) {
+				typeName = (String)tblMain.getCell(rows[i],"contractType.name").getValue();
+				if("[建安]".equals(typeName)) {
+					EntityViewInfo view = new EntityViewInfo();
+					FilterInfo filter = new FilterInfo();
+					view.setFilter(filter);
+					filter.getFilterItems().add(new FilterItemInfo("curProject.id", billInfo.getCurProject().getId()));
+					filter.getFilterItems().add(new FilterItemInfo("CU.id", SysContext.getSysContext().getCurrentCtrlUnit().getId().toString()));
+					filter.getFilterItems().add(new FilterItemInfo("contractPropert", "DIRECT"));
+					filter.getFilterItems().add(new FilterItemInfo("contractType.name", "[施工]"));
+					filter.getFilterItems().add(new FilterItemInfo("contractType.name", "[材料]"));
+					filter.getFilterItems().add(new FilterItemInfo("contractType.name", "[分包]"));
+					filter.setMaskString("#0 and #1 and #2 and (#3 or #4 or #5)");
+					SelectorItemCollection sic = view.getSelector();
+					sic.add("id");
+					if(ContractBillFactory.getRemoteInstance().getContractBillCollection(view).size() > 0) {
+						MsgBox.showInfo("第"+(rows[i]+1)+"行：该总包下的分包合同未删完，请先删除！");
+						SysUtil.abort();
+					}else if(ZcbhtDocFactory.getRemoteInstance().exists("where sourceBillId='"+billId+"'")){
+						ZcbhtDocInfo zcb = ZcbhtDocFactory.getRemoteInstance().getZcbhtDocInfo("select djzt where sourceBillId='"+billId+"'");
+						if(SfshEnum.yes.equals(zcb.getDjzt())) {
+							showMsgAndAbort(rows[i]+1);
+						}else {
+							c2c.put(billId,zcb);
+						}
+					}
+				}else if("[施工]".equals(typeName)) {
+					if(BcxyDocFactory.getRemoteInstance().exists("where sourceBillId='"+billId+"'")) {
+						BcxyDocInfo bcxy = BcxyDocFactory.getRemoteInstance().getBcxyDocInfo("select djzt where sourceBillId='"+billId+"'");
+						if(SfshEnum.yes.equals(bcxy.getDjzt())) {
+							showMsgAndAbort(rows[i]+1);
+						}else {
+							c2c.put(billId,bcxy);
+						}
+					}
+				}else if("[材料]".equals(typeName)) {
+					if(Jzygclcght2DocFactory.getRemoteInstance().exists("where sourceBillId='"+billId+"'")) {
+						Jzygclcght2DocInfo jzyg = Jzygclcght2DocFactory.getRemoteInstance().getJzygclcght2DocInfo("select djzt where sourceBillId='"+billId+"'");
+						if(SfshEnum.yes.equals(jzyg.getDjzt())) {
+							showMsgAndAbort(rows[i]+1);
+						}else {
+							c2c.put(billId,jzyg);
+						}
+					}
+				}else if("[分包]".equals(typeName)) {
+					if(ZyfbhtDocFactory.getRemoteInstance().exists("where sourceBillId='"+billId+"'")) {
+						ZyfbhtDocInfo zyfb = ZyfbhtDocFactory.getRemoteInstance().getZyfbhtDocInfo("select djzt where sourceBillId='"+billId+"'");
+						if(SfshEnum.yes.equals(zyfb.getDjzt())) {
+							showMsgAndAbort(rows[i]+1);
+						}else {
+							c2c.put(billId,zyfb);
+						}
+					}
+				}
+			}
+		}
+		return c2c;
+	}
+	
+	private void showMsgAndAbort(int rowIndex) {
+		MsgBox.showInfo("该合同对应的名华合同已审批，无法执行此操作！");
+		SysUtil.abort();
 	}
 	
 	public void actionRemove_actionPerformed(ActionEvent e) throws Exception {
-		isCanOperation();
-		if(isRelatedTask()){
-			checkConRelatedTaskDelUnAudit();
+		if(CustomerContractUtil.currentDCenterIsSync()) {
+			HashMap c2c = beforeRemove();
+			isCanOperation();
+			if(isRelatedTask()){
+				checkConRelatedTaskDelUnAudit();
+			}
+			super.actionRemove_actionPerformed(e);
+			if(c2c.size() > 0) {
+				String contractId = null;
+				for(Iterator it = c2c.keySet().iterator(); it.hasNext();) {
+					contractId = (String)it.next();
+					if(!ContractBillFactory.getRemoteInstance().exists(new ObjectUuidPK(contractId))) {
+						Object o = c2c.get(contractId);
+						if(o instanceof BcxyDocInfo) {
+							BcxyDocFactory.getRemoteInstance().delete(new ObjectUuidPK(((BcxyDocInfo)o).getId()));
+						}else if(o instanceof Jzygclcght2DocInfo) {
+							Jzygclcght2DocFactory.getRemoteInstance().delete(new ObjectUuidPK(((Jzygclcght2DocInfo)o).getId()));
+						}else if(o instanceof ZyfbhtDocInfo) {
+							ZyfbhtDocFactory.getRemoteInstance().delete(new ObjectUuidPK(((ZyfbhtDocInfo)o).getId()));
+						}else {
+							ZcbhtDocFactory.getRemoteInstance().delete(new ObjectUuidPK(((ZcbhtDocInfo)o).getId()));
+						}
+					}
+				}
+			}
+		}else {
+			int[] rows = KDTableUtil.getSelectedRows(tblMain);
+			ContractBillInfo billInfo = null;
+			String typeName = null;
+			String billId = null;
+			for(int i=0; i<rows.length; i++) {
+				typeName = (String)tblMain.getCell(rows[i],"contractType.name").getValue();
+				if("[建安]".equals(typeName)) {
+					billId = (String)tblMain.getCell(rows[i],"id").getValue();
+					billInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo("select curProject,contractPropert where id='"+billId+"'");
+					if(ContractPropertyEnum.DIRECT.equals(billInfo.getContractPropert())) {
+							EntityViewInfo view = new EntityViewInfo();
+							FilterInfo filter = new FilterInfo();
+							view.setFilter(filter);
+							filter.getFilterItems().add(new FilterItemInfo("curProject.id", billInfo.getCurProject().getId()));
+							filter.getFilterItems().add(new FilterItemInfo("CU.id", SysContext.getSysContext().getCurrentCtrlUnit().getId().toString()));
+							filter.getFilterItems().add(new FilterItemInfo("contractPropert", "DIRECT"));
+							filter.getFilterItems().add(new FilterItemInfo("contractType.name", "[施工]"));
+							filter.getFilterItems().add(new FilterItemInfo("contractType.name", "[材料]"));
+							filter.getFilterItems().add(new FilterItemInfo("contractType.name", "[分包]"));
+							filter.setMaskString("#0 and #1 and #2 and (#3 or #4 or #5)");
+							SelectorItemCollection sic = view.getSelector();
+							sic.add("id");
+							if(ContractBillFactory.getRemoteInstance().getContractBillCollection(view).size() > 0) {
+								MsgBox.showInfo("第"+(rows[i]+1)+"行：该总包下的分包合同未删完，请先删除！");
+								SysUtil.abort();
+							}
+					}
+				}	
+			}
+			isCanOperation();
+			if(isRelatedTask()){
+				checkConRelatedTaskDelUnAudit();
+			}
+			super.actionRemove_actionPerformed(e);
 		}
-
-		super.actionRemove_actionPerformed(e);
 		// 维护框架合约是否引用字段
 	}
 
@@ -1280,6 +1585,25 @@ public class ContractBillListUI extends AbstractContractBillListUI {
 	}
 
 	public void actionAddNew_actionPerformed(ActionEvent e) throws Exception {
+		if(getProjSelectedTreeNode().isLeaf() && getTypeSelectedTreeNode().isLeaf()){
+			ContractTypeInfo typeInfo = (ContractTypeInfo)getTypeSelectedTreeNode().getUserObject();
+			String type = typeInfo.getName();
+			if("[施工]".equals(type) || "[材料]".equals(type) || "[分包]".equals(type)) {
+				CurProjectInfo projectInfo = (CurProjectInfo)getProjSelectedTreeNode().getUserObject();
+				String mainId = CustomerContractUtil.getIdByProAndType(projectInfo.getId().toString());
+				if(mainId == null){
+					MsgBox.showInfo("该项目的总包合同还未新增，请先新增总包合同！");
+					SysUtil.abort();
+				}else {
+					ContractBillInfo mainContract = ContractBillFactory.getRemoteInstance().getContractBillInfo("select state where id='"+mainId+"'");
+					FDCBillStateEnum state = mainContract.getState();
+					if(FDCBillStateEnum.SAVED.equals(state)||FDCBillStateEnum.SUBMITTED.equals(state)||FDCBillStateEnum.AUDITTING.equals(state)) {
+						MsgBox.showInfo("该项目的总包合同还未通过审核，请先审核总包合同！");
+						SysUtil.abort();
+					}
+				}
+			}
+		}
 		
 		//判断当前有没有打开新增的窗体
 		IUIWindow win = FDCClientUtils.findUIWindow(this.getEditUIName(), this.getUIContext(), dataObjects, OprtState.ADDNEW);

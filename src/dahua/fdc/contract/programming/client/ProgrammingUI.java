@@ -28,6 +28,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -907,6 +908,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		priceSendEditor = new KDTDefaultCellEditor(priceSend);
 		priceSend.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.contract.programming.SendContWay").toArray());
 		kdtEntries.getColumn("sendPage").setEditor(priceSendEditor);
+		kdtEntries.getColumn("sendPage").getStyleAttributes().setLocked(true);
 		KDDatePicker datePicker = new KDDatePicker();
         datePicker.setEditable(true);
         KDTDefaultCellEditor dateEditor = new KDTDefaultCellEditor(datePicker);
@@ -943,6 +945,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 //        datePicker.setEditable(true);
 //        dateEditor = new KDTDefaultCellEditor(datePicker);
 //        kdtEntries.getColumn("csendDate").setEditor(dateEditor);
+        freezeMainTableColumn();
 	}
 
 	private void cellToFormattedText(KDTable table, String column) {
@@ -3431,13 +3434,32 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 					fxbdinfo.setItemName(pcentryinfo.getFieldName());
 					if(pcentryinfo.getCkDate() != null && ckDates.get(pcentryinfo.getCkDate().getName()) != null){
 						c1.setTime(ckDates.get(pcentryinfo.getCkDate().getName()));
-						c1.add(Calendar.DATE,-pcentryinfo.getTqDays());
+//						c1.add(Calendar.DATE,-pcentryinfo.getTqDays());
+						setBeforeOrAfterDays(c1,pcentryinfo.getTqDays());
 						fxbdinfo.setPlanDate(c1.getTime());
 					}
 					fxbdcoll.add(fxbdinfo);
 				}
 				ckDates.clear();
 			}
+		}
+	}
+	//在给定的时间和天数上，不计算非工作日（周六、周日）
+	private void setBeforeOrAfterDays(Calendar c1, int tqDays){
+		boolean flag = true;
+		if(tqDays < 0){
+			tqDays = -tqDays;
+			flag = false;
+		}
+		int count = 0;
+		while(tqDays != count){
+			if(flag)
+				c1.add(Calendar.DATE,-1);
+			else
+				c1.add(Calendar.DATE,1);
+			if(c1.get(Calendar.DAY_OF_WEEK)==1 || c1.get(Calendar.DAY_OF_WEEK)==7)
+				continue;
+			count++;
 		}
 	}
 
@@ -3460,7 +3482,8 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 								fxcoll.get(i).setPlanDate(null);
 							else{
 								c1.setTime(realDate);
-								c1.add(Calendar.DATE,-einfo.getTqDays());
+//								c1.add(Calendar.DATE,-einfo.getTqDays());
+								setBeforeOrAfterDays(c1,einfo.getTqDays());
 								fxcoll.get(i).setPlanDate(c1.getTime());
 							}
 							break;
@@ -3509,6 +3532,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		String curVersion = txtVersion.getText();
 		String versionGroup = txtVersionGroup.getText();
 		fillFxbdByHyType();
+		kDTabbedPane1.setSelectedIndex(1);
 		//提示成本构成科目不为零ASSIGNING
 		CostAccountInfo costInfo = null;
 		for(int i = kdtCostAccount.getRowCount()-1; i >=0; i--) {
@@ -4380,7 +4404,8 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 								if(einfo != null && einfo.getFieldName()!=null){
 									if(einfo.getCkDate() != null && ckDates.get(einfo.getCkDate().getName()) != null){
 										c1.setTime(ckDates.get(einfo.getCkDate().getName()));
-										c1.add(Calendar.DATE,-einfo.getTqDays());
+//										c1.add(Calendar.DATE,-einfo.getTqDays());
+										setBeforeOrAfterDays(c1,einfo.getTqDays());
 										row.getCell(depNumber).setValue(einfo.getFieldName()+":"+sdf.format(c1.getTime()));
 									}else{
 										row.getCell(depNumber).setValue(einfo.getFieldName()+":");
@@ -4416,6 +4441,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 //							mxSize = rsfxbd.getInt(1);
 //						}
 						mxSize++;
+						String result = null;
 						for(int k=0; k<mxSize; k++){
 							row = kdfxbd.addRow();
 							if(pcname instanceof CellTreeNode)
@@ -4431,8 +4457,11 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 								feinfo = fxentrys.get(depNumber+k);
 								if(feinfo!=null && feinfo.getItemName() != null){
 									row.getCell(depNumber).setValue(feinfo.getItemName()+":"+(feinfo.getPlanDate()==null?"":feinfo.getPlanDate()));
-									if(isDateChange(ptentrys.get(depNumber+k),feinfo.getPlanDate(),c1,ckDates))
+									result = isDateChange(ptentrys.get(depNumber+k),feinfo.getPlanDate(),c1,ckDates);
+									if("red".equals(result))
 										row.getCell(depNumber).getStyleAttributes().setBackground(Color.red);
+									else if("green".equals(result))
+										row.getCell(depNumber).getStyleAttributes().setBackground(Color.GREEN);
 								}
 							}
 						}
@@ -4452,32 +4481,29 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		}
 	}
 	
-	private boolean isDateChange(PcTypeEntryInfo einfo,Date editDate,Calendar c1,Map<String,Date> ckDates){
+	private String isDateChange(PcTypeEntryInfo einfo,Date editDate,Calendar c1,Map<String,Date> ckDates){
 		if(einfo != null){
 			if(editDate==null)
-				return false;
+				return null;
 			CKDate ckItem = einfo.getCkDate();
 			if(ckItem==null)
-				return false;
+				return null;
 			Date ckdate = ckDates.get(ckItem.getName());
 			if(ckdate==null)
-				return false;
-//			CKDate ckItem = einfo.getCkDate();
-//			if(ckItem==null && editDate==null)
-//				return false;
-//			if(ckItem==null && editDate!=null)
-//				return true;
-//			Date ckdate = ckDates.get(ckItem.getName());
-//			if(ckdate==null && editDate==null)
-//				return false;
-//			if(ckdate==null ^ editDate==null)
-//				return true;
+				return null;
 			c1.setTime(ckdate);
-			c1.add(Calendar.DATE,-einfo.getTqDays());
-			if(new Timestamp(c1.getTime().getTime()).compareTo(new Timestamp(editDate.getTime())) != 0)
-				return true;
+//			c1.add(Calendar.DATE,-einfo.getTqDays());
+			setBeforeOrAfterDays(c1,einfo.getTqDays());
+			Timestamp ck = new Timestamp(c1.getTime().getTime());
+			Timestamp sj = new Timestamp(editDate.getTime());
+			if(sj.compareTo(ck) > 0)
+				return "red";
+			else if(sj.compareTo(ck) < 0)
+				return "green";
+			else
+				return null;
 		}
-		return false;
+		return null;
 	}
 	
 	/**
@@ -5239,6 +5265,16 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 			}
 		}
 		return leafNumberList;
+	}
+	
+	protected void freezeMainTableColumn() {
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				/*
+				 * 冻结最后一列即可，列的序号从1开始
+				 */
+				kdtEntries.getViewManager().setFreezeView(-1, kdtEntries.getColumn("name").getColumnIndex()+1);
+			}});
 	}
 
 	/**

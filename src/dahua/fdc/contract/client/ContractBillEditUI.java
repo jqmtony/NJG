@@ -1972,7 +1972,9 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		sortManager.setClickCount(10);
 		for(int i = 0; i<kdtSplitEntry.getColumnCount();i++){  
 		    this.kdtSplitEntry.getColumn(i).setSortable(false);   
-		}  
+		} 
+		//modify by yxl 20160106 设置拆分页签上各个按钮的状态，位置
+		setSplitButton();
 	}
 	
 	private void setProgrammingContractCellF7(int rowIndex){
@@ -3124,12 +3126,11 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		btnSplitProd.setText("产品拆分");
 		KDWorkButton btnRemoveLine = (KDWorkButton)this.kDContainer2.add(actionRemoveSplit);
 		btnRemoveLine.setText("删除分录");
-//		String programControlMode = getParamValue();
-//		if(programControlMode != null) {
-//			//不控制
-//			if(!"2".equals(programControlMode.trim()))
-//				btnProgrAcctSelect.setVisible(false);
-//		}
+		String programControlMode = getParamValue();
+		if(programControlMode!=null && !"2".equals(programControlMode.trim())) {
+			//不控制
+			kDContainer2.removeButton(btnAcctSelect);
+		}
 		this.kDLabelContainer5.setBounds(150, 2, 200, 19);
 		this.kDContainer2.add(this.kDLabelContainer5);
 		this.kDLabelContainer6.setBounds(370, 2, 180, 19);
@@ -5682,7 +5683,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		initEcoEntryTableStyle();
 		btnViewInvite.setEnabled(true);
 		
-		setSplitButton();
 	}
 	
 	protected void setButtonStatus() {
