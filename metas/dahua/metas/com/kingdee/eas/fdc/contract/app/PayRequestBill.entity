@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <entityObject xmlns="com.kingdee.bos.metadata">
     <package>com.kingdee.eas.fdc.contract.app</package>
     <name>PayRequestBill</name>
@@ -2605,6 +2605,26 @@
                 <key name="name" value="CFsfczjjh" />
             </mappingField>
         </ownProperty>
+        <ownProperty>
+            <name>threeCaiAmount</name>
+            <alias>entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].properties.ownProperty[threeCaiAmount].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].properties.ownProperty[threeCaiAmount].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>10</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].properties.ownProperty[threeCaiAmount].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFthreeCaiAmount" />
+            </mappingField>
+        </ownProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -3364,11 +3384,6 @@
         <description>entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].defaultViewdescription</description>
     </defaultView>
     <resource>
-	<rs key="entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].extendedProperty.controllerBeanEx">
-            <lang locale="zh_CN" value="com.kingdee.eas.fdc.contract.app.PayRequestBillControllerBeanEx" />
-            <lang locale="zh_TW" value="com.kingdee.eas.fdc.contract.app.PayRequestBillControllerBeanEx" />
-            <lang locale="en_US" value="com.kingdee.eas.fdc.contract.app.PayRequestBillControllerBeanEx" />
-        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="付款申请单" />
@@ -4257,6 +4272,11 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].extendedProperty.controllerBeanEx">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.contract.app.PayRequestBillControllerBeanEx" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.contract.app.PayRequestBillControllerBeanEx" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.contract.app.PayRequestBillControllerBeanEx" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].extendedProperty.defaultF7Query">
             <lang locale="en_US" value="com.kingdee.eas.fdc.contract.app.PayRequestBillQuery" />
@@ -5724,8 +5744,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].properties.ownProperty[costAmount].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].properties.ownProperty[costAmount].description">
@@ -6949,6 +6968,28 @@
             <lang locale="zh_CN" value="保存bosType，如果是无文本3D9A5388，如果是合同0D6DD1F4" />
             <lang locale="zh_HK" value="保存bosType，如果是無文本3D9A5388，如果是合同0D6DD1F4" />
             <lang locale="zh_TW" value="保存bosType，如果是無文本3D9A5388，如果是合同0D6DD1F4" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].properties.ownProperty[threeCaiAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="三材金额" />
+            <lang locale="zh_HK" value="三材金額" />
+            <lang locale="zh_TW" value="三材金額" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].properties.ownProperty[threeCaiAmount].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].properties.ownProperty[threeCaiAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].properties.ownProperty[threeCaiAmount].extendedProperty.isForMapping">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.app.PayRequestBill].properties.ownProperty[totalSettlePrice].alias">
             <lang locale="en_US" value="null" />

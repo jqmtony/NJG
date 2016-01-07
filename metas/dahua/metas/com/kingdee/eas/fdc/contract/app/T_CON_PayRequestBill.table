@@ -1596,12 +1596,26 @@
             <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
-            <isNullable>false</isNullable>
-            <defaultValue>0</defaultValue>
+            <isNullable>true</isNullable>
+            <defaultValue />
             <sqlType>INT</sqlType>
             <length>0</length>
             <scale>0</scale>
             <precision>0</precision>
+        </column>
+        <column>
+            <name>CFthreeCaiAmount</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_PayRequestBill].columns.column[CFthreeCaiAmount].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_PayRequestBill].columns.column[CFthreeCaiAmount].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NUMERIC</sqlType>
+            <length>0</length>
+            <scale>10</scale>
+            <precision>28</precision>
         </column>
     </columns>
     <primaryKey>
@@ -1965,6 +1979,18 @@
             <lang locale="zh_CN" value="是否超资金计划付款" />
             <lang locale="zh_HK" value="是否超資金計畫付款" />
             <lang locale="zh_TW" value="是否超資金計畫付款" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_PayRequestBill].columns.column[CFthreeCaiAmount].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="三材金额" />
+            <lang locale="zh_HK" value="三材金額" />
+            <lang locale="zh_TW" value="三材金額" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_PayRequestBill].columns.column[CFthreeCaiAmount].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="三材金额" />
+            <lang locale="zh_HK" value="三材金額" />
+            <lang locale="zh_TW" value="三材金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_PayRequestBill].columns.column[FActPaiedAmount].alias">
             <lang locale="en_US" value="null" />
