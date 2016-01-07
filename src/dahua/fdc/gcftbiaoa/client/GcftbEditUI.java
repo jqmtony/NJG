@@ -887,6 +887,7 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 			CurProjectInfo projectInfo = (CurProjectInfo)row.getCell("engineeringProject").getValue();
 			BigDecimal jzmj = null;
 			BigDecimal cqgsJzmj = null;
+			BigDecimal cpgsJzmj = null;
 			if(projectInfo == null){
 				MsgBox.showWarning("请选择项目");
 				SysUtil.abort();
@@ -896,12 +897,16 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 				MsgBox.showWarning("请选择设施");
 				SysUtil.abort();
 			}
-			cqgsJzmj = getCQGSjzmj(projectInfo.getId().toString(), cplxInfo.getId().toString());
 			jzmj = getjzmj(projectInfo.getId().toString());
+			cpgsJzmj = getcpjzmj(projectInfo.getId().toString(), cplxInfo.getId().toString());
+			cqgsJzmj = getCQGSjzmj(projectInfo.getId().toString(), cplxInfo.getId().toString());
 			if(Ft){
 				row.getCell("constructionArea").setValue(jzmj);
 			}else{
-				row.getCell("constructionArea").setValue(cqgsJzmj);
+				if(cpgsJzmj.compareTo(BigDecimal.ZERO)>0){
+					row.getCell("constructionArea").setValue(cpgsJzmj);
+				}else
+					row.getCell("constructionArea").setValue(cqgsJzmj);
 			}
 			
 			if(UIRuleUtil.isNull(row.getCell("costHasOccurred").getValue())){
@@ -1041,6 +1046,37 @@ public class GcftbEditUI extends AbstractGcftbEditUI {
 				jzmj = UIRuleUtil.getBigDecimal(rowset.getBigDecimal(2));
 			}
 		return jzmj;
+	}
+	//建筑面积取面积指标管理中的 产品面积
+	private BigDecimal getcpjzmj(String projectId,String BuilDingNameId) throws BOSException, SQLException{
+		BigDecimal cpjzmj = BigDecimal.ZERO;
+		StringBuffer sb = new StringBuffer();
+		// 产品建筑指标 == 动态——竣工查账 优先取：项目规划指标 == 目标指标
+		sb.append(" select case when max(case when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end)=0 ");
+		sb.append(" and max(case when pe.fname_l2 ='建筑面积' and data.FVerName ='1AIMCOSTAREA' then isnull(entry.FIndexValue,0) else 0 end ) = 0");
+		sb.append(" then max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end) else");
+		sb.append(" max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end)  end,");
+		sb.append("   ");
+		sb.append(" case when max(case when pe.fname_l2 ='建筑面积' and data.FVerName ='3COMPLETEAREA' then isnull(entry.FIndexValue,0) else 0 end)=0 ");
+		sb.append(" and max(case when pe.fname_l2 ='建筑面积' and data.FVerName ='1AIMCOSTAREA' then isnull(entry.FIndexValue,0) else 0 end ) = 0");
+		sb.append(" then max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='1AIMCOSTAREA' then isnull(entry.FIndexValue,0) else 0 end) else");
+		sb.append(" max(case  when pe.fname_l2 ='建筑面积' and data.FVerName ='1AIMCOSTAREA' then isnull(entry.FIndexValue,0) else 0 end)  end");
+		sb.append(" from T_FDC_ProjectIndexDataEntry entry");
+		sb.append(" left join T_FDC_ApportionType  pe on pe.fid = entry.FApportionTypeID");
+		sb.append(" left join T_FDC_ProjectIndexData data on data.fid=entry.FParentID ");
+		sb.append(" left join T_FDC_CurProject  ct on ct.fid = data.FProjOrOrgID ");
+		sb.append(" left join T_FDC_TargetType  tag on tag.fid =entry.FTargetTypeID ");
+		sb.append(" where ct.fid ='").append(projectId).append("'");
+		sb.append(" and (data.fisLatestVer=1 OR data.fisLatestSubVer=1)");
+		sb.append(" and data.FProductTypeID ='").append(BuilDingNameId).append("'");
+		IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
+		while(rowset.next())
+			if(UIRuleUtil.getBigDecimal(rowset.getBigDecimal(1)).compareTo(BigDecimal.ZERO)!=0){
+				cpjzmj = UIRuleUtil.getBigDecimal(rowset.getBigDecimal(1));
+			}else{
+				cpjzmj = UIRuleUtil.getBigDecimal(rowset.getBigDecimal(2));
+			}
+		return cpjzmj;
 	}
 	//分摊面积取产权归属表中的 面积
 	private BigDecimal getCQGSarea(String projectId,AllocationIndex index) throws BOSException, SQLException{
