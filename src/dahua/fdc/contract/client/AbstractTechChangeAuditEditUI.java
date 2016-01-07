@@ -1236,8 +1236,8 @@ public abstract class AbstractTechChangeAuditEditUI extends com.kingdee.eas.fdc.
         this.add(contAuditTime, new KDLayout.Constraints(377, 566, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCurProject.setBounds(new Rectangle(730, 12, 270, 19));
         this.add(contCurProject, new KDLayout.Constraints(730, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditType.setBounds(new Rectangle(13, 202, 268, 19));
-        this.add(contAuditType, new KDLayout.Constraints(13, 202, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contAuditType.setBounds(new Rectangle(12, 155, 268, 19));
+        this.add(contAuditType, new KDLayout.Constraints(12, 155, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contChangeState.setBounds(new Rectangle(730, 36, 270, 19));
         this.add(contChangeState, new KDLayout.Constraints(730, 36, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         tbpChangAudit.setBounds(new Rectangle(9, 232, 991, 296));
@@ -1252,8 +1252,8 @@ public abstract class AbstractTechChangeAuditEditUI extends com.kingdee.eas.fdc.
         this.add(kDLabelContainer1, new KDLayout.Constraints(12, 36, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer2.setBounds(new Rectangle(659, 19, 39, 19));
         this.add(kDLabelContainer2, new KDLayout.Constraints(659, 19, 39, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contReaDesc.setBounds(new Rectangle(12, 156, 635, 43));
-        this.add(contReaDesc, new KDLayout.Constraints(12, 156, 635, 43, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contReaDesc.setBounds(new Rectangle(6, 178, 635, 43));
+        this.add(contReaDesc, new KDLayout.Constraints(6, 178, 635, 43, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contbillType.setBounds(new Rectangle(668, 98, 35, 19));
         this.add(contbillType, new KDLayout.Constraints(668, 98, 35, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contputForwardTime.setBounds(new Rectangle(377, 60, 270, 19));
@@ -1266,8 +1266,8 @@ public abstract class AbstractTechChangeAuditEditUI extends com.kingdee.eas.fdc.
         this.add(contreworkVisa, new KDLayout.Constraints(377, 108, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contcontractAmPro.setBounds(new Rectangle(377, 132, 270, 19));
         this.add(contcontractAmPro, new KDLayout.Constraints(377, 132, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conttotalChangeAmount.setBounds(new Rectangle(730, 108, 270, 19));
-        this.add(conttotalChangeAmount, new KDLayout.Constraints(730, 108, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        conttotalChangeAmount.setBounds(new Rectangle(729, 108, 270, 19));
+        this.add(conttotalChangeAmount, new KDLayout.Constraints(729, 108, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contdesignChangeAmount.setBounds(new Rectangle(12, 132, 270, 19));
         this.add(contdesignChangeAmount, new KDLayout.Constraints(12, 132, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contchangeEstimate.setBounds(new Rectangle(730, 84, 270, 19));
@@ -1280,16 +1280,16 @@ public abstract class AbstractTechChangeAuditEditUI extends com.kingdee.eas.fdc.
         this.add(contsale, new KDLayout.Constraints(730, 60, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         btnCostIndex.setBounds(new Rectangle(547, 10, 100, 21));
         this.add(btnCostIndex, new KDLayout.Constraints(547, 10, 100, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        Sfejjd.setBounds(new Rectangle(730, 135, 140, 19));
-        this.add(Sfejjd, new KDLayout.Constraints(730, 135, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        Bjzb.setBounds(new Rectangle(730, 162, 140, 19));
-        this.add(Bjzb, new KDLayout.Constraints(730, 162, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        Xscn.setBounds(new Rectangle(864, 162, 140, 19));
-        this.add(Xscn, new KDLayout.Constraints(864, 162, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        sfyjjd.setBounds(new Rectangle(730, 189, 140, 19));
-        this.add(sfyjjd, new KDLayout.Constraints(730, 189, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contChangeReason.setBounds(new Rectangle(377, 202, 270, 19));
-        this.add(contChangeReason, new KDLayout.Constraints(377, 202, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        Sfejjd.setBounds(new Rectangle(729, 196, 140, 19));
+        this.add(Sfejjd, new KDLayout.Constraints(729, 196, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        Bjzb.setBounds(new Rectangle(729, 137, 140, 19));
+        this.add(Bjzb, new KDLayout.Constraints(729, 137, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        Xscn.setBounds(new Rectangle(865, 137, 140, 19));
+        this.add(Xscn, new KDLayout.Constraints(865, 137, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        sfyjjd.setBounds(new Rectangle(729, 166, 140, 19));
+        this.add(sfyjjd, new KDLayout.Constraints(729, 166, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contChangeReason.setBounds(new Rectangle(377, 155, 270, 19));
+        this.add(contChangeReason, new KDLayout.Constraints(377, 155, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime

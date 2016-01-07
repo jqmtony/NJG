@@ -769,6 +769,18 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         });
         // sfyjjd		
         this.sfyjjd.setText(resHelper.getString("sfyjjd.text"));
+        this.sfyjjd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    sfyjjd_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // contChangeReason		
         this.contChangeReason.setBoundLabelText(resHelper.getString("contChangeReason.boundLabelText"));		
         this.contChangeReason.setBoundLabelLength(100);		
@@ -1304,14 +1316,14 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.add(contsale, new KDLayout.Constraints(730, 60, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         btnCostIndex.setBounds(new Rectangle(547, 10, 100, 21));
         this.add(btnCostIndex, new KDLayout.Constraints(547, 10, 100, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        Sfejjd.setBounds(new Rectangle(732, 136, 263, 19));
-        this.add(Sfejjd, new KDLayout.Constraints(732, 136, 263, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        Bjzb.setBounds(new Rectangle(732, 162, 131, 19));
-        this.add(Bjzb, new KDLayout.Constraints(732, 162, 131, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        Xscn.setBounds(new Rectangle(881, 162, 129, 19));
-        this.add(Xscn, new KDLayout.Constraints(881, 162, 129, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        sfyjjd.setBounds(new Rectangle(732, 189, 140, 19));
-        this.add(sfyjjd, new KDLayout.Constraints(732, 189, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        Sfejjd.setBounds(new Rectangle(731, 203, 166, 19));
+        this.add(Sfejjd, new KDLayout.Constraints(731, 203, 166, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        Bjzb.setBounds(new Rectangle(731, 139, 131, 19));
+        this.add(Bjzb, new KDLayout.Constraints(731, 139, 131, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        Xscn.setBounds(new Rectangle(880, 139, 129, 19));
+        this.add(Xscn, new KDLayout.Constraints(880, 139, 129, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        sfyjjd.setBounds(new Rectangle(731, 170, 140, 19));
+        this.add(sfyjjd, new KDLayout.Constraints(731, 170, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contChangeReason.setBounds(new Rectangle(378, 160, 270, 19));
         this.add(contChangeReason, new KDLayout.Constraints(378, 160, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
@@ -1879,6 +1891,13 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
      * output Xscn_actionPerformed method
      */
     protected void Xscn_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output sfyjjd_actionPerformed method
+     */
+    protected void sfyjjd_actionPerformed(java.awt.event.ActionEvent e) throws Exception
     {
     }
 
