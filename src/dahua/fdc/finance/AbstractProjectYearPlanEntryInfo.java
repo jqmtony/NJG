@@ -91,6 +91,17 @@ public class AbstractProjectYearPlanEntryInfo extends com.kingdee.eas.framework.
     {
         setBigDecimal("amount", item);
     }
+    /**
+     * Object:项目年度付款规划分录's 当前进度说明property 
+     */
+    public String getCurrentProgress()
+    {
+        return getString("currentProgress");
+    }
+    public void setCurrentProgress(String item)
+    {
+        setString("currentProgress", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("24688802");

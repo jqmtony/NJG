@@ -148,6 +148,17 @@ public class AbstractProjectMonthPlanGatherEntryInfo extends com.kingdee.eas.fra
     {
         setBigDecimal("applyAmount", item);
     }
+    /**
+     * Object:项目月度付款计划汇总分录's 当前进度说明property 
+     */
+    public String getCurrentProgress()
+    {
+        return getString("currentProgress");
+    }
+    public void setCurrentProgress(String item)
+    {
+        setString("currentProgress", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("0CA7FFF8");

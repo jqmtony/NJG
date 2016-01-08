@@ -52,10 +52,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("140f96a8-651c-45e8-bb71-19b4c44cd834"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, pk);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -74,10 +77,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("e1c56173-fb63-42b1-837a-35f457f09d66"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, filter);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -96,10 +102,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("86655357-25cc-4295-9dd6-e74dd7e339e5"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             boolean retValue = (boolean)_exists(ctx, oql);
             svcCtx.setMethodReturnValue(new Boolean(retValue));
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return ((Boolean)svcCtx.getMethodReturnValue()).booleanValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -118,10 +127,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("953247f4-d4d0-42ad-9854-6b7dae286472"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProjectYearPlanEntryInfo retValue = (ProjectYearPlanEntryInfo)_getValue(ctx, pk);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProjectYearPlanEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -140,10 +152,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("caeec2c3-cf07-4001-afcb-4d788a085dba"), new Object[]{ctx, pk, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProjectYearPlanEntryInfo retValue = (ProjectYearPlanEntryInfo)_getValue(ctx, pk, selector);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProjectYearPlanEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -162,10 +177,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("e1fe35b8-d6f6-4ddc-94d9-ecda6d2da050"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProjectYearPlanEntryInfo retValue = (ProjectYearPlanEntryInfo)_getValue(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProjectYearPlanEntryInfo)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -184,10 +202,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("0366a07e-f5ff-4a5f-a06a-72a5ee6b0b59"), new Object[]{ctx, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK retValue = (IObjectPK)_addnew(ctx, model);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -208,7 +229,9 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("585a789f-6782-476c-a1ea-550f78df6034"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _addnew(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -230,7 +253,9 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("1f73b06d-9e83-4e8d-83c9-aa39063f8827"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _update(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -252,7 +277,9 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("1a9afaeb-1ba7-4781-b329-61abcb46e551"), new Object[]{ctx, model, selector});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updatePartial(ctx, model, selector);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -274,7 +301,9 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("93574b04-f7bb-4278-9ef5-58765887f5d4"), new Object[]{ctx, pk, model});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _updateBigObject(ctx, pk, model);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -293,7 +322,9 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("a08c39e7-75c8-4de8-9986-745f3f06d5d4"), new Object[]{ctx, pk});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, pk);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();
@@ -315,10 +346,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("79172b38-ab08-4eb3-811b-0f74574c89a0"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -337,10 +371,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("00cb325e-5559-475b-a994-cc1f1c416bc9"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -359,10 +396,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("10f222e0-aef6-420a-959e-0d85573924d0"), new Object[]{ctx, filter, sorter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_getPKList(ctx, filter, sorter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } catch (EASBizException ex0) {
@@ -381,10 +421,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("ae6ef95e-7346-4339-91ac-7e90c3ab562e"), new Object[]{ctx});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProjectYearPlanEntryCollection retValue = (ProjectYearPlanEntryCollection)_getCollection(ctx, svcCtx);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProjectYearPlanEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -401,10 +444,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7d5e1221-0620-4660-8ad1-fc5e27bb40b7"), new Object[]{ctx, view});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProjectYearPlanEntryCollection retValue = (ProjectYearPlanEntryCollection)_getCollection(ctx, svcCtx, view);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProjectYearPlanEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -421,10 +467,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("4b493b32-a600-4187-826c-4198c6f84cab"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             ProjectYearPlanEntryCollection retValue = (ProjectYearPlanEntryCollection)_getCollection(ctx, svcCtx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (ProjectYearPlanEntryCollection)svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             throw ex;
         } finally {
@@ -441,10 +490,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("7c8a1398-fa38-4d1d-92cb-f0cac9a88f50"), new Object[]{ctx, filter});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, filter);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -465,10 +517,13 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("b473535a-d4ee-4473-97d9-55027aa07793"), new Object[]{ctx, oql});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()) {
             IObjectPK[] retValue = (IObjectPK[])_delete(ctx, oql);
             svcCtx.setMethodReturnValue(retValue);
+            }
             invokeServiceAfter(svcCtx);
-            return retValue;
+        
+          return (IObjectPK[])svcCtx.getMethodReturnValue();
         } catch (BOSException ex) {
             this.setRollbackOnly();
             throw ex;
@@ -489,7 +544,9 @@ public abstract class AbstractProjectYearPlanEntryControllerBean extends CoreBil
         try {
             ServiceContext svcCtx = createServiceContext(new MetaDataPK("73906741-ddf6-43aa-afbc-3c88c2cf6cb9"), new Object[]{ctx, arrayPK});
             invokeServiceBefore(svcCtx);
+            if(!svcCtx.invokeBreak()){
             _delete(ctx, arrayPK);
+            }
             invokeServiceAfter(svcCtx);
         } catch (BOSException ex) {
             this.setRollbackOnly();

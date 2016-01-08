@@ -5,8 +5,13 @@ package com.kingdee.eas.fdc.finance.client;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dialog;
 import java.awt.Dimension;
-import java.awt.event.*;
+import java.awt.Frame;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,34 +24,25 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.swing.ActionMap;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
-import com.kingdee.bos.metadata.data.SortType;
-import com.kingdee.bos.metadata.entity.EntityViewInfo;
-import com.kingdee.bos.metadata.entity.FilterInfo;
-import com.kingdee.bos.metadata.entity.FilterItemInfo;
-import com.kingdee.bos.metadata.entity.SelectorItemCollection;
-import com.kingdee.bos.metadata.entity.SelectorItemInfo;
-import com.kingdee.bos.metadata.entity.SorterItemCollection;
-import com.kingdee.bos.metadata.entity.SorterItemInfo;
-import com.kingdee.bos.metadata.query.util.CompareType;
-import com.kingdee.bos.ui.face.CoreUIObject;
-import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.ctrl.extendcontrols.BizDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
+import com.kingdee.bos.ctrl.kdf.table.BasicView;
 import com.kingdee.bos.ctrl.kdf.table.ICell;
 import com.kingdee.bos.ctrl.kdf.table.IColumn;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
-import com.kingdee.bos.ctrl.kdf.table.KDTAction;
 import com.kingdee.bos.ctrl.kdf.table.KDTDefaultCellEditor;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
+import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseListener;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.ctrl.swing.KDContainer;
@@ -58,16 +54,23 @@ import com.kingdee.bos.ctrl.swing.event.SelectorListener;
 import com.kingdee.bos.ctrl.swing.util.CtrlCommonConstant;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.metadata.data.SortType;
+import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.FilterInfo;
+import com.kingdee.bos.metadata.entity.FilterItemInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
+import com.kingdee.bos.metadata.entity.SorterItemCollection;
+import com.kingdee.bos.metadata.entity.SorterItemInfo;
+import com.kingdee.bos.metadata.query.util.CompareType;
+import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.param.ParamControlFactory;
 import com.kingdee.eas.basedata.org.FullOrgUnitFactory;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
-import com.kingdee.eas.basedata.person.PersonInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
-import com.kingdee.eas.fdc.basecrm.CRMHelper;
-import com.kingdee.eas.fdc.basecrm.client.CRMClientHelper;
-import com.kingdee.eas.fdc.basedata.ContractTypeFactory;
 import com.kingdee.eas.fdc.basedata.ContractTypeInfo;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
@@ -79,22 +82,16 @@ import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.FDCClientVerifyHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
+import com.kingdee.eas.fdc.basedata.util.KDDetailedAreaDialog;
+import com.kingdee.eas.fdc.basedata.util.KDDetailedAreaUtil;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractPayPlanEntryCollection;
 import com.kingdee.eas.fdc.contract.ContractPayPlanEntryFactory;
 import com.kingdee.eas.fdc.contract.ContractPayPlanEntryInfo;
-import com.kingdee.eas.fdc.contract.DepartmentEnum;
-import com.kingdee.eas.fdc.contract.FDCUtils;
-import com.kingdee.eas.fdc.contract.UseTypeEnum;
-import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanDateEntryInfo;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanEntryCollection;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanEntryInfo;
-import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherCollection;
-import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherDateEntryInfo;
-import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherEntryInfo;
-import com.kingdee.eas.fdc.finance.ProjectMonthPlanGatherFactory;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanProDateEntryInfo;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanProEntryCollection;
 import com.kingdee.eas.fdc.finance.ProjectMonthPlanProEntryFactory;
@@ -102,21 +99,15 @@ import com.kingdee.eas.fdc.finance.ProjectMonthPlanProEntryInfo;
 import com.kingdee.eas.fdc.finance.ProjectPlanDetialTypeEnum;
 import com.kingdee.eas.fdc.finance.ProjectYearPlanCollection;
 import com.kingdee.eas.fdc.finance.ProjectYearPlanDateEntryInfo;
-import com.kingdee.eas.fdc.finance.ProjectYearPlanEntryCollection;
 import com.kingdee.eas.fdc.finance.ProjectYearPlanEntryInfo;
 import com.kingdee.eas.fdc.finance.ProjectYearPlanFactory;
 import com.kingdee.eas.fdc.finance.ProjectYearPlanInfo;
-import com.kingdee.eas.fdc.finance.VersionTypeEnum;
 import com.kingdee.eas.fdc.finance.utils.TableHelper;
-import com.kingdee.eas.framework.*;
-import com.kingdee.eas.ma.budget.BgItemInfo;
-import com.kingdee.eas.ma.budget.BgItemObject;
-import com.kingdee.eas.ma.budget.client.NewBgItemDialog;
+import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
-import com.kingdee.util.UuidException;
 
 /**
  * output class name
@@ -276,6 +267,7 @@ public class ProjectYearPlanNewEditUI extends AbstractProjectYearPlanNewEditUI
 					row.getCell("name").setValue(entry.getName());
 					row.getCell("amount").setValue(entry.getAmount());
 				}
+				row.getCell("currentProgress").setValue(entry.getCurrentProgress());
 				if(entry.getContractBill()!=null){
 					row.getCell("conName").setValue(entry.getContractBill().getName());
 					row.getCell("conAmount").setValue(entry.getContractBill().getAmount());
@@ -700,6 +692,14 @@ public class ProjectYearPlanNewEditUI extends AbstractProjectYearPlanNewEditUI
 		column.setKey("partB");
 		headRow.getCell("partB").setValue("合同施工单位名称");
 		
+		//modify by yxl 20160108 项目月度、年度资金计划里增加“当前进度说明”列，为文本格式、必录项
+		column=table.addColumn();
+		column.setKey("currentProgress");
+		column.setWidth(200);
+		column.getStyleAttributes().setLocked(false);
+		column.getStyleAttributes().setWrapText(true);
+		headRow.getCell("currentProgress").setValue("当前进度说明");
+		
 		column=table.addColumn();
 		column.setKey("actAmount");
 		headRow.getCell("actAmount").setValue("截止"+beginYear+"年"+beginMonth+"月累计实际付款");
@@ -731,6 +731,11 @@ public class ProjectYearPlanNewEditUI extends AbstractProjectYearPlanNewEditUI
 				table_editStopped(e);
 			}
 		});
+		table.addKDTMouseListener(new KDTMouseListener() {
+            public void tableClicked(KDTMouseEvent e) {
+            	table_tableClicked(e);
+            }
+        });
 		
 		KDWorkButton btnExportExcel = new KDWorkButton();
 //
@@ -762,6 +767,63 @@ public class ProjectYearPlanNewEditUI extends AbstractProjectYearPlanNewEditUI
 		}
 		loadEntry(info,year,month,planMonth);
 	}
+	
+	protected void table_tableClicked(KDTMouseEvent e){
+		if(e.getType() == 0) // 如果点击表头不要处理
+			return;
+		if(e.getColIndex() == table.getColumnIndex("currentProgress")) {
+			if(STATUS_ADDNEW.equals(oprtState) || STATUS_EDIT.equals(oprtState)) {
+//				KDDetailedAreaUtil.showDialog(this, table, 250, 200, 500);
+				showAreaDialog(table, 250, 200, 255, true);
+			}else if(STATUS_VIEW.equals(oprtState))
+				showAreaDialog(table, 250, 200, 255, false);
+		}
+    }
+	
+	private void showAreaDialog(KDTable table, int X, int Y, int len, boolean isEdit){
+		int rowIndex = table.getSelectManager().getActiveRowIndex();
+		int colIndex = table.getSelectManager().getActiveColumnIndex();
+		final IRow row = table.getRow(rowIndex);
+		final ICell cell = table.getCell(rowIndex, colIndex);
+		if (cell.getValue() == null) {
+			return;
+		}
+		BasicView view = table.getViewManager().getView(5);
+		Point p = view.getLocationOnScreen();
+		Rectangle rect = view.getCellRectangle(rowIndex, colIndex);
+		KDDetailedAreaDialog dialog;
+		Window parent = SwingUtilities.getWindowAncestor(this);
+		if (parent instanceof Dialog) {
+			dialog = new KDDetailedAreaDialog((Dialog) parent, X, Y, true){
+				protected void btnOK_actionPerformed(ActionEvent e) {
+					super.btnOK_actionPerformed(e);
+					cell.setValue(getData());
+					ProjectYearPlanEntryInfo entry=(ProjectYearPlanEntryInfo)row.getUserObject();
+					if(entry != null)
+						entry.setCurrentProgress((String)getData());
+				}
+			};
+		} else if (parent instanceof Frame) {
+			dialog = new KDDetailedAreaDialog((Frame) parent, X, Y, true){
+				protected void btnOK_actionPerformed(ActionEvent e) {
+					super.btnOK_actionPerformed(e);
+					cell.setValue(getData());
+					ProjectYearPlanEntryInfo entry=(ProjectYearPlanEntryInfo)row.getUserObject();
+					if(entry != null)
+						entry.setCurrentProgress((String)getData());
+				}
+			};
+		} else {
+			dialog = new KDDetailedAreaDialog(true);
+		}
+		dialog.setData((String)cell.getValue());
+		dialog.setPRENTE_X(p.x + rect.x + rect.width);
+		dialog.setPRENTE_Y(p.y + rect.y);
+		dialog.setMaxLength(len);
+		dialog.setEditable(isEdit);
+		dialog.show();
+	}
+	
 	protected void addColumn(KDTable table,ProjectPlanDetialTypeEnum type,int year,int month,int quarter){
 		IRow headRow1=table.getHeadRow(0);
 		
@@ -1397,11 +1459,15 @@ public class ProjectYearPlanNewEditUI extends AbstractProjectYearPlanNewEditUI
 	}
 	private void table_editStopped(KDTEditEvent e) {
 		KDTable table = (KDTable) e.getSource();
-		
+//		if(table.getColumnKey(e.getColIndex()).equals("currentProgress")){
+//			KDDetailedAreaUtil.setWrapFalse(table.getCell(e.getRowIndex(), e.getColIndex()));
+//			ProjectYearPlanEntryInfo entry=(ProjectYearPlanEntryInfo)table.getRow(e.getRowIndex()).getUserObject();
+//			entry.setCurrentProgress((String)table.getCell(e.getRowIndex(), e.getColIndex()).getValue());
+////			if(entry!=null)
+////				entry.setAmount(1)
+//		}
 		if(table.getColumnKey(e.getColIndex()).equals("number")){
 			ProjectYearPlanEntryInfo entry=(ProjectYearPlanEntryInfo) table.getRow(e.getRowIndex()).getUserObject();
-			
-			
 			ProgrammingContractInfo pro=(ProgrammingContractInfo) table.getRow(e.getRowIndex()).getCell("number").getValue();
 			String name=null;
 			BigDecimal amount=null;

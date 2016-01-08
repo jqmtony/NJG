@@ -6,8 +6,12 @@ package com.kingdee.eas.fdc.finance.client;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dialog;
 import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Window;
 import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 import java.math.BigDecimal;
@@ -25,6 +29,7 @@ import java.util.TreeMap;
 
 import javax.swing.ActionMap;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 
 import org.apache.log4j.Logger;
@@ -50,6 +55,7 @@ import com.kingdee.bos.ctrl.extendcontrols.IDataFormat;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizComboBoxMultiColumnItem;
 import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.servertable.KDTStyleConstants;
+import com.kingdee.bos.ctrl.kdf.table.BasicView;
 import com.kingdee.bos.ctrl.kdf.table.ICell;
 import com.kingdee.bos.ctrl.kdf.table.IColumn;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
@@ -105,6 +111,7 @@ import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCClientVerifyHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
+import com.kingdee.eas.fdc.basedata.util.KDDetailedAreaDialog;
 import com.kingdee.eas.fdc.contract.ContractBill;
 import com.kingdee.eas.fdc.contract.ContractBillCollection;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
@@ -638,6 +645,14 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		headRow.getCell("noPayAmount").setValue("本月已批未付金额");
 		headRowName.getCell("noPayAmount").setValue("本月已批未付金额");
 		
+		//modify by yxl 20160108 项目月度、年度资金计划里增加“当前进度说明”列，为文本格式、必录项
+		column=contractTable.addColumn();
+		column.setKey("currentProgress");
+		column.setWidth(200);
+		column.getStyleAttributes().setLocked(false);
+		column.getStyleAttributes().setWrapText(true);
+		headRow.getCell("currentProgress").setValue("当前进度说明");
+		headRowName.getCell("currentProgress").setValue("当前进度说明");
 		
 		this.contractTable.getColumn("conAmount").setEditor(amountEditor);
 		this.contractTable.getColumn("conAmount").getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
@@ -685,6 +700,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		this.contractTable.getHeadMergeManager().mergeBlock(0, 11, 1, 11);
 		this.contractTable.getHeadMergeManager().mergeBlock(0, 12, 1, 12);
 		this.contractTable.getHeadMergeManager().mergeBlock(0, 13, 1, 13);
+		this.contractTable.getHeadMergeManager().mergeBlock(0, 14, 1, 14);
 		
 		initMonthColoum(this.contractTable,year,month,cycle);
 		
@@ -758,7 +774,52 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 				table_editStopped(e);
 			}
 		});
+//		contractTable.addKDTMouseListener(new KDTMouseListener() {
+//            public void tableClicked(KDTMouseEvent e) {
+//            	table_tableClicked(e);
+//            }
+//        });
 	}
+	
+	private void showAreaDialog(KDTable table, int X, int Y, int len, boolean isEdit){
+		int rowIndex = table.getSelectManager().getActiveRowIndex();
+		int colIndex = table.getSelectManager().getActiveColumnIndex();
+		final ICell cell = table.getCell(rowIndex, colIndex);
+		if (cell.getValue() == null) {
+			return;
+		}
+		BasicView view = table.getViewManager().getView(5);
+		Point p = view.getLocationOnScreen();
+		Rectangle rect = view.getCellRectangle(rowIndex, colIndex);
+		KDDetailedAreaDialog dialog;
+		Window parent = SwingUtilities.getWindowAncestor(this);
+		if (parent instanceof Dialog) {
+			dialog = new KDDetailedAreaDialog((Dialog) parent, X, Y, true){
+				protected void btnOK_actionPerformed(ActionEvent e) {
+					cell.setValue(getData());
+				}
+			};
+		} else if (parent instanceof Frame) {
+			dialog = new KDDetailedAreaDialog((Frame) parent, X, Y, true){
+				protected void btnOK_actionPerformed(ActionEvent e) {
+					cell.setValue(getData());
+				}
+			};
+		} else {
+			dialog = new KDDetailedAreaDialog(true);
+		}
+		dialog.setData((String) cell.getValue());
+		dialog.setPRENTE_X(p.x + rect.x + rect.width);
+		dialog.setPRENTE_Y(p.y + rect.y);
+		dialog.setMaxLength(len);
+		dialog.setEditable(isEdit);
+		dialog.show();
+	}
+	
+	protected void table_tableClicked(KDTMouseEvent e){
+		
+    }
+	
 	private void table_editStopped(KDTEditEvent e) {
 		KDTable table = (KDTable) e.getSource();
 		if(table.getRow(e.getRowIndex()).getCell(e.getColIndex()).getUserObject()!=null
