@@ -1733,6 +1733,20 @@
                 <key name="name" value="CFremark" />
             </mappingField>
         </ownProperty>
+        <linkProperty>
+            <name>designChange</name>
+            <alias>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.linkProperty[designChange].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.linkProperty[designChange].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFdesignChangeId" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.contract.app" />
+                <key name="name" value="R_ChangeAuditBill_ChangeAuditBill_designChange" />
+            </relationship>
+        </linkProperty>
     </properties>
     <logicalKey>
         <name>id</name>
@@ -3234,6 +3248,18 @@
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.linkProperty[designChange].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="关联设计变更单据" />
+            <lang locale="zh_HK" value="關聯設計變更單據" />
+            <lang locale="zh_TW" value="關聯設計變更單據" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.linkProperty[designChange].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.contract.app.ChangeAuditBill].properties.linkProperty[designUnit].alias">
             <lang locale="en_US" value="null" />
