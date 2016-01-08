@@ -363,7 +363,6 @@ public abstract class AbstractCQGSEditUI extends com.kingdee.eas.framework.clien
         this.contVersion.setVisible(true);
         // chklasted		
         this.chklasted.setText(resHelper.getString("chklasted.text"));		
-        this.chklasted.setVisible(true);		
         this.chklasted.setHorizontalAlignment(2);		
         this.chklasted.setRequired(true);
         // prmtCreator		
@@ -387,19 +386,15 @@ public abstract class AbstractCQGSEditUI extends com.kingdee.eas.framework.clien
         // prmtAuditor		
         this.prmtAuditor.setEnabled(false);
         // txtcompany		
-        this.txtcompany.setVisible(true);		
         this.txtcompany.setHorizontalAlignment(2);		
         this.txtcompany.setMaxLength(100);		
         this.txtcompany.setRequired(false);		
         this.txtcompany.setEnabled(false);
         // pkstartdate		
-        this.pkstartdate.setVisible(true);		
         this.pkstartdate.setRequired(true);
         // pkenddate		
-        this.pkenddate.setVisible(true);		
         this.pkenddate.setRequired(true);
         // txtredarea		
-        this.txtredarea.setVisible(true);		
         this.txtredarea.setHorizontalAlignment(2);		
         this.txtredarea.setDataType(1);		
         this.txtredarea.setSupportedEmpty(true);		
@@ -408,22 +403,18 @@ public abstract class AbstractCQGSEditUI extends com.kingdee.eas.framework.clien
         this.txtredarea.setPrecision(10);		
         this.txtredarea.setRequired(true);
         // txtVolumeRatio		
-        this.txtVolumeRatio.setVisible(true);		
         this.txtVolumeRatio.setHorizontalAlignment(2);		
         this.txtVolumeRatio.setMaxLength(100);		
         this.txtVolumeRatio.setRequired(true);
         // txtTotalArea		
-        this.txtTotalArea.setVisible(true);		
         this.txtTotalArea.setHorizontalAlignment(2);		
         this.txtTotalArea.setMaxLength(100);		
         this.txtTotalArea.setRequired(false);
         // State		
-        this.State.setVisible(true);		
         this.State.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.basedata.FDCBillStateEnum").toArray());		
         this.State.setRequired(false);
         // prmtProjectName		
         this.prmtProjectName.setQueryInfo("com.kingdee.eas.fdc.basedata.app.CurProjectQuery");		
-        this.prmtProjectName.setVisible(true);		
         this.prmtProjectName.setEditable(true);		
         this.prmtProjectName.setDisplayFormat("$name$");		
         this.prmtProjectName.setEditFormat("$number$");		
@@ -431,7 +422,7 @@ public abstract class AbstractCQGSEditUI extends com.kingdee.eas.framework.clien
         this.prmtProjectName.setRequired(false);		
         this.prmtProjectName.setEnabled(false);
         // kdtEntrys
-		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol2\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"BuildingName\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"BuidlingArea\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"SaleArea\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"BuildingFloorArea\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"Use\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"PropertyRight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{BuildingName}</t:Cell><t:Cell>$Resource{BuidlingArea}</t:Cell><t:Cell>$Resource{SaleArea}</t:Cell><t:Cell>$Resource{BuildingFloorArea}</t:Cell><t:Cell>$Resource{Use}</t:Cell><t:Cell>$Resource{PropertyRight}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
+		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol2\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:Protection hidden=\"true\" /></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"BuildingName\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"BuidlingArea\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol2\" /><t:Column t:key=\"SaleArea\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol3\" /><t:Column t:key=\"BuildingFloorArea\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol4\" /><t:Column t:key=\"Uses\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"PropertyRight\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Use\" t:width=\"150\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell>$Resource{BuildingName}</t:Cell><t:Cell>$Resource{BuidlingArea}</t:Cell><t:Cell>$Resource{SaleArea}</t:Cell><t:Cell>$Resource{BuildingFloorArea}</t:Cell><t:Cell>$Resource{Uses}</t:Cell><t:Cell>$Resource{PropertyRight}</t:Cell><t:Cell>$Resource{Use}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head /></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
         this.kdtEntrys.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
@@ -444,7 +435,7 @@ public abstract class AbstractCQGSEditUI extends com.kingdee.eas.framework.clien
             }
         });
 
-                this.kdtEntrys.putBindContents("editData",new String[] {"id","BuildingName","BuidlingArea","SaleArea","BuildingFloorArea","Use","PropertyRight"});
+                this.kdtEntrys.putBindContents("editData",new String[] {"id","BuildingName","BuidlingArea","SaleArea","BuildingFloorArea","Uses","PropertyRight","Use"});
 
 
         this.kdtEntrys.checkParsed();
@@ -493,11 +484,18 @@ public abstract class AbstractCQGSEditUI extends com.kingdee.eas.framework.clien
         kdtEntrys_BuildingFloorArea_TextField.setPrecision(2);
         KDTDefaultCellEditor kdtEntrys_BuildingFloorArea_CellEditor = new KDTDefaultCellEditor(kdtEntrys_BuildingFloorArea_TextField);
         this.kdtEntrys.getColumn("BuildingFloorArea").setEditor(kdtEntrys_BuildingFloorArea_CellEditor);
-        KDTextField kdtEntrys_Use_TextField = new KDTextField();
-        kdtEntrys_Use_TextField.setName("kdtEntrys_Use_TextField");
-        kdtEntrys_Use_TextField.setMaxLength(100);
-        KDTDefaultCellEditor kdtEntrys_Use_CellEditor = new KDTDefaultCellEditor(kdtEntrys_Use_TextField);
-        this.kdtEntrys.getColumn("Use").setEditor(kdtEntrys_Use_CellEditor);
+        final KDBizPromptBox kdtEntrys_Uses_PromptBox = new KDBizPromptBox();
+        kdtEntrys_Uses_PromptBox.setQueryInfo("com.kingdee.eas.fdc.aimcost.costkf.app.UsesQuery");
+        kdtEntrys_Uses_PromptBox.setVisible(true);
+        kdtEntrys_Uses_PromptBox.setEditable(true);
+        kdtEntrys_Uses_PromptBox.setDisplayFormat("$number$");
+        kdtEntrys_Uses_PromptBox.setEditFormat("$number$");
+        kdtEntrys_Uses_PromptBox.setCommitFormat("$number$");
+        KDTDefaultCellEditor kdtEntrys_Uses_CellEditor = new KDTDefaultCellEditor(kdtEntrys_Uses_PromptBox);
+        this.kdtEntrys.getColumn("Uses").setEditor(kdtEntrys_Uses_CellEditor);
+        ObjectValueRender kdtEntrys_Uses_OVR = new ObjectValueRender();
+        kdtEntrys_Uses_OVR.setFormat(new BizDataFormat("$name$"));
+        this.kdtEntrys.getColumn("Uses").setRenderer(kdtEntrys_Uses_OVR);
         final KDBizPromptBox kdtEntrys_PropertyRight_PromptBox = new KDBizPromptBox();
         kdtEntrys_PropertyRight_PromptBox.setQueryInfo("com.kingdee.eas.fdc.aimcost.costkf.app.CqgsBaseQuery");
         kdtEntrys_PropertyRight_PromptBox.setVisible(true);
@@ -510,8 +508,12 @@ public abstract class AbstractCQGSEditUI extends com.kingdee.eas.framework.clien
         ObjectValueRender kdtEntrys_PropertyRight_OVR = new ObjectValueRender();
         kdtEntrys_PropertyRight_OVR.setFormat(new BizDataFormat("$name$"));
         this.kdtEntrys.getColumn("PropertyRight").setRenderer(kdtEntrys_PropertyRight_OVR);
+        KDTextField kdtEntrys_Use_TextField = new KDTextField();
+        kdtEntrys_Use_TextField.setName("kdtEntrys_Use_TextField");
+        kdtEntrys_Use_TextField.setMaxLength(100);
+        KDTDefaultCellEditor kdtEntrys_Use_CellEditor = new KDTDefaultCellEditor(kdtEntrys_Use_TextField);
+        this.kdtEntrys.getColumn("Use").setEditor(kdtEntrys_Use_CellEditor);
         // txtVersion		
-        this.txtVersion.setVisible(true);		
         this.txtVersion.setHorizontalAlignment(2);		
         this.txtVersion.setDataType(0);		
         this.txtVersion.setSupportedEmpty(true);		
@@ -522,7 +524,7 @@ public abstract class AbstractCQGSEditUI extends com.kingdee.eas.framework.clien
         // btnUnAudit
         this.btnUnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionUnAudit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnUnAudit.setText(resHelper.getString("btnUnAudit.text"));
-        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {txtcompany,pkstartdate,pkenddate,txtredarea,txtVolumeRatio,txtTotalArea,kDDateLastUpdateTime,prmtLastUpdateUser,kDDateCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,kdtEntrys,prmtProjectName,txtVersion}));
+        this.setFocusTraversalPolicy(new com.kingdee.bos.ui.UIFocusTraversalPolicy(new java.awt.Component[] {State,chklasted,txtcompany,pkstartdate,pkenddate,txtredarea,txtVolumeRatio,txtTotalArea,kDDateLastUpdateTime,prmtLastUpdateUser,kDDateCreateTime,prmtCreator,prmtAuditor,txtDescription,pkBizDate,txtNumber,prmtProjectName,txtVersion,kdtEntrys}));
         this.setFocusCycleRoot(true);
 		//Register control's property binding
 		registerBindings();
@@ -824,6 +826,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("entrys.BuildingFloorArea", java.math.BigDecimal.class, this.kdtEntrys, "BuildingFloorArea.text");
 		dataBinder.registerBinding("entrys.Use", String.class, this.kdtEntrys, "Use.text");
 		dataBinder.registerBinding("entrys.PropertyRight", java.lang.Object.class, this.kdtEntrys, "PropertyRight.text");
+		dataBinder.registerBinding("entrys.Uses", java.lang.Object.class, this.kdtEntrys, "Uses.text");
 		dataBinder.registerBinding("Version", int.class, this.txtVersion, "value");		
 	}
 	//Regiester UI State
@@ -856,7 +859,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
     public void onShow() throws Exception
     {
         super.onShow();
-        this.txtcompany.requestFocusInWindow();
+        this.State.requestFocusInWindow();
     }
 
 	
@@ -984,6 +987,7 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		getValidateHelper().registerBindProperty("entrys.BuildingFloorArea", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.Use", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("entrys.PropertyRight", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("entrys.Uses", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Version", ValidateHelper.ON_SAVE);    		
 	}
 
@@ -1096,6 +1100,15 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 	    	sic.add(new SelectorItemInfo("entrys.PropertyRight.id"));
 			sic.add(new SelectorItemInfo("entrys.PropertyRight.name"));
         	sic.add(new SelectorItemInfo("entrys.PropertyRight.number"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entrys.Uses.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entrys.Uses.id"));
+			sic.add(new SelectorItemInfo("entrys.Uses.name"));
+        	sic.add(new SelectorItemInfo("entrys.Uses.number"));
 		}
         sic.add(new SelectorItemInfo("Version"));
         return sic;
