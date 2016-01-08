@@ -160,6 +160,7 @@ public class PhotoAuditListUI extends AbstractPhotoAuditListUI
     	this.actionAudit.setVisible(false);
     	this.actionUnAudit.setVisible(false);
     	this.actionAttachment.setVisible(false);
+    	this.btnAddNew.setIcon(EASResource.getIcon("imgTbtn_referbatch"));
     	
     	this.actionRefresh.setVisible(true);
     	this.btnShare.setIcon(SSIcons.createIcon("tbtn_sendmail.png"));

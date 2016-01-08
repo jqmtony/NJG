@@ -11,6 +11,8 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.ItemAction;
 import com.kingdee.bos.ui.face.UIException;
@@ -45,6 +47,7 @@ import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.swing.KDLayout;
+import com.kingdee.bos.ctrl.swing.StringUtils;
 
 /**
  * output class name
@@ -76,19 +79,32 @@ public class PhotoAuditEditUI extends AbstractPhotoAuditEditUI
     	initControl();
     }
     
+    public SelectorItemCollection getSelectors()
+    {
+        SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
+        sic.add(new SelectorItemInfo("stage"));
+        sic.add(new SelectorItemInfo("reportName"));
+        sic.add(new SelectorItemInfo("number"));
+        sic.add(new SelectorItemInfo("status"));
+        sic.add(new SelectorItemInfo("sourceBillId"));
+        return sic;
+    }        
+    
     protected void initWorkButton() {
     	super.initWorkButton();
     	this.btnAudit.setIcon(FDCClientHelper.ICON_AUDIT);
 		this.btnUnAudit.setIcon(FDCClientHelper.ICON_UNAUDIT);
-		this.btnAddNew.setIcon(EASResource.getIcon("imgTbtn_referbatch"));
 		ForecastChangeVisEditUI.setEnableAcion(new ItemAction[]{actionPrint,actionPrintPreview,actionCreateTo,actionCreateFrom,actionAddNew,actionCreateTo,actionCopy,actionLast,actionFirst,actionNext,actionPre});
     }
     
     private void initControl() throws SnapshotException, UIException{
-    	this.kDComboBox1.addItems(new String[]{"方案板","执行版"});
+//    	this.kDComboBox1.removeAllItems();
+//    	this.kDComboBox1.addItems(new String[]{"","方案板","执行版"});
     	this.kDComboBox1.setRequired(true);
-    	if(getOprtState().equals(OprtState.ADDNEW))
-    		this.kDComboBox1.setSelectedItem(null);
     	this.setUITitle(editData.getNumber());
     	String snapshotID = editData.getSourceBillId();
     	byte data[] = _serv.getSnapshotData(snapshotID);
@@ -155,14 +171,16 @@ public class PhotoAuditEditUI extends AbstractPhotoAuditEditUI
 	}
 	
 	public void storeFields() {
-		editData.setStage(this.kDComboBox1.getSelectedItem()!=null?this.kDComboBox1.getSelectedItem().toString():"");
+		this.editData.setStage(this.kDComboBox1.getSelectedItem()!=null?this.kDComboBox1.getSelectedItem().toString():"");
 		super.storeFields();
 	}
 	
 	public void loadFields() {
-		super.loadFields();
-		if(UIRuleUtil.isNotNull(editData.getStage())){
-			this.kDComboBox1.setSelectedItem(editData.getStage());
+		super.loadFields(); 
+		this.kDComboBox1.removeAllItems();
+		this.kDComboBox1.addItems(new String[]{"","方案板","执行版"});
+		if(UIRuleUtil.isNotNull(this.editData.getStage())){
+			this.kDComboBox1.setSelectedItem(this.editData.getStage());
 		}else{
 			this.kDComboBox1.setSelectedItem("");
 		}
@@ -278,7 +296,7 @@ public class PhotoAuditEditUI extends AbstractPhotoAuditEditUI
     		SysUtil.abort();
     	}
     	String rptId = getUIContext().get("rptId").toString();
-    	String oql = "select reportName,CU.id,CU.number,CU.name,number,id,sourceBillId where sourceBillId='"+rptId+"'";
+    	String oql = "select stage,reportName,status,CU.id,CU.number,CU.name,number,id,sourceBillId where sourceBillId='"+rptId+"'";
     	PhotoAuditCollection photoAuditCollection = null;
 		try {
 			photoAuditCollection = PhotoAuditFactory.getRemoteInstance().getPhotoAuditCollection(oql);

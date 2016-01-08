@@ -47,10 +47,7 @@ public abstract class AbstractPhotoAuditEditUI extends com.kingdee.eas.framework
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractPhotoAuditEditUI.class);
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contreportName;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contstage;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtstage;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtreportName;
     protected com.kingdee.bos.ctrl.swing.KDComboBox kDComboBox1;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAudit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnAudit;
@@ -137,18 +134,12 @@ public abstract class AbstractPhotoAuditEditUI extends com.kingdee.eas.framework
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.PermissionService());
          this.actionUnAudit.addService(new com.kingdee.eas.framework.client.service.ForewarnService());
         this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
-        this.contreportName = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contstage = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.txtstage = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtreportName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDComboBox1 = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.btnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnUnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.kDPanel1.setName("kDPanel1");
-        this.contreportName.setName("contreportName");
         this.contstage.setName("contstage");
-        this.txtstage.setName("txtstage");
-        this.txtreportName.setName("txtreportName");
         this.kDComboBox1.setName("kDComboBox1");
         this.btnAudit.setName("btnAudit");
         this.btnUnAudit.setName("btnUnAudit");
@@ -175,26 +166,11 @@ public abstract class AbstractPhotoAuditEditUI extends com.kingdee.eas.framework
         this.menuItemCreateTo.setVisible(true);		
         this.menuItemCopyLine.setVisible(false);
         // kDPanel1
-        // contreportName		
-        this.contreportName.setBoundLabelText(resHelper.getString("contreportName.boundLabelText"));		
-        this.contreportName.setBoundLabelLength(100);		
-        this.contreportName.setBoundLabelUnderline(true);		
-        this.contreportName.setVisible(false);
         // contstage		
         this.contstage.setBoundLabelText(resHelper.getString("contstage.boundLabelText"));		
         this.contstage.setBoundLabelLength(100);		
         this.contstage.setBoundLabelUnderline(true);		
         this.contstage.setVisible(true);
-        // txtstage		
-        this.txtstage.setVisible(false);		
-        this.txtstage.setHorizontalAlignment(2);		
-        this.txtstage.setMaxLength(100);		
-        this.txtstage.setRequired(false);
-        // txtreportName		
-        this.txtreportName.setVisible(true);		
-        this.txtreportName.setHorizontalAlignment(2);		
-        this.txtreportName.setMaxLength(100);		
-        this.txtreportName.setRequired(false);
         // kDComboBox1
         // btnAudit
         this.btnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionAudit, new Class[] { IItemAction.class }, getServiceContext()));		
@@ -231,15 +207,9 @@ public abstract class AbstractPhotoAuditEditUI extends com.kingdee.eas.framework
         this.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1013, 629));
         kDPanel1.setBounds(new Rectangle(3, 26, 1007, 602));
         this.add(kDPanel1, new KDLayout.Constraints(3, 26, 1007, 602, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contreportName.setBounds(new Rectangle(711, 8, 270, 19));
-        this.add(contreportName, new KDLayout.Constraints(711, 8, 270, 19, 0));
         contstage.setBounds(new Rectangle(6, 4, 270, 19));
         this.add(contstage, new KDLayout.Constraints(6, 4, 270, 19, 0));
-        txtstage.setBounds(new Rectangle(534, 8, 170, 19));
-        this.add(txtstage, new KDLayout.Constraints(534, 8, 170, 19, 0));
-kDPanel1.setLayout(new BorderLayout(0, 0));        //contreportName
-        contreportName.setBoundEditor(txtreportName);
-        //contstage
+kDPanel1.setLayout(new BorderLayout(0, 0));        //contstage
         contstage.setBoundEditor(kDComboBox1);
 
     }
@@ -413,9 +383,7 @@ kDPanel1.setLayout(new BorderLayout(0, 0));        //contreportName
     }
 
 	//Regiester control's property binding.
-	private void registerBindings(){
-		dataBinder.registerBinding("stage", String.class, this.txtstage, "text");
-		dataBinder.registerBinding("reportName", String.class, this.txtreportName, "text");		
+	private void registerBindings(){		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -481,9 +449,7 @@ kDPanel1.setLayout(new BorderLayout(0, 0));        //contreportName
 	 * ????????§µ??
 	 */
 	protected void registerValidator() {
-    	getValidateHelper().setCustomValidator( getValidator() );
-		getValidateHelper().registerBindProperty("stage", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("reportName", ValidateHelper.ON_SAVE);    		
+    	getValidateHelper().setCustomValidator( getValidator() );		
 	}
 
 
@@ -511,9 +477,6 @@ kDPanel1.setLayout(new BorderLayout(0, 0));        //contreportName
 		if(StringUtils.isEmpty(selectorAll)){
 			selectorAll = "true";
 		}
-        sic.add(new SelectorItemInfo("stage"));
-        sic.add(new SelectorItemInfo("reportName"));
-        sic.add(new SelectorItemInfo("number"));
         return sic;
     }        
     	
