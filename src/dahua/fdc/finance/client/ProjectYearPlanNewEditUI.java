@@ -785,9 +785,9 @@ public class ProjectYearPlanNewEditUI extends AbstractProjectYearPlanNewEditUI
 		int colIndex = table.getSelectManager().getActiveColumnIndex();
 		final IRow row = table.getRow(rowIndex);
 		final ICell cell = table.getCell(rowIndex, colIndex);
-		if (cell.getValue() == null) {
-			return;
-		}
+//		if (cell.getValue() == null) {
+//			return;
+//		}
 		BasicView view = table.getViewManager().getView(5);
 		Point p = view.getLocationOnScreen();
 		Rectangle rect = view.getCellRectangle(rowIndex, colIndex);

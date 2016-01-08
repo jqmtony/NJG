@@ -415,7 +415,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 				amountColumn=table.addColumn();
 				houseColoum.add(amountColumn);
 				amountColumn.setKey(key+"houseAmount");
-				amountColumn.getStyleAttributes().setLocked(false);
+				amountColumn.getStyleAttributes().setHided(true);
 				table.getColumn(key+"houseAmount").setEditor(amountEditor);
 				table.getColumn(key+"houseAmount").getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
 				table.getColumn(key+"houseAmount").getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
@@ -431,7 +431,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 				IColumn businessTicketColumn=table.addColumn();//商票
 				businessTicketColumn.setKey(key+"businessTicketAmount");
 				businessTicketColumn.setEditor(amountEditor);
-				businessTicketColumn.getStyleAttributes().setLocked(false);
+				businessTicketColumn.getStyleAttributes().setHided(true);
 				businessTicketColumn.getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
 				businessTicketColumn.getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
 				
@@ -439,7 +439,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 				IColumn promissoryNoteColumn=table.addColumn();//期票
 				promissoryNoteColumn.setKey(key+"promissoryNoteAmount");
 				promissoryNoteColumn.setEditor(amountEditor);
-				promissoryNoteColumn.getStyleAttributes().setLocked(false);
+				promissoryNoteColumn.getStyleAttributes().setHided(true);
 				promissoryNoteColumn.getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
 				promissoryNoteColumn.getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
 				
@@ -453,7 +453,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 				IColumn otherTxColumn=table.addColumn();//其他
 				otherTxColumn.setKey(key+"otherTxAmount");
 				otherTxColumn.setEditor(amountEditor);
-				otherTxColumn.getStyleAttributes().setLocked(false);
+				otherTxColumn.getStyleAttributes().setHided(true);
 				otherTxColumn.getStyleAttributes().setNumberFormat("#,##0.00;-#,##0.00");
 				otherTxColumn.getStyleAttributes().setHorizontalAlign(HorizontalAlignment.getAlignment("right"));
 				
@@ -466,7 +466,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 				table.getHeadRow(1).getCell(key+"houseAmount").setValue("抵房金额");
 				table.getHeadRow(1).getCell(key+"businessTicketAmount").setValue("商票");
 				table.getHeadRow(1).getCell(key+"promissoryNoteAmount").setValue("期票");
-				table.getHeadRow(1).getCell(key+"cashPaymentAmount").setValue("现金支付（含支票）");
+				table.getHeadRow(1).getCell(key+"cashPaymentAmount").setValue("现金");
 				table.getHeadRow(1).getCell(key+"otherTxAmount").setValue("其他");
 			}
 			
@@ -784,10 +784,11 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 	private void showAreaDialog(KDTable table, int X, int Y, int len, boolean isEdit){
 		int rowIndex = table.getSelectManager().getActiveRowIndex();
 		int colIndex = table.getSelectManager().getActiveColumnIndex();
+		final IRow row = table.getRow(rowIndex);
 		final ICell cell = table.getCell(rowIndex, colIndex);
-		if (cell.getValue() == null) {
-			return;
-		}
+//		if (cell.getValue() == null) {
+//			return;
+//		}
 		BasicView view = table.getViewManager().getView(5);
 		Point p = view.getLocationOnScreen();
 		Rectangle rect = view.getCellRectangle(rowIndex, colIndex);
@@ -796,13 +797,21 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		if (parent instanceof Dialog) {
 			dialog = new KDDetailedAreaDialog((Dialog) parent, X, Y, true){
 				protected void btnOK_actionPerformed(ActionEvent e) {
+					super.btnOK_actionPerformed(e);
 					cell.setValue(getData());
+					ProjectMonthPlanGatherEntryInfo entry = (ProjectMonthPlanGatherEntryInfo)row.getUserObject();
+					if(entry != null)
+						entry.setCurrentProgress((String)getData());
 				}
 			};
 		} else if (parent instanceof Frame) {
 			dialog = new KDDetailedAreaDialog((Frame) parent, X, Y, true){
 				protected void btnOK_actionPerformed(ActionEvent e) {
+					super.btnOK_actionPerformed(e);
 					cell.setValue(getData());
+					ProjectMonthPlanGatherEntryInfo entry = (ProjectMonthPlanGatherEntryInfo)row.getUserObject();
+					if(entry != null)
+						entry.setCurrentProgress((String)getData());
 				}
 			};
 		} else {
@@ -961,6 +970,13 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 					}
 				}
 			}
+		}
+		if(e.getColIndex() == table.getColumnIndex("currentProgress")) {
+			if(STATUS_ADDNEW.equals(oprtState) || STATUS_EDIT.equals(oprtState)) {
+//				KDDetailedAreaUtil.showDialog(this, table, 250, 200, 500);
+				showAreaDialog(table, 250, 200, 255, true);
+			}else if(STATUS_VIEW.equals(oprtState))
+				showAreaDialog(table, 250, 200, 255, false);
 		}
 	}
 //	protected void initBgTable(int year,int month,int cycle) {
@@ -1230,6 +1246,7 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 					row.getCell("conAmount").setValue(conAmount);
 					row.getCell("number").setValue(number);
 					row.getCell("name").setValue(entry.getName());
+					row.getCell("currentProgress").setValue(entry.getCurrentProgress());
 					if(respPerson!=null){
 						row.getCell("respPerson").setValue(respPerson.getName());
 						row.getCell("respPerson").setUserObject(respPerson);
