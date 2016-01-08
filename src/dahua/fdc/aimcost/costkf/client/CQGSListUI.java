@@ -285,8 +285,6 @@ public class CQGSListUI extends AbstractCQGSListUI
 		return true;
 	}
 	
-
-
     /**
      * 获取root节点下所有工程项目ID
      * @param treeNode

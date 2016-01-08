@@ -433,5 +433,9 @@ public class UsesListUI extends AbstractUsesListUI
 		
         return objectValue;
     }
-
+    //È¥³ı×éÖ¯¸ôÀë
+	protected boolean isIgnoreCUFilter() {
+		return true;
+	}
+	
 }

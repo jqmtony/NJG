@@ -433,5 +433,8 @@ public class CqgsBaseListUI extends AbstractCqgsBaseListUI
 		
         return objectValue;
     }
-
+    //È¥³ı×éÖ¯¸ôÀë
+	protected boolean isIgnoreCUFilter() {
+		return true;
+	}
 }
