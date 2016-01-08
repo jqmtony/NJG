@@ -119,6 +119,20 @@
             <scale>10</scale>
             <precision>28</precision>
         </column>
+        <column>
+            <name>CFcurrentProgress</name>
+            <alias>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[CFcurrentProgress].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[CFcurrentProgress].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>255</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>PK_ProjectYPEntry</name>
@@ -135,106 +149,117 @@
     </primaryKey>
     <resource>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].alias">
-            <lang locale="zh_CN" value="项目年度付款计划分录" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目年度付款计划分录" />
             <lang locale="zh_HK" value="項目年度付款計畫分錄" />
             <lang locale="zh_TW" value="項目年度付款計畫分錄" />
         </rs>
-        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FAmount].alias">
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[CFcurrentProgress].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="当前进度说明" />
+            <lang locale="zh_HK" value="當前進度說明" />
+            <lang locale="zh_TW" value="當前進度說明" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[CFcurrentProgress].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FAmount].alias">
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FAmount].description">
-            <lang locale="zh_CN" value="金额" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="金额" />
             <lang locale="zh_HK" value="金額" />
             <lang locale="zh_TW" value="金額" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FContractTypeId].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FContractTypeId].description">
-            <lang locale="zh_CN" value="合同类型" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同类型" />
             <lang locale="zh_HK" value="合同類型" />
             <lang locale="zh_TW" value="合同類型" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FHeadId].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FHeadId].description">
-            <lang locale="zh_CN" value="项目年度付款计划" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目年度付款计划" />
             <lang locale="zh_HK" value="項目年度付款計畫" />
             <lang locale="zh_TW" value="項目年度付款計畫" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FID].alias">
-            <lang locale="zh_CN" value="ID" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="ID" />
             <lang locale="zh_HK" value="ID" />
             <lang locale="zh_TW" value="ID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FID].description">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FName].alias">
+            <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
-            <lang locale="en_US" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FName].description">
-            <lang locale="zh_CN" value="事项" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="事项" />
             <lang locale="zh_HK" value="事項" />
             <lang locale="zh_TW" value="事項" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FProgrammingContractId].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FProgrammingContractId].description">
-            <lang locale="zh_CN" value="合规规划" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合规规划" />
             <lang locale="zh_HK" value="合規規劃" />
             <lang locale="zh_TW" value="合規規劃" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FSeq].alias">
-            <lang locale="zh_CN" value="单据分录序列号" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号" />
             <lang locale="zh_HK" value="單據分錄序列號" />
             <lang locale="zh_TW" value="單據分錄序列號" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[FSeq].description">
-            <lang locale="zh_CN" value="单据分录序列号（定义为序列属性即使用{seq}）" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="单据分录序列号（定义为序列属性即使用{seq}）" />
             <lang locale="zh_HK" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
             <lang locale="zh_TW" value="單據分錄序列號（定義為序列屬性即使用{seq}）" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[contractBillId].alias">
-            <lang locale="zh_CN" value="null" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].columns.column[contractBillId].description">
-            <lang locale="zh_CN" value="合同" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同" />
             <lang locale="zh_HK" value="合同" />
             <lang locale="zh_TW" value="合同" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.finance.app.T_FNC_ProjectYearPlanEntry].description">
-            <lang locale="zh_CN" value="项目年度付款计划分录" />
             <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="项目年度付款计划分录" />
             <lang locale="zh_HK" value="項目年度付款計畫分錄" />
             <lang locale="zh_TW" value="項目年度付款計畫分錄" />
         </rs>
