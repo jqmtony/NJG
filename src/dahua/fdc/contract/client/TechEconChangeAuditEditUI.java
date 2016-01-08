@@ -1900,6 +1900,24 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 	   	addDataChangeListener( txtpunisAmount);
     }
     
+    protected void btnDesignChange_actionPerformed(ActionEvent e) throws Exception {
+    	ChangeAuditBillInfo cabinfo = (ChangeAuditBillInfo)prmtDesignChange.getValue();
+    	if(cabinfo != null){
+    		UIContext uiContext = new UIContext(this);
+    		uiContext.put("ID", cabinfo.getId());
+    		String destUI = null;
+    		if(cabinfo.getBillType() == null)
+    			destUI = "com.kingdee.eas.fdc.contract.client.ChangeAuditEditUI";
+    		else if(ChangeAuditBillType.DesignChangeAudit.equals(cabinfo.getBillType()))
+    			destUI = "com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI";//设计变更审批表
+    		else if(ChangeAuditBillType.ProjectChangeAudit.equals(cabinfo.getBillType()))
+    			destUI = "com.kingdee.eas.fdc.contract.client.ProjectChangeAuditEditUI";//工程指令单
+    		else if(ChangeAuditBillType.TechChangeAudit.equals(cabinfo.getBillType()))
+    			destUI = "com.kingdee.eas.fdc.contract.client.TechChangeAuditEditUI";//技术核定审批表
+    		UIFactory.createUIFactory(UIFactoryName.NEWWIN).create(destUI,uiContext,null,OprtState.VIEW).show();
+    	}
+    }
+    
     protected void detachListeners() {
     	pkbookedDate.removeDataChangeListener(bookedDateChangeListener);
     	prmtCurProject.removeDataChangeListener(projectChangeListener);
@@ -2902,6 +2920,22 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 		actionDisPatch.setVisible(false);
 		setOprtState(getOprtState());
 		setEnabledByBillState();
+		//modify by yxl 20160108 关联设计变更单据字段增加过滤条件 状态：已签证   项目是当前项目   单据类型是技术核定审批 工程指令 设计变更审批
+		EntityViewInfo view = new EntityViewInfo();
+		FilterInfo filter = new FilterInfo();
+		FilterItemCollection filterItems = filter.getFilterItems();
+		filterItems.add(new FilterItemInfo("changeState","7Visa"));
+		filterItems.add(new FilterItemInfo("curProject.id",editData.getCurProject().getId().toString()));
+		Set billTypes = new HashSet();
+		billTypes.add("20");
+		billTypes.add("30");
+		billTypes.add("40");
+		filterItems.add(new FilterItemInfo("billType",billTypes,CompareType.INCLUDE));
+		filterItems.add(new FilterItemInfo("billType",null,CompareType.IS));
+		filter.setMaskString("#0 and #1 and (#2 or #3)");
+		view.setFilter(filter);
+		prmtDesignChange.setEntityViewInfo(view);
+		prmtDesignChange.setRequired(true);
 	}
 
 	/**
