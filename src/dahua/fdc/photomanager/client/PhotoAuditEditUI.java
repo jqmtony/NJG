@@ -163,6 +163,8 @@ public class PhotoAuditEditUI extends AbstractPhotoAuditEditUI
 		super.loadFields();
 		if(UIRuleUtil.isNotNull(editData.getStage())){
 			this.kDComboBox1.setSelectedItem(editData.getStage());
+		}else{
+			this.kDComboBox1.setSelectedItem("");
 		}
 	}
 	
