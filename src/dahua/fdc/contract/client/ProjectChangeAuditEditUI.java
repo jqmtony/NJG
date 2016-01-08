@@ -1443,7 +1443,8 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 				remoteInstance.addnew(info);
 			}
 			objectValue.setAuditType(info);
-			objectValue.setChangeReason(ChangeReasonFactory.getRemoteInstance().getChangeReasonInfo("where number='003'"));
+//			objectValue.setChangeReason(ChangeReasonFactory.getRemoteInstance().getChangeReasonInfo("where number='003'"));
+			objectValue.setChangeReason(null);
 			objectValue.setSpecialtyType(SpecialtyTypeFactory.getRemoteInstance().getSpecialtyTypeInfo("where number='S001'"));
 			objectValue.setJobType(JobTypeFactory.getRemoteInstance().getJobTypeInfo("where number='001'"));
 			objectValue.setCreator((UserInfo) (SysContext.getSysContext().getCurrentUserInfo()));		

@@ -4100,8 +4100,10 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 			if (yb.compareTo(zjjhSqje) > 0) {
 				MsgBox.showWarning("本次付款申请单大于资金计划申请金额.");
 				contZjjhSqje.getBoundLabel().setForeground(Color.red);
+				sfczjjhfk.setSelected(Boolean.TRUE);
 			}else{
 				contZjjhSqje.getBoundLabel().setForeground(Color.black);
+				sfczjjhfk.setSelected(Boolean.FALSE);
 			}
 		}
 	}

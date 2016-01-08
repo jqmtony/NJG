@@ -657,6 +657,18 @@ public abstract class AbstractChangeAuditRequestEditUI extends com.kingdee.eas.f
         this.Xscn.setText(resHelper.getString("Xscn.text"));
         // sfyjjd		
         this.sfyjjd.setText(resHelper.getString("sfyjjd.text"));
+        this.sfyjjd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    sfyjjd_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setDisplayFormat("$name$");		
@@ -1095,10 +1107,10 @@ public abstract class AbstractChangeAuditRequestEditUI extends com.kingdee.eas.f
         this.add(contAuditTime, new KDLayout.Constraints(377, 563, 270, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCurProject.setBounds(new Rectangle(730, 12, 270, 19));
         this.add(contCurProject, new KDLayout.Constraints(730, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contAuditType.setBounds(new Rectangle(378, 133, 271, 19));
-        this.add(contAuditType, new KDLayout.Constraints(378, 133, 271, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contChangeReason.setBounds(new Rectangle(12, 135, 268, 19));
-        this.add(contChangeReason, new KDLayout.Constraints(12, 135, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contAuditType.setBounds(new Rectangle(11, 111, 271, 19));
+        this.add(contAuditType, new KDLayout.Constraints(11, 111, 271, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contChangeReason.setBounds(new Rectangle(376, 113, 268, 19));
+        this.add(contChangeReason, new KDLayout.Constraints(376, 113, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contChangeState.setBounds(new Rectangle(377, 84, 270, 19));
         this.add(contChangeState, new KDLayout.Constraints(377, 84, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         tbpChangAudit.setBounds(new Rectangle(9, 233, 993, 295));
@@ -1113,8 +1125,8 @@ public abstract class AbstractChangeAuditRequestEditUI extends com.kingdee.eas.f
         this.add(kDLabelContainer1, new KDLayout.Constraints(12, 36, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer2.setBounds(new Rectangle(289, 5, 40, 19));
         this.add(kDLabelContainer2, new KDLayout.Constraints(289, 5, 40, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contReaDesc.setBounds(new Rectangle(12, 167, 988, 43));
-        this.add(contReaDesc, new KDLayout.Constraints(12, 167, 988, 43, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contReaDesc.setBounds(new Rectangle(12, 147, 641, 63));
+        this.add(contReaDesc, new KDLayout.Constraints(12, 147, 641, 63, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer3.setBounds(new Rectangle(656, 91, 32, 19));
         this.add(kDLabelContainer3, new KDLayout.Constraints(656, 91, 32, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contbillType.setBounds(new Rectangle(653, 42, 34, 19));
@@ -1137,14 +1149,14 @@ public abstract class AbstractChangeAuditRequestEditUI extends com.kingdee.eas.f
         this.add(contSpecialtyType, new KDLayout.Constraints(665, 69, 14, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contJobType.setBounds(new Rectangle(667, 15, 28, 19));
         this.add(contJobType, new KDLayout.Constraints(667, 15, 28, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        Sfejjd.setBounds(new Rectangle(12, 109, 274, 19));
-        this.add(Sfejjd, new KDLayout.Constraints(12, 109, 274, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        Bjzb.setBounds(new Rectangle(378, 108, 274, 19));
-        this.add(Bjzb, new KDLayout.Constraints(378, 108, 274, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        Xscn.setBounds(new Rectangle(731, 110, 268, 19));
-        this.add(Xscn, new KDLayout.Constraints(731, 110, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        sfyjjd.setBounds(new Rectangle(731, 137, 272, 19));
-        this.add(sfyjjd, new KDLayout.Constraints(731, 137, 272, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        Sfejjd.setBounds(new Rectangle(731, 197, 274, 19));
+        this.add(Sfejjd, new KDLayout.Constraints(731, 197, 274, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        Bjzb.setBounds(new Rectangle(731, 140, 274, 19));
+        this.add(Bjzb, new KDLayout.Constraints(731, 140, 274, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        Xscn.setBounds(new Rectangle(731, 112, 268, 19));
+        this.add(Xscn, new KDLayout.Constraints(731, 112, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        sfyjjd.setBounds(new Rectangle(731, 168, 272, 19));
+        this.add(sfyjjd, new KDLayout.Constraints(731, 168, 272, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1660,6 +1672,13 @@ ctnSuppEntrys.getContentPane().setLayout(new BorderLayout(0, 0));        ctnSupp
 		            this.actionAddSupp.setEnabled(false);
 		            this.actionDelSupp.setEnabled(false);
         }
+    }
+
+    /**
+     * output sfyjjd_actionPerformed method
+     */
+    protected void sfyjjd_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
     }
 
     /**

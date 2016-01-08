@@ -912,7 +912,12 @@ public abstract class AbstractPayRequestBillEditUI extends com.kingdee.eas.fdc.b
         this.contZjjhSqje.setBoundLabelUnderline(true);		
         this.contZjjhSqje.setEnabled(false);
         // sfczjjhfk		
-        this.sfczjjhfk.setText(resHelper.getString("sfczjjhfk.text"));
+        this.sfczjjhfk.setText(resHelper.getString("sfczjjhfk.text"));		
+        this.sfczjjhfk.setEnabled(false);
+        // kDLabelContainer9		
+        this.kDLabelContainer9.setBoundLabelText(resHelper.getString("kDLabelContainer9.boundLabelText"));		
+        this.kDLabelContainer9.setBoundLabelLength(100);		
+        this.kDLabelContainer9.setBoundLabelUnderline(true);
         // kDLabelContainer9		
         this.kDLabelContainer9.setBoundLabelText(resHelper.getString("kDLabelContainer9.boundLabelText"));		
         this.kDLabelContainer9.setBoundLabelLength(100);		

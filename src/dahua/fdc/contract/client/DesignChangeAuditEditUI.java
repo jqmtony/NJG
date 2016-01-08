@@ -1406,7 +1406,7 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 			objectValue.setBillType(ChangeAuditBillType.ChangeAuditRequest);
 			try {
 				objectValue.setAuditType(ChangeTypeFactory.getRemoteInstance().getChangeTypeInfo("where number='001'"));
-				objectValue.setChangeReason(ChangeReasonFactory.getRemoteInstance().getChangeReasonInfo("where number='003'"));
+//				objectValue.setChangeReason(ChangeReasonFactory.getRemoteInstance().getChangeReasonInfo("where number='003'"));
 				objectValue.setSpecialtyType(SpecialtyTypeFactory.getRemoteInstance().getSpecialtyTypeInfo("where number='S001'"));
 				objectValue.setJobType(JobTypeFactory.getRemoteInstance().getJobTypeInfo("where number='001'"));
 				objectValue.setCreator((UserInfo) (SysContext.getSysContext().getCurrentUserInfo()));		
