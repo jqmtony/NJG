@@ -4,6 +4,7 @@
 package com.kingdee.eas.fdc.photomanager.client;
 
 import java.awt.BorderLayout;
+import java.awt.Rectangle;
 import java.awt.event.*;
 import java.util.Map;
 
@@ -13,11 +14,14 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.ItemAction;
 import com.kingdee.bos.ui.face.UIException;
+import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
@@ -40,6 +44,7 @@ import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.swing.KDLayout;
 
 /**
  * output class name
@@ -75,11 +80,15 @@ public class PhotoAuditEditUI extends AbstractPhotoAuditEditUI
     	super.initWorkButton();
     	this.btnAudit.setIcon(FDCClientHelper.ICON_AUDIT);
 		this.btnUnAudit.setIcon(FDCClientHelper.ICON_UNAUDIT);
-		
+		this.btnAddNew.setIcon(EASResource.getIcon("imgTbtn_referbatch"));
 		ForecastChangeVisEditUI.setEnableAcion(new ItemAction[]{actionPrint,actionPrintPreview,actionCreateTo,actionCreateFrom,actionAddNew,actionCreateTo,actionCopy,actionLast,actionFirst,actionNext,actionPre});
     }
     
     private void initControl() throws SnapshotException, UIException{
+    	this.kDComboBox1.addItems(new String[]{"方案板","执行版"});
+    	this.kDComboBox1.setRequired(true);
+    	if(getOprtState().equals(OprtState.ADDNEW))
+    		this.kDComboBox1.setSelectedItem(null);
     	this.setUITitle(editData.getNumber());
     	String snapshotID = editData.getSourceBillId();
     	byte data[] = _serv.getSnapshotData(snapshotID);
@@ -96,6 +105,14 @@ public class PhotoAuditEditUI extends AbstractPhotoAuditEditUI
         rptUI.runEXT();
         kDPanel1.add(rptUI,BorderLayout.CENTER);
         kDPanel1.updateUI();
+        
+        if(UIRuleUtil.getString(editData.getReportName()).equals("目标成本")){
+        	this.contstage.setVisible(true);
+        }else{
+        	kDPanel1.setBounds(new Rectangle(3, 3, 1007, 625));
+        	this.add(kDPanel1, new KDLayout.Constraints(3, 3, 1007, 625, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        	this.contstage.setVisible(false);
+        }
     }
     
     public boolean checkBeforeWindowClosing() {
@@ -137,7 +154,25 @@ public class PhotoAuditEditUI extends AbstractPhotoAuditEditUI
 		}
 	}
 	
+	public void storeFields() {
+		editData.setStage(this.kDComboBox1.getSelectedItem()!=null?this.kDComboBox1.getSelectedItem().toString():"");
+		super.storeFields();
+	}
+	
+	public void loadFields() {
+		super.loadFields();
+		if(UIRuleUtil.isNotNull(editData.getStage())){
+			this.kDComboBox1.setSelectedItem(editData.getStage());
+		}
+	}
+	
 	public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+		if(UIRuleUtil.getString(editData.getReportName()).equals("目标成本")){
+			if(this.kDComboBox1.getSelectedItem()==null){
+				FDCMsgBox.showWarning("请填写成本所属阶段！");
+				SysUtil.abort();
+			}
+		}
 		super.actionSubmit_actionPerformed(e);
 		this.lockUIForViewStatus();
     	this.setOprtState("VIEW");
@@ -241,7 +276,7 @@ public class PhotoAuditEditUI extends AbstractPhotoAuditEditUI
     		SysUtil.abort();
     	}
     	String rptId = getUIContext().get("rptId").toString();
-    	String oql = "select number,id,sourceBillId where sourceBillId='"+rptId+"'";
+    	String oql = "select reportName,CU.id,CU.number,CU.name,number,id,sourceBillId where sourceBillId='"+rptId+"'";
     	PhotoAuditCollection photoAuditCollection = null;
 		try {
 			photoAuditCollection = PhotoAuditFactory.getRemoteInstance().getPhotoAuditCollection(oql);
@@ -256,6 +291,8 @@ public class PhotoAuditEditUI extends AbstractPhotoAuditEditUI
     		objectValue.setSourceBillId(rptId);
     		objectValue.setNumber(getUIContext().get("rptName").toString());
     		objectValue.setStatus(FDCBillStateEnum.SAVED);
+    		objectValue.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
+    		objectValue.setReportName(getUIContext().get("rptType").toString());
     		return objectValue;
     	}
     }

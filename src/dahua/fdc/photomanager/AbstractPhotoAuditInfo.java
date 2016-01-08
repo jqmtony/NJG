@@ -60,6 +60,28 @@ public class AbstractPhotoAuditInfo extends com.kingdee.eas.framework.CoreBillBa
     {
         setDate("AuditDate", item);
     }
+    /**
+     * Object:快照审批's 报表名称property 
+     */
+    public String getReportName()
+    {
+        return getString("reportName");
+    }
+    public void setReportName(String item)
+    {
+        setString("reportName", item);
+    }
+    /**
+     * Object:快照审批's 成本所属阶段property 
+     */
+    public String getStage()
+    {
+        return getString("stage");
+    }
+    public void setStage(String item)
+    {
+        setString("stage", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("17269CFB");

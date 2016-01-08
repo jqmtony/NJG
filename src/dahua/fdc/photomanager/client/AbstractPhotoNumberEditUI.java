@@ -50,10 +50,12 @@ public abstract class AbstractPhotoNumberEditUI extends com.kingdee.eas.framewor
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer3;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer4;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contcurProject;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtName;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtSimpleName;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox txtDescription;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtcurProject;
     protected com.kingdee.eas.fdc.photomanager.PhotoNumberInfo editData = null;
     /**
      * output class constructor
@@ -78,18 +80,22 @@ public abstract class AbstractPhotoNumberEditUI extends com.kingdee.eas.framewor
         this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer3 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer4 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contcurProject = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtName = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
         this.txtSimpleName = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtDescription = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangBox();
+        this.prmtcurProject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDLabelContainer1.setName("kDLabelContainer1");
         this.kDLabelContainer2.setName("kDLabelContainer2");
         this.kDLabelContainer3.setName("kDLabelContainer3");
         this.kDLabelContainer4.setName("kDLabelContainer4");
+        this.contcurProject.setName("contcurProject");
         this.txtNumber.setName("txtNumber");
         this.txtName.setName("txtName");
         this.txtSimpleName.setName("txtSimpleName");
         this.txtDescription.setName("txtDescription");
+        this.prmtcurProject.setName("prmtcurProject");
         // CoreUI		
         this.btnPrint.setVisible(false);		
         this.btnPrintPreview.setVisible(false);		
@@ -113,12 +119,25 @@ public abstract class AbstractPhotoNumberEditUI extends com.kingdee.eas.framewor
         this.kDLabelContainer4.setBoundLabelUnderline(true);		
         this.kDLabelContainer4.setBoundLabelAlignment(7);		
         this.kDLabelContainer4.setVisible(true);
+        // contcurProject		
+        this.contcurProject.setBoundLabelText(resHelper.getString("contcurProject.boundLabelText"));		
+        this.contcurProject.setBoundLabelLength(100);		
+        this.contcurProject.setBoundLabelUnderline(true);		
+        this.contcurProject.setVisible(true);
         // txtNumber		
         this.txtNumber.setMaxLength(80);
         // txtName
         // txtSimpleName		
         this.txtSimpleName.setMaxLength(80);
         // txtDescription
+        // prmtcurProject		
+        this.prmtcurProject.setQueryInfo("com.kingdee.eas.fdc.basedata.app.CurProjectQuery");		
+        this.prmtcurProject.setVisible(true);		
+        this.prmtcurProject.setEditable(true);		
+        this.prmtcurProject.setDisplayFormat("$name$");		
+        this.prmtcurProject.setEditFormat("$number$");		
+        this.prmtcurProject.setCommitFormat("$number$");		
+        this.prmtcurProject.setRequired(false);
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -153,6 +172,8 @@ public abstract class AbstractPhotoNumberEditUI extends com.kingdee.eas.framewor
         this.add(kDLabelContainer3, null);
         kDLabelContainer4.setBounds(new Rectangle(102, 155, 270, 19));
         this.add(kDLabelContainer4, null);
+        contcurProject.setBounds(new Rectangle(100, 189, 270, 19));
+        this.add(contcurProject, null);
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(txtNumber);
         //kDLabelContainer2
@@ -161,6 +182,8 @@ public abstract class AbstractPhotoNumberEditUI extends com.kingdee.eas.framewor
         kDLabelContainer3.setBoundEditor(txtSimpleName);
         //kDLabelContainer4
         kDLabelContainer4.setBoundEditor(txtDescription);
+        //contcurProject
+        contcurProject.setBoundEditor(prmtcurProject);
 
     }
 
@@ -273,7 +296,8 @@ public abstract class AbstractPhotoNumberEditUI extends com.kingdee.eas.framewor
 		dataBinder.registerBinding("number", String.class, this.txtNumber, "text");
 		dataBinder.registerBinding("name", String.class, this.txtName, "_multiLangItem");
 		dataBinder.registerBinding("simpleName", String.class, this.txtSimpleName, "text");
-		dataBinder.registerBinding("description", String.class, this.txtDescription, "_multiLangItem");		
+		dataBinder.registerBinding("description", String.class, this.txtDescription, "_multiLangItem");
+		dataBinder.registerBinding("curProject", com.kingdee.eas.fdc.basedata.CurProjectInfo.class, this.prmtcurProject, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){
@@ -415,7 +439,8 @@ public abstract class AbstractPhotoNumberEditUI extends com.kingdee.eas.framewor
 		getValidateHelper().registerBindProperty("number", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("name", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("simpleName", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("description", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("curProject", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -458,6 +483,15 @@ public abstract class AbstractPhotoNumberEditUI extends com.kingdee.eas.framewor
         sic.add(new SelectorItemInfo("name"));
         sic.add(new SelectorItemInfo("simpleName"));
         sic.add(new SelectorItemInfo("description"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("curProject.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("curProject.id"));
+        	sic.add(new SelectorItemInfo("curProject.number"));
+        	sic.add(new SelectorItemInfo("curProject.name"));
+		}
         return sic;
     }        
 

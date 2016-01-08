@@ -45,6 +45,7 @@ import com.kingdee.bos.workflow.monitor.client.ProcessRunningListUI;
 import com.kingdee.bos.workflow.service.ormrpc.EnactmentServiceFactory;
 import com.kingdee.bos.workflow.service.ormrpc.IEnactmentService;
 import com.kingdee.eas.base.multiapprove.client.MultiApproveUtil;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
@@ -744,7 +745,13 @@ public class PhotoAuditListUI extends AbstractPhotoAuditListUI
 			if(type.equals("Œ¥…Û≈˙"))
 				sqlBuf.append(" and (aud.CFStatus='1SAVED' or aud.CFStatus is null)");
 		}
+		AdminOrgUnitInfo currentAdminUnit = SysContext.getSysContext().getCurrentAdminUnit();
+		if(currentAdminUnit!=null){
+			sqlBuf.append(" and S.ForgId = '"+currentAdminUnit.getId()+"'");
+		}
 		sqlBuf.append(" and rpto.Fname_l2 is not null Order by createtime desc");
+		
+		
 		IRowSet rowset = new FDCSQLBuilder().appendSql(sqlBuf.toString()).executeQuery();
         while(rowset.next()){
         	IRow addRow = kDTable1.addRow();
@@ -986,6 +993,7 @@ public class PhotoAuditListUI extends AbstractPhotoAuditListUI
 			}
 			uiContext.put("rptId", this.kDTable1.getCell(selectIndex, 0).getValue().toString());
 			uiContext.put("rptName", this.kDTable1.getCell(selectIndex, 2).getValue().toString());
+			uiContext.put("rptType", this.kDTable1.getCell(selectIndex, 1).getValue().toString());
 		}
     }
     
