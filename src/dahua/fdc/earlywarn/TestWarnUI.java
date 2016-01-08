@@ -47,7 +47,7 @@ public class TestWarnUI extends AbstractTestWarnUI
     	if(typeName.equals("合约跟踪单预警"))
     		IDHWarnMsgFacade.programmingGZWarnMsg("P24AAABizi7wSYYL",5);
     	if(typeName.equals("动态成本差异率预警"))
-    		IDHWarnMsgFacade.aimCostDiffWarnMsg();
+    		IDHWarnMsgFacade.aimCostDiffWarnMsg("");
     	FDCMsgBox.showInfo("执行成功，请查看消息中心预警信息！");
     }
 
