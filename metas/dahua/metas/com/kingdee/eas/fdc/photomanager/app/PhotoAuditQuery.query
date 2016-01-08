@@ -988,6 +988,68 @@
                 <key name="name" value="PhotoAuditQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>reportName</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[reportName].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>a7242cee-07ee-498b-8b21-d237079f3a0b</key>
+                    <parentUnit>
+                        <key name="name" value="reportName" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PhotoAudit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="reportName" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.photomanager.app" />
+                <key name="name" value="PhotoAuditQuery" />
+            </query>
+        </queryField>
+        <queryField>
+            <name>stage</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[stage].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>fec231f8-af22-4ae5-b869-d4d6f9de9a4e</key>
+                    <parentUnit>
+                        <key name="name" value="stage" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PhotoAudit" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="stage" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.photomanager.app" />
+                <key name="name" value="PhotoAuditQuery" />
+            </query>
+        </queryField>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -1505,6 +1567,38 @@
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[number].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[reportName].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="报表名称" />
+            <lang locale="zh_HK" value="報表名稱" />
+            <lang locale="zh_TW" value="報表名稱" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[reportName].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[reportName].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[stage].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本所属阶段" />
+            <lang locale="zh_HK" value="成本所屬階段" />
+            <lang locale="zh_TW" value="成本所屬階段" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[stage].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoAuditQuery].units.queryField[stage].extendedProperty.isCommonQuerySorter">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />

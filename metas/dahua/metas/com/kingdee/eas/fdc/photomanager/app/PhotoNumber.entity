@@ -177,6 +177,22 @@
         <key name="package" value="com.kingdee.eas.fdc.photomanager.app" />
         <key name="name" value="CT_PHO_PhotoNumber" />
     </table>
+    <properties>
+        <linkProperty>
+            <name>curProject</name>
+            <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].properties.linkProperty[curProject].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].properties.linkProperty[curProject].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <mappingField>
+                <key name="name" value="CFCurProjectID" />
+            </mappingField>
+            <relationship>
+                <key name="package" value="com.kingdee.eas.fdc.photomanager.app" />
+                <key name="name" value="R_PhotoNumber_CurProject_curProject" />
+            </relationship>
+        </linkProperty>
+    </properties>
     <logicalKey>
         <name>id</name>
         <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].logicalKey[id].alias</alias>
@@ -189,15 +205,83 @@
             </baseProperty>
         </keyProperties>
     </logicalKey>
+    <defaultView>
+        <name />
+        <alias>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewalias</alias>
+        <description>entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewdescription</description>
+    </defaultView>
     <resource>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="快照编码" />
-            <lang locale="zh_TW" value="單級基礎資料範本" />
+            <lang locale="zh_HK" value="快照編碼" />
+            <lang locale="zh_TW" value="快照編碼" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewalias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewdescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewextendedProperty.OrgType">
+            <lang locale="en_US" value="NONE" />
+            <lang locale="zh_CN" value="NONE" />
+            <lang locale="zh_TW" value="NONE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewextendedProperty.codingRuleEnabled">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewextendedProperty.defaultDisplayField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewextendedProperty.defaultF7Query">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewextendedProperty.editUI">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.photomanager.client.PhotoNumberEditUI" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.photomanager.client.PhotoNumberEditUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.photomanager.client.PhotoNumberEditUI" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewextendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewextendedProperty.isAsstAcctType">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewextendedProperty.isParamObject">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewextendedProperty.isSimpleEntity">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].defaultViewextendedProperty.listUI">
+            <lang locale="en_US" value="com.kingdee.eas.fdc.photomanager.client.PhotoNumberListUI" />
+            <lang locale="zh_CN" value="com.kingdee.eas.fdc.photomanager.client.PhotoNumberListUI" />
+            <lang locale="zh_TW" value="com.kingdee.eas.fdc.photomanager.client.PhotoNumberListUI" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="单级基础资料模板" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="單級基礎資料範本" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].extendedProperty.OrgType">
@@ -225,6 +309,11 @@
             <lang locale="zh_CN" value="com.kingdee.eas.fdc.photomanager.client.PhotoNumberEditUI" />
             <lang locale="zh_TW" value="com.kingdee.eas.fdc.photomanager.client.PhotoNumberEditUI" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].extendedProperty.isAsstAcctType">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
@@ -248,82 +337,155 @@
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].logicalKey[id].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].logicalKey[id].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getCollection].alias">
             <lang locale="en_US" value="getCollection" />
             <lang locale="zh_CN" value="取集合" />
+            <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getCollection].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getCollection].parameters.parameter[oql].alias">
             <lang locale="en_US" value="getCollection" />
             <lang locale="zh_CN" value="取集合" />
+            <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getCollection].parameters.parameter[oql].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getCollection].parameters.parameter[view].alias">
             <lang locale="en_US" value="getCollection" />
             <lang locale="zh_CN" value="取集合" />
+            <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getCollection].parameters.parameter[view].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getValue].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getValue].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getValue].parameters.parameter[oql].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getValue].parameters.parameter[oql].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getValue].parameters.parameter[pk].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getValue].parameters.parameter[pk].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getValue].parameters.parameter[selector].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].methods.method[getValue].parameters.parameter[selector].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].properties.linkProperty[curProject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].properties.linkProperty[curProject].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="文本" />
+            <lang locale="zh_HK" value="文本" />
+            <lang locale="zh_TW" value="文本" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].properties.linkProperty[curProject].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].properties.linkProperty[curProject].extendedProperty.dataField">
+            <lang locale="en_US" value="name" />
+            <lang locale="zh_CN" value="name" />
+            <lang locale="zh_TW" value="name" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].properties.linkProperty[curProject].extendedProperty.isAsstAcctType">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].properties.linkProperty[curProject].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].properties.linkProperty[curProject].extendedProperty.isForMapping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].properties.linkProperty[curProject].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].properties.linkProperty[curProject].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].properties.linkProperty[curProject].extendedProperty.isInCode">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.photomanager.app.PhotoNumber].properties.linkProperty[curProject].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
     </resource>
 </entityObject>

@@ -48,6 +48,19 @@
                 <key name="name" value="User" />
             </entityRef>
         </subEntity>
+        <subEntity>
+            <name>curProject</name>
+            <alias>joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].subObjects.subEntity[curProject].alias</alias>
+            <userDefined>true</userDefined>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.photomanager.app" />
+                <key name="name" value="PhotoNumberQuery" />
+            </query>
+            <entityRef>
+                <key name="package" value="com.kingdee.eas.fdc.basedata.app" />
+                <key name="name" value="CurProject" />
+            </entityRef>
+        </subEntity>
     </subObjects>
     <units>
         <propertyUnit>
@@ -515,6 +528,99 @@
                 <key name="name" value="PhotoNumberQuery" />
             </query>
         </queryField>
+        <queryField>
+            <name>curProject.name</name>
+            <userDefined>true</userDefined>
+            <formulaString>#0</formulaString>
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[curProject.name].displayName</displayName>
+            <groupType />
+            <isSelector>true</isSelector>
+            <isFilter>true</isFilter>
+            <isSorter>true</isSorter>
+            <isParameter>false</isParameter>
+            <returnType>String</returnType>
+            <propertyRefs>
+                <propertyRef>
+                    <key>1d168e90-8acc-4d27-8c45-f1a452567208</key>
+                    <parentUnit>
+                        <key name="name" value="curProject.name" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="name" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.photomanager.app" />
+                <key name="name" value="PhotoNumberQuery" />
+            </query>
+        </queryField>
+        <propertyUnit>
+            <name>35fab4ab-c5a5-4ed5-825b-900b3270d3a0</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.propertyUnit[35fab4ab-c5a5-4ed5-825b-900b3270d3a0].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>863b0ea6-f64e-4412-8f2a-b5c77c170708</key>
+                    <parentUnit>
+                        <key name="name" value="35fab4ab-c5a5-4ed5-825b-900b3270d3a0" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="PhotoNumber" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="curProject" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.photomanager.app" />
+                <key name="name" value="PhotoNumberQuery" />
+            </query>
+        </propertyUnit>
+        <propertyUnit>
+            <name>83a54928-a504-4298-bf1a-1b107c653e1e</name>
+            <userDefined>true</userDefined>
+            <formulaString />
+            <constString />
+            <displayName>joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.propertyUnit[83a54928-a504-4298-bf1a-1b107c653e1e].displayName</displayName>
+            <groupType />
+            <isSelector>false</isSelector>
+            <isFilter>false</isFilter>
+            <isSorter>false</isSorter>
+            <isParameter>false</isParameter>
+            <returnType />
+            <propertyRefs>
+                <propertyRef>
+                    <key>331c2a76-1457-4689-99b8-d912e730ede0</key>
+                    <parentUnit>
+                        <key name="name" value="83a54928-a504-4298-bf1a-1b107c653e1e" />
+                    </parentUnit>
+                    <subEntity>
+                        <key name="name" value="curProject" />
+                    </subEntity>
+                    <refProperty>
+                        <key name="name" value="id" />
+                    </refProperty>
+                </propertyRef>
+            </propertyRefs>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.photomanager.app" />
+                <key name="name" value="PhotoNumberQuery" />
+            </query>
+        </propertyUnit>
     </units>
     <defaultFilter>
         <name>defaultFilter</name>
@@ -608,12 +714,43 @@
                 <key name="name" value="PhotoNumberQuery" />
             </query>
         </join>
+        <join>
+            <name>a4e0cca7-3ec5-4b66-8b70-1e2e42dd5062</name>
+            <formulaString>#0</formulaString>
+            <type>LEFT OUTER JOIN</type>
+            <leftObject>
+                <key name="name" value="PhotoNumber" />
+            </leftObject>
+            <rightObject>
+                <key name="name" value="curProject" />
+            </rightObject>
+            <joinItems>
+                <joinItem>
+                    <name>f45c4c6a-9807-4e2c-b8bc-46c2730c9260</name>
+                    <compareType>=</compareType>
+                    <leftField>
+                        <key name="name" value="35fab4ab-c5a5-4ed5-825b-900b3270d3a0" />
+                    </leftField>
+                    <rightField>
+                        <key name="name" value="83a54928-a504-4298-bf1a-1b107c653e1e" />
+                    </rightField>
+                    <join>
+                        <key name="name" value="a4e0cca7-3ec5-4b66-8b70-1e2e42dd5062" />
+                    </join>
+                </joinItem>
+            </joinItems>
+            <query>
+                <key name="package" value="com.kingdee.eas.fdc.photomanager.app" />
+                <key name="name" value="PhotoNumberQuery" />
+            </query>
+        </join>
     </joins>
     <resource>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="快照编码" />
-            <lang locale="zh_TW" value="單級基礎資料查詢" />
+            <lang locale="zh_HK" value="快照編碼" />
+            <lang locale="zh_TW" value="快照編碼" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].defaultSorters.querySorterItemextendedProperty.ColWidthInKDTable">
             <lang locale="en_US" value="50" />
@@ -643,6 +780,7 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单级基础资料查询" />
+            <lang locale="zh_HK" value="單級基礎資料查詢" />
             <lang locale="zh_TW" value="單級基礎資料查詢" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].extendedProperty.ColWidthInKDTable">
@@ -683,51 +821,79 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].queryPK[QueryPK].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].queryPK[QueryPK].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].subObjects.subEntity[PhotoNumber].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].subObjects.subEntity[creator].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].subObjects.subEntity[curProject].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].subObjects.subEntity[lastUpdateUser].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.propertyUnit[35fab4ab-c5a5-4ed5-825b-900b3270d3a0].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.propertyUnit[83a54928-a504-4298-bf1a-1b107c653e1e].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.propertyUnit[NewUnit0].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.propertyUnit[NewUnit1].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.propertyUnit[NewUnit2].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.propertyUnit[NewUnit3].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[createTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
             <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[createTime].extendedProperty.colWidthInKDTable">
@@ -758,6 +924,7 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[creator.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
             <lang locale="zh_TW" value="別名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[creator.name].extendedProperty.colWidthInKDTable">
@@ -788,6 +955,7 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[creator.number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
             <lang locale="zh_TW" value="用戶名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[creator.number].extendedProperty.colWidthInKDTable">
@@ -815,9 +983,31 @@
             <lang locale="zh_CN" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[curProject.name].displayName">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程项目" />
+            <lang locale="zh_HK" value="工程項目" />
+            <lang locale="zh_TW" value="工程項目" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[curProject.name].extendedProperty.isCommonQueryFilter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[curProject.name].extendedProperty.isCommonQuerySorter">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[curProject.name].extendedProperty.isUsingF7">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[description].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
             <lang locale="zh_TW" value="描述" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[description].extendedProperty.colWidthInKDTable">
@@ -878,6 +1068,7 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[lastUpdateTime].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
             <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[lastUpdateTime].extendedProperty.colWidthInKDTable">
@@ -908,6 +1099,7 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[lastUpdateUser.name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="别名" />
+            <lang locale="zh_HK" value="別名" />
             <lang locale="zh_TW" value="別名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[lastUpdateUser.name].extendedProperty.colWidthInKDTable">
@@ -938,6 +1130,7 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[lastUpdateUser.number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="用户名" />
+            <lang locale="zh_HK" value="用戶名" />
             <lang locale="zh_TW" value="用戶名" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[lastUpdateUser.number].extendedProperty.colWidthInKDTable">
@@ -968,6 +1161,7 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[name].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
             <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[name].extendedProperty.colWidthInKDTable">
@@ -998,6 +1192,7 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[number].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
             <lang locale="zh_TW" value="編碼" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[number].extendedProperty.colWidthInKDTable">
@@ -1028,6 +1223,7 @@
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[simpleName].displayName">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
             <lang locale="zh_TW" value="簡稱" />
         </rs>
         <rs key="joinQuery[com.kingdee.eas.fdc.photomanager.app.PhotoNumberQuery].units.queryField[simpleName].extendedProperty.colWidthInKDTable">
