@@ -748,7 +748,7 @@ public class PhotoAuditListUI extends AbstractPhotoAuditListUI
 		}
 		AdminOrgUnitInfo currentAdminUnit = SysContext.getSysContext().getCurrentAdminUnit();
 		if(currentAdminUnit!=null){
-			sqlBuf.append(" and S.ForgId = '"+currentAdminUnit.getId()+"'");
+			sqlBuf.append(" and o.flongnumber like '"+currentAdminUnit.getLongNumber()+"%'");
 		}
 		sqlBuf.append(" and rpto.Fname_l2 is not null Order by createtime desc");
 		
