@@ -48,6 +48,7 @@ public abstract class AbstractTechnologyeconomyApproveUI extends com.kingdee.eas
     private static final Logger logger = CoreUIObject.getLogger(AbstractTechnologyeconomyApproveUI.class);
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
+    protected com.kingdee.bos.ctrl.swing.KDButton yd;
     protected com.kingdee.bos.ctrl.swing.KDTextField kDTextField1;
     protected com.kingdee.eas.fdc.contract.ChangeAuditBillInfo editData = null;
     /**
@@ -71,9 +72,11 @@ public abstract class AbstractTechnologyeconomyApproveUI extends com.kingdee.eas
         this.setUITitle(resHelper.getString("this.title"));
         this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.yd = new com.kingdee.bos.ctrl.swing.KDButton();
         this.kDTextField1 = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDTable1.setName("kDTable1");
         this.kDLabelContainer1.setName("kDLabelContainer1");
+        this.yd.setName("yd");
         this.kDTextField1.setName("kDTextField1");
         // CoreUI		
         this.btnPageSetup.setVisible(false);		
@@ -117,6 +120,20 @@ public abstract class AbstractTechnologyeconomyApproveUI extends com.kingdee.eas
         // kDLabelContainer1		
         this.kDLabelContainer1.setBoundLabelText(resHelper.getString("kDLabelContainer1.boundLabelText"));		
         this.kDLabelContainer1.setBoundLabelLength(80);
+        // yd		
+        this.yd.setText(resHelper.getString("yd.text"));
+        this.yd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    yd_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // kDTextField1
 		//Register control's property binding
 		registerBindings();
@@ -147,8 +164,10 @@ public abstract class AbstractTechnologyeconomyApproveUI extends com.kingdee.eas
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
         kDTable1.setBounds(new Rectangle(201, 46, 599, 577));
         this.add(kDTable1, new KDLayout.Constraints(201, 46, 599, 577, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer1.setBounds(new Rectangle(530, 12, 270, 19));
-        this.add(kDLabelContainer1, new KDLayout.Constraints(530, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer1.setBounds(new Rectangle(200, 12, 270, 19));
+        this.add(kDLabelContainer1, new KDLayout.Constraints(200, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        yd.setBounds(new Rectangle(589, 11, 142, 21));
+        this.add(yd, new KDLayout.Constraints(589, 11, 142, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(kDTextField1);
 
@@ -402,6 +421,13 @@ public abstract class AbstractTechnologyeconomyApproveUI extends com.kingdee.eas
      * output kDTable1_tableClicked method
      */
     protected void kDTable1_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output yd_actionPerformed method
+     */
+    protected void yd_actionPerformed(java.awt.event.ActionEvent e) throws Exception
     {
     }
 

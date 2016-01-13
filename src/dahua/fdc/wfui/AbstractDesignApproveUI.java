@@ -49,6 +49,7 @@ public abstract class AbstractDesignApproveUI extends com.kingdee.eas.framework.
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
+    protected com.kingdee.bos.ctrl.swing.KDButton yd;
     protected com.kingdee.bos.ctrl.swing.KDTextField kDTextField1;
     protected com.kingdee.bos.ctrl.swing.KDTextField kDTextField2;
     protected com.kingdee.eas.fdc.contract.ChangeAuditBillInfo editData = null;
@@ -74,11 +75,13 @@ public abstract class AbstractDesignApproveUI extends com.kingdee.eas.framework.
         this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.yd = new com.kingdee.bos.ctrl.swing.KDButton();
         this.kDTextField1 = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDTextField2 = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDTable1.setName("kDTable1");
         this.kDLabelContainer1.setName("kDLabelContainer1");
         this.kDLabelContainer2.setName("kDLabelContainer2");
+        this.yd.setName("yd");
         this.kDTextField1.setName("kDTextField1");
         this.kDTextField2.setName("kDTextField2");
         // CoreUI		
@@ -122,10 +125,24 @@ public abstract class AbstractDesignApproveUI extends com.kingdee.eas.framework.
 
         // kDLabelContainer1		
         this.kDLabelContainer1.setBoundLabelText(resHelper.getString("kDLabelContainer1.boundLabelText"));		
-        this.kDLabelContainer1.setBoundLabelLength(100);
+        this.kDLabelContainer1.setBoundLabelLength(50);
         // kDLabelContainer2		
         this.kDLabelContainer2.setBoundLabelText(resHelper.getString("kDLabelContainer2.boundLabelText"));		
-        this.kDLabelContainer2.setBoundLabelLength(100);
+        this.kDLabelContainer2.setBoundLabelLength(80);
+        // yd		
+        this.yd.setText(resHelper.getString("yd.text"));
+        this.yd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    yd_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // kDTextField1
         // kDTextField2
 		//Register control's property binding
@@ -157,10 +174,12 @@ public abstract class AbstractDesignApproveUI extends com.kingdee.eas.framework.
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
         kDTable1.setBounds(new Rectangle(194, 47, 606, 572));
         this.add(kDTable1, new KDLayout.Constraints(194, 47, 606, 572, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer1.setBounds(new Rectangle(194, 12, 270, 19));
-        this.add(kDLabelContainer1, new KDLayout.Constraints(194, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer2.setBounds(new Rectangle(530, 12, 270, 19));
-        this.add(kDLabelContainer2, new KDLayout.Constraints(530, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer1.setBounds(new Rectangle(197, 14, 185, 19));
+        this.add(kDLabelContainer1, new KDLayout.Constraints(197, 14, 185, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer2.setBounds(new Rectangle(422, 14, 191, 19));
+        this.add(kDLabelContainer2, new KDLayout.Constraints(422, 14, 191, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        yd.setBounds(new Rectangle(680, 13, 120, 21));
+        this.add(yd, new KDLayout.Constraints(680, 13, 120, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(kDTextField1);
         //kDLabelContainer2
@@ -416,6 +435,13 @@ public abstract class AbstractDesignApproveUI extends com.kingdee.eas.framework.
      * output kDTable1_tableClicked method
      */
     protected void kDTable1_tableClicked(com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output yd_actionPerformed method
+     */
+    protected void yd_actionPerformed(java.awt.event.ActionEvent e) throws Exception
     {
     }
 

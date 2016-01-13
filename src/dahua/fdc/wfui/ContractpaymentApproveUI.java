@@ -19,6 +19,7 @@ import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
+import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
 import com.kingdee.bos.ctrl.swing.KDLabel;
 import com.kingdee.bos.ctrl.swing.KDLayout;
 import com.kingdee.bos.dao.IObjectValue;
@@ -140,7 +141,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	addRowsix.getCell(0).setValue("合同总价(大写)");
 //    	addRowsix.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowsix.getCell(6).setValue("￥");
-//    	addRowsix.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowsix.getCell(6).getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(6, 1, 6, 5);
     	mergeManager.mergeBlock(6, 7, 6, 9);
@@ -150,7 +151,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	addRowseven.getCell(0).setValue("合同外金额(大写)");
 //    	addRowseven.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowseven.getCell(6).setValue("￥");
-//    	addRowseven.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowseven.getCell(6).getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(7, 1, 7, 5);
     	mergeManager.mergeBlock(7, 7, 7, 9);
@@ -160,7 +161,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	addRoweight.getCell(0).setValue("合同结算总价(大写)");
 //    	addRoweight.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRoweight.getCell(6).setValue("￥");
-//    	addRoweight.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRoweight.getCell(6).getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(8, 1, 8, 5);
     	mergeManager.mergeBlock(8, 7, 8, 9);
@@ -170,7 +171,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	addRownine.getCell(0).setValue("本次核定金额付款(大写)");
 //    	addRownine.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRownine.getCell(6).setValue("￥");
-//    	addRownine.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRownine.getCell(6).getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(9, 1, 9, 5);
     	mergeManager.mergeBlock(9, 7, 9, 9);
@@ -180,7 +181,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	addRowten.getCell(0).setValue("累计核定金额付款(大写)");
 //    	addRowten.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowten.getCell(6).setValue("￥");
-//    	addRowten.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowten.getCell(6).getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(10, 1, 10, 5);
     	mergeManager.mergeBlock(10, 7, 10, 9);
@@ -190,7 +191,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	addRowelev.getCell(0).setValue("以前已累计支付(大写)");
 //    	addRowelev.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowelev.getCell(6).setValue("￥");
-//    	addRowelev.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowelev.getCell(6).getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(11, 1, 11, 5);
     	mergeManager.mergeBlock(11, 7, 11, 9);
@@ -200,7 +201,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	addRowtwev.getCell(0).setValue("本次申请支付(大写)");
 //    	addRowtwev.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowtwev.getCell(6).setValue("￥");
-//    	addRowtwev.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowtwev.getCell(6).getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(12, 1, 12, 5);
     	mergeManager.mergeBlock(12, 7, 12, 9);
@@ -210,7 +211,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	addRowthirt.getCell(0).setValue("累计支付(大写)");
 //    	addRowthirt.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowthirt.getCell(6).setValue("￥");
-//    	addRowthirt.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowthirt.getCell(6).getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(13, 1, 13, 5);
     	mergeManager.mergeBlock(13, 7, 13, 9);
@@ -221,7 +222,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	addRowfout.getCell(0).setValue("合同总价(或结算)余额(大写)");
 //    	addRowfout.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	addRowfout.getCell(6).setValue("￥");
-//    	addRowfout.getCell(6).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
+    	addRowfout.getCell(6).getStyleAttributes().setHorizontalAlign(HorizontalAlignment.RIGHT);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(14, 1, 14, 5);
     	mergeManager.mergeBlock(14, 7, 14, 9);

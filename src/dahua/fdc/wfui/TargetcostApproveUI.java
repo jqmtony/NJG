@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.ui.face.CoreUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
@@ -61,8 +62,67 @@ public class TargetcostApproveUI extends AbstractTargetcostApproveUI
     	super.onLoad();
     	
     	initUI();
+    	
+//    	if(editData.getId()!=null){
+//    		SelectorItemCollection sic = new SelectorItemCollection();
+//    		sic.add("number");
+//    		sic.add("state");
+//    		sic.add("orgUnit.id");
+//    		AimAimCostAdjustInfo info = AimAimCostAdjustFactory.getRemoteInstance().getAimAimCostAdjustInfo(new ObjectUuidPK(editData.getId()),sic);
+//    		
+//    		editData.setNumber(info.getNumber());
+//    		editData.setState(info.getState());
+//    		editData.setOrgUnit(info.getOrgUnit());
+//    	}
+    	
     }
 
+	public SelectorItemCollection getSelectors() {
+		SelectorItemCollection sic = new SelectorItemCollection();
+		sic.add(new SelectorItemInfo("id"));
+		sic.add(new SelectorItemInfo("number"));
+		sic.add(new SelectorItemInfo("name"));
+		sic.add(new SelectorItemInfo("state"));
+		sic.add(new SelectorItemInfo("BIMUDF0031"));
+		sic.add(new SelectorItemInfo("orgUnit.id"));
+		sic.add(new SelectorItemInfo("creator.id"));
+		sic.add(new SelectorItemInfo("creator.name"));
+		sic.add(new SelectorItemInfo("createTime"));
+		sic.add(new SelectorItemInfo("auditor.id"));
+		sic.add(new SelectorItemInfo("auditor.name"));
+		sic.add(new SelectorItemInfo("auditTime"));
+		sic.add(new SelectorItemInfo("curProject.id"));
+		sic.add(new SelectorItemInfo("curProject.name"));
+		sic.add(new SelectorItemInfo("curProject.number"));
+
+		sic.add(new SelectorItemInfo("entrys.costAccount.id"));
+		sic.add(new SelectorItemInfo("entrys.costAccount.name"));
+		sic.add(new SelectorItemInfo("entrys.costAccount.number"));
+		sic.add(new SelectorItemInfo("entrys.costAccount.longNumber"));
+
+		sic.add(new SelectorItemInfo("entrys.adjustType.id"));
+		sic.add(new SelectorItemInfo("entrys.adjustType.name"));
+
+		sic.add(new SelectorItemInfo("entrys.costAccount.curProject.id"));
+		sic.add(new SelectorItemInfo("entrys.costAccount.curProject.name"));
+		sic.add(new SelectorItemInfo("entrys.costAccount.curProject.number"));
+
+		sic.add(new SelectorItemInfo("entrys.product.id"));
+		sic.add(new SelectorItemInfo("entrys.product.name"));
+
+		sic.add(new SelectorItemInfo("entrys.unit.id"));
+		sic.add(new SelectorItemInfo("entrys.unit.name"));
+
+		sic.add(new SelectorItemInfo("entrys.workload"));
+		sic.add(new SelectorItemInfo("entrys.price"));
+		sic.add(new SelectorItemInfo("entrys.adjustAmt"));
+		sic.add(new SelectorItemInfo("entrys.description"));
+		
+		/* modified by zhaoqin for R131022-0402 on 2013/12/31 */
+		sic.add(new SelectorItemInfo("entrys.changeReason"));
+		
+		return sic;
+	}
     
     private void initUI() throws BOSException, SQLException{
     	this.kDTable1.addColumns(10);
@@ -71,6 +131,7 @@ public class TargetcostApproveUI extends AbstractTargetcostApproveUI
     	//第一行
     	IRow addRow = this.kDTable1.addRow();
     	addRow.getCell(0).setValue("公司名称");
+    	addRow.getCell(0).getStyleAttributes().setLocked(true);//锁定
 //    	addRow.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(0, 1, 0, 9);

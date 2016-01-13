@@ -21,12 +21,19 @@ import com.kingdee.bos.ctrl.swing.KDCheckBox;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIWindow;
+import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.face.UIRuleUtil;
+import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
 import com.kingdee.eas.fdc.contract.ChangeAuditEntryCollection;
+import com.kingdee.eas.fdc.contract.client.ChangeAuditRequestEditUI;
+import com.kingdee.eas.fdc.contract.client.ProjectChangeAuditEditUI;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.jdbc.rowset.IRowSet;
@@ -642,6 +649,15 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	}
     }
     
+    //回到原单
+	protected void yd_actionPerformed(ActionEvent e) throws Exception {
+		
+		UIContext uiContext = new UIContext(this);
+		uiContext.put("ID", editData.getId());
+		IUIWindow uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ChangeAuditRequestEditUI.class.getName(),uiContext,null,OprtState.VIEW);
+		uiWindow.show();
+	}
+	
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSubmit_actionPerformed(e);
     }

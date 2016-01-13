@@ -31,6 +31,7 @@ import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
 import com.kingdee.eas.fdc.contract.client.ProjectChangeAuditEditUI;
+import com.kingdee.eas.fdc.contract.client.TechChangeAuditEditUI;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.jdbc.rowset.IRowSet;
@@ -711,7 +712,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
 
     	UIContext uiContext = new UIContext(this);
     	uiContext.put("ID", editData.getId());
-    	IUIWindow uiWindow = UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(ProjectChangeAuditEditUI.class.getName(),uiContext,null,OprtState.VIEW);
+    	IUIWindow uiWindow = UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(TechChangeAuditEditUI.class.getName(),uiContext,null,OprtState.VIEW);
     	uiWindow.show();
     }
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {

@@ -206,6 +206,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	addRow27.getCell(11).setValue("负责人");
     	addRow27.getCell(12).setValue("确认意见");
     	
+    	
     	IRow addRow28 = this.kDTable2.addRow();
     	addRow28.getCell(2).setValue("设计部");
     	addRow28.getCell(4).setValue("产品品质：");
@@ -412,7 +413,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 申请编号2 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间, ChangeAB.Freadesc 事由,BaseU.Fname_l2 提出部门,");
     	sb.append(" contractB.fname 合同名称6,contractB.fnumber 合同编号7,lier.fname_l2  主送,Su.fname_l2  抄送,ChangeAE.FChangeContent,u.Fname_l2,ChangeAE.FIsBack isBack");
-//    	sb.append(" ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
+    	sb.append(" ,ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
@@ -474,6 +475,15 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
         	else{
         		this.kDTable2.getCell(9, 5).setValue(Boolean.TRUE);
         	}
+        	
+        	//填充产品品质
+        	String quality = rowset.getString("产品品质")!=null?rowset.getString("产品品质"):"";
+        	if(quality.equals("提高"))
+        		this.kDTable1.getCell(9, 5).setValue(Boolean.TRUE);
+        	if(quality.equals("降低"))
+        		this.kDTable1.getCell(9, 7).setValue(Boolean.TRUE);
+        	if(quality.equals("无影响"))
+        		this.kDTable1.getCell(9, 9).setValue(Boolean.TRUE);
     	}
     	   	
     	//工作流审批意见
@@ -716,12 +726,12 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	}
     }
     
- 
+    //回到原单
 	protected void yd_actionPerformed(ActionEvent e) throws Exception {
 		
 		UIContext uiContext = new UIContext(this);
 		uiContext.put("ID", editData.getId());
-		IUIWindow uiWindow = UIFactory.createUIFactory(UIFactoryName.NEWTAB).create(ProjectChangeAuditEditUI.class.getName(),uiContext,null,OprtState.VIEW);
+		IUIWindow uiWindow = UIFactory.createUIFactory(UIFactoryName.MODEL).create(ProjectChangeAuditEditUI.class.getName(),uiContext,null,OprtState.VIEW);
 		uiWindow.show();
 	}
 
