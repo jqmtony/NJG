@@ -204,6 +204,8 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 	// 合同关联的框架合约
 	private static final String PRO_CON = "ProgrammingContract";
 	
+	private boolean isNotEditUI = false;
+	
 	//0合同
 	private final static int ROW_contractNum = 0;
 	//1合同名称
@@ -1215,9 +1217,10 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 	    					editData.getChangeState().equals(ChangeBillStateEnum.Visa))){
 	    		actionEdit.setEnabled(false);
 	    	}
-		}		
-		else if(isFromWorkflow!=null&&isFromWorkflow.booleanValue()&&STATUS_FINDVIEW.equals(oprtType)){
-    		lockUIForViewStatus();
+		}	
+		//判断状态来修改单据//add by 李鹏  2016-01-13
+		else if(isFromWorkflow!=null&&isFromWorkflow.booleanValue()&&isNotEditUI){
+//    		lockUIForViewStatus();
     		actionAttachment.setEnabled(true);
     		actionAddLine.setEnabled(false);
     		actionRemoveLine.setEnabled(false);
@@ -1226,6 +1229,25 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 	    	actionSave.setEnabled(true);
 	    	actionSubmit.setEnabled(false);
 	    	actionRemove.setEnabled(false);
+	    	
+	    	txtdesignChangeAmount.setEnabled(false);
+			kdtEntrys.setEnabled(false);
+			contNumber.setEnabled(false);
+			kDLabelContainer1.setEnabled(false);
+			contConductDept.setEnabled(false);
+			contName.setEnabled(false);
+			contputForwardTime.setEnabled(false);
+			contreworkVisa.setEnabled(false);
+			contChangeReason.setEnabled(false);
+			contReaDesc.setEnabled(false);
+			contReaDesc.setEnabled(false);
+			chkIsImportChange.setEnabled(false);
+			Sfejjd.setEnabled(false);
+			sfyjjd.setEnabled(false);
+			Bjzb.setEnabled(false);
+			Xscn.setEnabled(false);
+			actionRemoveLine.setEnabled(false);
+			actionAddLine.setEnabled(false);
 	    	int number = getSecondTable().getRowCount();
 			int count = number/suppRows;
 			for(int i=0; i<count; i++){
@@ -1234,6 +1256,8 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 				getSecondTable().getCell(i*suppRows+2,"content").getStyleAttributes().setLocked(true);
 				getSecondTable().getCell(i*suppRows+3,"content").getStyleAttributes().setLocked(true);
 				getSecondTable().getCell(i*suppRows+4,"content").getStyleAttributes().setLocked(true);
+				getSecondTable().getCell(i*suppRows+5,"content").getStyleAttributes().setLocked(true);
+				getSecondTable().getCell(i*suppRows+6,"content").getStyleAttributes().setLocked(true);
 			}
     	}else{
     		actionAddSupp.setEnabled(true);
@@ -1704,6 +1728,13 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 				}
 			}
 		});
+		//判断状态来修改单据//add by 李鹏  2016-01-12
+		isNotEditUI = getOprtState().equals("成本部修改")?true:false;
+		if(isNotEditUI){
+			this.refash.setVisible(true);
+		}else{
+			this.refash.setVisible(false);
+		}
 	}
 	
 	

@@ -85,6 +85,7 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
     protected com.kingdee.bos.ctrl.swing.KDCheckBox Xscn;
     protected com.kingdee.bos.ctrl.swing.KDCheckBox Bjzb;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contRemark;
+    protected com.kingdee.bos.ctrl.swing.KDButton refash;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
@@ -389,6 +390,7 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.Xscn = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.Bjzb = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.contRemark = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.refash = new com.kingdee.bos.ctrl.swing.KDButton();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -513,6 +515,7 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.Xscn.setName("Xscn");
         this.Bjzb.setName("Bjzb");
         this.contRemark.setName("contRemark");
+        this.refash.setName("refash");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.txtNumber.setName("txtNumber");
@@ -798,6 +801,20 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.contRemark.setBoundLabelText(resHelper.getString("contRemark.boundLabelText"));		
         this.contRemark.setBoundLabelLength(100);		
         this.contRemark.setBoundLabelUnderline(true);
+        // refash		
+        this.refash.setText(resHelper.getString("refash.text"));
+        this.refash.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    refash_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setDisplayFormat("$name$");		
@@ -1273,8 +1290,8 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.add(contChangeReason, new KDLayout.Constraints(381, 169, 272, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contChangeState.setBounds(new Rectangle(730, 36, 270, 19));
         this.add(contChangeState, new KDLayout.Constraints(730, 36, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        tbpChangAudit.setBounds(new Rectangle(9, 256, 991, 272));
-        this.add(tbpChangAudit, new KDLayout.Constraints(9, 256, 991, 272, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        tbpChangAudit.setBounds(new Rectangle(9, 269, 991, 259));
+        this.add(tbpChangAudit, new KDLayout.Constraints(9, 269, 991, 259, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAheadDisPatch.setBounds(new Rectangle(623, 588, 991, 27));
         this.add(contAheadDisPatch, new KDLayout.Constraints(623, 588, 991, 27, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         contOrg.setBounds(new Rectangle(661, 81, 35, 19));
@@ -1331,6 +1348,8 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.add(Bjzb, new KDLayout.Constraints(733, 130, 128, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contRemark.setBounds(new Rectangle(731, 155, 266, 32));
         this.add(contRemark, new KDLayout.Constraints(731, 155, 266, 32, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        refash.setBounds(new Rectangle(741, 247, 107, 21));
+        this.add(refash, new KDLayout.Constraints(741, 247, 107, 21, KDLayout.Constraints.ANCHOR_CENTRE | KDLayout.Constraints.ANCHOR_TOP));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1897,6 +1916,14 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
      */
     protected void Xscn_actionPerformed(java.awt.event.ActionEvent e) throws Exception
     {
+    }
+
+    /**
+     * output refash_actionPerformed method
+     */
+    protected void refash_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
+        //write your code here21
     }
 
     /**

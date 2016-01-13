@@ -176,6 +176,7 @@ import com.kingdee.eas.fi.gl.GlUtils;
 import com.kingdee.eas.fm.common.ContextHelperFactory;
 import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.eas.framework.client.FrameWorkClientUtils;
+import com.kingdee.eas.framework.client.multiDetail.DetailPanel;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.AdvMsgBox;
 import com.kingdee.eas.util.client.EASResource;
@@ -203,6 +204,8 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 	
 	// 合同关联的框架合约
 	private static final String PRO_CON = "ProgrammingContract";
+	
+	private boolean isNotEditUI = false;
 	
 	//0合同
 	private final static int ROW_contractNum = 0;
@@ -1171,6 +1174,53 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 		info.setChangeState(ChangeBillStateEnum.Saved);
 		getSecondTable().removeRows();
 	}
+	
+	/**
+	 * 设置单据上所有控件不可编辑
+	 */
+	public static void setViewCompState(CoreUIObject ui) {
+		Component[] components = ui.getComponents();
+		Component component = null;
+		for (int i = 0, size = components.length; i < size; i++) {
+			component = components[i];
+			if (component instanceof DetailPanel) {
+				DetailPanel dp = (DetailPanel) component;
+				Component[] dpcomponents = null;
+				Component dpcomponent = null;
+				dpcomponents = dp.getComponents();
+				for (int j = 0, dpsize = dpcomponents.length; j < dpsize; j++) {
+					dpcomponent = dpcomponents[j];
+					KDPanel panel = (KDPanel) dpcomponent;
+					Component[] pcomponents = null;
+					Component pcomponent = null;
+					pcomponents = panel.getComponents();
+					for (int k = 0, psize = pcomponents.length; k < psize; k++) {
+						pcomponent = pcomponents[k];
+						if ("btnAddEntryLine".equals(pcomponent.getName())
+								|| "btnInsertEntryLine".equals(pcomponent
+										.getName())
+								|| "btnRemoveEntryLine".equals(pcomponent
+										.getName())
+								|| "btnAddnewLine".equals(pcomponent.getName())
+								|| "btnInsertLine".equals(pcomponent.getName())
+								|| "btnRemoveLines"
+										.equals(pcomponent.getName())
+								|| "btnAddSwapLine"
+										.equals(pcomponent.getName())
+								|| "btnInsertSwapLine".equals(pcomponent
+										.getName())
+								|| "btnRemoveSwapLine".equals(pcomponent
+										.getName())) {
+							pcomponent.setEnabled(false);
+						}
+					}
+				}
+			} else {
+				component.setEnabled(false);
+			}
+		}
+	}
+
 
 	/**
 	 * 设置两个表格"变更内容"列和"内容"列是否可锁定
@@ -1213,16 +1263,39 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 	    		actionEdit.setEnabled(false);
 	    	}
 		}		
-		else if(isFromWorkflow!=null&&isFromWorkflow.booleanValue()&&STATUS_FINDVIEW.equals(oprtType)){
-    		lockUIForViewStatus();
+		//判断状态来修改单据//add by 李鹏  2016-01-12
+		else if(isFromWorkflow!=null&&isFromWorkflow.booleanValue()&&isNotEditUI){
+//    		lockUIForViewStatus();
     		actionAttachment.setEnabled(true);
-    		actionAddLine.setEnabled(false);
+    		actionAddLine.setEnabled(false);  
     		actionRemoveLine.setEnabled(false);
     		this.actionAddSupp.setEnabled(false);
     		this.actionDelSupp.setEnabled(false);
 	    	actionSave.setEnabled(true);
 	    	actionSubmit.setEnabled(false);
 	    	actionRemove.setEnabled(false);
+	    	
+	    	txtdesignChangeAmount.setEnabled(false);
+			kdtEntrys.setEnabled(false);
+			contNumber.setEnabled(false);
+			kDLabelContainer1.setEnabled(false);
+			contConductDept.setEnabled(false);
+			contName.setEnabled(false);
+			contputForwardTime.setEnabled(false);
+			contreworkVisa.setEnabled(false);
+			contFtbh.setEnabled(false);
+			contChangeReason.setEnabled(false);
+			contRemark.setEnabled(false);
+			contBgyy.setEnabled(false);
+			contReaDesc.setEnabled(false);
+			Ywtz.setEnabled(false);
+			chkIsImportChange.setEnabled(false);
+			Sfejjd.setEnabled(false);
+			sfyjjd.setEnabled(false);
+			Bjzb.setEnabled(false);
+			Xscn.setEnabled(false);
+			actionRemoveLine.setEnabled(false);
+			actionAddLine.setEnabled(false);
 	    	int number = getSecondTable().getRowCount();
 			int count = number/suppRows;
 			for(int i=0; i<count; i++){
@@ -1231,6 +1304,8 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 				getSecondTable().getCell(i*suppRows+2,"content").getStyleAttributes().setLocked(true);
 				getSecondTable().getCell(i*suppRows+3,"content").getStyleAttributes().setLocked(true);
 				getSecondTable().getCell(i*suppRows+4,"content").getStyleAttributes().setLocked(true);
+				getSecondTable().getCell(i*suppRows+5,"content").getStyleAttributes().setLocked(true);
+				getSecondTable().getCell(i*suppRows+6,"content").getStyleAttributes().setLocked(true);
 			}
     	}else{
     		actionAddSupp.setEnabled(true);
@@ -1250,7 +1325,11 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 			}
 		}
 	}
-	
+	//按钮点击刷新跃迁金额
+	protected void refash_actionPerformed(ActionEvent e) throws Exception {
+		btnSave.doClick();
+		MsgBox.showWarning("登记金额已经修改，请到拆分跃迁进行修改拆分金额！");
+	}
 	
 	/**
 	 * 需求来源：R100806-236合同录入、变更、结算单据界面增加审批按钮
@@ -1743,6 +1822,13 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 				}
 			}
 		});
+		//判断状态来修改单据//add by 李鹏  2016-01-12
+		isNotEditUI = getOprtState().equals("成本部修改")?true:false;
+		if(isNotEditUI){
+			this.refash.setVisible(true);
+		}else{
+			this.refash.setVisible(false);
+		}
 	}
 	
 	
@@ -5231,7 +5317,7 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 	
 	protected void setButtonStatus() {
 		super.setButtonStatus();
-		boolean flse = (getOprtState().equals("ADDNEW")||getOprtState().equals("EDIT"))?true:false;
+		boolean flse = (getOprtState().equals("ADDNEW")||getOprtState().equals("EDIT")||isNotEditUI)?true:false;
 		this.actionAcctSelect.setEnabled(flse);
 		this.actionSplitProj.setEnabled(flse);
 		this.actionSplitProd.setEnabled(flse);

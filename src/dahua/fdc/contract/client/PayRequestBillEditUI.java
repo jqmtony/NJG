@@ -5787,8 +5787,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		}
 		BigDecimal zjjh;
 		try {
-			BigDecimal je = getZjjh(year, month, objectValue.getCurProject()
-					.getId().toString(), contractBillId);
+			BigDecimal je = getZjjh(year, month, objectValue.getCurProject().getId().toString(), contractBillId);
 			objectValue.setZjjhSqje(je);
 		} catch (BOSException e) {
 			e.printStackTrace();
@@ -5803,32 +5802,31 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 			throws BOSException, SQLException {
 		BigDecimal zjjhje = BigDecimal.ZERO;
 		StringBuffer sb = new StringBuffer();
-		sb
-				.append("select try.fReportAmount from T_FNC_ProjectMonthPlanGather ther ");
-		sb
-				.append("left join T_FDC_CurProject  ject on ject.fid = ther.fcurprojectid ");
-		sb
-				.append("left join T_FNC_ProjectMonthPlanGEntry entry on entry.fheadid = ther.fid ");
-		sb
-				.append("left join T_FNC_ProjectMonthPGDateEntry try on try.fHeadEntryid = entry.fid ");
+		sb.append("select try.fReportAmount from T_FNC_ProjectMonthPlanGather ther ");
+		sb.append("left join T_FDC_CurProject  ject on ject.fid = ther.fcurprojectid ");
+		sb.append("left join T_FNC_ProjectMonthPlanGEntry entry on entry.fheadid = ther.fid ");
+		sb.append("left join T_FNC_ProjectMonthPGDateEntry try on try.fHeadEntryid = entry.fid ");
 		sb.append("where ther.FISLATEST = '1' ");
 		String m = "";
 		if (month < 10)
-			m = "0" + month;
-		else
-			m = month + "";
+			m = "0" + (month + 1);
+		else{
+			if(month != 12)
+				m = (month + 1) + "";
+			else{
+				m = month + "";
+				month = 1;
+			}
+		}
 		// 期间的年
-		sb.append("and ther.FBizDate= { ts '").append(year + "-" + m + "-01")
-				.append("'} ");
+		sb.append("and ther.FBizDate= { ts '").append(year + "-" + m + "-01").append("'} ");
 		// //期间的月
-		sb.append("and try.FMONTH='").append(month + 1).append("' ");
+		sb.append("and try.FMONTH='").append(month ).append("' ");
 		// 项目id
 		sb.append("and ject.fid='").append(id).append("' ");
 		// 公司ID
-		sb.append("and entry.FCONTRACTBILLID = '").append(contractId).append(
-				"'");
-		IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString())
-				.executeQuery();
+		sb.append("and entry.FCONTRACTBILLID = '").append(contractId).append("'");
+		IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
 		while (rowset.next()) {
 			zjjhje = rowset.getBigDecimal(1);
 		}
