@@ -103,7 +103,7 @@ public class PhotoAuditEditUI extends AbstractPhotoAuditEditUI
     
     private void initControl() throws SnapshotException, UIException{
 //    	this.kDComboBox1.removeAllItems();
-//    	this.kDComboBox1.addItems(new String[]{"","方案板","执行版"});
+//    	this.kDComboBox1.addItems(new String[]{"","方案版","执行版"});
     	this.kDComboBox1.setRequired(true);
     	this.setUITitle(editData.getNumber());
     	String snapshotID = editData.getSourceBillId();
@@ -178,7 +178,7 @@ public class PhotoAuditEditUI extends AbstractPhotoAuditEditUI
 	public void loadFields() {
 		super.loadFields(); 
 		this.kDComboBox1.removeAllItems();
-		this.kDComboBox1.addItems(new String[]{"","方案板","执行版"});
+		this.kDComboBox1.addItems(new String[]{"","方案版","执行版"});
 		if(UIRuleUtil.isNotNull(this.editData.getStage())){
 			this.kDComboBox1.setSelectedItem(this.editData.getStage());
 		}else{
