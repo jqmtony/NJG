@@ -334,6 +334,7 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1 ,ChangeAB.FNumber 申请编号2 , ChangeAB.Freadesc 适用范围 ,BaseU.Fname_l2 提出部门 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间5");
     	sb.append(" ,ChangeAB.CFBgyy 变更原因,bill.FNumber,u.Fname_l2,u.Fname_l2,ChangeAE.FIsBack isBack,ChangeAB.CFremark 备注");
+    	sb.append(" ,ChangeAB.CFYWTZ 有无图纸 ,CFCost 成本 ");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
@@ -341,7 +342,7 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	sb.append(" left join T_PM_User u on u.fid = ChangeAB.FCreatorID");
     	sb.append(" left join T_PM_User u on u.fid =ChangeAB.FAuditorID");
     	sb.append(" where ChangeAB.fid = '").append(billId).append("'");
-    	
+    
     	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
     	StringBuffer Yuanyi = new StringBuffer();
     	StringBuffer beizu = new StringBuffer();
@@ -367,37 +368,51 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		if(rowset.getBoolean("isBack"))
     			fg = true;
 
-    	}
-    	this.kDTable1.getCell(4, 3).setValue(Yuanyi.toString());
-    	this.kDTable1.getCell(4, 3).getStyleAttributes().setWrapText(true);
-    	this.kDTable1.getCell(30, 1).setValue(beizu.toString());
-    	this.kDTable1.getCell(30, 1).getStyleAttributes().setWrapText(true);
-    	if(Bm != null && Bm.indexOf("设计")!=-1)
-    	{
-    		addRowthree.getCell(1).setValue(Boolean.TRUE);
-    	}
-    	else if(Bm.indexOf("工程")!=-1)
-    	{
-    		addRowthree.getCell(3).setValue(Boolean.TRUE);
-    	}
-    	else if(Bm.indexOf("配套")!=-1)
-    	{
-    		addRowthree.getCell(5).setValue(Boolean.TRUE);
-    	}
-    	else if(Bm.indexOf("销售")!=-1)
-    	{
-    		addRowthree.getCell(7).setValue(Boolean.TRUE);
-    	}
-    	else 
-    	{
-    		addRowthree.getCell(9).setValue(Boolean.TRUE);
-    	}
-    	//返工
-    	if(fg){
-    		this.kDTable1.getCell(6, 8).setValue(Boolean.TRUE);
-    	}
-    	else{
-    		this.kDTable1.getCell(6, 10).setValue(Boolean.TRUE); 	
+    		this.kDTable1.getCell(4, 3).setValue(Yuanyi.toString());
+    		this.kDTable1.getCell(4, 3).getStyleAttributes().setWrapText(true);
+    		this.kDTable1.getCell(30, 1).setValue(beizu.toString());
+    		this.kDTable1.getCell(30, 1).getStyleAttributes().setWrapText(true);
+    		if(Bm != null && Bm.indexOf("设计")!=-1)
+    		{
+    			addRowthree.getCell(1).setValue(Boolean.TRUE);
+    		}
+    		else if(Bm.indexOf("工程")!=-1)
+    		{
+    			addRowthree.getCell(3).setValue(Boolean.TRUE);
+    		}
+    		else if(Bm.indexOf("配套")!=-1)
+    		{
+    			addRowthree.getCell(5).setValue(Boolean.TRUE);
+    		}
+    		else if(Bm.indexOf("销售")!=-1)
+    		{
+    			addRowthree.getCell(7).setValue(Boolean.TRUE);
+    		}
+    		else 
+    		{
+    			addRowthree.getCell(9).setValue(Boolean.TRUE);
+    		}
+    		//返工
+    		if(fg){
+    			this.kDTable1.getCell(6, 8).setValue(Boolean.TRUE);
+    		}
+    		else{
+    			this.kDTable1.getCell(6, 10).setValue(Boolean.TRUE); 	
+    		}
+    		//填充有无图纸
+        	String SFEJJD = rowset.getString("有无图纸")!=null?rowset.getString("有无图纸"):"";
+        	if(SFEJJD.equals(Boolean.TRUE))
+        		this.kDTable1.getCell(3, 2).setValue(Boolean.TRUE);
+        	if(SFEJJD.equals(Boolean.FALSE))
+        		this.kDTable1.getCell(3, 4).setValue(Boolean.TRUE);
+        	//填充成本
+        	String cost = rowset.getString("成本")!=null?rowset.getString("成本"):"";
+        	if(cost.equals("增加"))
+        		this.kDTable1.getCell(6, 2).setValue(Boolean.TRUE);
+        	if(cost.equals("减少"))
+        		this.kDTable1.getCell(6, 4).setValue(Boolean.TRUE);
+        	if(cost.equals("零费用"))
+        		this.kDTable1.getCell(6, 6).setValue(Boolean.TRUE);
     	}
     	//工作流审批意见
     	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);

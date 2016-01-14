@@ -414,6 +414,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 申请编号2 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间, ChangeAB.Freadesc 事由,BaseU.Fname_l2 提出部门,");
     	sb.append(" contractB.fname 合同名称6,contractB.fnumber 合同编号7,lier.fname_l2  主送,Su.fname_l2  抄送,ChangeAE.FChangeContent,u.Fname_l2,ChangeAE.FIsBack isBack");
     	sb.append(" ,ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
+    	sb.append(" ,ChangeAB.CFSFEJJD 二级节点 ,ChangeAB.CFXSCN 销售承诺,ChangeAB.CFBJZB 报建指标 ");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
@@ -476,14 +477,49 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
         		this.kDTable2.getCell(9, 5).setValue(Boolean.TRUE);
         	}
         	
+        	//填充二级节点
+        	String SFEJJD = rowset.getString("二级节点")!=null?rowset.getString("二级节点"):"";
+        	if(SFEJJD.equals(Boolean.TRUE))
+        		this.kDTable2.getCell(5, 5).setValue(Boolean.TRUE);
+        	if(SFEJJD.equals(Boolean.FALSE))
+        		this.kDTable2.getCell(5, 7).setValue(Boolean.TRUE);
         	//填充产品品质
         	String quality = rowset.getString("产品品质")!=null?rowset.getString("产品品质"):"";
         	if(quality.equals("提高"))
-        		this.kDTable1.getCell(9, 5).setValue(Boolean.TRUE);
+        		this.kDTable2.getCell(7, 5).setValue(Boolean.TRUE);
         	if(quality.equals("降低"))
-        		this.kDTable1.getCell(9, 7).setValue(Boolean.TRUE);
+        		this.kDTable2.getCell(7, 7).setValue(Boolean.TRUE);
         	if(quality.equals("无影响"))
-        		this.kDTable1.getCell(9, 9).setValue(Boolean.TRUE);
+        		this.kDTable2.getCell(7, 9).setValue(Boolean.TRUE);
+        	//填充工期
+        	String TimeLi = rowset.getString("工期")!=null?rowset.getString("工期"):"";
+        	if(TimeLi.equals("缩短"))
+        		this.kDTable2.getCell(8, 5).setValue(Boolean.TRUE);
+        	if(TimeLi.equals("延长"))
+        		this.kDTable2.getCell(8, 7).setValue(Boolean.TRUE);
+        	if(TimeLi.equals("无影响"))
+        		this.kDTable2.getCell(8, 9).setValue(Boolean.TRUE);
+        	//填充销售
+        	String Sale = rowset.getString("销售")!=null?rowset.getString("销售"):"";
+        	if(Sale.equals("有利"))
+        		this.kDTable2.getCell(9, 5).setValue(Boolean.TRUE);
+        	if(Sale.equals("无利"))
+        		this.kDTable2.getCell(9, 7).setValue(Boolean.TRUE);
+        	if(Sale.equals("无影响"))
+        		this.kDTable2.getCell(9, 9).setValue(Boolean.TRUE);
+        	//填充销售承诺
+        	String XSCN = rowset.getString("销售承诺")!=null?rowset.getString("销售承诺"):"";
+        	if(XSCN.equals(Boolean.TRUE))
+        		this.kDTable2.getCell(10, 5).setValue(Boolean.TRUE);
+        	if(XSCN.equals(Boolean.FALSE))
+        		this.kDTable2.getCell(10, 7).setValue(Boolean.TRUE);
+        	//填充报建指标
+        	String BJZB = rowset.getString("报建指标")!=null?rowset.getString("报建指标"):"";
+        	if(BJZB.equals(Boolean.TRUE))
+        		this.kDTable2.getCell(11, 5).setValue(Boolean.TRUE);
+        	if(BJZB.equals(Boolean.FALSE))
+        		this.kDTable2.getCell(11, 7).setValue(Boolean.TRUE);
+
     	}
     	   	
     	//工作流审批意见

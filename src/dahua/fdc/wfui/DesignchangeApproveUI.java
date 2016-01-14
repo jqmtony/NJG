@@ -354,6 +354,8 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1 ,ChangeAB.FNumber 申请编号1 ,ChangeAB.Fname 事项名称1,BaseU.Fname_l2 提出部门 , ");
     	sb.append(" ChangeAB.Freadesc 适用范围1 ,entry.FChangeContent,u.Fname_l2,u.Fname_l2,to_char(ChangeAB.FCreateTime,'yyyy-mm-dd'),entry.FIsBack isBack");
+    	sb.append(" ,ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
+    	sb.append(" ,ChangeAB.CFSFEJJD 二级节点 ,ChangeAB.CFXSCN 销售承诺,ChangeAB.CFBJZB 报建指标 ");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry entry on entry.FParentID = ChangeAB.fid ");
@@ -379,36 +381,86 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     		this.kDTable1.getCell(3, 11).setValue(rowset.getString(9));
     		if(rowset.getBoolean("isBack"))
     			fg = true;
-    	}
     	
-    	this.kDTable1.getCell(4, 1).setValue(Yuanyi.toString());
-    	this.kDTable1.getCell(4, 1).getStyleAttributes().setWrapText(true);
-    	if(Bm != null && Bm.indexOf("设计")!=-1)
-    	{
-    		addRowthree.getCell(1).setValue(Boolean.TRUE);
-    	}
-    	else if(Bm.indexOf("工程")!=-1)
-    	{
-    		addRowthree.getCell(3).setValue(Boolean.TRUE);
-    	}
-    	else if(Bm.indexOf("配套")!=-1)
-    	{
-    		addRowthree.getCell(5).setValue(Boolean.TRUE);
-    	}
-    	else if(Bm.indexOf("销售")!=-1)
-    	{
-    		addRowthree.getCell(7).setValue(Boolean.TRUE);
-    	}
-    	else 
-    	{
-    		addRowthree.getCell(9).setValue(Boolean.TRUE);
-    	}
-    	//返工
-    	if(fg){
-    		this.kDTable1.getCell(8, 3).setValue(Boolean.TRUE);
-    	}
-    	else{
-    		this.kDTable1.getCell(8, 5).setValue(Boolean.TRUE);
+    		this.kDTable1.getCell(4, 1).setValue(Yuanyi.toString());
+    		this.kDTable1.getCell(4, 1).getStyleAttributes().setWrapText(true);
+    		if(Bm != null && Bm.indexOf("设计")!=-1)
+    		{
+    			addRowthree.getCell(1).setValue(Boolean.TRUE);
+    		}
+    		else if(Bm.indexOf("工程")!=-1)
+    		{
+    			addRowthree.getCell(3).setValue(Boolean.TRUE);
+    		}
+    		else if(Bm.indexOf("配套")!=-1)
+    		{
+    			addRowthree.getCell(5).setValue(Boolean.TRUE);
+    		}
+    		else if(Bm.indexOf("销售")!=-1)
+    		{
+    			addRowthree.getCell(7).setValue(Boolean.TRUE);
+    		}
+    		else 
+    		{
+    			addRowthree.getCell(9).setValue(Boolean.TRUE);
+    		}
+    		//返工
+    		if(fg){
+    			this.kDTable1.getCell(8, 3).setValue(Boolean.TRUE);
+    		}
+    		else{
+    			this.kDTable1.getCell(8, 5).setValue(Boolean.TRUE);
+    		}
+    		//填充产品品质
+    		String quality = rowset.getString("产品品质")!=null?rowset.getString("产品品质"):"";
+    		if(quality.equals("提高"))
+    			this.kDTable1.getCell(6, 3).setValue(Boolean.TRUE);
+    		if(quality.equals("降低"))
+    			this.kDTable1.getCell(6, 5).setValue(Boolean.TRUE);
+    		if(quality.equals("无影响"))
+    			this.kDTable1.getCell(6, 7).setValue(Boolean.TRUE);
+    		//填充工期
+    		String TimeLi = rowset.getString("工期")!=null?rowset.getString("工期"):"";
+    		if(TimeLi.equals("缩短"))
+    			this.kDTable1.getCell(7, 3).setValue(Boolean.TRUE);
+    		if(TimeLi.equals("延长"))
+    			this.kDTable1.getCell(7, 5).setValue(Boolean.TRUE);
+    		if(TimeLi.equals("无影响"))
+    			this.kDTable1.getCell(7, 7).setValue(Boolean.TRUE);
+    		//填充二级节点
+    		String SFEJJD = rowset.getString("二级节点")!=null?rowset.getString("二级节点"):"";
+    		if(SFEJJD.equals(Boolean.TRUE))
+    			this.kDTable1.getCell(8, 3).setValue(Boolean.TRUE);
+    		if(SFEJJD.equals(Boolean.FALSE))
+    			this.kDTable1.getCell(8, 5).setValue(Boolean.TRUE);
+    		//填充销售
+    		String Sale = rowset.getString("销售")!=null?rowset.getString("销售"):"";
+    		if(Sale.equals("有利"))
+    			this.kDTable1.getCell(9, 3).setValue(Boolean.TRUE);
+    		if(Sale.equals("无利"))
+    			this.kDTable1.getCell(9, 5).setValue(Boolean.TRUE);
+    		if(Sale.equals("无影响"))
+    			this.kDTable1.getCell(9, 7).setValue(Boolean.TRUE);
+    		//填充销售承诺
+    		String XSCN = rowset.getString("销售承诺")!=null?rowset.getString("销售承诺"):"";
+    		if(XSCN.equals(Boolean.TRUE))
+    			this.kDTable1.getCell(10, 3).setValue(Boolean.TRUE);
+    		if(XSCN.equals(Boolean.FALSE))
+    			this.kDTable1.getCell(10, 5).setValue(Boolean.TRUE);
+    		//填充报建指标
+    		String BJZB = rowset.getString("报建指标")!=null?rowset.getString("报建指标"):"";
+    		if(BJZB.equals(Boolean.TRUE))
+    			this.kDTable1.getCell(11, 3).setValue(Boolean.TRUE);
+    		if(BJZB.equals(Boolean.FALSE))
+    			this.kDTable1.getCell(11, 5).setValue(Boolean.TRUE);
+    		//填充成本
+    		String cost = rowset.getString("成本")!=null?rowset.getString("成本"):"";
+    		if(cost.equals("增加"))
+    			this.kDTable1.getCell(13, 3).setValue(Boolean.TRUE);
+    		if(cost.equals("减少"))
+    			this.kDTable1.getCell(13, 5).setValue(Boolean.TRUE);
+    		if(cost.equals("零费用"))
+    			this.kDTable1.getCell(13, 7).setValue(Boolean.TRUE);
     	}
     	//工作流审批意见
     	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
