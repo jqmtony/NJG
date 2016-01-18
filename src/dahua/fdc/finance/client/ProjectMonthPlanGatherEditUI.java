@@ -649,8 +649,9 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		column=contractTable.addColumn();
 		column.setKey("currentProgress");
 		column.setWidth(200);
-		column.getStyleAttributes().setLocked(false);
+//		column.getStyleAttributes().setLocked(false);
 		column.getStyleAttributes().setWrapText(true);
+		column.getStyleAttributes().setBackground(contractTable.getRequiredColor());
 		headRow.getCell("currentProgress").setValue("当前进度说明");
 		headRowName.getCell("currentProgress").setValue("当前进度说明");
 		
@@ -1686,27 +1687,17 @@ public class ProjectMonthPlanGatherEditUI extends AbstractProjectMonthPlanGather
 		
 //		IRow headRow=this.contractTable.getHeadRow(0);
 //		IRow headRowTwo=this.contractTable.getHeadRow(1);
-//		for(int i=0;i<this.contractTable.getRowCount();i++){
-//			IRow row=this.contractTable.getRow(i);
-//			if(row.getStyleAttributes().getBackground().equals(FDCTableHelper.cantEditColor)){
-//				continue;
-//			}
-//			for(int j=0;j<this.contractTable.getColumnCount();j++){
-//				if(this.contractTable.getColumn(j).isRequired()){
-//					if(row.getCell(j).getValue()!=null&&row.getCell(j).getValue() instanceof String){
-//						if("".equals(row.getCell(j).getValue().toString().trim())){
-//							FDCMsgBox.showWarning(this,headRow.getCell(j).getValue().toString()+headRowTwo.getCell(j).getValue().toString()+"不能为空！");
-//							this.contractTable.getEditManager().editCellAt(i, j);
-//							SysUtil.abort();
-//						}
-//					}else if(row.getCell(j).getValue()==null){
-//						FDCMsgBox.showWarning(this,headRow.getCell(j).getValue().toString()+headRowTwo.getCell(j).getValue().toString()+"不能为空！");
-//						this.contractTable.getEditManager().editCellAt(i, j);
-//						SysUtil.abort();
-//					}
-//				}
-//			}
-//		}
+		//modify by yxl 20160118 提交时校验“当前进度说明”列必录
+		for(int i=0;i<this.contractTable.getRowCount();i++){
+			IRow row=this.contractTable.getRow(i);
+			if(row.getStyleAttributes().getBackground().equals(FDCTableHelper.cantEditColor)){
+				continue;
+			}
+			if(FDCHelper.isEmpty(row.getCell("currentProgress").getValue())){
+				MsgBox.showWarning("第["+(i+1)+"]行的当前进度说明不能为空！");
+				SysUtil.abort();
+			}
+		}
 		checkExecuteAmount();
 		checkYearAmount();
 	}

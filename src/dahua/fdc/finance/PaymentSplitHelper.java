@@ -154,7 +154,8 @@ public class PaymentSplitHelper {
 						continue;
 					}
 					String key=entry.getCostAccount().getId().toString();
-					key=key+entry.getCostBillId().toString();
+					if(entry.getCostBillId() != null)
+						key=key+entry.getCostBillId().toString();
 					if(entry.getSplitType()!=null){
 						key=key+entry.getSplitType().getValue();
 					}

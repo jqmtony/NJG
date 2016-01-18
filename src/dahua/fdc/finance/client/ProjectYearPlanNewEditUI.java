@@ -4,6 +4,7 @@
 package com.kingdee.eas.fdc.finance.client;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dialog;
 import java.awt.Dimension;
@@ -83,7 +84,6 @@ import com.kingdee.eas.fdc.basedata.client.FDCClientVerifyHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
 import com.kingdee.eas.fdc.basedata.util.KDDetailedAreaDialog;
-import com.kingdee.eas.fdc.basedata.util.KDDetailedAreaUtil;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractPayPlanEntryCollection;
 import com.kingdee.eas.fdc.contract.ContractPayPlanEntryFactory;
@@ -124,6 +124,7 @@ public class ProjectYearPlanNewEditUI extends AbstractProjectYearPlanNewEditUI
     private KDTable table=null;
     private int year_old = 0;
 	private int month_old =0;
+	private Color rowBg = new Color(246, 246, 191);
 	protected void attachListeners() {
 		
 	}
@@ -250,7 +251,7 @@ public class ProjectYearPlanNewEditUI extends AbstractProjectYearPlanNewEditUI
 		Arrays.sort(key);
 		for (int kk = 0; kk < key.length; kk++) {
 			IRow contractRow=table.addRow();
-			contractRow.getStyleAttributes().setBackground(new java.awt.Color(246, 246, 191));
+			contractRow.getStyleAttributes().setBackground(rowBg);
 			contractRow.setTreeLevel(0);
 			List value = (List) contractTypeMap.get(key[kk]);
 			for(int i=0;i<value.size();i++){
@@ -696,7 +697,7 @@ public class ProjectYearPlanNewEditUI extends AbstractProjectYearPlanNewEditUI
 		column=table.addColumn();
 		column.setKey("currentProgress");
 		column.setWidth(200);
-		column.getStyleAttributes().setLocked(false);
+//		column.getStyleAttributes().setLocked(false);
 		column.getStyleAttributes().setWrapText(true);
 		headRow.getCell("currentProgress").setValue("当前进度说明");
 		
@@ -784,10 +785,10 @@ public class ProjectYearPlanNewEditUI extends AbstractProjectYearPlanNewEditUI
 		int rowIndex = table.getSelectManager().getActiveRowIndex();
 		int colIndex = table.getSelectManager().getActiveColumnIndex();
 		final IRow row = table.getRow(rowIndex);
+		if(row.getStyleAttributes().getBackground().equals(rowBg)) {
+			return;
+		}
 		final ICell cell = table.getCell(rowIndex, colIndex);
-//		if (cell.getValue() == null) {
-//			return;
-//		}
 		BasicView view = table.getViewManager().getView(5);
 		Point p = view.getLocationOnScreen();
 		Rectangle rect = view.getCellRectangle(rowIndex, colIndex);
@@ -1419,6 +1420,17 @@ public class ProjectYearPlanNewEditUI extends AbstractProjectYearPlanNewEditUI
 			SysUtil.abort();
 		}
 		verifyInputForSave();
+		//modify by yxl 20160118 提交时校验“当前进度说明”列必录
+		for(int i=0; i<table.getRowCount(); i++){
+			IRow row = table.getRow(i);
+			if(row.getStyleAttributes().getBackground().equals(rowBg)){
+				continue;
+			}
+			if(FDCHelper.isEmpty(row.getCell("currentProgress").getValue())){
+				MsgBox.showWarning("第["+(i+1)+"]行的当前进度说明不能为空！");
+				SysUtil.abort();
+			}
+		}
 	}
 	public boolean confirmRemove(Component comp) {
 		return FDCMsgBox.isYes(FDCMsgBox.showConfirm2(comp, EASResource.getString("com.kingdee.eas.framework.FrameWorkResource.Confirm_Delete")));
