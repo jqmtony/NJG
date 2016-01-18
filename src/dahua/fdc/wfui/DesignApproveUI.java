@@ -334,7 +334,7 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1 ,ChangeAB.FNumber 申请编号2 , ChangeAB.Freadesc 适用范围 ,BaseU.Fname_l2 提出部门 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间5");
     	sb.append(" ,ChangeAB.CFBgyy 变更原因,bill.FNumber,u.Fname_l2,u.Fname_l2,ChangeAE.FIsBack isBack,ChangeAB.CFremark 备注");
-    	sb.append(" ,ChangeAB.CFYWTZ 有无图纸 ,CFCost 成本 ");
+    	sb.append(" ,ChangeAB.CFYWTZ 有无图纸 ,ChangeAB.CFCost 成本 ");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
@@ -499,10 +499,10 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		if((Boolean)kDTable1.getCell(3, 4).getValue())
     			i++;			
     		if(i == 0){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("有无图纸:你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 1){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("有无图纸:你只能勾选一个");
     			SysUtil.abort();
 			if((Boolean) kDTable1.getCell(3, 2).getValue()){
 				editData.setYwtz(Boolean.TRUE);
@@ -522,10 +522,10 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		if((Boolean)kDTable1.getCell(6, 6).getValue())
     			i++;			
     		if(i == 0){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("成本：你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 1){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("成本：你只能勾选一个");
     			SysUtil.abort();
     		}
 			if((Boolean)kDTable1.getCell(6, 2).getValue()){

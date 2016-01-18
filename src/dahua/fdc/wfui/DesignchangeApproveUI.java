@@ -428,11 +428,15 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     		if(TimeLi.equals("无影响"))
     			this.kDTable1.getCell(7, 7).setValue(Boolean.TRUE);
     		//填充二级节点
-    		String SFEJJD = rowset.getString("二级节点")!=null?rowset.getString("二级节点"):"";
-    		if(SFEJJD.equals(Boolean.TRUE))
+//    		String SFEJJD = rowset.getString("二级节点")!=null?rowset.getString("二级节点"):"";
+//    		if(SFEJJD.equals(Boolean.TRUE))
+//    			this.kDTable1.getCell(8, 3).setValue(Boolean.TRUE);
+//    		if(SFEJJD.equals(Boolean.FALSE))
+//    			this.kDTable1.getCell(8, 5).setValue(Boolean.TRUE);
+    		if(rowset.getBoolean("二级节点"))
     			this.kDTable1.getCell(8, 3).setValue(Boolean.TRUE);
-    		if(SFEJJD.equals(Boolean.FALSE))
-    			this.kDTable1.getCell(8, 5).setValue(Boolean.TRUE);
+        	else
+        		this.kDTable1.getCell(8, 5).setValue(Boolean.TRUE);
     		//填充销售
     		String Sale = rowset.getString("销售")!=null?rowset.getString("销售"):"";
     		if(Sale.equals("有利"))
@@ -442,17 +446,25 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     		if(Sale.equals("无影响"))
     			this.kDTable1.getCell(9, 7).setValue(Boolean.TRUE);
     		//填充销售承诺
-    		String XSCN = rowset.getString("销售承诺")!=null?rowset.getString("销售承诺"):"";
-    		if(XSCN.equals(Boolean.TRUE))
+//    		String XSCN = rowset.getString("销售承诺")!=null?rowset.getString("销售承诺"):"";
+//    		if(XSCN.equals(Boolean.TRUE))
+//    			this.kDTable1.getCell(10, 3).setValue(Boolean.TRUE);
+//    		if(XSCN.equals(Boolean.FALSE))
+//    			this.kDTable1.getCell(10, 5).setValue(Boolean.TRUE);
+    		if(rowset.getBoolean("销售承诺"))
     			this.kDTable1.getCell(10, 3).setValue(Boolean.TRUE);
-    		if(XSCN.equals(Boolean.FALSE))
-    			this.kDTable1.getCell(10, 5).setValue(Boolean.TRUE);
+        	else
+        		this.kDTable1.getCell(10, 5).setValue(Boolean.TRUE);
     		//填充报建指标
-    		String BJZB = rowset.getString("报建指标")!=null?rowset.getString("报建指标"):"";
-    		if(BJZB.equals(Boolean.TRUE))
+//    		String BJZB = rowset.getString("报建指标")!=null?rowset.getString("报建指标"):"";
+//    		if(BJZB.equals(Boolean.TRUE))
+//    			this.kDTable1.getCell(11, 3).setValue(Boolean.TRUE);
+//    		if(BJZB.equals(Boolean.FALSE))
+//    			this.kDTable1.getCell(11, 5).setValue(Boolean.TRUE);
+    		if(rowset.getBoolean("报建指标"))
     			this.kDTable1.getCell(11, 3).setValue(Boolean.TRUE);
-    		if(BJZB.equals(Boolean.FALSE))
-    			this.kDTable1.getCell(11, 5).setValue(Boolean.TRUE);
+        	else
+        		this.kDTable1.getCell(11, 5).setValue(Boolean.TRUE);
     		//填充成本
     		String cost = rowset.getString("成本")!=null?rowset.getString("成本"):"";
     		if(cost.equals("增加"))
@@ -562,10 +574,10 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     		if((Boolean)kDTable1.getCell(6, 7).getValue())
     			i++;   			
     		if(i == 0){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("产品品质:你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 1){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("产品品质:你只能勾选一个");
     			SysUtil.abort();
     		}	
     		if((Boolean)kDTable1.getCell(6, 3).getValue())
@@ -585,10 +597,10 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     		if((Boolean)kDTable1.getCell(7, 7).getValue())
     			i++;   			
     		if(i == 0){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("工期:你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 1){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("工期:你只能勾选一个");
     			SysUtil.abort();
     		}	
     		if((Boolean)kDTable1.getCell(7, 3).getValue())
@@ -603,10 +615,10 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     		if((Boolean)kDTable1.getCell(9, 7).getValue())
     			i++;
     		if(i == 1){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("是否二级节点:你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 2){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("是否二级节点:你只能勾选一个");
     			SysUtil.abort();
     		}		
     		if((Boolean)kDTable1.getCell(9, 5).getValue()){
@@ -625,10 +637,10 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     		if((Boolean)kDTable1.getCell(10, 7).getValue())
     			i++;			
     		if(i == 0){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("销售:你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 1){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("销售:你只能勾选一个");
     			SysUtil.abort();
     		}	
     		if((Boolean)kDTable1.getCell(10, 3).getValue())
@@ -643,10 +655,10 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     		if((Boolean)kDTable1.getCell(11, 5).getValue())
     			i++;
     		if(i == 1){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("销售承诺:你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 2){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("销售承诺:你只能勾选一个");
     			SysUtil.abort();
     		}		
     		if((Boolean)kDTable1.getCell(11, 3).getValue()){
@@ -663,10 +675,10 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     		if((Boolean)kDTable1.getCell(12, 5).getValue())
     			i++;			
     		if(i == 0){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("报建指标:你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 1){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("报建指标:你只能勾选一个");
     			SysUtil.abort();
     			if((Boolean)kDTable1.getCell(11, 3).getValue()){
     				editData.setBjzb(true);
@@ -685,10 +697,10 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     		if((Boolean)kDTable1.getCell(13, 7).getValue())
     			i++;			
     		if(i == 0){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("成本:你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 1){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("成本:你只能勾选一个");
     			SysUtil.abort();
     			if((Boolean)kDTable1.getCell(13, 3).getValue()){
     				editData.setCost("增加");

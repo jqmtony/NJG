@@ -410,7 +410,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 核定编号,contractB.fname 合同名称3,contractB.fnumber 合同编号4 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间, ChangeAB.Freadesc 核定内容,");
     	sb.append(" BaseU.Fname_l2  提出方,ChangeAE.FIsBack isBack");
-    	sb.append(" ,ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
+    	sb.append(" ,ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,ChangeAB.CFCost 成本");
     	sb.append(" ,ChangeAB.CFSFEJJD 二级节点 ,ChangeAB.CFXSCN 销售承诺,ChangeAB.CFBJZB 报建指标 ");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
@@ -463,16 +463,20 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
         	}
         	//返工
         	if(fg){
-        		this.kDTable2.getCell(9, 7).setValue(Boolean.TRUE);
-        	}
-        	else{
         		this.kDTable2.getCell(9, 5).setValue(Boolean.TRUE);
         	}
+        	else{
+        		this.kDTable2.getCell(9, 7).setValue(Boolean.TRUE);
+        	}
         	//填充二级节点
-        	String SFEJJD = rowset.getString("二级节点")!=null?rowset.getString("二级节点"):"";
-        	if(SFEJJD.equals(Boolean.TRUE))
+//        	String SFEJJD = rowset.getString("二级节点")!=null?rowset.getString("二级节点"):"";
+//        	if(SFEJJD.equals(Boolean.TRUE))
+//        		this.kDTable2.getCell(5, 5).setValue(Boolean.TRUE);
+//        	if(SFEJJD.equals(Boolean.FALSE))
+//        		this.kDTable2.getCell(5, 7).setValue(Boolean.TRUE);
+        	if(rowset.getBoolean("二级节点"))
         		this.kDTable2.getCell(5, 5).setValue(Boolean.TRUE);
-        	if(SFEJJD.equals(Boolean.FALSE))
+        	else
         		this.kDTable2.getCell(5, 7).setValue(Boolean.TRUE);
         	//填充产品品质
         	String quality = rowset.getString("产品品质")!=null?rowset.getString("产品品质"):"";
@@ -499,18 +503,25 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
         	if(Sale.equals("无影响"))
         		this.kDTable2.getCell(9, 9).setValue(Boolean.TRUE);
         	//填充销售承诺
-        	String XSCN = rowset.getString("销售承诺")!=null?rowset.getString("销售承诺"):"";
-        	if(XSCN.equals(Boolean.TRUE))
+//        	String XSCN = rowset.getString("销售承诺")!=null?rowset.getString("销售承诺"):"";
+//        	if(XSCN.equals(Boolean.TRUE))
+//        		this.kDTable2.getCell(10, 5).setValue(Boolean.TRUE);
+//        	if(XSCN.equals(Boolean.FALSE))
+//        		this.kDTable2.getCell(10, 7).setValue(Boolean.TRUE);
+        	if(rowset.getBoolean("销售承诺"))
         		this.kDTable2.getCell(10, 5).setValue(Boolean.TRUE);
-        	if(XSCN.equals(Boolean.FALSE))
+        	else
         		this.kDTable2.getCell(10, 7).setValue(Boolean.TRUE);
         	//填充报建指标
-        	String BJZB = rowset.getString("报建指标")!=null?rowset.getString("报建指标"):"";
-        	if(BJZB.equals(Boolean.TRUE))
+//        	String BJZB = rowset.getString("报建指标")!=null?rowset.getString("报建指标"):"";
+//        	if(BJZB.equals(Boolean.TRUE))
+//        		this.kDTable2.getCell(11, 5).setValue(Boolean.TRUE);
+//        	if(BJZB.equals(Boolean.FALSE))
+//        		this.kDTable2.getCell(11, 7).setValue(Boolean.TRUE);
+        	if(rowset.getBoolean("报建指标"))
         		this.kDTable2.getCell(11, 5).setValue(Boolean.TRUE);
-        	if(BJZB.equals(Boolean.FALSE))
+        	else
         		this.kDTable2.getCell(11, 7).setValue(Boolean.TRUE);
-
     	}
     	
     	
@@ -631,10 +642,10 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		if((Boolean)kDTable2.getCell(7, 9).getValue())
     			i++;	
     		if(i == 0){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("产品品质：你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 1){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("产品品质：你只能勾选一个");
     			SysUtil.abort();
     		}
     		if((Boolean)kDTable2.getCell(7, 5).getValue()){
@@ -655,10 +666,10 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		if((Boolean)kDTable2.getCell(5, 7).getValue())
     			i++;			
     		if(i == 0){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("二级节点：你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 1){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("二级节点：你只能勾选一个");
     			SysUtil.abort();
     		}
 			if((Boolean)kDTable2.getCell(5, 5).getValue()){
@@ -674,10 +685,10 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		if((Boolean)kDTable2.getCell(8, 9).getValue())
     			i++;
     		if(i == 1){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("工期：你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 2){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("工期：你只能勾选一个");
     			SysUtil.abort();
     		}
     		if((Boolean)kDTable2.getCell(8, 5).getValue()){
@@ -699,10 +710,10 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		if((Boolean)kDTable2.getCell(10, 9).getValue())
     			i++;	
     		if(i == 0){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("销售：你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 1){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("销售：你只能勾选一个");
     			SysUtil.abort();
     		}
 			if((Boolean)kDTable2.getCell(10, 5).getValue()){
@@ -718,10 +729,10 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		if((Boolean)kDTable2.getCell(11, 7).getValue())
     			i++;
     		if(i == 0){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("销售承诺：你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 1){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("销售承诺：你只能勾选一个");
     			SysUtil.abort();
     		}
     		if((Boolean)kDTable2.getCell(11, 5).getValue()){
@@ -739,10 +750,10 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		if((Boolean)kDTable2.getCell(12, 7).getValue())
     			i++;			
     		if(i == 0){
-    			FDCMsgBox.showInfo("你并没有勾选");
+    			FDCMsgBox.showInfo("报建指标：你并没有勾选");
     			SysUtil.abort();
     		}else if(i > 1){
-    			FDCMsgBox.showInfo("你只能勾选一个");
+    			FDCMsgBox.showInfo("报建指标：你只能勾选一个");
     			SysUtil.abort();
     		}
 			if((Boolean)kDTable2.getCell(12, 5).getValue()){
