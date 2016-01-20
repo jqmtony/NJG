@@ -1063,7 +1063,6 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.contcontractSource.setBoundLabelText(resHelper.getString("contcontractSource.boundLabelText"));		
         this.contcontractSource.setBoundLabelLength(100);		
         this.contcontractSource.setBoundLabelUnderline(true);		
-        this.contcontractSource.setVisible(false);		
         this.contcontractSource.setBoundLabelAlignment(7);
         // contExRate		
         this.contExRate.setBoundLabelText(resHelper.getString("contExRate.boundLabelText"));		
@@ -1369,8 +1368,7 @@ public abstract class AbstractContractBillEditUI extends com.kingdee.eas.fdc.bas
         this.contractSource.setCommitFormat("$number$");		
         this.contractSource.setDisplayFormat("$name$");		
         this.contractSource.setEditFormat("$number$");		
-        this.contractSource.setRequired(true);		
-        this.contractSource.setVisible(false);
+        this.contractSource.setRequired(true);
         this.contractSource.addSelectorListener(new com.kingdee.bos.ctrl.swing.event.SelectorListener() {
             public void willShow(com.kingdee.bos.ctrl.swing.event.SelectorEvent e) {
                 try {
@@ -2409,8 +2407,8 @@ this.setLayout(new BorderLayout(0, 0));
         kDPanel1.add(contCurrency, new KDLayout.Constraints(367, 26, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contcostProperty.setBounds(new Rectangle(366, 142, 270, 19));
         kDPanel1.add(contcostProperty, new KDLayout.Constraints(366, 142, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contcontractSource.setBounds(new Rectangle(368, 234, 270, 19));
-        kDPanel1.add(contcontractSource, new KDLayout.Constraints(368, 234, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contcontractSource.setBounds(new Rectangle(368, 210, 270, 19));
+        kDPanel1.add(contcontractSource, new KDLayout.Constraints(368, 210, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contExRate.setBounds(new Rectangle(725, 3, 270, 19));
         kDPanel1.add(contExRate, new KDLayout.Constraints(725, 3, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contLocalAmount.setBounds(new Rectangle(725, 49, 270, 19));
@@ -2449,8 +2447,8 @@ this.setLayout(new BorderLayout(0, 0));
         kDPanel1.add(conEntrustReason, new KDLayout.Constraints(725, 118, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         conModel.setBounds(new Rectangle(725, 233, 270, 19));
         kDPanel1.add(conModel, new KDLayout.Constraints(725, 233, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        conChargeType.setBounds(new Rectangle(367, 212, 270, 19));
-        kDPanel1.add(conChargeType, new KDLayout.Constraints(367, 212, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        conChargeType.setBounds(new Rectangle(367, 233, 270, 19));
+        kDPanel1.add(conChargeType, new KDLayout.Constraints(367, 233, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         chkisContractor.setBounds(new Rectangle(368, 95, 107, 19));
         kDPanel1.add(chkisContractor, new KDLayout.Constraints(368, 95, 107, 19, KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contcontractPrice.setBounds(new Rectangle(725, 26, 270, 19));

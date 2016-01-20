@@ -3310,6 +3310,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			if(rs.next()){
 				state = OprtState.VIEW;
 				uiContext.put("ID",rs.getString(1));
+				uiContext.put("newData",splitEntryInfo.getAmount());
 			}else{
 				uiContext.put("dataType",BuildSplitDataType.contract);
 				uiContext.put("contractLevel",BuildSplitContract.sign);
