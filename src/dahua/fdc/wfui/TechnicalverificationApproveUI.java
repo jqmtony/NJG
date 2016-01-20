@@ -56,21 +56,21 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	super.onLoad();
     	initUI();
     	
-    	kDTable1.getStyleAttributes().setLocked(true);
+    	kDTable2.getStyleAttributes().setLocked(true);
     	if (getOprtState().equals("设计部修改")){
-    		kDTable1.getRow(7).getStyleAttributes().setLocked(false);
+    		kDTable2.getRow(7).getStyleAttributes().setLocked(false);
     	}
     	if (getOprtState().equals("工程部修改")){
-    		kDTable1.getRow(5).getStyleAttributes().setLocked(false);
-    		kDTable1.getRow(8).getStyleAttributes().setLocked(false);
-    		kDTable1.getRow(9).getStyleAttributes().setLocked(false);
+    		kDTable2.getRow(5).getStyleAttributes().setLocked(false);
+    		kDTable2.getRow(8).getStyleAttributes().setLocked(false);
+    		kDTable2.getRow(9).getStyleAttributes().setLocked(false);
     	}
     	if (getOprtState().equals("销售部修改")){
-    		kDTable1.getRow(10).getStyleAttributes().setLocked(false);
-    		kDTable1.getRow(11).getStyleAttributes().setLocked(false);
+    		kDTable2.getRow(10).getStyleAttributes().setLocked(false);
+    		kDTable2.getRow(11).getStyleAttributes().setLocked(false);
     	}
     	if (getOprtState().equals("前期配套部修改")){
-    		kDTable1.getRow(12).getStyleAttributes().setLocked(false);
+    		kDTable2.getRow(12).getStyleAttributes().setLocked(false);
     	}
 //    	if (getOprtState().equals("成本部修改")){
 //    		kDTable1.getRow(6).getStyleAttributes().setLocked(false);
@@ -261,7 +261,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	addRow211.getCell(5).setEditor(editor);
     	addRow211.getCell(5).setValue(Boolean.FALSE);
     	addRow211.getCell(6).setValue("有利");
-    	addRow211.getCell(7).setValue("XX");
+//    	addRow211.getCell(7).setValue("XX");
     	addRow211.getCell(7).setEditor(editor);
     	addRow211.getCell(7).setValue(Boolean.FALSE);
     	addRow211.getCell(8).setValue("不利");
@@ -649,10 +649,10 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     			SysUtil.abort();
     		}
     		if((Boolean)kDTable2.getCell(7, 5).getValue()){
-    			editData.setQuality("缩短");
+    			editData.setQuality("提高");
 			}
 			else if((Boolean)kDTable2.getCell(7, 7).getValue()) 		
-				editData.setQuality("延长");
+				editData.setQuality("降低");
 			else if((Boolean)kDTable2.getCell(7, 7).getValue()) 		
 				editData.setQuality("无影响");
     	}
