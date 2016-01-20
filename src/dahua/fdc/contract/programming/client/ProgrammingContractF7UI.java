@@ -6,7 +6,9 @@ package com.kingdee.eas.fdc.contract.programming.client;
 import java.awt.event.ActionEvent;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 
@@ -16,6 +18,7 @@ import com.kingdee.bos.ctrl.kdf.table.ICell;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.ctrl.kdf.table.event.NodeClickListener;
+import com.kingdee.bos.ctrl.kdf.table.util.KDTableUtil;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
@@ -45,6 +48,7 @@ public class ProgrammingContractF7UI extends AbstractProgrammingContractF7UI {
 	private static final Logger logger = CoreUIObject
 			.getLogger(ProgrammingContractF7UI.class);
 	private boolean isCancel = true;
+	private boolean isMultiSelection = false;
 
 	private EntryTreeSumField sumField = new EntryTreeSumField();
 	public boolean isCancel() {
@@ -80,8 +84,12 @@ public class ProgrammingContractF7UI extends AbstractProgrammingContractF7UI {
 				.setNumberFormat(FDCHelper.getNumberFtm(2));
 		btnConfirm.setEnabled(true);
 		btnExit.setEnabled(true);
-		tblMain.getSelectManager().setSelectMode(KDTSelectManager.ROW_SELECT);
-	
+		//modify by yxl 20160118  在待签无文本合同中的合约规划支持多选
+		if(getUIContext().get("isMultiSelection")!=null && (Boolean)getUIContext().get("isMultiSelection")){
+			tblMain.getSelectManager().setSelectMode(KDTSelectManager.MULTIPLE_ROW_SELECT);
+			isMultiSelection = true;
+		}else
+			tblMain.getSelectManager().setSelectMode(KDTSelectManager.ROW_SELECT);
 		EntityViewInfo viewInfo = new EntityViewInfo();
 		SelectorItemCollection sic = new SelectorItemCollection();
 		sic.add("*");
@@ -278,6 +286,40 @@ public class ProgrammingContractF7UI extends AbstractProgrammingContractF7UI {
 			return null;
 		}
 	}
+	
+	public void getDatas() throws Exception {
+		List ids = getSelectedIdValues();
+		if(ids==null || ids.size()==0)
+			return;
+		Set idSets = new HashSet();
+		for(int i = 0; i < ids.size(); i++) {
+			idSets.add(ids.get(i));
+		}
+		EntityViewInfo view = new EntityViewInfo();
+		view.getSelector().add("id");
+		view.getSelector().add("name");
+		view.getSelector().add("longNumber");
+		view.getSelector().add("amount");
+		view.getSelector().add("number");
+		view.getSelector().add("controlAmount");
+		view.getSelector().add("balance");
+		view.getSelector().add("controlBalance");
+		view.getSelector().add("project.id");
+		view.getSelector().add("project.isEnabled");
+		FilterInfo filter = new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("id", idSets,CompareType.INCLUDE));
+		view.setFilter(filter);
+		ProgrammingContractCollection colls=ProgrammingContractFactory.getRemoteInstance().getProgrammingContractCollection(view);
+		CoreUIObject owner = (CoreUIObject) this.getUIContext().get(UIContext.OWNER);
+		if(owner!=null){
+			ProgrammingContractInfo[] infos = new ProgrammingContractInfo[colls.size()];
+			for(int i = 0; i < colls.size(); i++) {
+				infos[i] = colls.get(i);
+			}
+			owner.getUIContext().put("selectedValue", infos);
+		}
+		disposeUIWindow();
+	}
 
 	public ProgrammingContractInfo getData() throws Exception {
 		ProgrammingContractInfo info = null;
@@ -310,8 +352,11 @@ public class ProgrammingContractF7UI extends AbstractProgrammingContractF7UI {
 	}
 
 	private void confirm() throws Exception {
-		checkSelected();  
-		getData();
+		checkSelected();
+		if(isMultiSelection)
+			getDatas();
+		else
+			getData();
 		setCancel(true);
 	}
 
@@ -320,20 +365,20 @@ public class ProgrammingContractF7UI extends AbstractProgrammingContractF7UI {
 		if (rowsCount == 0
 				|| tblMain.getSelectManager().size() == 0
 				|| tblMain.getSelectManager().getActiveRowIndex() < 0) {
-			MsgBox.showWarning(this, EASResource
-					.getString(FrameWorkClientUtils.strResource
-							+ "Msg_MustSelected"));
+			MsgBox.showWarning(this, EASResource.getString(FrameWorkClientUtils.strResource+"Msg_MustSelected"));
 			SysUtil.abort();
 		}
-		int rowIndex = tblMain.getSelectManager().getActiveRowIndex();
-		int level = new Integer(tblMain.getCell(rowIndex, "level").getValue()
-				.toString()).intValue();
-		if (rowIndex < rowsCount-1) {
-			int level_next = new Integer(tblMain.getCell(rowIndex + 1, "level")
-					.getValue().toString()).intValue();
-			if (level < level_next) {
-				MsgBox.showWarning(this, FDCClientUtils.getRes("selectLeaf"));
-				SysUtil.abort();
+//		int rowIndex = tblMain.getSelectManager().getActiveRowIndex();
+		int[] selectRows = KDTableUtil.getSelectedRows(tblMain);
+		for(int i = 0; i < selectRows.length; i++) {
+			int rowIndex = selectRows[i];
+			int level = new Integer(tblMain.getCell(rowIndex, "level").getValue().toString()).intValue();
+			if(rowIndex < rowsCount-1) {
+				int level_next = new Integer(tblMain.getCell(rowIndex + 1,"level").getValue().toString()).intValue();
+				if (level < level_next) {
+					MsgBox.showWarning(this, FDCClientUtils.getRes("selectLeaf"));
+					SysUtil.abort();
+				}
 			}
 		}
 	}
@@ -382,9 +427,12 @@ public class ProgrammingContractF7UI extends AbstractProgrammingContractF7UI {
 		}
 		tblMain.getTreeColumn().setDepth(maxLevel);
 		
-		tblMain.getSelectManager().setSelectMode(KDTSelectManager.ROW_SELECT);
-		
-    
+//		tblMain.getSelectManager().setSelectMode(KDTSelectManager.ROW_SELECT);
+		//modify by yxl 20160118  在待签无文本合同中的合约规划支持多选
+		if(isMultiSelection)
+			tblMain.getSelectManager().setSelectMode(KDTSelectManager.MULTIPLE_ROW_SELECT);
+		else
+			tblMain.getSelectManager().setSelectMode(KDTSelectManager.ROW_SELECT);
 		
 	}
 
