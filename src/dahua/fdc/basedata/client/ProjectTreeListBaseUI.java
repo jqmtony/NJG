@@ -462,8 +462,7 @@ public abstract class ProjectTreeListBaseUI extends
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
 		checkSelected();
 		checkBillState(getStateForAudit(), "selectRightRowForAudit");
-		audit(ContractClientUtils.getSelectedIdValues(getMainTable(),
-				getKeyFieldName()));
+		audit(ContractClientUtils.getSelectedIdValues(getMainTable(),getKeyFieldName()));
 		showOprtOKMsgAndRefresh();
 	}
 
@@ -495,32 +494,23 @@ public abstract class ProjectTreeListBaseUI extends
 	 *               <p>
 	 */
 	protected void checkBillState(String state, String res) throws Exception {
-		List idList = ContractClientUtils.getSelectedIdValues(getMainTable(),
-				getKeyFieldName());
-
-		Set idSet = ContractClientUtils.listToSet(idList);
-
-		EntityViewInfo view = new EntityViewInfo();
 		FilterInfo filter = new FilterInfo();
-		filter.getFilterItems().add(
-				new FilterItemInfo("id", idSet, CompareType.INCLUDE));
+		List idList = ContractClientUtils.getSelectedIdValues(getMainTable(),getKeyFieldName());
+		Set idSet = ContractClientUtils.listToSet(idList);
+		EntityViewInfo view = new EntityViewInfo();
+		filter.getFilterItems().add(new FilterItemInfo("id", idSet, CompareType.INCLUDE));
 		view.setFilter(filter);
 		view.getSelector().add("id");
 		view.getSelector().add("state");
 		CoreBaseCollection coll = getRemoteInterface().getCollection(view);
-
 		for (Iterator iter = coll.iterator(); iter.hasNext();) {
 			CoreBaseInfo element = (CoreBaseInfo) iter.next();
-
 			// 检查单据是否在工作流中
-			FDCClientUtils
-					.checkBillInWorkflow(this, element.getId().toString());
-
+			FDCClientUtils.checkBillInWorkflow(this, element.getId().toString());
 			if (!element.getString(getBillStatePropertyName()).equals(state)) {
 				MsgBox.showWarning(this, ContractClientUtils.getRes(res));
 				abort();
 			}
-
 		}
 	}
 
