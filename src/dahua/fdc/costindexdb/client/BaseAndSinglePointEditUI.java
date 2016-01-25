@@ -395,7 +395,8 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 					builder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
 					builder.appendSql("where bill.CFDataType='singlePoint' and entry.CFPointName='"+pointName+"' ");
 					builder.appendSql("and bill.CFProjectNameID='"+projectInfo.getId().toString()+"' ");
-					builder.appendSql("and bill.CFCostAccountID='"+((CostAccountInfo)row.getCell("costAccount").getValue()).getId().toString()+"'");
+//					builder.appendSql("and bill.CFCostAccountID='"+((CostAccountInfo)row.getCell("costAccount").getValue()).getId().toString()+"'");
+					builder.appendSql("and bill.FDescription='"+((CostAccountInfo)row.getCell("costAccount").getValue()).getLongNumber()+"'");
 					IRowSet rs = builder.executeQuery();
 					String state = null;
 					if(rs.next()){

@@ -353,7 +353,8 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
     public void actionEdit_actionPerformed(ActionEvent arg0) throws Exception {
     	super.actionEdit_actionPerformed(arg0);
     	setBuutonAndTableState(true);
-    	grabData.setEnabled(true);
+    	if(!BuildSplitDataType.professPoint.equals(editData.getDataType()))
+    		grabData.setEnabled(true);
     }
     
     private void initColumnForBuildNumber(IColumn icol){
@@ -562,7 +563,11 @@ public class BuildSplitBillEditUI extends AbstractBuildSplitBillEditUI
         objectValue.setDataType((BuildSplitDataType)ctx.get("dataType"));
         CurProjectInfo pinfo = (CurProjectInfo)ctx.get("projectName");
         objectValue.setProjectName(pinfo);
-        objectValue.setCostAccount((CostAccountInfo)ctx.get("costAccount"));
+        if(ctx.get("costAccount") != null){
+        	CostAccountInfo costacctInfo = (CostAccountInfo)ctx.get("costAccount");
+        	objectValue.setCostAccount(costacctInfo);
+        	objectValue.setDescription(costacctInfo.getLongNumber());
+        }
         objectValue.setContractLevel((BuildSplitContract)ctx.get("contractLevel"));
         objectValue.setSourceNumber((String)ctx.get("sourceNumber"));
         //默认带出项目下所有楼号信息

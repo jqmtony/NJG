@@ -224,11 +224,11 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 //    	sic.add("dataValue");
 //		viewInfo.setSelector(sic);
 		FDCSQLBuilder builder = new FDCSQLBuilder();
-		builder.appendSql("select sbill.CFProjectNameID,costAcc.FlongNumber,entry.CFPointName,details.CFBuildNumberID,details.CFDataValue from CT_DAT_BuildSplitBillDetails details ");
+		builder.appendSql("select sbill.CFProjectNameID,sbill.FDescription,entry.CFPointName,details.CFBuildNumberID,details.CFDataValue from CT_DAT_BuildSplitBillDetails details ");
 		builder.appendSql("left join CT_DAT_BuildSplitBillEntry entry on details.FParentID=entry.fid left join CT_DAT_BuildSplitBill sbill on entry.FParentID=sbill.fid ");
 //		builder.appendSql("left join CT_DAT_BuildNumber buildNum on details.CFBuildNumberID=buildNum.fid ");
-		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");//details.CFModelBuild=1
-		builder.appendSql("sbill.CFDataType in ('singlePoint','basePoint') and sbill.CFProjectNameID in ("+idString+")");
+//		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");//details.CFModelBuild=1
+		builder.appendSql("where sbill.CFDataType in ('singlePoint','basePoint') and sbill.CFProjectNameID in ("+idString+")");
 		IRowSet rs = builder.executeQuery();
 		while(rs.next()){
 			String caLongNumber = "";
@@ -302,10 +302,10 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
      */
     private void getContractPriceSplitForMAP(String clevel,String idString) throws BOSException, SQLException{
     	FDCSQLBuilder builder = new FDCSQLBuilder();
-		builder.appendSql("select sbill.CFProjectNameID,costAcc.FlongNumber,entry.CFPointName,details.CFBuildNumberID,details.CFDataValue from CT_DAT_BuildSplitBillDetails details ");
+		builder.appendSql("select sbill.CFProjectNameID,sbill.FDescription,entry.CFPointName,details.CFBuildNumberID,details.CFDataValue from CT_DAT_BuildSplitBillDetails details ");
 		builder.appendSql("left join CT_DAT_BuildSplitBillEntry entry on details.FParentID=entry.fid left join CT_DAT_BuildSplitBill sbill on entry.FParentID=sbill.fid ");
-		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");//details.CFModelBuild=1
-		builder.appendSql("sbill.CFDataType='contract' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
+//		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");//details.CFModelBuild=1
+		builder.appendSql("where sbill.CFDataType='contract' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
 		IRowSet rs = builder.executeQuery();
 		while(rs.next()){
 			String caLongNumber = "";
@@ -318,10 +318,10 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 		}
 		//数据类型--->项目id+要素名称+科目长编码
 		builder.clear();
-		builder.appendSql("select sbill.CFProjectNameID,costAcc.FlongNumber,entry.CFPointName,entry.CFDataValue from CT_DAT_BuildSplitBillEntry entry ");
+		builder.appendSql("select sbill.CFProjectNameID,sbill.FDescription,entry.CFPointName,entry.CFDataValue from CT_DAT_BuildSplitBillEntry entry ");
 		builder.appendSql("left join CT_DAT_BuildSplitBill sbill on entry.FParentID=sbill.fid ");
-		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");
-		builder.appendSql("sbill.CFDataType='contract' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
+//		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");
+		builder.appendSql("where sbill.CFDataType='contract' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
 		rs = builder.executeQuery();
 		while(rs.next()){
 			String caLongNumber = "";
@@ -374,10 +374,10 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
      */
     private void getZYSplitForMAP(String clevel,String idString) throws BOSException, SQLException{
     	FDCSQLBuilder builder = new FDCSQLBuilder();
-		builder.appendSql("select sbill.CFProjectNameID,costAcc.FlongNumber,entry.CFPointName,details.CFBuildNumberID,details.CFDataValue from CT_DAT_BuildSplitBillDetails details ");
+		builder.appendSql("select sbill.CFProjectNameID,sbill.FDescription,entry.CFPointName,details.CFBuildNumberID,details.CFDataValue from CT_DAT_BuildSplitBillDetails details ");
 		builder.appendSql("left join CT_DAT_BuildSplitBillEntry entry on details.FParentID=entry.fid left join CT_DAT_BuildSplitBill sbill on entry.FParentID=sbill.fid ");
-		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");//details.CFModelBuild=1
-		builder.appendSql("sbill.CFDataType='professPoint' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
+//		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");//details.CFModelBuild=1
+		builder.appendSql("where sbill.CFDataType='professPoint' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
 		IRowSet rs = builder.executeQuery();
 		while(rs.next()){
 			String caLongNumber = "";
@@ -390,10 +390,10 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 		}
 		//数据类型--->项目id+要素名称+科目长编码
 		builder.clear();
-		builder.appendSql("select sbill.CFProjectNameID,costAcc.FlongNumber,entry.CFPointName,entry.CFDataValue from CT_DAT_BuildSplitBillEntry entry ");
+		builder.appendSql("select sbill.CFProjectNameID,sbill.FDescription,entry.CFPointName,entry.CFDataValue from CT_DAT_BuildSplitBillEntry entry ");
 		builder.appendSql("left join CT_DAT_BuildSplitBill sbill on entry.FParentID=sbill.fid ");
-		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");
-		builder.appendSql("sbill.CFDataType='professPoint' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
+//		builder.appendSql("left join T_FDC_CostAccount costAcc on sbill.CFCostAccountID=costAcc.fid where ");
+		builder.appendSql("where sbill.CFDataType='professPoint' and sbill.CFContractLevel='"+clevel+"' and sbill.CFProjectNameID in ("+idString+")");
 		rs = builder.executeQuery();
 		while(rs.next()){
 			String caLongNumber = "";
@@ -560,7 +560,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 			capinfo = entrycolls.get(i);
 			entrycoll = capinfo.getEntrys();
 			row = table.addHeadRow();
-			//key有项目ID，指标编码，科目长编码组成 	modify by yxl 20151216
+			//key有指标编码，科目长编码组成 	modify by yxl 20151216
+			//项目ID 存table的ID属性中
 			key = capinfo.getNumber()+"@"+cainfo.getLongNumber();
 			table.setName(key);
 			table.setID(projectPcIds);
@@ -619,7 +620,7 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 			addLine.addActionListener(baseAL);
 			insetLine.addActionListener(baseAL);
 			removeLine.addActionListener(baseAL);
-			kDTabbedPane1.add(cainfo.getName()+capinfo.getIndexType().getName(),kdc);
+			kDTabbedPane1.add(capinfo.getIndexType().getName()+"-"+cainfo.getName(),kdc);
 			tables.put(key,table);
 			containers.put(key,kdc);
 			priceIndexEntrys.put(key,entrycoll);
@@ -1446,6 +1447,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 				ICostAccount ica = CostAccountFactory.getRemoteInstance();
 				//modify by yxl 分录的项目id原本只存项目id，现在把合约规划的id拼接到项目id的后面，省个字段
 				String projectPcIds = null;
+				FDCSQLBuilder builder = new FDCSQLBuilder();
+				 IRowSet rs = null;
 				for(int i = 0; i < table.getRowCount3(); i++) {
 					if((Integer)table.getCell(i,"level").getValue()==0){
 						entryInfo = new BuildPriceIndexEntryInfo();
@@ -1453,9 +1456,19 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 						entryInfo.setAccountNumber(cinfo);
 						entryInfo.setAccountName(cinfo.getName());
 						projectPcIds = ((BOSUuid)table.getCell(i,"costAccount.curProject.id").getValue()).toString()+"@";
-						if(table.getCell(i,"programming").getValue() != null)
-							projectPcIds = projectPcIds+((ProgrammingContractInfo)table.getCell(i,"programming").getValue()).getId().toString();
-						else
+						if(table.getCell(i,"programming").getValue() != null){
+							String pcid = ((ProgrammingContractInfo)table.getCell(i,"programming").getValue()).getId().toString();
+							builder.clear();
+							builder.appendSql("select pc1.fid from T_CON_ProgrammingContract pc1 join T_CON_Programming p1 on p1.fid = pc1.fprogrammingid ");
+							builder.appendSql("join (select p.FVersionGroup,pc.flongnumber from T_CON_ProgrammingContract pc join T_CON_Programming p ");
+							builder.appendSql(" on p.fid = pc.fprogrammingid where pc.fid = ? ) t on (t.FVersionGroup = p1.FVersionGroup and t.flongnumber = pc1.flongnumber) ");
+							builder.appendSql("where p1.FIsLatest = 1 and p1.FState = '4AUDITTED'");
+							builder.addParam(pcid);
+							rs = builder.executeQuery();
+							if(rs.next())
+								pcid = rs.getString(1);
+							projectPcIds = projectPcIds+pcid;
+						}else
 							projectPcIds = projectPcIds+"999";
 						entryInfo.setProjectId(projectPcIds);
 						entryInfo.setIsInput(true);
@@ -1465,6 +1478,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 			} catch (BOSException e) {
 				handUIException(e);
 			} catch (EASBizException e) {
+				handUIException(e);
+			} catch (SQLException e) {
 				handUIException(e);
 			}
 		}
