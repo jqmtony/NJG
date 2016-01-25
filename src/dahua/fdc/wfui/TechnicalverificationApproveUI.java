@@ -4,6 +4,7 @@
 package com.kingdee.eas.fdc.wfui;
 
 import java.awt.event.*;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.Map;
 
@@ -297,12 +298,12 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	IRow addRow214 = this.kDTable2.addRow();
     	addRow214.getCell(2).setValue("成 本 部");
     	addRow214.getCell(4).setValue("估算工程费增减总价：");
-    	addRow214.getCell(10).setValue("万元");
+    	addRow214.getCell(10).setValue("元");
     	mergeManager2.mergeBlock(13, 4, 13, 8);   	
     	
     	IRow addRow215 = this.kDTable2.addRow();
     	addRow215.getCell(4).setValue("其中返工造成的签证费用估算：");
-    	addRow215.getCell(10).setValue("万元");
+    	addRow215.getCell(10).setValue("元");
     	mergeManager2.mergeBlock(14, 4, 14, 8);
     	IRow addRow216 = this.kDTable2.addRow();
     	addRow216.getCell(4).setValue("本次变更累计占合同价的百分比");
@@ -411,7 +412,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 核定编号,contractB.fname 合同名称3,contractB.fnumber 合同编号4 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间, ChangeAB.Freadesc 核定内容,");
     	sb.append(" BaseU.Fname_l2  提出方,ChangeAE.FIsBack isBack");
     	sb.append(" ,ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,ChangeAB.CFCost 成本");
-    	sb.append(" ,ChangeAB.CFSFEJJD 二级节点 ,ChangeAB.CFXSCN 销售承诺,ChangeAB.CFBJZB 报建指标 ");
+    	sb.append(" ,ChangeAB.CFSFEJJD 二级节点 ,ChangeAB.CFXSCN 销售承诺,ChangeAB.CFBJZB 报建指标 ,ChangeAB.CFContractAmPro 合同百分比,ChangeAB.CFTotalChangeAmount 累计百分比,ChangeAB.FTotalCost 估算工程金额,ChangeAB.CFReworkVisa 返工签证费用 ");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
@@ -430,15 +431,23 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		
     		this.kDTable1.getCell(0, 1).setValue(rowset.getString(1));
     		//事由
-    		this.kDTable1.getCell(1, 1).setValue(rowset.getString(6));
+    		this.kDTable1.getCell(1, 1).setValue(rowset.getString("核定内容")+ "\n");
     		this.kDTable1.getCell(2, 1).setValue(rowset.getString(3));
     		this.kDTable1.getCell(2, 3).setValue(rowset.getString(4));
-    		this.kDTable1.getCell(3, 1).setValue(rowset.getString(6));
+    		this.kDTable1.getCell(3, 1).setValue(rowset.getString("核定内容")+ "\n");
     		Bm = rowset.getString(7);
     		
     		this.kDTable2.getCell(0, 2).setValue(rowset.getString(3));
     		this.kDTable2.getCell(1, 2).setValue(rowset.getString(4));
+    		//内容
+    		this.kDTable2.getCell(3, 5).setValue(rowset.getString("核定内容") + "\n");
     		this.kDTable2.getCell(1, 11).setValue(rowset.getString(5));
+      		//估算工程金额
+        	BigDecimal je = rowset.getBigDecimal("估算工程金额");
+    		this.kDTable2.getCell(13, 9).setValue(je);
+    		this.kDTable2.getCell(14, 9).setValue(rowset.getBigDecimal("返工签证费用"));
+    		this.kDTable2.getCell(15, 9).setValue(rowset.getString("合同百分比"));
+    		this.kDTable2.getCell(16, 9).setValue(rowset.getString("累计百分比"));
     		if(rowset.getBoolean("isBack"))
     			fg = true;	
     		if(Bm != null && Bm.indexOf("设计")!=-1)
@@ -468,12 +477,11 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
         	else{
         		this.kDTable2.getCell(9, 7).setValue(Boolean.TRUE);
         	}
+        	//返工去双选
+    		if((Boolean)kDTable2.getCell(9, 5).getValue() && (Boolean)kDTable2.getCell(9, 7).getValue()){
+    			this.kDTable2.getCell(9, 7).setValue(Boolean.FALSE);
+    		}
         	//填充二级节点
-//        	String SFEJJD = rowset.getString("二级节点")!=null?rowset.getString("二级节点"):"";
-//        	if(SFEJJD.equals(Boolean.TRUE))
-//        		this.kDTable2.getCell(5, 5).setValue(Boolean.TRUE);
-//        	if(SFEJJD.equals(Boolean.FALSE))
-//        		this.kDTable2.getCell(5, 7).setValue(Boolean.TRUE);
         	if(rowset.getBoolean("二级节点"))
         		this.kDTable2.getCell(5, 5).setValue(Boolean.TRUE);
         	else
@@ -497,31 +505,21 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
         	//填充销售
         	String Sale = rowset.getString("销售")!=null?rowset.getString("销售"):"";
         	if(Sale.equals("有利"))
-        		this.kDTable2.getCell(9, 5).setValue(Boolean.TRUE);
-        	if(Sale.equals("无利"))
-        		this.kDTable2.getCell(9, 7).setValue(Boolean.TRUE);
-        	if(Sale.equals("无影响"))
-        		this.kDTable2.getCell(9, 9).setValue(Boolean.TRUE);
-        	//填充销售承诺
-//        	String XSCN = rowset.getString("销售承诺")!=null?rowset.getString("销售承诺"):"";
-//        	if(XSCN.equals(Boolean.TRUE))
-//        		this.kDTable2.getCell(10, 5).setValue(Boolean.TRUE);
-//        	if(XSCN.equals(Boolean.FALSE))
-//        		this.kDTable2.getCell(10, 7).setValue(Boolean.TRUE);
-        	if(rowset.getBoolean("销售承诺"))
         		this.kDTable2.getCell(10, 5).setValue(Boolean.TRUE);
-        	else
+        	if(Sale.equals("无利"))
         		this.kDTable2.getCell(10, 7).setValue(Boolean.TRUE);
-        	//填充报建指标
-//        	String BJZB = rowset.getString("报建指标")!=null?rowset.getString("报建指标"):"";
-//        	if(BJZB.equals(Boolean.TRUE))
-//        		this.kDTable2.getCell(11, 5).setValue(Boolean.TRUE);
-//        	if(BJZB.equals(Boolean.FALSE))
-//        		this.kDTable2.getCell(11, 7).setValue(Boolean.TRUE);
-        	if(rowset.getBoolean("报建指标"))
+        	if(Sale.equals("无影响"))
+        		this.kDTable2.getCell(10, 9).setValue(Boolean.TRUE);
+        	//填充销售承诺
+        	if(rowset.getBoolean("销售承诺"))
         		this.kDTable2.getCell(11, 5).setValue(Boolean.TRUE);
         	else
         		this.kDTable2.getCell(11, 7).setValue(Boolean.TRUE);
+        	//填充报建指标
+        	if(rowset.getBoolean("报建指标"))
+        		this.kDTable2.getCell(12, 5).setValue(Boolean.TRUE);
+        	else
+        		this.kDTable2.getCell(12, 7).setValue(Boolean.TRUE);
     	}
     	
     	
@@ -728,10 +726,10 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     			i++;
     		if((Boolean)kDTable2.getCell(11, 7).getValue())
     			i++;
-    		if(i == 0){
+    		if(i == 1){
     			FDCMsgBox.showInfo("销售承诺：你并没有勾选");
     			SysUtil.abort();
-    		}else if(i > 1){
+    		}else if(i > 2){
     			FDCMsgBox.showInfo("销售承诺：你只能勾选一个");
     			SysUtil.abort();
     		}

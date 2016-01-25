@@ -4,6 +4,7 @@
 package com.kingdee.eas.fdc.wfui;
 
 import java.awt.event.ActionEvent;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.Map;
 
@@ -296,14 +297,14 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	IRow addRow214 = this.kDTable2.addRow();
     	addRow214.getCell(2).setValue("成 本 部");
     	addRow214.getCell(4).setValue("估算工程费增减总价：");
-    	addRow214.getCell(10).setValue("万元");
+    	addRow214.getCell(10).setValue("元");
     	mergeManager2.mergeBlock(13, 4, 13, 8);
     	
     	
     	
     	IRow addRow215 = this.kDTable2.addRow();
     	addRow215.getCell(4).setValue("其中返工造成的签证费用估算：");
-    	addRow215.getCell(10).setValue("万元");
+    	addRow215.getCell(10).setValue("元");
     	mergeManager2.mergeBlock(14, 4, 14, 8);
     	IRow addRow216 = this.kDTable2.addRow();
     	addRow216.getCell(4).setValue("本次变更累计占合同价的百分比");
@@ -415,7 +416,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1,ChangeAB.FNumber 申请编号2 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间, ChangeAB.Freadesc 事由,BaseU.Fname_l2 提出部门,");
     	sb.append(" contractB.fname 合同名称6,contractB.fnumber 合同编号7,lier.fname_l2  主送,Su.fname_l2  抄送,ChangeAE.FChangeContent,u.Fname_l2,ChangeAE.FIsBack isBack");
     	sb.append(" ,ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
-    	sb.append(" ,ChangeAB.CFSFEJJD 二级节点 ,ChangeAB.CFXSCN 销售承诺,ChangeAB.CFBJZB 报建指标 ");
+    	sb.append(" ,ChangeAB.CFSFEJJD 二级节点 ,ChangeAB.CFXSCN 销售承诺,ChangeAB.CFBJZB 报建指标 ,ChangeAB.CFContractAmPro 合同百分比,ChangeAB.CFTotalChangeAmount 累计百分比,ChangeAB.FTotalCost 估算工程金额,ChangeAB.CFReworkVisa 返工签证费用 ");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
@@ -442,12 +443,21 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     		this.kDTable1.getCell(1, 1).setValue(rowset.getString(7));
     		this.kDTable1.getCell(3, 1).setValue(rowset.getString(8));
     		this.kDTable1.getCell(3, 3).setValue(rowset.getString(9));
-    		this.kDTable1.getCell(4, 1).setValue(rowset.getString(10));
+    		this.kDTable1.getCell(4, 1).setValue(rowset.getString(10) + "\n");
     		this.kDTable1.getCell(9, 1).setValue(rowset.getString(11));
     		
     		this.kDTable2.getCell(0, 2).setValue(rowset.getString(6));
     		this.kDTable2.getCell(1, 2).setValue(rowset.getString(7));
+    		//内容
+    		this.kDTable2.getCell(3, 5).setValue(rowset.getString(10) + "\n");
     		this.kDTable2.getCell(1, 11).setValue(rowset.getString(3));
+    		//估算工程金额
+        	BigDecimal je = rowset.getBigDecimal("估算工程金额");
+    		this.kDTable2.getCell(13, 9).setValue(je);
+    		this.kDTable2.getCell(14, 9).setValue(rowset.getBigDecimal("返工签证费用"));
+    		this.kDTable2.getCell(15, 9).setValue(rowset.getString("合同百分比"));
+    		this.kDTable2.getCell(16, 9).setValue(rowset.getString("累计百分比"));
+    		
     		if(rowset.getBoolean("isBack"))
     			fg = true;	
     		if(Bm != null && Bm.indexOf("设计")!=-1)
@@ -477,7 +487,10 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
         	else{
         		this.kDTable2.getCell(9, 7).setValue(Boolean.TRUE);
         	}
-        	
+        	//返工去双选
+    		if((Boolean)kDTable2.getCell(9, 5).getValue() && (Boolean)kDTable2.getCell(9, 7).getValue()){
+    			this.kDTable2.getCell(9, 7).setValue(Boolean.FALSE);
+    		}
         	//填充二级节点
         	if(rowset.getBoolean("二级节点"))
         		this.kDTable2.getCell(5, 5).setValue(Boolean.TRUE);
@@ -502,21 +515,21 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
         	//填充销售
         	String Sale = rowset.getString("销售")!=null?rowset.getString("销售"):"";
         	if(Sale.equals("有利"))
-        		this.kDTable2.getCell(9, 5).setValue(Boolean.TRUE);
+        		this.kDTable2.getCell(10, 5).setValue(Boolean.TRUE);
         	if(Sale.equals("无利"))
-        		this.kDTable2.getCell(9, 7).setValue(Boolean.TRUE);
+        		this.kDTable2.getCell(10, 7).setValue(Boolean.TRUE);
         	if(Sale.equals("无影响"))
-        		this.kDTable2.getCell(9, 9).setValue(Boolean.TRUE);
+        		this.kDTable2.getCell(10, 9).setValue(Boolean.TRUE);
         	//填充销售承诺
         	if(rowset.getBoolean("销售承诺"))
-        		this.kDTable2.getCell(10, 5).setValue(Boolean.TRUE);
-        	else
-        		this.kDTable2.getCell(10, 7).setValue(Boolean.TRUE);
-        	//填充报建指标
-        	if(rowset.getBoolean("报建指标"))
         		this.kDTable2.getCell(11, 5).setValue(Boolean.TRUE);
         	else
         		this.kDTable2.getCell(11, 7).setValue(Boolean.TRUE);
+        	//填充报建指标
+        	if(rowset.getBoolean("报建指标"))
+        		this.kDTable2.getCell(12, 5).setValue(Boolean.TRUE);
+        	else
+        		this.kDTable2.getCell(12, 7).setValue(Boolean.TRUE);
     	}
     	   	
     	//工作流审批意见
@@ -585,7 +598,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     		String result = apporveResultForMap.get("公司第一负责人");
     		
     		String person = result.substring(0,result.indexOf("!"));  		
-    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
     		String date = result.substring(result.indexOf("@")+1);
     		this.kDTable2.getCell(18, 2).setValue(yijian);  		
     		this.kDTable2.getCell(20, 10).setValue(person);

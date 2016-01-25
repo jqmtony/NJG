@@ -4,6 +4,7 @@
 package com.kingdee.eas.fdc.wfui;
 
 import java.awt.event.ActionEvent;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.Map;
 
@@ -166,7 +167,7 @@ public class DesignApproveUI extends AbstractDesignApproveUI
 //    	addRowseven.getCell(6).setValue("XX");
     	addRowseven.getCell(6).setEditor(editor);
     	addRowseven.getCell(6).setValue(Boolean.FALSE);
-    	addRowseven.getCell(7).setValue("零");
+    	addRowseven.getCell(7).setValue("零费用");
 //    	addRowseven.getCell(8).setValue("XX");
     	addRowseven.getCell(8).setEditor(editor);
     	addRowseven.getCell(8).setValue(Boolean.FALSE);
@@ -181,7 +182,7 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	//第八行
     	IRow addRoweight = this.kDTable1.addRow();
     	addRoweight.getCell(1).setValue("估算工程费增减总价");
-    	addRoweight.getCell(5).setValue("万元");
+    	addRoweight.getCell(5).setValue("元");
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(7, 1, 7, 2);
     	mergeManager.mergeBlock(7, 3, 7, 4);
@@ -193,7 +194,7 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	IRow addRownine = this.kDTable1.addRow();
     	addRownine.getCell(1).setValue("其中返工造成的签证费用估算");
     	KDTableHelper.autoFitRowHeight(this.kDTable1, 8);
-    	addRownine.getCell(6).setValue("万元");
+    	addRownine.getCell(6).setValue("元");
     	//融合(1)-(3)是行 2-4是列
     	mergeManager.mergeBlock(8, 1, 8, 2);
     	mergeManager.mergeBlock(8, 3, 8, 4);
@@ -334,7 +335,7 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1 ,ChangeAB.FNumber 申请编号2 , ChangeAB.Freadesc 适用范围 ,BaseU.Fname_l2 提出部门 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间5");
     	sb.append(" ,ChangeAB.CFBgyy 变更原因,bill.FNumber,u.Fname_l2,u.Fname_l2,ChangeAE.FIsBack isBack,ChangeAB.CFremark 备注");
-    	sb.append(" ,ChangeAB.CFYWTZ 有无图纸 ,ChangeAB.CFCost 成本 ");
+    	sb.append(" ,ChangeAB.CFYWTZ 有无图纸 ,ChangeAB.CFCost 成本, ChangeAB.CFFTBH 附图编号,ChangeAB.FTotalCost 估算工程金额,ChangeAB.CFReworkVisa 返工签证费用,ChangeAB.CFContractAmPro 合同百分比,ChangeAB.CFTotalChangeAmount 累计百分比 ");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
@@ -363,6 +364,22 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		Yuanyi.append(rowset.getString("变更原因")+"\n");
     		beizu.append(rowset.getString("备注")+"\n");
     		this.kDTable1.getCell(0, 7).setValue(rowset.getString(7));
+    		this.kDTable1.getCell(3, 9).setValue(rowset.getString("附图编号"));
+    		//估算工程金额
+        	BigDecimal je = rowset.getBigDecimal("估算工程金额");
+        	this.kDTable1.getCell(7, 3).setValue(je);
+    		//填充成本
+    		if(je.compareTo(BigDecimal.ZERO)>0)
+    			this.kDTable1.getCell(6, 2).setValue(Boolean.TRUE);
+    		if(je.compareTo(BigDecimal.ZERO)<0)
+    			this.kDTable1.getCell(6, 4).setValue(Boolean.TRUE);
+    		else
+    			this.kDTable1.getCell(6, 6).setValue(Boolean.TRUE);
+    		
+    		if(rowset.getBoolean("isBack"))
+    		this.kDTable1.getCell(8, 3).setValue(rowset.getString("返工签证费用"));
+    		this.kDTable1.getCell(9, 5).setValue(rowset.getString("合同百分比"));
+    		this.kDTable1.getCell(10, 5).setValue(rowset.getString("累计百分比"));
 //    		this.kDTable1.getCell(5, 2).setValue(rowset.getString(8));
 //    		this.kDTable1.getCell(5, 4).setValue(rowset.getString(9));
     		if(rowset.getBoolean("isBack"))
@@ -399,20 +416,16 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		else{
     			this.kDTable1.getCell(6, 10).setValue(Boolean.TRUE); 	
     		}
+    		//返工去双选
+    		if((Boolean)kDTable1.getCell(6, 8).getValue()  && (Boolean)kDTable1.getCell(6, 10).getValue()){
+    			this.kDTable1.getCell(6, 10).setValue(Boolean.FALSE);
+    		}
     		//填充有无图纸
-        	String SFEJJD = rowset.getString("有无图纸")!=null?rowset.getString("有无图纸"):"";
-        	if(SFEJJD.equals(Boolean.TRUE))
+    		if(rowset.getBoolean("有无图纸"))
         		this.kDTable1.getCell(3, 2).setValue(Boolean.TRUE);
-        	if(SFEJJD.equals(Boolean.FALSE))
+    		else
         		this.kDTable1.getCell(3, 4).setValue(Boolean.TRUE);
-        	//填充成本
-        	String cost = rowset.getString("成本")!=null?rowset.getString("成本"):"";
-        	if(cost.equals("增加"))
-        		this.kDTable1.getCell(6, 2).setValue(Boolean.TRUE);
-        	if(cost.equals("减少"))
-        		this.kDTable1.getCell(6, 4).setValue(Boolean.TRUE);
-        	if(cost.equals("零费用"))
-        		this.kDTable1.getCell(6, 6).setValue(Boolean.TRUE);
+        	
     	}
     	//工作流审批意见
     	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
@@ -442,6 +455,8 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		
     		String person = result.substring(0,result.indexOf("!"));
     		String date = result.substring(result.indexOf("@")+1);
+    		String	yijan = result.substring(result.indexOf("!"), result.indexOf("@"));
+    		this.kDTable1.getCell(14, 1).setValue(yijan);
     		this.kDTable1.getCell(15, 8).setValue(person);
     		if(!"".equals(date))
     			this.kDTable1.getCell(15, 11).setValue(date);
@@ -450,6 +465,8 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		String result = apporveResultForMap.get("城市公司第一负责人");
     		String person = result.substring(0,result.indexOf("!"));
     		String date = result.substring(result.indexOf("@")+1);
+    		String	yijan = result.substring(result.indexOf("!"), result.indexOf("@"));
+    		this.kDTable1.getCell(17, 1).setValue(yijan);
     		this.kDTable1.getCell(18, 8).setValue(person);
     		if(!"".equals(date))
     			this.kDTable1.getCell(18, 11).setValue(date);
@@ -467,16 +484,16 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	//工作流审批意见
     	Map<String, String> apporveResultForMaptwo = WFResultApporveHelper.getApporveResultForPerson(billId);
     			this.kDTable1.getCell(19, 2).setValue(apporveResultForMaptwo.get("工程管理中心"));
-    			this.kDTable1.getCell(20, 11).setValue(apporveResultForMaptwo.get("营销管理中心"));
-    			this.kDTable1.getCell(21, 11).setValue(apporveResultForMaptwo.get("商业管理中心"));
-    			this.kDTable1.getCell(22, 11).setValue(apporveResultForMaptwo.get("成本管理中心"));
-    			this.kDTable1.getCell(23, 11).setValue(apporveResultForMaptwo.get("运营管理中心"));
-    			this.kDTable1.getCell(24, 11).setValue(apporveResultForMaptwo.get("设计管理中心"));
-    			this.kDTable1.getCell(25, 11).setValue(apporveResultForMaptwo.get("设计营销副总裁"));
-    			this.kDTable1.getCell(26, 11).setValue(apporveResultForMaptwo.get("工程成本副总裁"));
-    			this.kDTable1.getCell(27, 11).setValue(apporveResultForMaptwo.get("运营商管副总裁"));
-    			this.kDTable1.getCell(28, 11).setValue(apporveResultForMaptwo.get("执行副总裁"));
-    			this.kDTable1.getCell(29, 11).setValue(apporveResultForMaptwo.get("总裁"));
+    			this.kDTable1.getCell(20, 2).setValue(apporveResultForMaptwo.get("营销管理中心"));
+    			this.kDTable1.getCell(21, 2).setValue(apporveResultForMaptwo.get("商业管理中心"));
+    			this.kDTable1.getCell(22, 2).setValue(apporveResultForMaptwo.get("成本管理中心"));
+    			this.kDTable1.getCell(23, 2).setValue(apporveResultForMaptwo.get("运营管理中心"));
+    			this.kDTable1.getCell(24, 2).setValue(apporveResultForMaptwo.get("设计管理中心"));
+    			this.kDTable1.getCell(25, 2).setValue(apporveResultForMaptwo.get("设计营销副总裁"));
+    			this.kDTable1.getCell(26, 2).setValue(apporveResultForMaptwo.get("工程成本副总裁"));
+    			this.kDTable1.getCell(27, 2).setValue(apporveResultForMaptwo.get("运营商管副总裁"));
+    			this.kDTable1.getCell(28, 2).setValue(apporveResultForMaptwo.get("执行副总裁"));
+    			this.kDTable1.getCell(29, 2).setValue(apporveResultForMaptwo.get("总裁"));
     }
     
 //    protected void kDTable1_tableClicked(KDTMouseEvent e) throws Exception {
@@ -513,29 +530,29 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		}
     	}
     	//成本部
-    	if(getOprtState().equals("成本部修改")){
-    		 i = 0;
-    		if((Boolean)kDTable1.getCell(6, 2).getValue())
-    			i++;
-    		if((Boolean)kDTable1.getCell(6, 4).getValue())
-    			i++;			
-    		if((Boolean)kDTable1.getCell(6, 6).getValue())
-    			i++;			
-    		if(i == 0){
-    			FDCMsgBox.showInfo("成本：你并没有勾选");
-    			SysUtil.abort();
-    		}else if(i > 1){
-    			FDCMsgBox.showInfo("成本：你只能勾选一个");
-    			SysUtil.abort();
-    		}
-			if((Boolean)kDTable1.getCell(6, 2).getValue()){
-				editData.setCost("增加");
-			}
-			else if((Boolean)kDTable1.getCell(6, 4).getValue()) 		
-				editData.setCost("减少");
-			else if((Boolean)kDTable1.getCell(6, 6).getValue()) 		
-				editData.setCost("零");
-		}
+//    	if(getOprtState().equals("成本部修改")){
+//    		 i = 0;
+//    		if((Boolean)kDTable1.getCell(6, 2).getValue())
+//    			i++;
+//    		if((Boolean)kDTable1.getCell(6, 4).getValue())
+//    			i++;			
+//    		if((Boolean)kDTable1.getCell(6, 6).getValue())
+//    			i++;			
+//    		if(i == 0){
+//    			FDCMsgBox.showInfo("成本：你并没有勾选");
+//    			SysUtil.abort();
+//    		}else if(i > 1){
+//    			FDCMsgBox.showInfo("成本：你只能勾选一个");
+//    			SysUtil.abort();
+//    		}
+//			if((Boolean)kDTable1.getCell(6, 2).getValue()){
+//				editData.setCost("增加");
+//			}
+//			else if((Boolean)kDTable1.getCell(6, 4).getValue()) 		
+//				editData.setCost("减少");
+//			else if((Boolean)kDTable1.getCell(6, 6).getValue()) 		
+//				editData.setCost("零");
+//		}
 	}
     
     //回到原单
