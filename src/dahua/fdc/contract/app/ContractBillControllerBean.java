@@ -465,6 +465,7 @@ public class ContractBillControllerBean extends
     	sic.add(new SelectorItemInfo("splitEntry.workLoad"));
     	sic.add(new SelectorItemInfo("splitEntry.price"));
     	sic.add(new SelectorItemInfo("splitEntry.splitScale"));
+    	sic.add(new SelectorItemInfo("splitEntry.isLeaf"));
     	sic.add(new SelectorItemInfo("splitEntry.programmings.id"));
 //		sic.add(new SelectorItemInfo("splitEntry.programmings.name"));
 //    	sic.add(new SelectorItemInfo("splitEntry.programmings.number"));
@@ -1222,15 +1223,15 @@ public class ContractBillControllerBean extends
 
 		//自动审批拆分单(完全拆分状态的)
 		//成本拆分
-		CostSplitBillAutoAuditor.autoAudit(ctx, new ObjectUuidPK(billId), "T_CON_ContractCostSplit", "FContractBillID");
+//		CostSplitBillAutoAuditor.autoAudit(ctx, new ObjectUuidPK(billId), "T_CON_ContractCostSplit", "FContractBillID");
 		//财务拆分
-		CostSplitBillAutoAuditor.autoAudit(ctx, new ObjectUuidPK(billId), "T_CON_ConNoCostSplit", "FContractBillID");
+//		CostSplitBillAutoAuditor.autoAudit(ctx, new ObjectUuidPK(billId), "T_CON_ConNoCostSplit", "FContractBillID");
 		
 		
 		// modified by zhaoqin for 项目资金计划 on 2013/08/15 start
 		// return super._submit(ctx, contractBillInfo);
 		ContractBillInfo contractBillInfo = this.getContractBillInfo(ctx, new ObjectUuidPK(billId.toString()), getSic());
-		String costCenterId = contractBillInfo.getOrgUnit().getId().toString();//合同肯定是在成本中心下做的
+//		String costCenterId = contractBillInfo.getOrgUnit().getId().toString();//合同肯定是在成本中心下做的
 		// 是否自动拆分
 		//boolean isAutoSplit = FDCUtils.getBooleanValue4FDCParamByKey(ctx, costCenterId, FDCConstants.FDC_PARAM_ISAUTOSPLIT);
 		/**
@@ -1239,9 +1240,9 @@ public class ContractBillControllerBean extends
 		 *  1: 全部自动拆分
 		 *  2: 不自动拆分
 		 */
-		String autoSplit = FDCUtils.getFDCParamByKey(ctx, costCenterId, FDCConstants.FDC_PARAM_ISAUTOSPLIT);
-		if (null != autoSplit && ("0".equals(autoSplit) || "1".equals(autoSplit)))
-			autoSplit(ctx, contractBillInfo);
+//		String autoSplit = FDCUtils.getFDCParamByKey(ctx, costCenterId, FDCConstants.FDC_PARAM_ISAUTOSPLIT);
+//		if (null != autoSplit && ("0".equals(autoSplit) || "1".equals(autoSplit)))
+//			autoSplit(ctx, contractBillInfo);
 		// modified by zhaoqin for 项目资金计划 on 2013/08/14 end
 		updateContractExecInfos(ctx, billId);		
 		updatePeriod(ctx, billId);

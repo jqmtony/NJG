@@ -5193,7 +5193,8 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 			builder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
 			builder.appendSql("where bill.CFDataType='contract' and bill.CFContractLevel='change' ");
 			builder.appendSql("and bill.CFProjectNameID='"+projectInfo.getId().toString()+"' ");
-			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+//			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+			builder.appendSql("and bill.FDescription='"+splitEntryInfo.getCostAccount().getLongNumber()+"' ");
 			builder.appendSql("and bill.CFSourceNumber='"+txtNumber.getText()+"'");
 			IRowSet rs = builder.executeQuery();
 			String state = null;
@@ -5247,7 +5248,8 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 			builder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
 			builder.appendSql("where bill.CFDataType='professPoint' and bill.CFContractLevel='change' ");
 			builder.appendSql("and bill.CFProjectNameID='"+projectInfo.getId().toString()+"' ");
-			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+//			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+			builder.appendSql("and bill.FDescription='"+splitEntryInfo.getCostAccount().getLongNumber()+"' ");
 			builder.appendSql("and bill.CFSourceNumber='"+txtNumber.getText()+"'");
 			IRowSet rs = builder.executeQuery();
 			String state = null;

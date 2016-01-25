@@ -102,6 +102,7 @@ import com.kingdee.eas.base.uiframe.client.BodyUI;
 import com.kingdee.eas.base.uiframe.client.NewWinMainUI;
 import com.kingdee.eas.basedata.org.CostCenterOrgUnitInfo;
 import com.kingdee.eas.basedata.org.OrgType;
+import com.kingdee.eas.basedata.org.client.PositionPromptBox;
 import com.kingdee.eas.basedata.org.client.PositionPromptBox2;
 import com.kingdee.eas.basedata.person.client.PersonF7UI;
 import com.kingdee.eas.basedata.person.client.PersonPromptBox;
@@ -160,8 +161,6 @@ import com.kingdee.eas.fdc.contract.programming.ProgrammingException;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingInfo;
 import com.kingdee.eas.fdc.contract.programming.SendContWay;
-import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleEntryCollection;
-import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleEntryFactory;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleDatazCollection;
 import com.kingdee.eas.fdc.finance.PayPlanNewByScheduleDatazInfo;
@@ -324,15 +323,22 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 //		map.put("ADMIN_ORGRANGE", "BaseDataPosition");
 		PositionPromptBox2 ppb = new PositionPromptBox2(this);
 		ppb.setCurrentCUAdminFilter();
+//		ppb.setMultiSelect(false);
+//		ppb.setUserAdminFilter(SysContext.getSysContext().getCurrentCtrlUnit().getId().toString());
+//		ppb.setHROFilter(true);
 //		EntityViewInfo evi = new EntityViewInfo();
 //        FilterInfo filter = new FilterInfo();
 //        filter.getFilterItems().add(new FilterItemInfo("CU.id", SysContext.getSysContext().getCurrentCtrlUnit().getId()));
 //        evi.setFilter(filter);
 //        prmtYjDesign.setEntityViewInfo(evi);
+//        prmtYjCost.setEntityViewInfo(evi);
+//        prmtYjProject.setEntityViewInfo(evi);
+//        prmtYjMaterial.setEntityViewInfo(evi);
         prmtYjDesign.setSelector(ppb);
         prmtYjCost.setSelector(ppb);
         prmtYjProject.setSelector(ppb);
         prmtYjMaterial.setSelector(ppb);
+        
 	}
 
 	private void initFxdbTable() throws BOSException {

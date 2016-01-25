@@ -4091,20 +4091,20 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 		}
 		BigDecimal totalContractAmount = getContractAmount(contractSetId);
 		BigDecimal ChangeAuditAmount = getTotalChangeAuditAmount(contractSetId);
-		this.txtcontractAmPro.setValue(FDCHelper.multiply(FDCHelper.divide(this.txtTotalCost.getBigDecimalValue(), totalContractAmount,4),new BigDecimal("100"),2));
-		this.txttotalChangeAmount.setValue(FDCHelper.multiply(FDCHelper.divide(ChangeAuditAmount, totalContractAmount,4),new BigDecimal("100"),2));
+		this.txtcontractAmPro.setValue(FDCHelper.multiply(FDCHelper.divide(txtdesignChangeAmount.getBigDecimalValue(), totalContractAmount,4),new BigDecimal("100"),2));
+		this.txttotalChangeAmount.setValue(FDCHelper.multiply(FDCHelper.divide(ChangeAuditAmount.add(txtdesignChangeAmount.getBigDecimalValue()), totalContractAmount,4),new BigDecimal("100"),2));
 		hasSaveAddSu = false;
 	}
 	
 	private BigDecimal getTotalChangeAuditAmount(Set<String> idSet) throws BOSException{
-		String oql ="select costAmount where parent.id in(select fid from T_CON_ChangeAuditBill where fstate='4AUDITTED' and CFBillType='30')";
+		String oql ="select contractBill.id,costAmount where parent.id in(select fid from T_CON_ChangeAuditBill where fstate='4AUDITTED' and CFBillType='30' and FCURPROJECTID='"+editData.getCurProject().getId().toString()+"')";
 		if(editData.getId()!=null)
 			oql = oql+" and parent.id <>'"+editData.getId()+"'";
 		ChangeSupplierEntryCollection changeSupplierEn = ChangeSupplierEntryFactory.getRemoteInstance().getChangeSupplierEntryCollection(oql);
-		
 		BigDecimal amount = BigDecimal.ZERO;
-		for (int i = 0; i < changeSupplierEn.size(); i++) 
-			amount = FDCHelper.add(amount,changeSupplierEn.get(i).getCostAmount());
+		for(int i = 0; i < changeSupplierEn.size(); i++)
+			if(idSet.contains(changeSupplierEn.get(i).getContractBill().getId().toString()))
+				amount = FDCHelper.add(amount,changeSupplierEn.get(i).getCostAmount());
 		return amount;
 	}
 	
@@ -5243,7 +5243,8 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 			builder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
 			builder.appendSql("where bill.CFDataType='contract' and bill.CFContractLevel='change' ");
 			builder.appendSql("and bill.CFProjectNameID='"+projectInfo.getId().toString()+"' ");
-			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+//			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+			builder.appendSql("and bill.FDescription='"+splitEntryInfo.getCostAccount().getLongNumber()+"' ");
 			builder.appendSql("and bill.CFSourceNumber='"+txtNumber.getText()+"'");
 			IRowSet rs = builder.executeQuery();
 			String state = null;
@@ -5297,7 +5298,8 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 			builder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
 			builder.appendSql("where bill.CFDataType='professPoint' and bill.CFContractLevel='change' ");
 			builder.appendSql("and bill.CFProjectNameID='"+projectInfo.getId().toString()+"' ");
-			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+//			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+			builder.appendSql("and bill.FDescription='"+splitEntryInfo.getCostAccount().getLongNumber()+"' ");
 			builder.appendSql("and bill.CFSourceNumber='"+txtNumber.getText()+"'");
 			IRowSet rs = builder.executeQuery();
 			String state = null;

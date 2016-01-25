@@ -21,6 +21,9 @@ import com.kingdee.bos.ctrl.kdf.table.ICell;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.bos.dao.query.IQueryExecutor;
+import com.kingdee.bos.dao.query.QueryExecutorFactory;
+import com.kingdee.bos.metadata.IMetaDataPK;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemCollection;
@@ -65,6 +68,7 @@ import com.kingdee.eas.fdc.finance.PaymentSplitFactory;
 import com.kingdee.eas.fdc.finance.SettledMonthlyHelper;
 import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.eas.framework.CoreBaseInfo;
+import com.kingdee.eas.framework.FrameWorkUtils;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
@@ -271,6 +275,29 @@ public class ContractCostSplitListUI extends AbstractContractCostSplitListUI {
 
 	}
 
+//	protected IQueryExecutor getQueryExecutor(IMetaDataPK queryPK,EntityViewInfo viewInfo) {
+		// TODO Auto-generated method stub
+//		IQueryExecutor exec = super.getQueryExecutor(queryPK, viewInfo);
+//		exec.option().isAutoIgnoreZero=false;
+//		return super.getQueryExecutor(queryPK, viewInfo);
+//		EntityViewInfo evi = new EntityViewInfo();
+//		FilterInfo filter = new FilterInfo();
+//		evi.setFilter(filter);
+//		filter.getFilterItems().add(new FilterItemInfo("curProject.id", getSelectProject().getId().toString()));
+//		filter.getFilterItems().add(new FilterItemInfo("contractPropert", "SUPPLY"));
+//		filter.getFilterItems().add(new FilterItemInfo("state", "4AUDITTED"));
+//		IQueryExecutor exec = null;
+//		 if(getMainOrgContext() != null && FrameWorkUtils.getCurrentOrgUnit(getMainOrgContext()) != null)
+//	        {
+//	            exec = QueryExecutorFactory.getRemoteInstanceWithObjectContext(mainQueryPK, getMainOrgContext());
+//	            exec.setObjectView(evi);
+//	        }else{
+//	        	exec = QueryExecutorFactory.getRemoteInstance(mainQueryPK);
+//	        	 exec.setObjectView(evi);
+//	        }
+//		return exec;
+//	}
+	
 	/**
 	 * output getEditUIName method
 	 */

@@ -3126,11 +3126,13 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		btnSplitProd.setText("产品拆分");
 		KDWorkButton btnRemoveLine = (KDWorkButton)this.kDContainer2.add(actionRemoveSplit);
 		btnRemoveLine.setText("删除分录");
-		String programControlMode = getParamValue();
-		if(programControlMode!=null && !"2".equals(programControlMode.trim())) {
-			//不控制
+//		String programControlMode = getParamValue();
+//		if(programControlMode!=null && !"2".equals(programControlMode.trim())) {
+//			//不控制
+//			kDContainer2.removeButton(btnAcctSelect);
+//		}
+		if(!isWholeAgeProject)
 			kDContainer2.removeButton(btnAcctSelect);
-		}
 		this.kDLabelContainer5.setBounds(150, 2, 200, 19);
 		this.kDContainer2.add(this.kDLabelContainer5);
 		this.kDLabelContainer6.setBounds(370, 2, 180, 19);
@@ -3303,7 +3305,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			builder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
 			builder.appendSql("where bill.CFDataType='contract' and bill.CFContractLevel='sign' ");
 			builder.appendSql("and bill.CFProjectNameID='"+projectInfo.getId().toString()+"' ");
-			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+//			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+			builder.appendSql("and bill.FDescription='"+splitEntryInfo.getCostAccount().getLongNumber()+"' ");
 			builder.appendSql("and bill.CFSourceNumber='"+txtNumber.getText()+"'");
 			IRowSet rs = builder.executeQuery();
 			String state = null;
@@ -3359,7 +3362,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			builder.appendSql("select bill.fid from CT_DAT_BuildSplitBill bill left join CT_DAT_BuildSplitBillEntry entry on bill.fid=entry.fparentid ");
 			builder.appendSql("where bill.CFDataType='professPoint' and bill.CFContractLevel='sign' ");
 			builder.appendSql("and bill.CFProjectNameID='"+projectInfo.getId().toString()+"' ");
-			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+//			builder.appendSql("and bill.CFCostAccountID='"+splitEntryInfo.getCostAccount().getId().toString()+"' ");
+			builder.appendSql("and bill.FDescription='"+splitEntryInfo.getCostAccount().getLongNumber()+"' ");
 			builder.appendSql("and bill.CFSourceNumber='"+txtNumber.getText()+"'");
 			IRowSet rs = builder.executeQuery();
 			String state = null;
@@ -6120,7 +6124,12 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			MsgBox.showConfirm2(this, "启用成本月结,必须录入期间");
 			SysUtil.abort();
 		}
-
+		//modify by yxl 20160125  补充合同非独立结算 不需要拆分
+		if(contractPro == ContractPropertyEnum.SUPPLY && isUseAmtWithoutCost && kdtSplitEntry.getRowCount()>0){
+			MsgBox.showInfo("非独立结算的补充合同不需要拆分，系统将清空拆分信息！");
+			kdtSplitEntry.removeRows();
+			editData.getSplitEntry().clear();
+		}
 		FDCClientVerifyHelper.verifyEmpty(this, prmtcontractType);
 		super.verifyInputForSave();
 		FDCClientVerifyHelper.verifyEmpty(this, txtcontractName);
@@ -9175,7 +9184,8 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		}
 
 		//返回值
-		entrys=new ContractBillSplitEntryCollection();
+		entrys.clear();
+//		entrys=new ContractBillSplitEntryCollection();
 		FDCSplitBillEntryCollection oldEntrys =(FDCSplitBillEntryCollection) ((CostSplitApptUI) uiWin.getUIObject()).getData() ;
 		for (int i = 0; i < oldEntrys.size(); i++) {
 			ContractBillSplitEntryInfo newInfo = new ContractBillSplitEntryInfo();

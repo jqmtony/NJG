@@ -389,6 +389,12 @@ public class ProgrammingContractF7UI extends AbstractProgrammingContractF7UI {
 	}
 
 	public void actionExit_actionPerformed(ActionEvent e) throws Exception {
+//		if(isMultiSelection){
+//			CoreUIObject owner = (CoreUIObject) this.getUIContext().get(UIContext.OWNER);
+//			if(owner!=null){
+//				owner.getUIContext().put("selectedValue", null);
+//			}
+//		}
 		destroyWindow();
 		setCancel(true);
 	}
