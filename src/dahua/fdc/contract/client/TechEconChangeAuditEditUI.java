@@ -1217,7 +1217,7 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 		}		
 		//判断状态来修改单据//add by 李鹏  2016-01-13
 		else if(isFromWorkflow!=null&&isFromWorkflow.booleanValue()&&isNotEditUI){
-    		lockUIForViewStatus();
+//    		lockUIForViewStatus();
     		actionAttachment.setEnabled(true);
     		actionAddLine.setEnabled(false);
     		actionRemoveLine.setEnabled(false);
@@ -1227,18 +1227,27 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 	    	actionSubmit.setEnabled(false);
 	    	actionRemove.setEnabled(false);
 	    	
-	    	txtdesignChangeAmount.setEnabled(false);
-			kdtEntrys.setEnabled(false);
-			contNumber.setEnabled(false);
-			kDLabelContainer1.setEnabled(false);
-			contConductDept.setEnabled(false);
-			contName.setEnabled(false);
-			contputForwardTime.setEnabled(false);
-			contreworkVisa.setEnabled(false);
-			contChangeReason.setEnabled(false);
-			contReaDesc.setEnabled(false);
-			contReaDesc.setEnabled(false);
-			chkIsImportChange.setEnabled(false);
+	    	txtNumber.setEnabled(false);
+	    	pkbookedDate.setEnabled(false);
+	    	kdtEntrys.setEnabled(false);
+	    	prmtConductDept.setEnabled(false);
+	    	txtconstructionHead.setEnabled(false);
+	    	txtTotalCost.setEnabled(false);
+	    	prmtAuditType.setEnabled(false);
+	    	prmtDesignChange.setEnabled(false);
+	    	txtReaDesc.setEnabled(false);
+	    	txtName.setEnabled(false);
+	    	pkputForwardTime.setEnabled(false);
+	    	prmtBIMUDF0052.setEnabled(false);
+	    	txtpunisAmount.setEnabled(false);
+	    	txtworkNote.setEnabled(false);
+	    	prmtCurProject.setEnabled(false);
+	    	comboChangeState.setEnabled(false);
+	    	pkcompDate.setEnabled(false);
+	    	txtapprovedAmount.setEnabled(false);
+	    	txtdelyDay.setEnabled(false);
+	    	txtappliAmount.setEnabled(false);
+	    	prmtChangeReason.setEnabled(false);
 			Sfejjd.setEnabled(false);
 			sfyjjd.setEnabled(false);
 			Bjzb.setEnabled(false);
@@ -1274,7 +1283,11 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 			}
 		}
 	}
-	
+	//按钮点击刷新跃迁金额
+	protected void refash_actionPerformed(ActionEvent e) throws Exception {
+		btnSave.doClick();
+		MsgBox.showWarning("登记金额已经修改，请到拆分跃迁进行修改拆分金额！");
+	}
 	
 	/**
 	 * 需求来源：R100806-236合同录入、变更、结算单据界面增加审批按钮

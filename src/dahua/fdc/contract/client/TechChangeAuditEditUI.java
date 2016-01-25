@@ -1277,7 +1277,11 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 			}
 		}
 	}
-	
+	//按钮点击刷新跃迁金额
+	protected void refash_actionPerformed(ActionEvent e) throws Exception {
+		btnSave.doClick();
+		MsgBox.showWarning("登记金额已经修改，请到拆分跃迁进行修改拆分金额！");
+	}
 	
 	/**
 	 * 需求来源：R100806-236合同录入、变更、结算单据界面增加审批按钮
@@ -1731,6 +1735,11 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 		//判断状态来修改单据//add by 李鹏  2016-01-12
 		isNotEditUI = getOprtState().equals("成本部修改")?true:false;
 		if(isNotEditUI){
+			String Fgfy = txtreworkVisa.getText();
+			if(Fgfy == null){
+				MsgBox.showWarning("返工签证费用估算不能为空！");
+				SysUtil.abort();
+			}
 			this.refash.setVisible(true);
 		}else{
 			this.refash.setVisible(false);

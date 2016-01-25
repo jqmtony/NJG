@@ -1825,10 +1825,16 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 		//判断状态来修改单据//add by 李鹏  2016-01-12
 		isNotEditUI = getOprtState().equals("成本部修改")?true:false;
 		if(isNotEditUI){
+			String Fgfy = txtreworkVisa.getText();
+			if(Fgfy == null){
+				MsgBox.showWarning("返工签证费用估算不能为空！");
+				SysUtil.abort();
+			}
 			this.refash.setVisible(true);
 		}else{
 			this.refash.setVisible(false);
 		}
+		
 	}
 	
 	
