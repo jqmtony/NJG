@@ -728,8 +728,8 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 		column=this.proTable.addColumn();
 		column.setKey("amount");
 		if(this.isPro){
-			headRow.getCell("amount").setValue("金额");
-			headRowName.getCell("amount").setValue("金额");
+			headRow.getCell("amount").setValue("规划余额");
+			headRowName.getCell("amount").setValue("规划余额");
 		}else{
 			headRow.getCell("amount").setValue("规划金额");
 			headRowName.getCell("amount").setValue("规划金额");
@@ -839,7 +839,10 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 					row.setUserObject(entry);
 					row.getCell("name").setValue(entry.getName());
 					row.getCell("amount").setValue(entry.getAmount());
-					row.getCell("number").setValue(new ProgrammingContractInfo[]{entry.getProgrammingContract()});
+					if(entry.getProgrammingContract() == null)
+						row.getCell("number").setValue(null);
+					else
+						row.getCell("number").setValue(new ProgrammingContractInfo[]{entry.getProgrammingContract()});
 					row.getCell("contractType").setValue(entry.getContractType());
 					row.getCell("actPayAmount").setValue(actPayAmount);
 					rowMap.put(id, row);
@@ -1257,9 +1260,20 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 							SysUtil.abort();
 						}
 					}else if(row.getCell(j).getValue()==null){
-						FDCMsgBox.showWarning(this,headRow.getCell(j).getValue().toString()+headRowTwo.getCell(j).getValue().toString()+"不能为空！");
-						this.proTable.getEditManager().editCellAt(i, j);
-						SysUtil.abort();
+						String colKey = proTable.getColumnKey(j);
+						if(colKey.indexOf("payType") > 0){
+							//计划支付金额大于零时才提示付款类型不能为空   modify by yxl 20160120
+							String planAmountKey = colKey.substring(0,colKey.indexOf("payType"))+"amount";
+							if(row.getCell(planAmountKey).getValue()!=null && ((BigDecimal)row.getCell(planAmountKey).getValue()).compareTo(BigDecimal.ZERO)>0){
+								FDCMsgBox.showWarning(this,headRow.getCell(j).getValue().toString()+headRowTwo.getCell(j).getValue().toString()+"不能为空！");
+								this.proTable.getEditManager().editCellAt(i, j);
+								SysUtil.abort();
+							}
+						}else{
+							FDCMsgBox.showWarning(this,headRow.getCell(j).getValue().toString()+headRowTwo.getCell(j).getValue().toString()+"不能为空！");
+							this.proTable.getEditManager().editCellAt(i, j);
+							SysUtil.abort();
+						}
 					}
 				}
 				if(this.proTable.getColumnKey(j).indexOf("amount")>0){
@@ -1275,9 +1289,10 @@ public class ProjectMonthPlanProEditUI extends AbstractProjectMonthPlanProEditUI
 					pro.add(entry.getProgrammingContract().getId());
 				}
 				BigDecimal totalAmount=(BigDecimal) (row.getCell("amount").getValue()==null?FDCHelper.ZERO:row.getCell("amount").getValue());
-				BigDecimal actPayAmount=(BigDecimal) (row.getCell("actPayAmount").getValue()==null?FDCHelper.ZERO:row.getCell("actPayAmount").getValue());
-				if(totalAmount.subtract(actPayAmount).compareTo(amount)<0){
-					FDCMsgBox.showWarning(this,"第"+(i+1)+"行 计划支付汇总不能超过 规划余额-截止本月累计实付金额！");
+//				BigDecimal actPayAmount=(BigDecimal) (row.getCell("actPayAmount").getValue()==null?FDCHelper.ZERO:row.getCell("actPayAmount").getValue());
+				if(totalAmount.compareTo(amount)<0){
+//					FDCMsgBox.showWarning(this,"第"+(i+1)+"行 计划支付汇总不能超过 规划余额-截止本月累计实付金额！");
+					FDCMsgBox.showWarning(this,"第"+(i+1)+"行 计划支付汇总不能超过规划余额！");
 					SysUtil.abort();
 				}
 			}

@@ -342,7 +342,8 @@ public class ConPayPlanControllerBean extends AbstractConPayPlanControllerBean {
 		// 清除最后一位的差异
 		if (FDCHelper.compareTo(sum, total) != 0) {
 			ConPayPlanDatapInfo dataInfo = info.getDatap().get(info.getDatap().size() - 1);
-			dataInfo.setPayAmount(FDCHelper.add(dataInfo.getPayAmount(),FDCHelper.subtract(sum, total)));
+			if(dataInfo != null)
+				dataInfo.setPayAmount(FDCHelper.add(dataInfo.getPayAmount(),FDCHelper.subtract(sum, total)));
 		}
 
 		_settleByMonth(ctx, info);
