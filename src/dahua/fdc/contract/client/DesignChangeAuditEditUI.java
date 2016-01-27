@@ -1282,7 +1282,7 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 			contConductDept.setEnabled(false);
 			contName.setEnabled(false);
 			contputForwardTime.setEnabled(false);
-			contreworkVisa.setEnabled(false);
+//			contreworkVisa.setEnabled(false);
 			contFtbh.setEnabled(false);
 			contChangeReason.setEnabled(false);
 			contRemark.setEnabled(false);
@@ -1327,6 +1327,11 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 	}
 	//按钮点击刷新跃迁金额
 	protected void refash_actionPerformed(ActionEvent e) throws Exception {
+		String Fgfy = txtreworkVisa.getText();
+		if(Fgfy == null || "".equals(Fgfy)){
+			MsgBox.showWarning("返工签证费用估算不能为空！");
+			SysUtil.abort();
+		}
 		btnSave.doClick();
 		MsgBox.showWarning("登记金额已经修改，请到拆分跃迁进行修改拆分金额！");
 	}
@@ -1825,11 +1830,6 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 		//判断状态来修改单据//add by 李鹏  2016-01-12
 		isNotEditUI = getOprtState().equals("成本部修改")?true:false;
 		if(isNotEditUI){
-			String Fgfy = txtreworkVisa.getText();
-			if(Fgfy == null){
-				MsgBox.showWarning("返工签证费用估算不能为空！");
-				SysUtil.abort();
-			}
 			this.refash.setVisible(true);
 		}else{
 			this.refash.setVisible(false);
