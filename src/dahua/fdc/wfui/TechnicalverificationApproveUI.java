@@ -590,7 +590,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     		String result = apporveResultForMap.get("公司第一负责人");
     		
     		String person = result.substring(0,result.indexOf("!"));  		
-    		String yijian = result.substring(result.indexOf("!"),result.indexOf("@"));	
+    		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
     		String date = result.substring(result.indexOf("@")+1);
     		this.kDTable2.getCell(18, 2).setValue(yijian);  		
     		this.kDTable2.getCell(20, 10).setValue(person);

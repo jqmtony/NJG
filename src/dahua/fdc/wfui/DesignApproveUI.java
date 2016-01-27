@@ -364,22 +364,22 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		Yuanyi.append(rowset.getString("变更原因")+"\n");
     		beizu.append(rowset.getString("备注")+"\n");
     		this.kDTable1.getCell(0, 7).setValue(rowset.getString(7));
-    		this.kDTable1.getCell(3, 9).setValue(rowset.getString("附图编号"));
+    		this.kDTable1.getCell(3, 7).setValue(rowset.getString("附图编号"));
     		//估算工程金额
         	BigDecimal je = rowset.getBigDecimal("估算工程金额");
         	this.kDTable1.getCell(7, 3).setValue(je);
     		//填充成本
     		if(je.compareTo(BigDecimal.ZERO)>0)
     			this.kDTable1.getCell(6, 2).setValue(Boolean.TRUE);
-    		if(je.compareTo(BigDecimal.ZERO)<0)
+    		else if(je.compareTo(BigDecimal.ZERO)<0)
     			this.kDTable1.getCell(6, 4).setValue(Boolean.TRUE);
     		else
     			this.kDTable1.getCell(6, 6).setValue(Boolean.TRUE);
     		
     		if(rowset.getBoolean("isBack"))
-    		this.kDTable1.getCell(8, 3).setValue(rowset.getString("返工签证费用"));
-    		this.kDTable1.getCell(9, 5).setValue(rowset.getString("合同百分比"));
-    		this.kDTable1.getCell(10, 5).setValue(rowset.getString("累计百分比"));
+    		this.kDTable1.getCell(8, 3).setValue(rowset.getBigDecimal("返工签证费用"));
+    		this.kDTable1.getCell(9, 4).setValue(rowset.getString("合同百分比"));
+    		this.kDTable1.getCell(10, 4).setValue(rowset.getString("累计百分比"));
 //    		this.kDTable1.getCell(5, 2).setValue(rowset.getString(8));
 //    		this.kDTable1.getCell(5, 4).setValue(rowset.getString(9));
     		if(rowset.getBoolean("isBack"))
@@ -421,8 +421,10 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     			this.kDTable1.getCell(6, 10).setValue(Boolean.FALSE);
     		}
     		//填充有无图纸
-    		if(rowset.getBoolean("有无图纸"))
-        		this.kDTable1.getCell(3, 2).setValue(Boolean.TRUE);
+    		if("true".equals(rowset.getString("有无图纸")))
+    		{
+    			this.kDTable1.getCell(3, 2).setValue(Boolean.TRUE);
+    		}
     		else
         		this.kDTable1.getCell(3, 4).setValue(Boolean.TRUE);
         	
@@ -455,8 +457,8 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		
     		String person = result.substring(0,result.indexOf("!"));
     		String date = result.substring(result.indexOf("@")+1);
-    		String	yijan = result.substring(result.indexOf("!"), result.indexOf("@"));
-    		this.kDTable1.getCell(14, 1).setValue(yijan);
+    		String	yijan = result.substring(result.indexOf("!")+1, result.indexOf("@"));
+    		this.kDTable1.getCell(13, 1).setValue(yijan);
     		this.kDTable1.getCell(15, 8).setValue(person);
     		if(!"".equals(date))
     			this.kDTable1.getCell(15, 11).setValue(date);
@@ -465,8 +467,8 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		String result = apporveResultForMap.get("城市公司第一负责人");
     		String person = result.substring(0,result.indexOf("!"));
     		String date = result.substring(result.indexOf("@")+1);
-    		String	yijan = result.substring(result.indexOf("!"), result.indexOf("@"));
-    		this.kDTable1.getCell(17, 1).setValue(yijan);
+    		String	yijan = result.substring(result.indexOf("!")+1, result.indexOf("@"));
+    		this.kDTable1.getCell(16, 1).setValue(yijan);
     		this.kDTable1.getCell(18, 8).setValue(person);
     		if(!"".equals(date))
     			this.kDTable1.getCell(18, 11).setValue(date);
