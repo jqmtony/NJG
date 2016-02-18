@@ -1286,7 +1286,7 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 	//按钮点击刷新跃迁金额
 	protected void refash_actionPerformed(ActionEvent e) throws Exception {
 		btnSave.doClick();
-		MsgBox.showWarning("登记金额已经修改，请到拆分跃迁进行修改拆分金额！");
+		MsgBox.showWarning("登记金额已经修改，请到拆分页签进行修改拆分金额！");
 	}
 	
 	/**
@@ -2978,7 +2978,7 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 		filter.setMaskString("#0 and #1 and (#2 or #3)");
 		view.setFilter(filter);
 		prmtDesignChange.setEntityViewInfo(view);
-		prmtDesignChange.setRequired(true);
+//		prmtDesignChange.setRequired(true);
 	}
 
 	/**

@@ -1362,7 +1362,7 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 			SysUtil.abort();
 		}
 		btnSave.doClick();
-		MsgBox.showWarning("登记金额已经修改，请到拆分跃迁进行修改拆分金额！");
+		MsgBox.showWarning("登记金额已经修改，请到拆分页签进行修改拆分金额！");
 	}
 	/**
 	 * 需求来源：R100806-236合同录入、变更、结算单据界面增加审批按钮

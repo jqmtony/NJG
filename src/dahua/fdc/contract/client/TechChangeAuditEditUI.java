@@ -1285,7 +1285,7 @@ public class TechChangeAuditEditUI extends AbstractTechChangeAuditEditUI
 			SysUtil.abort();
 		}
 		btnSave.doClick();
-		MsgBox.showWarning("登记金额已经修改，请到拆分跃迁进行修改拆分金额！");
+		MsgBox.showWarning("登记金额已经修改，请到拆分页签进行修改拆分金额！");
 	}
 	
 	/**
