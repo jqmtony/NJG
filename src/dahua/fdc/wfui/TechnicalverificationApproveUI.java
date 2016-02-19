@@ -64,7 +64,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	if (getOprtState().equals("工程部修改")){
     		kDTable2.getRow(5).getStyleAttributes().setLocked(false);
     		kDTable2.getRow(8).getStyleAttributes().setLocked(false);
-    		kDTable2.getRow(9).getStyleAttributes().setLocked(false);
+//    		kDTable2.getRow(9).getStyleAttributes().setLocked(false);
     	}
     	if (getOprtState().equals("销售部修改")){
     		kDTable2.getRow(10).getStyleAttributes().setLocked(false);
@@ -124,11 +124,11 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	mergeManager.mergeBlock(8, 1, 8, 3);
     	
     	IRow addRow10 = this.kDTable1.addRow();
-    	addRow10.getCell(0).setValue("监理单位签字、盖章");
+    	addRow10.getCell(0).setValue("设计单位、盖章");
     	mergeManager.mergeBlock(9, 1, 9, 3);
     	
     	IRow addRow11 = this.kDTable1.addRow();
-    	addRow11.getCell(0).setValue("监理单位签字、盖章");
+    	addRow11.getCell(0).setValue("建设单位、盖章");
     	mergeManager.mergeBlock(10, 1, 10, 3);
     	
     	this.kDTable1.getColumn(0).setWidth(200);
@@ -316,7 +316,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	mergeManager2.mergeBlock(16, 4, 16, 8);
     	
     	IRow addRow218 = this.kDTable2.addRow();
-    	addRow218.getCell(4).setValue("变更后合同金额是否超出目标成本限额");
+    	addRow218.getCell(4).setValue("变更后合同金额是否超合约规划");
     	addRow218.getCell(7).setEditor(editor);
     	addRow218.getCell(7).setValue(Boolean.FALSE);
     	addRow218.getCell(8).setValue("是");
@@ -413,6 +413,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
     	sb.append(" BaseU.Fname_l2  提出方,ChangeAE.FIsBack isBack");
     	sb.append(" ,ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,ChangeAB.CFCost 成本");
     	sb.append(" ,ChangeAB.CFSFEJJD 二级节点 ,ChangeAB.CFXSCN 销售承诺,ChangeAB.CFBJZB 报建指标 ,ChangeAB.CFContractAmPro 合同百分比,ChangeAB.CFTotalChangeAmount 累计百分比,ChangeAB.FTotalCost 估算工程金额,ChangeAB.CFReworkVisa 返工签证费用 ");
+    	sb.append(",ChangeAB.CFsfhygh 是否超合约规划");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
@@ -520,6 +521,12 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
         		this.kDTable2.getCell(12, 5).setValue(Boolean.TRUE);
         	else
         		this.kDTable2.getCell(12, 7).setValue(Boolean.TRUE);
+        	//填充合同金额是否超合约规划
+        	String hygu = rowset.getString("是否超合约规划")!=null?rowset.getString("是否超合约规划"):"";
+        	if(hygu.equals("是"))
+        		this.kDTable2.getCell(17, 7).setValue(Boolean.TRUE);
+        	else
+        		this.kDTable2.getCell(17, 9).setValue(Boolean.TRUE);
     	}
     	
     	

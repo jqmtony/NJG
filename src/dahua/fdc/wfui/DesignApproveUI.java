@@ -59,10 +59,10 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	initUI();
     	kDTable1.getStyleAttributes().setLocked(true);
     	if (getOprtState().equals("设计部修改")){//如果是自定义状态打开
-    		kDTable1.getRow(3).getStyleAttributes().setLocked(false);
+//    		kDTable1.getRow(3).getStyleAttributes().setLocked(false);
     	}
     	if (getOprtState().equals("成本部修改")){
-    		kDTable1.getRow(6).getStyleAttributes().setLocked(false);
+//    		kDTable1.getRow(6).getStyleAttributes().setLocked(false);
     		kDTable1.getRow(11).getStyleAttributes().setLocked(false);
 
     	}
@@ -336,6 +336,7 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	sb.append(" select ChangeAB.FCurProjectName 项目名称1 ,ChangeAB.FNumber 申请编号2 , ChangeAB.Freadesc 适用范围 ,BaseU.Fname_l2 提出部门 ,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间5");
     	sb.append(" ,ChangeAB.CFBgyy 变更原因,bill.FNumber,u.Fname_l2,u.Fname_l2,ChangeAE.FIsBack isBack,ChangeAB.CFremark 备注");
     	sb.append(" ,ChangeAB.CFYWTZ 有无图纸 ,ChangeAB.CFCost 成本, ChangeAB.CFFTBH 附图编号,ChangeAB.FTotalCost 估算工程金额,ChangeAB.CFReworkVisa 返工签证费用,ChangeAB.CFContractAmPro 合同百分比,ChangeAB.CFTotalChangeAmount 累计百分比 ");
+    	sb.append(",ChangeAB.CFsfhygh 是否超合约规划");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
@@ -427,7 +428,12 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		}
     		else
         		this.kDTable1.getCell(3, 4).setValue(Boolean.TRUE);
-        	
+    		//填充合同金额是否超合约规划
+        	String hygu = rowset.getString("是否超合约规划")!=null?rowset.getString("是否超合约规划"):"";
+        	if(hygu.equals("是"))
+        		this.kDTable1.getCell(11, 4).setValue(Boolean.TRUE);
+        	else
+        		this.kDTable1.getCell(11, 6).setValue(Boolean.TRUE);
     	}
     	//工作流审批意见
     	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);

@@ -96,6 +96,7 @@ public class TechnologyeconomyApproveUI extends AbstractTechnologyeconomyApprove
     	addRow10.getCell(3).setValue("负责人：");
     	mergeManager.mergeBlock(8, 0, 9, 0);
     	
+    	
     	IRow addRow11 = this.kDTable1.addRow();
     	addRow11.getCell(0).setValue("工程部意见：");
     	IRow addRow12 = this.kDTable1.addRow();
@@ -136,6 +137,7 @@ public class TechnologyeconomyApproveUI extends AbstractTechnologyeconomyApprove
     	for(i=0;i<kDTable1.getRowCount();i++)
     	{
     		kDTable1.getRow(i).setHeight(30);
+    		addRow10.setHeight(1);
     	}
     	//列宽
     	for(i=0;i<kDTable1.getColumnCount();i++)
@@ -151,13 +153,13 @@ public class TechnologyeconomyApproveUI extends AbstractTechnologyeconomyApprove
     	StringBuffer sb = new StringBuffer();
     	sb.append(" select ChangeAB.FNumber 单据编号1,contractB.fnumber 合同编号2,ChangeAB.Freadesc 签证事由3,");
     	sb.append(" ChangeAB.CFcompDate 项目完成时间4,ChangeAB.CFconstructionHead 施工负责人5,");
-    	sb.append(" BD.fName_l2 经办人6,ChangeAB.CFworkNote 实际工作内容描述7,ject.fName_l2 工程名称,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间,supplier.fName_l2 主送单位");
+    	sb.append(" BD.fName_l2 经办人6,ChangeAB.CFworkNote 实际工作内容描述7,ject.fName_l2 工程名称,to_char(ChangeAB.CFPutForwardTime,'yyyy-mm-dd') 提出时间,supplier.fName_l2 主送单位,ChangeAB.FTotalCost 签证申报费用");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB ");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
     	sb.append(" left join T_CON_ChangeSupplierEntry ChangeSE on ChangeAB.fid=ChangeSE.FParentID");
     	sb.append(" left join T_CON_ContractBill contractB on contractB.fid=ChangeSE.FContractBillID");
-    	sb.append(" left join T_BD_Supplier supplier on supplier.fid=ChangeAB.FConstrUnitID");
+    	sb.append(" left join T_BD_Supplier supplier on supplier.fid=ChangeSE.FMainSuppID ");
     	sb.append(" left join T_FDC_CurProject ject on ject.fid = ChangeAB.FCurProjectID");
     	sb.append(" left join T_BD_Person BD on BD.fid=ChangeAB.CFBIMUDF0052ID");
     	sb.append(" where ChangeAB.fid = '").append(billId).append("'");
@@ -168,12 +170,12 @@ public class TechnologyeconomyApproveUI extends AbstractTechnologyeconomyApprove
     		this.kDTable1.getCell(0, 1).setValue(rowset.getString(8));
     		this.kDTable1.getCell(0, 3).setValue(rowset.getString(2));
     		this.kDTable1.getCell(1, 1).setValue(rowset.getString(3));
-//    		this.kDTable1.getCell(2, 1).setValue(rowset.getString(4));
+    		this.kDTable1.getCell(2, 1).setValue(rowset.getString("主送单位"));
     		this.kDTable1.getCell(2, 3).setValue(rowset.getString(4));
     		this.kDTable1.getCell(3, 1).setValue(rowset.getString(5));
     		this.kDTable1.getCell(3, 3).setValue(rowset.getString(6));
     		this.kDTable1.getCell(4, 1).setValue(rowset.getString(7));
-//    		this.kDTable1.getCell(9, 2).setValue(rowset.getString(6));
+    		this.kDTable1.getCell(8, 1).setValue(rowset.getString("签证申报费用"));
 //    		this.kDTable1.getCell(9, 4).setValue(rowset.getString(5));
     		this.kDTable1.getCell(20, 4).setValue(rowset.getString(9));
     	}
@@ -189,12 +191,20 @@ public class TechnologyeconomyApproveUI extends AbstractTechnologyeconomyApprove
     		this.kDTable1.getCell(12, 4).setValue(person);
     		this.kDTable1.getCell(10, 1).setValue(yijian);
     	}
+    	if(apporveResultForMap.get("成本部经办人") != null){
+    		//总意见
+    		String result = apporveResultForMap.get("成本部经办人");	
+    		String person = result.substring(0,result.indexOf("!"));  		
+//    		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
+    		this.kDTable1.getCell(15, 2).setValue(person);
+//    		this.kDTable1.getCell(13, 1).setValue(yijian);
+    	}
     	if(apporveResultForMap.get("成本部意见") != null){
     		//总意见
     		String result = apporveResultForMap.get("成本部意见");	
     		String person = result.substring(0,result.indexOf("!"));  		
     		String yijian = result.substring(result.indexOf("!")+1,result.indexOf("@"));	
-    		this.kDTable1.getCell(14, 4).setValue(person);
+    		this.kDTable1.getCell(15, 4).setValue(person);
     		this.kDTable1.getCell(13, 1).setValue(yijian);
     	}
     	//工作流审批意见

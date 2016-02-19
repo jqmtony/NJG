@@ -417,6 +417,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
     	sb.append(" contractB.fname 合同名称6,contractB.fnumber 合同编号7,lier.fname_l2  主送,Su.fname_l2  抄送,ChangeAE.FChangeContent,u.Fname_l2,ChangeAE.FIsBack isBack");
     	sb.append(" ,ChangeAB.CFQuality 产品品质 ,ChangeAB.CFTimeLi 工期 ,ChangeAB.CFSale 销售 ,CFCost 成本");
     	sb.append(" ,ChangeAB.CFSFEJJD 二级节点 ,ChangeAB.CFXSCN 销售承诺,ChangeAB.CFBJZB 报建指标 ,ChangeAB.CFContractAmPro 合同百分比,ChangeAB.CFTotalChangeAmount 累计百分比,ChangeAB.FTotalCost 估算工程金额,ChangeAB.CFReworkVisa 返工签证费用 ");
+    	sb.append(",ChangeAB.CFsfhygh 是否超合约规划");
     	sb.append(" from T_CON_ChangeAuditBill ChangeAB");
     	sb.append(" left join T_ORG_BaseUnit BaseU on BaseU.fid=ChangeAB.FConductDeptID");
     	sb.append(" left join T_CON_ChangeAuditEntry ChangeAE on ChangeAB.fid=ChangeAE.FParentID");
@@ -516,7 +517,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
         	String Sale = rowset.getString("销售")!=null?rowset.getString("销售"):"";
         	if(Sale.equals("有利"))
         		this.kDTable2.getCell(10, 5).setValue(Boolean.TRUE);
-        	if(Sale.equals("无利"))
+        	if(Sale.equals("不利"))
         		this.kDTable2.getCell(10, 7).setValue(Boolean.TRUE);
         	if(Sale.equals("无影响"))
         		this.kDTable2.getCell(10, 9).setValue(Boolean.TRUE);
@@ -530,6 +531,12 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
         		this.kDTable2.getCell(12, 5).setValue(Boolean.TRUE);
         	else
         		this.kDTable2.getCell(12, 7).setValue(Boolean.TRUE);
+        	//填充合同金额是否超合约规划
+        	String hygu = rowset.getString("是否超合约规划")!=null?rowset.getString("是否超合约规划"):"";
+        	if(hygu.equals("是"))
+        		this.kDTable2.getCell(17, 7).setValue(Boolean.TRUE);
+        	else
+        		this.kDTable2.getCell(17, 9).setValue(Boolean.TRUE);
     	}
     	   	
     	//工作流审批意见

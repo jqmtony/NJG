@@ -84,7 +84,7 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     		kDTable1.getRow(12).getStyleAttributes().setLocked(false);
     	}
     	if (getOprtState().equals("成本部修改")){
-    		kDTable1.getRow(14).getStyleAttributes().setLocked(false);
+//    		kDTable1.getRow(14).getStyleAttributes().setLocked(false);
 
     	}
     }
@@ -453,7 +453,7 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
         	String Sale = rowset.getString("销售")!=null?rowset.getString("销售"):"";
         	if(Sale.equals("有利"))
         		this.kDTable1.getCell(10, 3).setValue(Boolean.TRUE);
-        	if(Sale.equals("无利"))
+        	if(Sale.equals("不利"))
         		this.kDTable1.getCell(10, 5).setValue(Boolean.TRUE);
         	if(Sale.equals("无影响"))
         		this.kDTable1.getCell(10, 7).setValue(Boolean.TRUE);
@@ -681,30 +681,30 @@ public class DesignchangeApproveUI extends AbstractDesignchangeApproveUI
     		else if((Boolean)kDTable1.getCell(11, 5).getValue()) 		
     			editData.setBjzb(false);
     	}	
-//    	//成本部反写
-    	if(getOprtState().equals("成本部修改")){
-
-    		if((Boolean)kDTable1.getCell(13, 3).getValue())
-    			i++;
-    		if((Boolean)kDTable1.getCell(13, 5).getValue())
-    			i++;			
-    		if((Boolean)kDTable1.getCell(13, 7).getValue())
-    			i++;			
-    		if(i == 0){
-    			FDCMsgBox.showInfo("成本:你并没有勾选");
-    			SysUtil.abort();
-    		}else if(i > 1){
-    			FDCMsgBox.showInfo("成本:你只能勾选一个");
-    			SysUtil.abort();
-    		}
-    		if((Boolean)kDTable1.getCell(13, 3).getValue()){
-    			editData.setCost("增加");
-    		}
-    		else if((Boolean)kDTable1.getCell(13, 5).getValue()) 		
-    			editData.setCost("减少");
-    		else if((Boolean)kDTable1.getCell(13, 7).getValue()) 		
-    			editData.setCost("零费用");
-    	}
+    	//成本部反写
+//    	if(getOprtState().equals("成本部修改")){
+//
+//    		if((Boolean)kDTable1.getCell(13, 3).getValue())
+//    			i++;
+//    		if((Boolean)kDTable1.getCell(13, 5).getValue())
+//    			i++;			
+//    		if((Boolean)kDTable1.getCell(13, 7).getValue())
+//    			i++;			
+//    		if(i == 0){
+//    			FDCMsgBox.showInfo("成本:你并没有勾选");
+//    			SysUtil.abort();
+//    		}else if(i > 1){
+//    			FDCMsgBox.showInfo("成本:你只能勾选一个");
+//    			SysUtil.abort();
+//    		}
+//    		if((Boolean)kDTable1.getCell(13, 3).getValue()){
+//    			editData.setCost("增加");
+//    		}
+//    		else if((Boolean)kDTable1.getCell(13, 5).getValue()) 		
+//    			editData.setCost("减少");
+//    		else if((Boolean)kDTable1.getCell(13, 7).getValue()) 		
+//    			editData.setCost("零费用");
+//    	}
     }
     
     //回到原单
