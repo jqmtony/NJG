@@ -1858,6 +1858,13 @@
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
+                <property>
+                    <name>enabled</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[contsfhygh].properties.property[enabled].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
             </properties>
             <parent>
                 <key name="name" value="CoreUI" />
@@ -5581,8 +5588,8 @@
             </propertyBindings>
         </component>
         <component>
-            <name>kDComboBox1</name>
-            <alias>uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[kDComboBox1].alias</alias>
+            <name>consfhygh</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[consfhygh].alias</alias>
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDComboBox</classType>
             <isContainer>false</isContainer>
@@ -5599,7 +5606,7 @@
                 <property>
                     <name>items</name>
                     <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[kDComboBox1].properties.property[items].value</value>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[consfhygh].properties.property[items].value</value>
                     <isMultiLan>true</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
@@ -5607,6 +5614,19 @@
             <parent>
                 <key name="name" value="contsfhygh" />
             </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>selectedItem</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>sfhygh</bindingField>
+                    <fieldType>com.kingdee.eas.fdc.contract.app.changAuditBillSf</fieldType>
+                    <accessType />
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
         </component>
         <component>
             <name>btnAddNew</name>
@@ -8682,6 +8702,18 @@
             <lang locale="zh_HK" value="歸檔稿" />
             <lang locale="zh_TW" value="歸檔稿" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[consfhygh].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[consfhygh].properties.property[items].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="[Enum]com.kingdee.eas.fdc.contract.app.changAuditBillSf" />
+            <lang locale="zh_HK" value="[Enum]com.kingdee.eas.fdc.contract.app.changAuditBillSf" />
+            <lang locale="zh_TW" value="[Enum]com.kingdee.eas.fdc.contract.app.changAuditBillSf" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[contAheadDisPatch].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -9762,6 +9794,12 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[contsfhygh].properties.property[enabled].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[conttotalChangeAmount].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -9827,18 +9865,6 @@
             <lang locale="zh_CN" value="登记下发单位" />
             <lang locale="zh_HK" value="登記下發單位" />
             <lang locale="zh_TW" value="登記下發單位" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[kDComboBox1].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
-            <lang locale="zh_TW" value="null" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[kDComboBox1].properties.property[items].value">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="是;否" />
-            <lang locale="zh_HK" value="是;否" />
-            <lang locale="zh_TW" value="是;否" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[kDContainer1].alias">
             <lang locale="en_US" value="null" />
