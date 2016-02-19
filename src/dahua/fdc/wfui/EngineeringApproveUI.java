@@ -517,7 +517,7 @@ public class EngineeringApproveUI extends AbstractEngineeringApproveUI
         	String Sale = rowset.getString("销售")!=null?rowset.getString("销售"):"";
         	if(Sale.equals("有利"))
         		this.kDTable2.getCell(10, 5).setValue(Boolean.TRUE);
-        	if(Sale.equals("不利"))
+        	if(Sale.equals("无利"))
         		this.kDTable2.getCell(10, 7).setValue(Boolean.TRUE);
         	if(Sale.equals("无影响"))
         		this.kDTable2.getCell(10, 9).setValue(Boolean.TRUE);
