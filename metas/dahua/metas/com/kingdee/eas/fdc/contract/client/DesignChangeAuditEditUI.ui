@@ -1070,7 +1070,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDCheckBox</classType>
             <isContainer>false</isContainer>
-            <constraints>523,140,112,19,385</constraints>
+            <constraints>583,140,112,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1104,6 +1104,20 @@
                     <userDefined>true</userDefined>
                 </propertyBinding>
             </propertyBindings>
+            <eventBindings>
+                <eventBinding>
+                    <name>actionPerformed</name>
+                    <eventType>java.awt.event.ActionEvent</eventType>
+                    <scene />
+                    <listenerType>java.awt.event.ActionListener</listenerType>
+                    <listenerAdapter>java.awt.event.ActionListener</listenerAdapter>
+                    <methodName>chkIsImportChange_actionPerformed</methodName>
+                    <code />
+                    <isBindWorkFlow>false</isBindWorkFlow>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </eventBinding>
+            </eventBindings>
         </component>
         <component>
             <name>contreworkVisa</name>
@@ -1363,7 +1377,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDCheckBox</classType>
             <isContainer>false</isContainer>
-            <constraints>383,140,124,19,385</constraints>
+            <constraints>205,140,124,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1404,7 +1418,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>12,140,273,19,0</constraints>
+            <constraints>12,140,188,19,261</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1806,6 +1820,48 @@
                     <userDefined>true</userDefined>
                 </eventBinding>
             </eventBindings>
+        </component>
+        <component>
+            <name>contsfhygh</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[contsfhygh].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>378,140,200,19,385</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[contsfhygh].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[contsfhygh].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[contsfhygh].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
         </component>
         <component>
             <name>prmtCreator</name>
@@ -5525,6 +5581,34 @@
             </propertyBindings>
         </component>
         <component>
+            <name>kDComboBox1</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[kDComboBox1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDComboBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>items</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[kDComboBox1].properties.property[items].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="contsfhygh" />
+            </parent>
+        </component>
+        <component>
             <name>btnAddNew</name>
             <alias>uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[btnAddNew].alias</alias>
             <userDefined>false</userDefined>
@@ -9103,10 +9187,10 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[contFtbh].properties.property[boundLabelLength].value">
-            <lang locale="en_US" value="100" />
-            <lang locale="zh_CN" value="100" />
-            <lang locale="zh_HK" value="100" />
-            <lang locale="zh_TW" value="100" />
+            <lang locale="en_US" value="80" />
+            <lang locale="zh_CN" value="80" />
+            <lang locale="zh_HK" value="80" />
+            <lang locale="zh_TW" value="80" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[contFtbh].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
@@ -9654,6 +9738,30 @@
             <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[contsfhygh].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[contsfhygh].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="150" />
+            <lang locale="zh_CN" value="150" />
+            <lang locale="zh_HK" value="150" />
+            <lang locale="zh_TW" value="150" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[contsfhygh].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合同金额是否超合约规划" />
+            <lang locale="zh_HK" value="合同金額是否超合約規劃" />
+            <lang locale="zh_TW" value="合同金額是否超合約規劃" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[contsfhygh].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[conttotalChangeAmount].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -9719,6 +9827,18 @@
             <lang locale="zh_CN" value="登记下发单位" />
             <lang locale="zh_HK" value="登記下發單位" />
             <lang locale="zh_TW" value="登記下發單位" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[kDComboBox1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[kDComboBox1].properties.property[items].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="是;否" />
+            <lang locale="zh_HK" value="是;否" />
+            <lang locale="zh_TW" value="是;否" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI].components.component[kDContainer1].alias">
             <lang locale="en_US" value="null" />
