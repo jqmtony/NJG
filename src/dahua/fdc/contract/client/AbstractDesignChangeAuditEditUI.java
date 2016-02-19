@@ -164,7 +164,7 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangArea txtBgyy;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtJobType;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangArea txtRemark;
-    protected com.kingdee.bos.ctrl.swing.KDComboBox kDComboBox1;
+    protected com.kingdee.bos.ctrl.swing.KDComboBox consfhygh;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewContract;
     protected javax.swing.JToolBar.Separator separator4;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAttenTwo;
@@ -471,7 +471,7 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.txtBgyy = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangArea();
         this.prmtJobType = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.txtRemark = new com.kingdee.bos.ctrl.extendcontrols.KDBizMultiLangArea();
-        this.kDComboBox1 = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.consfhygh = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.btnViewContract = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.separator4 = new javax.swing.JToolBar.Separator();
         this.btnAttenTwo = new com.kingdee.bos.ctrl.swing.KDWorkButton();
@@ -598,7 +598,7 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.txtBgyy.setName("txtBgyy");
         this.prmtJobType.setName("prmtJobType");
         this.txtRemark.setName("txtRemark");
-        this.kDComboBox1.setName("kDComboBox1");
+        this.consfhygh.setName("consfhygh");
         this.btnViewContract.setName("btnViewContract");
         this.separator4.setName("separator4");
         this.btnAttenTwo.setName("btnAttenTwo");
@@ -836,7 +836,8 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         // contsfhygh		
         this.contsfhygh.setBoundLabelLength(150);		
         this.contsfhygh.setBoundLabelText(resHelper.getString("contsfhygh.boundLabelText"));		
-        this.contsfhygh.setBoundLabelUnderline(true);
+        this.contsfhygh.setBoundLabelUnderline(true);		
+        this.contsfhygh.setEnabled(false);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setDisplayFormat("$name$");		
@@ -1236,8 +1237,8 @@ public abstract class AbstractDesignChangeAuditEditUI extends com.kingdee.eas.fd
         this.prmtJobType.setEditable(true);		
         this.prmtJobType.setCommitFormat("$number$");
         // txtRemark
-        // kDComboBox1		
-        this.kDComboBox1.addItems(resHelper.getArray("kDComboBox1.items"));
+        // consfhygh		
+        this.consfhygh.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.contract.app.changAuditBillSf").toArray());
         // btnViewContract
         this.btnViewContract.setAction((IItemAction)ActionProxyFactory.getProxy(actionViewContract, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnViewContract.setText(resHelper.getString("btnViewContract.text"));		
@@ -1533,7 +1534,7 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
         //contRemark
         contRemark.setBoundEditor(txtRemark);
         //contsfhygh
-        contsfhygh.setBoundEditor(kDComboBox1);
+        contsfhygh.setBoundEditor(consfhygh);
 
     }
 
@@ -1773,7 +1774,8 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
 		dataBinder.registerBinding("Ftbh", String.class, this.txtFtbh, "text");
 		dataBinder.registerBinding("Bgyy", String.class, this.txtBgyy, "_multiLangItem");
 		dataBinder.registerBinding("jobType", com.kingdee.eas.fdc.basedata.JobTypeInfo.class, this.prmtJobType, "data");
-		dataBinder.registerBinding("remark", String.class, this.txtRemark, "_multiLangItem");		
+		dataBinder.registerBinding("remark", String.class, this.txtRemark, "_multiLangItem");
+		dataBinder.registerBinding("sfhygh", com.kingdee.eas.fdc.contract.app.changAuditBillSf.class, this.consfhygh, "selectedItem");		
 	}
 	//Regiester UI State
 	private void registerUIState(){					 	        		
@@ -1898,7 +1900,8 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
 		getValidateHelper().registerBindProperty("Ftbh", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("Bgyy", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("jobType", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("remark", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("remark", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("sfhygh", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -2235,6 +2238,7 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
         	sic.add(new SelectorItemInfo("jobType.name"));
 		}
         sic.add(new SelectorItemInfo("remark"));
+        sic.add(new SelectorItemInfo("sfhygh"));
         return sic;
     }        
     	

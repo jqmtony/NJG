@@ -163,7 +163,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.swing.KDComboBox conimeLi;
     protected com.kingdee.bos.ctrl.swing.KDComboBox conSale;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtChangeReason;
-    protected com.kingdee.bos.ctrl.swing.KDComboBox kDComboBox1;
+    protected com.kingdee.bos.ctrl.swing.KDComboBox consfhygh;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewContract;
     protected javax.swing.JToolBar.Separator separator4;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAttenTwo;
@@ -467,7 +467,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.conimeLi = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.conSale = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.prmtChangeReason = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
-        this.kDComboBox1 = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.consfhygh = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.btnViewContract = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.separator4 = new javax.swing.JToolBar.Separator();
         this.btnAttenTwo = new com.kingdee.bos.ctrl.swing.KDWorkButton();
@@ -593,7 +593,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.conimeLi.setName("conimeLi");
         this.conSale.setName("conSale");
         this.prmtChangeReason.setName("prmtChangeReason");
-        this.kDComboBox1.setName("kDComboBox1");
+        this.consfhygh.setName("consfhygh");
         this.btnViewContract.setName("btnViewContract");
         this.separator4.setName("separator4");
         this.btnAttenTwo.setName("btnAttenTwo");
@@ -822,7 +822,8 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         });
         // contsfhygh		
         this.contsfhygh.setBoundLabelText(resHelper.getString("contsfhygh.boundLabelText"));		
-        this.contsfhygh.setBoundLabelLength(150);
+        this.contsfhygh.setBoundLabelLength(150);		
+        this.contsfhygh.setEnabled(false);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setDisplayFormat("$name$");		
@@ -1240,8 +1241,8 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.prmtChangeReason.setCommitFormat("$number$");		
         this.prmtChangeReason.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7ChangeReasonQuery");		
         this.prmtChangeReason.setRequired(true);
-        // kDComboBox1		
-        this.kDComboBox1.addItems(resHelper.getArray("kDComboBox1.items"));
+        // consfhygh		
+        this.consfhygh.addItems(EnumUtils.getEnumList("com.kingdee.eas.fdc.contract.app.changAuditBillSf").toArray());
         // btnViewContract
         this.btnViewContract.setAction((IItemAction)ActionProxyFactory.getProxy(actionViewContract, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnViewContract.setText(resHelper.getString("btnViewContract.text"));		
@@ -1535,7 +1536,7 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
         //contChangeReason
         contChangeReason.setBoundEditor(prmtChangeReason);
         //contsfhygh
-        contsfhygh.setBoundEditor(kDComboBox1);
+        contsfhygh.setBoundEditor(consfhygh);
 
     }
 
@@ -1771,7 +1772,8 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
 		dataBinder.registerBinding("contractAmPro", java.math.BigDecimal.class, this.txtcontractAmPro, "value");
 		dataBinder.registerBinding("totalChangeAmount", java.math.BigDecimal.class, this.txttotalChangeAmount, "value");
 		dataBinder.registerBinding("designChangeAmount", java.math.BigDecimal.class, this.txtdesignChangeAmount, "value");
-		dataBinder.registerBinding("changeReason", com.kingdee.eas.fdc.basedata.ChangeReasonInfo.class, this.prmtChangeReason, "data");		
+		dataBinder.registerBinding("changeReason", com.kingdee.eas.fdc.basedata.ChangeReasonInfo.class, this.prmtChangeReason, "data");
+		dataBinder.registerBinding("sfhygh", com.kingdee.eas.fdc.contract.app.changAuditBillSf.class, this.consfhygh, "selectedItem");		
 	}
 	//Regiester UI State
 	private void registerUIState(){					 	        		
@@ -1892,7 +1894,8 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
 		getValidateHelper().registerBindProperty("contractAmPro", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("totalChangeAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("designChangeAmount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("changeReason", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("changeReason", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("sfhygh", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -2231,6 +2234,7 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
         	sic.add(new SelectorItemInfo("changeReason.number"));
         	sic.add(new SelectorItemInfo("changeReason.name"));
 		}
+        sic.add(new SelectorItemInfo("sfhygh"));
         return sic;
     }        
     	

@@ -779,13 +779,15 @@ public class AbstractChangeAuditBillInfo extends com.kingdee.eas.fdc.basedata.FD
     /**
      * Object:合同变更发起's 是否超合约规划property 
      */
-    public String getSfhygh()
+    public com.kingdee.eas.fdc.contract.app.changAuditBillSf getSfhygh()
     {
-        return getString("sfhygh");
+        return com.kingdee.eas.fdc.contract.app.changAuditBillSf.getEnum(getString("sfhygh"));
     }
-    public void setSfhygh(String item)
+    public void setSfhygh(com.kingdee.eas.fdc.contract.app.changAuditBillSf item)
     {
-        setString("sfhygh", item);
+		if (item != null) {
+        setString("sfhygh", item.getValue());
+		}
     }
     public BOSObjectType getBOSType()
     {
