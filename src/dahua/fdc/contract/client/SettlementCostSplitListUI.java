@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -67,6 +68,7 @@ import com.kingdee.eas.fdc.contract.SettlementCostSplitInfo;
 import com.kingdee.eas.fdc.finance.PaymentNoCostSplitFactory;
 import com.kingdee.eas.fdc.finance.PaymentSplitFactory;
 import com.kingdee.eas.fdc.finance.SettledMonthlyHelper;
+import com.kingdee.eas.fdc.finance.client.PaymentSplitListUI;
 import com.kingdee.eas.fm.common.client.FMClientHelper;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.util.SysUtil;
@@ -207,6 +209,26 @@ public class SettlementCostSplitListUI extends AbstractSettlementCostSplitListUI
 		}
 	}
 
+	//结算拆分列表界面暂时去掉状态过滤，出私包给陈亮，稍后还要改回来
+	protected void filterByBillState(EntityViewInfo ev) {
+		super.filterByBillState(ev);
+		
+//		FilterInfo newFilter = new FilterInfo();
+//		Set set = new HashSet(3);
+//		set.add(FDCBillStateEnum.INVALID_VALUE);
+//		newFilter.getFilterItems().add(new FilterItemInfo("state", set, CompareType.NOTINCLUDE));
+//		newFilter.appendFilterItem("contractBill.isAmtWithoutCost",Boolean.FALSE);
+//		try {
+//			if (ev.getFilter() == null) {
+//				ev.setFilter(newFilter);
+//			} else {
+//				ev.getFilter().mergeFilter(newFilter, "and");
+//			}
+//		} catch (Exception e) {
+//			handUIExceptionAndAbort(e);
+//		}
+	}
+	
 	/**
 	 * output createNewData method
 	 */
