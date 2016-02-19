@@ -81,6 +81,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.swing.KDCheckBox sfyjjd;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contChangeReason;
     protected com.kingdee.bos.ctrl.swing.KDButton refash;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contsfhygh;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkCreateTime;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
@@ -162,6 +163,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
     protected com.kingdee.bos.ctrl.swing.KDComboBox conimeLi;
     protected com.kingdee.bos.ctrl.swing.KDComboBox conSale;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtChangeReason;
+    protected com.kingdee.bos.ctrl.swing.KDComboBox kDComboBox1;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewContract;
     protected javax.swing.JToolBar.Separator separator4;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAttenTwo;
@@ -383,6 +385,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.sfyjjd = new com.kingdee.bos.ctrl.swing.KDCheckBox();
         this.contChangeReason = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.refash = new com.kingdee.bos.ctrl.swing.KDButton();
+        this.contsfhygh = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.pkCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -464,6 +467,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.conimeLi = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.conSale = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.prmtChangeReason = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
+        this.kDComboBox1 = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.btnViewContract = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.separator4 = new javax.swing.JToolBar.Separator();
         this.btnAttenTwo = new com.kingdee.bos.ctrl.swing.KDWorkButton();
@@ -507,6 +511,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.sfyjjd.setName("sfyjjd");
         this.contChangeReason.setName("contChangeReason");
         this.refash.setName("refash");
+        this.contsfhygh.setName("contsfhygh");
         this.prmtCreator.setName("prmtCreator");
         this.pkCreateTime.setName("pkCreateTime");
         this.txtNumber.setName("txtNumber");
@@ -588,6 +593,7 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.conimeLi.setName("conimeLi");
         this.conSale.setName("conSale");
         this.prmtChangeReason.setName("prmtChangeReason");
+        this.kDComboBox1.setName("kDComboBox1");
         this.btnViewContract.setName("btnViewContract");
         this.separator4.setName("separator4");
         this.btnAttenTwo.setName("btnAttenTwo");
@@ -742,6 +748,18 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         });
         // Sfejjd		
         this.Sfejjd.setText(resHelper.getString("Sfejjd.text"));
+        this.Sfejjd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                beforeActionPerformed(e);
+                try {
+                    Sfejjd_actionPerformed(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                    afterActionPerformed(e);
+                }
+            }
+        });
         // Bjzb		
         this.Bjzb.setText(resHelper.getString("Bjzb.text"));
         this.Bjzb.addActionListener(new java.awt.event.ActionListener() {
@@ -802,6 +820,9 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
                 }
             }
         });
+        // contsfhygh		
+        this.contsfhygh.setBoundLabelText(resHelper.getString("contsfhygh.boundLabelText"));		
+        this.contsfhygh.setBoundLabelLength(150);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setDisplayFormat("$name$");		
@@ -1219,6 +1240,8 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.prmtChangeReason.setCommitFormat("$number$");		
         this.prmtChangeReason.setQueryInfo("com.kingdee.eas.fdc.basedata.app.F7ChangeReasonQuery");		
         this.prmtChangeReason.setRequired(true);
+        // kDComboBox1		
+        this.kDComboBox1.addItems(resHelper.getArray("kDComboBox1.items"));
         // btnViewContract
         this.btnViewContract.setAction((IItemAction)ActionProxyFactory.getProxy(actionViewContract, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnViewContract.setText(resHelper.getString("btnViewContract.text"));		
@@ -1333,18 +1356,20 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         this.add(contsale, new KDLayout.Constraints(730, 60, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         btnCostIndex.setBounds(new Rectangle(547, 10, 100, 21));
         this.add(btnCostIndex, new KDLayout.Constraints(547, 10, 100, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        Sfejjd.setBounds(new Rectangle(731, 203, 166, 19));
-        this.add(Sfejjd, new KDLayout.Constraints(731, 203, 166, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        Sfejjd.setBounds(new Rectangle(879, 170, 166, 19));
+        this.add(Sfejjd, new KDLayout.Constraints(879, 170, 166, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         Bjzb.setBounds(new Rectangle(731, 139, 131, 19));
         this.add(Bjzb, new KDLayout.Constraints(731, 139, 131, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         Xscn.setBounds(new Rectangle(880, 139, 129, 19));
         this.add(Xscn, new KDLayout.Constraints(880, 139, 129, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         sfyjjd.setBounds(new Rectangle(731, 170, 140, 19));
-        this.add(sfyjjd, new KDLayout.Constraints(731, 170, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        this.add(sfyjjd, new KDLayout.Constraints(731, 170, 140, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contChangeReason.setBounds(new Rectangle(378, 160, 270, 19));
         this.add(contChangeReason, new KDLayout.Constraints(378, 160, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         refash.setBounds(new Rectangle(738, 238, 130, 21));
         this.add(refash, new KDLayout.Constraints(738, 238, 130, 21, KDLayout.Constraints.ANCHOR_CENTRE | KDLayout.Constraints.ANCHOR_TOP));
+        contsfhygh.setBounds(new Rectangle(731, 199, 270, 19));
+        this.add(contsfhygh, new KDLayout.Constraints(731, 199, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1509,6 +1534,8 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
         contsale.setBoundEditor(conSale);
         //contChangeReason
         contChangeReason.setBoundEditor(prmtChangeReason);
+        //contsfhygh
+        contsfhygh.setBoundEditor(kDComboBox1);
 
     }
 
@@ -1897,6 +1924,13 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
     protected void btnCostIndex_actionPerformed(java.awt.event.ActionEvent e) throws Exception
     {
         //write your code hereaa
+    }
+
+    /**
+     * output Sfejjd_actionPerformed method
+     */
+    protected void Sfejjd_actionPerformed(java.awt.event.ActionEvent e) throws Exception
+    {
     }
 
     /**
