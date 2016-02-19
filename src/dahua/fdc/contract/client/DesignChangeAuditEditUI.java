@@ -4385,6 +4385,7 @@ public class DesignChangeAuditEditUI extends AbstractDesignChangeAuditEditUI
 		sic.add(new SelectorItemInfo("sale"));		
 		sic.add(new SelectorItemInfo("timeLi"));		
 		sic.add(new SelectorItemInfo("quality"));		
+		sic.add(new SelectorItemInfo("sfhygh"));		
 		
 		sic.add(new SelectorItemInfo("suppEntry.mainSupp.*"));
 		sic.add(new SelectorItemInfo("suppEntry.copySupp.*"));
