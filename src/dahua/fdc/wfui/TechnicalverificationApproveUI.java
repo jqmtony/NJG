@@ -523,7 +523,7 @@ public class TechnicalverificationApproveUI extends AbstractTechnicalverificatio
         		this.kDTable2.getCell(12, 7).setValue(Boolean.TRUE);
         	//填充合同金额是否超合约规划
         	String hygu = rowset.getString("是否超合约规划")!=null?rowset.getString("是否超合约规划"):"";
-        	if(hygu.equals("是"))
+        	if("1".equals(hygu))
         		this.kDTable2.getCell(17, 7).setValue(Boolean.TRUE);
         	else
         		this.kDTable2.getCell(17, 9).setValue(Boolean.TRUE);

@@ -63,7 +63,7 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     	}
     	if (getOprtState().equals("成本部修改")){
 //    		kDTable1.getRow(6).getStyleAttributes().setLocked(false);
-    		kDTable1.getRow(11).getStyleAttributes().setLocked(false);
+//    		kDTable1.getRow(11).getStyleAttributes().setLocked(false);
 
     	}
 
@@ -377,7 +377,6 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		else
     			this.kDTable1.getCell(6, 6).setValue(Boolean.TRUE);
     		
-    		if(rowset.getBoolean("isBack"))
     		this.kDTable1.getCell(8, 3).setValue(rowset.getBigDecimal("返工签证费用"));
     		this.kDTable1.getCell(9, 4).setValue(rowset.getString("合同百分比"));
     		this.kDTable1.getCell(10, 4).setValue(rowset.getString("累计百分比"));
@@ -430,7 +429,7 @@ public class DesignApproveUI extends AbstractDesignApproveUI
         		this.kDTable1.getCell(3, 4).setValue(Boolean.TRUE);
     		//填充合同金额是否超合约规划
         	String hygu = rowset.getString("是否超合约规划")!=null?rowset.getString("是否超合约规划"):"";
-        	if(hygu.equals("是"))
+        	if("1".equals(hygu))
         		this.kDTable1.getCell(11, 4).setValue(Boolean.TRUE);
         	else
         		this.kDTable1.getCell(11, 6).setValue(Boolean.TRUE);
