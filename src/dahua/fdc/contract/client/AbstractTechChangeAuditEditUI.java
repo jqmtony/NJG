@@ -775,7 +775,8 @@ public abstract class AbstractTechChangeAuditEditUI extends com.kingdee.eas.fdc.
         // contsfhygh		
         this.contsfhygh.setBoundLabelText(resHelper.getString("contsfhygh.boundLabelText"));		
         this.contsfhygh.setBoundLabelLength(150);		
-        this.contsfhygh.setEnabled(false);
+        this.contsfhygh.setEnabled(false);		
+        this.contsfhygh.setBoundLabelUnderline(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setDisplayFormat("$name$");		
@@ -1724,7 +1725,8 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
 		dataBinder.registerBinding("contractAmPro", java.math.BigDecimal.class, this.txtcontractAmPro, "value");
 		dataBinder.registerBinding("totalChangeAmount", java.math.BigDecimal.class, this.txttotalChangeAmount, "value");
 		dataBinder.registerBinding("designChangeAmount", java.math.BigDecimal.class, this.txtdesignChangeAmount, "value");
-		dataBinder.registerBinding("changeReason", com.kingdee.eas.fdc.basedata.ChangeReasonInfo.class, this.prmtChangeReason, "data");		
+		dataBinder.registerBinding("changeReason", com.kingdee.eas.fdc.basedata.ChangeReasonInfo.class, this.prmtChangeReason, "data");
+		dataBinder.registerBinding("sfhygh", com.kingdee.eas.fdc.contract.app.changAuditBillSf.class, this.consfhygh, "selectedItem");		
 	}
 	//Regiester UI State
 	private void registerUIState(){					 	        		
@@ -1845,7 +1847,8 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
 		getValidateHelper().registerBindProperty("contractAmPro", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("totalChangeAmount", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("designChangeAmount", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("changeReason", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("changeReason", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("sfhygh", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -2156,6 +2159,7 @@ kDPanel3.setLayout(new BorderLayout(0, 0));        //contAheadDisPatch
         	sic.add(new SelectorItemInfo("changeReason.number"));
         	sic.add(new SelectorItemInfo("changeReason.name"));
 		}
+        sic.add(new SelectorItemInfo("sfhygh"));
         return sic;
     }        
     	

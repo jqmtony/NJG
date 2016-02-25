@@ -823,7 +823,8 @@ public abstract class AbstractProjectChangeAuditEditUI extends com.kingdee.eas.f
         // contsfhygh		
         this.contsfhygh.setBoundLabelText(resHelper.getString("contsfhygh.boundLabelText"));		
         this.contsfhygh.setBoundLabelLength(150);		
-        this.contsfhygh.setEnabled(false);
+        this.contsfhygh.setEnabled(false);		
+        this.contsfhygh.setBoundLabelUnderline(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setDisplayFormat("$name$");		
