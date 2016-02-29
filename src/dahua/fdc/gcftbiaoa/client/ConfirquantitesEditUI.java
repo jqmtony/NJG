@@ -248,7 +248,6 @@ public class ConfirquantitesEditUI extends AbstractConfirquantitesEditUI
         if(editData.getId()!= null){
         	billId = editData.getId().toString();
            	Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForMap(billId);
-           	fuzhi(apporveResultForMap, "申报工作量", txtworking, "working", txtcontractorPerosn, "contractorPerosn");
            	fuzhi(apporveResultForMap, "工程部审核", txtengineeringAudit, "engineeringAudit", txtengineeringPerosn, "engineeringPerosn");
            	fuzhi(apporveResultForMap, "成本管理部审核", txtcostAudit, "costAudit", txtcostPerosn, "costPerosn");
            	fuzhi(apporveResultForMap, "项目公司第一负责人审核", txtprojectFirstAudit, "projectFirstAudit", txtfirstPerosn, "firstPerosn");

@@ -442,17 +442,20 @@ public abstract class AbstractConfirquantitesEditUI extends com.kingdee.eas.fram
         this.contengineeringPerosn.setBoundLabelText(resHelper.getString("contengineeringPerosn.boundLabelText"));		
         this.contengineeringPerosn.setBoundLabelLength(100);		
         this.contengineeringPerosn.setBoundLabelUnderline(true);		
-        this.contengineeringPerosn.setVisible(true);
+        this.contengineeringPerosn.setVisible(true);		
+        this.contengineeringPerosn.setEnabled(false);
         // contcostPerosn		
         this.contcostPerosn.setBoundLabelText(resHelper.getString("contcostPerosn.boundLabelText"));		
         this.contcostPerosn.setBoundLabelLength(100);		
         this.contcostPerosn.setBoundLabelUnderline(true);		
-        this.contcostPerosn.setVisible(true);
+        this.contcostPerosn.setVisible(true);		
+        this.contcostPerosn.setEnabled(false);
         // contfirstPerosn		
         this.contfirstPerosn.setBoundLabelText(resHelper.getString("contfirstPerosn.boundLabelText"));		
         this.contfirstPerosn.setBoundLabelLength(100);		
         this.contfirstPerosn.setBoundLabelUnderline(true);		
-        this.contfirstPerosn.setVisible(true);
+        this.contfirstPerosn.setVisible(true);		
+        this.contfirstPerosn.setEnabled(false);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);
         // kDDateCreateTime		
