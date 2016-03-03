@@ -364,7 +364,7 @@ public class PayRequestBillControllerBean extends AbstractPayRequestBillControll
 				//我的处理是按照分包合同中的乙方，然后将合同编码简写+乙方名称填写在备注里
 				//SupplierInfo supplier = SupplierFactory.getLocalInstance(ctx).getSupplierInfo(new ObjectUuidPK(astContract.getPartB().getId()));
 				if("[施工]".equals(typeName))
-					payReqInfo.setMoneyDesc(astContractNum.substring(astContractNum.length()-5)+payReqInfo.getProcess());
+					payReqInfo.setMoneyDesc(astContractNum.substring(astContractNum.length()-5));//+payReqInfo.getProcess()
 				else
 					payReqInfo.setMoneyDesc(astContractNum.substring(astContractNum.length()-5));
 				payReqInfo.setContractBase(mainContract.getContractBaseData());

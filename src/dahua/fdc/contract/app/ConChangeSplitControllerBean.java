@@ -64,6 +64,7 @@ import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.finance.WorkLoadConfirmBillFactory;
 import com.kingdee.eas.framework.AbstractBillEntryBaseInfo;
 import com.kingdee.eas.util.app.ContextUtil;
+import com.kingdee.eas.util.app.DbUtil;
 import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.util.NumericExceptionSubItem;
 
@@ -253,9 +254,11 @@ public class ConChangeSplitControllerBean extends AbstractConChangeSplitControll
 	}
 	
 	protected void _unAudit(Context ctx, BOSUuid billId) throws BOSException, EASBizException {
-		if(UIRuleUtil.isNotNull(getConChangeSplitInfo(ctx, new ObjectUuidPK(billId)).getSourceBillId())){
-			throw new EASBizException(new NumericExceptionSubItem("111",
-			"此拆分单据已做签证，不能反审批！"));
+		String sbid = getConChangeSplitInfo(ctx, new ObjectUuidPK(billId)).getSourceBillId();
+		if(UIRuleUtil.isNotNull(sbid)){
+			IRowSet rs = DbUtil.executeQuery(ctx,"select fid from T_CON_ChangeAuditBill where fid='"+sbid+"' and fchangestate in('6Announce','7Visa')");
+			if(rs.size() == 1)
+				throw new EASBizException(new NumericExceptionSubItem("111","此拆分单据已做签证，不能反审批！"));
 		}
 		super._unAudit(ctx, billId);
 	}

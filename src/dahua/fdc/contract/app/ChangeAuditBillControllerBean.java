@@ -1,6 +1,5 @@
 package com.kingdee.eas.fdc.contract.app;
 
-import java.awt.BorderLayout;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ import org.apache.log4j.Logger;
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.SQLDataException;
-import com.kingdee.bos.ctrl.swing.KDPanel;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
@@ -30,7 +28,6 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
-import com.kingdee.bos.ui.face.UIRuleUtil;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.param.util.ParamManager;
 import com.kingdee.eas.basedata.assistant.PeriodInfo;
@@ -43,11 +40,9 @@ import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCConstants;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
-import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillType;
-import com.kingdee.eas.fdc.contract.ChangeAuditUtil;
 import com.kingdee.eas.fdc.contract.ChangeBillStateEnum;
 import com.kingdee.eas.fdc.contract.ChangeSupplierEntryCollection;
 import com.kingdee.eas.fdc.contract.ChangeSupplierEntryFactory;
@@ -81,13 +76,9 @@ import com.kingdee.eas.fdc.contract.SettlementCostSplitFactory;
 import com.kingdee.eas.fdc.contract.SupplierContentEntryCollection;
 import com.kingdee.eas.fdc.contract.SupplierContentEntryFactory;
 import com.kingdee.eas.fdc.contract.SupplierContentEntryInfo;
-import com.kingdee.eas.fdc.contract.client.AbstractSplitInvokeStrategy;
-import com.kingdee.eas.fdc.contract.client.ConChangeSplitEditUI;
-import com.kingdee.eas.fdc.contract.client.SplitInvokeStrategyFactory;
 import com.kingdee.eas.fdc.contract.programming.IProgrammingContract;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
-import com.kingdee.eas.fdc.finance.ConPayPlanFactory;
 import com.kingdee.eas.fdc.finance.PaymentNoCostSplitEntryFactory;
 import com.kingdee.eas.fdc.finance.PaymentNoCostSplitFactory;
 import com.kingdee.eas.fdc.finance.PaymentSplitEntryFactory;
@@ -96,6 +87,7 @@ import com.kingdee.eas.fdc.finance.ProjectPeriodStatusException;
 import com.kingdee.eas.fdc.finance.app.ProjectPeriodStatusUtil;
 import com.kingdee.eas.fi.gl.GlUtils;
 import com.kingdee.eas.util.app.ContextUtil;
+import com.kingdee.eas.util.app.DbUtil;
 import com.kingdee.jdbc.rowset.IRowSet;
 import com.kingdee.util.DateTimeUtils;
 import com.kingdee.util.NumericExceptionSubItem;
@@ -994,6 +986,8 @@ public class ChangeAuditBillControllerBean extends AbstractChangeAuditBillContro
 		
 		if(billInfo.getBillType()!=null&&!billInfo.getBillType().equals(ChangeAuditBillType.ChangeAuditRequest))
 			runBathBill(ctx,billInfo,null);
+		//modify by yxl 20160227 更新计入合同造价字段为0
+		DbUtil.execute(ctx,"update T_CON_ChangeAuditBill set CFAddToContractCost=0 where fid='"+billId.toString()+"'");
 	}
 	
 	private void runBathBill(Context ctx,ChangeAuditBillInfo billInfo,String actionName) throws BOSException, EASBizException{

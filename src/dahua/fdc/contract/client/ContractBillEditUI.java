@@ -3126,12 +3126,12 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		btnSplitProd.setText("产品拆分");
 		KDWorkButton btnRemoveLine = (KDWorkButton)this.kDContainer2.add(actionRemoveSplit);
 		btnRemoveLine.setText("删除分录");
-//		String programControlMode = getParamValue();
+		String programControlMode = getParamValue();
 //		if(programControlMode!=null && !"2".equals(programControlMode.trim())) {
 //			//不控制
 //			kDContainer2.removeButton(btnAcctSelect);
 //		}
-		if(!isWholeAgeProject)
+		if(!isWholeAgeProject && programControlMode!=null && !"2".equals(programControlMode.trim()))
 			kDContainer2.removeButton(btnAcctSelect);
 		this.kDLabelContainer5.setBounds(150, 2, 200, 19);
 		this.kDContainer2.add(this.kDLabelContainer5);

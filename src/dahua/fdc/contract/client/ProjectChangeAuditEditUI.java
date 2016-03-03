@@ -169,6 +169,7 @@ import com.kingdee.eas.fdc.contract.OfferEnum;
 import com.kingdee.eas.fdc.contract.SupplierContentEntryCollection;
 import com.kingdee.eas.fdc.contract.SupplierContentEntryFactory;
 import com.kingdee.eas.fdc.contract.SupplierContentEntryInfo;
+import com.kingdee.eas.fdc.contract.app.changAuditBillSf;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.contract.programming.client.ContractBillLinkProgContEditUI;
 import com.kingdee.eas.fdc.costindexdb.client.BuildPriceIndexEditUI;
@@ -1306,6 +1307,7 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 	    	actionSave.setEnabled(true);
 	    	actionSubmit.setEnabled(false);
 	    	actionRemove.setEnabled(false);
+	    	contsfhygh.setEnabled(true);
 	    	
 	    	txtdesignChangeAmount.setEnabled(false);
 			kdtEntrys.setEnabled(false);
@@ -1359,6 +1361,10 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 		String Fgfy = txtreworkVisa.getText();
 		if(Fgfy == null || "".equals(Fgfy)){
 			MsgBox.showWarning("返工签证费用估算不能为空！");
+			SysUtil.abort();
+		}
+		if(changAuditBillSf.none.equals(consfhygh.getSelectedItem())){
+			MsgBox.showWarning("合同金额是否超合约规划不能为空！");
 			SysUtil.abort();
 		}
 		btnSave.doClick();
@@ -4105,7 +4111,7 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 	}
 	
 	private BigDecimal getTotalChangeAuditAmount(Set<String> idSet) throws BOSException{
-		String oql ="select contractBill.id,costAmount where parent.id in(select fid from T_CON_ChangeAuditBill where fstate='4AUDITTED' and CFBillType='30' and FCURPROJECTID='"+editData.getCurProject().getId().toString()+"')";
+		String oql ="select contractBill.id,costAmount where parent.id in(select fid from T_CON_ChangeAuditBill where fstate='4AUDITTED' and CFBillType in('20','30','40','50') and FCURPROJECTID='"+editData.getCurProject().getId().toString()+"')";
 		if(editData.getId()!=null)
 			oql = oql+" and parent.id <>'"+editData.getId()+"'";
 		ChangeSupplierEntryCollection changeSupplierEn = ChangeSupplierEntryFactory.getRemoteInstance().getChangeSupplierEntryCollection(oql);
@@ -4315,6 +4321,7 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
 		sic.add(new SelectorItemInfo("sale"));		
 		sic.add(new SelectorItemInfo("timeLi"));		
 		sic.add(new SelectorItemInfo("quality"));		
+		sic.add(new SelectorItemInfo("sfhygh"));		
 		
 		sic.add(new SelectorItemInfo("suppEntry.mainSupp.*"));
 		sic.add(new SelectorItemInfo("suppEntry.copySupp.*"));
