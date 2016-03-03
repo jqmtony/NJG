@@ -1417,7 +1417,7 @@ public class PaymentSplitEditUI extends AbstractPaymentSplitEditUI {
 					// table.getCell(i, amountColIndex).setValue(
 					// FDCHelper.multiply(txtCompletePrjAmt.getBigDecimalValue(), table.getCell(i, "splitScale")
 					// .getValue(), 2));
-					if (i != 0) {
+					if (i != 0 && cColl.get(0).getEntrys().get(i-1) != null) {
 						table.getCell(i, amountColIndex).setValue(
 								FDCHelper.divide(FDCHelper.multiply(txtCompletePrjAmt.getBigDecimalValue(), cColl
 										.get(0).getEntrys().get(i - 1).getSplitScale(), 2), 100, 2));

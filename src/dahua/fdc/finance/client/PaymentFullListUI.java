@@ -4,6 +4,7 @@
 package com.kingdee.eas.fdc.finance.client;
 
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -11,7 +12,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTSelectEvent;
+import com.kingdee.bos.ctrl.kdf.table.util.KDTableUtil;
 import com.kingdee.bos.dao.AbstractObjectValue;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.query.IQueryExecutor;
@@ -27,6 +31,7 @@ import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.eas.base.commonquery.client.CommonQueryDialog;
 import com.kingdee.eas.base.commonquery.client.CustomerQueryPanel;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIFactoryName;
@@ -40,6 +45,8 @@ import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.IContractBill;
+import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
+import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 import com.kingdee.eas.fdc.contract.client.ContractClientUtils;
 import com.kingdee.eas.fdc.finance.ConPayPlanFactory;
 import com.kingdee.eas.fi.cas.BillStatusEnum;
@@ -50,6 +57,7 @@ import com.kingdee.eas.fi.cas.PaymentBillInfo;
 import com.kingdee.eas.fi.gl.GLException;
 import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.util.SysUtil;
+import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
 
@@ -476,12 +484,75 @@ public class PaymentFullListUI extends AbstractPaymentFullListUI {
 	 * @date 2010-5-19
 	 */
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
+		checkTableSelected(tblMain);
+		int[] selectedRows = KDTableUtil.getSelectedRows(tblMain);
+		String typeName = null;
+		String payId = null;
+		PaymentBillInfo payInfo = null;
+		ArrayList<String> fbReqIds = new ArrayList<String>();
+		for(int i=0; i<selectedRows.length; i++) {
+			typeName = (String)tblMain.getCell(selectedRows[i],"contractType").getValue();
+			payId = (String)tblMain.getCell(selectedRows[i],"id").getValue();
+			payInfo = PaymentBillFactory.getRemoteInstance().getPaymentBillInfo("select billStatus,fdcpayreqid where id='"+payId+"'");
+			if("[施工]".equals(typeName) || "[材料]".equals(typeName) || "[分包]".equals(typeName)) {
+				if(!payInfo.getBillStatus().equals(BillStatusEnum.SUBMIT)) {
+					MsgBox.showWarning("存在不符合审批条件的记录，请重新选择，保证所选的记录都是已提交状态的");
+					SysUtil.abort();
+				}
+				fbReqIds.add(payInfo.getFdcPayReqID());
+			}else if("[建安]".equals(typeName)) {
+				PayRequestBillInfo reqInfo = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo("select sourceBillId where id='"+payInfo.getFdcPayReqID()+"'");
+				if(reqInfo.getSourceBillId() != null) {
+					MsgBox.showInfo("审核总包对应的分包付款单即可！");
+					SysUtil.abort();
+				}
+			}
+		}
+		doAuditAction();
+		if(fbReqIds != null) {
+			ArrayList list = new ArrayList();
+			PayRequestBillInfo zbReqInfo = null;
+			PaymentBillInfo zbPayInfo = null;
+			for(int j=0; j<fbReqIds.size(); j++) {
+				zbReqInfo = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo("select state where sourceBillId='"+fbReqIds.get(j)+"'");
+				zbPayInfo = PaymentBillFactory.getRemoteInstance().getPaymentBillInfo("select billStatus where fdcpayreqid='"+zbReqInfo.getId().toString()+"'");
+				list.add(zbPayInfo.getId().toString());
+			}
+			if(list.size() > 0) {
+				PaymentBillFactory.getRemoteInstance().audit4FDC(list);
+				super.actionRefresh_actionPerformed(e);
+			}
+		}
+	}
+	
+	public void checkTableSelected(KDTable table) {
+		if(table.getRowCount() == 0 || table.getSelectManager().size() == 0) {
+			MsgBox.showWarning(this, EASResource.getString("com.kingdee.eas.framework.FrameWorkResource.Msg_MustSelected"));
+			SysUtil.abort();
+        }
+    }
+	
+	public void actionEdit_actionPerformed(ActionEvent e) throws Exception {
+		checkTableSelected(tblMain);
+		String typeName = (String)KDTableUtil.getSelectedRow(tblMain).getCell("contractType").getValue();
+		if("[建安]".equals(typeName)) {
+			String payId = (String)KDTableUtil.getSelectedRow(tblMain).getCell("id").getValue();
+			PaymentBillInfo payInfo = PaymentBillFactory.getRemoteInstance().getPaymentBillInfo("select billStatus,fdcpayreqid where id='"+payId+"'");
+			PayRequestBillInfo reqInfo = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo("select sourceBillId where id='"+payInfo.getFdcPayReqID()+"'");
+			if(reqInfo.getSourceBillId() != null) {
+				MsgBox.showInfo("修改总包对应的分包付款单即可！");
+				SysUtil.abort();
+			}
+		}
+		super.actionEdit_actionPerformed(e);
+	}
+
+	private void doAuditAction() throws BOSException, EASBizException,
+			Exception {
 		this.checkSelected();
 		//得到用户选择的billID列表
 		List idList =ContractClientUtils.getSelectedIdValues(getMainTable(), getKeyFieldName());
-		
-		if(idList!=null && idList.size()>0)
-		{
+		if(idList!=null && idList.size()>0){
 			//调用付款单基类中的审批方法
 			IPaymentBill iPayemntBill  = PaymentBillFactory.getRemoteInstance();
 			//状态
@@ -501,16 +572,12 @@ public class PaymentFullListUI extends AbstractPaymentFullListUI {
 			}
 			//调用房地产接口
 			iPayemntBill.audit4FDC(idList);
-			
 			//显示提示并刷新页面
 			showOprtOKMsgAndRefresh();
-		}else
-		{
+		}else{
 			MsgBox.showWarning(this,"请先选中行！");
 			SysUtil.abort();
 		}
-		
-		
 	}
 	
 

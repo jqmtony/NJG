@@ -90,6 +90,7 @@ import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.ItemAction;
 import com.kingdee.bos.ui.face.UIException;
 import com.kingdee.bos.ui.face.UIFactory;
+import com.kingdee.bos.util.BOSObjectType;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.multiapprove.MultiApproveCollection;
 import com.kingdee.eas.base.multiapprove.MultiApproveFactory;
@@ -130,6 +131,7 @@ import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.fdc.basedata.ContractTypeFactory;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCCommonServerHelper;
@@ -148,6 +150,7 @@ import com.kingdee.eas.fdc.basedata.client.FDCSplitClientHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
 import com.kingdee.eas.fdc.contract.CompensationOfPayReqBillCollection;
 import com.kingdee.eas.fdc.contract.CompensationOfPayReqBillInfo;
+import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillGetter;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractChangeBillCollection;
@@ -4450,7 +4453,36 @@ public class PaymentBillEditUI extends AbstractPaymentBillEditUI {
 		setOprtStateByBillStatus();
 		this.storeFields();
 		this.initOldData(this.editData);
+		if(isContractBill(editData.getContractBillId())) {
+			afterSave();
+		}
 	}
+	
+	private void afterSave() throws Exception{
+		if("fb".equals(zbfb())) {
+			PaymentBillInfo zbPayInfo = pay2zbPay(editData.getFdcPayReqID());
+			if(editData.getPayerAccount() != null) {
+				zbPayInfo.setPayerAccount(editData.getPayerAccount());
+			}
+			if(editData.getBizDate().compareTo(zbPayInfo.getBizDate()) != 0) {
+				zbPayInfo.setBizDate(editData.getBizDate());
+			}
+			if(!editData.getUseDepartment().getId().equals(zbPayInfo.getUseDepartment().getId())) {
+				zbPayInfo.setUseDepartment(editData.getUseDepartment());
+			}
+			if(BillStatusEnum.SAVE.equals(zbPayInfo.getBillStatus())) {
+				zbPayInfo.setBillStatus(BillStatusEnum.SUBMIT);
+			}
+			PaymentBillFactory.getRemoteInstance().update(new ObjectUuidPK(zbPayInfo.getId()), zbPayInfo);
+		}
+	}
+	
+	private PaymentBillInfo pay2zbPay(String reqId) throws Exception{
+		PayRequestBillInfo zbReqInfo = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo("select state where sourceBillId='"+reqId+"'");
+		PaymentBillInfo zbPayInfo = PaymentBillFactory.getRemoteInstance().getPaymentBillInfo("where fdcpayreqid='"+zbReqInfo.getId().toString()+"'");
+		return zbPayInfo;
+	}
+	
 	/**
 	 * 付款单填写发票号与发票金额的要求 by cassiel 2010-10-7 <p>
 	 * 
@@ -4745,11 +4777,45 @@ public class PaymentBillEditUI extends AbstractPaymentBillEditUI {
 		
 		refreshUITitle() ;
 	}
+	
+	private boolean isZB() throws Exception {
+		if("zb".equals(zbfb())) {
+			PayRequestBillInfo reqInfo = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo("select sourceBillId where id='"+editData.getFdcPayReqID()+"'");
+			if(reqInfo.getSourceBillId() != null) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private String zbfb() throws Exception {
+		ContractBillInfo astContract = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(editData.getContractBillId()));
+		String typeName = ContractTypeFactory.getRemoteInstance().getContractTypeInfo(new ObjectUuidPK(astContract.getContractType().getId())).getName();
+		if("[建安]".equals(typeName)) {
+			return "zb";
+		}else if("[施工]".equals(typeName) || "[材料]".equals(typeName) || "[分包]".equals(typeName)) {
+			return "fb";
+		}
+		return "qt";
+	}
 
+	private boolean isContractBill(String contractId) {
+		boolean flag = false;
+		BOSObjectType bosType = BOSUuid.read(contractId).getType();
+		if(bosType != null && bosType.equals(new ContractBillInfo().getBOSType())) {
+			flag = true;
+		}
+		return flag;
+	}
+	
 	/**
 	 * output actionEdit_actionPerformed
 	 */
 	public void actionEdit_actionPerformed(ActionEvent e) throws Exception {
+		if(isContractBill(editData.getContractBillId()) && isZB()) {
+			MsgBox.showInfo("修改总包对应的分包付款单即可！");
+			SysUtil.abort();
+		}
 		
 		int billState = editData.getBillStatus()!=null?editData.getBillStatus().getValue():10;
 		int[] states =  new int[] { BillStatusEnum.SAVE_VALUE ,BillStatusEnum.SUBMIT_VALUE  };
@@ -4882,8 +4948,34 @@ public class PaymentBillEditUI extends AbstractPaymentBillEditUI {
 	 * output actionRemove_actionPerformed
 	 */
 	public void actionRemove_actionPerformed(ActionEvent e) throws Exception {
-		checkBeforeRemove();
-		super.actionRemove_actionPerformed(e);
+//		checkBeforeRemove();
+//		super.actionRemove_actionPerformed(e);
+		if(isContractBill(editData.getContractBillId())) {
+			String fbReqId = null;
+			if("zb".equals(zbfb())) {
+				PayRequestBillInfo reqInfo = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo("select sourceBillId where id='"+editData.getFdcPayReqID()+"'");
+				if(reqInfo.getSourceBillId() != null) {
+					MsgBox.showInfo("删除总包对应的分包付款单即可！");
+					SysUtil.abort();
+				}
+			}else if("fb".equals(zbfb())) {
+				fbReqId = editData.getFdcPayReqID();
+			}
+			checkBeforeRemove();
+			super.actionRemove_actionPerformed(e);
+			if(fbReqId != null && !PaymentBillFactory.getRemoteInstance().exists("select id where fdcpayreqid='"+fbReqId+"'")) {
+				PayRequestBillInfo zbReqInfo = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo("where sourceBillId='"+fbReqId+"'");
+				PaymentBillInfo zbPayInfo = PaymentBillFactory.getRemoteInstance().getPaymentBillInfo("where fdcpayreqid='"+zbReqInfo.getId().toString()+"'");
+				PaymentBillFactory.getRemoteInstance().delete(new ObjectUuidPK(zbPayInfo.getId()));
+				if(zbReqInfo.getState().equals(FDCBillStateEnum.AUDITTED)) {
+					PayRequestBillFactory.getRemoteInstance().unAudit(zbReqInfo.getId());
+				}
+				PayRequestBillFactory.getRemoteInstance().delete(new ObjectUuidPK(zbReqInfo.getId()));
+			}
+		}else{
+			checkBeforeRemove();
+			super.actionRemove_actionPerformed(e);
+		}
 	}
 
 	protected void checkBeforeRemove() throws Exception {
@@ -5031,9 +5123,37 @@ public class PaymentBillEditUI extends AbstractPaymentBillEditUI {
 	 * 添加的审核按钮
 	 */
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
-		
+		if(isContractBill(editData.getContractBillId())) {
+			String fbReqId = null;
+			if("zb".equals(zbfb())) {
+				PayRequestBillInfo reqInfo = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo("select sourceBillId where id='"+editData.getFdcPayReqID()+"'");
+				if(reqInfo.getSourceBillId() != null) {
+					MsgBox.showInfo("审核总包对应的分包付款单即可！");
+					SysUtil.abort();
+				}
+			}else if("fb".equals(zbfb())) {
+				if(!editData.getBillStatus().equals(BillStatusEnum.SUBMIT)) {
+					MsgBox.showWarning("存在不符合审批条件的记录，请重新选择，保证所选的记录都是已提交状态的");
+					SysUtil.abort();
+				}
+				fbReqId = editData.getFdcPayReqID();
+			}
+			doAuditAction(e);
+			if(fbReqId != null) {
+				PayRequestBillInfo zbReqInfo = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo("select state where sourceBillId='"+fbReqId+"'");
+				PaymentBillInfo zbPayInfo = PaymentBillFactory.getRemoteInstance().getPaymentBillInfo("select billStatus where fdcpayreqid='"+zbReqInfo.getId().toString()+"'");
+				ArrayList list = new ArrayList();
+				list.add(zbPayInfo.getId().toString());
+				PaymentBillFactory.getRemoteInstance().audit4FDC(list);
+			}
+			
+		}else
+			doAuditAction(e);
+	}
+
+	private void doAuditAction(ActionEvent e) throws Exception, BOSException,
+			EASBizException {
 		checkAmt();
-		
 		isMoving = true;
 		//付款单提交时，是否检查合同拆分
 		if(checkAllSplit){
@@ -5049,12 +5169,10 @@ public class PaymentBillEditUI extends AbstractPaymentBillEditUI {
 		}
 		List list = new ArrayList();
 		list.add(editData.getId().toString());
-		boolean isSuccess = PaymentBillFactory.getRemoteInstance().audit4FDC(
-				list);
+		boolean isSuccess = PaymentBillFactory.getRemoteInstance().audit4FDC(list);
 		if (isSuccess) {
 			// actionAudit.setEnabled(false);
-			prmtAuditor.setValue(SysContext.getSysContext()
-					.getCurrentUserInfo());
+			prmtAuditor.setValue(SysContext.getSysContext().getCurrentUserInfo());
 			pkAuditDate.setValue(DateTimeUtils.truncateDate(new Date()));
 			FDCClientUtils.showOprtOK(this);
 		}

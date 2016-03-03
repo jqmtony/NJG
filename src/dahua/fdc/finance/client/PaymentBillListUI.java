@@ -56,6 +56,7 @@ import com.kingdee.bos.ui.face.IUIFactory;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.ui.util.ResourceBundleHelper;
+import com.kingdee.bos.util.BOSObjectType;
 import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.eas.base.attachment.common.AttachmentClientManager;
 import com.kingdee.eas.base.attachment.common.AttachmentManagerFactory;
@@ -74,8 +75,11 @@ import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
 import com.kingdee.eas.fdc.basedata.client.FDCSplitClientHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
+import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.PayReqUtils;
+import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
+import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 import com.kingdee.eas.fdc.contract.client.AbstractContractWithoutTextListUI;
 import com.kingdee.eas.fdc.contract.client.AbstractSplitInvokeStrategy;
 import com.kingdee.eas.fdc.contract.client.ContractClientUtils;
@@ -533,25 +537,18 @@ public class PaymentBillListUI extends AbstractPaymentBillListUI {
 
 //	审批时加上数据互斥
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
-
 		// 获取用户选择的块
-		List idList = ContractClientUtils.getSelectedIdValues(
-				getBillListTable(), getKeyFieldName());
+		List idList = ContractClientUtils.getSelectedIdValues(getBillListTable(), getKeyFieldName());
 		boolean hasMutex = false;
 		try {
-
 			FDCClientUtils.requestDataObjectLock(this, idList, "Audit");
-
 			super.actionAudit_actionPerformed(e);
-			
 			// 项目资金计划：是否自动拆分		- modified by zhaoqin on 2013/08/27
 			for (int i = 0; i < idList.size(); i++) {
 				PaymentSplitFactory.getRemoteInstance().autoSplit((String) idList.get(0));
 			}
-			
 			//审批时，更新单据的期间和申请期间       Add by zhiyuan_tang 2010-01-12
 			FDCPaymentBillFactory.getRemoteInstance().updatePeriodAfterAudit(idList);
-			
 			//checkPaymentAllSplit启用则已拆分不需要提示弹出
 			//isPaymentSplit购买成本才提示
 			if(!checkPaymentAllSplit&&isPaymentSplit&&FDCUtils.getDefaultFDCParamByKey(null, null, FDCConstants.FDC_PARAM_SPLITAFTERAUDIT)){
@@ -599,6 +596,13 @@ public class PaymentBillListUI extends AbstractPaymentBillListUI {
 	 * 覆盖父类的编辑方法。响应编辑事件，调出付款单编辑界面
 	 */
 	public void actionEdit_actionPerformed(ActionEvent e) throws Exception {
+		checkTableSelected(tblMain);
+		checkTableSelected(tblPaymentBill);
+		String id = (String)KDTableUtil.getSelectedRow(tblMain).getCell("id").getValue();
+		if(isContractBill(id) && isZB()) {
+			MsgBox.showInfo("修改总包对应的分包付款单即可！");
+			SysUtil.abort();
+		}
 		checkBeforeEdit();
 		super.actionEdit_actionPerformed(e);
 	}
@@ -633,9 +637,96 @@ public class PaymentBillListUI extends AbstractPaymentBillListUI {
 			SysUtil.abort();
 		}
 	}
+	
+	public void checkTableSelected(KDTable table) {
+		if(table.getRowCount() == 0 || table.getSelectManager().size() == 0) {
+			MsgBox.showWarning(this, EASResource.getString("com.kingdee.eas.framework.FrameWorkResource.Msg_MustSelected"));
+			SysUtil.abort();
+        }
+    }
+	
+	private boolean isFB(){
+		String typeName = (String)KDTableUtil.getSelectedRow(tblMain).getCell("contractType.name").getValue();
+		if("[施工]".equals(typeName) || "[材料]".equals(typeName) || "[分包]".equals(typeName)) {
+			return true;
+		}
+		return false;
+	}
+	
+	private boolean isContractBill(String contractId) {
+		boolean flag = false;
+		BOSObjectType bosType = BOSUuid.read(contractId).getType();
+		if(bosType != null && bosType.equals(new ContractBillInfo().getBOSType())) {
+			flag = true;
+		}
+		return flag;
+	}
+	
+	private boolean isZB() throws Exception {
+		String typeName = (String)KDTableUtil.getSelectedRow(tblMain).getCell("contractType.name").getValue();
+		if("[建安]".equals(typeName)) {
+			String payId = null;
+			PaymentBillInfo payInfo = null;
+			PayRequestBillInfo reqInfo = null;
+			int[] rows = KDTableUtil.getSelectedRows(tblPaymentBill);
+			for(int i=0; i<rows.length; i++) {
+				payId = (String)tblPaymentBill.getCell(rows[i],"id").getValue();
+				payInfo = PaymentBillFactory.getRemoteInstance().getPaymentBillInfo("select fdcpayreqid where id='"+payId+"'");
+				reqInfo = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo("select sourceBillId where id='"+payInfo.getFdcPayReqID()+"'");
+				if(reqInfo.getSourceBillId() != null) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
     
 	public void actionRemove_actionPerformed(ActionEvent e) throws Exception {
-		super.actionRemove_actionPerformed(e);
+		checkTableSelected(tblMain);
+		checkTableSelected(tblPaymentBill);
+		String id = (String)KDTableUtil.getSelectedRow(tblMain).getCell("id").getValue();
+		if(isContractBill(id)) {
+			ArrayList<String> fbReqIds = null;
+			if(isFB()) {
+				fbReqIds = new ArrayList<String>();
+				int[] selectedRows = KDTableUtil.getSelectedRows(tblPaymentBill);
+				String payId = null;
+				PaymentBillInfo payInfo = null;
+				for(int i=0; i<selectedRows.length; i++) {
+					payId = (String)tblPaymentBill.getCell(selectedRows[i],"id").getValue();
+					payInfo = PaymentBillFactory.getRemoteInstance().getPaymentBillInfo("select billStatus,fdcpayreqid where id='"+payId+"'");
+					if(payInfo.getBillStatus().equals(BillStatusEnum.SUBMIT) || payInfo.getBillStatus().equals(BillStatusEnum.SAVE)) 
+						fbReqIds.add(payInfo.getFdcPayReqID());
+					else {
+						MsgBox.showWarning("当前所选单据不适合删除操作");
+						SysUtil.abort();
+					}
+				}
+			}else if(isZB()) {
+				MsgBox.showInfo("删除总包对应的分包付款单即可！");
+				SysUtil.abort();
+			}
+			super.actionRemove_actionPerformed(e);
+			//根据选中的分包类型的付款单找到对应的申请单，再根据此申请单找到对应总包的申请单，然后根据申请单找到对应付款单
+			//如果总包的付款单是已审核那么先改变状态，再进行删除
+			if(fbReqIds != null) {
+				PayRequestBillInfo zbReqInfo = null;
+				PaymentBillInfo zbPayInfo = null;
+				for(int j=0; j<fbReqIds.size(); j++) {
+					if(!PaymentBillFactory.getRemoteInstance().exists("select id where fdcpayreqid='"+fbReqIds.get(j)+"'")){
+						zbReqInfo = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo("where sourceBillId='"+fbReqIds.get(j)+"'");
+						zbPayInfo = PaymentBillFactory.getRemoteInstance().getPaymentBillInfo("where fdcpayreqid='"+zbReqInfo.getId().toString()+"'");
+						PaymentBillFactory.getRemoteInstance().delete(new ObjectUuidPK(zbPayInfo.getId()));
+						if(zbReqInfo.getState().equals(FDCBillStateEnum.AUDITTED)) {
+							PayRequestBillFactory.getRemoteInstance().unAudit(zbReqInfo.getId());
+						}
+						PayRequestBillFactory.getRemoteInstance().delete(new ObjectUuidPK(zbReqInfo.getId()));
+					}
+				}
+			}
+		}else {
+			super.actionRemove_actionPerformed(e);
+		}
 	}		
 		
 	protected String getEditUIName() {
@@ -1635,12 +1726,61 @@ public class PaymentBillListUI extends AbstractPaymentBillListUI {
 		
 	}
 	public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
-		if (!checkPaymentAllSplit&&checkHasPaymentSplit()) {
-			MsgBox.showWarning(this, ContractClientUtils.getRes("cantUnAudit"));
-			SysUtil.abort();
-		}		
-		super.actionUnAudit_actionPerformed(e);
+		checkTableSelected(tblMain);
+		checkTableSelected(tblPaymentBill);
+		String id = (String)KDTableUtil.getSelectedRow(tblMain).getCell("id").getValue();
+		if(isContractBill(id)) {
+			ArrayList<String> fbReqIds = null;
+			if(isFB()) {
+				fbReqIds = new ArrayList<String>();
+				int[] selectedRows = KDTableUtil.getSelectedRows(tblPaymentBill);
+				String payId = null;
+				PaymentBillInfo payInfo = null;
+				for(int i=0; i<selectedRows.length; i++) {
+					payId = (String)tblPaymentBill.getCell(selectedRows[i],"id").getValue();
+					payInfo = PaymentBillFactory.getRemoteInstance().getPaymentBillInfo("select billStatus,fdcpayreqid where id='"+payId+"'");
+					if(payInfo.getBillStatus().equals(BillStatusEnum.PAYED) || payInfo.getBillStatus().equals(BillStatusEnum.AUDITED)) {
+						fbReqIds.add(payInfo.getFdcPayReqID());
+					}else {
+						MsgBox.showWarning("存在不符合反审批条件的记录，请重新选择，保证所选的记录都是已审批状态的");
+						SysUtil.abort();
+					}
+				}
+			}
+			else if(isZB()) {
+				MsgBox.showInfo("反审核总包对应的分包付款单即可！");
+				SysUtil.abort();
+			}
+			if(!checkPaymentAllSplit&&checkHasPaymentSplit()) {
+				MsgBox.showWarning(this, ContractClientUtils.getRes("cantUnAudit"));
+				SysUtil.abort();
+			}
+			super.actionUnAudit_actionPerformed(e);
+			if(fbReqIds != null) {
+				ArrayList list = new ArrayList();
+				for(int j=0; j<fbReqIds.size(); j++) {
+					list.add(req2zbPay(fbReqIds.get(j)).toString());
+				}
+				if(list.size() > 0)
+					PaymentBillFactory.getRemoteInstance().antiAudit4FDC(list);
+			}
+		}else {
+			if(!checkPaymentAllSplit&&checkHasPaymentSplit()) {
+				MsgBox.showWarning(this, ContractClientUtils.getRes("cantUnAudit"));
+				SysUtil.abort();
+			}
+			super.actionUnAudit_actionPerformed(e);
+		}
+				
+//		super.actionUnAudit_actionPerformed(e);
 	}
+	
+	private BOSUuid req2zbPay(String reqId) throws Exception{
+		PayRequestBillInfo zbReqInfo = PayRequestBillFactory.getRemoteInstance().getPayRequestBillInfo("select state where sourceBillId='"+reqId+"'");
+		PaymentBillInfo zbPayInfo = PaymentBillFactory.getRemoteInstance().getPaymentBillInfo("select billStatus where fdcpayreqid='"+zbReqInfo.getId().toString()+"'");
+		return zbPayInfo.getId();
+	}
+	
 	//功能与付款拆分序时薄一致
 	//TODO 后续优化至工具类
 	public void actionSplit_actionPerformed(ActionEvent e) throws Exception {
