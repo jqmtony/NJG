@@ -516,7 +516,7 @@ public class BaseAndSinglePointEditUI extends AbstractBaseAndSinglePointEditUI
 			if(key.startsWith(costLongNumber))
 				temp = temp.add(goalCostMap.get(key));
 		}
-		goalCostMap.put(costLongNumber,temp);
+//		goalCostMap.put(costLongNumber,temp);
 		return temp;
     }
     
