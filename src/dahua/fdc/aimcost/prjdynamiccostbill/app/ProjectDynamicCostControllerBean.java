@@ -1,45 +1,29 @@
 package com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app;
 
-import org.apache.log4j.Logger;
-import javax.ejb.*;
-import java.rmi.RemoteException;
+import java.math.BigDecimal;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
-import com.kingdee.bos.*;
-import com.kingdee.bos.util.BOSObjectType;
-import com.kingdee.bos.metadata.IMetaDataPK;
-import com.kingdee.bos.metadata.rule.RuleExecutor;
-import com.kingdee.bos.metadata.MetaDataPK;
-//import com.kingdee.bos.metadata.entity.EntityViewInfo;
-import com.kingdee.bos.framework.ejb.AbstractEntityControllerBean;
-import com.kingdee.bos.framework.ejb.AbstractBizControllerBean;
-//import com.kingdee.bos.dao.IObjectPK;
+import org.apache.log4j.Logger;
+
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.Context;
+import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.bos.dao.IObjectCollection;
-import com.kingdee.bos.service.ServiceContext;
-import com.kingdee.bos.service.IServiceContext;
-
-import java.lang.String;
-import com.kingdee.bos.metadata.entity.EntityViewInfo;
+import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.eas.common.EASBizException;
-import com.kingdee.bos.dao.IObjectPK;
-import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostFactory;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrysAccountCollection;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrysAccountInfo;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostInfo;
-import com.kingdee.bos.metadata.entity.SelectorItemCollection;
-import com.kingdee.eas.framework.CoreBaseCollection;
-import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostCollection;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.earlywarn.DHWarnMsgFacadeFactory;
-import com.kingdee.eas.framework.SystemEnum;
-import com.kingdee.eas.framework.CoreBillBaseCollection;
-import com.kingdee.eas.framework.CoreBaseInfo;
-import com.kingdee.eas.framework.app.CoreBillBaseControllerBean;
-import com.kingdee.eas.framework.ObjectBaseCollection;
 import com.kingdee.eas.util.app.ContextUtil;
+import com.kingdee.eas.util.app.DbUtil;
 
 public class ProjectDynamicCostControllerBean extends AbstractProjectDynamicCostControllerBean
 {
@@ -75,7 +59,6 @@ public class ProjectDynamicCostControllerBean extends AbstractProjectDynamicCost
     	sic.add(new SelectorItemInfo("isLatest"));
     	try {
 			_updatePartial(ctx, info, sic);
-			
 
 			FDCSQLBuilder fdcSB = new FDCSQLBuilder(ctx); 
 			fdcSB.setBatchType(FDCSQLBuilder.STATEMENT_TYPE);
@@ -93,6 +76,45 @@ public class ProjectDynamicCostControllerBean extends AbstractProjectDynamicCost
 		} catch (EASBizException e) {
 			e.printStackTrace();
 		}
+		
+		//modify by yxl 20160303 建安动态跟踪表审核时，以科目为纬度的页签，当差异率大于“强控指标”
+		//一级科目 开发成本总额 >=102；各二级科目>=102；三级科目 主体工程4101.03.03>106
+		ProjectDynamicCostEntrysAccountCollection acctColl = info.getEntrysAccount();
+		ProjectDynamicCostEntrysAccountInfo acctInfo = null;
+		BigDecimal onePointTwo = new BigDecimal("-0.02");
+		BigDecimal onePointSix = new BigDecimal("-0.06");
+		Set<String> caNumbers = new HashSet<String>();
+		for(int i = acctColl.size()-1; i >= 0; i--) {
+			acctInfo = acctColl.get(i);
+			if(acctInfo.getLevel()==1 && acctInfo.getDiffRate()!=null && acctInfo.getDiffRate().compareTo(onePointTwo)<=0){
+				caNumbers.add(acctInfo.getCostAccountNumber());
+			}
+			if(acctInfo.getLevel()==2 && acctInfo.getDiffRate()!=null && acctInfo.getDiffRate().compareTo(onePointTwo)<=0){
+				caNumbers.add(acctInfo.getCostAccountNumber());
+			}
+			if(acctInfo.getLevel()==3 && acctInfo.getDiffRate()!=null && "4101.03.03".equals(acctInfo.getCostAccountNumber()) 
+					&& acctInfo.getDiffRate().compareTo(onePointSix)<0){
+				caNumbers.add(acctInfo.getCostAccountNumber());
+			}
+		}
+		if(caNumbers.size() > 0){
+			StringBuffer params = new StringBuffer();
+			for(Iterator<String> it=caNumbers.iterator(); it.hasNext();) {
+				params.append("'");
+				params.append(it.next());
+				params.append("',");
+			}
+			params.setLength(params.length()-1);
+			StringBuffer sb = new StringBuffer();
+			sb.append("update T_CON_ProgrammingContract set cfisqk=1 where FID in");
+			sb.append("(select pcont.fid from T_CON_ProgrammingContract pcont left join T_CON_Programming program on pcont.FPROGRAMMINGID=program.fid");
+			sb.append(" left join T_CON_ProgrammingContracCost pccost on pcont.fid=pccost.FCONTRACTID ");
+			sb.append(" left join T_FDC_CostAccount costAccount on costAccount.fid=pccost.FCOSTACCOUNTID ");
+			sb.append("where program.fprojectid='"+curProject.getId().toString()+"' and program.FSTATE='4AUDITTED' and program.FISLATEST=1 ");
+			sb.append("and costAccount.FLONGNUMBER in("+params.toString()+"))");
+			DbUtil.execute(ctx,sb.toString());
+		}
+		
     }
     /**
      * 反审核
