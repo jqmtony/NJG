@@ -46,12 +46,12 @@
             </properties>
         </component>
         <component>
-            <name>kDSeparator6</name>
-            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDSeparator6].alias</alias>
+            <name>kDSeparator5</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDSeparator5].alias</alias>
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDSeparator</classType>
             <isContainer>false</isContainer>
-            <constraints>8,572,991,8,262</constraints>
+            <constraints>9,65,991,10,261</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -65,12 +65,12 @@
             </parent>
         </component>
         <component>
-            <name>kDSeparator5</name>
-            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDSeparator5].alias</alias>
+            <name>kDSeparator6</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDSeparator6].alias</alias>
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDSeparator</classType>
             <isContainer>false</isContainer>
-            <constraints>9,65,991,10,261</constraints>
+            <constraints>8,572,991,8,262</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1411,7 +1411,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>9,75,469,19,261</constraints>
+            <constraints>531,453,469,19,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1683,7 +1683,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>531,480,469,19,137</constraints>
+            <constraints>531,476,469,19,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -1767,7 +1767,7 @@
             <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>531,455,469,19,137</constraints>
+            <constraints>531,500,469,19,137</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -2168,6 +2168,48 @@
                     <value>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDLabelContainer18].properties.property[enabled].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>false</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>kDLabelContainer19</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDLabelContainer19].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>9,75,469,19,261</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDLabelContainer19].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDLabelContainer19].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDLabelContainer19].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
                 </property>
             </properties>
             <parent>
@@ -4677,6 +4719,38 @@
             </propertyBindings>
         </component>
         <component>
+            <name>prmtFwContract</name>
+            <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtFwContract].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox</classType>
+            <isContainer>false</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <parent>
+                <key name="name" value="kDLabelContainer19" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>data</propertyName>
+                    <propertyType>java.lang.Object</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>programmingContract</bindingField>
+                    <fieldType>com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo</fieldType>
+                    <accessType />
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
             <name>btnAddNew</name>
             <alias>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[btnAddNew].alias</alias>
             <userDefined>false</userDefined>
@@ -6265,7 +6339,7 @@
             <default />
             <description>uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].statuses.status[FINDVIEW].description</description>
             <herited>false</herited>
-            <userDefined>false</userDefined>
+            <userDefined>true</userDefined>
             <statusItems>
                 <statusItem>
                     <name>actionEdit</name>
@@ -7834,6 +7908,30 @@
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDLabelContainer19].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDLabelContainer19].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDLabelContainer19].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="合约规划" />
+            <lang locale="zh_HK" value="合約規劃" />
+            <lang locale="zh_TW" value="合約規劃" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDLabelContainer19].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[kDLabelContainer1].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -8695,6 +8793,12 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtFwContract].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI].components.component[prmtPayment].alias">
             <lang locale="en_US" value="null" />

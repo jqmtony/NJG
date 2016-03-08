@@ -749,7 +749,7 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
-		<column>
+        <column>
             <name>FPayRequestBillID</name>
             <alias>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FPayRequestBillID].alias</alias>
             <description>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FPayRequestBillID].description</description>
@@ -763,12 +763,25 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
-		
         <column>
             <name>FCodeTypeID</name>
             <alias>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FCodeTypeID].alias</alias>
             <description>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FCodeTypeID].description</description>
             <userDefined>false</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>VARCHAR</sqlType>
+            <length>44</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
+        <column>
+            <name>CFSrcProID</name>
+            <alias>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[CFSrcProID].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[CFSrcProID].description</description>
+            <userDefined>true</userDefined>
             <isMultilingual>false</isMultilingual>
             <isEncoded>false</isEncoded>
             <isNullable>true</isNullable>
@@ -798,6 +811,18 @@
             <lang locale="zh_CN" value="无文本合同" />
             <lang locale="zh_HK" value="無文本合同" />
             <lang locale="zh_TW" value="無文本合同" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[CFSrcProID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="源合约规划ID" />
+            <lang locale="zh_HK" value="源合約規劃ID" />
+            <lang locale="zh_TW" value="源合約規劃ID" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[CFSrcProID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="源合约规划ID" />
+            <lang locale="zh_HK" value="源合約規劃ID" />
+            <lang locale="zh_TW" value="源合約規劃ID" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FAccountId].alias">
             <lang locale="en_US" value="null" />
@@ -1286,6 +1311,18 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FPayRequestBillID].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="付款申请单" />
+            <lang locale="zh_HK" value="付款申請單" />
+            <lang locale="zh_TW" value="付款申請單" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FPayRequestBillID].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="关联的付款申请单" />
+            <lang locale="zh_HK" value="關聯的付款申請單" />
+            <lang locale="zh_TW" value="關聯的付款申請單" />
+        </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FPaymentTypeID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -1434,18 +1471,6 @@
             <lang locale="zh_CN" value="无文本合同" />
             <lang locale="zh_HK" value="無文本合同" />
             <lang locale="zh_TW" value="無文本合同" />
-        </rs>
-		 <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FPayRequestBillID].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="付款申请单" />
-            <lang locale="zh_HK" value="付款申請單" />
-            <lang locale="zh_TW" value="付款申請單" />
-        </rs>
-        <rs key="dataTable[com.kingdee.eas.fdc.contract.app.T_CON_ContractWithoutText].columns.column[FPayRequestBillID].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="关联的付款申请单" />
-            <lang locale="zh_HK" value="關聯的付款申請單" />
-            <lang locale="zh_TW" value="關聯的付款申請單" />
         </rs>
     </resource>
 </dataTable>
