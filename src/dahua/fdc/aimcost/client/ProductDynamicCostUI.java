@@ -28,6 +28,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTDataRequestManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTSelectManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
+import com.kingdee.bos.ctrl.swing.KDPanel;
 import com.kingdee.bos.ctrl.swing.tree.DefaultKingdeeTreeNode;
 import com.kingdee.bos.dao.query.SQLExecutorFactory;
 import com.kingdee.bos.framework.cache.CacheServiceFactory;
@@ -1575,8 +1576,16 @@ public class ProductDynamicCostUI extends AbstractProductDynamicCostUI {
 			tblMain.removeColumn(5);
 		}
 		Map prodcutMap = this.dyProductTypeGetter.getSortedProductMap();
-		String[] resName = new String[] { "AimSell", "Aim", "HasHappen",
-				"NoHappen", "DynamicSell", "Dynamic" };
+		String[] resName = new String[] { "AimSell", "Aim", "HasHappen","NoHappen", "DynamicSell", "Dynamic" };
+		
+		//modify by yxl 20160303 表头标题文字丢失，现在手动加上
+//		Map<String,String> titles = new HashMap<String,String>();
+//		titles.put("AimSell","目标可售单方");
+//		titles.put("Aim","目标");
+//		titles.put("HasHappen","已发生");
+//		titles.put("NoHappen","未发生");
+//		titles.put("DynamicSell","动态可售单方");
+//		titles.put("Dynamic","动态");
 		int i = 0;
 		Set keySet = prodcutMap.keySet();
 		for (Iterator iter = keySet.iterator(); iter.hasNext();) {
@@ -1591,8 +1600,8 @@ public class ProductDynamicCostUI extends AbstractProductDynamicCostUI {
 				col.getStyleAttributes().setHorizontalAlign(
 						HorizontalAlignment.RIGHT);
 				tblMain.getHeadRow(0).getCell(key).setValue(product.getName());
-				tblMain.getHeadRow(1).getCell(key).setValue(
-						AimCostHandler.getResource(resName[j]));
+				tblMain.getHeadRow(1).getCell(key).setValue(AimCostHandler.getResource(resName[j]));
+//				tblMain.getHeadRow(1).getCell(key).setValue(titles.get(resName[j]));
 			}
 			tblMain.getHeadMergeManager().mergeBlock(0, 5 + i * 6, 0,
 					5 + 5 + i * 6);

@@ -114,6 +114,7 @@ import com.kingdee.eas.fdc.contract.ConChangeSplitInfo;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractCostSplitInfo;
 import com.kingdee.eas.fdc.contract.client.ContractClientUtils;
+import com.kingdee.eas.fdc.contract.client.CustomerContractUtil;
 import com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI;
 import com.kingdee.eas.fdc.contract.client.ProjectChangeAuditEditUI;
 import com.kingdee.eas.fdc.contract.client.TechChangeAuditEditUI;
@@ -538,6 +539,11 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
     }
     
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+    	//modify by yxl
+    	if(prmtcontractNumber.getValue()!=null && CustomerContractUtil.checkPcQkFromContract(((ContractBillInfo)prmtcontractNumber.getValue()).getId().toString())){
+    		MsgBox.showInfo(this,CustomerContractUtil.CONTRACTINFO);
+			abort();
+    	}
     	super.actionSubmit_actionPerformed(e);
     	this.lockUIForViewStatus();
     	this.setOprtState("VIEW");
