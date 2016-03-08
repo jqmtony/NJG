@@ -179,6 +179,7 @@ import com.kingdee.eas.fdc.contract.client.AbstractSplitInvokeStrategy;
 import com.kingdee.eas.fdc.contract.client.BudgetViewUtils;
 import com.kingdee.eas.fdc.contract.client.ContractClientUtils;
 import com.kingdee.eas.fdc.contract.client.ContractWithoutTextEditUI;
+import com.kingdee.eas.fdc.contract.client.CustomerContractUtil;
 import com.kingdee.eas.fdc.contract.client.FDCBudgetUtil;
 import com.kingdee.eas.fdc.contract.client.PaymentSplitInvokeStrategy;
 import com.kingdee.eas.fdc.contract.client.SplitInvokeStrategyFactory;
@@ -7218,9 +7219,15 @@ public class PaymentBillEditUI extends AbstractPaymentBillEditUI {
 		FDCClientVerifyHelper.verifyEmpty(this, prmtCurrency);
 		FDCClientVerifyHelper.verifyUIControlEmpty(this);
 		
-		if(PayReqUtils.isContractBill(editData.getContractBillId()) && isPartA && isPartAMaterialCon){
+		String contractBillId = editData.getContractBillId();
+		if(PayReqUtils.isContractBill(contractBillId) && isPartA && isPartAMaterialCon){
 			if (!isReferenceToPartAConfirm()) // 有关联才需要校验
 				paymentBillTableHelper.verifySubmit();
+		}
+		//modify by yxl
+		if(PayReqUtils.isContractBill(contractBillId) && CustomerContractUtil.checkPcQkFromContract(contractBillId)){
+			MsgBox.showInfo(this,CustomerContractUtil.CONTRACTINFO);
+			abort();
 		}
 	}
 

@@ -1507,7 +1507,7 @@ public class PayPlanNewUI extends AbstractPayPlanNewUI {
 				amount = (BigDecimal)tblBySchedule.getCell(i,COL_PLAN_PAY_AMOUNT).getValue();
 				if(beginDate!=null && endDate!=null && amount!=null){
 					months.clear();
-					endDate = new SimpleDateFormat("yyyy-MM-dd").parse(DateUtil.format(endDate,"yyyy-MM-dd").substring(0,8)+"31");
+					endDate = new SimpleDateFormat("yyyy-MM-dd").parse(DateUtil.format(endDate,"yyyy-MM-dd").substring(0,8)+"30");
 					while(beginDate.compareTo(endDate) <= 0) {
 						calendar.setTime(beginDate);
 						months.add(new Integer(calendar.get(Calendar.YEAR)*100+calendar.get(Calendar.MONTH)+1));
