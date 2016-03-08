@@ -2208,7 +2208,7 @@ public class ContractBillControllerBean extends
 
 	/**
 	 * 找出所关联的框架合约的记录数(无文本已经废除，不再查找)
-	 * 
+	 * 现在需要加上无文本这块的判断
 	 * @param proContId
 	 * @return
 	 */
@@ -2218,6 +2218,9 @@ public class ContractBillControllerBean extends
 		buildSQL.appendSql(" where FProgrammingContractId = '" + proContId + "' ");
 		buildSQL.appendSql(" union ");
 		buildSQL.appendSql(" select count(1) count from T_CON_ContractBill ");
+		buildSQL.appendSql(" where FProgrammingContract = '" + proContId + "' ");
+		buildSQL.appendSql(" union ");
+		buildSQL.appendSql(" select count(1) count from T_CON_ContractWithoutText ");
 		buildSQL.appendSql(" where FProgrammingContract = '" + proContId + "' ");
 		int count = 0;
 		try {

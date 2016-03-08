@@ -70,6 +70,7 @@ import com.kingdee.eas.fdc.contract.ContractWithoutTextFactory;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
 import com.kingdee.eas.fdc.contract.PayReqUtils;
 import com.kingdee.eas.fdc.contract.client.AbstractContractWithoutTextListUI;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.contract.programming.RenewRelateProgSaveFacadeFactory;
 import com.kingdee.eas.fdc.migrate.StringUtils;
@@ -78,6 +79,7 @@ import com.kingdee.eas.framework.ICoreBase;
 import com.kingdee.eas.framework.ICoreBillBase;
 import com.kingdee.eas.framework.TreeBaseInfo;
 import com.kingdee.eas.framework.client.tree.KDTreeNode;
+import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
 
@@ -160,18 +162,14 @@ public class RenewRelateProgrammingListUI extends
 	 * 设置合约构架 F7
 	 */
 	private void createProgrammingContractF7() throws Exception {
-		this.tblMain.getColumn("programmingContract").getStyleAttributes()
-				.setLocked(false);
+		this.tblMain.getColumn("programmingContract").getStyleAttributes().setLocked(false);
 		kdtCostEntries_programmingContract_PromptBox = new KDBizPromptBox();
 		//		ProgrammingContractPromptBox selector = new ProgrammingContractPromptBox(
 		//				this);
-		kdtCostEntries_programmingContract_PromptBox
-				.setEnabledMultiSelection(false);
-		kdtCostEntries_programmingContract_PromptBox
-				.setEditFormat("$longNumber$");
+		kdtCostEntries_programmingContract_PromptBox.setEnabledMultiSelection(false);
+		kdtCostEntries_programmingContract_PromptBox.setEditFormat("$longNumber$");
 		kdtCostEntries_programmingContract_PromptBox.setDisplayFormat("$name$");
-		kdtCostEntries_programmingContract_PromptBox
-				.setCommitFormat("$longNumber$");
+		kdtCostEntries_programmingContract_PromptBox.setCommitFormat("$longNumber$");
 		//		kdtCostEntries_programmingContract_PromptBox.setSelector(selector);
 		kdtCostEntries_programmingContract_PromptBox
 				.addSelectorListener(new SelectorListener() {
@@ -180,17 +178,16 @@ public class RenewRelateProgrammingListUI extends
 						if (!flag) {
 							e.setCanceled(true);
 						}
-						kdtCostEntries_programmingContract_PromptBox
-								.setRefresh(true);
+						kdtCostEntries_programmingContract_PromptBox.setRefresh(true);
 						String id = getSelectedKeyValue();
 						ContractBillInfo contractBillInfo = null;
 						try {
-							SelectorItemCollection sic = new SelectorItemCollection();
-							sic.add("*");
-							sic.add("curProject.*");
-							contractBillInfo = ContractBillFactory
-									.getRemoteInstance().getContractBillInfo(
-											new ObjectUuidPK(id), sic);
+							if ((BOSUuid.read(id).getType()).equals(new ContractBillInfo().getBOSType())) {
+								SelectorItemCollection sic = new SelectorItemCollection();
+								sic.add("*");
+								sic.add("curProject.*");
+								contractBillInfo = ContractBillFactory.getRemoteInstance().getContractBillInfo(new ObjectUuidPK(id), sic);
+							}
 						} catch (Exception e1) {
 							logger.error(e1);
 							handUIExceptionAndAbort(e1);
@@ -198,10 +195,7 @@ public class RenewRelateProgrammingListUI extends
 						if (contractBillInfo == null) {
 							ContractWithoutTextInfo contractWithoutTextInfo = null;
 							try {
-								contractWithoutTextInfo = ContractWithoutTextFactory
-										.getRemoteInstance()
-										.getContractWithoutTextInfo(
-												new ObjectUuidPK(id));
+								contractWithoutTextInfo = ContractWithoutTextFactory.getRemoteInstance().getContractWithoutTextInfo(new ObjectUuidPK(id));
 							} catch (Exception e1) {
 								logger.error(e1);
 								handUIExceptionAndAbort(e1);
@@ -209,27 +203,21 @@ public class RenewRelateProgrammingListUI extends
 							if (contractWithoutTextInfo.getCurProject() != null) {
 								EntityViewInfo entityView = new EntityViewInfo();
 								FilterInfo filter = new FilterInfo();
-								String pro = contractWithoutTextInfo
-										.getCurProject().getId().toString();
+								String pro = contractWithoutTextInfo.getCurProject().getId().toString();
 								getUIContext().put("projectId", pro);
 								Set set = new HashSet();
 								set.add(pro);
-								filter.getFilterItems().add(
-										new FilterItemInfo("project.id", set,
-												CompareType.INCLUDE));
+								filter.getFilterItems().add(new FilterItemInfo("project.id", set, CompareType.INCLUDE));
 								filter.getFilterItems().add(new FilterItemInfo("programming.isLatest", new Integer(1), CompareType.EQUALS));
 								filter.getFilterItems().add(new FilterItemInfo("programming.state", FDCBillStateEnum.AUDITTED_VALUE, CompareType.EQUALS));
 								entityView.setFilter(filter);
-								kdtCostEntries_programmingContract_PromptBox
-										.setEntityViewInfo(entityView);
+								kdtCostEntries_programmingContract_PromptBox.setEntityViewInfo(entityView);
 							}
 						} else {
 							if (contractBillInfo.getCurProject() != null) {
 								EntityViewInfo entityView = new EntityViewInfo();
 								FilterInfo filter = new FilterInfo();
-								String pro = contractBillInfo.getCurProject()
-										.getId().toString();
-								
+								String pro = contractBillInfo.getCurProject().getId().toString();
 								getUIContext().put("projectId", pro);
 								
 								Set set = new HashSet();
@@ -240,10 +228,8 @@ public class RenewRelateProgrammingListUI extends
 								filter.getFilterItems().add(new FilterItemInfo("programming.isLatest", new Integer(1), CompareType.EQUALS));
 								filter.getFilterItems().add(new FilterItemInfo("programming.state", FDCBillStateEnum.AUDITTED_VALUE, CompareType.EQUALS));
 								entityView.setFilter(filter);
-								kdtCostEntries_programmingContract_PromptBox
-										.setEntityViewInfo(entityView);
-								kdtCostEntries_programmingContract_PromptBox
-										.setRefresh(true);
+								kdtCostEntries_programmingContract_PromptBox.setEntityViewInfo(entityView);
+								kdtCostEntries_programmingContract_PromptBox.setRefresh(true);
 							}
 						}
 					}
@@ -252,10 +238,8 @@ public class RenewRelateProgrammingListUI extends
 		ProgrammingContractPromptBox selector = new ProgrammingContractPromptBox(this);
 		kdtCostEntries_programmingContract_PromptBox.setSelector(selector);
 		
-		KDTDefaultCellEditor kdtCostEntries_programmingContract_CellEditor = new KDTDefaultCellEditor(
-				kdtCostEntries_programmingContract_PromptBox);
-		this.tblMain.getColumn("programmingContract").setEditor(
-				kdtCostEntries_programmingContract_CellEditor);
+		KDTDefaultCellEditor kdtCostEntries_programmingContract_CellEditor = new KDTDefaultCellEditor(kdtCostEntries_programmingContract_PromptBox);
+		this.tblMain.getColumn("programmingContract").setEditor(kdtCostEntries_programmingContract_CellEditor);
 
 	}
 
@@ -667,49 +651,37 @@ public class RenewRelateProgrammingListUI extends
 	 * @throws BOSException
 	 * @throws EASBizException
 	 */
-	private IObjectCollection beforeSubmit() throws EASBizException,
-			BOSException {
+	private IObjectCollection beforeSubmit() throws EASBizException,BOSException {
 		if (isModify == false)
 			return null;
 		ContractBillCollection contractBillCollection = new ContractBillCollection();
 		ContractWithoutTextCollection contractWithoutTextCollection = new ContractWithoutTextCollection();
 		Iterator it = hs.iterator();
 		while (it.hasNext()) {
-			if (getTypeSelectedTreeNode().getUserObject().equals(
-					"ContractWithoutText")) {
+			if(getTypeSelectedTreeNode().getUserObject().equals("ContractWithoutText")) {
 				ContractWithoutTextInfo contractWithoutTextInfo = new ContractWithoutTextInfo();
 				int i = Integer.parseInt((String) it.next());
 				if (this.tblMain.getRow(i).getCell("id").getValue() != null) {
-					contractWithoutTextInfo.setId(BOSUuid.read(this.tblMain
-							.getRow(i).getCell("id").getValue().toString()));
+					contractWithoutTextInfo.setId(BOSUuid.read(this.tblMain.getRow(i).getCell("id").getValue().toString()));
 				}
-				if (this.tblMain.getRow(i).getCell("programmingContract")
-						.getValue() != null) {
+				if (this.tblMain.getRow(i).getCell("programmingContract").getValue() != null) {
 					contractWithoutTextInfo
-							.setProgrammingContract((ProgrammingContractInfo) this.tblMain
-									.getRow(i).getCell("programmingContract")
-									.getValue());
+							.setProgrammingContract((ProgrammingContractInfo) this.tblMain.getRow(i).getCell("programmingContract").getValue());
 				}
 				contractWithoutTextCollection.add(contractWithoutTextInfo);
 			} else {
 				ContractBillInfo contractBillInfo = new ContractBillInfo();
 				int i = Integer.parseInt((String) it.next());
 				if (this.tblMain.getRow(i).getCell("id").getValue() != null) {
-					contractBillInfo.setId(BOSUuid.read(this.tblMain.getRow(i)
-							.getCell("id").getValue().toString()));
+					contractBillInfo.setId(BOSUuid.read(this.tblMain.getRow(i).getCell("id").getValue().toString()));
 				}
-				if (this.tblMain.getRow(i).getCell("programmingContract")
-						.getValue() != null) {
-					contractBillInfo
-							.setProgrammingContract((ProgrammingContractInfo) this.tblMain
-									.getRow(i).getCell("programmingContract")
-									.getValue());
+				if (this.tblMain.getRow(i).getCell("programmingContract").getValue() != null) {
+					contractBillInfo.setProgrammingContract((ProgrammingContractInfo)tblMain.getRow(i).getCell("programmingContract").getValue());
 				}
 				contractBillCollection.add(contractBillInfo);
 			}
 		}
-		if (getTypeSelectedTreeNode().getUserObject().equals(
-				"ContractWithoutText")) {
+		if (getTypeSelectedTreeNode().getUserObject().equals("ContractWithoutText")) {
 			return contractWithoutTextCollection;
 		} else {
 			return contractBillCollection;
@@ -723,8 +695,7 @@ public class RenewRelateProgrammingListUI extends
 		IObjectCollection objectCollection = beforeSubmit();
 		if (objectCollection == null)
 			return;
-		RenewRelateProgSaveFacadeFactory.getRemoteInstance().save(
-				objectCollection);
+		RenewRelateProgSaveFacadeFactory.getRemoteInstance().save(objectCollection);
 		isModify = false;
 		hs.clear();
 		kdtCostEntries_programmingContract_PromptBox.setRefresh(true);
@@ -876,4 +847,5 @@ public class RenewRelateProgrammingListUI extends
 			RenewRelateProgSaveFacadeFactory.getRemoteInstance().save(contractBillCollection);
 		}
 	}
+	
 }

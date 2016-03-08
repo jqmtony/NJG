@@ -377,6 +377,17 @@ public class AbstractContractWithoutTextInfo extends com.kingdee.eas.fdc.basedat
     {
         put("codeType", item);
     }
+    /**
+     * Object:无文本合同's 源合约规划IDproperty 
+     */
+    public String getSrcProID()
+    {
+        return getString("srcProID");
+    }
+    public void setSrcProID(String item)
+    {
+        setString("srcProID", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("3D9A5388");

@@ -853,6 +853,16 @@ public class ProjectChangeAuditEditUI extends AbstractProjectChangeAuditEditUI
     	//提交前调用一下编码规则生成编码
 		this.handleCodingRule();
 		runAction(e,"SUBMIT");
+		//modify by yxl
+		for(int i=0; i<count; i++){
+			Object content = getSecondTable().getCell(i*suppRows, "content").getValue();
+			if(content!=null && content instanceof ContractBillInfo){
+				if(CustomerContractUtil.checkPcQkFromContract(((ContractBillInfo)content).getId().toString())){
+					MsgBox.showInfo(this,CustomerContractUtil.CONTRACTINFO);
+					abort();
+				}
+			}
+		}
         super.actionSubmit_actionPerformed(e);
         doAfterSubmit();
         setSaveActionStatus();

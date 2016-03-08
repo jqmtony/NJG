@@ -4,6 +4,7 @@
 package com.kingdee.eas.fdc.contract.client;
 
 import java.awt.Container;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -27,6 +28,8 @@ import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
 import com.kingdee.bos.ctrl.extendcontrols.ExtendParser;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
+import com.kingdee.bos.ctrl.swing.KDLayout;
+import com.kingdee.bos.ctrl.swing.KDPromptSelector;
 import com.kingdee.bos.ctrl.swing.KDTextField;
 import com.kingdee.bos.ctrl.swing.StringUtils;
 import com.kingdee.bos.ctrl.swing.event.CommitEvent;
@@ -116,6 +119,9 @@ import com.kingdee.eas.fdc.contract.PayRequestBillCollection;
 import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
 import com.kingdee.eas.fdc.contract.UrgentDegreeEnum;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
+import com.kingdee.eas.fdc.contract.programming.client.ProgrammingContractF7UI;
 import com.kingdee.eas.fdc.contract.util.ContractCodingUtil;
 import com.kingdee.eas.fdc.finance.FDCDepConPayPlanNoContractInfo;
 import com.kingdee.eas.fdc.finance.FDCProDepConPayPlanCollection;
@@ -146,10 +152,8 @@ import com.kingdee.util.enums.EnumUtils;
  * @version		EAS7.0		
  * @see					
  */
-public class ContractWithoutTextEditUI extends
-		AbstractContractWithoutTextEditUI {
-	private static final Logger logger = CoreUIObject
-			.getLogger(ContractWithoutTextEditUI.class);
+public class ContractWithoutTextEditUI extends AbstractContractWithoutTextEditUI {
+	private static final Logger logger = CoreUIObject.getLogger(ContractWithoutTextEditUI.class);
 	
 	private static final String BINDING_PROPERTY = "codeType.number";
 
@@ -223,8 +227,39 @@ public class ContractWithoutTextEditUI extends
 		setFocus();
 		txtPaymentRequestBillNumber.setRequired(false);
 		txtPaymentRequestBillNumber.setEditable(false);
-	
+		initProgramControlMode();
+		if(editData.getCurProject()!=null){
+			SelectorItemCollection sic = new SelectorItemCollection();
+			sic.add("isWholeAgeStage");
+			CurProjectInfo curInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(editData.getCurProject().getId()),sic);
+//			isWholeAgeProject = curInfo.isIsWholeAgeStage();
+			prmtFwContract.setEnabled(!curInfo.isIsWholeAgeStage());
+		}
 	}
+	
+	/**
+	 * 描述：根据参数初始化合约框架控件
+	 */
+	private void initProgramControlMode() {
+		// added by shangjing 
+		//“框架合约名称”、“控制金额”是否显示受参数“合同签约金额超过与之关联的合约规划金额时是否严格控制”影响
+		String programControlMode = getParamValue();
+		if (programControlMode != null) {
+			// 若控制模式为 严格控制或 提示控制 显示“框架合约名称”、“控制金额”；且“框架合约名称”为必填项
+			if ("0".equals(programControlMode.trim()) || "1".equals(programControlMode.trim())) {
+				kDLabelContainer19.setVisible(true);
+				ContractTypeInfo conType = editData.getContractType();
+				if (conType != null && !conType.isIsRefProgram()) {
+					prmtFwContract.setRequired(false);
+				} else {
+					prmtFwContract.setRequired(true);
+				}
+			} else if ("2".equals(programControlMode.trim())) {
+				kDLabelContainer19.setVisible(false);
+				prmtFwContract.setRequired(false);
+			}
+		}
+   }
 	
 	protected void afterSubmitAddNew() {
 		clearPayRequestFieldCtrl();
@@ -536,6 +571,37 @@ public class ContractWithoutTextEditUI extends
 				}
 			}
 		});
+		// 为合约框架名称F7添加自定义的F7界面 (框架合约F7 界面)
+		 prmtFwContract.setSelector(new KDPromptSelector() {
+				IUIWindow win = null;
+				public void show() {
+					try {
+						UIContext context = new UIContext(ContractWithoutTextEditUI.this);
+						Object object = getUIContext().get("projectId");
+						if (object == null) {
+							if (editData.getCurProject() != null) {
+								object = editData.getCurProject().getId();
+							}
+						}
+						context.put("projectId", object);
+						/*** modify by lihaiou. 2013.09.22. for bug R130916-0204***********/
+						context.put("allowZero", Boolean.FALSE);
+						/**** modify end*********************/
+						//新建界面生成 uiwindow(合约框架F7)对象
+						win = UIFactory.createUIFactory().create(ProgrammingContractF7UI.class.getName(), context);
+						win.show();
+					} catch (Exception e) {
+						handUIExceptionAndAbort(e);
+					}
+				}
+				public boolean isCanceled() {
+					return false;
+				}
+				//得到返回的值
+				public Object getData() {
+					return getUIContext().get("selectedValue");
+				}
+			});
 	}
 
 	/**
@@ -1545,12 +1611,138 @@ public class ContractWithoutTextEditUI extends
 	
 	}
 	
+	private String getProSrcId(BOSUuid conId) throws BOSException, SQLException {
+		String proSrcId = null;
+		FDCSQLBuilder builder = new FDCSQLBuilder();
+		builder.appendSql("select CFSrcProID from T_CON_ContractWithoutText where ");
+		builder.appendParam("fid", conId.toString());
+		IRowSet rowSet = builder.executeQuery();
+		while (rowSet.next()) {
+			proSrcId = rowSet.getString(1);
+		}
+		return proSrcId;
+	}
+	
+	/**
+	 * added by shangjing
+	 * 获取参数设置值:合同签约金额超过与之关联的合同规划金额时是否严格控制
+	 */
+	private String getParamValue() {
+		String programControlMode = "";
+		try {
+			// modified by zhaoqin for R130924-0167 on 2013/9/29 start
+			String orgunitid = null;
+			// 工程项目对应的成本中心id
+			if(null != editData.getCurProject().getCostCenter())
+				orgunitid = editData.getCurProject().getCostCenter().getId().toString();
+			if(StringUtils.isEmpty(orgunitid) && null != this.curProject.getCostCenter())
+				orgunitid = this.curProject.getCostCenter().getId().toString();
+			if(!StringUtils.isEmpty(orgunitid))
+				programControlMode = FDCUtils.getFDCParamByKey(null, orgunitid, FDCConstants.FDC_PARAM_CONTRACT_PROGRAM_AMOUNT);
+			/*
+			//这个方法里面的参数暂时有问题 可以看下 
+			//programControlMode = getParam4ProgramAmountControlMode();
+			// 0:严格控制 ;1:提示控制；2:不提示
+			//直接查表来得到此参数的值 
+			FDCSQLBuilder builder = new FDCSQLBuilder();
+			//builder.appendSql("select fvalue_l2 from t_bas_paramitem where fkeyid in(select fid from t_bas_param where  fnumber  like '"
+				//	+ FDC_PARAM_CONTRACT_PROGRAM_AMOUNT + "') and forgunitid like '" + comPK + "%'");
+			IRowSet rowSet = builder.executeQuery();
+			while (rowSet.next()) {
+				programControlMode = rowSet.getString("fvalue_l2");
+			}
+			*/
+			
+		} catch (Exception e) {
+			handUIExceptionAndAbort(e);
+		}
+		return programControlMode;
+	}
+	
+	private void checkConProgram() throws BOSException, EASBizException, SQLException {
+		ContractTypeInfo typeInfo = (ContractTypeInfo)prmtContractType.getValue();
+		boolean isRef = typeInfo.isIsRefProgram(); // 合同类型是否勾选“关联合约规划”
+		//======================合约框架控制合同签定逻辑控制
+		ProgrammingContractInfo pc = (ProgrammingContractInfo)prmtFwContract.getValue();
+		if(pc != null && this.editData.getId() !=null){
+			String proSrcId = getProSrcId(this.editData.getId());
+			if(proSrcId != null){
+				SelectorItemCollection sick = new SelectorItemCollection();
+				sick.add("*");
+				pc = ProgrammingContractFactory.getRemoteInstance().getProgrammingContractInfo(new ObjectUuidPK(proSrcId), sick);
+			}
+		}
+		
+		boolean isValid = false; //这个值有什么用？ 合约框架是否有效吗? 
+		if(pc != null){
+			FDCSQLBuilder builderSql = new FDCSQLBuilder();
+			builderSql.appendSql(" select prog.fid  from t_con_programmingContract prog ");
+			builderSql.appendSql(" left join t_con_programming programming on programming.fid = prog.FProgrammingID ");
+			builderSql.appendSql(" where  programming.fstate = '4AUDITTED' and ");
+			builderSql.appendParam("prog.fid", pc.getId().toString());
+			IRowSet rowSet = builderSql.executeQuery();
+			if (rowSet.next()) {
+				isValid = true;
+			}
+		}
+		String programControlMode = getParamValue();
+		if (!com.kingdee.util.StringUtils.isEmpty(programControlMode)) {
+			int i = Integer.parseInt(programControlMode);
+			switch (i) {
+			case 0: // 严格控制时
+				if (isValid) {
+					if (this.editData.getAmount().compareTo(FDCHelper.toBigDecimal(pc.getControlBalance())) > 0) {
+						if (isRef) {
+							FDCMsgBox.showWarning(this, "无文本合同签约金额超过关联的合约控制余额，不允许提交");
+							SysUtil.abort();
+						} else {
+							if (FDCMsgBox.showConfirm2(this, "无文本合同签约金额超过关联的合约控制余额，请确认是否提交") == FDCMsgBox.CANCEL) {
+								SysUtil.abort();
+							}
+						}
+					}
+				} else if (isRef) {
+					FDCMsgBox.showWarning(this, "未关联框架合约，不允许提交");
+					SysUtil.abort();
+				}
+				break;
+			case 1: // 提示控制时
+				if (isValid) {
+					if (this.editData.getAmount().compareTo(FDCHelper.toBigDecimal(pc.getControlBalance())) > 0) {
+						if (isRef) {
+							if (FDCMsgBox.showConfirm2(this, "无文本合同签约金额超过关联的合约控制余额，请确认是否提交") == FDCMsgBox.CANCEL) {
+								SysUtil.abort();
+							}
+						}
+					}
+				} else if (isRef) {
+					FDCMsgBox.showWarning(this, "未关联框架合约，不允许提交");
+					SysUtil.abort();
+				}
+				break;
+			case 2: // 不控制时
+				if (isValid) {
+					if (this.editData.getAmount().compareTo(FDCHelper.toBigDecimal(pc.getControlBalance())) > 0) {
+						if (isRef) {
+							if (FDCMsgBox.showConfirm2(this, "无文本合同签约金额超过关联的合约控制余额，请确认是否提交") == FDCMsgBox.CANCEL) {
+								SysUtil.abort();
+							}
+						}
+					}
+				}
+				break;
+			}
+		}
+	}
+	
 	protected void verifyInputForSubmint()throws Exception {
 		checkAmountForSubmit();
 		checkAmount();
 		//预算控制
 		checkMbgCtrlBalance();
 		super.verifyInputForSubmint();
+		//校验合约规划
+		checkConProgram();
 	}
 
 	private void checkAmount() throws Exception {

@@ -21,6 +21,8 @@ import com.kingdee.eas.fdc.contract.ContractBillFactory;
 import com.kingdee.eas.fdc.contract.ContractBillInfo;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextFactory;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
+import com.kingdee.eas.fdc.contract.IContractBill;
+import com.kingdee.eas.fdc.contract.IContractWithoutText;
 import com.kingdee.eas.fdc.contract.programming.IProgrammingContract;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
 import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
@@ -29,25 +31,24 @@ import com.kingdee.jdbc.rowset.IRowSet;
 public class RenewRelateProgSaveFacadeControllerBean extends
 		AbstractRenewRelateProgSaveFacadeControllerBean {
 	private static final long serialVersionUID = 1L;
-	private static Logger logger = Logger
-			.getLogger("com.kingdee.eas.fdc.contract.programming.app.RenewRelateProgSaveFacadeControllerBean");
+	private static Logger logger = Logger.getLogger("com.kingdee.eas.fdc.contract.programming.app.RenewRelateProgSaveFacadeControllerBean");
 
-	protected void _save(Context ctx, IObjectCollection objCol)
-			throws BOSException, EASBizException {
+	protected void _save(Context ctx, IObjectCollection objCol) throws BOSException, EASBizException {
 		if (objCol.getObject(0) instanceof ContractBillInfo) {
 			// 保存或者更新新集合对象
 			SelectorItemCollection st = new SelectorItemCollection();
 			st.add("programmingContract");
 			st.add("isRenewRelateProg");
 			st.add("srcProID");
+			IContractBill icb = ContractBillFactory.getLocalInstance(ctx);
 			for (int i = 0; i < objCol.size(); i++) {
 				String tempOldProg = null;
 				ContractBillInfo info = (ContractBillInfo) objCol.getObject(i);
-				if (checkIsExistProg(ctx, info.getId().toString()) != null) {
-					tempOldProg = checkIsExistProg(ctx, info.getId().toString());
-				} 
+				tempOldProg = checkIsExistProg(ctx, info.getId().toString());
+//				if (checkIsExistProg(ctx, info.getId().toString()) != null) {
+//				} 
 				info.setIsRenewRelateProg(1);
-				info.setProgrammingContract(info.getProgrammingContract());
+//				info.setProgrammingContract(info.getProgrammingContract());
 				//维护源ID用于动态规划
 				if(info.getProgrammingContract() != null){
 					/* modified by zhaoqin for R140507-0196,R131119-0321,R131127-0389 on 2014/05/14 start */
@@ -58,7 +59,7 @@ public class RenewRelateProgSaveFacadeControllerBean extends
 					info.setSrcProID(null);
 					info.setIsRenewRelateProg(0);
 				}
-				ContractBillFactory.getLocalInstance(ctx).updatePartial(info, st);
+				icb.updatePartial(info, st);
 				//更新补充合同框架合约
 				try {
 					relateContractProg(ctx,info);
@@ -78,8 +79,7 @@ public class RenewRelateProgSaveFacadeControllerBean extends
 							synUpdateBillByRelation(ctx, info,tempOldProg, false);
 						}
 						if (info.getProgrammingContract() != null) {
-							updateProgrammingContract(ctx,info
-									.getProgrammingContract().getId().toString(),1);
+							updateProgrammingContract(ctx,info.getProgrammingContract().getId().toString(),1);
 							synUpdateBillByRelation(ctx, info,null, true);
 						}
 					} catch (SQLException e) {
@@ -91,18 +91,45 @@ public class RenewRelateProgSaveFacadeControllerBean extends
 			// 保存或者更新新集合对象
 			SelectorItemCollection st = new SelectorItemCollection();
 			st.add("programmingContract");
+			st.add("srcProID");
+			String tempOldProg = null;	
+			IContractWithoutText icwt = ContractWithoutTextFactory.getLocalInstance(ctx);
 			for (int i = 0; i < objCol.size(); i++) {
-				ContractWithoutTextInfo info = (ContractWithoutTextInfo) objCol
-						.getObject(i);
-				ContractWithoutTextFactory.getLocalInstance(ctx).updatePartial(
-						info, st);
+				ContractWithoutTextInfo info = (ContractWithoutTextInfo) objCol.getObject(i);
+				tempOldProg = checkIsExistProgInWC(ctx, info.getId().toString());
+				if(info.getProgrammingContract() != null){
+					info.setSrcProID(tempOldProg);
+				}else{
+					info.setSrcProID(null);
+				}
+				icwt.updatePartial(info, st);
+				
+				try {
+					// 更新旧的框架合约金额
+					if (tempOldProg != null) {
+						int count = 0;// 关联合约数
+						count = isCitingByProg(ctx,tempOldProg);
+						boolean isCiting = preVersionProg(ctx,tempOldProg);
+						if (count <= 1 && !isCiting) {
+							updateProgrammingContract(ctx,tempOldProg, 0);
+						}
+						synUpdateWcByRelation(ctx, info,tempOldProg, false);
+					}
+					if (info.getProgrammingContract() != null) {
+						updateProgrammingContract(ctx,info.getProgrammingContract().getId().toString(),1);
+						synUpdateWcByRelation(ctx, info,null, true);
+					}
+				} catch (SQLException e) {
+					logger.error(e);
+					throw new BOSException(e);
+				}
 			}
 		}
 
 	}
 	/**
 	 * 找出所关联的框架合约的记录数(无文本已经废除，不再查找)
-	 * 
+	 * 无文本启用，加上查找逻辑
 	 * @param proContId
 	 * @return
 	 */
@@ -112,6 +139,9 @@ public class RenewRelateProgSaveFacadeControllerBean extends
 		buildSQL.appendSql(" where FProgrammingContractId = '" + proContId + "' ");
 		buildSQL.appendSql(" union ");
 		buildSQL.appendSql(" select count(1) count from T_CON_ContractBill ");
+		buildSQL.appendSql(" where FProgrammingContract = '" + proContId + "' ");
+		buildSQL.appendSql(" union ");
+		buildSQL.appendSql(" select count(1) count from T_CON_ContractWithoutText ");
 		buildSQL.appendSql(" where FProgrammingContract = '" + proContId + "' ");
 		int count = 0;
 		try {
@@ -150,7 +180,7 @@ public class RenewRelateProgSaveFacadeControllerBean extends
 		FDCSQLBuilder buildSQL = new FDCSQLBuilder(ctx);
 		buildSQL.appendSql("update T_CON_ProgrammingContract set FIsCiting = " + isCiting + " ");
 		buildSQL.appendSql("where FID = '" + proContId + "' ");
-			buildSQL.executeUpdate();
+		buildSQL.executeUpdate();
 	}
 	private void relateContractProg(Context ctx,ContractBillInfo conInfo) throws BOSException, SQLException, EASBizException{
 		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
@@ -178,8 +208,7 @@ public class RenewRelateProgSaveFacadeControllerBean extends
 	 * @return
 	 * @throws BOSException
 	 */
-	private String checkIsExistProg(Context ctx, String contractId)
-			throws BOSException {
+	private String checkIsExistProg(Context ctx, String contractId) throws BOSException {
 		String flag = null;
 		String sql = "select fprogrammingcontract from t_con_contractbill where fid='"
 				+ contractId + "'";
@@ -196,20 +225,29 @@ public class RenewRelateProgSaveFacadeControllerBean extends
 		return flag;
 
 	}
+	
+	private String checkIsExistProgInWC(Context ctx, String contractId) throws BOSException {
+		String flag = null;
+		String sql = "select fprogrammingcontract from T_CON_ContractWithoutText where fid='"+ contractId + "'";
+		FDCSQLBuilder fdcSB = new FDCSQLBuilder(ctx, sql.toString());
+		IRowSet rs = fdcSB.executeQuery();
+		try {
+			if(rs.next()) {
+				flag = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			logger.error(e);
+			throw new BOSException(e);
+		}
+		return flag;
+	}
 
 
 	/**
-	 * 1 .当合同未结算时(无最终结算或最终结算未审批)，规划余额=规划金额-（签约金额+变更金额），控制余额=控制金额-签约金额 2
-	 * .当合同已结算时(最终结算已审批)，规划余额=规划金额-结算金额，控制余额=控制金额-结算金额 3
-	 * .反写时点在合同单据审批通过时、变更签证申请审批通过时、变更签证确认结算时、合同结算审批通过时。 4.
-	 * 合同修订审批后，规划余额=规划金额-（修订后的签约金额+变更金额），控制余额=控制金额-修订后的签约金额。
-	 * 
-	 * @param ctx
-	 * @param billId
-	 * @throws EASBizException
-	 * @throws BOSException
-	 * @throws SQLException
-	 * @throws SQLException
+	 * 1.当合同未结算时(无最终结算或最终结算未审批)，规划余额=规划金额-（签约金额+变更金额），控制余额=控制金额-签约金额 
+	 * 2.当合同已结算时(最终结算已审批)，规划余额=规划金额-结算金额，控制余额=控制金额-结算金额 
+	 * 3.反写时点在合同单据审批通过时、变更签证申请审批通过时、变更签证确认结算时、合同结算审批通过时。 
+	 * 4.合同修订审批后，规划余额=规划金额-（修订后的签约金额+变更金额），控制余额=控制金额-修订后的签约金额。
 	 */
 	private void synUpdateBillByRelation(Context ctx, ContractBillInfo contractInfo,String billId,
 			boolean flag) throws EASBizException, BOSException, SQLException {
@@ -239,7 +277,6 @@ public class RenewRelateProgSaveFacadeControllerBean extends
 			conChangeAmt = FDCHelper.toBigDecimal(rowSet.getString("conChangeAmt"));
 			conSettleAmt = FDCHelper.toBigDecimal(rowSet.getString("conSettleAmt"));
 		}
-		
 		/* modified by zhaoqin for R140507-0196,R131119-0321,R131127-0389 on 2014/05/14 start */
 		// 同步更新下一版本的框架合约数据
 		String programmingContractId = null;
@@ -249,78 +286,166 @@ public class RenewRelateProgSaveFacadeControllerBean extends
 			programmingContractId = billId;
 		}
 		while(null != programmingContractId) {
-		if(billId == null){
-			//pcInfo = service
-					//.getProgrammingContractInfo(new ObjectUuidPK(contractBillInfo.getProgrammingContract().getId().toString()),getSic());
-			pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(programmingContractId), getProSic());
-			
-			if(pcInfo == null) return;
-			// 规划余额
-			BigDecimal balanceAmt = pcInfo.getBalance();
-			// 控制余额
-			BigDecimal controlBalanceAmt = pcInfo.getControlBalance();
-	//		//结算本币金额
-	//		BigDecimal settleAmount = model.getTotalSettlePrice();
-			//框架合约签约金额
-			BigDecimal signAmountProg = pcInfo.getSignUpAmount();
-			//框架合约变更金额
-			BigDecimal changeAmountProg = pcInfo.getChangeAmount();
-			//框架合约结算金额
-			BigDecimal settleAmountProg = pcInfo.getSettleAmount();
-			//反写各种金额
-			pcInfo.setSignUpAmount(FDCHelper.add(signAmountProg, conSignAmt));
-			pcInfo.setChangeAmount(FDCHelper.add(changeAmountProg, conChangeAmt));
-			pcInfo.setSettleAmount(FDCHelper.add(settleAmountProg, conSettleAmt));
-			if(contractBillInfo.isHasSettled()){
-				BigDecimal settleAmount = conSettleAmt;
-				pcInfo.setBalance(FDCHelper.subtract(balanceAmt, settleAmount));
-				pcInfo.setControlBalance(FDCHelper.subtract(controlBalanceAmt, settleAmount));
+			if(billId == null){
+				//pcInfo = service
+						//.getProgrammingContractInfo(new ObjectUuidPK(contractBillInfo.getProgrammingContract().getId().toString()),getSic());
+				pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(programmingContractId), getProSic());
+				
+				if(pcInfo == null) return;
+				// 规划余额
+				BigDecimal balanceAmt = pcInfo.getBalance();
+				// 控制余额
+				BigDecimal controlBalanceAmt = pcInfo.getControlBalance();
+		//		//结算本币金额
+		//		BigDecimal settleAmount = model.getTotalSettlePrice();
+				//框架合约签约金额
+				BigDecimal signAmountProg = pcInfo.getSignUpAmount();
+				//框架合约变更金额
+				BigDecimal changeAmountProg = pcInfo.getChangeAmount();
+				//框架合约结算金额
+				BigDecimal settleAmountProg = pcInfo.getSettleAmount();
+				//反写各种金额
+				pcInfo.setSignUpAmount(FDCHelper.add(signAmountProg, conSignAmt));
+				pcInfo.setChangeAmount(FDCHelper.add(changeAmountProg, conChangeAmt));
+				pcInfo.setSettleAmount(FDCHelper.add(settleAmountProg, conSettleAmt));
+				if(contractBillInfo.isHasSettled()){
+					BigDecimal settleAmount = conSettleAmt;
+					pcInfo.setBalance(FDCHelper.subtract(balanceAmt, settleAmount));
+					pcInfo.setControlBalance(FDCHelper.subtract(controlBalanceAmt, settleAmount));
+				}else{
+					pcInfo.setBalance(FDCHelper.subtract(balanceAmt, FDCHelper.add(conSignAmt, conChangeAmt)));
+					pcInfo.setControlBalance(FDCHelper.subtract(controlBalanceAmt, conSignAmt));
+				}
 			}else{
-				pcInfo.setBalance(FDCHelper.subtract(balanceAmt, FDCHelper.add(conSignAmt, conChangeAmt)));
-				pcInfo.setControlBalance(FDCHelper.subtract(controlBalanceAmt, conSignAmt));
+				//pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(billId),getSic());
+				pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(programmingContractId), getProSic());
+				if(pcInfo == null) return;
+				// 规划余额
+				BigDecimal balanceAmt = pcInfo.getBalance();
+				// 控制余额
+				BigDecimal controlBalanceAmt = pcInfo.getControlBalance();
+		//		//结算本币金额
+		//		BigDecimal settleAmount = model.getTotalSettlePrice();
+				//框架合约签约金额
+				BigDecimal signAmountProg = pcInfo.getSignUpAmount();
+				//框架合约变更金额
+				BigDecimal changeAmountProg = pcInfo.getChangeAmount();
+				//框架合约结算金额
+				BigDecimal settleAmountProg = pcInfo.getSettleAmount();
+				//反写各种金额
+				pcInfo.setSignUpAmount(FDCHelper.subtract(signAmountProg, conSignAmt));
+				pcInfo.setChangeAmount(FDCHelper.subtract(changeAmountProg, conChangeAmt));
+				pcInfo.setSettleAmount(FDCHelper.subtract(settleAmountProg, conSettleAmt));
+				if(contractBillInfo.isHasSettled()){
+					BigDecimal settleAmount = conSettleAmt;
+					pcInfo.setBalance(FDCHelper.add(balanceAmt, settleAmount));
+					pcInfo.setControlBalance(FDCHelper.add(controlBalanceAmt, settleAmount));
+				}else{
+					pcInfo.setBalance(FDCHelper.add(balanceAmt, FDCHelper.add(conSignAmt, conChangeAmt)));
+					pcInfo.setControlBalance(FDCHelper.add(controlBalanceAmt, conSignAmt));
+				}
 			}
-		}else{
-			//pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(billId),getSic());
-			pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(programmingContractId), getProSic());
+			SelectorItemCollection sict = new SelectorItemCollection();
+			sict.add("balance");
+			sict.add("controlBalance");
+			sict.add("signUpAmount");
+			sict.add("changeAmount");
+			sict.add("settleAmount");
+			sict.add("isCiting");
+			service.updatePartial(pcInfo, sict);
 			
-			if(pcInfo == null) return;
-			// 规划余额
-			BigDecimal balanceAmt = pcInfo.getBalance();
-			// 控制余额
-			BigDecimal controlBalanceAmt = pcInfo.getControlBalance();
-	//		//结算本币金额
-	//		BigDecimal settleAmount = model.getTotalSettlePrice();
-			//框架合约签约金额
-			BigDecimal signAmountProg = pcInfo.getSignUpAmount();
-			//框架合约变更金额
-			BigDecimal changeAmountProg = pcInfo.getChangeAmount();
-			//框架合约结算金额
-			BigDecimal settleAmountProg = pcInfo.getSettleAmount();
-			//反写各种金额
-			pcInfo.setSignUpAmount(FDCHelper.subtract(signAmountProg, conSignAmt));
-			pcInfo.setChangeAmount(FDCHelper.subtract(changeAmountProg, conChangeAmt));
-			pcInfo.setSettleAmount(FDCHelper.subtract(settleAmountProg, conSettleAmt));
-			if(contractBillInfo.isHasSettled()){
-				BigDecimal settleAmount = conSettleAmt;
-				pcInfo.setBalance(FDCHelper.add(balanceAmt, settleAmount));
-				pcInfo.setControlBalance(FDCHelper.add(controlBalanceAmt, settleAmount));
+			programmingContractId = getNextVersionProg(ctx, programmingContractId, builder, rowSet);
+		}
+			/* modified by zhaoqin for R140507-0196,R131119-0321,R131127-0389 on 2014/05/14 end */
+	}
+	
+	//无合同现在关联合约规划，在合约规划余额的扣减和恢复中，须增加无合同因素
+	private void synUpdateWcByRelation(Context ctx, ContractWithoutTextInfo conInfo,String billId,
+			boolean flag) throws EASBizException, BOSException, SQLException {
+		SelectorItemCollection sic = new SelectorItemCollection();
+		sic.add("id");
+		sic.add("number");
+		sic.add("amount");
+		sic.add("programmingContract.*");
+		ContractWithoutTextInfo cwInfo =
+			ContractWithoutTextFactory.getLocalInstance(ctx).getContractWithoutTextInfo(new ObjectUuidPK(conInfo.getId()), sic);
+		ProgrammingContractInfo pcInfo = null;
+		IProgrammingContract service = ProgrammingContractFactory.getLocalInstance(ctx);
+		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
+		IRowSet rowSet = null;
+		//无合同签约金额
+		BigDecimal conSignAmt = cwInfo.getAmount();
+		// 同步更新下一版本的框架合约数据
+		String programmingContractId = null;
+		if(null == billId) {
+			programmingContractId = cwInfo.getProgrammingContract().getId().toString();
+		} else {
+			programmingContractId = billId;
+		}
+		while(null != programmingContractId) {
+			if(billId == null){
+				pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(programmingContractId), getProSic());
+				if(pcInfo == null) return;
+				// 规划余额
+				BigDecimal balanceAmt = pcInfo.getBalance();
+				// 控制余额
+				BigDecimal controlBalanceAmt = pcInfo.getControlBalance();
+				//框架合约签约金额
+				BigDecimal signAmountProg = pcInfo.getSignUpAmount();
+				//框架合约变更金额
+//				BigDecimal changeAmountProg = pcInfo.getChangeAmount();
+				//框架合约结算金额
+//				BigDecimal settleAmountProg = pcInfo.getSettleAmount();
+				//反写各种金额
+				pcInfo.setSignUpAmount(FDCHelper.add(signAmountProg, conSignAmt));
+//				pcInfo.setChangeAmount(FDCHelper.add(changeAmountProg, conChangeAmt));
+//				pcInfo.setSettleAmount(FDCHelper.add(settleAmountProg, conSettleAmt));
+//				if(contractBillInfo.isHasSettled()){
+//					BigDecimal settleAmount = conSettleAmt;
+//					pcInfo.setBalance(FDCHelper.subtract(balanceAmt, settleAmount));
+//					pcInfo.setControlBalance(FDCHelper.subtract(controlBalanceAmt, settleAmount));
+//				}else{
+//				}
+				pcInfo.setBalance(FDCHelper.subtract(balanceAmt, conSignAmt));
+				pcInfo.setControlBalance(FDCHelper.subtract(controlBalanceAmt, conSignAmt));
 			}else{
-				pcInfo.setBalance(FDCHelper.add(balanceAmt, FDCHelper.add(conSignAmt, conChangeAmt)));
+				//pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(billId),getSic());
+				pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(programmingContractId), getProSic());
+				if(pcInfo == null) return;
+				// 规划余额
+				BigDecimal balanceAmt = pcInfo.getBalance();
+				// 控制余额
+				BigDecimal controlBalanceAmt = pcInfo.getControlBalance();
+				//框架合约签约金额
+				BigDecimal signAmountProg = pcInfo.getSignUpAmount();
+				//框架合约变更金额
+//				BigDecimal changeAmountProg = pcInfo.getChangeAmount();
+//				//框架合约结算金额
+//				BigDecimal settleAmountProg = pcInfo.getSettleAmount();
+				//反写各种金额
+				pcInfo.setSignUpAmount(FDCHelper.subtract(signAmountProg, conSignAmt));
+//				pcInfo.setChangeAmount(FDCHelper.subtract(changeAmountProg, conChangeAmt));
+//				pcInfo.setSettleAmount(FDCHelper.subtract(settleAmountProg, conSettleAmt));
+//				if(contractBillInfo.isHasSettled()){
+//					BigDecimal settleAmount = conSettleAmt;
+//					pcInfo.setBalance(FDCHelper.add(balanceAmt, settleAmount));
+//					pcInfo.setControlBalance(FDCHelper.add(controlBalanceAmt, settleAmount));
+//				}else{
+//				}
+				pcInfo.setBalance(FDCHelper.add(balanceAmt, conSignAmt));
 				pcInfo.setControlBalance(FDCHelper.add(controlBalanceAmt, conSignAmt));
 			}
+			SelectorItemCollection sict = new SelectorItemCollection();
+			sict.add("balance");
+			sict.add("controlBalance");
+			sict.add("signUpAmount");
+			sict.add("changeAmount");
+			sict.add("settleAmount");
+			sict.add("isCiting");
+			service.updatePartial(pcInfo, sict);
+			
+			programmingContractId = getNextVersionProg(ctx, programmingContractId, builder, rowSet);
 		}
-		SelectorItemCollection sict = new SelectorItemCollection();
-		sict.add("balance");
-		sict.add("controlBalance");
-		sict.add("signUpAmount");
-		sict.add("changeAmount");
-		sict.add("settleAmount");
-		sict.add("isCiting");
-		service.updatePartial(pcInfo, sict);
-		
-		programmingContractId = getNextVersionProg(ctx, programmingContractId, builder, rowSet);
-		}
-		/* modified by zhaoqin for R140507-0196,R131119-0321,R131127-0389 on 2014/05/14 end */
 	}
 	
 	/**

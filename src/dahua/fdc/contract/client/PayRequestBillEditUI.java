@@ -6576,8 +6576,7 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		super.verifyInputForSubmint();
 		// 根据项目上的合同计划金额是否强控合同付款申请单这个字段，校验
 		BOSUuid jectid = editData.getCurProject().getId();
-		CurProjectInfo projectInfo = CurProjectFactory.getRemoteInstance()
-				.getCurProjectInfo(new ObjectUuidPK(jectid));
+		CurProjectInfo projectInfo = CurProjectFactory.getRemoteInstance().getCurProjectInfo(new ObjectUuidPK(jectid));
 		projectInfo.isQk();
 		BigDecimal yb = editData.getAmount();
 		BigDecimal zjjhSqje = editData.getZjjhSqje();
@@ -6597,6 +6596,12 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 				contZjjhSqje.getBoundLabel().setForeground(Color.black);
 				sfczjjhfk.setSelected(Boolean.FALSE);
 			}
+		}
+		//modify by yxl
+		String contractId = editData.getContractId();
+		if(PayReqUtils.isContractBill(contractId) && CustomerContractUtil.checkPcQkFromContract(contractId)){
+			MsgBox.showInfo(this,CustomerContractUtil.CONTRACTINFO);
+			abort();
 		}
 	}
 

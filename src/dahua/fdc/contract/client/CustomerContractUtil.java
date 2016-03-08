@@ -2,6 +2,7 @@ package com.kingdee.eas.fdc.contract.client;
 
 
 
+import java.awt.Component;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -68,6 +69,7 @@ public class CustomerContractUtil {
 	public static final String T_BCXY = "T_CON_BcxyDoc";
 	public static final String GROUPID = "00000000-0000-0000-0000-000000000000CCE7AED4";
 	public static final String SHLS = "上海龙赛建设实业有限公司";
+	public static final String CONTRACTINFO = "此合同关联的合约规划已经强控，不能提交。请走相关强控流程，以解除强控。";
 	
 	public static boolean currentDCenterIsSync() throws Exception {
 		CtrlUnitInfo cuInfo = CtrlUnitFactory.getRemoteInstance().getCtrlUnitInfo(new ObjectUuidPK(GROUPID));
@@ -856,6 +858,29 @@ public class CustomerContractUtil {
 			} catch (ObjectNotFoundException e2) {
 			}
 		}
+	}
+	
+	/*提交时判断，对应的合约规划如果已经强控，弹出提示框“您选择的合约规划已经强控，不能提交。
+	 * 请走相关强控流程，以解除强控。”单据上没有合约规划的，取对应合同的合约规划做判断。
+	 * modify by yxl 20160307
+	 * */
+	public static boolean checkPcQk(String pcId) throws Exception{
+		FDCSQLBuilder builder = new FDCSQLBuilder();
+		builder.appendSql("select cfisqk from T_CON_ProgrammingContract where fid='"+pcId+"'");
+		IRowSet rs = builder.executeQuery();
+		if(rs.next() && rs.getBoolean(1))
+			return true;
+		return false;
+	}
+	
+	public static boolean checkPcQkFromContract(String contractId) throws Exception{
+		FDCSQLBuilder builder = new FDCSQLBuilder();
+		builder.appendSql("select pc.cfisqk from T_CON_ProgrammingContract pc left join T_CON_ContractBill cb on ");
+		builder.appendSql("pc.fid=cb.FPROGRAMMINGCONTRACT where cb.fid='"+contractId+"'");
+		IRowSet rs = builder.executeQuery();
+		if(rs.next() && rs.getBoolean(1))
+			return true;
+		return false;
 	}
 	
 }

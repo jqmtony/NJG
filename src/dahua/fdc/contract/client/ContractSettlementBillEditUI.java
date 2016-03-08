@@ -106,6 +106,7 @@ import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.ForWriteMarkHelper;
 import com.kingdee.eas.fdc.contract.GuerdonBillInfo;
 import com.kingdee.eas.fdc.contract.IContractSettlementBill;
+import com.kingdee.eas.fdc.contract.PayReqUtils;
 import com.kingdee.eas.fdc.contract.SettNoCostSplitFactory;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitCollection;
 import com.kingdee.eas.fdc.contract.SettlementCostSplitFactory;
@@ -1603,6 +1604,11 @@ public class ContractSettlementBillEditUI extends
 			}
 		}
 		runAction(e,"SUBMIT");
+		//modify by yxl
+		if(editData.getContractBill()!=null && CustomerContractUtil.checkPcQkFromContract(editData.getContractBill().getId().toString())){
+			MsgBox.showInfo(this,CustomerContractUtil.CONTRACTINFO);
+			abort();
+		}
 		super.actionSubmit_actionPerformed(e);
 	}
 	/**

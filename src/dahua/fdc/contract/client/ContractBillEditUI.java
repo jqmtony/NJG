@@ -2451,6 +2451,9 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		this.contConSettleAmount.setVisible(false);
 		this.txtSplitedAmount.setEnabled(false);
 		this.txtUnSplitAmount.setEnabled(false);
+		//modify by yxl 20160307 禁用连续提交新增
+		chkMenuItemSubmitAndAddNew.setVisible(false);
+    	chkMenuItemSubmitAndAddNew.setEnabled(false);
 //		this.ceremonybb.setEditable(false);
 		initListeners();
 		// added by shangjing
@@ -6398,9 +6401,14 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		if(!chkFiveClass.isSelected() && FDCMsgBox.showConfirm2("该合同不是五大类合同，继续提交吗？") != 0){
 			abort();
 		}
+		//modify by yxl
 		if(editData.getId()==null||!isContractRaleToBuildPriceIndex(editData.getId().toString())){
 			if(FDCMsgBox.showConfirm2("没有录入成本指标库数据，是否继续提交？") != 0)
 				abort();
+		}
+		if(prmtFwContract.getValue()!=null && CustomerContractUtil.checkPcQk(((ProgrammingContractInfo)prmtFwContract.getValue()).getId().toString())){
+			MsgBox.showInfo(this,"您选择的合约规划已经强控，不能提交。请走相关强控流程，以解除强控。");
+			abort();
 		}
 	}
 

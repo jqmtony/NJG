@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 
 import com.kingdee.bos.BOSException;
 import com.kingdee.bos.Context;
+import com.kingdee.bos.ctrl.swing.StringUtils;
 import com.kingdee.bos.dao.IObjectCollection;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
@@ -67,6 +68,7 @@ import com.kingdee.eas.ma.budget.BgControlFacadeFactory;
 import com.kingdee.eas.ma.budget.IBgBudgetFacade;
 import com.kingdee.eas.ma.budget.IBgControlFacade;
 import com.kingdee.eas.util.app.DbUtil;
+import com.kingdee.jdbc.rowset.IRowSet;
 
 /**
  * 
@@ -111,6 +113,10 @@ public class ContractWithoutTextControllerBean extends
 		prbi.setId(BOSUuid.read(payRequestBillPK.toString()));
 		
 		con.setPayRequestBill(prbi);
+		
+		if(con.getProgrammingContract()!=null){
+    		updateProgrammingContract(ctx, con.getProgrammingContract().getId().toString(), 1);
+    	}
 
 		IObjectPK pk = super._save(ctx, con);
 		/**end ken_liu**/
@@ -140,6 +146,9 @@ public class ContractWithoutTextControllerBean extends
 
 		con.setPayRequestBill(prbi);
 
+		if(con.getProgrammingContract()!=null){
+    		updateProgrammingContract(ctx, con.getProgrammingContract().getId().toString(), 1);
+    	}
 		IObjectPK pk = super._submit(ctx, con);
 		return pk;
 
@@ -175,6 +184,7 @@ public class ContractWithoutTextControllerBean extends
 			EASBizException {
 
 		checkBillForAudit(ctx, billId, null);
+		checkContractProgramming(ctx, billId.toString());
 
 		super._audit(ctx, billId);
 
@@ -305,9 +315,72 @@ public class ContractWithoutTextControllerBean extends
 		ContractBaseDataHelper.synToContractBaseData(ctx, true, id);
 
 	}
+	
+	/**
+	 * 描述: 在合同<<审批~之前>> 检查关联的框架合约是否为最新版本，如不是，则更新为最新版本
+	 * 情形：合同从提交到审批之间隔了好长时间，期间合约规划作了新版本，那就会出现问题
+	 */
+	public void checkContractProgramming(Context ctx, String billId) throws BOSException {
+		if(StringUtils.isEmpty(billId))
+			return;
+		
+		FDCSQLBuilder builder = null;
+		if(null == ctx) {
+			builder = new FDCSQLBuilder();
+		} else {
+			builder = new FDCSQLBuilder(ctx);
+		}
+		
+		builder.appendSql("select FProgrammingContract from T_CON_ContractWithoutText where FProgrammingContract is not null and fid = ?");
+	    builder.addParam(billId);
+	    IRowSet rs = builder.executeQuery();
+	    String conProg = null;
+	    boolean isNeedUpdate = false;
+	    try {
+	    	// 合同是否关联了规划合约
+			if(rs.next()) {
+				conProg = rs.getString("FProgrammingContract");
+				builder.clear();
+				builder.appendSql("select pc1.fid from T_CON_ProgrammingContract pc1 join T_CON_Programming p1 on p1.fid = pc1.fprogrammingid ");
+				builder.appendSql("join (select p.FVersionGroup,pc.flongnumber from T_CON_ProgrammingContract pc join T_CON_Programming p ");
+				builder.appendSql(" on p.fid = pc.fprogrammingid where pc.fid = ? ) t on (t.FVersionGroup = p1.FVersionGroup and t.flongnumber = pc1.flongnumber) ");
+				builder.appendSql("where p1.FIsLatest = 1 and p1.FState = '4AUDITTED'");
+				builder.addParam(conProg);
+				rs = builder.executeQuery();
+				// 判断合同关联框架合约是否为最新版本
+				if(rs.next()){
+					if(!conProg.equals(rs.getString("fid"))) {
+						conProg = rs.getString("fid");
+						isNeedUpdate = true;
+					}
+				} else {
+					conProg = null;
+					isNeedUpdate = true;
+				}
+				//如果不是最新版本，则更新为最新版本的规划合约
+				if(isNeedUpdate) {
+					builder.clear();
+					if(null == conProg) {	//在新的版本中，之前关联的框架合约被删掉了
+						builder.appendSql("update T_CON_ContractWithoutText set FProgrammingContract = null where fid = ?");
+						builder.addParam(billId);
+					} else {
+						builder.appendSql("update T_CON_ContractWithoutText set FProgrammingContract = ? where fid = ?");
+						builder.addParam(conProg);
+						builder.addParam(billId);
+					}
+					if(null == ctx) {
+						builder.executeUpdate();
+					} else {
+						builder.executeUpdate(ctx);
+					}
+				}
+			}
+		} catch (SQLException e) {
+			throw new BOSException(e);
+		}
+	}
 
-	protected void _delete(Context ctx, IObjectPK pk) throws BOSException,
-			EASBizException {
+	protected void _delete(Context ctx, IObjectPK pk) throws BOSException,EASBizException {
 		_delete(ctx, new IObjectPK[] { pk });
 	}
 
@@ -399,19 +472,123 @@ public class ContractWithoutTextControllerBean extends
 		// after log
 		LogUtil.afterLog(ctx, logPk);
 		// delete payrequestbill end
-
 		/*
 		 * //不能直接删除，如果被作为核算项目被横表引用的话是不允许删除的，掉ORMap的方法会有这类的检查 String
 		 * sql="delete from T_CON_ContractBaseData where fcontractid in ("
 		 * +str+");"; DbUtil.execute(ctx, sql);
 		 */
 		filter = new FilterInfo();
-		filter.getFilterItems().add(
-				new FilterItemInfo("contractId", set, CompareType.INCLUDE));
+		filter.getFilterItems().add(new FilterItemInfo("contractId", set, CompareType.INCLUDE));
 		ContractBaseDataFactory.getLocalInstance(ctx).delete(filter);
+		for (int j = 0; j < arrayPK.length; j++) {
+			try {
+				updateOldProg(ctx,arrayPK[j]);
+			} catch (Exception e) {
+				logger.error(e);
+				throw new BOSException(e);
+			}
+		}
 		super._delete(ctx, arrayPK);
 	}
 
+	/**
+	 * 更新老框架合约是否被引用
+	 */
+	private void updateOldProg(Context ctx, IObjectPK pk) throws Exception {
+		String checkReaPre = checkReaPre(ctx, pk);
+		while (checkReaPre != null) {
+			int count = 0;// 关联合约数
+			count = isCitingByProg(ctx, checkReaPre);
+			boolean isCiting = preVersionProg(ctx, checkReaPre);
+			if (count <= 1 && !isCiting) {
+				updateProgrammingContract(ctx, checkReaPre, 0);
+			}
+			checkReaPre = isUpdateNextProgState(ctx, checkReaPre);
+		}
+	}
+	
+	private void updateProgrammingContract(Context ctx, String proContId, int isCiting) throws BOSException {
+		FDCSQLBuilder buildSQL = new FDCSQLBuilder(ctx);
+		buildSQL.appendSql("update T_CON_ProgrammingContract set FIsCiting = " + isCiting + " ");
+		buildSQL.appendSql("where FID = '" + proContId + "' ");
+			buildSQL.executeUpdate();
+	}
+	
+	private String isUpdateNextProgState(Context ctx, String progId) throws Exception {
+		String flag = null;
+		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
+		builder.appendSql(" select fid from t_con_programmingContract where ");
+		builder.appendParam("fSrcId", progId);
+		IRowSet rowSet = builder.executeQuery();
+		while (rowSet.next()) {
+			flag = rowSet.getString("fid").toString();
+		}
+		return flag;
+	}
+	
+	private boolean preVersionProg(Context ctx, String progId) throws BOSException, SQLException {
+		boolean isCityingProg = false;
+		int tempIsCiting = 0;
+		FDCSQLBuilder buildSQL = new FDCSQLBuilder(ctx);
+		buildSQL.appendSql(" select t1.FIsCiting isCiting from t_con_programmingContract t1 where t1.fid = (");
+		buildSQL.appendSql(" select t2.FSrcId from t_con_programmingContract t2 where t2.fid = '" + progId + "')");
+		IRowSet rowSet = buildSQL.executeQuery();
+		while (rowSet.next()) {
+			tempIsCiting = rowSet.getInt("isCiting");
+		}
+		if (tempIsCiting > 0) {
+			isCityingProg = true;
+		}
+		return isCityingProg;
+	}
+	
+	/**
+	 * 找出所关联的框架合约的记录数(无文本已经废除，不再查找)
+	 * 现在需要加上无文本这块的判断
+	 */
+	private int isCitingByProg(Context ctx, String proContId) throws BOSException {
+		FDCSQLBuilder buildSQL = new FDCSQLBuilder(ctx);
+		buildSQL.appendSql(" select count(1) count from T_INV_InviteProject ");
+		buildSQL.appendSql(" where FProgrammingContractId = '" + proContId + "' ");
+		buildSQL.appendSql(" union ");
+		buildSQL.appendSql(" select count(1) count from T_CON_ContractBill ");
+		buildSQL.appendSql(" where FProgrammingContract = '" + proContId + "' ");
+		buildSQL.appendSql(" union ");
+		buildSQL.appendSql(" select count(1) count from T_CON_ContractWithoutText ");
+		buildSQL.appendSql(" where FProgrammingContract = '" + proContId + "' ");
+		int count = 0;
+		try {
+			IRowSet iRowSet = buildSQL.executeQuery();
+			while (iRowSet.next()) {
+				count += iRowSet.getInt("count");
+			}
+		} catch (SQLException e) {
+			logger.error(e);
+			throw new BOSException(e);
+		}
+		return count;
+	}
+	
+	/**
+	 * 检查合同是否关联框架合约
+	 */
+	private String checkReaPre(Context ctx, IObjectPK pk) throws Exception {
+		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
+//		SelectorItemCollection sic = new SelectorItemCollection();
+//		sic.add("*");
+//		sic.add("programmingContract.*");
+		builder.clear();
+		builder.appendSql("select fprogrammingContract from T_CON_ContractWithoutText where 1=1 and ");
+		builder.appendParam("fid", pk.toString());
+		IRowSet rowSet = builder.executeQuery();
+		if (rowSet.next()) {
+			if (rowSet.getString("fprogrammingContract") != null) {
+				return rowSet.getString("fprogrammingContract").toString();
+			}
+		}
+		return null;
+	}
+	
 	private IObjectPK createPayRequestBill(Context ctx, FDCBillInfo con,
 			PayRequestBillInfo prbi, FDCBillStateEnum state)
 			throws BOSException, EASBizException {

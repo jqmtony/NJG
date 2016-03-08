@@ -4184,6 +4184,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		sic.add(new SelectorItemInfo("entries.hyType.hyType"));
 		sic.add(new SelectorItemInfo("entries.hyType.sendContWay"));
 		sic.add(new SelectorItemInfo("entries.iscse"));
+		sic.add(new SelectorItemInfo("entries.isQk"));
 		sic.add(new SelectorItemInfo("entries.contractContUI"));
 		sic.add(new SelectorItemInfo("entries.attachWork"));
 		sic.add(new SelectorItemInfo("entries.attContract"));

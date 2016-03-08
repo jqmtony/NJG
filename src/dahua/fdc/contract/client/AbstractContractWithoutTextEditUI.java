@@ -90,6 +90,7 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contPlanProject;
     protected com.kingdee.bos.ctrl.swing.KDButton btnViewBudget;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer18;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer19;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker kDDateCreateTime;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtNumber;
@@ -131,6 +132,7 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
     protected com.kingdee.bos.ctrl.swing.KDComboBox cmbAttachment;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtPlanProject;
     protected com.kingdee.bos.ctrl.swing.KDComboBox kdDepPlanState;
+    protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtFwContract;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnViewBgBalance;
     protected com.kingdee.bos.ctrl.swing.KDMenuItem menuItemViewBgBalance;
     protected com.kingdee.eas.fdc.contract.ContractWithoutTextInfo editData = null;
@@ -292,6 +294,7 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.contPlanProject = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.btnViewBudget = new com.kingdee.bos.ctrl.swing.KDButton();
         this.kDLabelContainer18 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.kDLabelContainer19 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDDateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.txtNumber = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -333,6 +336,7 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.cmbAttachment = new com.kingdee.bos.ctrl.swing.KDComboBox();
         this.prmtPlanProject = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kdDepPlanState = new com.kingdee.bos.ctrl.swing.KDComboBox();
+        this.prmtFwContract = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.btnViewBgBalance = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.menuItemViewBgBalance = new com.kingdee.bos.ctrl.swing.KDMenuItem();
         this.contCreator.setName("contCreator");
@@ -379,6 +383,7 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.contPlanProject.setName("contPlanProject");
         this.btnViewBudget.setName("btnViewBudget");
         this.kDLabelContainer18.setName("kDLabelContainer18");
+        this.kDLabelContainer19.setName("kDLabelContainer19");
         this.prmtCreator.setName("prmtCreator");
         this.kDDateCreateTime.setName("kDDateCreateTime");
         this.txtNumber.setName("txtNumber");
@@ -420,6 +425,7 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.cmbAttachment.setName("cmbAttachment");
         this.prmtPlanProject.setName("prmtPlanProject");
         this.kdDepPlanState.setName("kdDepPlanState");
+        this.prmtFwContract.setName("prmtFwContract");
         this.btnViewBgBalance.setName("btnViewBgBalance");
         this.menuItemViewBgBalance.setName("menuItemViewBgBalance");
         // CoreUI		
@@ -429,28 +435,28 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.menuItemSubmit.setText(resHelper.getString("menuItemSubmit.text"));		
         this.menuItemSubmit.setToolTipText(resHelper.getString("menuItemSubmit.toolTipText"));		
         this.menuSubmitOption.setVisible(false);		
-        this.btnTraceUp.setVisible(false);		
-        this.btnTraceDown.setVisible(false);		
-        this.btnCreateFrom.setVisible(false);		
-        this.btnCopyFrom.setVisible(false);		
         this.btnAddLine.setVisible(false);		
         this.btnInsertLine.setVisible(false);		
         this.btnRemoveLine.setVisible(false);		
+        this.btnCreateFrom.setVisible(false);		
+        this.btnCopyFrom.setVisible(false);		
+        this.btnTraceUp.setVisible(false);		
+        this.btnTraceDown.setVisible(false);		
         this.btnAuditResult.setVisible(false);		
-        this.separator1.setVisible(false);		
         this.menuItemCreateFrom.setVisible(false);		
         this.menuItemCopyFrom.setVisible(false);		
+        this.separator1.setVisible(false);		
         this.separator2.setVisible(false);		
         this.separator3.setVisible(false);		
         this.menuItemTraceUp.setVisible(false);		
         this.menuItemTraceDown.setVisible(false);		
+        this.menuItemViewSubmitProccess.setVisible(false);		
+        this.menuItemViewDoProccess.setVisible(false);		
+        this.menuItemAuditResult.setVisible(false);		
         this.menuTable1.setVisible(false);		
         this.menuItemAddLine.setVisible(false);		
         this.menuItemInsertLine.setVisible(false);		
-        this.menuItemRemoveLine.setVisible(false);		
-        this.menuItemViewSubmitProccess.setVisible(false);		
-        this.menuItemViewDoProccess.setVisible(false);		
-        this.menuItemAuditResult.setVisible(false);
+        this.menuItemRemoveLine.setVisible(false);
         this.btnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionAudit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAudit.setText(resHelper.getString("btnAudit.text"));		
         this.btnAudit.setToolTipText(resHelper.getString("btnAudit.toolTipText"));
@@ -690,6 +696,10 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.kDLabelContainer18.setBoundLabelLength(100);		
         this.kDLabelContainer18.setBoundLabelUnderline(true);		
         this.kDLabelContainer18.setEnabled(false);
+        // kDLabelContainer19		
+        this.kDLabelContainer19.setBoundLabelText(resHelper.getString("kDLabelContainer19.boundLabelText"));		
+        this.kDLabelContainer19.setBoundLabelLength(100);		
+        this.kDLabelContainer19.setBoundLabelUnderline(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);		
         this.prmtCreator.setDisplayFormat("$name$");		
@@ -1065,6 +1075,7 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         });
         // kdDepPlanState		
         this.kdDepPlanState.setEnabled(false);
+        // prmtFwContract
         // btnViewBgBalance
         this.btnViewBgBalance.setAction((IItemAction)ActionProxyFactory.getProxy(actionViewBgBalance, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnViewBgBalance.setText(resHelper.getString("btnViewBgBalance.text"));
@@ -1099,10 +1110,10 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.setBounds(new Rectangle(0, 0, 1013, 650));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1013, 650));
-        kDSeparator6.setBounds(new Rectangle(8, 572, 991, 8));
-        this.add(kDSeparator6, new KDLayout.Constraints(8, 572, 991, 8, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDSeparator5.setBounds(new Rectangle(9, 65, 991, 10));
         this.add(kDSeparator5, new KDLayout.Constraints(9, 65, 991, 10, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDSeparator6.setBounds(new Rectangle(8, 572, 991, 8));
+        this.add(kDSeparator6, new KDLayout.Constraints(8, 572, 991, 8, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCreator.setBounds(new Rectangle(8, 579, 469, 19));
         this.add(contCreator, new KDLayout.Constraints(8, 579, 469, 19, KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contCreateTime.setBounds(new Rectangle(530, 580, 469, 19));
@@ -1155,8 +1166,8 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.add(chkUrgency, new KDLayout.Constraints(9, 455, 58, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contOrg.setBounds(new Rectangle(9, 15, 469, 19));
         this.add(contOrg, new KDLayout.Constraints(9, 15, 469, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer4.setBounds(new Rectangle(9, 75, 469, 19));
-        this.add(kDLabelContainer4, new KDLayout.Constraints(9, 75, 469, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer4.setBounds(new Rectangle(531, 453, 469, 19));
+        this.add(kDLabelContainer4, new KDLayout.Constraints(531, 453, 469, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kDLabelContainer13.setBounds(new Rectangle(531, 75, 469, 19));
         this.add(kDLabelContainer13, new KDLayout.Constraints(531, 75, 469, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         chkNeedPaid.setBounds(new Rectangle(902, 374, 100, 19));
@@ -1167,12 +1178,12 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.add(kDLabelContainer14, new KDLayout.Constraints(9, 399, 469, 50, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         kDLabelContainer15.setBounds(new Rectangle(531, 399, 469, 50));
         this.add(kDLabelContainer15, new KDLayout.Constraints(531, 399, 469, 50, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDLabelContainer16.setBounds(new Rectangle(531, 480, 469, 19));
-        this.add(kDLabelContainer16, new KDLayout.Constraints(531, 480, 469, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        kDLabelContainer16.setBounds(new Rectangle(531, 476, 469, 19));
+        this.add(kDLabelContainer16, new KDLayout.Constraints(531, 476, 469, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kDLabelContainer17.setBounds(new Rectangle(9, 125, 469, 19));
         this.add(kDLabelContainer17, new KDLayout.Constraints(9, 125, 469, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        conConCharge.setBounds(new Rectangle(531, 455, 469, 19));
-        this.add(conConCharge, new KDLayout.Constraints(531, 455, 469, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        conConCharge.setBounds(new Rectangle(531, 500, 469, 19));
+        this.add(conConCharge, new KDLayout.Constraints(531, 500, 469, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contInvoiceNumber.setBounds(new Rectangle(9, 225, 469, 19));
         this.add(contInvoiceNumber, new KDLayout.Constraints(9, 225, 469, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contInvoiceDate.setBounds(new Rectangle(9, 250, 469, 19));
@@ -1191,6 +1202,8 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.add(btnViewBudget, new KDLayout.Constraints(384, 374, 93, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         kDLabelContainer18.setBounds(new Rectangle(531, 374, 270, 19));
         this.add(kDLabelContainer18, new KDLayout.Constraints(531, 374, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer19.setBounds(new Rectangle(9, 75, 469, 19));
+        this.add(kDLabelContainer19, new KDLayout.Constraints(9, 75, 469, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -1273,6 +1286,8 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         contPlanProject.setBoundEditor(prmtPlanProject);
         //kDLabelContainer18
         kDLabelContainer18.setBoundEditor(kdDepPlanState);
+        //kDLabelContainer19
+        kDLabelContainer19.setBoundEditor(prmtFwContract);
 
     }
 
@@ -1324,8 +1339,8 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         menuEdit.add(menuItemReset);
         menuEdit.add(separator1);
         menuEdit.add(menuItemCreateFrom);
-        menuEdit.add(menuItemCreateTo);
         menuEdit.add(menuItemCopyFrom);
+        menuEdit.add(menuItemCreateTo);
         menuEdit.add(separatorEdit1);
         menuEdit.add(separator2);
         menuEdit.add(menuItemEnterToNextRow);
@@ -1394,9 +1409,8 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.toolBar.add(btnAddNew);
         this.toolBar.add(btnCloud);
         this.toolBar.add(btnEdit);
-        
-        this.toolBar.add(btnSave);
         this.toolBar.add(kDSeparatorCloud);
+        this.toolBar.add(btnSave);
         this.toolBar.add(btnReset);
         this.toolBar.add(btnSubmit);
         this.toolBar.add(btnCopy);
@@ -1419,8 +1433,8 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         this.toolBar.add(btnWorkFlowG);
         this.toolBar.add(separatorFW4);
         this.toolBar.add(btnSignature);
-        this.toolBar.add(btnNumberSign);
         this.toolBar.add(separatorFW7);
+        this.toolBar.add(btnNumberSign);
         this.toolBar.add(btnViewSignature);
         this.toolBar.add(btnCreateFrom);
         this.toolBar.add(btnCopyFrom);
@@ -1479,7 +1493,8 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
 		dataBinder.registerBinding("invoiceAmt", java.math.BigDecimal.class, this.txtInvoiceAmt, "value");
 		dataBinder.registerBinding("allInvoiceAmt", double.class, this.txtAllInvoiceAmt, "value");
 		dataBinder.registerBinding("fdcDepConPlan", com.kingdee.eas.fdc.finance.FDCDepConPayPlanNoContractInfo.class, this.prmtPlanProject, "data");
-		dataBinder.registerBinding("depPlanState", com.kingdee.eas.fdc.contract.DepPlanStateEnum.class, this.kdDepPlanState, "selectedItem");		
+		dataBinder.registerBinding("depPlanState", com.kingdee.eas.fdc.contract.DepPlanStateEnum.class, this.kdDepPlanState, "selectedItem");
+		dataBinder.registerBinding("programmingContract", com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo.class, this.prmtFwContract, "data");		
 	}
 	//Regiester UI State
 	private void registerUIState(){					 	        		
@@ -1642,7 +1657,8 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
 		getValidateHelper().registerBindProperty("invoiceAmt", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("allInvoiceAmt", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("fdcDepConPlan", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("depPlanState", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("depPlanState", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("programmingContract", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1954,6 +1970,15 @@ public abstract class AbstractContractWithoutTextEditUI extends com.kingdee.eas.
         	sic.add(new SelectorItemInfo("fdcDepConPlan.id"));
 		}
         sic.add(new SelectorItemInfo("depPlanState"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("programmingContract.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("programmingContract.id"));
+        	sic.add(new SelectorItemInfo("programmingContract.number"));
+        	sic.add(new SelectorItemInfo("programmingContract.name"));
+		}
         return sic;
     }        
     	

@@ -487,6 +487,17 @@ public class AbstractProgrammingContractInfo extends com.kingdee.eas.framework.T
     {
         setString("attContract", item);
     }
+    /**
+     * Object:·ÖÂ¼'s ÊÇ·ñÇ¿¿Øproperty 
+     */
+    public boolean isIsQk()
+    {
+        return getBoolean("isQk");
+    }
+    public void setIsQk(boolean item)
+    {
+        setBoolean("isQk", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("ECE079DB");
