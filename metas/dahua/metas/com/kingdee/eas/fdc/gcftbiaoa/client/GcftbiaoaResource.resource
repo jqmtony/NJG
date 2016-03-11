@@ -17,6 +17,26 @@
             <value>i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[TreeNodeQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>ConfirquantitesQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[ConfirquantitesQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
+        <resourceItem>
+            <name>DecorationEngineeringQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[DecorationEngineeringQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
+        <resourceItem>
+            <name>StyleQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[StyleQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
+        <resourceItem>
+            <name>OutdoorEngineeringQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[OutdoorEngineeringQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].alias">
@@ -31,11 +51,35 @@
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
+        <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[ConfirquantitesQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程量确认单" />
+            <lang locale="zh_HK" value="工程量確認單" />
+            <lang locale="zh_TW" value="工程量確認單" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[DecorationEngineeringQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="装修工程表" />
+            <lang locale="zh_HK" value="裝修工程表" />
+            <lang locale="zh_TW" value="裝修工程表" />
+        </rs>
         <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[GcftbQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="公建配套工程分摊情况表" />
             <lang locale="zh_HK" value="公建配套工程分攤情況表" />
             <lang locale="zh_TW" value="公建配套工程分攤情況表" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[OutdoorEngineeringQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="室外工程表" />
+            <lang locale="zh_HK" value="室外工程表" />
+            <lang locale="zh_TW" value="室外工程表" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[StyleQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="样式" />
+            <lang locale="zh_HK" value="樣式" />
+            <lang locale="zh_TW" value="樣式" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[TreeNodeQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
