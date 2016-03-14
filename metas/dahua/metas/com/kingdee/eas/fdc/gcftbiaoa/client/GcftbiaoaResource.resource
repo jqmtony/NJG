@@ -37,6 +37,16 @@
             <value>i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[OutdoorEngineeringQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>SwGcBQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[SwGcBQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
+        <resourceItem>
+            <name>SwbQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[SwbQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].alias">
@@ -80,6 +90,18 @@
             <lang locale="zh_CN" value="样式" />
             <lang locale="zh_HK" value="樣式" />
             <lang locale="zh_TW" value="樣式" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[SwGcBQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="室外表" />
+            <lang locale="zh_HK" value="室外表" />
+            <lang locale="zh_TW" value="室外表" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[SwbQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="工程表" />
+            <lang locale="zh_HK" value="工程表" />
+            <lang locale="zh_TW" value="工程表" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[TreeNodeQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
