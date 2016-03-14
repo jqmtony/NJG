@@ -235,7 +235,6 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
 		BigDecimal sumPrice = BigDecimal.ZERO;
 		BigDecimal sumRenovationAreaIndex = BigDecimal.ZERO;
 		
-		
 		row = this.kdtEntrys.getRow(row.getRowIndex()+1);
 		row.getCell("renovationAreaIndex").setValue(FDCHelper.divide(row.getCell("Price").getValue(), row.getCell("decorationArea").getValue(), 2, 4));
 		Price = FDCHelper.add(Price, row.getCell("Price").getValue());
@@ -251,8 +250,6 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
 		row.getCell("sumRenovationAreaIndex").setValue(FDCHelper.divide(row.getCell("sumPrice").getValue(), row.getCell("sumDecorationArea").getValue(), 2, 4));
 		sumPrice = FDCHelper.add(sumPrice, row.getCell("sumPrice").getValue());
 		sumRenovationAreaIndex = FDCHelper.add(sumRenovationAreaIndex, row.getCell("sumRenovationAreaIndex").getValue());
-		
-	
 		
 		row = this.kdtEntrys.getRow(row.getRowIndex()-2);
 		row.getCell("Price").setValue(Price);
@@ -260,37 +257,23 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
 		row.getCell("sumPrice").setValue(sumPrice);
 		row.getCell("sumRenovationAreaIndex").setValue(sumRenovationAreaIndex);
 		
-		
 		row.getCell("proportion").setValue(1);
-		
+		row = this.kdtEntrys.getRow(row.getRowIndex()+1);
+		row.getCell("proportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
 		row = this.kdtEntrys.getRow(row.getRowIndex()+1);
 		row.getCell("proportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
 		
-		row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-		row.getCell("proportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-		
-		
-		IRow row1 = this.kdtEntrys.getRow(rowIndex);
-		do {
-			if(UIRuleUtil.isNull(row1.getCell("key").getValue()))
-				break;
-			else
-				row1 = this.kdtEntrys.getRow(row1.getRowIndex()-1);
-		} while (true);
-		BigDecimal sumPrice1 = BigDecimal.ZERO;
+		BigDecimal totalSumPrice = BigDecimal.ZERO;
 		BigDecimal sumDecorationArea = BigDecimal.ZERO;
-		BigDecimal avg = BigDecimal.ZERO;
-		//ÐÞ¸Ä»¹Ðè
-		row1 = this.kdtEntrys.getRow(row1.getRowIndex()+1);
-		sumPrice1 = FDCHelper.add(sumPrice1, row1.getCell("sumPrice").getValue());
-		sumDecorationArea = FDCHelper.add(sumDecorationArea, row1.getCell("sumDecorationArea").getValue());
-		row1 = this.kdtEntrys.getRow(row1.getRowIndex()+1);
-		sumPrice1 = FDCHelper.add(sumPrice1, row1.getCell("sumPrice").getValue());
-		row1 = this.kdtEntrys.getRow(row1.getRowIndex()-2);
-		avg=FDCHelper.divide(sumPrice1,sumDecorationArea,4,4);
-		avg=FDCHelper.add(avg, BigDecimal.ZERO);
-		row1.getCell("avgRenovationAreaIndex").setValue(FDCHelper.divide(avg, 2, 4, 4));
-		
+		for (int i = 0; i < this.kdtEntrys.getRowCount(); i++) {
+			if(i%3!=0)
+				continue;
+			IRow row1 = this.kdtEntrys.getRow(i);
+			
+			totalSumPrice = FDCHelper.add(totalSumPrice, row1.getCell("sumPrice").getValue());
+			sumDecorationArea = FDCHelper.add(sumDecorationArea, row1.getCell("sumDecorationArea").getValue());
+		}
+		this.kdtEntrys.getCell(0, "avgRenovationAreaIndex").setValue(FDCHelper.divide(totalSumPrice, sumDecorationArea, 2, 4));
 	}
 	
 	public void ControlState(){

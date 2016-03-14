@@ -292,7 +292,8 @@ public abstract class AbstractDecorationEngineeringEditUI extends com.kingdee.ea
         // contAuditor		
         this.contAuditor.setBoundLabelText(resHelper.getString("contAuditor.boundLabelText"));		
         this.contAuditor.setBoundLabelLength(100);		
-        this.contAuditor.setBoundLabelUnderline(true);
+        this.contAuditor.setBoundLabelUnderline(true);		
+        this.contAuditor.setEnabled(false);
         // contcompany		
         this.contcompany.setBoundLabelText(resHelper.getString("contcompany.boundLabelText"));		
         this.contcompany.setBoundLabelLength(100);		
@@ -316,7 +317,9 @@ public abstract class AbstractDecorationEngineeringEditUI extends com.kingdee.ea
         // chklasted		
         this.chklasted.setText(resHelper.getString("chklasted.text"));		
         this.chklasted.setHorizontalAlignment(2);		
-        this.chklasted.setRequired(true);
+        this.chklasted.setRequired(true);		
+        this.chklasted.setEnabled(false);		
+        this.chklasted.setVisible(false);
         this.chklasted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 beforeActionPerformed(e);
@@ -343,7 +346,8 @@ public abstract class AbstractDecorationEngineeringEditUI extends com.kingdee.ea
         this.contauditTime.setBoundLabelText(resHelper.getString("contauditTime.boundLabelText"));		
         this.contauditTime.setBoundLabelLength(100);		
         this.contauditTime.setBoundLabelUnderline(true);		
-        this.contauditTime.setVisible(true);
+        this.contauditTime.setVisible(true);		
+        this.contauditTime.setEnabled(false);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);
         // kDDateCreateTime		
@@ -547,38 +551,38 @@ public abstract class AbstractDecorationEngineeringEditUI extends com.kingdee.ea
         this.setBounds(new Rectangle(0, 0, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(0, 0, 1013, 629));
-        contCreator.setBounds(new Rectangle(379, 567, 270, 19));
-        this.add(contCreator, new KDLayout.Constraints(379, 567, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCreateTime.setBounds(new Rectangle(730, 567, 270, 19));
-        this.add(contCreateTime, new KDLayout.Constraints(730, 567, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contLastUpdateUser.setBounds(new Rectangle(15, 598, 270, 19));
-        this.add(contLastUpdateUser, new KDLayout.Constraints(15, 598, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contLastUpdateTime.setBounds(new Rectangle(379, 598, 270, 19));
-        this.add(contLastUpdateTime, new KDLayout.Constraints(379, 598, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contNumber.setBounds(new Rectangle(16, 14, 270, 19));
-        this.add(contNumber, new KDLayout.Constraints(16, 14, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCreator.setBounds(new Rectangle(737, 523, 270, 19));
+        this.add(contCreator, new KDLayout.Constraints(737, 523, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contCreateTime.setBounds(new Rectangle(735, 545, 270, 19));
+        this.add(contCreateTime, new KDLayout.Constraints(735, 545, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contLastUpdateUser.setBounds(new Rectangle(395, 523, 270, 19));
+        this.add(contLastUpdateUser, new KDLayout.Constraints(395, 523, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contLastUpdateTime.setBounds(new Rectangle(395, 545, 270, 19));
+        this.add(contLastUpdateTime, new KDLayout.Constraints(395, 545, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contNumber.setBounds(new Rectangle(18, 14, 270, 19));
+        this.add(contNumber, new KDLayout.Constraints(18, 14, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contBizDate.setBounds(new Rectangle(1001, 6, 270, 19));
         this.add(contBizDate, new KDLayout.Constraints(1001, 6, 270, 19, 0));
         contDescription.setBounds(new Rectangle(1002, 66, 270, 19));
         this.add(contDescription, new KDLayout.Constraints(1002, 66, 270, 19, 0));
-        contAuditor.setBounds(new Rectangle(15, 571, 270, 19));
-        this.add(contAuditor, new KDLayout.Constraints(15, 571, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contAuditor.setBounds(new Rectangle(19, 523, 270, 19));
+        this.add(contAuditor, new KDLayout.Constraints(19, 523, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contcompany.setBounds(new Rectangle(384, 14, 270, 19));
         this.add(contcompany, new KDLayout.Constraints(384, 14, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contProjectName.setBounds(new Rectangle(725, 14, 270, 19));
         this.add(contProjectName, new KDLayout.Constraints(725, 14, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        kDContainer1.setBounds(new Rectangle(19, 126, 975, 426));
-        this.add(kDContainer1, new KDLayout.Constraints(19, 126, 975, 426, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contVersion.setBounds(new Rectangle(16, 97, 270, 19));
-        this.add(contVersion, new KDLayout.Constraints(16, 97, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        chklasted.setBounds(new Rectangle(384, 97, 270, 19));
-        this.add(chklasted, new KDLayout.Constraints(384, 97, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contStyle.setBounds(new Rectangle(731, 95, 270, 19));
-        this.add(contStyle, new KDLayout.Constraints(731, 95, 270, 19, 0));
-        contstate.setBounds(new Rectangle(724, 53, 270, 19));
-        this.add(contstate, new KDLayout.Constraints(724, 53, 270, 19, 0));
-        contauditTime.setBounds(new Rectangle(734, 599, 270, 19));
-        this.add(contauditTime, new KDLayout.Constraints(734, 599, 270, 19, 0));
+        kDContainer1.setBounds(new Rectangle(20, 75, 975, 432));
+        this.add(kDContainer1, new KDLayout.Constraints(20, 75, 975, 432, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
+        contVersion.setBounds(new Rectangle(18, 46, 270, 19));
+        this.add(contVersion, new KDLayout.Constraints(18, 46, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        chklasted.setBounds(new Rectangle(298, 16, 75, 19));
+        this.add(chklasted, new KDLayout.Constraints(298, 16, 75, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contStyle.setBounds(new Rectangle(725, 43, 270, 19));
+        this.add(contStyle, new KDLayout.Constraints(725, 43, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contstate.setBounds(new Rectangle(384, 41, 270, 19));
+        this.add(contstate, new KDLayout.Constraints(384, 41, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contauditTime.setBounds(new Rectangle(19, 545, 270, 19));
+        this.add(contauditTime, new KDLayout.Constraints(19, 545, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
