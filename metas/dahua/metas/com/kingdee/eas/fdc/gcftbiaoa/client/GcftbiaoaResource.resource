@@ -47,6 +47,16 @@
             <value>i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[SwbQueryF7WindowTitle].value</value>
             <userDefined>true</userDefined>
         </resourceItem>
+        <resourceItem>
+            <name>IndoorEngineeringQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[IndoorEngineeringQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
+        <resourceItem>
+            <name>HousingQueryF7WindowTitle</name>
+            <value>i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[HousingQueryF7WindowTitle].value</value>
+            <userDefined>true</userDefined>
+        </resourceItem>
     </resourceItems>
     <resource>
         <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].alias">
@@ -78,6 +88,18 @@
             <lang locale="zh_CN" value="公建配套工程分摊情况表" />
             <lang locale="zh_HK" value="公建配套工程分攤情況表" />
             <lang locale="zh_TW" value="公建配套工程分攤情況表" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[HousingQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="房源" />
+            <lang locale="zh_HK" value="房源" />
+            <lang locale="zh_TW" value="房源" />
+        </rs>
+        <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[IndoorEngineeringQueryF7WindowTitle].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="户内装修表" />
+            <lang locale="zh_HK" value="戶內裝修表" />
+            <lang locale="zh_TW" value="戶內裝修表" />
         </rs>
         <rs key="i18nResource[com.kingdee.eas.fdc.gcftbiaoa.client.GcftbiaoaResource].resourceItems.resourceItem[OutdoorEngineeringQueryF7WindowTitle].value">
             <lang locale="en_US" value="null" />
