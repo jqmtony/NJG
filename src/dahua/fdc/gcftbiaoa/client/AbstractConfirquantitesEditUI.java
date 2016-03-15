@@ -536,27 +536,32 @@ public abstract class AbstractConfirquantitesEditUI extends com.kingdee.eas.fram
         this.txtengineeringAudit.setVisible(true);		
         this.txtengineeringAudit.setHorizontalAlignment(2);		
         this.txtengineeringAudit.setMaxLength(255);		
-        this.txtengineeringAudit.setRequired(false);
+        this.txtengineeringAudit.setRequired(false);		
+        this.txtengineeringAudit.setEnabled(false);
         // txtcostAudit		
         this.txtcostAudit.setVisible(true);		
         this.txtcostAudit.setHorizontalAlignment(2);		
         this.txtcostAudit.setMaxLength(255);		
-        this.txtcostAudit.setRequired(false);
+        this.txtcostAudit.setRequired(false);		
+        this.txtcostAudit.setEnabled(false);
         // txtprojectFirstAudit		
         this.txtprojectFirstAudit.setVisible(true);		
         this.txtprojectFirstAudit.setHorizontalAlignment(2);		
         this.txtprojectFirstAudit.setMaxLength(255);		
-        this.txtprojectFirstAudit.setRequired(false);
+        this.txtprojectFirstAudit.setRequired(false);		
+        this.txtprojectFirstAudit.setEnabled(false);
         // txtworking		
         this.txtworking.setVisible(true);		
         this.txtworking.setHorizontalAlignment(2);		
         this.txtworking.setMaxLength(255);		
-        this.txtworking.setRequired(false);
+        this.txtworking.setRequired(false);		
+        this.txtworking.setEnabled(false);
         // txtcontractorPerosn		
         this.txtcontractorPerosn.setVisible(true);		
         this.txtcontractorPerosn.setHorizontalAlignment(2);		
         this.txtcontractorPerosn.setMaxLength(20);		
-        this.txtcontractorPerosn.setRequired(false);
+        this.txtcontractorPerosn.setRequired(false);		
+        this.txtcontractorPerosn.setEnabled(false);
         this.txtcontractorPerosn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 beforeActionPerformed(e);
@@ -573,17 +578,20 @@ public abstract class AbstractConfirquantitesEditUI extends com.kingdee.eas.fram
         this.txtengineeringPerosn.setVisible(true);		
         this.txtengineeringPerosn.setHorizontalAlignment(2);		
         this.txtengineeringPerosn.setMaxLength(20);		
-        this.txtengineeringPerosn.setRequired(false);
+        this.txtengineeringPerosn.setRequired(false);		
+        this.txtengineeringPerosn.setEnabled(false);
         // txtcostPerosn		
         this.txtcostPerosn.setVisible(true);		
         this.txtcostPerosn.setHorizontalAlignment(2);		
         this.txtcostPerosn.setMaxLength(20);		
-        this.txtcostPerosn.setRequired(false);
+        this.txtcostPerosn.setRequired(false);		
+        this.txtcostPerosn.setEnabled(false);
         // txtfirstPerosn		
         this.txtfirstPerosn.setVisible(true);		
         this.txtfirstPerosn.setHorizontalAlignment(2);		
         this.txtfirstPerosn.setMaxLength(20);		
-        this.txtfirstPerosn.setRequired(false);
+        this.txtfirstPerosn.setRequired(false);		
+        this.txtfirstPerosn.setEnabled(false);
         this.txtfirstPerosn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 beforeActionPerformed(e);

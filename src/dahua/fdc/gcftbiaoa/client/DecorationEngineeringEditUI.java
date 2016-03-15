@@ -368,7 +368,7 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
     		if(editData.getId()!=null){
     			filInfo.getFilterItems().add(new FilterItemInfo("id",editData.getId(),CompareType.NOTEQUALS));
     			if(DecorationEngineeringFactory.getRemoteInstance().exists(filInfo)){
-    				MsgBox.showWarning("已有单据不能新增");
+    				MsgBox.showWarning("已有该式样的单据，请修改式样，在提交。");
     				SysUtil.abort();
     			}
     		}
@@ -623,7 +623,7 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
     public void actionSave_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionSave_actionPerformed(e);
-        
+        initui();
     }
 
     /**

@@ -233,10 +233,6 @@ public class DecorationEngineeringListUI extends AbstractDecorationEngineeringLi
 		String id = getSelectedKeyValue();
 		IDecorationEngineering remoteInstance = DecorationEngineeringFactory.getRemoteInstance();
 		DecorationEngineeringInfo DecorationEngineeringinfo = remoteInstance.getDecorationEngineeringInfo(new ObjectUuidPK(id));
-		if(!DecorationEngineeringinfo.isLasted()){
-			MsgBox.showWarning("不是最新版，不能审核");
-			abort();
-		}
 		if(DecorationEngineeringinfo.getState().equals(FDCBillStateEnum.SAVED)){
 			MsgBox.showWarning("请先提交，再审核");
 			abort();
