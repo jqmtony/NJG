@@ -193,6 +193,26 @@
             </relationship>
         </linkProperty>
         <ownProperty>
+            <name>key</name>
+            <alias>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[key].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[key].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>100</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[key].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFKey" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
             <name>title</name>
             <alias>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[title].alias</alias>
             <description>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[title].description</description>
@@ -273,26 +293,6 @@
             </mappingField>
         </ownProperty>
         <ownProperty>
-            <name>Sumproportion</name>
-            <alias>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[Sumproportion].alias</alias>
-            <description>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[Sumproportion].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <dataType>BigDecimal</dataType>
-            <metadataRef />
-            <isMultilingual>false</isMultilingual>
-            <isNullable>false</isNullable>
-            <formula />
-            <length>28</length>
-            <precision>28</precision>
-            <decimalDigits>4</decimalDigits>
-            <defaultValue>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[Sumproportion].defaultValue</defaultValue>
-            <displayFormat />
-            <mappingField>
-                <key name="name" value="CFSumproportion" />
-            </mappingField>
-        </ownProperty>
-        <ownProperty>
             <name>Areaproportion</name>
             <alias>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[Areaproportion].alias</alias>
             <description>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[Areaproportion].description</description>
@@ -310,6 +310,26 @@
             <displayFormat />
             <mappingField>
                 <key name="name" value="CFAreaproportion" />
+            </mappingField>
+        </ownProperty>
+        <ownProperty>
+            <name>Sumproportion</name>
+            <alias>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[Sumproportion].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[Sumproportion].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>BigDecimal</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>28</length>
+            <precision>28</precision>
+            <decimalDigits>4</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[Sumproportion].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFSumproportion" />
             </mappingField>
         </ownProperty>
         <ownProperty>
@@ -350,26 +370,6 @@
             <displayFormat />
             <mappingField>
                 <key name="name" value="CFDanwei" />
-            </mappingField>
-        </ownProperty>
-        <ownProperty>
-            <name>key</name>
-            <alias>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[key].alias</alias>
-            <description>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[key].description</description>
-            <userDefined>true</userDefined>
-            <configured>false</configured>
-            <dataType>String</dataType>
-            <metadataRef />
-            <isMultilingual>false</isMultilingual>
-            <isNullable>false</isNullable>
-            <formula />
-            <length>100</length>
-            <precision>0</precision>
-            <decimalDigits>0</decimalDigits>
-            <defaultValue>entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[key].defaultValue</defaultValue>
-            <displayFormat />
-            <mappingField>
-                <key name="name" value="CFKey" />
             </mappingField>
         </ownProperty>
     </properties>
@@ -539,8 +539,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[Areaproportion].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[Areaproportion].description">
@@ -854,8 +853,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[Sumproportion].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[Sumproportion].description">
@@ -980,8 +978,7 @@
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[key].defaultValue">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.gcftbiaoa.app.SwbEntry].properties.ownProperty[key].description">
