@@ -1,5 +1,6 @@
 package com.kingdee.eas.fdc.contract.app;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -51,6 +52,7 @@ import com.kingdee.eas.fdc.contract.ContractException;
 import com.kingdee.eas.fdc.contract.ContractExecInfosFactory;
 import com.kingdee.eas.fdc.contract.ContractExecInfosInfo;
 import com.kingdee.eas.fdc.contract.ContractUtil;
+import com.kingdee.eas.fdc.contract.ContractWithoutTextFactory;
 import com.kingdee.eas.fdc.contract.ContractWithoutTextInfo;
 import com.kingdee.eas.fdc.contract.FDCUtils;
 import com.kingdee.eas.fdc.contract.IPayRequestBill;
@@ -58,6 +60,9 @@ import com.kingdee.eas.fdc.contract.PayRequestBillCollection;
 import com.kingdee.eas.fdc.contract.PayRequestBillEntryFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillFactory;
 import com.kingdee.eas.fdc.contract.PayRequestBillInfo;
+import com.kingdee.eas.fdc.contract.programming.IProgrammingContract;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractFactory;
+import com.kingdee.eas.fdc.contract.programming.ProgrammingContractInfo;
 import com.kingdee.eas.fdc.contract.util.ContractCodingUtil;
 import com.kingdee.eas.fdc.finance.CostClosePeriodFacadeFactory;
 import com.kingdee.eas.fdc.finance.ProjectPeriodStatusException;
@@ -178,45 +183,116 @@ public class ContractWithoutTextControllerBean extends
 	protected void trimName(FDCBillInfo fDCBillInfo) {
 		super.trimName(fDCBillInfo);
 	}
+	
+	//更新合约规划的规划余额
+	private void updatePCamount(Context ctx, BOSUuid billId, boolean flag) throws EASBizException,BOSException,SQLException {
+		SelectorItemCollection sic = new SelectorItemCollection();
+		sic.add("id");
+		sic.add("number");
+		sic.add("amount");
+		sic.add("programmingContract.id");
+		sic.add("programmingContract.number");
+		ContractWithoutTextInfo cwInfo =
+			ContractWithoutTextFactory.getLocalInstance(ctx).getContractWithoutTextInfo(new ObjectUuidPK(billId), sic);
+		ProgrammingContractInfo pcInfo = null;
+		IProgrammingContract service = ProgrammingContractFactory.getLocalInstance(ctx);
+		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
+		IRowSet rowSet = null;
+		//无合同签约金额
+		BigDecimal conSignAmt = cwInfo.getAmount();
+		// 同步更新下一版本的框架合约数据
+		String programmingContractId = cwInfo.getProgrammingContract().getId().toString();
+		while(null != programmingContractId) {
+			pcInfo = service.getProgrammingContractInfo(new ObjectUuidPK(programmingContractId), getProSic());
+			if(pcInfo == null) return;
+			// 规划余额
+			BigDecimal balanceAmt = pcInfo.getBalance();
+			// 控制余额
+			BigDecimal controlBalanceAmt = pcInfo.getControlBalance();
+			//框架合约签约金额
+			BigDecimal signAmountProg = pcInfo.getSignUpAmount();
+			if(flag){
+				//反写各种金额
+				pcInfo.setSignUpAmount(FDCHelper.add(signAmountProg, conSignAmt));
+				pcInfo.setBalance(FDCHelper.subtract(balanceAmt, conSignAmt));
+				pcInfo.setControlBalance(FDCHelper.subtract(controlBalanceAmt, conSignAmt));
+			}else{
+				pcInfo.setSignUpAmount(FDCHelper.subtract(signAmountProg, conSignAmt));
+				pcInfo.setBalance(FDCHelper.add(balanceAmt, conSignAmt));
+				pcInfo.setControlBalance(FDCHelper.add(controlBalanceAmt, conSignAmt));
+			}
+			
+			SelectorItemCollection sict = new SelectorItemCollection();
+			sict.add("balance");
+			sict.add("controlBalance");
+			sict.add("signUpAmount");
+//			sict.add("changeAmount");
+//			sict.add("settleAmount");
+//			sict.add("isCiting");
+			service.updatePartial(pcInfo, sict);
+			
+			programmingContractId = getNextVersionProg(ctx, programmingContractId, builder, rowSet);
+		}
+	}
+	
+	private String getNextVersionProg(Context ctx, String nextProgId, FDCSQLBuilder builder, IRowSet rowSet) throws BOSException, SQLException {
+		String tempId = null;
+		builder.clear();
+		builder.appendSql(" select fid from t_con_programmingContract where  ");
+		builder.appendParam("FSrcId", nextProgId);
+		rowSet = builder.executeQuery();
+		if(rowSet.next()) {
+			tempId = rowSet.getString("fid");
+		}
+		return tempId;
+	}
+	
+	private SelectorItemCollection getProSic() {
+		// 此过滤为详细信息定义
+		SelectorItemCollection sic = new SelectorItemCollection();
+		sic.add("id");
+		sic.add("balance");
+		sic.add("controlBalance");
+		sic.add("signUpAmount");
+		return sic;
+	}
 
 	// 审核
-	protected void _audit(Context ctx, BOSUuid billId) throws BOSException,
-			EASBizException {
-
+	protected void _audit(Context ctx, BOSUuid billId) throws BOSException,EASBizException {
 		checkBillForAudit(ctx, billId, null);
 		checkContractProgramming(ctx, billId.toString());
 
 		super._audit(ctx, billId);
-
 		// 同步标记付款申请单为审批状态
 		EntityViewInfo evi = new EntityViewInfo();
 		FilterInfo filterInfo = new FilterInfo();
-		filterInfo.getFilterItems().add(
-				new FilterItemInfo("contractId", billId.toString()));
+		filterInfo.getFilterItems().add(new FilterItemInfo("contractId", billId.toString()));
 		evi.getSelector().add(new SelectorItemInfo("id"));
 		evi.setFilter(filterInfo);
 
 		IPayRequestBill iPayReq = PayRequestBillFactory.getLocalInstance(ctx);
-		PayRequestBillCollection prbc = iPayReq
-				.getPayRequestBillCollection(evi);
+		PayRequestBillCollection prbc = iPayReq.getPayRequestBillCollection(evi);
 
 		if (prbc.size() > 0) {
 			iPayReq.audit(prbc.get(0).getId());
 		}
-		ContractExecInfosFactory.getLocalInstance(ctx).updateContract(
-				ContractExecInfosInfo.EXECINFO_AUDIT, billId.toString());
+		ContractExecInfosFactory.getLocalInstance(ctx).updateContract(ContractExecInfosInfo.EXECINFO_AUDIT, billId.toString());
+		//更新合约规划的规划余额
+		try {
+			updatePCamount(ctx,billId,true);
+		} catch (SQLException e) {
+			throw new BOSException(e);
+		}
 	}
 
 	// 反审核
-	protected void _unAudit(Context ctx, BOSUuid billId) throws BOSException,
-			EASBizException {
+	protected void _unAudit(Context ctx, BOSUuid billId) throws BOSException,EASBizException {
 
 		if (billId == null)
 			return;
 		// 在反审批的时候判断有没有付款单,如果有不允许反审批
 		FilterInfo filter = new FilterInfo();
-		filter.getFilterItems().add(
-				new FilterItemInfo("contractBillId", billId.toString()));
+		filter.getFilterItems().add(new FilterItemInfo("contractBillId", billId.toString()));
 		if (PaymentBillFactory.getLocalInstance(ctx).exists(filter)) {
 			throw new ContractException(ContractException.HASPAYMENTBILL);
 		}
@@ -224,14 +300,12 @@ public class ContractWithoutTextControllerBean extends
 		checkBillForUnAudit(ctx, billId, null);
 
 		String sql = "update T_CON_PayRequestBill set fstate=?,fhasClosed=0 where fcontractid=?";
-		String[] params = new String[] { FDCBillStateEnum.SUBMITTED_VALUE,
-				billId.toString() };
+		String[] params = new String[] { FDCBillStateEnum.SUBMITTED_VALUE,billId.toString() };
 		DbUtil.execute(ctx, sql, params);
 
 		EntityViewInfo view = new EntityViewInfo();
 		filter = new FilterInfo();
-		filter.getFilterItems().add(
-				new FilterItemInfo("contractId", billId.toString()));
+		filter.getFilterItems().add(new FilterItemInfo("contractId", billId.toString()));
 		view.setFilter(filter);
 
 		SelectorItemCollection selector = new SelectorItemCollection();
@@ -253,20 +327,21 @@ public class ContractWithoutTextControllerBean extends
 		}
 
 		super._unAudit(ctx, billId);
-
 		// 自动删除本期月结数据
 		SelectorItemCollection selectors = new SelectorItemCollection();
 		selectors.add("period.id");
 
-		ContractWithoutTextInfo info = (ContractWithoutTextInfo) this.getValue(
-				ctx, new ObjectUuidPK(billId), selectors);
+		ContractWithoutTextInfo info = (ContractWithoutTextInfo) this.getValue(ctx, new ObjectUuidPK(billId), selectors);
 		if (info.getPeriod() != null) {
-			CostClosePeriodFacadeFactory.getLocalInstance(ctx).delete(
-					info.getId().toString(),
-					info.getPeriod().getId().toString());
+			CostClosePeriodFacadeFactory.getLocalInstance(ctx).delete(info.getId().toString(),info.getPeriod().getId().toString());
 		}
-		ContractExecInfosFactory.getLocalInstance(ctx).updateContract(
-				ContractExecInfosInfo.EXECINFO_UNAUDIT, billId.toString());
+		ContractExecInfosFactory.getLocalInstance(ctx).updateContract(ContractExecInfosInfo.EXECINFO_UNAUDIT, billId.toString());
+		//更新合约规划的规划余额
+		try {
+			updatePCamount(ctx,billId,false);
+		} catch (SQLException e) {
+			throw new BOSException(e);
+		}
 	}
 
 	// 新增

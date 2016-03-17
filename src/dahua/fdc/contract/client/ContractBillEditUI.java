@@ -1934,7 +1934,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		this.initProgramControlMode();
 		
 		// modify by yxl 20151111 拆分页签表格初始化合约规划列，打开编辑界面时，默认加载拆分页签
-		txtMIndexType.setRequired(true);
+//		txtMIndexType.setRequired(true);
 //		kDTabbedPane1.setSelectedComponent(kDPanel2);
 		
 		if(editData.getCurProject()!=null){
@@ -6371,12 +6371,20 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			if(!curInfo.isIsWholeAgeStage()&&!chkisContractor.isSelected())
 				checkConProgram();
 		}
-		//modify by yxl 20151027  提交时检验面平米指标，五大类合同
-		if(FDCHelper.isEmpty(txtMIndexType.getText())){
-			FDCMsgBox.showWarning("综合单价不能为空！");
-			txtMIndexType.grabFocus();
-			abort();
+		//modify by yxl 20151027  提交时检验面平米指标，五大类合同,现在改为在某些合同类型下进行校验
+		
+		if(isContractNeedCheck(((ContractTypeInfo)prmtcontractType.getValue()).getNumber())){
+			
+			if(FDCHelper.isEmpty(txtMIndexType.getText())){
+				FDCMsgBox.showWarning("综合单价不能为空！");
+				txtMIndexType.grabFocus();
+				abort();
+			}
+			if(!chkFiveClass.isSelected() && FDCMsgBox.showConfirm2("该合同不是五大类合同，继续提交吗？") != 0){
+				abort();
+			}
 		}
+		
 		//拆分信息，如果是全期项目则检验合约规划不能为空；不是的话校验是否全部产品拆分。拆分比例不能超过100%
 		BigDecimal splitRate = FDCHelper.ZERO;
 		IRow row = null;
@@ -6398,9 +6406,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			MsgBox.showWarning("拆分比例不能大于100%");
 			abort();
 		}
-		if(!chkFiveClass.isSelected() && FDCMsgBox.showConfirm2("该合同不是五大类合同，继续提交吗？") != 0){
-			abort();
-		}
 		//modify by yxl
 		if(editData.getId()==null||!isContractRaleToBuildPriceIndex(editData.getId().toString())){
 			if(FDCMsgBox.showConfirm2("没有录入成本指标库数据，是否继续提交？") != 0)
@@ -6410,6 +6415,14 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			MsgBox.showInfo(this,"您选择的合约规划已经强控，不能提交。请走相关强控流程，以解除强控。");
 			abort();
 		}
+	}
+	
+	private boolean isContractNeedCheck(String ctNumber){
+		if("004".equals(ctNumber) || "008".equals(ctNumber) || "fb.1001".equals(ctNumber) || "fb.1002".equals(ctNumber) 
+				|| "fb.1003".equals(ctNumber) || "fb.1004".equals(ctNumber) || "zb.1000".equals(ctNumber))
+			return true;
+		
+		return false;
 	}
 
 	/**

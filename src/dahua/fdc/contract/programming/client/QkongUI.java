@@ -264,13 +264,73 @@ public class QkongUI extends AbstractQkongUI
 			row.getCell(OLDQK).setValue(row.getCell(ISQK).getValue());
 		}
 		FDCSQLBuilder sqlBuilder = new FDCSQLBuilder();
-		if(idForTrues.size() > 0){
-			sqlBuilder.appendSql("update T_CON_ProgrammingContract set cfisqk=1 where fid in("+setToString(idForTrues)+")");
+		String newVersion = null;
+		String oldVersion = null;
+		IRowSet rowSet = null;
+		Set<String> idTrues = new HashSet<String>();
+		Set<String> idFalse = new HashSet<String>();
+		for(Iterator<String> it = idForTrues.iterator(); it.hasNext();) {
+			newVersion = it.next();
+			oldVersion = newVersion;
+			//新老版本跟着变化
+			while(newVersion != null){
+				sqlBuilder.clear();
+				sqlBuilder.appendSql(" select fid from t_con_programmingContract where fSrcId='"+newVersion+"'");
+				rowSet = sqlBuilder.executeQuery();
+				if(rowSet.next()){
+					newVersion = rowSet.getString(1);
+					idTrues.add(newVersion);
+				}else
+					newVersion = null;
+			}
+			//老版本跟着变化
+			while(oldVersion != null){
+				sqlBuilder.clear();
+				sqlBuilder.appendSql(" select fSrcId from t_con_programmingContract where fid='"+oldVersion+"'");
+				rowSet = sqlBuilder.executeQuery();
+				if(rowSet.next()){
+					oldVersion = rowSet.getString(1);
+					idTrues.add(oldVersion);
+				}else
+					oldVersion = null;
+			}
+		}
+		for(Iterator<String> it = idForFalse.iterator(); it.hasNext();) {
+			newVersion = it.next();
+			oldVersion = newVersion;
+			//新版本跟着变化
+			while(newVersion != null){
+				sqlBuilder.clear();
+				sqlBuilder.appendSql(" select fid from t_con_programmingContract where fSrcId='"+newVersion+"'");
+				rowSet = sqlBuilder.executeQuery();
+				if(rowSet.next()){
+					newVersion = rowSet.getString(1);
+					idFalse.add(newVersion);
+				}else
+					newVersion = null;
+			}
+			//老版本跟着变化
+			while(oldVersion != null){
+				sqlBuilder.clear();
+				sqlBuilder.appendSql(" select fSrcId from t_con_programmingContract where fid='"+oldVersion+"'");
+				rowSet = sqlBuilder.executeQuery();
+				if(rowSet.next()){
+					oldVersion = rowSet.getString(1);
+					idFalse.add(oldVersion);
+				}else
+					oldVersion = null;
+			}
+		}
+		idTrues.addAll(idForTrues);
+		idFalse.addAll(idForFalse);
+		if(idTrues.size() > 0){
+			sqlBuilder.clear();
+			sqlBuilder.appendSql("update T_CON_ProgrammingContract set cfisqk=1 where fid in("+setToString(idTrues)+")");
 			sqlBuilder.executeUpdate();
 		}
-		if(idForFalse.size() > 0){
+		if(idFalse.size() > 0){
 			sqlBuilder.clear();
-			sqlBuilder.appendSql("update T_CON_ProgrammingContract set cfisqk=0 where fid in("+setToString(idForFalse)+")");
+			sqlBuilder.appendSql("update T_CON_ProgrammingContract set cfisqk=0 where fid in("+setToString(idFalse)+")");
 			sqlBuilder.executeUpdate();
 		}
 		MsgBox.showInfo("保存成功！");

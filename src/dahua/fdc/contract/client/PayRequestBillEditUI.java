@@ -1763,9 +1763,12 @@ public class PayRequestBillEditUI extends AbstractPayRequestBillEditUI implement
 		
 		completePrjAmtValue = editData.getCompletePrjAmt();
 		paymentProportionValue = editData.getPaymentProportion();
-		ContractTypeInfo typeInfo=ContractTypeFactory.getRemoteInstance().getContractTypeInfo(new ObjectUuidPK(contractBill.getContractType().getId()));
-		if(typeInfo != null && "[施工]".equals(typeInfo.getName()))
-			isShiGongContract = true;
+		if(contractBill != null){
+			ContractTypeInfo typeInfo=ContractTypeFactory.getRemoteInstance().getContractTypeInfo(new ObjectUuidPK(contractBill.getContractType().getId()));
+			if(typeInfo != null && "[施工]".equals(typeInfo.getName()))
+				isShiGongContract = true;
+			
+		}
 	}
 
 	/**

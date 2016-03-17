@@ -10,6 +10,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
@@ -28,6 +30,8 @@ import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
 import com.kingdee.eas.fdc.basedata.client.FDCClientHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
+import com.kingdee.eas.fdc.contract.PcontractTrackBillEntryCollection;
+import com.kingdee.eas.fdc.contract.PcontractTrackBillEntryInfo;
 import com.kingdee.eas.fdc.contract.PcontractTrackBillInfo;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.MsgBox;
@@ -42,6 +46,7 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
     private final String LONGNUMBER = "longNumber";// 长编码
 	private final String HEADNUMBER = "headNumber";// 长级长编码
 	private Date nowDate = null;
+	private Map<String,PcontractTrackBillEntryInfo> oldEntrys = null;
     
     /**
      * output class constructor
@@ -75,6 +80,13 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
     	cal.setTime(new Date());
     	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		nowDate = dateFormat.parse(cal.get(Calendar.YEAR)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+cal.get(Calendar.DAY_OF_MONTH));
+		//
+		oldEntrys = new HashMap<String,PcontractTrackBillEntryInfo>();
+		PcontractTrackBillEntryCollection ptecoll = editData.getEntrys();
+		for(int i = 0; i < ptecoll.size(); i++) {
+			oldEntrys.put(ptecoll.get(i).getLongNumber(),ptecoll.get(i));
+		}
+		
     }
     
     public void kdtEntrys_editStopped(KDTEditEvent e) {
@@ -131,9 +143,12 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
     	//手动输入的列
     	kdtEntrys.getColumn("sgtRealDate").getStyleAttributes().setLocked(false);
     	setRedBg();
+    	
     }
     
     protected void btnGrabData_actionPerformed(ActionEvent e) throws Exception {
+    	if(getOprtState().equals(OprtState.VIEW))
+    		return;
 //    	String table = " select cbill.FAUDITTIME,cbill.FProgrammingContract from T_CON_ContractBill cbill left join T_FDC_ContractType ctype on ctype.fid=cbill.FCONTRACTTYPEID where ctype.fnumber in('施工003','建安008') ";
 //    	String sql = "select t.FAUDITTIME,t.FProgrammingContract from ("+table+") t " +"where not exists(select 1 from ("+table+") FProgrammingContract=t.FProgrammingContract and FAUDITTIME<t.FAUDITTIME)";
     	
@@ -151,7 +166,7 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
     	builder.appendSql("left join (select max(cbill.FAUDITTIME) FAUDITTIME,cbill.FProgrammingContract from T_CON_ContractBill cbill left join T_FDC_ContractType ctype on ctype.fid=cbill.FCONTRACTTYPEID ");
     	builder.appendSql("where ctype.flongnumber in('004','fb!1002') group by cbill.FProgrammingContract) contbillend on pcont.fid=contbillend.FProgrammingContract ");
     	builder.appendSql("left join CT_CON_PcType pcType on pcType.fid=pcont.CFHyTypeID where program.FIsLatest=1 ");
-    	builder.appendSql("and program.fprojectid='"+editData.getCurProject().getId().toString()+"' order by pcont.FLONGNUMBER");
+    	builder.appendSql("and program.fprojectid='"+editData.getCurProject().getId().toString()+"' order by pcont.FsortNUMBER");
     	IRowSet rs = builder.executeQuery();
     	
     	kdtEntrys.removeRows();
@@ -160,11 +175,14 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
     		return;
 		}else{
 			IRow row = null;
+			String longNumber = null;
+			PcontractTrackBillEntryInfo pteinfo = null;
 			while(rs.next()){
 				row = kdtEntrys.addRow();
+				longNumber = rs.getString(3);
 				row.getCell("pcid").setValue(rs.getString(1));
 				row.getCell("level").setValue(rs.getInt(2));
-				row.getCell(LONGNUMBER).setValue(rs.getString(3));
+				row.getCell(LONGNUMBER).setValue(longNumber);
 				row.getCell(HEADNUMBER).setValue(rs.getString(4));
 				row.getCell("name").setValue(rs.getString(5));
 				row.getCell("hyType").setValue(rs.getString(6));
@@ -178,6 +196,14 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
 				row.getCell("csendDate").setValue(rs.getDate(14));
 				row.getCell("csRealDate").setValue(rs.getDate(15));
 				row.getCell("csendRealDate").setValue(rs.getDate(16));
+				pteinfo = oldEntrys.get(longNumber);
+				if(pteinfo != null){
+					row.getCell("sgtRealDate").setValue(pteinfo.getSgtRealDate());
+					row.getCell("csPlanDate").setValue(pteinfo.getCsPlanDate());
+					row.getCell("startPlanDate").setValue(pteinfo.getStartPlanDate());
+					row.getCell("endPlanDate").setValue(pteinfo.getEndPlanDate());
+					row.getCell("csendPlanDate").setValue(pteinfo.getCsendPlanDate());
+				}
 			}
 		}
     	setRedBg();
@@ -198,7 +224,8 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
 					((Date)row.getCell("sgtRealDate").getValue()).compareTo((Date)row.getCell("sgtDate").getValue())>0){
 				row.getCell("sgtOverdue").setValue(Boolean.TRUE);
     			row.getCell("sgtOverdue").getStyleAttributes().setBackground(Color.RED);
-			}
+			}else
+				row.getCell("sgtOverdue").setValue(Boolean.FALSE);
 			//实际合同签订时间
 			if(row.getCell("csDate").getValue()!=null){
 				pcPlanDate = (Date)row.getCell("csDate").getValue();
@@ -211,7 +238,8 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
 					row.getCell("csOverdue").setValue(Boolean.TRUE);
 	    			row.getCell("csOverdue").getStyleAttributes().setBackground(Color.RED);
 				}
-			}
+			}else
+				row.getCell("sgtOverdue").setValue(Boolean.FALSE);
 			//实际开工时间
 			if(row.getCell("startDate").getValue()!=null){
 				pcPlanDate = (Date)row.getCell("startDate").getValue();
@@ -224,7 +252,8 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
 					row.getCell("startOverdue").setValue(Boolean.TRUE);
 	    			row.getCell("startOverdue").getStyleAttributes().setBackground(Color.RED);
 				}
-			}
+			}else
+				row.getCell("sgtOverdue").setValue(Boolean.FALSE);
 			//实际竣工时间
 			if(row.getCell("endDate").getValue()!=null){
 				pcPlanDate = (Date)row.getCell("endDate").getValue();
@@ -237,7 +266,8 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
 					row.getCell("endOverdue").setValue(Boolean.TRUE);
 	    			row.getCell("endOverdue").getStyleAttributes().setBackground(Color.RED);
 				}
-			}
+			}else
+				row.getCell("sgtOverdue").setValue(Boolean.FALSE);
 			
 			//实际合同签订完成时间
 			if(row.getCell("csendDate").getValue()!=null){
@@ -251,7 +281,8 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
 					row.getCell("csendOverdue").setValue(Boolean.TRUE);
 	    			row.getCell("csendOverdue").getStyleAttributes().setBackground(Color.RED);
 				}
-			}
+			}else
+				row.getCell("sgtOverdue").setValue(Boolean.FALSE);
 			
 		}
     }
@@ -259,11 +290,21 @@ public class PcontractTrackBillEditUI extends AbstractPcontractTrackBillEditUI
     public void actionSave_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSave_actionPerformed(e);
     	setRedBg();
+    	oldEntrys.clear();
+    	PcontractTrackBillEntryCollection ptecoll = editData.getEntrys();
+		for(int i = 0; i < ptecoll.size(); i++) {
+			oldEntrys.put(ptecoll.get(i).getLongNumber(),ptecoll.get(i));
+		}
     }
     
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
     	super.actionSubmit_actionPerformed(e);
     	setRedBg();
+    	oldEntrys.clear();
+    	PcontractTrackBillEntryCollection ptecoll = editData.getEntrys();
+		for(int i = 0; i < ptecoll.size(); i++) {
+			oldEntrys.put(ptecoll.get(i).getLongNumber(),ptecoll.get(i));
+		}
     }
     
     /**
