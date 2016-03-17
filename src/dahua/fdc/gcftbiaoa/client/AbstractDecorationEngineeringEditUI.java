@@ -803,9 +803,9 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("entrys.decorationArea", java.math.BigDecimal.class, this.kdtEntrys, "decorationArea.text");
 		dataBinder.registerBinding("entrys.Price", java.math.BigDecimal.class, this.kdtEntrys, "Price.text");
 		dataBinder.registerBinding("entrys.renovationAreaIndex", java.math.BigDecimal.class, this.kdtEntrys, "renovationAreaIndex.text");
-		dataBinder.registerBinding("entrys.renovationNumber", int.class, this.kdtEntrys, "renovationNumber.text");
+		dataBinder.registerBinding("entrys.renovationNumber", java.math.BigDecimal.class, this.kdtEntrys, "renovationNumber.text");
 		dataBinder.registerBinding("entrys.sumPrice", java.math.BigDecimal.class, this.kdtEntrys, "sumPrice.text");
-		dataBinder.registerBinding("entrys.proportion", int.class, this.kdtEntrys, "proportion.text");
+		dataBinder.registerBinding("entrys.proportion", java.math.BigDecimal.class, this.kdtEntrys, "proportion.text");
 		dataBinder.registerBinding("entrys.sumDecorationArea", java.math.BigDecimal.class, this.kdtEntrys, "sumDecorationArea.text");
 		dataBinder.registerBinding("entrys.sumRenovationAreaIndex", java.math.BigDecimal.class, this.kdtEntrys, "sumRenovationAreaIndex.text");
 		dataBinder.registerBinding("entrys.avgRenovationAreaIndex", java.math.BigDecimal.class, this.kdtEntrys, "avgRenovationAreaIndex.text");

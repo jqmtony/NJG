@@ -121,7 +121,7 @@ public class DecorationEngineeringListUI extends AbstractDecorationEngineeringLi
 		view.setFilter(filInfo);
 		filInfo.getFilterItems().add(new FilterItemInfo("ProjectName.id",DecorationEngineeringinfo.getProjectName().getId()));
 		filInfo.getFilterItems().add(new FilterItemInfo("Version",DecorationEngineeringinfo.getVersion(),CompareType.GREATER));
-		
+		filInfo.getFilterItems().add(new FilterItemInfo("Style.id",DecorationEngineeringinfo.getStyle().getId(),CompareType.GREATER));
 		if(remoteInstance.exists(filInfo)){
 			MsgBox.showWarning("ÇëÑ¡Ôñ×îÐÂ°æÐÞ¶©");
 			abort();

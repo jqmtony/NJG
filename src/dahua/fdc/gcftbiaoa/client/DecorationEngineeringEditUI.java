@@ -85,6 +85,7 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
 	
 
 	public void onLoad() throws Exception {
+		actionCopy.setVisible(false);
 		contcompany.setEnabled(false);
 		state.setEnabled(false);
 		txtVersion.setEditable(false);
@@ -368,7 +369,7 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
     		if(editData.getId()!=null){
     			filInfo.getFilterItems().add(new FilterItemInfo("id",editData.getId(),CompareType.NOTEQUALS));
     			if(DecorationEngineeringFactory.getRemoteInstance().exists(filInfo)){
-    				MsgBox.showWarning("已有该式样的单据，请修改式样，在提交。");
+    				MsgBox.showWarning("已有该式样的单据，请修改式样，再提交。");
     				SysUtil.abort();
     			}
     		}

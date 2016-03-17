@@ -89,7 +89,7 @@ public abstract class AbstractConfirquantitesEditUI extends com.kingdee.eas.fram
     protected com.kingdee.bos.ctrl.swing.KDTextField txtengineeringAudit;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtcostAudit;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtprojectFirstAudit;
-    protected com.kingdee.bos.ctrl.swing.KDTextField txtworking;
+    protected com.kingdee.bos.ctrl.swing.KDTextArea txtworking;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtcontractorPerosn;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtengineeringPerosn;
     protected com.kingdee.bos.ctrl.swing.KDTextField txtcostPerosn;
@@ -247,7 +247,7 @@ public abstract class AbstractConfirquantitesEditUI extends com.kingdee.eas.fram
         this.txtengineeringAudit = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtcostAudit = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtprojectFirstAudit = new com.kingdee.bos.ctrl.swing.KDTextField();
-        this.txtworking = new com.kingdee.bos.ctrl.swing.KDTextField();
+        this.txtworking = new com.kingdee.bos.ctrl.swing.KDTextArea();
         this.txtcontractorPerosn = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtengineeringPerosn = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.txtcostPerosn = new com.kingdee.bos.ctrl.swing.KDTextField();
@@ -551,17 +551,12 @@ public abstract class AbstractConfirquantitesEditUI extends com.kingdee.eas.fram
         this.txtprojectFirstAudit.setRequired(false);		
         this.txtprojectFirstAudit.setEnabled(false);
         // txtworking		
-        this.txtworking.setVisible(true);		
-        this.txtworking.setHorizontalAlignment(2);		
-        this.txtworking.setMaxLength(255);		
-        this.txtworking.setRequired(false);		
-        this.txtworking.setEnabled(false);
+        this.txtworking.setMaxLength(500);
         // txtcontractorPerosn		
         this.txtcontractorPerosn.setVisible(true);		
         this.txtcontractorPerosn.setHorizontalAlignment(2);		
         this.txtcontractorPerosn.setMaxLength(20);		
-        this.txtcontractorPerosn.setRequired(false);		
-        this.txtcontractorPerosn.setEnabled(false);
+        this.txtcontractorPerosn.setRequired(false);
         this.txtcontractorPerosn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 beforeActionPerformed(e);

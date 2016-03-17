@@ -2,35 +2,28 @@ package com.kingdee.eas.fdc.gcftbiaoa.app;
 
 import org.apache.log4j.Logger;
 import javax.ejb.*;
-import java.rmi.RemoteException;
-import com.kingdee.bos.*;
-import com.kingdee.bos.util.BOSObjectType;
-import com.kingdee.bos.metadata.IMetaDataPK;
-import com.kingdee.bos.metadata.query.util.CompareType;
-import com.kingdee.bos.metadata.rule.RuleExecutor;
-import com.kingdee.bos.metadata.MetaDataPK;
-//import com.kingdee.bos.metadata.entity.EntityViewInfo;
-import com.kingdee.bos.framework.ejb.AbstractEntityControllerBean;
-import com.kingdee.bos.framework.ejb.AbstractBizControllerBean;
-//import com.kingdee.bos.dao.IObjectPK;
-import com.kingdee.bos.dao.IObjectValue;
-import com.kingdee.bos.dao.IObjectCollection;
-import com.kingdee.bos.service.ServiceContext;
-import com.kingdee.bos.service.IServiceContext;
 
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
+import com.kingdee.eas.fdc.basedata.FDCHelper;
+import com.kingdee.eas.fdc.basedata.FDCSQLBuilder;
+import com.kingdee.eas.fdc.gcftbiaoa.DecorationEngineeringInfo;
 import com.kingdee.eas.fdc.gcftbiaoa.DecorationEngineeringCollection;
 import com.kingdee.eas.fdc.gcftbiaoa.DecorationEngineeringFactory;
 
 import java.lang.String;
+import java.math.BigDecimal;
+
+import com.kingdee.bos.BOSException;
+import com.kingdee.bos.Context;
 import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
-import com.kingdee.eas.fdc.gcftbiaoa.DecorationEngineeringInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.bos.dao.IObjectPK;
+import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.eas.framework.CoreBaseCollection;
 import com.kingdee.eas.framework.SystemEnum;
 import com.kingdee.eas.framework.CoreBillBaseCollection;
@@ -44,8 +37,7 @@ import com.kingdee.util.NumericExceptionSubItem;
 
 public class DecorationEngineeringControllerBean extends AbstractDecorationEngineeringControllerBean
 {
-    private static Logger logger =
-        Logger.getLogger("com.kingdee.eas.fdc.gcftbiaoa.app.DecorationEngineeringControllerBean");
+    private static Logger logger =Logger.getLogger("com.kingdee.eas.fdc.gcftbiaoa.app.DecorationEngineeringControllerBean");
     
 	
 	protected void _aduit(Context ctx, IObjectValue model) throws BOSException,
@@ -69,24 +61,32 @@ public class DecorationEngineeringControllerBean extends AbstractDecorationEngin
 		sic.add("lasted");
 		sic.add("Version");
 		sic.add("ProjectName.id");
+		sic.add("Style.id");
 		DecorationEngineeringInfo DecorationEngineeringInfo =  DecorationEngineeringFactory.getLocalInstance(ctx).getDecorationEngineeringInfo(new ObjectUuidPK(model.get("id").toString()),sic);
 		
 		FilterInfo filInfo = new FilterInfo();
 		filInfo.getFilterItems().add(new FilterItemInfo("ProjectName.id",DecorationEngineeringInfo.getProjectName().getId()));
 		filInfo.getFilterItems().add(new FilterItemInfo("Version",DecorationEngineeringInfo.getVersion(),CompareType.GREATER));
+		filInfo.getFilterItems().add(new FilterItemInfo("Style.id",DecorationEngineeringInfo.getStyle().getId()));
 		
-		if(DecorationEngineeringFactory.getLocalInstance(ctx).exists(filInfo))
-			throw new EASBizException(new NumericExceptionSubItem("100","请选择最新版进行反审批操作！"));
-		DecorationEngineeringInfo.setAuditor(null);
-		DecorationEngineeringInfo.setState(FDCBillStateEnum.SAVED);
-		DecorationEngineeringInfo.setLasted(false);
-		DecorationEngineeringInfo.setAuditTime(null);
-		
-		
-		DbUtil.execute(ctx, "update CT_001_DecorationEngineering set CFLasted=1 where CFProjectNameID='"+DecorationEngineeringInfo.getProjectName().getId()+"'and CFStyleID='"+DecorationEngineeringInfo.getStyle().getId()+"'"+"' and CFVersion='"+(DecorationEngineeringInfo.getVersion()-1)+"'");
+		if(DecorationEngineeringFactory.getLocalInstance(ctx).exists(filInfo)){
+//			throw new EASBizException(new NumericExceptionSubItem("100","请选择最新版进行反审批操作！"));
+			if("1".equals(DecorationEngineeringInfo.getVersion()))
+				DecorationEngineeringInfo.setAuditor(null);
+				DecorationEngineeringInfo.setState(FDCBillStateEnum.SAVED);
+				DecorationEngineeringInfo.setLasted(false);
+				DecorationEngineeringInfo.setAuditTime(null);
+				DbUtil.execute(ctx, "update CT_001_DecorationEngineering set CFLasted=1 where CFProjectNameID='"+DecorationEngineeringInfo.getProjectName().getId()+"'and CFStyleID='"+DecorationEngineeringInfo.getStyle().getId()+"'"+" and CFVersion='"+(DecorationEngineeringInfo.getVersion())+"'");
+		}
+		else {
+			DecorationEngineeringInfo.setAuditor(null);
+			DecorationEngineeringInfo.setState(FDCBillStateEnum.SAVED);
+			DecorationEngineeringInfo.setLasted(false);
+			DecorationEngineeringInfo.setAuditTime(null);
+			DbUtil.execute(ctx, "update CT_001_DecorationEngineering set CFLasted=1 where CFProjectNameID='"+DecorationEngineeringInfo.getProjectName().getId()+"'and CFStyleID='"+DecorationEngineeringInfo.getStyle().getId()+"'"+" and CFVersion='"+(DecorationEngineeringInfo.getVersion()-1)+"'");
+		}
 		_update(ctx, new ObjectUuidPK(DecorationEngineeringInfo.getId()), DecorationEngineeringInfo);	//更新数据
 	}
-	
 	
 
 	protected IObjectPK _submit(Context ctx, IObjectValue model)
