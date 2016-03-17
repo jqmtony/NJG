@@ -31,6 +31,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent;
 import com.kingdee.bos.ctrl.kdf.util.render.ObjectValueRender;
+import com.kingdee.bos.ctrl.swing.KDComboBox;
 import com.kingdee.bos.ctrl.swing.KDContainer;
 import com.kingdee.bos.ctrl.swing.KDDatePicker;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
@@ -97,6 +98,7 @@ import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
+import com.kingdee.util.enums.EnumUtils;
 
 /**
  * output class name
@@ -585,6 +587,8 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 				}else if(FieldType.BUILDNUM.equals(entryInfo.getFieldType())){
 					initColumnForBuildNum(icol,realPorjectId);
 					icol.setRequired(true);
+				}else if(FieldType.COMBOX.equals(entryInfo.getFieldType())){
+					initColumnForComboBox(icol,entryInfo.getFcontent());
 				}
 				if(entryInfo.isFieldInput()){
 					icol.setRequired(true);
@@ -744,7 +748,9 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
 					for(int j = 0; j < table.getColumnCount(); j++) {
 						entryInfo = entrycoll.get(j);
 						recordSeq = i+"!"+j;
-						if(FieldType.TEXT.equals(entryInfo.getFieldType()) && textMap.containsKey(recordSeq)){
+						if(FieldType.COMBOX.equals(entryInfo.getFieldType()) && textMap.containsKey(recordSeq)){
+							row.getCell(j).setValue(textMap.get(recordSeq).getTextData());
+						}else if(FieldType.TEXT.equals(entryInfo.getFieldType()) && textMap.containsKey(recordSeq)){
 							row.getCell(j).setValue(textMap.get(recordSeq).getTextData());
 						}else if(FieldType.NUMBER.equals(entryInfo.getFieldType()) && numberMap.containsKey(recordSeq)){
 							row.getCell(j).setValue(numberMap.get(recordSeq).getNumberData());
@@ -899,6 +905,15 @@ public class BuildPriceIndexEditUI extends AbstractBuildPriceIndexEditUI
         kdtEntrys_baseUnit_OVR.setFormat(new BizDataFormat("$name$"));
 		icol.setEditor(editor);
 		icol.setRenderer(kdtEntrys_baseUnit_OVR);
+    }
+    
+    private void initColumnForComboBox(IColumn icol,String srcStr){
+    	KDComboBox fieldType_ComboBox = new KDComboBox();
+		String[] items = srcStr.split(",");
+		for(int k = 0; k < items.length; k++) {
+			fieldType_ComboBox.addItem(items[k]);
+		}
+        icol.setEditor(new KDTDefaultCellEditor(fieldType_ComboBox));
     }
     
     private void initColumnForText(IColumn icol){

@@ -4,6 +4,7 @@
 package com.kingdee.eas.fdc.costindexdb.database.client;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
@@ -116,7 +117,7 @@ public class CostAccountPriceIndexEditUI extends AbstractCostAccountPriceIndexEd
 
 	private void setContentStyle() {
 		for(int i = 0; i < kdtEntrys.getRowCount3(); i++) {
-			if(FieldType.COMPUTE.equals(kdtEntrys.getCell(i,"fieldType").getValue())){
+			if(FieldType.COMPUTE.equals(kdtEntrys.getCell(i,"fieldType").getValue())||FieldType.COMBOX.equals(kdtEntrys.getCell(i,"fieldType").getValue())){
     			kdtEntrys.getCell(i,"fcontent").getStyleAttributes().setBackground(kdtEntrys.getRequiredColor());
     			kdtEntrys.getCell(i,"fcontent").getStyleAttributes().setLocked(false);
     		}
@@ -132,9 +133,12 @@ public class CostAccountPriceIndexEditUI extends AbstractCostAccountPriceIndexEd
 //    		kdtEntrys.getCell(rowIndex,"fieldHide").setValue(Boolean.FALSE);
 //    	}
     	if(colIndex==kdtEntrys.getColumnIndex("fieldType") && kdtEntrys.getCell(rowIndex,colIndex).getValue()!=null){
-    		if(FieldType.COMPUTE.equals(kdtEntrys.getCell(rowIndex,colIndex).getValue())){
+    		if(FieldType.COMPUTE.equals(kdtEntrys.getCell(rowIndex,colIndex).getValue())||FieldType.COMBOX.equals(kdtEntrys.getCell(rowIndex,colIndex).getValue())){
     			kdtEntrys.getCell(rowIndex,"fcontent").getStyleAttributes().setBackground(kdtEntrys.getRequiredColor());
     			kdtEntrys.getCell(rowIndex,"fcontent").getStyleAttributes().setLocked(false);
+    		}else{
+    			kdtEntrys.getCell(rowIndex,"fcontent").getStyleAttributes().setBackground(Color.WHITE);
+    			kdtEntrys.getCell(rowIndex,"fcontent").getStyleAttributes().setLocked(true);
     		}
     	}
 //    	else if(colIndex==kdtEntrys.getColumnIndex("fcontent") && !FDCHelper.isEmpty(kdtEntrys.getCell(rowIndex,colIndex).getValue())){
@@ -171,34 +175,13 @@ public class CostAccountPriceIndexEditUI extends AbstractCostAccountPriceIndexEd
     				MsgBox.showInfo(fus.Msg);
     				SysUtil.abort();
     			}
-//    			int index1 = fcontent.indexOf('/');
-//        		String str1 = fcontent.substring(0,index1);
-//        		if(!pointSets.contains(str1.substring(0,str1.lastIndexOf(".")))){
-//        			MsgBox.showInfo("公式非法，请检查！");
-//        		}
-//        		String str2 = fcontent.substring(index1+1);
-//        		if(!pointSets.contains(str2.substring(0,str2.lastIndexOf(".")))){
-//        			MsgBox.showInfo("公式非法，请检查！");
-//        		}
-//    			if(index1 != -1){
-//    				String fenzi = fcontent.substring(0,index1);
-//    				String fenmu = fcontent.substring(index1+1);
-//    				if(!pointSets.contains(fenzi.substring(0,fenzi.lastIndexOf(".")))){
-//    					MsgBox.showInfo("第"+(i+1)+"行公式内容不符合要求！");
-//            			kdtEntrys.getEditManager().editCellAt(i,kdtEntrys.getColumnIndex("fcontent"));
-//            			SysUtil.abort();
-//    				}
-//    				if(!pointSets.contains(fenmu.substring(0,fenmu.lastIndexOf(".")))){
-//    					MsgBox.showInfo("第"+(i+1)+"行公式内容不符合要求！");
-//            			kdtEntrys.getEditManager().editCellAt(i,kdtEntrys.getColumnIndex("fcontent"));
-//            			SysUtil.abort();
-//    				}
-//    			}
-//        		else{
-//    				MsgBox.showInfo("第"+(i+1)+"行公式内容不符合要求！");
-//        			kdtEntrys.getEditManager().editCellAt(i,kdtEntrys.getColumnIndex("fcontent"));
-//        			SysUtil.abort();
-//    			}
+    		}else if(FieldType.COMBOX.equals(kdtEntrys.getCell(i,"fieldType").getValue())){
+    			String fcontent = (String)kdtEntrys.getCell(i,"fcontent").getValue();
+    			if(FDCHelper.isEmpty(fcontent)){
+    				MsgBox.showInfo("第"+(i+1)+"行公式内容不能为空！");
+        			kdtEntrys.getEditManager().editCellAt(i,kdtEntrys.getColumnIndex("fcontent"));
+        			SysUtil.abort();
+    			}
     		}
 		}
     }

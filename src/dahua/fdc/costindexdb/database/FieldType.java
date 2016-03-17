@@ -20,6 +20,7 @@ public class FieldType extends StringEnum
     public static final String BASEUNIT_VALUE = "50";//alias=计量单位
     public static final String COMPUTE_VALUE = "60";//alias=公式计算
     public static final String BUILDNUM_VALUE = "70";//alias=典型楼号
+    public static final String COMBOX_VALUE = "80";//alias=下拉框
 
     public static final FieldType TEXT = new FieldType("TEXT", TEXT_VALUE);
     public static final FieldType NUMBER = new FieldType("NUMBER", NUMBER_VALUE);
@@ -28,6 +29,7 @@ public class FieldType extends StringEnum
     public static final FieldType BASEUNIT = new FieldType("BASEUNIT", BASEUNIT_VALUE);
     public static final FieldType COMPUTE = new FieldType("COMPUTE", COMPUTE_VALUE);
     public static final FieldType BUILDNUM = new FieldType("BUILDNUM", BUILDNUM_VALUE);
+    public static final FieldType COMBOX = new FieldType("COMBOX", COMBOX_VALUE);
 
     /**
      * construct function
