@@ -110,7 +110,8 @@ public class ProjectDynamicCostControllerBean extends AbstractProjectDynamicCost
 			sb.append("(select pcont.fid from T_CON_ProgrammingContract pcont left join T_CON_Programming program on pcont.FPROGRAMMINGID=program.fid");
 			sb.append(" left join T_CON_ProgrammingContracCost pccost on pcont.fid=pccost.FCONTRACTID ");
 			sb.append(" left join T_FDC_CostAccount costAccount on costAccount.fid=pccost.FCOSTACCOUNTID ");
-			sb.append("where program.fprojectid='"+curProject.getId().toString()+"' and program.FSTATE='4AUDITTED' and program.FISLATEST=1 ");
+			//把合约规划的状态和是否最新两个条件去掉，以达到这个项目下所有版本的合约规划都一样  and program.FSTATE='4AUDITTED' and program.FISLATEST=1
+			sb.append("where program.fprojectid='"+curProject.getId().toString()+"'  ");
 			sb.append("and costAccount.FLONGNUMBER in("+params.toString()+"))");
 			DbUtil.execute(ctx,sb.toString());
 		}
