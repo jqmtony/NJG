@@ -422,6 +422,12 @@ public class SwbEditUI extends AbstractSwbEditUI
         	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
         	row.getCell("Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(), GreenArea, 4, 4));
         	txtGreenH.setValue(GreenArea);
+        	if(txtlandscape.getBigDecimalValue() != null && txtother.getBigDecimalValue() != null)
+        		txtSumArea.setValue(GreenArea.add(txtother.getBigDecimalValue()).add(txtlandscape.getBigDecimalValue()));
+        	else if(txtlandscape.getBigDecimalValue() != null)
+        		txtSumArea.setValue(GreenArea.add(txtlandscape.getBigDecimalValue()));
+        	else if(txtother.getBigDecimalValue() != null)
+        		txtSumArea.setValue(GreenArea.add(txtother.getBigDecimalValue()));
         }
         if("2.2.6".equals(kdtEntrys.getCell(rowIndex, "key").getValue())){
         	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
@@ -467,6 +473,12 @@ public class SwbEditUI extends AbstractSwbEditUI
         }
         if("3".equals(kdtEntrys.getCell(rowIndex, "key").getValue())){
         	txtother.setValue(row.getCell("GreenArea").getValue());
+        	if(txtlandscape.getBigDecimalValue() != null && txtGreenH.getBigDecimalValue() != null)
+        		txtSumArea.setValue(GreenArea.add(txtGreenH.getBigDecimalValue()).add(txtlandscape.getBigDecimalValue()));
+        	else if(txtlandscape.getBigDecimalValue() != null)
+        		txtSumArea.setValue(GreenArea.add(txtlandscape.getBigDecimalValue()));
+        	else if(txtGreenH.getBigDecimalValue() != null)
+        		txtSumArea.setValue(GreenArea.add(txtGreenH.getBigDecimalValue()));
         }
     }
 
