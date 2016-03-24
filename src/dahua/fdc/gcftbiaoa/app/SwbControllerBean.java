@@ -78,7 +78,7 @@ public class SwbControllerBean extends AbstractSwbControllerBean
     	SwbInfo.setAuditTime(null);
 
 
-    	DbUtil.execute(ctx, "update CT_001_Swb set CFLasted=1 where CFProjectNameID='"+SwbInfo.getProjectName().getId()+"'"+"' and CFVersion='"+(SwbInfo.getVersion()-1)+"'");
+    	DbUtil.execute(ctx, "update CT_001_Swb set CFLasted=1 where CFProjectNameID='"+SwbInfo.getProjectName().getId()+"' and CFVersion='"+(SwbInfo.getVersion()-1)+"'");
     	_update(ctx, new ObjectUuidPK(SwbInfo.getId()), SwbInfo);	//更新数据
     }
 
