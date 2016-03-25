@@ -304,6 +304,15 @@ public abstract class AbstractIndoorengEditUI extends com.kingdee.eas.framework.
 		String kdtEntrysStrXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><DocRoot xmlns:c=\"http://www.kingdee.com/Common\" xmlns:f=\"http://www.kingdee.com/Form\" xmlns:t=\"http://www.kingdee.com/Table\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.kingdee.com/KDF KDFSchema.xsd\" version=\"0.0\"><Styles><c:Style id=\"sCol0\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol1\"><c:Protection hidden=\"true\" /></c:Style><c:Style id=\"sCol3\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol4\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol5\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol6\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol7\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style><c:Style id=\"sCol8\"><c:NumberFormat>&amp;double</c:NumberFormat></c:Style></Styles><Table id=\"KDTable\"><t:Sheet name=\"sheet1\"><t:Table t:selectMode=\"15\" t:mergeMode=\"0\" t:dataRequestMode=\"0\" t:pageRowCount=\"100\"><t:ColumnGroup><t:Column t:key=\"id\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol0\" /><t:Column t:key=\"key\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol1\" /><t:Column t:key=\"title\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"Price\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"3\" t:styleID=\"sCol3\" /><t:Column t:key=\"DecorateArea\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"4\" t:styleID=\"sCol4\" /><t:Column t:key=\"DecorateAreaIndex\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"5\" t:styleID=\"sCol5\" /><t:Column t:key=\"Sumproportion\" t:width=\"250\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol6\" /><t:Column t:key=\"ComePrice\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol7\" /><t:Column t:key=\"Areaproportion\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" t:styleID=\"sCol8\" /><t:Column t:key=\"danwei\" t:width=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /><t:Column t:key=\"other\" t:width=\"200\" t:mergeable=\"true\" t:resizeable=\"true\" t:moveable=\"true\" t:group=\"false\" t:required=\"false\" t:index=\"-1\" /></t:ColumnGroup><t:Head><t:Row t:name=\"header2\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{id}</t:Cell><t:Cell /><t:Cell /><t:Cell>$Resource{key}</t:Cell><t:Cell>$Resource{title}</t:Cell><t:Cell>$Resource{Price}</t:Cell><t:Cell>$Resource{DecorateArea}</t:Cell><t:Cell>$Resource{DecorateAreaIndex}</t:Cell><t:Cell>$Resource{Sumproportion}</t:Cell><t:Cell>$Resource{ComePrice}</t:Cell><t:Cell>$Resource{Areaproportion}</t:Cell></t:Row><t:Row t:name=\"header\" t:height=\"-1\" t:mergeable=\"true\" t:resizeable=\"true\"><t:Cell>$Resource{danwei}</t:Cell><t:Cell /><t:Cell>$Resource{other}</t:Cell><t:Cell>$Resource{id_Row2}</t:Cell><t:Cell>$Resource{key_Row2}</t:Cell><t:Cell>$Resource{title_Row2}</t:Cell><t:Cell>$Resource{Price_Row2}</t:Cell><t:Cell>$Resource{DecorateArea_Row2}</t:Cell><t:Cell>$Resource{DecorateAreaIndex_Row2}</t:Cell><t:Cell>$Resource{Sumproportion_Row2}</t:Cell><t:Cell>$Resource{ComePrice_Row2}</t:Cell></t:Row></t:Head></t:Table><t:SheetOptions><t:MergeBlocks><t:Head><t:Block t:top=\"0\" t:left=\"0\" t:bottom=\"1\" t:right=\"0\" /><t:Block t:top=\"0\" t:left=\"1\" t:bottom=\"0\" t:right=\"2\" /><t:Block t:top=\"1\" t:left=\"1\" t:bottom=\"1\" t:right=\"2\" /><t:Block t:top=\"0\" t:left=\"3\" t:bottom=\"1\" t:right=\"3\" /><t:Block t:top=\"0\" t:left=\"4\" t:bottom=\"1\" t:right=\"4\" /><t:Block t:top=\"0\" t:left=\"5\" t:bottom=\"1\" t:right=\"5\" /><t:Block t:top=\"0\" t:left=\"6\" t:bottom=\"1\" t:right=\"6\" /><t:Block t:top=\"0\" t:left=\"7\" t:bottom=\"1\" t:right=\"7\" /><t:Block t:top=\"0\" t:left=\"8\" t:bottom=\"0\" t:right=\"9\" /><t:Block t:top=\"0\" t:left=\"10\" t:bottom=\"1\" t:right=\"10\" /></t:Head></t:MergeBlocks></t:SheetOptions></t:Sheet></Table></DocRoot>";
 		
         this.kdtEntrys.setFormatXml(resHelper.translateString("kdtEntrys",kdtEntrysStrXML));
+        this.kdtEntrys.addKDTEditListener(new com.kingdee.bos.ctrl.kdf.table.event.KDTEditAdapter() {
+            public void editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) {
+                try {
+                    kdtEntrys_editStopped(e);
+                } catch(Exception exc) {
+                    handUIException(exc);
+                }
+            }
+        });
 
                 this.kdtEntrys.putBindContents("editData",new String[] {"id","key","title","Price","DecorateArea","DecorateAreaIndex","Sumproportion","ComePrice","Areaproportion","danwei","other"});
 
@@ -432,17 +441,20 @@ public abstract class AbstractIndoorengEditUI extends com.kingdee.eas.framework.
         this.contSalesAreaIndex.setBoundLabelText(resHelper.getString("contSalesAreaIndex.boundLabelText"));		
         this.contSalesAreaIndex.setBoundLabelLength(140);		
         this.contSalesAreaIndex.setBoundLabelUnderline(true);		
-        this.contSalesAreaIndex.setVisible(true);
+        this.contSalesAreaIndex.setVisible(true);		
+        this.contSalesAreaIndex.setEnabled(false);
         // contSoft		
         this.contSoft.setBoundLabelText(resHelper.getString("contSoft.boundLabelText"));		
         this.contSoft.setBoundLabelLength(100);		
         this.contSoft.setBoundLabelUnderline(true);		
-        this.contSoft.setVisible(true);
+        this.contSoft.setVisible(true);		
+        this.contSoft.setEnabled(false);
         // contHard		
         this.contHard.setBoundLabelText(resHelper.getString("contHard.boundLabelText"));		
         this.contHard.setBoundLabelLength(100);		
         this.contHard.setBoundLabelUnderline(true);		
-        this.contHard.setVisible(true);
+        this.contHard.setVisible(true);		
+        this.contHard.setEnabled(false);
         // contauditTime		
         this.contauditTime.setBoundLabelText(resHelper.getString("contauditTime.boundLabelText"));		
         this.contauditTime.setBoundLabelLength(100);		
@@ -480,7 +492,8 @@ public abstract class AbstractIndoorengEditUI extends com.kingdee.eas.framework.
         this.prmtProjectName.setDisplayFormat("$name$");		
         this.prmtProjectName.setEditFormat("$number$");		
         this.prmtProjectName.setCommitFormat("$number$");		
-        this.prmtProjectName.setRequired(false);
+        this.prmtProjectName.setRequired(false);		
+        this.prmtProjectName.setEnabled(false);
         // txtVersion		
         this.txtVersion.setVisible(true);		
         this.txtVersion.setHorizontalAlignment(2);		
@@ -512,7 +525,8 @@ public abstract class AbstractIndoorengEditUI extends com.kingdee.eas.framework.
         this.txtSalesAreaIndex.setMinimumValue( new java.math.BigDecimal("-1.0E24"));		
         this.txtSalesAreaIndex.setMaximumValue( new java.math.BigDecimal("1.0E24"));		
         this.txtSalesAreaIndex.setPrecision(4);		
-        this.txtSalesAreaIndex.setRequired(false);
+        this.txtSalesAreaIndex.setRequired(false);		
+        this.txtSalesAreaIndex.setEnabled(false);
         // txtSoft		
         this.txtSoft.setVisible(true);		
         this.txtSoft.setHorizontalAlignment(2);		
@@ -521,7 +535,8 @@ public abstract class AbstractIndoorengEditUI extends com.kingdee.eas.framework.
         this.txtSoft.setMinimumValue( new java.math.BigDecimal("-1.0E24"));		
         this.txtSoft.setMaximumValue( new java.math.BigDecimal("1.0E24"));		
         this.txtSoft.setPrecision(4);		
-        this.txtSoft.setRequired(false);
+        this.txtSoft.setRequired(false);		
+        this.txtSoft.setEnabled(false);
         // txtHard		
         this.txtHard.setVisible(true);		
         this.txtHard.setHorizontalAlignment(2);		
@@ -530,7 +545,8 @@ public abstract class AbstractIndoorengEditUI extends com.kingdee.eas.framework.
         this.txtHard.setMinimumValue( new java.math.BigDecimal("-1.0E24"));		
         this.txtHard.setMaximumValue( new java.math.BigDecimal("1.0E24"));		
         this.txtHard.setPrecision(4);		
-        this.txtHard.setRequired(false);
+        this.txtHard.setRequired(false);		
+        this.txtHard.setEnabled(false);
         // pkauditTime		
         this.pkauditTime.setVisible(true);		
         this.pkauditTime.setRequired(false);
@@ -600,12 +616,12 @@ public abstract class AbstractIndoorengEditUI extends com.kingdee.eas.framework.
         this.add(contRoom, new KDLayout.Constraints(20, 64, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contSalesArea.setBounds(new Rectangle(359, 64, 270, 19));
         this.add(contSalesArea, new KDLayout.Constraints(359, 64, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contSalesAreaIndex.setBounds(new Rectangle(720, 34, 270, 19));
-        this.add(contSalesAreaIndex, new KDLayout.Constraints(720, 34, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contSoft.setBounds(new Rectangle(359, 33, 270, 19));
-        this.add(contSoft, new KDLayout.Constraints(359, 33, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contHard.setBounds(new Rectangle(720, 65, 270, 19));
-        this.add(contHard, new KDLayout.Constraints(720, 65, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contSalesAreaIndex.setBounds(new Rectangle(724, 64, 270, 19));
+        this.add(contSalesAreaIndex, new KDLayout.Constraints(724, 64, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contSoft.setBounds(new Rectangle(359, 37, 270, 19));
+        this.add(contSoft, new KDLayout.Constraints(359, 37, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contHard.setBounds(new Rectangle(728, 37, 270, 19));
+        this.add(contHard, new KDLayout.Constraints(728, 37, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contauditTime.setBounds(new Rectangle(15, 553, 270, 19));
         this.add(contauditTime, new KDLayout.Constraints(15, 553, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //contCreator
@@ -1024,6 +1040,13 @@ public abstract class AbstractIndoorengEditUI extends com.kingdee.eas.framework.
         } else if (STATUS_VIEW.equals(this.oprtState)) {
         } else if (STATUS_FINDVIEW.equals(this.oprtState)) {
         }
+    }
+
+    /**
+     * output kdtEntrys_editStopped method
+     */
+    protected void kdtEntrys_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
+    {
     }
 
     /**
