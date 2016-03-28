@@ -760,7 +760,7 @@ public class ChangeAuditRequestEditUI extends AbstractChangeAuditRequestEditUI
     		setSpecialtyName();
     	
     	//保存前调用一下编码规则生成编码
-    	this.handleCodingRule();
+//    	this.handleCodingRule();
         super.actionSave_actionPerformed(e);
     }
 
@@ -795,7 +795,7 @@ public class ChangeAuditRequestEditUI extends AbstractChangeAuditRequestEditUI
     	
     	
     	//提交前调用一下编码规则生成编码
-		this.handleCodingRule();
+//		this.handleCodingRule();
 		//modify by yxl
 		for(int i=0; i<count; i++){
 			Object content = getSecondTable().getCell(i*suppRows, "content").getValue();
@@ -1615,7 +1615,7 @@ public class ChangeAuditRequestEditUI extends AbstractChangeAuditRequestEditUI
 			public void dataChanged(DataChangeEvent eventObj) {
 				try {
 					editData.setJobType((JobTypeInfo) prmtJobType.getValue());
-					handleCodingRule();
+//					handleCodingRule();
 				} catch (Exception e1) {
 					handUIExceptionAndAbort(e1);
 				}
@@ -3480,7 +3480,7 @@ public class ChangeAuditRequestEditUI extends AbstractChangeAuditRequestEditUI
 		prmtSpecialtyType.setValue(null);
 		super.prmtAuditType_dataChanged(e);
 		this.editData.setAuditType((ChangeTypeInfo) this.prmtAuditType.getValue());
-		handleCodingRule();
+//		handleCodingRule();
 	}
 
 	//表格停止编辑

@@ -911,13 +911,11 @@ public class ContractChangeBillListUI extends AbstractContractChangeBillListUI
 		
 		SelectorItemCollection sic = new SelectorItemCollection();
 		sic.add("hasSettled");
-		ContractChangeBillInfo billInfo = ContractChangeBillFactory.getRemoteInstance()
-				.getContractChangeBillInfo(new ObjectUuidPK(id), sic);
-		if (billInfo.isHasSettled()) {
+		ContractChangeBillInfo billInfo = ContractChangeBillFactory.getRemoteInstance().getContractChangeBillInfo(new ObjectUuidPK(id), sic);
+		if(billInfo.isHasSettled()) {
 			MsgBox.showWarning(this, "已结算，不能取消签证");
 			SysUtil.abort();
 		}
-		
 		
 		((IContractChangeBill)getRemoteInterface()).unVisa(new ObjectUuidPK(id));
 		

@@ -789,7 +789,7 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
     	
     	if(editData.getId()==null)
     		editData.setId(BOSUuid.create(editData.getBOSType()));
-    	this.handleCodingRule();
+//    	this.handleCodingRule();
     	runAction(e,"SAVE");
         super.actionSave_actionPerformed(e);
     }
@@ -841,7 +841,7 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 	    		return;
 		}
     	//提交前调用一下编码规则生成编码
-		this.handleCodingRule();
+//		this.handleCodingRule();
 		runAction(e,"SUBMIT");
 		//modify by yxl
 		for(int i=0; i<count; i++){
@@ -1757,7 +1757,7 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 			public void dataChanged(DataChangeEvent eventObj) {
 				try {
 					editData.setJobType((JobTypeInfo) prmtJobType.getValue());
-					handleCodingRule();
+//					handleCodingRule();
 				} catch (Exception e1) {
 					handUIExceptionAndAbort(e1);
 				}
@@ -3856,7 +3856,7 @@ public class TechEconChangeAuditEditUI extends AbstractTechEconChangeAuditEditUI
 		prmtSpecialtyType.setValue(null);
 		super.prmtAuditType_dataChanged(e);
 		this.editData.setAuditType((ChangeTypeInfo) this.prmtAuditType.getValue());
-		handleCodingRule();
+//		handleCodingRule();
 	}
 
 	//表格停止编辑

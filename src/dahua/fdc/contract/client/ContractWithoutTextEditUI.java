@@ -1743,6 +1743,11 @@ public class ContractWithoutTextEditUI extends AbstractContractWithoutTextEditUI
 		super.verifyInputForSubmint();
 		//校验合约规划
 		checkConProgram();
+		//modify by yxl
+		if(prmtFwContract.getValue()!=null && CustomerContractUtil.checkPcQk(((ProgrammingContractInfo)prmtFwContract.getValue()).getId().toString())){
+			MsgBox.showInfo(this,"您选择的合约规划已经强控，不能提交。请走相关强控流程，以解除强控。");
+			abort();
+		}
 	}
 
 	private void checkAmount() throws Exception {
