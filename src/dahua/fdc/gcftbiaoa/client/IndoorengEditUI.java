@@ -579,24 +579,24 @@ public class IndoorengEditUI extends AbstractIndoorengEditUI
 
     public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
     {
-//    	BigDecimal Price1 = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(2, "Price").getValue());
-//    	BigDecimal Price2 = UIRuleUtil.getBigDecimal( kdtEntrys.getCell(12, "Price").getValue());
-//    	BigDecimal DecorateArea1 = UIRuleUtil.getBigDecimal( kdtEntrys.getCell(2, "DecorateArea").getValue());
-//    	BigDecimal DecorateArea2 = UIRuleUtil.getBigDecimal( kdtEntrys.getCell(12, "DecorateArea").getValue());
-//    	if(Price1.compareTo(Price2)!=0){
-//    		MsgBox.showWarning("1.1的造价与1.2的造价不相等，请修改提交。");
-//    		SysUtil.abort();
-//    	}
-//    	if(DecorateArea1.compareTo(DecorateArea2)!=0){
-//    		MsgBox.showWarning("1.1的装修面积与1.2的装修面积不相等，请修改提交。");
-//    		SysUtil.abort();
-//    	}
+    	BigDecimal Price1 = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(2, "Price").getValue());
+    	BigDecimal Price2 = UIRuleUtil.getBigDecimal( kdtEntrys.getCell(12, "Price").getValue());
+    	BigDecimal DecorateArea1 = UIRuleUtil.getBigDecimal( kdtEntrys.getCell(2, "DecorateArea").getValue());
+    	BigDecimal DecorateArea2 = UIRuleUtil.getBigDecimal( kdtEntrys.getCell(12, "DecorateArea").getValue());
+    	if(Price1.compareTo(Price2)!=0){
+    		MsgBox.showWarning("1.1的造价与1.2的造价不相等，请修改提交。");
+    		SysUtil.abort();
+    	}
+    	if(DecorateArea1.compareTo(DecorateArea2)!=0){
+    		MsgBox.showWarning("1.1的装修面积与1.2的装修面积不相等，请修改提交。");
+    		SysUtil.abort();
+    	}
 //        BigDecimal Price3 = UIRuleUtil.getBigDecimal( kdtEntrys.getCell(14, "Price").getValue());
 //        BigDecimal Price4 = UIRuleUtil.getBigDecimal( kdtEntrys.getCell(17, "Price").getValue());
 //        BigDecimal GreenArea3 = UIRuleUtil.getBigDecimal( kdtEntrys.getCell(14, "GreenArea").getValue());
 //        BigDecimal GreenArea4 = UIRuleUtil.getBigDecimal( kdtEntrys.getCell(17, "GreenArea").getValue());
 //        if(Price3.compareTo(Price4)!=0){
-//        	MsgBox.showWarning("1.1的造价与1.2的造价不相等，请修改提交。");
+//        	MsgBox.showWarning("2.1的造价与1.2的造价不相等，请修改提交。");
 //        	SysUtil.abort();
 //        }
 //        if(GreenArea3.compareTo(GreenArea4)!=0){

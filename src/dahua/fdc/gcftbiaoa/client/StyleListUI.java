@@ -31,7 +31,10 @@ public class StyleListUI extends AbstractStyleListUI
     {
         super.storeFields();
     }
-
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	setUITitle("Ê½Ñù");
+    }
     /**
      * output tblMain_tableClicked method
      */

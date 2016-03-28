@@ -69,6 +69,7 @@ public class SwbListUI extends AbstractSwbListUI
     public void onLoad() throws Exception {
     	// TODO Auto-generated method stub
     	super.onLoad();
+    	setUITitle("室外总布工程经济指标表");
     	this.initTree();
     }
     /**
@@ -130,37 +131,38 @@ public class SwbListUI extends AbstractSwbListUI
 	 public SelectorItemCollection getSelectors()//getSelectors 修订后，不点保存，不显示F7字段的值，abstract里copy过来
 	    {
 		 SelectorItemCollection sic = new SelectorItemCollection();
-			String selectorAll = System.getProperty("selector.all");
-			if(StringUtils.isEmpty(selectorAll)){
-				selectorAll = "true";
-			}
-	        sic.add(new SelectorItemInfo("id"));
+	        sic.add(new SelectorItemInfo("lasted"));
+	        	sic.add(new SelectorItemInfo("creator.id"));
+	        	sic.add(new SelectorItemInfo("creator.number"));
+	        	sic.add(new SelectorItemInfo("creator.name"));
+	        sic.add(new SelectorItemInfo("createTime"));
+	        	sic.add(new SelectorItemInfo("lastUpdateUser.id"));
+	        	sic.add(new SelectorItemInfo("lastUpdateUser.number"));
+	        	sic.add(new SelectorItemInfo("lastUpdateUser.name"));
+	        sic.add(new SelectorItemInfo("lastUpdateTime"));
 	        sic.add(new SelectorItemInfo("number"));
 	        sic.add(new SelectorItemInfo("bizDate"));
 	        sic.add(new SelectorItemInfo("description"));
-	        sic.add(new SelectorItemInfo("createTime"));
-	        sic.add(new SelectorItemInfo("lastUpdateTime"));
-	        sic.add(new SelectorItemInfo("auditor.number"));
-	        sic.add(new SelectorItemInfo("auditor.name"));
-	        sic.add(new SelectorItemInfo("creator.number"));
-	        sic.add(new SelectorItemInfo("creator.name"));
-	        sic.add(new SelectorItemInfo("lastUpdateUser.number"));
-	        sic.add(new SelectorItemInfo("lastUpdateUser.name"));
-	        sic.add(new SelectorItemInfo("entrys.id"));
-	        sic.add(new SelectorItemInfo("handler.number"));
-	        sic.add(new SelectorItemInfo("handler.name"));
-	        sic.add(new SelectorItemInfo("entrys.seq"));
+	        	sic.add(new SelectorItemInfo("auditor.id"));
+	        	sic.add(new SelectorItemInfo("auditor.number"));
+	        	sic.add(new SelectorItemInfo("auditor.name"));
 	        sic.add(new SelectorItemInfo("company"));
-	        sic.add(new SelectorItemInfo("entrys.BuildingName.name"));
-	        sic.add(new SelectorItemInfo("entrys.BuidlingArea"));
-	        sic.add(new SelectorItemInfo("entrys.SaleArea"));
-	        sic.add(new SelectorItemInfo("entrys.BuildingFloorArea"));
-	        sic.add(new SelectorItemInfo("entrys.Use"));
-	        sic.add(new SelectorItemInfo("entrys.PropertyRight"));
 	        sic.add(new SelectorItemInfo("State"));
-	        sic.add(new SelectorItemInfo("ProjectName.name"));
+				sic.add(new SelectorItemInfo("ProjectName.*"));
+	        	sic.add(new SelectorItemInfo("ProjectName.id"));
+	        	sic.add(new SelectorItemInfo("ProjectName.number"));
+	        	sic.add(new SelectorItemInfo("ProjectName.name"));
+	    	sic.add(new SelectorItemInfo("entrys.id"));
+	    	sic.add(new SelectorItemInfo("entrys.title"));
+	    	sic.add(new SelectorItemInfo("entrys.Price"));
+	    	sic.add(new SelectorItemInfo("entrys.GreenArea"));
+	    	sic.add(new SelectorItemInfo("entrys.GreenAreaIndex"));
+	    	sic.add(new SelectorItemInfo("entrys.Sumproportion"));
+	    	sic.add(new SelectorItemInfo("entrys.Areaproportion"));
+	    	sic.add(new SelectorItemInfo("entrys.ComePrice"));
+	    	sic.add(new SelectorItemInfo("entrys.danwei"));
+	    	sic.add(new SelectorItemInfo("entrys.key"));
 	        sic.add(new SelectorItemInfo("Version"));
-	        sic.add(new SelectorItemInfo("lasted"));
 	        sic.add(new SelectorItemInfo("SumArea"));
 	        sic.add(new SelectorItemInfo("CostThan"));
 	        sic.add(new SelectorItemInfo("AreaThan"));

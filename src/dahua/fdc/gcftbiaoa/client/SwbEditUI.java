@@ -736,11 +736,11 @@ public class SwbEditUI extends AbstractSwbEditUI
         BigDecimal GreenArea3 = UIRuleUtil.getBigDecimal( kdtEntrys.getCell(14, "GreenArea").getValue());
         BigDecimal GreenArea4 = UIRuleUtil.getBigDecimal( kdtEntrys.getCell(17, "GreenArea").getValue());
         if(Price3.compareTo(Price4)!=0){
-        	MsgBox.showWarning("1.1的造价与1.2的造价不相等，请修改提交。");
+        	MsgBox.showWarning("2.1的造价与2.2的造价不相等，请修改提交。");
         	SysUtil.abort();
         }
         if(GreenArea3.compareTo(GreenArea4)!=0){
-        	MsgBox.showWarning("1.1的硬景与1.2的硬景不相等，请修改提交。");
+        	MsgBox.showWarning("2.1的硬景与2.2的硬景不相等，请修改提交。");
         	SysUtil.abort();
         }
         super.actionSubmit_actionPerformed(e);

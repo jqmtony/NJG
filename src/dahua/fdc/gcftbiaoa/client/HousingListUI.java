@@ -31,7 +31,10 @@ public class HousingListUI extends AbstractHousingListUI
     {
         super.storeFields();
     }
-
+    public void onLoad() throws Exception {
+    	super.onLoad();
+    	setUITitle("·¿ÐÍ");
+    }
     /**
      * output tblMain_tableClicked method
      */
