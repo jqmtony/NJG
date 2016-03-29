@@ -28,6 +28,9 @@ import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.ProductTypeInfo;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
+import com.kingdee.eas.fdc.basedata.client.FDCUIWeightWorker;
+import com.kingdee.eas.fdc.basedata.client.IFDCWork;
+import com.kingdee.eas.fdc.contract.client.ContractClientUtils;
 import com.kingdee.eas.fdc.gcftbiaoa.DecorationEngineeringEntryInfo;
 import com.kingdee.eas.fdc.gcftbiaoa.DecorationEngineeringFactory;
 import com.kingdee.eas.fdc.gcftbiaoa.DecorationEngineeringInfo;
@@ -58,6 +61,7 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
 	private final static String CANTAUDITEDITSTATE = "cantAuditEditState";
 	private final static String CANTUNAUDIT = "cantUnAudit";
 	private final static String CANTAUDIT = "cantAudit";
+	private static final String CANTEDIT = "cantEdit";
 	
 	public void checkBeforeAuditOrUnAudit(FDCBillStateEnum state, String warning)
 	throws Exception {
@@ -82,7 +86,12 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
 			SysUtil.abort();
 		}
 	}
-	
+	public boolean isModify() {
+		if (STATUS_VIEW.equals(getOprtState())) {
+			return false;
+		}
+		return super.isModify();
+	}
 
 	public void onLoad() throws Exception {
 		actionCopy.setVisible(false);
@@ -188,12 +197,31 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
 		checkBeforeAuditOrUnAudit(FDCBillStateEnum.SUBMITTED,CANTAUDIT);
 		super.actionAduit_actionPerformed(e);
 		FDCClientUtils.showOprtOK(this);
+		handleOldData();
+		setSaveActionStatus();
 	}
 	public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
 		checkBeforeAuditOrUnAudit(FDCBillStateEnum.AUDITTED,CANTUNAUDIT);
 		super.actionUnAudit_actionPerformed(e);
 		FDCClientUtils.showOprtOK(this);
+		handleOldData();
+		setSaveActionStatus();
 		btnSubmit.setEnabled(true);
+	}
+	protected void handleOldData() {
+		if(!(getOprtState()==STATUS_FINDVIEW||getOprtState()==STATUS_VIEW)){
+			FDCUIWeightWorker.getInstance().addWork(new IFDCWork(){
+				public void run() {
+					storeFields();
+					initOldData(editData);
+				}
+			});
+		}
+	}
+	protected void setSaveActionStatus() {
+		if (editData.getState() == FDCBillStateEnum.SUBMITTED) {
+			actionSave.setEnabled(false);
+		}
 	}
 	
 	public void onShow() throws Exception {
@@ -626,16 +654,6 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
         super.actionSave_actionPerformed(e);
         initui();
     }
-
-    /**
-     * output actionSubmit_actionPerformed
-     */
-    public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
-    {
-        
-			super.actionSubmit_actionPerformed(e);
-    }
-
     /**
      * output actionCancel_actionPerformed
      */
@@ -717,12 +735,32 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
     }
 
     /**
+     * output actionSubmit_actionPerformed
+     */
+    public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
+    {
+			super.actionSubmit_actionPerformed(e);
+			this.lockUIForViewStatus();
+	    	this.setOprtState("VIEW");
+    }
+
+    /**
      * output actionEdit_actionPerformed
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
+    	checkBeforeEditOrRemove(CANTEDIT);
         super.actionEdit_actionPerformed(e);
+        setSaveActionStatus();
     }
+    protected void checkBeforeEditOrRemove(String warning) throws BOSException {
+		FDCBillStateEnum state = editData.getState();
+		if (state != null
+				&& (state == FDCBillStateEnum.AUDITTING || state == FDCBillStateEnum.AUDITTED || state == FDCBillStateEnum.CANCEL )) {
+			MsgBox.showWarning(this, ContractClientUtils.getRes(warning));
+			SysUtil.abort();
+		}
+	}
     
     protected void initDataStatus() {
     	super.initDataStatus();

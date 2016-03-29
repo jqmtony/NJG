@@ -436,5 +436,10 @@ public class HousingListUI extends AbstractHousingListUI
 		
         return objectValue;
     }
+    //È¥³ı×éÖ¯¸ôÀë
+	protected boolean isIgnoreCUFilter() {
+		return true;
+	}
+	
 
 }

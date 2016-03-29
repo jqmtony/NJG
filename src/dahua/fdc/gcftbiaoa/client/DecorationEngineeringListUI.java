@@ -32,8 +32,10 @@ import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.bos.dao.query.IQueryExecutor;
 import com.kingdee.eas.base.uiframe.client.UINewFrameFactory;
+import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.UIContext;
+import com.kingdee.eas.fdc.gcftbiaoa.ConfirquantitesInfo;
 import com.kingdee.eas.fdc.gcftbiaoa.DecorationEngineeringFactory;
 import com.kingdee.eas.fdc.gcftbiaoa.DecorationEngineeringInfo;
 import com.kingdee.eas.fdc.gcftbiaoa.IDecorationEngineering;
@@ -59,6 +61,8 @@ public class DecorationEngineeringListUI extends AbstractDecorationEngineeringLi
 	private static final Logger logger = CoreUIObject.getLogger(DecorationEngineeringListUI.class);
 	private final static String CANTUNAUDIT = "cantUnAudit";
 	private final static String CANTAUDIT = "cantAudit";
+	private static final String CANTEDIT = "cantEdit";
+	private int selectInvit = 0;
     
     /**
      * output class constructor  
@@ -253,6 +257,34 @@ public class DecorationEngineeringListUI extends AbstractDecorationEngineeringLi
 		super.actionUnAudit_actionPerformed(e);
 		refresh(null);
 	}
+	public void actionEdit_actionPerformed(ActionEvent e) throws Exception {
+		checkSelected();//判断是否选中
+		String id = getSelectedKeyValue();
+		IDecorationEngineering remoteInstance = DecorationEngineeringFactory.getRemoteInstance();
+		DecorationEngineeringInfo DecorationEngineeringinfo = remoteInstance.getDecorationEngineeringInfo(new ObjectUuidPK(id));
+		if(DecorationEngineeringinfo.getState()== FDCBillStateEnum.AUDITTED)
+		{
+			MsgBox.showWarning("已审核单据不能为修改。");
+			SysUtil.abort();
+		}
+		super.actionEdit_actionPerformed(e);
+		refresh(null);
+	}
+
+	public void actionRemove_actionPerformed(ActionEvent e) throws Exception {
+		checkSelected();//判断是否选中
+		String id = getSelectedKeyValue();
+		IDecorationEngineering remoteInstance = DecorationEngineeringFactory.getRemoteInstance();
+		DecorationEngineeringInfo DecorationEngineeringinfo = remoteInstance.getDecorationEngineeringInfo(new ObjectUuidPK(id));
+		if(DecorationEngineeringinfo.getState()== FDCBillStateEnum.AUDITTED)
+		{
+			MsgBox.showWarning("已审核单据不能为删除。");
+			SysUtil.abort();
+		}
+		super.actionRemove_actionPerformed(e);
+		refresh(null);
+	}
+
 //	list界面过滤覆盖getQueryExecutor方法
 	protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo arg1) {
 		EntityViewInfo view = (EntityViewInfo)arg1.clone(); //克隆EntityViewInfo，以防list查询已有条件
@@ -278,7 +310,6 @@ public class DecorationEngineeringListUI extends AbstractDecorationEngineeringLi
     	}
 		return super.getQueryExecutor(arg0, view);
 	}
-	
 	/**
 	 * 忽略CU过滤
 	 */
@@ -599,21 +630,6 @@ public class DecorationEngineeringListUI extends AbstractDecorationEngineeringLi
         super.actionView_actionPerformed(e);
     }
 
-    /**
-     * output actionEdit_actionPerformed
-     */
-    public void actionEdit_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionEdit_actionPerformed(e);
-    }
-
-    /**
-     * output actionRemove_actionPerformed
-     */
-    public void actionRemove_actionPerformed(ActionEvent e) throws Exception
-    {
-        super.actionRemove_actionPerformed(e);
-    }
 
     /**
      * output actionRefresh_actionPerformed

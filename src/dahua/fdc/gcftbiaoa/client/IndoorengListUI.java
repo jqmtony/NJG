@@ -39,6 +39,9 @@ import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
+import com.kingdee.eas.fdc.gcftbiaoa.DecorationEngineeringFactory;
+import com.kingdee.eas.fdc.gcftbiaoa.DecorationEngineeringInfo;
+import com.kingdee.eas.fdc.gcftbiaoa.IDecorationEngineering;
 import com.kingdee.eas.fdc.gcftbiaoa.IIndooreng;
 import com.kingdee.eas.fdc.gcftbiaoa.IndoorengFactory;
 import com.kingdee.eas.fdc.gcftbiaoa.IndoorengInfo;
@@ -64,12 +67,13 @@ public class IndoorengListUI extends AbstractIndoorengListUI
     public IndoorengListUI() throws Exception
     {
         super();
-        btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
-    	btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
-    	btnrevise.setIcon(EASResource.getIcon("imgTbtn_emend"));
+     
     }
     public void onLoad() throws Exception {
     	// TODO Auto-generated method stub
+	   btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
+       	btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
+       	btnrevise.setIcon(EASResource.getIcon("imgTbtn_emend"));
     	btnAudit.setEnabled(true);
     	btnUnAudit.setEnabled(true);
     	btnrevise.setEnabled(true);
@@ -99,6 +103,10 @@ public class IndoorengListUI extends AbstractIndoorengListUI
 		this.tblMain.removeRows();// 鼠标换选，删除所有行
 	}
 
+	  protected String getEditUIModal() {
+	    	return "com.kingdee.eas.base.uiframe.client.UINewTabFactory";
+	    }
+	  
 	//修订     判断  是否最新，是否已审批，是否版本号最大
 	public void actioneRevise_actionPerformed(ActionEvent e) throws Exception {
 		super.actioneRevise_actionPerformed(e);
@@ -578,7 +586,17 @@ public class IndoorengListUI extends AbstractIndoorengListUI
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
+    	checkSelected();//判断是否选中
+    	String id = getSelectedKeyValue();
+		IIndooreng remoteInstance = IndoorengFactory.getRemoteInstance();
+		IndoorengInfo Indoorinfo = remoteInstance.getIndoorengInfo(new ObjectUuidPK(id));
+		if(Indoorinfo.getState()== FDCBillStateEnum.AUDITTED)
+		{
+			MsgBox.showWarning("已审核单据不能为修改。");
+			SysUtil.abort();
+		}
         super.actionEdit_actionPerformed(e);
+        refresh(null);
     }
 
     /**
@@ -586,7 +604,17 @@ public class IndoorengListUI extends AbstractIndoorengListUI
      */
     public void actionRemove_actionPerformed(ActionEvent e) throws Exception
     {
+    	checkSelected();//判断是否选中
+		String id = getSelectedKeyValue();
+		IIndooreng remoteInstance = IndoorengFactory.getRemoteInstance();
+		IndoorengInfo Indoorinfo = remoteInstance.getIndoorengInfo(new ObjectUuidPK(id));
+		if(Indoorinfo.getState()== FDCBillStateEnum.AUDITTED)
+		{
+			MsgBox.showWarning("已审核单据不能为删除。");
+			SysUtil.abort();
+		}
         super.actionRemove_actionPerformed(e);
+        refresh(null);
     }
 
     /**

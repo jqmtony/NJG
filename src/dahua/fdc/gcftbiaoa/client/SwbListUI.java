@@ -37,6 +37,9 @@ import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
+import com.kingdee.eas.fdc.gcftbiaoa.DecorationEngineeringFactory;
+import com.kingdee.eas.fdc.gcftbiaoa.DecorationEngineeringInfo;
+import com.kingdee.eas.fdc.gcftbiaoa.IDecorationEngineering;
 import com.kingdee.eas.fdc.gcftbiaoa.ISwb;
 import com.kingdee.eas.fdc.gcftbiaoa.SwbFactory;
 import com.kingdee.eas.fdc.gcftbiaoa.SwbInfo;
@@ -562,7 +565,17 @@ public class SwbListUI extends AbstractSwbListUI
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
+    	checkSelected();//判断是否选中
+		String id = getSelectedKeyValue();
+		ISwb remoteInstance = SwbFactory.getRemoteInstance();
+		SwbInfo swbinfo = remoteInstance.getSwbInfo(new ObjectUuidPK(id));
+		if(swbinfo.getState()== FDCBillStateEnum.AUDITTED)
+		{
+			MsgBox.showWarning("已审核单据不能为修改。");
+			SysUtil.abort();
+		}
         super.actionEdit_actionPerformed(e);
+        refresh(null);
     }
 
     /**
@@ -570,7 +583,17 @@ public class SwbListUI extends AbstractSwbListUI
      */
     public void actionRemove_actionPerformed(ActionEvent e) throws Exception
     {
+    	checkSelected();//判断是否选中
+    	String id = getSelectedKeyValue();
+		ISwb remoteInstance = SwbFactory.getRemoteInstance();
+		SwbInfo swbinfo = remoteInstance.getSwbInfo(new ObjectUuidPK(id));
+		if(swbinfo.getState()== FDCBillStateEnum.AUDITTED)
+		{
+			MsgBox.showWarning("已审核单据不能为删除。");
+			SysUtil.abort();
+		}
         super.actionRemove_actionPerformed(e);
+        refresh(null);
     }
 
     /**
