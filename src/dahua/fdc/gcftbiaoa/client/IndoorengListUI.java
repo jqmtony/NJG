@@ -71,13 +71,14 @@ public class IndoorengListUI extends AbstractIndoorengListUI
     }
     public void onLoad() throws Exception {
     	// TODO Auto-generated method stub
-	   btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
+    	btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
        	btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
        	btnrevise.setIcon(EASResource.getIcon("imgTbtn_emend"));
     	btnAudit.setEnabled(true);
     	btnUnAudit.setEnabled(true);
     	btnrevise.setEnabled(true);
     	super.onLoad();
+    	setUITitle("样板房、户内精装修经济指标表");
     	this.initTree();
     }
     /**

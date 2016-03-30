@@ -76,6 +76,7 @@ public class DecorationEngineeringListUI extends AbstractDecorationEngineeringLi
     	btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
     	btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
     	btnrevise.setIcon(EASResource.getIcon("imgTbtn_emend"));
+    	setUITitle("门厅、楼层走道装修工程数据库附表");
     	this.initTree();
     }
     /**
