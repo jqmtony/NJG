@@ -142,7 +142,6 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
 		
 		btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
 		btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
-		initui();
     	setStyeEnabl();
 	}
 	
@@ -374,7 +373,11 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
         	kdtEntrys.getRow(17).getCell("title").setValue("6.2Èí×°");
         	kdtEntrys.getRow(17).getCell("key").setValue("b");
     	}
-    	
+    	try {
+			initui();
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
     }
 
     /**

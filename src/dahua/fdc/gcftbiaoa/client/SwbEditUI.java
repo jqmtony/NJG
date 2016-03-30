@@ -82,7 +82,7 @@ public class SwbEditUI extends AbstractSwbEditUI
 		chkMenuItemSubmitAndAddNew.setSelected(false); //连续新增设置不可编辑
 		btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
 		btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
-		initui();
+//		initui();
 		kdtEntrys.getColumn("Sumproportion").getStyleAttributes().setLocked(true);
 		kdtEntrys.getColumn("Areaproportion").getStyleAttributes().setLocked(true);
 		kdtEntrys.getColumn("danwei").getStyleAttributes().setLocked(true);
@@ -245,6 +245,11 @@ public class SwbEditUI extends AbstractSwbEditUI
 //    	kdtEntrys.getRow(25).getCell("title").setValue("3.小区内其他设施");
     	kdtEntrys.getRow(25).getCell("danwei").setValue("——");
     	}
+      try {
+		initui();
+	} catch (BOSException e) {
+		e.printStackTrace();
+	}
     }
 
     /**
@@ -317,38 +322,54 @@ public class SwbEditUI extends AbstractSwbEditUI
         IRow row = this.kdtEntrys.getRow(rowIndex);
         BigDecimal Price = BigDecimal.ZERO;
     	BigDecimal GreenArea = BigDecimal.ZERO;
+    	for(int i=2;i<4;i++){
+    		Price = FDCHelper.add(Price,(kdtEntrys.getCell(i, "Price").getValue()));
+    		GreenArea = FDCHelper.add(GreenArea,(kdtEntrys.getCell(i, "GreenArea").getValue()));
+    		
+    		kdtEntrys.getCell(0, "Price").setValue(Price);
+    		kdtEntrys.getCell(1, "Price").setValue(Price);
+    		kdtEntrys.getCell(0, "GreenArea").setValue(GreenArea);
+    		kdtEntrys.getCell(1, "GreenArea").setValue(GreenArea);
+    		kdtEntrys.getCell(0, "Areaproportion").setValue(1);
+    		kdtEntrys.getCell(1, "Areaproportion").setValue(1);
+    		kdtEntrys.getCell(0, "Sumproportion").setValue(1);
+    		kdtEntrys.getCell(1, "Sumproportion").setValue(1);
+    		row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
+    		row.getCell("Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(), GreenArea, 4, 4));
+    	}
+    	
         row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(row.getCell("Price").getValue(), row.getCell("GreenArea").getValue(), 4, 4));
-        if("1.1.2".equals(kdtEntrys.getCell(rowIndex, "key").getValue())){
-        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-        	GreenArea = FDCHelper.add(GreenArea, row.getCell("GreenArea").getValue());
-        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-        	GreenArea = FDCHelper.add(GreenArea, row.getCell("GreenArea").getValue());
-        	row.getCell("Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(), GreenArea, 4, 4));
-        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);//1.1的汇总
-        	row.getCell("Price").setValue(Price);
-        	row.getCell("GreenArea").setValue(GreenArea);
-        	row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(Price,GreenArea , 4, 4));
-        	row.getCell("Areaproportion").setValue(1);
-        	row.getCell("Sumproportion").setValue(1);
-        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);//1.硬景
-        	row.getCell("Price").setValue(Price);
-        	row.getCell("GreenArea").setValue(GreenArea);
-        	row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(Price,GreenArea , 4, 4));
-        	row.getCell("Areaproportion").setValue(1);
-        	row.getCell("Sumproportion").setValue(1);
-        	row = this.kdtEntrys.getRow(row.getRowIndex()+3);
-        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-        	row.getCell("Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(), GreenArea, 4, 4));
-        	txtlandscape.setValue(GreenArea);
-        	if(txtGreenH.getBigDecimalValue() != null && txtother.getBigDecimalValue() != null)
-        		txtSumArea.setValue(GreenArea.add(txtother.getBigDecimalValue()).add(txtGreenH.getBigDecimalValue()));
-        	else if(txtGreenH.getBigDecimalValue() != null)
-        		txtSumArea.setValue(GreenArea.add(txtGreenH.getBigDecimalValue()));
-        	else if(txtother.getBigDecimalValue() != null)
-        		txtSumArea.setValue(GreenArea.add(txtother.getBigDecimalValue()));
-        }
+//        if("1.1.2".equals(kdtEntrys.getCell(rowIndex, "key").getValue())){
+//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
+//        	GreenArea = FDCHelper.add(GreenArea, row.getCell("GreenArea").getValue());
+//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
+//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
+//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
+//        	GreenArea = FDCHelper.add(GreenArea, row.getCell("GreenArea").getValue());
+//        	row.getCell("Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(), GreenArea, 4, 4));
+//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);//1.1的汇总
+//        	row.getCell("Price").setValue(Price);
+//        	row.getCell("GreenArea").setValue(GreenArea);
+//        	row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(Price,GreenArea , 4, 4));
+//        	row.getCell("Areaproportion").setValue(1);
+//        	row.getCell("Sumproportion").setValue(1);
+//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);//1.硬景
+//        	row.getCell("Price").setValue(Price);
+//        	row.getCell("GreenArea").setValue(GreenArea);
+//        	row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(Price,GreenArea , 4, 4));
+//        	row.getCell("Areaproportion").setValue(1);
+//        	row.getCell("Sumproportion").setValue(1);
+//        	row = this.kdtEntrys.getRow(row.getRowIndex()+3);
+//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
+//        	row.getCell("Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(), GreenArea, 4, 4));
+//        	txtlandscape.setValue(Price.divide(GreenArea));
+//        	if(txtGreenH.getBigDecimalValue() != null && txtother.getBigDecimalValue() != null)
+//        		txtSumArea.setValue(GreenArea.add(txtother.getBigDecimalValue()).add(txtGreenH.getBigDecimalValue()));
+//        	else if(txtGreenH.getBigDecimalValue() != null)
+//        		txtSumArea.setValue(GreenArea.add(txtGreenH.getBigDecimalValue()));
+//        	else if(txtother.getBigDecimalValue() != null)
+//        		txtSumArea.setValue(GreenArea.add(txtother.getBigDecimalValue()));
+//        }
         if("1.2.8".equals(kdtEntrys.getCell(rowIndex, "key").getValue())){
         	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
         	GreenArea = FDCHelper.add(GreenArea, row.getCell("GreenArea").getValue());
@@ -421,7 +442,7 @@ public class SwbEditUI extends AbstractSwbEditUI
         	row = this.kdtEntrys.getRow(row.getRowIndex()+3);
         	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
         	row.getCell("Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(), GreenArea, 4, 4));
-        	txtGreenH.setValue(GreenArea);
+        	txtGreenH.setValue(Price.divide(GreenArea));
         	if(txtlandscape.getBigDecimalValue() != null && txtother.getBigDecimalValue() != null)
         		txtSumArea.setValue(GreenArea.add(txtother.getBigDecimalValue()).add(txtlandscape.getBigDecimalValue()));
         	else if(txtlandscape.getBigDecimalValue() != null)
@@ -472,7 +493,7 @@ public class SwbEditUI extends AbstractSwbEditUI
         	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
         }
         if("3".equals(kdtEntrys.getCell(rowIndex, "key").getValue())){
-        	txtother.setValue(row.getCell("GreenArea").getValue());
+        	txtother.setValue(row.getCell("GreenAreaIndex").getValue());
         	if(txtlandscape.getBigDecimalValue() != null && txtGreenH.getBigDecimalValue() != null)
         		txtSumArea.setValue(GreenArea.add(txtGreenH.getBigDecimalValue()).add(txtlandscape.getBigDecimalValue()));
         	else if(txtlandscape.getBigDecimalValue() != null)

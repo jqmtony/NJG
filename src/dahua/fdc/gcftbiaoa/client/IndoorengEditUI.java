@@ -90,7 +90,7 @@ public class IndoorengEditUI extends AbstractIndoorengEditUI
 		chkMenuItemSubmitAndAddNew.setSelected(false); //连续新增设置不可编辑
 		btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
 		btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
-		initui();
+//		initui();
 		kdtEntrys.getColumn("Sumproportion").getStyleAttributes().setLocked(true);
 		kdtEntrys.getColumn("DecorateAreaIndex").getStyleAttributes().setLocked(true);
 //		kdtEntrys.getColumn("danwei").getStyleAttributes().setLocked(true);
@@ -194,6 +194,11 @@ public class IndoorengEditUI extends AbstractIndoorengEditUI
         kdtEntrys.getTreeColumn().setDepth(maxDepth);
         kdtEntrys.repaint();
         
+        try {
+			initui();
+		} catch (BOSException e) {
+			e.printStackTrace();
+		}
     }
 
     /**
@@ -324,9 +329,9 @@ public class IndoorengEditUI extends AbstractIndoorengEditUI
 			row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), value, 4, 4));
 			
 		}
-		txtSoft.setValue(UIRuleUtil.getBigDecimal(kdtEntrys.getCell(42, "DecorateArea").getValue()));
-		txtHard.setValue(UIRuleUtil.getBigDecimal(kdtEntrys.getCell(1, "DecorateArea").getValue()));
-		txtSalesAreaIndex.setValue(UIRuleUtil.getBigDecimal(kdtEntrys.getCell(0, "DecorateArea").getValue()));
+		txtSoft.setValue(UIRuleUtil.getBigDecimal(kdtEntrys.getCell(42, "DecorateAreaIndex").getValue()));
+		txtHard.setValue(UIRuleUtil.getBigDecimal(kdtEntrys.getCell(1, "DecorateAreaIndex").getValue()));
+		txtSalesAreaIndex.setValue(UIRuleUtil.getBigDecimal(kdtEntrys.getCell(0, "DecorateAreaIndex").getValue()));
     }
     /**
      * output actionPageSetup_actionPerformed

@@ -66,8 +66,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contlandscape;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contSumAreaIndax;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contGreenH;
-    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contother;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer contauditTime;
+    protected com.kingdee.bos.ctrl.swing.KDLabelContainer contother;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtCreator;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker kDDateCreateTime;
     protected com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox prmtLastUpdateUser;
@@ -88,8 +88,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtlandscape;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtSumAreaIndax;
     protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtGreenH;
-    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtother;
     protected com.kingdee.bos.ctrl.swing.KDDatePicker pkauditTime;
+    protected com.kingdee.bos.ctrl.swing.KDFormattedTextField txtother;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAudit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnAudit;
     protected com.kingdee.eas.fdc.gcftbiaoa.SwbInfo editData = null;
@@ -194,8 +194,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.contlandscape = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contSumAreaIndax = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contGreenH = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
-        this.contother = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contauditTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
+        this.contother = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.prmtCreator = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
         this.kDDateCreateTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
         this.prmtLastUpdateUser = new com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox();
@@ -215,8 +215,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.txtlandscape = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtSumAreaIndax = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.txtGreenH = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
-        this.txtother = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.pkauditTime = new com.kingdee.bos.ctrl.swing.KDDatePicker();
+        this.txtother = new com.kingdee.bos.ctrl.swing.KDFormattedTextField();
         this.btnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnUnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
@@ -239,8 +239,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.contlandscape.setName("contlandscape");
         this.contSumAreaIndax.setName("contSumAreaIndax");
         this.contGreenH.setName("contGreenH");
-        this.contother.setName("contother");
         this.contauditTime.setName("contauditTime");
+        this.contother.setName("contother");
         this.prmtCreator.setName("prmtCreator");
         this.kDDateCreateTime.setName("kDDateCreateTime");
         this.prmtLastUpdateUser.setName("prmtLastUpdateUser");
@@ -260,8 +260,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.txtlandscape.setName("txtlandscape");
         this.txtSumAreaIndax.setName("txtSumAreaIndax");
         this.txtGreenH.setName("txtGreenH");
-        this.txtother.setName("txtother");
         this.pkauditTime.setName("pkauditTime");
+        this.txtother.setName("txtother");
         this.btnAudit.setName("btnAudit");
         this.btnUnAudit.setName("btnUnAudit");
         // CoreUI		
@@ -392,17 +392,17 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.contGreenH.setBoundLabelUnderline(true);		
         this.contGreenH.setVisible(true);		
         this.contGreenH.setEnabled(false);
+        // contauditTime		
+        this.contauditTime.setBoundLabelText(resHelper.getString("contauditTime.boundLabelText"));		
+        this.contauditTime.setBoundLabelLength(100);		
+        this.contauditTime.setBoundLabelUnderline(true);		
+        this.contauditTime.setVisible(true);
         // contother		
         this.contother.setBoundLabelText(resHelper.getString("contother.boundLabelText"));		
         this.contother.setBoundLabelLength(100);		
         this.contother.setBoundLabelUnderline(true);		
         this.contother.setVisible(true);		
         this.contother.setEnabled(false);
-        // contauditTime		
-        this.contauditTime.setBoundLabelText(resHelper.getString("contauditTime.boundLabelText"));		
-        this.contauditTime.setBoundLabelLength(100);		
-        this.contauditTime.setBoundLabelUnderline(true);		
-        this.contauditTime.setVisible(true);
         // prmtCreator		
         this.prmtCreator.setEnabled(false);
         // kDDateCreateTime		
@@ -594,6 +594,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.txtGreenH.setMaximumValue( new java.math.BigDecimal("1.0E24"));		
         this.txtGreenH.setPrecision(4);		
         this.txtGreenH.setRequired(false);
+        // pkauditTime		
+        this.pkauditTime.setRequired(false);
         // txtother		
         this.txtother.setHorizontalAlignment(2);		
         this.txtother.setDataType(1);		
@@ -602,8 +604,6 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.txtother.setMaximumValue( new java.math.BigDecimal("1.0E24"));		
         this.txtother.setPrecision(4);		
         this.txtother.setRequired(false);
-        // pkauditTime		
-        this.pkauditTime.setRequired(false);
         // btnAudit
         this.btnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionAduit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAudit.setText(resHelper.getString("btnAudit.text"));
@@ -657,32 +657,32 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.add(contAuditor, new KDLayout.Constraints(12, 568, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contcompany.setBounds(new Rectangle(381, 14, 270, 19));
         this.add(contcompany, new KDLayout.Constraints(381, 14, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contState.setBounds(new Rectangle(747, 69, 270, 19));
-        this.add(contState, new KDLayout.Constraints(747, 69, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
+        contState.setBounds(new Rectangle(747, 70, 270, 19));
+        this.add(contState, new KDLayout.Constraints(747, 70, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         contProjectName.setBounds(new Rectangle(747, 14, 270, 19));
         this.add(contProjectName, new KDLayout.Constraints(747, 14, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         kDContainer1.setBounds(new Rectangle(19, 126, 975, 426));
         this.add(kDContainer1, new KDLayout.Constraints(19, 126, 975, 426, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM_SCALE | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
-        contVersion.setBounds(new Rectangle(16, 97, 270, 19));
-        this.add(contVersion, new KDLayout.Constraints(16, 97, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contVersion.setBounds(new Rectangle(381, 70, 270, 19));
+        this.add(contVersion, new KDLayout.Constraints(381, 70, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         chklasted.setBounds(new Rectangle(669, 99, 78, 19));
         this.add(chklasted, new KDLayout.Constraints(669, 99, 78, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contSumArea.setBounds(new Rectangle(16, 43, 270, 19));
-        this.add(contSumArea, new KDLayout.Constraints(16, 43, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contCostThan.setBounds(new Rectangle(381, 44, 270, 19));
-        this.add(contCostThan, new KDLayout.Constraints(381, 44, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contSumArea.setBounds(new Rectangle(16, 42, 270, 19));
+        this.add(contSumArea, new KDLayout.Constraints(16, 42, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contCostThan.setBounds(new Rectangle(381, 42, 270, 19));
+        this.add(contCostThan, new KDLayout.Constraints(381, 42, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contAreaThan.setBounds(new Rectangle(747, 42, 270, 19));
         this.add(contAreaThan, new KDLayout.Constraints(747, 42, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contlandscape.setBounds(new Rectangle(747, 99, 270, 19));
-        this.add(contlandscape, new KDLayout.Constraints(747, 99, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
-        contSumAreaIndax.setBounds(new Rectangle(381, 73, 270, 19));
-        this.add(contSumAreaIndax, new KDLayout.Constraints(381, 73, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contGreenH.setBounds(new Rectangle(381, 98, 270, 19));
-        this.add(contGreenH, new KDLayout.Constraints(381, 98, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        contother.setBounds(new Rectangle(16, 69, 270, 19));
-        this.add(contother, new KDLayout.Constraints(16, 69, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contlandscape.setBounds(new Rectangle(16, 102, 270, 19));
+        this.add(contlandscape, new KDLayout.Constraints(16, 102, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contSumAreaIndax.setBounds(new Rectangle(16, 70, 270, 19));
+        this.add(contSumAreaIndax, new KDLayout.Constraints(16, 70, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contGreenH.setBounds(new Rectangle(381, 102, 270, 19));
+        this.add(contGreenH, new KDLayout.Constraints(381, 102, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         contauditTime.setBounds(new Rectangle(12, 599, 270, 19));
         this.add(contauditTime, new KDLayout.Constraints(12, 599, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        contother.setBounds(new Rectangle(749, 102, 268, 19));
+        this.add(contother, new KDLayout.Constraints(749, 102, 268, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT));
         //contCreator
         contCreator.setBoundEditor(prmtCreator);
         //contCreateTime
@@ -722,10 +722,10 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         contSumAreaIndax.setBoundEditor(txtSumAreaIndax);
         //contGreenH
         contGreenH.setBoundEditor(txtGreenH);
-        //contother
-        contother.setBoundEditor(txtother);
         //contauditTime
         contauditTime.setBoundEditor(pkauditTime);
+        //contother
+        contother.setBoundEditor(txtother);
 
     }
 
@@ -929,8 +929,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		dataBinder.registerBinding("landscape", java.math.BigDecimal.class, this.txtlandscape, "value");
 		dataBinder.registerBinding("SumAreaIndax", java.math.BigDecimal.class, this.txtSumAreaIndax, "value");
 		dataBinder.registerBinding("GreenH", java.math.BigDecimal.class, this.txtGreenH, "value");
-		dataBinder.registerBinding("other", java.math.BigDecimal.class, this.txtother, "value");
-		dataBinder.registerBinding("auditTime", java.util.Date.class, this.pkauditTime, "value");		
+		dataBinder.registerBinding("auditTime", java.util.Date.class, this.pkauditTime, "value");
+		dataBinder.registerBinding("other", java.math.BigDecimal.class, this.txtother, "value");		
 	}
 	//Regiester UI State
 	private void registerUIState(){		
@@ -1095,8 +1095,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
 		getValidateHelper().registerBindProperty("landscape", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("SumAreaIndax", ValidateHelper.ON_SAVE);    
 		getValidateHelper().registerBindProperty("GreenH", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("other", ValidateHelper.ON_SAVE);    
-		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    		
+		getValidateHelper().registerBindProperty("auditTime", ValidateHelper.ON_SAVE);    
+		getValidateHelper().registerBindProperty("other", ValidateHelper.ON_SAVE);    		
 	}
 
 
@@ -1198,8 +1198,8 @@ kDContainer1.getContentPane().setLayout(new BorderLayout(0, 0));        kdtEntry
         sic.add(new SelectorItemInfo("landscape"));
         sic.add(new SelectorItemInfo("SumAreaIndax"));
         sic.add(new SelectorItemInfo("GreenH"));
-        sic.add(new SelectorItemInfo("other"));
         sic.add(new SelectorItemInfo("auditTime"));
+        sic.add(new SelectorItemInfo("other"));
         return sic;
     }        
     	

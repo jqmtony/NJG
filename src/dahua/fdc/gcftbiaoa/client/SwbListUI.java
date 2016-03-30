@@ -218,28 +218,28 @@ public class SwbListUI extends AbstractSwbListUI
 	 }
 	 //		list界面过滤覆盖getQueryExecutor方法
 	 protected IQueryExecutor getQueryExecutor(IMetaDataPK arg0,EntityViewInfo arg1) {
-//		 EntityViewInfo view = (EntityViewInfo)arg1.clone(); //克隆EntityViewInfo，以防list查询已有条件
-//		 FilterInfo filter = new FilterInfo();
-//		 FilterItemCollection filterItems = filter.getFilterItems();
-//		 DefaultKingdeeTreeNode node = (DefaultKingdeeTreeNode)treeMain.getLastSelectedPathComponent();//最后选中的节点
-//		 if (node != null) {//选中最后的节点不为空，
-//			 String allSpIdStr = FDCTreeHelper.getStringFromSet(getAllObjectIdMap(node).keySet());//将返还的set转换成字符串
-//			 if(!allSpIdStr.equals(""))
-//				 filterItems.add(new FilterItemInfo("ProjectName.id", allSpIdStr, CompareType.INNER));
-//		 }else{
-//			 filterItems.add(new FilterItemInfo("ProjectName.id", "99", CompareType.EQUALS));
-//		 }
-//
-//		 if(view.getFilter()==null)//过滤条件为空
-//			 view.setFilter(filter);
-//		 else{
-//			 try {//过滤条件不为空，将设置的过滤条件拼接进去
-//				 view.getFilter().mergeFilter(filter, "and");
-//			 } catch (BOSException e) {
-//				 e.printStackTrace();
-//			 }
-//		 }
-		 return super.getQueryExecutor(arg0, arg1);
+		 EntityViewInfo view = (EntityViewInfo)arg1.clone(); //克隆EntityViewInfo，以防list查询已有条件
+		 FilterInfo filter = new FilterInfo();
+		 FilterItemCollection filterItems = filter.getFilterItems();
+		 DefaultKingdeeTreeNode node = (DefaultKingdeeTreeNode)treeMain.getLastSelectedPathComponent();//最后选中的节点
+		 if (node != null) {//选中最后的节点不为空，
+			 String allSpIdStr = FDCTreeHelper.getStringFromSet(getAllObjectIdMap(node).keySet());//将返还的set转换成字符串
+			 if(!allSpIdStr.equals(""))
+				 filterItems.add(new FilterItemInfo("ProjectName.id", allSpIdStr, CompareType.INNER));
+		 }else{
+			 filterItems.add(new FilterItemInfo("ProjectName.id", "99", CompareType.EQUALS));
+		 }
+
+		 if(view.getFilter()==null)//过滤条件为空
+			 view.setFilter(filter);
+		 else{
+			 try {//过滤条件不为空，将设置的过滤条件拼接进去
+				 view.getFilter().mergeFilter(filter, "and");
+			 } catch (BOSException e) {
+				 e.printStackTrace();
+			 }
+		 }
+		 return super.getQueryExecutor(arg0, view);
 	 }
 
 	 /**
