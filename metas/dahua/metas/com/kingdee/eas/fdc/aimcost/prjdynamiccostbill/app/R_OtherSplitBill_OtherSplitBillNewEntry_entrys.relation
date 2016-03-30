@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship xmlns="com.kingdee.bos.metadata">
+    <package>com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app</package>
+    <name>R_OtherSplitBill_OtherSplitBillNewEntry_entrys</name>
+    <alias>relationship[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.R_OtherSplitBill_OtherSplitBillNewEntry_entrys].alias</alias>
+    <description>relationship[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.R_OtherSplitBill_OtherSplitBillNewEntry_entrys].description</description>
+    <userDefined>true</userDefined>
+    <type>Composition</type>
+    <clientCardinality>1</clientCardinality>
+    <supplierCardinality>0..*</supplierCardinality>
+    <xmlNodeRelationship />
+    <clientObject>
+        <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+        <key name="name" value="OtherSplitBill" />
+    </clientObject>
+    <supplierObject>
+        <key name="package" value="com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app" />
+        <key name="name" value="OtherSplitNewEntry" />
+    </supplierObject>
+    <resource>
+        <rs key="relationship[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.R_OtherSplitBill_OtherSplitBillNewEntry_entrys].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="其他拆分拆分分录关系" />
+            <lang locale="zh_HK" value="其他拆分拆分分錄關係" />
+            <lang locale="zh_TW" value="其他拆分拆分分錄關係" />
+        </rs>
+        <rs key="relationship[com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.app.R_OtherSplitBill_OtherSplitBillNewEntry_entrys].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="多分录基础模板关系" />
+            <lang locale="zh_HK" value="多分錄基礎範本關係" />
+            <lang locale="zh_TW" value="多分錄基礎範本關係" />
+        </rs>
+    </resource>
+</relationship>
+
