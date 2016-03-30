@@ -113,8 +113,9 @@ public class MonContractChangeReportFacadeControllerBean extends AbstractMonCont
     		sb.append(" and contract.FCurProjectID='"+project.getId().toString()+"'");
     	sb.append(" and contract.FState='4AUDITTED'");
     	sb.append(" and splitEntry.FIdxApportionID is null");
-    	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') >='"+startDate+"'");
-    	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') <='"+endDate+"'");
+    	sb.append(" and splitEntry.Flevel='0'");
+    	sb.append(" and to_char(change.FAuditTime, 'yyyy-MM-dd') >='"+startDate+"'");
+    	sb.append(" and to_char(change.FAuditTime, 'yyyy-MM-dd') <='"+endDate+"'");
     	
     	sb.append(" union all");
     	sb.append(getMonChangeGahter(ctx, params, "本月合计", startDate, endDate));
@@ -161,8 +162,8 @@ public class MonContractChangeReportFacadeControllerBean extends AbstractMonCont
     		sb.append(" and contractType.fid='"+contractType.getId().toString()+"'");
     	if(project != null) 
     		sb.append(" and contract.FCurProjectID='"+project.getId().toString()+"'");
-    	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') >='"+startDate+"'");
-    	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') <='"+endDate+"'");
+    	sb.append(" and to_char(change.FAuditTime, 'yyyy-MM-dd') >='"+startDate+"'");
+    	sb.append(" and to_char(change.FAuditTime, 'yyyy-MM-dd') <='"+endDate+"'");
     	sb.append(" and contract.FState='4AUDITTED'");
     	sb.append(" group by '"+desc+"'");
     	sb.append(" ) a");
@@ -188,9 +189,10 @@ public class MonContractChangeReportFacadeControllerBean extends AbstractMonCont
     		sb.append(" and contractType.fid='"+contractType.getId().toString()+"'");
     	if(project != null) 
     		sb.append(" and contract.FCurProjectID='"+project.getId().toString()+"'");
-    	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') >='"+startDate+"'");
+    	sb.append(" and to_char(change.FAuditTime, 'yyyy-MM-dd') >='"+startDate+"'");
     	sb.append(" and splitEntry.FIdxApportionID is null");
-    	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') <='"+endDate+"'");
+    	sb.append(" and splitEntry.flevel='0'");
+    	sb.append(" and to_char(change.FAuditTime, 'yyyy-MM-dd') <='"+endDate+"'");
     	sb.append(" and contract.FState='4AUDITTED'");
     	sb.append(" group by '"+desc+"'");
     	sb.append(" ) b on b.id=a.id");
@@ -230,7 +232,7 @@ public class MonContractChangeReportFacadeControllerBean extends AbstractMonCont
     	if(project != null) 
     		sb.append(" and contract.FCurProjectID='"+project.getId().toString()+"'");
 //    	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') >='"+startDate+"'");
-    	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') <='"+endDate+"'");
+    	sb.append(" and to_char(change.FAuditTime, 'yyyy-MM-dd') <='"+endDate+"'");
     	sb.append(" and contract.FState='4AUDITTED'");
     	sb.append(" group by '"+desc+"'");
     	sb.append(" ) a");
@@ -255,7 +257,8 @@ public class MonContractChangeReportFacadeControllerBean extends AbstractMonCont
     		sb.append(" and contract.FCurProjectID='"+project.getId().toString()+"'");
 //    	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') >='"+startDate+"'");
     	sb.append(" and splitEntry.FIdxApportionID is null");
-    	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') <='"+endDate+"'");
+    	sb.append(" and splitEntry.flevel='0'");
+    	sb.append(" and to_char(change.FAuditTime, 'yyyy-MM-dd') <='"+endDate+"'");
     	sb.append(" and contract.FState='4AUDITTED'");
     	sb.append(" group by '"+desc+"'");
     	sb.append(" ) b on b.id=a.id");

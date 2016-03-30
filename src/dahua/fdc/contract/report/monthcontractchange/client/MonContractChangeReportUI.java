@@ -349,8 +349,8 @@ public class MonContractChangeReportUI extends AbstractMonContractChangeReportUI
 		kDTable1.removeRows();
 		ReportUtils.mergerTable(
 				kDTable1, 
-				new String[]{"curProject","typeName","contractName","contractNumber","partBName","changeNumber", "changeContent"}, 
-				new String[]{"curProject","typeName","contractName","contractNumber","partBName","changeNumber", "changeContent"}
+				new String[]{"curProject","typeName","contractName","contractNumber","partBName"}, 
+				new String[]{"curProject","typeName","contractName","contractNumber","partBName"}
 		);
 	}
 
