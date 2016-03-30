@@ -116,6 +116,7 @@ public class MonthContractReportFacadeControllerBean extends AbstractMonthContra
     		sb.append(" and contract.FCurProjectID='"+project.getId().toString()+"'");
     	sb.append(" and contract.FState='4AUDITTED'");
     	sb.append(" and splitEntry.FIdxApportionID is null");
+    	sb.append(" and splitEntry.flevel='0'");
     	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') >='"+startDate+"'");
     	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') <='"+endDate+"'");
     	
@@ -192,6 +193,7 @@ public class MonthContractReportFacadeControllerBean extends AbstractMonthContra
     		sb.append(" and contract.FCurProjectID='"+project.getId().toString()+"'");
     	sb.append(" and contract.FState='4AUDITTED'");
     	sb.append(" and splitEntry.FIdxApportionID is null");
+    	sb.append(" and splitEntry.flevel='0'");
     	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') >='"+startDate+"'");
     	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') <='"+endDate+"'");
     	sb.append(" group by '"+desc+"'");
@@ -251,6 +253,7 @@ public class MonthContractReportFacadeControllerBean extends AbstractMonthContra
     	if(project != null) 
     		sb.append(" and contract.FCurProjectID='"+project.getId().toString()+"'");
     	sb.append(" and splitEntry.FIdxApportionID is null");
+    	sb.append(" and splitEntry.flevel='0'");
 //    	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') >='"+startDate+"'");
     	sb.append(" and to_char(contract.FAuditTime, 'yyyy-MM-dd') <='"+endDate+"'");
     	sb.append(" group by '"+desc+"'");
