@@ -16,6 +16,7 @@ public class AbstractOtherSplitBillInfo extends com.kingdee.eas.framework.CoreBi
     protected AbstractOtherSplitBillInfo(String pkField)
     {
         super(pkField);
+        put("splitEntry", new com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.OtherSplitNewEntryCollection());
         put("entrys", new com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.OtherSplitBillEntryCollection());
     }
     /**
@@ -136,6 +137,13 @@ public class AbstractOtherSplitBillInfo extends com.kingdee.eas.framework.CoreBi
     public void setMonth(int item)
     {
         setInt("month", item);
+    }
+    /**
+     * Object: 其他成本拆分 's 新拆分分录 property 
+     */
+    public com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.OtherSplitNewEntryCollection getSplitEntry()
+    {
+        return (com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.OtherSplitNewEntryCollection)get("splitEntry");
     }
     public BOSObjectType getBOSType()
     {

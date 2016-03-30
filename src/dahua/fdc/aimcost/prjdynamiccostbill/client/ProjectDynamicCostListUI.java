@@ -126,6 +126,9 @@ public class ProjectDynamicCostListUI extends AbstractProjectDynamicCostListUI
     	sic.add(new SelectorItemInfo("EntrysAccount.*"));
     	sic.add(new SelectorItemInfo("EntryPosition.*"));
     	sic.add(new SelectorItemInfo("EntryPosition.position.*"));
+    	sic.add(new SelectorItemInfo("EntryPosition.position.*"));
+    	sic.add(new SelectorItemInfo("EentryTotal.*"));
+    	sic.add(new SelectorItemInfo("EntrySixMonth.*"));
     	info = iProDynamicCost.getProjectDynamicCostInfo(new ObjectUuidPK(billId), sic);
     	return info;
     }

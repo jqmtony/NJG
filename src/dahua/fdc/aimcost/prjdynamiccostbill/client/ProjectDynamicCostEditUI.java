@@ -14,6 +14,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
@@ -41,6 +42,7 @@ import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
+import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIContext;
 import com.kingdee.eas.common.client.UIFactoryName;
 import com.kingdee.eas.fdc.aimcost.ForecastChangeVisCollection;
@@ -50,10 +52,14 @@ import com.kingdee.eas.fdc.aimcost.IForecastChangeVis;
 import com.kingdee.eas.fdc.aimcost.client.AbstractForecastChangeVisEditUI;
 import com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.IProjectDynamicCost;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEentryTotalCollection;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEentryTotalInfo;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryCollection;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryInfo;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryPositionCollection;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryPositionInfo;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrySixMonthCollection;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrySixMonthInfo;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrysAccountCollection;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrysAccountInfo;
 import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostFactory;
@@ -102,6 +108,14 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     BigDecimal ONE_MILLION = new BigDecimal(1000000);
     BigDecimal HALF_ONE_MILLION = new BigDecimal(5000000);
     BigDecimal THREE = new BigDecimal(300000);
+    String[][] columns = new String[][]{
+    		{"firstAimCost", "firstDynaCost", "firstDiffAmount", "firstDiffRate"},
+    		{"secondAimCost", "secondDynaCost", "secondDiffAmount", "secondDiffRate"},
+    		{"thirdAimCost", "thirdDynaCost", "thirdDiffAmount", "thirdDiffRate"},
+    		{"fourthAimCost", "fourthDynaCost", "fourthDiffAmount", "fourthDiffRate"},
+    		{"fifthAimCost", "fifthDynaCost", "fifthDiffAmount", "fifthDiffRate"},
+    		{"sixthAimCost", "sixthDynaCost", "sixthDiffAmount", "sixthDiffRate"}
+    		};
     /**
      * output class constructor
      */
@@ -117,6 +131,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	this.contversion.setEnabled(false);
     	this.contBizDate.setEnabled(false);
     	this.prmtcurProject.setEnabled(false);
+    	this.chkisLatest.setVisible(false);
     	this.kdtEntryPosition.setVisible(false);
     	this.kdtEntryPosition_detailPanel.setVisible(false);
     	initTableControl();
@@ -157,6 +172,22 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	this.kDTabbedPane2.remove(1);
     	this.kDTabbedPane2.remove(0);
     	kdtEntrysAccount.getColumn("diffRate").getStyleAttributes().setNumberFormat("0.00%");
+    	
+    	int year = this.spYear.getIntegerVlaue().intValue();
+    	int month = this.spMonth.getIntegerVlaue().intValue();
+    	int count = 0;
+    	while(count < 6) {
+    		month = month-1;
+    		if(month <= 0) {
+    			month = 12;
+    			year = year-1;
+    		}
+    		String key = year+"年"+month+"月";
+    		for(int i = 0; i < columns[count].length; i++) {
+    			kdtEntrySixMonth.getHeadRow(0).getCell(columns[count][i]).setValue(key);
+    		}
+    		count++;
+    	}
     }
     /**
      * output loadFields method
@@ -198,7 +229,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
      * 设置合同维度根据合约规划来融合
      */
     private void setContractTableMerge() {
-    	String[] mergeColumn = new String[] {"programmingName", "Amount", "sumB", "unSignContract", "sumC", "dynamicCost", "diffAmount","diffRate"}; 
+    	String[] mergeColumn = new String[] {"programmingName", "Amount", "sumB", "unSignContract", "sumC", "dynamicCost", "notextContract","diffAmount","diffRate"}; 
     	for(int i = 0; i < kdtEntrysContract.getRowCount();) {
     		IRow row = kdtEntrysContract.getRow(i);
     		int count = 0;
@@ -228,15 +259,22 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	this.kdtEntrysContract.getStyleAttributes().setLocked(true);
     	this.kdtEntrysAccount.getStyleAttributes().setLocked(true);
     	this.kdtEntrysAccount.getColumn("seq").getStyleAttributes().setHided(true);
+    	this.kdtEentryTotal.getColumn("seq").getStyleAttributes().setHided(true);
+    	this.kdtEntrySixMonth.getColumn("seq").getStyleAttributes().setHided(true);
+    	
     	this.kDTable1.getStyleAttributes().setLocked(true);
     	this.kDTable2.getStyleAttributes().setLocked(true);
     	this.kDTable3.getStyleAttributes().setLocked(true);
     	this.kDTable4.getStyleAttributes().setLocked(true);
     	this.kDTable5.getStyleAttributes().setLocked(true);
     	this.kDTable6.getStyleAttributes().setLocked(true);
+    	this.kdtEentryTotal.getStyleAttributes().setLocked(true);
+    	this.kdtEntrySixMonth.getStyleAttributes().setLocked(true);
     	
     	this.kDContainer2.getContentPane().add(kdtEntrysContract);
     	this.kDContainer1.getContentPane().add(kdtEntrysAccount);
+    	this.kDContainer3.getContentPane().add(kdtEentryTotal);
+    	this.kDContainer4.getContentPane().add(kdtEntrySixMonth);
     	
     	
     	this.kdtEntrysContract.getColumn("curMonthOtherId").getStyleAttributes().setHided(true);
@@ -245,7 +283,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	
     	this.kdtEntrysAccount.getColumn("Comment").getStyleAttributes().setLocked(false);
     	this.kdtEntrysAccount.getColumn("accountIndex").getStyleAttributes().setHided(true);
-    	this.kdtEntrysAccount.getColumn("level").getStyleAttributes().setHided(true);
+//    	this.kdtEntrysAccount.getColumn("level").getStyleAttributes().setHided(true);
     }
     /**
      * 将对应编码的数据提取到对应的tab
@@ -254,6 +292,197 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
      */
     private void loadDataToTab(KDTable table, String codingNumber) {
     	
+    }
+    /**
+     * 获取第一版目标成本数据
+     * @param info
+     * @param codingNumber
+     * @return
+     * @throws Exception
+     */
+    private BigDecimal getFirstVersionAimCost(CurProjectInfo info,String codingNumber) throws Exception{
+    	BigDecimal aimCost = BigDecimal.ZERO;
+    	
+    	StringBuilder sb = new StringBuilder("");
+    	sb.append(" select sum(目标成本) 目标成本");
+    	sb.append(" from (");
+    	sb.append(" select account.fcodingnumber 科目编码, sum(entry.FCostAmount) 目标成本 ");
+    	sb.append(" from T_AIM_CostEntry entry");
+    	sb.append(" left join T_AIM_AimCost aimCost on aimCost.fid=entry.fheadid");
+    	sb.append(" left join T_FDC_CostAccount account on account.fid=entry.fcostaccountid");
+    	sb.append(" where 1=1");
+    	sb.append(" and aimCost.FOrgOrProId='"+info.getId().toString()+"'");
+    	sb.append(" and TO_NUMBER(aimCost.fversionnumber)=1");
+    	sb.append(" and account.fcodingnumber like '"+codingNumber+"%'");
+    	sb.append(" group by account.fcodingnumber");
+    	sb.append(" order by account.fcodingnumber");
+    	sb.append(" )");
+    	
+    	FDCSQLBuilder builder = new FDCSQLBuilder();
+    	builder.appendSql(sb.toString());
+    	IRowSet rowSet = builder.executeQuery();
+    	
+    	while(rowSet.next()) {
+    		BigDecimal aim = rowSet.getBigDecimal("目标成本");
+    		aimCost = aim == null ? aimCost : aim;
+    		break;
+    	}
+    	return aimCost;
+    }
+    /**
+     * 加载汇总表
+     * @throws Exception
+     */
+    private void loadTotalTableData() throws Exception{
+    	kdtEentryTotal.removeRows();
+    	Map totalMap = new TreeMap();
+    	for(int i = 0; i < kdtEntrysAccount.getRowCount(); i++) {
+    		IRow row = kdtEntrysAccount.getRow(i);
+    		Map detailMap = new HashMap();
+    		String accNumber = (String) row.getCell("costAccountNumber").getValue();
+    		int level = (Integer)row.getCell("level").getValue();
+    		detailMap.put("costAccountNumber", accNumber);
+    		detailMap.put("costAccount", row.getCell("costAccount").getValue());
+    		detailMap.put("aimCost", row.getCell("aimCost").getValue());
+    		detailMap.put("Contract", (BigDecimal)row.getCell("Contract").getValue());
+    		detailMap.put("designChangeAmount", (BigDecimal)row.getCell("designChangeAmount").getValue());
+    		detailMap.put("siteCertificatAmount", (BigDecimal)row.getCell("siteCertificatAmount").getValue());
+    		detailMap.put("settlementAmount", (BigDecimal)row.getCell("settlementAmount").getValue());
+    		detailMap.put("withouttxt", (BigDecimal)row.getCell("withouttxt").getValue());
+    		detailMap.put("sumB", (BigDecimal)row.getCell("sumB").getValue());
+    		detailMap.put("onWayCost", (BigDecimal)row.getCell("onWayCost").getValue());
+    		detailMap.put("EstimateChangeBalance", (BigDecimal)row.getCell("EstimateChangeBalance").getValue());
+    		detailMap.put("otherAmount", (BigDecimal)row.getCell("otherAmount").getValue());
+    		detailMap.put("unSignContract", (BigDecimal)row.getCell("unSignContract").getValue());
+    		detailMap.put("sumC", (BigDecimal)row.getCell("sumC").getValue());
+    		detailMap.put("sumBC", (BigDecimal)row.getCell("sumBC").getValue());
+    		detailMap.put("diffAmount", (BigDecimal)row.getCell("diffAmount").getValue());
+    		detailMap.put("diffRate", (BigDecimal)row.getCell("diffRate").getValue());
+    		detailMap.put("Comment", (BigDecimal)row.getCell("Comment").getValue());
+    		
+    		if(level == 2)
+    			totalMap.put(accNumber, detailMap);
+    	}
+    	Set keySet = totalMap.keySet();
+    	for(Iterator it = keySet.iterator(); it.hasNext();) {
+    		String number = it.next().toString();
+    		Map detail = (Map) totalMap.get(number);
+    		IRow addRow = kdtEentryTotal.addRow();
+    		addRow.getCell("costAccount").setValue(detail.get("costAccount"));
+    		addRow.getCell("costAccountNumber").setValue(detail.get("costAccountNumber"));
+    		BigDecimal aimCost = detail.get("aimCost") == null ? BigDecimal.ZERO : (BigDecimal)detail.get("aimCost");
+    		addRow.getCell("aimCost").setValue(detail.get("aimCost"));
+    		BigDecimal firstVersionAimCost = getFirstVersionAimCost(editData.getCurProject(), number);
+    		addRow.getCell("firstVersionAimcost").setValue(firstVersionAimCost);
+    		addRow.getCell("deletaAimcost").setValue(aimCost.subtract(firstVersionAimCost));
+    		
+    		addRow.getCell("Contract").setValue(detail.get("Contract"));
+    		addRow.getCell("designChangeAmount").setValue(detail.get("designChangeAmount"));
+    		addRow.getCell("siteCertificatAmount").setValue(detail.get("siteCertificatAmount"));
+    		addRow.getCell("settlementAmount").setValue(detail.get("settlementAmount"));
+    		addRow.getCell("withouttxt").setValue(detail.get("withouttxt"));
+    		addRow.getCell("sumB").setValue(detail.get("sumB"));
+    		addRow.getCell("onWayCost").setValue(detail.get("onWayCost"));
+    		addRow.getCell("EstimateChangeBalance").setValue(detail.get("EstimateChangeBalance"));
+    		addRow.getCell("otherAmount").setValue(detail.get("otherAmount"));
+    		addRow.getCell("unSignContract").setValue(detail.get("unSignContract"));
+    		addRow.getCell("sumC").setValue(detail.get("sumC"));
+    		addRow.getCell("sumBC").setValue(detail.get("sumBC"));
+    		addRow.getCell("diffAmount").setValue(detail.get("diffAmount"));
+    		addRow.getCell("diffRate").setValue(detail.get("diffRate"));
+    		addRow.getCell("Comment").setValue(detail.get("Comment"));
+    	}
+    }
+    /**
+     * 近六个月汇总表
+     * @param info
+     * @throws Exception 
+     */
+    private void loadSixMonthData(CurProjectInfo info) throws Exception {
+    	int year = this.spYear.getIntegerVlaue().intValue();
+    	int month = this.spMonth.getIntegerVlaue().intValue();
+    	int count = 0;
+    	kdtEntrySixMonth.removeRows();
+//    	Map columnMap = new TreeMap();
+    	while(count < 6) {
+    		month = month-1;
+    		if(month <= 0) {
+    			month = 12;
+    			year = year-1;
+    		}
+    		String key = year+"年"+month+"月";
+//    		columnMap.put(key, columns[count]);
+    		Map preTotalData = getPreTotalData(info, year, month);
+    		for(int i = 0; i < columns[count].length; i++) {
+    			kdtEntrySixMonth.getHeadRow(0).getCell(columns[count][i]).setValue(key);
+    		}
+    		if(preTotalData.size() > 0) {
+    			if(kdtEntrySixMonth.getRowCount() <= 0) {
+    				Set keySet = preTotalData.keySet();
+    				for(Iterator it = keySet.iterator(); it.hasNext();) {
+    					String accountNumber = (String) it.next();
+    					Map detail = (Map) preTotalData.get(accountNumber);
+    					IRow addRow = kdtEntrySixMonth.addRow();
+    					addRow.getCell("costAccount").setValue((String)detail.get("CFCOSTACCOUNT"));
+    					addRow.getCell("costAccountNumber").setValue((String)detail.get("CFCOSTACCOUNTNUMBER"));
+    					addRow.getCell(columns[count][0]).setValue((BigDecimal)detail.get("CFAIMCOST"));
+    					addRow.getCell(columns[count][1]).setValue((BigDecimal)detail.get("CFSUMBC"));
+    					addRow.getCell(columns[count][2]).setValue((BigDecimal)detail.get("CFDIFFAMOUNT"));
+    					addRow.getCell(columns[count][3]).setValue((BigDecimal)detail.get("CFDIFFRATE"));
+    				}
+    			} else {
+    				for(int i=0; i < kdtEntrySixMonth.getRowCount(); i++) {
+    					IRow row = kdtEntrySixMonth.getRow(i);
+    					String accountNumber = (String) row.getCell("costAccountNumber").getValue();
+    					Map detail = (Map) preTotalData.get(accountNumber);
+    					row.getCell("costAccount").setValue((String)detail.get("CFCOSTACCOUNT"));
+    					row.getCell("costAccountNumber").setValue((String)detail.get("CFCOSTACCOUNTNUMBER"));
+    					row.getCell(columns[count][0]).setValue((BigDecimal)detail.get("CFAIMCOST"));
+    					row.getCell(columns[count][1]).setValue((BigDecimal)detail.get("CFSUMBC"));
+    					row.getCell(columns[count][2]).setValue((BigDecimal)detail.get("CFDIFFAMOUNT"));
+    					row.getCell(columns[count][3]).setValue((BigDecimal)detail.get("CFDIFFRATE"));
+    				}
+    			}
+    		}
+    		count++;
+    	}
+    }
+    /**
+     * 获取指定年月的最新版汇总页签数据
+     * @param info
+     * @param year
+     * @param month
+     * @return
+     * @throws Exception 
+     */
+    private Map getPreTotalData(CurProjectInfo info, int year, int month) throws Exception {
+    	Map map = new TreeMap();
+    	StringBuilder sb = new StringBuilder();
+    	sb.append(" select total.CFCOSTACCOUNT,total.CFCOSTACCOUNTNUMBER,total.CFAIMCOST,total.CFSUMBC, total.CFDIFFAMOUNT, total.CFDIFFRATE  ");
+    	sb.append(" from CT_AIM_ProjectDCET total");
+    	sb.append(" left join CT_AIM_ProjectDynamicCost head on total.fparentid=head.fid");
+    	sb.append(" where 1=1");
+    	sb.append(" and head.cfcurprojectid='"+info.getId().toString()+"'");
+    	sb.append(" and head.cfislatest='1'");
+    	sb.append(" and head.fyear='"+year+"' and head.fmonth='"+month+"'");
+    	
+    	FDCSQLBuilder builder = new FDCSQLBuilder();
+    	builder.appendSql(sb.toString());
+    	IRowSet rowSet = builder.executeQuery();
+    	
+    	while(rowSet.next()) {
+    		Map detailMap = new HashMap();
+    		String number = rowSet.getString("CFCOSTACCOUNTNUMBER");
+    		detailMap.put("CFCOSTACCOUNT", rowSet.getString("CFCOSTACCOUNT"));
+    		detailMap.put("CFCOSTACCOUNTNUMBER", rowSet.getString("CFCOSTACCOUNTNUMBER"));
+    		detailMap.put("CFAIMCOST", rowSet.getBigDecimal("CFAIMCOST")); //目标成本
+    		detailMap.put("CFSUMBC", rowSet.getBigDecimal("CFSUMBC"));//动态成本
+    		detailMap.put("CFDIFFAMOUNT", rowSet.getBigDecimal("CFDIFFAMOUNT"));//成本差额
+    		detailMap.put("CFDIFFRATE", rowSet.getBigDecimal("CFDIFFRATE"));//差异率
+    		
+    		map.put(number, detailMap);
+    	}
+    	return map;
     }
     /**
      * 提取最新数据按钮
@@ -268,6 +497,8 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	}
     	loadContractTableData();
     	loadCostAccountTableData();
+    	loadTotalTableData();
+    	loadSixMonthData(editData.getCurProject());
     }
     
     /**
@@ -290,6 +521,14 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     		addRow.getCell("Amount").setValue(rowSet.getBigDecimal("programAmount"));
     		addRow.getCell("ContractAmount").setValue(rowSet.getBigDecimal("contractAmount"));
     		addRow.getCell("onWayCost").setValue(rowSet.getBigDecimal("onWayAmount") == null ? BigDecimal.ZERO:rowSet.getBigDecimal("onWayAmount"));
+    	}
+    	String noTextContractSql = getNoTextContractSql(editData.getCurProject());
+    	Map noContractMap = new HashMap();
+    	builder.clear();
+    	builder.appendSql(noTextContractSql);
+    	rowSet = builder.executeQuery();
+    	while(rowSet.next()) {
+    		noContractMap.put(rowSet.getString("programmingId"), rowSet.getBigDecimal("amount"));
     	}
     	//设计变更
     	String conChangeSql = getConChangeSql(editData.getCurProject(), "'工程指令', '技术核定', '设计变更'");
@@ -380,7 +619,9 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     		row.getCell("siteCertificatAmount").setValue(siteChangeAmount==null ? BigDecimal.ZERO : siteChangeAmount);
     		settleAmount = (BigDecimal) settleMap.get(contractId);
     		row.getCell("settlementAmount").setValue(settleAmount==null ? BigDecimal.ZERO : settleAmount);
-
+    		
+    		BigDecimal noTextContract = (BigDecimal) noContractMap.get(row.getCell("programmingId").getValue().toString());
+    		row.getCell("notextContract").setValue(noTextContract == null ? BigDecimal.ZERO : noTextContract);
     		ForecastChangeVisInfo forecastInfo = getForecastChangeVisInfoByContract(null, contractId);
     		ForecastChangeVisInfo preForecastInfo = getPreForecastChangeVisInfoByContract(null, contractId);
     		//预估变更
@@ -403,8 +644,9 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     			}
     		} else {
     			row.getCell("curMonthEstimateChange").setValue(BigDecimal.ZERO);
+    			actForecastAmount = actForecastAmount == null ? BigDecimal.ZERO : actForecastAmount;
     			if(preForecastInfo != null)
-    				row.getCell("EstimateChangeBalance").setValue(preForecastInfo.getAmount());
+    				row.getCell("EstimateChangeBalance").setValue(preForecastInfo.getAmount().subtract(actForecastAmount));
     			else
     				row.getCell("EstimateChangeBalance").setValue(BigDecimal.ZERO);
     		}
@@ -818,13 +1060,15 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
         		siteCerChangeAmount = siteCerChangeAmount== null ? BigDecimal.ZERO : siteCerChangeAmount;
         		BigDecimal settleAmount = (BigDecimal) row.getCell("settlementAmount").getValue();
         		settleAmount = settleAmount== null ? BigDecimal.ZERO : settleAmount;
+        		BigDecimal notextContract = (BigDecimal) row.getCell("notextContract").getValue();
+        		notextContract = notextContract== null ? BigDecimal.ZERO : notextContract;
         		BigDecimal sumB = settleAmount;
         		if(settleAmount != null && settleAmount.compareTo(BigDecimal.ZERO) > 0) {
         			sumB = settleAmount;
         		} else {
         			sumB = contractAmount.add(desChangeAmount).add(siteCerChangeAmount);
         		}
-        		detailMap.put("sumB", sumB);
+        		detailMap.put("sumB", sumB.add(notextContract));//加上无文本
         		
         		//计算小计C
         		BigDecimal onWayCost = (BigDecimal) row.getCell("onWayCost").getValue();
@@ -876,7 +1120,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
         		}
         		BigDecimal preSumB = (BigDecimal) detailMap.get("sumB");
         		BigDecimal newSumB = preSumB.add(sumB);
-        		detailMap.put("sumB", preSumB.add(sumB));
+        		detailMap.put("sumB",newSumB);
         		
         		//小计C
         		BigDecimal onWayCost = (BigDecimal) row.getCell("onWayCost").getValue();
@@ -885,10 +1129,11 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
         		ProgrammingContractInfo pInfo = getProgrammingContract(programmingId);
         		BigDecimal unSignContract = BigDecimal.ZERO;
         		if(!pInfo.isIscse())//判断合约是否签完, 签完了则unSignContract 为0
-        			unSignContract = planAmount.subtract(sumB).subtract(onWayCost);
+        			unSignContract = planAmount.subtract(newSumB).subtract(onWayCost);
 //        		BigDecimal unSignContract = planAmount.subtract(sumB).subtract(onWayCost);
-        		BigDecimal preunSignContract = (BigDecimal) detailMap.get("unSignContract");
-        		detailMap.put("unSignContract", preunSignContract.add(unSignContract));
+//        		BigDecimal preunSignContract = (BigDecimal) detailMap.get("unSignContract");
+//        		detailMap.put("unSignContract", preunSignContract.add(unSignContract));
+        		detailMap.put("unSignContract", unSignContract);
         		
 //        		BigDecimal curMonthEstimateChange = (BigDecimal) row.getCell("curMonthEstimateChange").getValue();
         		BigDecimal EstimateChangeBalance = (BigDecimal) row.getCell("EstimateChangeBalance").getValue();
@@ -1013,6 +1258,25 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	return contractBill;
     }
     /**
+     * 获取某项目无文本合同
+     * @param info
+     * @return
+     */
+    private String getNoTextContractSql(CurProjectInfo info) {
+    	StringBuilder sql = new StringBuilder("");
+    	
+    	sql.append(" select programming.fid programmingId, programming.fname_l2 programName, sum(contract.FAmount) amount");
+    	sql.append(" from T_CON_ContractWithoutText contract ");
+    	sql.append(" left join T_FDC_CurProject project on project.fid=contract.FCurProjectID");
+    	sql.append(" left join T_CON_ProgrammingContract programming on contract.FProgrammingContract=programming.fid");
+    	sql.append(" where 1=1");
+    	sql.append(" and project.fid='"+info.getId().toString()+"'");
+    	sql.append(" and contract.FProgrammingContract is not null");
+    	sql.append(" group by programming.fid, programming.fname_l2");
+    	
+    	return sql.toString();
+    }
+    /**
      * 获取某项目的合同信息(审批中以及已审核)
      * @return
      */
@@ -1027,7 +1291,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	sb.append(" left join T_CON_ProgrammingContract programming on programming.fid=contract.FProgrammingContract /*合约规划*/");
     	sb.append(" where 1=1 ");
     	sb.append(" and curProject.fid='"+info.getId().toString()+"'");
-//    	sb.append(" and contract.fstate in('4AUDITTED', '3AUDITTING')");
+    	sb.append(" and contract.fstate in('4AUDITTED', '3AUDITTING')");
     	sb.append(" and contract.FProgrammingContract is not null"); //过滤掉没有关联合约规划的历史数据
     	sb.append(" order by programming.fid");
     	return sb.toString();
@@ -1257,20 +1521,21 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	sb.append("	left join T_CON_ContractSettlementBill 结算单 on 结算单.FContractBillID=合同.fid ");
     	sb.append(" where 科目.FCurProject='"+info.getId().toString()+"'");
     	sb.append(" and acost.FIsLastVersion='1'");
+    	sb.append(" and 合同.fstate in ('4AUDITTED', '3AUDITTING')");
     	sb.append(" and 科目.fcodingnumber like '"+accountNumber+"%'");
     	sb.append(" and (结算单.FIsSettled is null or 结算单.FIsSettled='0')");
     	sb.append(" and 拆分分录.flevel=0");
-    	sb.append(" union all");
-    	sb.append(" select 科目.fname_l2  条目名称, 科目.fcodingnumber 科目编码, 拆分分录.FAmount 应取金额  /*变更金额*/");
-    	sb.append(" from  T_CON_ConChangeSplitEntry 拆分分录");
-    	sb.append(" left join T_FDC_CostAccount 科目 on 科目.fid=拆分分录.FCostAccountID");
-    	sb.append(" left join T_CON_ConChangeSplit 变更拆分 on  变更拆分.fid=拆分分录.FParentID");
-    	sb.append(" left join T_CON_ContractChangeBill 变更 on 变更.fid=变更拆分.FContractChangeID");
-    	sb.append(" left join T_CON_ChangeAuditBill 变更审批单  on 变更审批单.fid=变更.FChangeAuditID");
-    	sb.append(" left join T_FDC_ChangeType 变更类型 on 变更类型.fid=变更.FChangeTypeID ");
-    	sb.append(" where 科目.FCurProject='"+info.getId().toString()+"'");
-    	sb.append(" and 科目.fcodingnumber like '"+accountNumber+"%'");
-    	sb.append(" and 变更.FIsConSetted=0 and  拆分分录.flevel='0' and 变更审批单.CFAddToContractCost=1");
+//    	sb.append(" union all");
+//    	sb.append(" select 科目.fname_l2  条目名称, 科目.fcodingnumber 科目编码, 拆分分录.FAmount 应取金额  /*变更金额*/");
+//    	sb.append(" from  T_CON_ConChangeSplitEntry 拆分分录");
+//    	sb.append(" left join T_FDC_CostAccount 科目 on 科目.fid=拆分分录.FCostAccountID");
+//    	sb.append(" left join T_CON_ConChangeSplit 变更拆分 on  变更拆分.fid=拆分分录.FParentID");
+//    	sb.append(" left join T_CON_ContractChangeBill 变更 on 变更.fid=变更拆分.FContractChangeID");
+//    	sb.append(" left join T_CON_ChangeAuditBill 变更审批单  on 变更审批单.fid=变更.FChangeAuditID");
+//    	sb.append(" left join T_FDC_ChangeType 变更类型 on 变更类型.fid=变更.FChangeTypeID ");
+//    	sb.append(" where 科目.FCurProject='"+info.getId().toString()+"'");
+//    	sb.append(" and 科目.fcodingnumber like '"+accountNumber+"%'");
+//    	sb.append(" and 变更.FIsConSetted=0 and  拆分分录.flevel='0' and 变更审批单.CFAddToContractCost=1");
     	sb.append(" union all");
     	sb.append(" select 科目.fname_l2 条目名称, 科目.fcodingnumber 科目编码,拆分分录.FAmount 应取金额 /*结算未拆分*/");
     	sb.append(" from T_FDC_CostAccount 科目");
@@ -1282,6 +1547,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	sb.append(" left join T_CON_SettlementCostSplit 结算拆分 on 结算单.fid=结算拆分.FSettlementBillID ");
     	sb.append(" left join T_CON_SettlementCostSplitEntry 结算拆分分录 on 结算拆分.fid=结算拆分分录.FParentID  and 拆分分录.FCostAccountID=结算拆分分录.FCostAccountID");
     	sb.append(" where 科目.FCurProject='"+info.getId().toString()+"'");
+    	sb.append(" and 合同.fstate in ('4AUDITTED', '3AUDITTING')");
     	sb.append(" and 科目.fcodingnumber like '"+accountNumber+"%'");
     	sb.append(" and acost.FIsLastVersion='1' and 拆分分录.flevel='0' and 结算拆分.fid is null");
     	sb.append(" and 结算单.FIsSettled='1'");
@@ -1295,10 +1561,10 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     private String getOnWayCostSql(CurProjectInfo info, String codingNumber) {
     	StringBuilder sb = new StringBuilder("");
     	sb.append(" select 科目.fcodingnumber 科目编码, 科目.fname_l2 科目名称,sum(拆分分录.famount) 在途成本");
-    	sb.append(" from T_CON_ContractCostSplitEntry 拆分分录");
-    	sb.append(" left join T_FDC_CostAccount 科目 on 科目.fid=拆分分录.fcostaccountid");
-    	sb.append(" left join T_CON_ContractCostSplit 合同拆分 on 合同拆分.fid=拆分分录.FParentID");
-    	sb.append(" left join T_CON_ContractBill 合同 on 合同.fid=合同拆分.FContractBillID");
+    	sb.append(" from T_CON_ContractBillSplitEntry 拆分分录");
+    	sb.append(" left join T_FDC_CostAccount 科目 on 科目.fid=拆分分录.FCostAccountID");
+//    	sb.append(" left join T_CON_ContractCostSplit 合同拆分 on 合同拆分.fid=拆分分录.FParentID");
+    	sb.append(" left join T_CON_ContractBill 合同 on 合同.fid=拆分分录.FParentID");
     	sb.append(" where 1=1 ");
     	sb.append(" and 科目.FCurProject='"+info.getId().toString()+"'");
     	sb.append(" and 科目.fcodingnumber like '"+codingNumber+"%'");
@@ -1322,7 +1588,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	sb.append(" where 科目.FCurProject='"+info.getId().toString()+"'");
     	sb.append(" and 科目.fcodingnumber like '"+accountNumber+"%'");
     	sb.append(" and 变更类型.fname_l2 in ("+changeName+")");
-    	sb.append(" and 变更.FIsConSetted=0 and  拆分分录.flevel='0' and 变更审批单.CFAddToContractCost=0 and 变更审批单.CFBillType !='10'");
+    	sb.append(" and 变更.FIsConSetted=0 and  拆分分录.flevel='0' /*and 变更审批单.CFAddToContractCost=0*/ and 变更审批单.CFBillType !='10'");
     	sb.append(" group by 科目.fname_l2,科目.fcodingnumber");
     	sb.append(" union all");
     	sb.append(" select 科目.fname_l2 条目名称, 科目.fcodingnumber 科目编码, sum(拆分分录.FAmount) 变更金额");
@@ -1370,10 +1636,11 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
      */
     private String getActOtherAdjustSql(CurProjectInfo info, String accountNumber) {
     	StringBuilder sb = new StringBuilder("");
-    	sb.append(" select 科目.fcodingnumber 科目编码,sum(拆分分录.cfamount) 其他调整金额");
-    	sb.append(" from CT_AIM_OtherSplitBillEntry 拆分分录");
-    	sb.append(" left join T_FDC_CostAccount 科目 on 科目.fid=拆分分录.CFCostAccountID");
+    	sb.append(" select 科目.fcodingnumber 科目编码,sum(拆分分录.FAmount) 其他调整金额");
+    	sb.append(" from CT_AIM_OtherSplitNewEntry 拆分分录");
+    	sb.append(" left join T_FDC_CostAccount 科目 on 科目.fid=拆分分录.FCostAccountID");
     	sb.append(" where 1=1");
+    	sb.append(" and 拆分分录.flevel='0'");
     	sb.append(" and 科目.fcurproject='"+info.getId().toString()+"'");
     	sb.append(" and 科目.fcodingnumber like '"+accountNumber+"%'");
     	sb.append(" group by 科目.fcodingnumber");
@@ -1415,7 +1682,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	sb.append(" where 科目.FCurProject='"+info.getId().toString()+"'");
     	sb.append(" and 科目.fcodingnumber like '"+accountNumber+"%'");
     	sb.append(" and 变更类型.fname_l2 in ("+changeName+")");
-    	sb.append(" and 变更.FIsConSetted=0 and  拆分分录.flevel='0' and 变更审批单.CFAddToContractCost=0 and 变更审批单.CFBillType !='10'");
+    	sb.append(" and 变更.FIsConSetted=0 and  拆分分录.flevel='0' and 变更审批单.CFBillType !='10'");
     	sb.append(" and 下发单位.cfforecastchangevi is not null");
     	sb.append(" group by 科目.fname_l2,科目.fcodingnumber");
     	sb.append(" union all");
@@ -1502,7 +1769,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
      */
     private String getAimCostSql(CurProjectInfo info, String codingnumber) {
     	StringBuilder sb = new StringBuilder("");
-    	sb.append(" select account.fcodingnumber 科目编码, entry.FCostAmount 目标成本 ");
+    	sb.append(" select account.fcodingnumber 科目编码, sum(entry.FCostAmount) 目标成本 ");
     	sb.append(" from T_AIM_CostEntry entry");
     	sb.append(" left join T_AIM_AimCost aimCost on aimCost.fid=entry.fheadid");
     	sb.append(" left join T_FDC_CostAccount account on account.fid=entry.fcostaccountid");
@@ -1512,6 +1779,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	sb.append(" (");
     	sb.append(" select max(TO_NUMBER(fversionnumber)) from t_aim_aimcost where forgOrProId='"+info.getId().toString()+"'");
     	sb.append(" )");
+    	sb.append(" group by account.fcodingnumber");
     	sb.append(" order by account.fcodingnumber");
     	return sb.toString();
     }
@@ -2298,6 +2566,9 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     		ProjectDynamicCostEntryCollection entrys = info.getEntrys();
     		ProjectDynamicCostEntrysAccountCollection entrysAccount = info.getEntrysAccount();
     		ProjectDynamicCostEntryPositionCollection entryPosition = info.getEntryPosition();
+    		ProjectDynamicCostEentryTotalCollection entryTotal = info.getEentryTotal();
+    		ProjectDynamicCostEntrySixMonthCollection entrySixMonth = info.getEntrySixMonth();
+    		
     		for(int i = 0; i < entrys.size(); i++) {
     			ProjectDynamicCostEntryInfo entryInfo = entrys.get(i);
     			entryInfo.setId(null);
@@ -2310,9 +2581,18 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     			ProjectDynamicCostEntryPositionInfo entryInfo = entryPosition.get(i);
     			entryInfo.setId(null);
     		}
+    		for(int i = 0; i < entryTotal.size(); i++) {
+    			ProjectDynamicCostEentryTotalInfo entryInfo = entryTotal.get(i);
+    			entryInfo.setId(null);
+    		}
+    		for(int i = 0; i < entrySixMonth.size(); i++) {
+    			ProjectDynamicCostEntrySixMonthInfo entryInfo = entrySixMonth.get(i);
+    			entryInfo.setId(null);
+    		}
     	}
     	info.setState(FDCBillStateEnum.SAVED);
     	info.setIsLatest(false);
+    	info.setCU(SysContext.getSysContext().getCurrentCtrlUnit());
         return info;
     }
 

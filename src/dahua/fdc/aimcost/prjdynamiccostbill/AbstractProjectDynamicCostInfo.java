@@ -18,7 +18,9 @@ public class AbstractProjectDynamicCostInfo extends com.kingdee.eas.framework.Co
         super(pkField);
         put("EntryPosition", new com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryPositionCollection());
         put("entrys", new com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntryCollection());
+        put("EentryTotal", new com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEentryTotalCollection());
         put("EntrysAccount", new com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrysAccountCollection());
+        put("EntrySixMonth", new com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrySixMonthCollection());
     }
     /**
      * Object: 工程动态成本跟踪表 's 分录 property 
@@ -163,6 +165,20 @@ public class AbstractProjectDynamicCostInfo extends com.kingdee.eas.framework.Co
     public void setIsLatest(boolean item)
     {
         setBoolean("isLatest", item);
+    }
+    /**
+     * Object: 工程动态成本跟踪表 's 动态成本汇总 property 
+     */
+    public com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEentryTotalCollection getEentryTotal()
+    {
+        return (com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEentryTotalCollection)get("EentryTotal");
+    }
+    /**
+     * Object: 工程动态成本跟踪表 's 最近6月汇总 property 
+     */
+    public com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrySixMonthCollection getEntrySixMonth()
+    {
+        return (com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.ProjectDynamicCostEntrySixMonthCollection)get("EntrySixMonth");
     }
     public BOSObjectType getBOSType()
     {

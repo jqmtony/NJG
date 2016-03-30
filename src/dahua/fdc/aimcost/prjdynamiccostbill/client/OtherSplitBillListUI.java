@@ -29,7 +29,10 @@ import com.kingdee.eas.basedata.org.OrgStructureInfo;
 import com.kingdee.eas.basedata.org.OrgType;
 import com.kingdee.eas.common.client.SysContext;
 import com.kingdee.eas.common.client.UIFactoryName;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.OtherSplitBillFactory;
+import com.kingdee.eas.fdc.aimcost.prjdynamiccostbill.OtherSplitBillInfo;
 import com.kingdee.eas.fdc.basedata.CurProjectInfo;
+import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.client.ProjectTreeBuilder;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.util.SysUtil;
@@ -119,14 +122,34 @@ public class OtherSplitBillListUI extends AbstractOtherSplitBillListUI
 	 */
 	public void actionAudit_actionPerformed(ActionEvent e) throws Exception {
 		checkSelected();
+		String billId = getSelectedKeyValue();
+		OtherSplitBillInfo billInfo = getSelectBillInfo(billId);
+		if(!billInfo.getState().equals(FDCBillStateEnum.SUBMITTED)) {
+			MsgBox.showWarning("非提交状态单据无法审核!");
+			SysUtil.abort();
+		}
 		super.actionAudit_actionPerformed(e);
+		refresh(null);
 	}
 	/**
 	 * 反审核
 	 */
 	public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
 		checkSelected();
+		String billId = getSelectedKeyValue();
+		OtherSplitBillInfo billInfo = getSelectBillInfo(billId);
+		if(!billInfo.getState().equals(FDCBillStateEnum.AUDITTED)) {
+			MsgBox.showWarning("非审核状态单据无法反审核!");
+			SysUtil.abort();
+		}
 		super.actionUnAudit_actionPerformed(e);
+		refresh(null);
+	}
+	
+	private OtherSplitBillInfo getSelectBillInfo(String billId) throws Exception {
+		OtherSplitBillInfo info = null;
+		info = OtherSplitBillFactory.getRemoteInstance().getOtherSplitBillInfo(new ObjectUuidPK(billId));
+		return info;
 	}
     /**
      * output storeFields method
@@ -412,6 +435,14 @@ public class OtherSplitBillListUI extends AbstractOtherSplitBillListUI
      */
     public void actionEdit_actionPerformed(ActionEvent e) throws Exception
     {
+    	checkSelected();
+		String billId = getSelectedKeyValue();
+		OtherSplitBillInfo billInfo = getSelectBillInfo(billId);
+		if(!(billInfo.getState().equals(FDCBillStateEnum.SAVED) || 
+				billInfo.getState().equals(FDCBillStateEnum.SUBMITTED))) {
+			MsgBox.showWarning("非保存或者提交单据无法修改!");
+			SysUtil.abort();
+		}
         super.actionEdit_actionPerformed(e);
     }
 
@@ -420,6 +451,14 @@ public class OtherSplitBillListUI extends AbstractOtherSplitBillListUI
      */
     public void actionRemove_actionPerformed(ActionEvent e) throws Exception
     {
+    	checkSelected();
+		String billId = getSelectedKeyValue();
+		OtherSplitBillInfo billInfo = getSelectBillInfo(billId);
+		if(!(billInfo.getState().equals(FDCBillStateEnum.SAVED) || 
+				billInfo.getState().equals(FDCBillStateEnum.SUBMITTED))) {
+			MsgBox.showWarning("非保存或者提交单据无法删除!");
+			SysUtil.abort();
+		}
         super.actionRemove_actionPerformed(e);
     }
 

@@ -281,6 +281,17 @@ public class AbstractProjectDynamicCostEntryInfo extends com.kingdee.eas.framewo
     {
         setString("programmingName", item);
     }
+    /**
+     * Object:分录's 无文本property 
+     */
+    public java.math.BigDecimal getNotextContract()
+    {
+        return getBigDecimal("notextContract");
+    }
+    public void setNotextContract(java.math.BigDecimal item)
+    {
+        setBigDecimal("notextContract", item);
+    }
     public BOSObjectType getBOSType()
     {
         return new BOSObjectType("BF1D2179");

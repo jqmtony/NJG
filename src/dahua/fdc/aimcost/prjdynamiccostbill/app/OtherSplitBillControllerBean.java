@@ -83,4 +83,13 @@ public class OtherSplitBillControllerBean extends AbstractOtherSplitBillControll
 			e.printStackTrace();
 		}
     }
+    /**
+     * Ã·Ωª
+     */
+    protected IObjectPK _submit(Context ctx, IObjectValue model)
+    		throws BOSException, EASBizException {
+    	OtherSplitBillInfo info = (OtherSplitBillInfo) model;
+    	info.setState(FDCBillStateEnum.SUBMITTED);
+    	return super._submit(ctx, info);
+    }
 }
