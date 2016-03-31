@@ -208,7 +208,24 @@ public class CQGSListUI extends AbstractCQGSListUI
     	sic.add(new SelectorItemInfo("entrys.SaleArea"));
     	sic.add(new SelectorItemInfo("entrys.BuildingFloorArea"));
     	sic.add(new SelectorItemInfo("entrys.Use"));
-    	sic.add(new SelectorItemInfo("entrys.PropertyRight"));
+    	if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entrys.PropertyRight.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entrys.PropertyRight.id"));
+			sic.add(new SelectorItemInfo("entrys.PropertyRight.name"));
+        	sic.add(new SelectorItemInfo("entrys.PropertyRight.number"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entrys.Uses.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("entrys.Uses.id"));
+			sic.add(new SelectorItemInfo("entrys.Uses.name"));
+        	sic.add(new SelectorItemInfo("entrys.Uses.number"));
+		}
         sic.add(new SelectorItemInfo("Version"));
         return sic;
     }        
