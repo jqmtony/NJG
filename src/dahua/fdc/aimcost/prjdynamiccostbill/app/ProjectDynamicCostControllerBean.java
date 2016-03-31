@@ -100,11 +100,11 @@ public class ProjectDynamicCostControllerBean extends AbstractProjectDynamicCost
 		if(caNumbers.size() > 0){
 			StringBuffer params = new StringBuffer();
 			for(Iterator<String> it=caNumbers.iterator(); it.hasNext();) {
-				params.append("'");
-				params.append(it.next());
-				params.append("',");
+				params.append(" costAccount.FLONGNUMBER like '");
+				params.append(it.next().replace('.','!'));
+				params.append("%' or");
 			}
-			params.setLength(params.length()-1);
+			params.setLength(params.length()-2);
 			StringBuffer sb = new StringBuffer();
 			sb.append("update T_CON_ProgrammingContract set cfisqk=1 where FID in");
 			sb.append("(select pcont.fid from T_CON_ProgrammingContract pcont left join T_CON_Programming program on pcont.FPROGRAMMINGID=program.fid");
@@ -112,7 +112,7 @@ public class ProjectDynamicCostControllerBean extends AbstractProjectDynamicCost
 			sb.append(" left join T_FDC_CostAccount costAccount on costAccount.fid=pccost.FCOSTACCOUNTID ");
 			//把合约规划的状态和是否最新两个条件去掉，以达到这个项目下所有版本的合约规划都一样  and program.FSTATE='4AUDITTED' and program.FISLATEST=1
 			sb.append("where program.fprojectid='"+curProject.getId().toString()+"'  ");
-			sb.append("and costAccount.FLONGNUMBER in("+params.toString()+"))");
+			sb.append("and ("+params.toString()+"))");
 			DbUtil.execute(ctx,sb.toString());
 		}
 		
