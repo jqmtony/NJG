@@ -335,14 +335,25 @@ public class SwbEditUI extends AbstractSwbEditUI
     		kdtEntrys.getCell(0, "Sumproportion").setValue(1);
     		kdtEntrys.getCell(1, "Sumproportion").setValue(1);
     		row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(row.getCell("Price").getValue(), row.getCell("GreenArea").getValue(), 4, 4));
-    		row.getCell( "Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(),Price,4, 4));
-			row.getCell( "Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(),GreenArea,4, 4));
     	}
     	if(Price !=null && GreenArea !=null){
-    		kdtEntrys.getCell(0, "GreenAreaIndex").setValue(FDCHelper.divide(kdtEntrys.getCell(0, "Price").getValue(),kdtEntrys.getCell(0, "GreenArea").getValue(),4,4));
+    		kdtEntrys.getCell(0, "GreenAreaIndex").setValue(FDCHelper.divide(kdtEntrys.getCell(0, "Price").getValue(),kdtEntrys.getCell(0, "GreenArea").getValue(),4,4)); 
     		kdtEntrys.getCell(1, "GreenAreaIndex").setValue(FDCHelper.divide(kdtEntrys.getCell(1, "Price").getValue(),kdtEntrys.getCell(1, "GreenArea").getValue(),4,4));
     	}
-    	Price = BigDecimal.ZERO;
+		
+    	BigDecimal value = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(0,"GreenAreaIndex").getValue());
+		txtlandscape.setValue(value);
+		if(txtother.getBigDecimalValue()!=null)
+			value = FDCHelper.add(value,txtother.getBigDecimalValue());
+		else
+			value = FDCHelper.add(value,BigDecimal.ZERO);
+		if(txtGreenH.getBigDecimalValue()!=null)
+			value = FDCHelper.add(value,txtGreenH.getBigDecimalValue());
+		else
+			value = FDCHelper.add(value,BigDecimal.ZERO);
+		txtSumArea.setValue(value);
+		
+		Price = BigDecimal.ZERO;
 		GreenArea = BigDecimal.ZERO;
     	for(int i=5;i<13;i++){
     		Price = FDCHelper.add(Price,(kdtEntrys.getCell(i, "Price").getValue()));
@@ -352,18 +363,30 @@ public class SwbEditUI extends AbstractSwbEditUI
     		kdtEntrys.getCell(4, "GreenArea").setValue(GreenArea);
     		kdtEntrys.getCell(4, "Areaproportion").setValue(1);
     		kdtEntrys.getCell(4, "Sumproportion").setValue(1);
-//    		kdtEntrys.getCell(5, "Areaproportion").setValue(1);
-    		if(Price !=null && GreenArea !=null){
-    			
-    			kdtEntrys.getCell(4, "GreenAreaIndex").setValue(FDCHelper.divide(kdtEntrys.getCell(4, "Price").getValue(),kdtEntrys.getCell(4, "GreenArea").getValue(),4,4));
-    			kdtEntrys.getCell(5, "GreenAreaIndex").setValue(FDCHelper.divide(kdtEntrys.getCell(5, "Price").getValue(),kdtEntrys.getCell(5, "GreenArea").getValue(),4,4));
-    		}
-    		row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(row.getCell("Price").getValue(), row.getCell("GreenArea").getValue(), 4, 4));
-    		row.getCell( "Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(),Price,4, 4));
-			row.getCell( "Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(),GreenArea,4, 4));
+    		kdtEntrys.getCell(5, "Areaproportion").setValue(1);
     	}
+    	if(Price !=null && GreenArea !=null){
+    		
+    		kdtEntrys.getCell(4, "GreenAreaIndex").setValue(FDCHelper.divide(kdtEntrys.getCell(4, "Price").getValue(),kdtEntrys.getCell(4, "GreenArea").getValue(),4,4));
+    		kdtEntrys.getCell(5, "GreenAreaIndex").setValue(FDCHelper.divide(kdtEntrys.getCell(5, "Price").getValue(),kdtEntrys.getCell(5, "GreenArea").getValue(),4,4));
+    		row.getCell( "Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(),Price,4, 4));
+    		row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(row.getCell("Price").getValue(), row.getCell("GreenArea").getValue(), 4, 4));
+    	}
+    
     	Price = BigDecimal.ZERO;
 		GreenArea = BigDecimal.ZERO;
+		value = BigDecimal.ZERO;
+		 value = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(13,"GreenAreaIndex").getValue());
+			txtGreenH.setValue(value);
+			if(txtother.getBigDecimalValue()!=null)
+			value = FDCHelper.add(value,txtother.getBigDecimalValue());
+			else
+				value = FDCHelper.add(value,BigDecimal.ZERO);
+			if(txtlandscape.getBigDecimalValue()!=null)
+				value = FDCHelper.add(value,txtlandscape.getBigDecimalValue());
+			else
+				value = FDCHelper.add(value,BigDecimal.ZERO);
+			txtSumArea.setValue(value);
     	for(int i=15;i<17;i++){
     		Price = FDCHelper.add(Price,(kdtEntrys.getCell(i, "Price").getValue()));
     		GreenArea = FDCHelper.add(GreenArea,(kdtEntrys.getCell(i, "GreenArea").getValue()));
@@ -376,12 +399,14 @@ public class SwbEditUI extends AbstractSwbEditUI
     		kdtEntrys.getCell(14, "GreenArea").setValue(GreenArea);
     		kdtEntrys.getCell(14, "Areaproportion").setValue(1);
     		kdtEntrys.getCell(14, "Sumproportion").setValue(1);
-    		row.getCell( "Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(),Price,4, 4));
-			row.getCell( "Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(),GreenArea,4, 4));
     		row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(row.getCell("Price").getValue(), row.getCell("GreenArea").getValue(), 4, 4));
     		if(Price !=null && GreenArea !=null){
     			kdtEntrys.getCell(13, "GreenAreaIndex").setValue(FDCHelper.divide(kdtEntrys.getCell(13, "Price").getValue(),kdtEntrys.getCell(13, "GreenArea").getValue(),4,4));
     			kdtEntrys.getCell(14, "GreenAreaIndex").setValue(FDCHelper.divide(kdtEntrys.getCell(14, "Price").getValue(),kdtEntrys.getCell(14, "GreenArea").getValue(),4,4));
+    			kdtEntrys.getCell(15, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(15,"Price").getValue(),kdtEntrys.getCell(13,"Price").getValue(),4,4));
+        		kdtEntrys.getCell(16, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(16,"Price").getValue(),kdtEntrys.getCell(13,"Price").getValue(),4,4));
+        		kdtEntrys.getCell(15, "Areaproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(15,"GreenArea").getValue(),kdtEntrys.getCell(14,"GreenArea").getValue(),4,4));
+        		kdtEntrys.getCell(16, "Areaproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(16,"GreenArea").getValue(),kdtEntrys.getCell(14,"GreenArea").getValue(),4,4));
     		}
     	}
     	Price = BigDecimal.ZERO;
@@ -394,175 +419,30 @@ public class SwbEditUI extends AbstractSwbEditUI
     		kdtEntrys.getCell(17, "GreenArea").setValue(GreenArea);
     		kdtEntrys.getCell(17, "Areaproportion").setValue(1);
     		kdtEntrys.getCell(17, "Sumproportion").setValue(1);
-    		row.getCell( "Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(),Price,4, 4));
-			row.getCell( "Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(),GreenArea,4, 4));
+    		kdtEntrys.getCell(18, "Areaproportion").setValue(1);
     		row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(row.getCell("Price").getValue(), row.getCell("GreenArea").getValue(), 4, 4));
     		if(Price !=null && GreenArea !=null){
     			kdtEntrys.getCell(17, "GreenAreaIndex").setValue(FDCHelper.divide(kdtEntrys.getCell(17, "Price").getValue(),kdtEntrys.getCell(17, "GreenArea").getValue(),4,4));
     		}
     	}
-//        if("1.1.2".equals(kdtEntrys.getCell(rowIndex, "key").getValue())){
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	GreenArea = FDCHelper.add(GreenArea, row.getCell("GreenArea").getValue());
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	GreenArea = FDCHelper.add(GreenArea, row.getCell("GreenArea").getValue());
-//        	row.getCell("Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(), GreenArea, 4, 4));
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);//1.1µÄ»ã×Ü
-//        	row.getCell("Price").setValue(Price);
-//        	row.getCell("GreenArea").setValue(GreenArea);
-//        	row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(Price,GreenArea , 4, 4));
-//        	row.getCell("Areaproportion").setValue(1);
-//        	row.getCell("Sumproportion").setValue(1);
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);//1.Ó²¾°
-//        	row.getCell("Price").setValue(Price);
-//        	row.getCell("GreenArea").setValue(GreenArea);
-//        	row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(Price,GreenArea , 4, 4));
-//        	row.getCell("Areaproportion").setValue(1);
-//        	row.getCell("Sumproportion").setValue(1);
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+3);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row.getCell("Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(), GreenArea, 4, 4));
-//        	txtlandscape.setValue(Price.divide(GreenArea));
-//        	if(txtGreenH.getBigDecimalValue() != null && txtother.getBigDecimalValue() != null)
-//        		txtSumArea.setValue(GreenArea.add(txtother.getBigDecimalValue()).add(txtGreenH.getBigDecimalValue()));
-//        	else if(txtGreenH.getBigDecimalValue() != null)
-//        		txtSumArea.setValue(GreenArea.add(txtGreenH.getBigDecimalValue()));
-//        	else if(txtother.getBigDecimalValue() != null)
-//        		txtSumArea.setValue(GreenArea.add(txtother.getBigDecimalValue()));
-//        }
-//        if("1.2.8".equals(kdtEntrys.getCell(rowIndex, "key").getValue())){
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	GreenArea = FDCHelper.add(GreenArea, row.getCell("GreenArea").getValue());
-//        	//1.2.7
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	//1.2.6
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	//1.2.5
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	//1.2.4
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	//1.2.3
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	//1.2.2
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	//1.2.1
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row.getCell("Areaproportion").setValue(1);
-//        	//1.2
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	row.getCell("Price").setValue(Price);
-//        	row.getCell("GreenArea").setValue(GreenArea);
-//        	row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(Price,GreenArea , 4, 4));
-//        	row.getCell("Areaproportion").setValue(1);
-//        	row.getCell("Sumproportion").setValue(1);
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        }
-//        if("2.1.2".equals(kdtEntrys.getCell(rowIndex, "key").getValue())){
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	GreenArea = FDCHelper.add(GreenArea, row.getCell("GreenArea").getValue());
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	GreenArea = FDCHelper.add(GreenArea, row.getCell("GreenArea").getValue());
-//        	row.getCell("Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(), GreenArea, 4, 4));
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	row.getCell("Price").setValue(Price);
-//        	row.getCell("GreenArea").setValue(GreenArea);
-//        	row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(Price,GreenArea , 4, 4));
-//        	row.getCell("Areaproportion").setValue(1);
-//        	row.getCell("Sumproportion").setValue(1);
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	row.getCell("Price").setValue(Price);
-//        	row.getCell("GreenArea").setValue(GreenArea);
-//        	row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(Price,GreenArea , 4, 4));
-//        	row.getCell("Areaproportion").setValue(1);
-//        	row.getCell("Sumproportion").setValue(1);
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+3);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row.getCell("Areaproportion").setValue(FDCHelper.divide(row.getCell("GreenArea").getValue(), GreenArea, 4, 4));
-//        	txtGreenH.setValue(Price.divide(GreenArea));
-//        	if(txtlandscape.getBigDecimalValue() != null && txtother.getBigDecimalValue() != null)
-//        		txtSumArea.setValue(GreenArea.add(txtother.getBigDecimalValue()).add(txtlandscape.getBigDecimalValue()));
-//        	else if(txtlandscape.getBigDecimalValue() != null)
-//        		txtSumArea.setValue(GreenArea.add(txtlandscape.getBigDecimalValue()));
-//        	else if(txtother.getBigDecimalValue() != null)
-//        		txtSumArea.setValue(GreenArea.add(txtother.getBigDecimalValue()));
-//        }
-//        if("2.2.6".equals(kdtEntrys.getCell(rowIndex, "key").getValue())){
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	GreenArea = FDCHelper.add(GreenArea, row.getCell("GreenArea").getValue());
-//        	//2.2.5
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	//2.2.4
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	//2.2.3
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	//2.2.2
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	//2.2.1
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	Price = FDCHelper.add(Price, row.getCell("Price").getValue());
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row.getCell("Areaproportion").setValue(1);
-//        	//2.2
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()-1);
-//        	row.getCell("Price").setValue(Price);
-//        	row.getCell("GreenArea").setValue(GreenArea);
-//        	row.getCell("GreenAreaIndex").setValue(FDCHelper.divide(Price,GreenArea , 4, 4));
-//        	row.getCell("Areaproportion").setValue(1);
-//        	row.getCell("Sumproportion").setValue(1);
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        	row = this.kdtEntrys.getRow(row.getRowIndex()+1);
-//        	row.getCell("Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(), Price, 4, 4));
-//        }
+    	row.getCell( "Sumproportion").setValue(FDCHelper.divide(row.getCell("Price").getValue(),Price,4, 4));
         if("3".equals(kdtEntrys.getCell(rowIndex, "key").getValue())){
-        	txtother.setValue(row.getCell("GreenAreaIndex").getValue());
-//        	if(txtlandscape.getBigDecimalValue() != null && txtGreenH.getBigDecimalValue() != null)
-//        		txtSumArea.setValue(GreenArea.add(txtGreenH.getBigDecimalValue()).add(txtlandscape.getBigDecimalValue()));
-//        	else if(txtlandscape.getBigDecimalValue() != null)
-//        		txtSumArea.setValue(GreenArea.add(txtlandscape.getBigDecimalValue()));
-//        	else if(txtGreenH.getBigDecimalValue() != null)
-//        		txtSumArea.setValue(GreenArea.add(txtGreenH.getBigDecimalValue()));
+        	value =BigDecimal.ZERO;
+        		value = UIRuleUtil.getBigDecimal(row.getCell("GreenAreaIndex").getValue());
+        		if(txtlandscape.getBigDecimalValue()!=null)
+        			value = FDCHelper.add(value,txtlandscape.getBigDecimalValue());
+        		else
+        			value = FDCHelper.add(value,BigDecimal.ZERO);
+        		if(txtGreenH.getBigDecimalValue()!=null)
+        			value = FDCHelper.add(value,txtGreenH.getBigDecimalValue());
+        		else
+        			value = FDCHelper.add(value,BigDecimal.ZERO);
+        	txtother.setValue(value);
         }
+        kdtEntrys.getCell(2, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(2,"Price").getValue(),kdtEntrys.getCell(0,"Price").getValue(),4,4));
+        kdtEntrys.getCell(2, "Areaproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(2,"GreenArea").getValue(),kdtEntrys.getCell(0,"GreenArea").getValue(),4,4));
+        kdtEntrys.getCell(3, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(3,"Price").getValue(),kdtEntrys.getCell(0,"Price").getValue(),4,4));
+        kdtEntrys.getCell(3, "Areaproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(3,"GreenArea").getValue(),kdtEntrys.getCell(0,"GreenArea").getValue(),4,4));
     }
 
     /**

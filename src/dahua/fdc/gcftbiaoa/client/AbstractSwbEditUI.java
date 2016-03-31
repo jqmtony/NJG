@@ -353,7 +353,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.contVersion.setBoundLabelText(resHelper.getString("contVersion.boundLabelText"));		
         this.contVersion.setBoundLabelLength(100);		
         this.contVersion.setBoundLabelUnderline(true);		
-        this.contVersion.setVisible(true);
+        this.contVersion.setVisible(true);		
+        this.contVersion.setEnabled(false);
         // chklasted		
         this.chklasted.setText(resHelper.getString("chklasted.text"));		
         this.chklasted.setHorizontalAlignment(2);		
@@ -545,7 +546,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.txtVersion.setHorizontalAlignment(2);		
         this.txtVersion.setDataType(0);		
         this.txtVersion.setSupportedEmpty(true);		
-        this.txtVersion.setRequired(false);
+        this.txtVersion.setRequired(false);		
+        this.txtVersion.setEnabled(false);
         // txtSumArea		
         this.txtSumArea.setHorizontalAlignment(2);		
         this.txtSumArea.setDataType(1);		
@@ -553,7 +555,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.txtSumArea.setMinimumValue( new java.math.BigDecimal("-1.0E24"));		
         this.txtSumArea.setMaximumValue( new java.math.BigDecimal("1.0E24"));		
         this.txtSumArea.setPrecision(4);		
-        this.txtSumArea.setRequired(false);
+        this.txtSumArea.setRequired(false);		
+        this.txtSumArea.setEnabled(false);
         // txtCostThan		
         this.txtCostThan.setHorizontalAlignment(2);		
         this.txtCostThan.setDataType(1);		
@@ -577,7 +580,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.txtlandscape.setMinimumValue( new java.math.BigDecimal("-1.0E24"));		
         this.txtlandscape.setMaximumValue( new java.math.BigDecimal("1.0E24"));		
         this.txtlandscape.setPrecision(4);		
-        this.txtlandscape.setRequired(false);
+        this.txtlandscape.setRequired(false);		
+        this.txtlandscape.setEnabled(false);
         // txtSumAreaIndax		
         this.txtSumAreaIndax.setHorizontalAlignment(2);		
         this.txtSumAreaIndax.setDataType(1);		
@@ -593,7 +597,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.txtGreenH.setMinimumValue( new java.math.BigDecimal("-1.0E24"));		
         this.txtGreenH.setMaximumValue( new java.math.BigDecimal("1.0E24"));		
         this.txtGreenH.setPrecision(4);		
-        this.txtGreenH.setRequired(false);
+        this.txtGreenH.setRequired(false);		
+        this.txtGreenH.setEnabled(false);
         // pkauditTime		
         this.pkauditTime.setRequired(false);
         // txtother		
@@ -603,7 +608,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.txtother.setMinimumValue( new java.math.BigDecimal("-1.0E24"));		
         this.txtother.setMaximumValue( new java.math.BigDecimal("1.0E24"));		
         this.txtother.setPrecision(4);		
-        this.txtother.setRequired(false);
+        this.txtother.setRequired(false);		
+        this.txtother.setEnabled(false);
         // btnAudit
         this.btnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionAduit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnAudit.setText(resHelper.getString("btnAudit.text"));
