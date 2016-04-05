@@ -83,8 +83,9 @@ public class SwbEditUI extends AbstractSwbEditUI
 		btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
 		btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
 //		initui();
-		kdtEntrys.getColumn("Sumproportion").getStyleAttributes().setLocked(true);
+		kdtEntrys.getColumn("GreenAreaIndex").getStyleAttributes().setLocked(true);
 		kdtEntrys.getColumn("Areaproportion").getStyleAttributes().setLocked(true);
+		kdtEntrys.getColumn("Sumproportion").getStyleAttributes().setLocked(true);
 		kdtEntrys.getColumn("danwei").getStyleAttributes().setLocked(true);
 		
 		kdtEntrys.getRow(0).getStyleAttributes().setLocked(true);
@@ -93,6 +94,9 @@ public class SwbEditUI extends AbstractSwbEditUI
 		kdtEntrys.getRow(13).getStyleAttributes().setLocked(true);
 		kdtEntrys.getRow(14).getStyleAttributes().setLocked(true);
 		kdtEntrys.getRow(17).getStyleAttributes().setLocked(true);
+		//
+		actionAddNew.setVisible(false);
+		actionCopy.setVisible(false);
 	}
 	
 	private void initui() throws BOSException{
@@ -262,15 +266,16 @@ public class SwbEditUI extends AbstractSwbEditUI
 
 	protected void verifyInput(ActionEvent actionevent) throws Exception {
 		super.verifyInput(actionevent);
-		FilterInfo filInfo = new FilterInfo();
-		filInfo.getFilterItems().add(new FilterItemInfo("ProjectName.id",editData.getProjectName().getId()));
-		if(editData.getId()!=null){
-			filInfo.getFilterItems().add(new FilterItemInfo("id",editData.getId(),CompareType.NOTEQUALS));
-			if(SwbFactory.getRemoteInstance().exists(filInfo)){
-				MsgBox.showWarning("已有单据不能新增");
-				SysUtil.abort();
-			}
-		}
+//		FilterInfo filInfo = new FilterInfo();
+//		filInfo.getFilterItems().add(new FilterItemInfo("ProjectName.id",editData.getProjectName().getId()));
+//		filInfo.getFilterItems().add(new FilterItemInfo("Version",editData.getVersion(),CompareType.GREATER));
+//		if(editData.getId()!=null){
+//			filInfo.getFilterItems().add(new FilterItemInfo("id",editData.getId(),CompareType.NOTEQUALS));
+//			if(SwbFactory.getRemoteInstance().exists(filInfo)){
+//				MsgBox.showWarning("已有单据不能新增");
+//				SysUtil.abort();
+//			}
+//		}
 	}
     /**
      * output btnAddLine_actionPerformed method
@@ -376,6 +381,7 @@ public class SwbEditUI extends AbstractSwbEditUI
     	Price = BigDecimal.ZERO;
 		GreenArea = BigDecimal.ZERO;
 		value = BigDecimal.ZERO;
+		
 		 value = UIRuleUtil.getBigDecimal(kdtEntrys.getCell(13,"GreenAreaIndex").getValue());
 			txtGreenH.setValue(value);
 			if(txtother.getBigDecimalValue()!=null)
@@ -429,6 +435,7 @@ public class SwbEditUI extends AbstractSwbEditUI
         if("3".equals(kdtEntrys.getCell(rowIndex, "key").getValue())){
         	value =BigDecimal.ZERO;
         		value = UIRuleUtil.getBigDecimal(row.getCell("GreenAreaIndex").getValue());
+        		txtother.setValue(value);
         		if(txtlandscape.getBigDecimalValue()!=null)
         			value = FDCHelper.add(value,txtlandscape.getBigDecimalValue());
         		else
@@ -437,12 +444,22 @@ public class SwbEditUI extends AbstractSwbEditUI
         			value = FDCHelper.add(value,txtGreenH.getBigDecimalValue());
         		else
         			value = FDCHelper.add(value,BigDecimal.ZERO);
-        	txtother.setValue(value);
+        		txtSumArea.setValue(value);
         }
+        //1.1的总造价赋值
         kdtEntrys.getCell(2, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(2,"Price").getValue(),kdtEntrys.getCell(0,"Price").getValue(),4,4));
         kdtEntrys.getCell(2, "Areaproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(2,"GreenArea").getValue(),kdtEntrys.getCell(0,"GreenArea").getValue(),4,4));
         kdtEntrys.getCell(3, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(3,"Price").getValue(),kdtEntrys.getCell(0,"Price").getValue(),4,4));
         kdtEntrys.getCell(3, "Areaproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(3,"GreenArea").getValue(),kdtEntrys.getCell(0,"GreenArea").getValue(),4,4));
+       //1.2的总造价赋值
+        kdtEntrys.getCell(5, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(5,"Price").getValue(),kdtEntrys.getCell(4,"Price").getValue(),4,4));
+        kdtEntrys.getCell(6, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(6,"Price").getValue(),kdtEntrys.getCell(4,"Price").getValue(),4,4));
+        kdtEntrys.getCell(7, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(7,"Price").getValue(),kdtEntrys.getCell(4,"Price").getValue(),4,4));
+        kdtEntrys.getCell(8, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(8,"Price").getValue(),kdtEntrys.getCell(4,"Price").getValue(),4,4));
+        kdtEntrys.getCell(9, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(9,"Price").getValue(),kdtEntrys.getCell(4,"Price").getValue(),4,4));
+        kdtEntrys.getCell(10, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(10,"Price").getValue(),kdtEntrys.getCell(4,"Price").getValue(),4,4));
+        kdtEntrys.getCell(11, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(11,"Price").getValue(),kdtEntrys.getCell(4,"Price").getValue(),4,4));
+        kdtEntrys.getCell(12, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(12,"Price").getValue(),kdtEntrys.getCell(4,"Price").getValue(),4,4));
     }
 
     /**
@@ -459,6 +476,7 @@ public class SwbEditUI extends AbstractSwbEditUI
     public void actionExitCurrent_actionPerformed(ActionEvent e) throws Exception
     {
         super.actionExitCurrent_actionPerformed(e);
+//        setSave(true);
     }
 
     /**

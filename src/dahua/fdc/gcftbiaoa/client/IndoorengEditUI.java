@@ -43,6 +43,7 @@ import com.kingdee.bos.ctrl.kdf.table.KDTMergeManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTSortManager;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.util.style.Styles.HorizontalAlignment;
+import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 
 /**
  * output class name
@@ -221,16 +222,25 @@ public class IndoorengEditUI extends AbstractIndoorengEditUI
     		filInfo.getFilterItems().add(new FilterItemInfo("Room.id",editData.getRoom().getId()));
     		if(editData.getId()!=null){
     			filInfo.getFilterItems().add(new FilterItemInfo("id",editData.getId(),CompareType.NOTEQUALS));
-    			if(IndoorengFactory.getRemoteInstance().exists(filInfo)){
-    				MsgBox.showWarning("已有该房型的单据，请修改房型，再提交。");
-    				SysUtil.abort();
-    			}
     		}
+    		if(IndoorengFactory.getRemoteInstance().exists(filInfo)){
+				MsgBox.showWarning("已有该房型的单据，请修改房型，再提交。");
+				SysUtil.abort();
+			}
     	}
     	super.verifyInput(e);
-
     }
-    /**
+    
+//	protected void prmtRoom_dataChanged(DataChangeEvent e) throws Exception {
+//		super.prmtRoom_dataChanged(e);
+//		FilterInfo filInfo = new FilterInfo();
+////		filInfo.getFilterItems().add(new FilterItemInfo("Room.id",editData.getRoom().getId(),CompareType.EQUALS));
+//		if(IndoorengFactory.getRemoteInstance().exists(filInfo)){
+//			MsgBox.showWarning("已有该房型的单据，请修改房型，再提交。");
+//			SysUtil.abort();
+//		}
+//	}
+	/**
      * output btnAddLine_actionPerformed method
      */
     protected void btnAddLine_actionPerformed(java.awt.event.ActionEvent e) throws Exception

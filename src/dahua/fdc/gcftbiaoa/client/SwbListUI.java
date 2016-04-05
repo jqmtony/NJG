@@ -547,8 +547,12 @@ public class SwbListUI extends AbstractSwbListUI
     /**
      * output actionAddNew_actionPerformed
      */
-    public void actionAddNew_actionPerformed(ActionEvent e) throws Exception
-    {
+    public void actionAddNew_actionPerformed(ActionEvent e) throws Exception{
+    	//
+    	if(tblMain.getRowCount() > 0){
+    		MsgBox.showWarning("已有单据不能新增");
+			SysUtil.abort();
+    	}
         super.actionAddNew_actionPerformed(e);
     }
 

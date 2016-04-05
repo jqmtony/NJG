@@ -509,6 +509,16 @@ public abstract class AbstractIndoorengEditUI extends com.kingdee.eas.framework.
         this.prmtRoom.setEditFormat("$number$");		
         this.prmtRoom.setCommitFormat("$number$");		
         this.prmtRoom.setRequired(false);
+        this.prmtRoom.addDataChangeListener(new com.kingdee.bos.ctrl.swing.event.DataChangeListener() {
+            public void dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) {
+                try {
+                    prmtRoom_dataChanged(e);
+                } catch (Exception exc) {
+                    handUIException(exc);
+                } finally {
+                }
+            }
+        });
         // txtSalesArea		
         this.txtSalesArea.setVisible(true);		
         this.txtSalesArea.setHorizontalAlignment(2);		
@@ -1047,6 +1057,13 @@ public abstract class AbstractIndoorengEditUI extends com.kingdee.eas.framework.
      * output kdtEntrys_editStopped method
      */
     protected void kdtEntrys_editStopped(com.kingdee.bos.ctrl.kdf.table.event.KDTEditEvent e) throws Exception
+    {
+    }
+
+    /**
+     * output prmtRoom_dataChanged method
+     */
+    protected void prmtRoom_dataChanged(com.kingdee.bos.ctrl.swing.event.DataChangeEvent e) throws Exception
     {
     }
 
