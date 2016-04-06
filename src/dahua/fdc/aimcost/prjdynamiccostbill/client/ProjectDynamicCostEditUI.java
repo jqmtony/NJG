@@ -40,6 +40,10 @@ import com.kingdee.bos.util.BOSUuid;
 import com.kingdee.bos.dao.IObjectPK;
 import com.kingdee.bos.dao.IObjectValue;
 import com.kingdee.bos.dao.ormapping.ObjectUuidPK;
+import com.kingdee.eas.base.core.client.f7.F7AdaptorBuilderParam;
+import com.kingdee.eas.base.core.client.f7.F7ContextInitializationHelper;
+import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
+import com.kingdee.eas.basedata.org.OrgType;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
 import com.kingdee.eas.common.client.SysContext;
@@ -86,10 +90,12 @@ import com.kingdee.eas.fdc.finance.VersionTypeEnum;
 import com.kingdee.eas.fm.ecore.app.bean.commercialdraft.ContractInformation;
 import com.kingdee.eas.framework.*;
 import com.kingdee.eas.framework.client.FrameWorkClientUtils;
+import com.kingdee.eas.framework.client.context.f7.RegisterF7Param;
 import com.kingdee.eas.util.SysUtil;
 import com.kingdee.eas.util.client.EASResource;
 import com.kingdee.eas.util.client.MsgBox;
 import com.kingdee.jdbc.rowset.IRowSet;
+import com.kingdee.bos.ctrl.extendcontrols.KDBizPromptBox;
 import com.kingdee.bos.ctrl.kdf.table.IRow;
 import com.kingdee.bos.ctrl.kdf.table.KDTable;
 import com.kingdee.bos.ctrl.kdf.table.event.KDTMouseEvent;
@@ -188,6 +194,41 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     		}
     		count++;
     	}
+    	
+//    	final EntityViewInfo evi = new EntityViewInfo();
+//        final FilterInfo filter = new FilterInfo();
+//        filter.getFilterItems().add(new FilterItemInfo("CU.id", (Object)SysContext.getSysContext().getCurrentCtrlUnit().getId()));
+//        evi.setFilter(filter);
+//        initF7Position(prmtfirstLevelPos, evi);
+//        initF7Position(prmtsecondLevelPos, evi);
+//        initF7Position(prmtthirdLevelPos, evi);
+    	AdminOrgUnitInfo adminUnit = SysContext.getSysContext().getCurrentAdminUnit();
+    	EntityViewInfo evi = new EntityViewInfo();
+    	FilterInfo filter = new FilterInfo();
+    	evi.setFilter(filter);
+    	SorterItemCollection sic = new SorterItemCollection();
+    	sic.add(new SorterItemInfo("number"));
+    	evi.setSorter(sic);
+    	filter.getFilterItems().add(new FilterItemInfo("adminOrgUnit.longnumber", adminUnit.getLongNumber()+"%", CompareType.LIKE));
+    	prmtfirstLevelPos.setEntityViewInfo(evi);
+    	prmtsecondLevelPos.setEntityViewInfo(evi);
+    	prmtthirdLevelPos.setEntityViewInfo(evi);
+    	
+    	this.btnCopy.setVisible(false);//隐藏复制按钮
+    }
+    /**
+     * 职位树状显示(只能单选)
+     * @param box
+     * @param evi
+     * @throws BOSException
+     */
+    private void initF7Position(KDBizPromptBox box, EntityViewInfo evi) throws BOSException {
+    	final RegisterF7Param f7Param = new RegisterF7Param(box, "com.kingdee.eas.basedata.org.app.PositionQuery", OrgType.Admin);
+        final F7AdaptorBuilderParam f7AdaptorBuilderParam = new F7AdaptorBuilderParam("com.kingdee.eas.hr.base.client.f7.CustomizePositionF7AdaptorBuilder", new Class[] { IUIObject.class }, new Object[] { this });
+        F7ContextInitializationHelper.initF7Context(f7Param, f7AdaptorBuilderParam);
+        box.setHasCUDefaultFilter(false);
+        box.setEntityViewInfo(evi);
+        box.setEditable(false);
     }
     /**
      * output loadFields method
@@ -519,7 +560,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     		addRow.getCell("ContractBillId").setValue(rowSet.getString("contractId"));
     		addRow.getCell("Contract").setValue(rowSet.getString("contractName"));
     		addRow.getCell("Amount").setValue(rowSet.getBigDecimal("programAmount"));
-    		addRow.getCell("ContractAmount").setValue(rowSet.getBigDecimal("contractAmount"));
+    		addRow.getCell("ContractAmount").setValue(rowSet.getBigDecimal("contractAmount") == null ? BigDecimal.ZERO : rowSet.getBigDecimal("contractAmount"));
     		addRow.getCell("onWayCost").setValue(rowSet.getBigDecimal("onWayAmount") == null ? BigDecimal.ZERO:rowSet.getBigDecimal("onWayAmount"));
     	}
     	String noTextContractSql = getNoTextContractSql(editData.getCurProject());
@@ -592,6 +633,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     		Map detailMap = new HashMap();
     		detailMap.put("adjustAmount", rowSet.getBigDecimal("adjustAmount"));
     		detailMap.put("billId", rowSet.getString("billId"));
+    		detailMap.put("comment", rowSet.getString("fcomment"));
     		otherChangeMap.put(rowSet.getString("contractId"), detailMap);
     	}
     	//截至本月初所有其他调整
@@ -619,6 +661,11 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     		row.getCell("siteCertificatAmount").setValue(siteChangeAmount==null ? BigDecimal.ZERO : siteChangeAmount);
     		settleAmount = (BigDecimal) settleMap.get(contractId);
     		row.getCell("settlementAmount").setValue(settleAmount==null ? BigDecimal.ZERO : settleAmount);
+//    		if(settleAmount != null) {
+//    			row.getCell("ContractAmount").setValue(BigDecimal.ZERO);
+//    			row.getCell("designChangeAmount").setValue(BigDecimal.ZERO);
+//    			row.getCell("siteCertificatAmount").setValue(BigDecimal.ZERO);
+//    		}
     		
     		BigDecimal noTextContract = (BigDecimal) noContractMap.get(row.getCell("programmingId").getValue().toString());
     		row.getCell("notextContract").setValue(noTextContract == null ? BigDecimal.ZERO : noTextContract);
@@ -656,6 +703,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     			otherAmount = (BigDecimal) otherDetailMap.get("adjustAmount");
     			row.getCell("curMonthOtherAmount").setValue(otherAmount==null ? BigDecimal.ZERO : otherAmount);
     			row.getCell("curMonthOtherId").setValue(otherDetailMap.get("billId"));
+    			row.getCell("Comment").setValue(otherDetailMap.get("comment"));
     		} else {
     			row.getCell("curMonthOtherAmount").setValue(BigDecimal.ZERO);
     		}
@@ -1084,8 +1132,11 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
         		BigDecimal EstimateChangeBalance = (BigDecimal) row.getCell("EstimateChangeBalance").getValue();
         		BigDecimal curMonthOtherAmount = (BigDecimal) row.getCell("curMonthOtherAmount").getValue();
         		BigDecimal otherAmount = (BigDecimal) row.getCell("otherAmount").getValue();
+        		//记录当前行 在途成本+预估变更签证余额+本月其他调整+截至本月其他调整 之和
+        		BigDecimal rowSum = EstimateChangeBalance.add(curMonthOtherAmount).add(otherAmount).add(onWayCost);
+        		detailMap.put("rowSum", rowSum);
 //        		BigDecimal unSignContract = (BigDecimal) row.getCell("unSignContract").getValue();
-        		BigDecimal sumC = onWayCost.add(EstimateChangeBalance).add(curMonthOtherAmount).add(otherAmount).add(unSignContract);
+        		BigDecimal sumC = rowSum.add(unSignContract);
         		detailMap.put("sumC",sumC);
         		
         		
@@ -1096,7 +1147,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
         		BigDecimal diffAmount = planAmount.subtract(sumB).subtract(sumC);
         		detailMap.put("diffAmount",diffAmount);
         		//规划差异率
-        		BigDecimal diffRate = diffAmount.divide(planAmount, 2, BigDecimal.ROUND_HALF_UP);
+        		BigDecimal diffRate = diffAmount.divide(planAmount, 5, BigDecimal.ROUND_HALF_UP);
         		detailMap.put("diffRate",diffRate);
         		
         		programMap.put(programmingId, detailMap);
@@ -1141,22 +1192,29 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
         		BigDecimal otherAmount = (BigDecimal) row.getCell("otherAmount").getValue();
 //        		BigDecimal unSignContract = (BigDecimal) row.getCell("unSignContract").getValue();
         		
-        		BigDecimal sumC = onWayCost.add(EstimateChangeBalance).add(curMonthOtherAmount).add(otherAmount).add(unSignContract);
-        		BigDecimal preSumC = (BigDecimal) detailMap.get("sumC");
-        		BigDecimal newSumC = preSumC.add(sumC);
+        		BigDecimal preRowSum = (BigDecimal) detailMap.get("rowSum");
+        		BigDecimal rowSum = EstimateChangeBalance.add(curMonthOtherAmount).add(otherAmount).add(onWayCost);
+        		preRowSum = preRowSum.add(rowSum);
+        		detailMap.put("rowSum", preRowSum);
+        		
+//        		BigDecimal sumC = onWayCost.add(EstimateChangeBalance).add(curMonthOtherAmount).add(otherAmount).add(unSignContract);
+//        		BigDecimal preSumC = (BigDecimal) detailMap.get("sumC");
+//        		BigDecimal newSumC = preSumC.add(sumC);
+        		BigDecimal newSumC = preRowSum.add(unSignContract);
         		detailMap.put("sumC", newSumC);
         		
         		
         		//计算动态成本 前一次
-        		BigDecimal preDynamicCost = (BigDecimal) detailMap.get("dynamicCost");
-        		detailMap.put("dynamicCost",preDynamicCost.add(sumB).add(sumC));
+//        		BigDecimal preDynamicCost = (BigDecimal) detailMap.get("dynamicCost");
+//        		detailMap.put("dynamicCost",preDynamicCost.add(sumB).add(newSumC));
+        		detailMap.put("dynamicCost",newSumB.add(newSumC));
         		//规划差额
         		BigDecimal diffAmount = planAmount.subtract(newSumB).subtract(newSumC);
 //        		BigDecimal preDiffAmount = (BigDecimal) detailMap.get("diffAmount");
 //        		BigDecimal newDiffAmount = preDiffAmount.add(diffAmount);
         		detailMap.put("diffAmount",diffAmount);
         		//规划差异率
-        		BigDecimal diffRate = diffAmount.divide(planAmount, 2, BigDecimal.ROUND_HALF_UP);
+        		BigDecimal diffRate = diffAmount.divide(planAmount, 5, BigDecimal.ROUND_HALF_UP);
         		detailMap.put("diffRate",diffRate);
     		}
     	}
@@ -1196,18 +1254,23 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     				otherWindow.show();
     				BOSUuid otherId = ((OtherSplitBillEditUI)otherWindow.getUIObject()).editData.getId();
     				BigDecimal adjustAmount = ((OtherSplitBillEditUI)otherWindow.getUIObject()).editData.getAdjustAmount();
+    				String comment = ((OtherSplitBillEditUI)otherWindow.getUIObject()).editData.getComment();
     				if(otherId != null)
     					kdtEntrysContract.getRow(e.getRowIndex()).getCell("curMonthOtherId").setValue(otherId.toString());
-    				if(adjustAmount != null)
+    				if(adjustAmount != null) {
     					kdtEntrysContract.getRow(e.getRowIndex()).getCell("curMonthOtherAmount").setValue(adjustAmount);
+    					kdtEntrysContract.getRow(e.getRowIndex()).getCell("Comment").setValue(comment);
+    				}
     			} else {
     				context.put(UIContext.ID, otherSplitId);
     				IUIWindow otherWindow = UIFactory.createUIFactory().create(OtherSplitBillEditUI.class.getName(), context, null, OprtState.VIEW);
     				otherWindow.show();
     				BigDecimal adjustAmount = ((OtherSplitBillEditUI)otherWindow.getUIObject()).editData.getAdjustAmount();
+    				String comment = ((OtherSplitBillEditUI)otherWindow.getUIObject()).editData.getComment();
     				BigDecimal originAmount = (BigDecimal) kdtEntrysContract.getRow(e.getRowIndex()).getCell("curMonthOtherAmount").getValue();
     				if(originAmount != null && originAmount.compareTo(adjustAmount) != 0) {
     					kdtEntrysContract.getRow(e.getRowIndex()).getCell("curMonthOtherAmount").setValue(adjustAmount);
+    					kdtEntrysContract.getRow(e.getRowIndex()).getCell("Comment").setValue(comment);
     				}
     			}
     		}
@@ -1466,7 +1529,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	int month = this.spMonth.getIntegerVlaue().intValue();
     	Date date = getCurrentMonthDate(year, month);
     	StringBuilder sb = new StringBuilder();
-    	sb.append(" select bill.CFAdjustAmount adjustAmount,contract.fid contractId,bill.fid billId from CT_AIM_OtherSplitBill bill");
+    	sb.append(" select bill.CFAdjustAmount adjustAmount,bill.CFComment fcomment,contract.fid contractId,bill.fid billId from CT_AIM_OtherSplitBill bill");
     	sb.append(" left join t_con_contractbill contract on contract.fid=bill.CFContractID");
     	sb.append(" left join t_fdc_curproject project on project.fid=bill.cfcurprojectid");
     	sb.append(" where 1=1");
