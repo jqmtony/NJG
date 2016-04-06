@@ -127,6 +127,7 @@ public class ConfirquantitesListUI extends AbstractConfirquantitesListUI
     	super.onLoad();
     	buildProjectTree();
     	buildContractTypeTree();
+    	tblMain.getColumn("version").getStyleAttributes().setHided(true);
     	
     	initButtonStatus();
     	initTable();

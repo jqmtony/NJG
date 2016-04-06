@@ -26,6 +26,7 @@ import com.kingdee.eas.fdc.basedata.CurProjectInfo;
 import com.kingdee.eas.fdc.basedata.FDCBillStateEnum;
 import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
+import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
 import com.kingdee.eas.fdc.gcftbiaoa.SwbEntryCollection;
 import com.kingdee.eas.fdc.gcftbiaoa.SwbEntryInfo;
 import com.kingdee.eas.fdc.gcftbiaoa.SwbFactory;
@@ -89,11 +90,17 @@ public class SwbEditUI extends AbstractSwbEditUI
 		kdtEntrys.getColumn("danwei").getStyleAttributes().setLocked(true);
 		
 		kdtEntrys.getRow(0).getStyleAttributes().setLocked(true);
+		kdtEntrys.getRow(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
 		kdtEntrys.getRow(1).getStyleAttributes().setLocked(true);
+		kdtEntrys.getRow(1).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
 		kdtEntrys.getRow(4).getStyleAttributes().setLocked(true);
+		kdtEntrys.getRow(4).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
 		kdtEntrys.getRow(13).getStyleAttributes().setLocked(true);
+		kdtEntrys.getRow(13).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
 		kdtEntrys.getRow(14).getStyleAttributes().setLocked(true);
+		kdtEntrys.getRow(14).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
 		kdtEntrys.getRow(17).getStyleAttributes().setLocked(true);
+		kdtEntrys.getRow(17).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
 		//
 		actionAddNew.setVisible(false);
 		actionCopy.setVisible(false);

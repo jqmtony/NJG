@@ -231,15 +231,6 @@ public class IndoorengEditUI extends AbstractIndoorengEditUI
     	super.verifyInput(e);
     }
     
-//	protected void prmtRoom_dataChanged(DataChangeEvent e) throws Exception {
-//		super.prmtRoom_dataChanged(e);
-//		FilterInfo filInfo = new FilterInfo();
-////		filInfo.getFilterItems().add(new FilterItemInfo("Room.id",editData.getRoom().getId(),CompareType.EQUALS));
-//		if(IndoorengFactory.getRemoteInstance().exists(filInfo)){
-//			MsgBox.showWarning("已有该房型的单据，请修改房型，再提交。");
-//			SysUtil.abort();
-//		}
-//	}
 	/**
      * output btnAddLine_actionPerformed method
      */

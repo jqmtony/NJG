@@ -28,6 +28,7 @@ import com.kingdee.eas.fdc.basedata.FDCHelper;
 import com.kingdee.eas.fdc.basedata.ProductTypeInfo;
 import com.kingdee.eas.fdc.basedata.client.FDCClientUtils;
 import com.kingdee.eas.fdc.basedata.client.FDCMsgBox;
+import com.kingdee.eas.fdc.basedata.client.FDCTableHelper;
 import com.kingdee.eas.fdc.basedata.client.FDCUIWeightWorker;
 import com.kingdee.eas.fdc.basedata.client.IFDCWork;
 import com.kingdee.eas.fdc.contract.client.ContractClientUtils;
@@ -106,6 +107,7 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
 		//ÁÐ²»¿É±à¼­
 		kdtEntrys.getColumn("renovationAreaIndex").getStyleAttributes().setLocked(true);
 		kdtEntrys.getColumn("proportion").getStyleAttributes().setLocked(true);
+		kdtEntrys.getColumn("sumPrice").getStyleAttributes().setLocked(true);
 		kdtEntrys.getColumn("sumRenovationAreaIndex").getStyleAttributes().setLocked(true);
 		kdtEntrys.getColumn("avgRenovationAreaIndex").getStyleAttributes().setLocked(true);
 		
@@ -248,6 +250,11 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
 			this.kdtEntrys.getCell(rowIndex+1, colIndex).setValue(value);
 			this.kdtEntrys.getCell(rowIndex+2, colIndex).setValue(value);
 		}
+		if(columnKey.equals("renovationNumber")){
+			Object value = e.getValue();
+			this.kdtEntrys.getCell(rowIndex+1, colIndex).setValue(value);
+			this.kdtEntrys.getCell(rowIndex+2, colIndex).setValue(value);
+		}
 		
 		IRow row = this.kdtEntrys.getRow(rowIndex);
 		
@@ -267,6 +274,7 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
 		row.getCell("renovationAreaIndex").setValue(FDCHelper.divide(row.getCell("Price").getValue(), row.getCell("decorationArea").getValue(), 2, 4));
 		Price = FDCHelper.add(Price, row.getCell("Price").getValue());
 		renovationAreaIndex = FDCHelper.add(renovationAreaIndex, row.getCell("renovationAreaIndex").getValue());
+		row.getCell("sumPrice").setValue(FDCHelper.multiply(row.getCell("Price").getValue(), row.getCell("renovationNumber").getValue(),4));
 		row.getCell("sumRenovationAreaIndex").setValue(FDCHelper.divide(row.getCell("sumPrice").getValue(), row.getCell("sumDecorationArea").getValue(), 2, 4));
 		sumPrice = FDCHelper.add(sumPrice, row.getCell("sumPrice").getValue());
 		sumRenovationAreaIndex = FDCHelper.add(sumRenovationAreaIndex, row.getCell("sumRenovationAreaIndex").getValue());
@@ -275,6 +283,7 @@ public class DecorationEngineeringEditUI extends AbstractDecorationEngineeringEd
 		row.getCell("renovationAreaIndex").setValue(FDCHelper.divide(row.getCell("Price").getValue(), row.getCell("decorationArea").getValue(), 2, 4));
 		Price = FDCHelper.add(Price, row.getCell("Price").getValue());
 		renovationAreaIndex = FDCHelper.add(renovationAreaIndex, row.getCell("renovationAreaIndex").getValue());
+		row.getCell("sumPrice").setValue(FDCHelper.multiply(row.getCell("Price").getValue(), row.getCell("renovationNumber").getValue(),4));
 		row.getCell("sumRenovationAreaIndex").setValue(FDCHelper.divide(row.getCell("sumPrice").getValue(), row.getCell("sumDecorationArea").getValue(), 2, 4));
 		sumPrice = FDCHelper.add(sumPrice, row.getCell("sumPrice").getValue());
 		sumRenovationAreaIndex = FDCHelper.add(sumRenovationAreaIndex, row.getCell("sumRenovationAreaIndex").getValue());
