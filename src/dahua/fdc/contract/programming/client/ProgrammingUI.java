@@ -1355,7 +1355,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 				costColl = rowObject.getCostEntries();
 				tempCostColl = iCost.getPTECostCollection("select costAccount.id,costAccount.longNumber where parent.id='"+rowObject.getSimpleName()+"'");
 				if(tempCostColl.size() != costColl.size()){
-					kdtEntries.getCell(i,"hyType").getStyleAttributes().setBackground(Color.RED);
+					kdtEntries.getCell(i,"hyType").getStyleAttributes().setBackground(ProgrammingContractEditUI.BG_RED);
 				}else if(costColl.size() > 0){
 					for(int j = 0; j < costColl.size(); j++) {
 						String costNumber = costColl.get(j).getCostAccount().getLongNumber();
@@ -1367,7 +1367,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 							}
 						}
 						if(flag){
-							kdtEntries.getCell(i,"hyType").getStyleAttributes().setBackground(Color.RED);
+							kdtEntries.getCell(i,"hyType").getStyleAttributes().setBackground(ProgrammingContractEditUI.BG_RED);
 							break;
 						}
 					}
@@ -1378,7 +1378,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 		}
 		if(isGroupTemp){
 			for(Iterator<Integer> it=tempNull.iterator(); it.hasNext();) {
-				kdtEntries.getCell(it.next(),"hyType").getStyleAttributes().setBackground(Color.RED);
+				kdtEntries.getCell(it.next(),"hyType").getStyleAttributes().setBackground(ProgrammingContractEditUI.BG_RED);
 			}
 		}
 	}
@@ -3093,7 +3093,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 						continue;
 				}
 				if("ZJWT".equals(((SendContWay)kdtEntries.getCell(i,"sendPage").getValue()).getName())){
-					kdtEntries.getCell(i,"sendPage").getStyleAttributes().setBackground(Color.red);
+					kdtEntries.getCell(i,"sendPage").getStyleAttributes().setBackground(ProgrammingContractEditUI.BG_RED);
 				}
 			}
 		}
@@ -4444,7 +4444,7 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 							if(pcname instanceof CellTreeNode)
 								row.getCell("name").setValue(pcname);
 							else if(pcname!=null && ((String)pcname).trim().length()>0)
-									row.getCell("name").setValue(createCellTreeNode(((String)pcname),pcinfo.getLevel(),isLeaf(pcinfo.getLongNumber(),kdtEntries,HEADNUMBER)));
+								row.getCell("name").setValue(createCellTreeNode(((String)pcname),pcinfo.getLevel(),isLeaf(pcinfo.getLongNumber(),kdtEntries,HEADNUMBER)));
 							row.getCell("htrange").setValue(htrange);
 							row.getCell("maxSize").setValue(Integer.valueOf(mxSize));
 							if(rowFlag%2 == 0)
@@ -4456,9 +4456,9 @@ public class ProgrammingUI extends AbstractProgrammingUI {
 									row.getCell(depNumber).setValue(feinfo.getItemName()+":"+(feinfo.getPlanDate()==null?"":feinfo.getPlanDate()));
 									result = isDateChange(ptentrys.get(depNumber+k),feinfo.getPlanDate(),c1,ckDates);
 									if("red".equals(result))
-										row.getCell(depNumber).getStyleAttributes().setBackground(Color.red);
+										row.getCell(depNumber).getStyleAttributes().setBackground(ProgrammingContractEditUI.BG_RED);
 									else if("green".equals(result))
-										row.getCell(depNumber).getStyleAttributes().setBackground(Color.GREEN);
+										row.getCell(depNumber).getStyleAttributes().setBackground(ProgrammingContractEditUI.BG_GREEN);
 								}
 							}
 						}

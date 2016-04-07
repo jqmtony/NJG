@@ -186,6 +186,9 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 	private static final String PAYMENTDATE = "paymentDate";// 付款日期
 	private static final String CONDITION = "condition";// 付款条件
 	private static final String ECONOMY_DES = "description";// 备注
+	
+	public static final Color BG_RED = new Color(253,106,81);
+	public static final Color BG_GREEN = new Color(98,248,86);
 
 	private static final String DEFAULT_WORK_CONTENT = "可录入“工作内容”、“招标指导”、“合同执行常见问题”等备注信息";
 
@@ -806,9 +809,9 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 			for (int j = kdtfxbd.getRowCount3()-1; j >=0; j--) {
 				result = isDateChange(number+j,(Date)kdtfxbd.getCell(j,number+"date").getValue(),c1);
 				if("red".equals(result)){
-					kdtfxbd.getCell(j,number+"date").getStyleAttributes().setBackground(Color.red);
+					kdtfxbd.getCell(j,number+"date").getStyleAttributes().setBackground(BG_RED);
 				}else if("green".equals(result)){
-					kdtfxbd.getCell(j,number+"date").getStyleAttributes().setBackground(Color.GREEN);
+					kdtfxbd.getCell(j,number+"date").getStyleAttributes().setBackground(BG_GREEN);
 				}
 			}
 		}
@@ -820,7 +823,7 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 		if(kdtfxbd.getColumnKey(colIndex).endsWith("yj") || kdtfxbd.getColumnKey(colIndex).endsWith("name"))
 			return;
 		if(kdtfxbd.getCell(rowIndex,colIndex).getValue() == null){
-			kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.white);
+			kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.WHITE);
 			return;
 		}
 		String ckey = kdtfxbd.getColumnKey(colIndex).substring(0,3);
@@ -843,9 +846,9 @@ public class ProgrammingContractEditUI extends AbstractProgrammingContractEditUI
 				return;
 			}
 			if(ckdate.compareTo(editdate)<0)
-				kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.RED);
+				kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(BG_RED);
 			else
-				kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(Color.GREEN);
+				kdtfxbd.getCell(rowIndex,colIndex).getStyleAttributes().setBackground(BG_GREEN);
 		}
 	}
 	
