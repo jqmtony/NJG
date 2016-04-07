@@ -386,7 +386,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.contSumAreaIndax.setBoundLabelText(resHelper.getString("contSumAreaIndax.boundLabelText"));		
         this.contSumAreaIndax.setBoundLabelLength(180);		
         this.contSumAreaIndax.setBoundLabelUnderline(true);		
-        this.contSumAreaIndax.setVisible(true);
+        this.contSumAreaIndax.setVisible(true);		
+        this.contSumAreaIndax.setEnabled(false);
         // contGreenH		
         this.contGreenH.setBoundLabelText(resHelper.getString("contGreenH.boundLabelText"));		
         this.contGreenH.setBoundLabelLength(100);		
@@ -555,8 +556,7 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.txtSumArea.setMinimumValue( new java.math.BigDecimal("-1.0E24"));		
         this.txtSumArea.setMaximumValue( new java.math.BigDecimal("1.0E24"));		
         this.txtSumArea.setPrecision(4);		
-        this.txtSumArea.setRequired(false);		
-        this.txtSumArea.setEnabled(false);
+        this.txtSumArea.setRequired(false);
         // txtCostThan		
         this.txtCostThan.setHorizontalAlignment(2);		
         this.txtCostThan.setDataType(1);		
@@ -589,7 +589,8 @@ public abstract class AbstractSwbEditUI extends com.kingdee.eas.framework.client
         this.txtSumAreaIndax.setMinimumValue( new java.math.BigDecimal("-1.0E24"));		
         this.txtSumAreaIndax.setMaximumValue( new java.math.BigDecimal("1.0E24"));		
         this.txtSumAreaIndax.setPrecision(4);		
-        this.txtSumAreaIndax.setRequired(false);
+        this.txtSumAreaIndax.setRequired(false);		
+        this.txtSumAreaIndax.setEnabled(false);
         // txtGreenH		
         this.txtGreenH.setHorizontalAlignment(2);		
         this.txtGreenH.setDataType(1);		

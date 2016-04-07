@@ -94,6 +94,7 @@ public class IndoorengEditUI extends AbstractIndoorengEditUI
 //		initui();
 		kdtEntrys.getColumn("Sumproportion").getStyleAttributes().setLocked(true);
 		kdtEntrys.getColumn("DecorateAreaIndex").getStyleAttributes().setLocked(true);
+		kdtEntrys.getColumn("DecorateAreaIndex").getStyleAttributes().setNumberFormat("#,##0.0000");
 //		kdtEntrys.getColumn("danwei").getStyleAttributes().setLocked(true);
 		
 //		kdtEntrys.getRow(0).getStyleAttributes().setLocked(true);

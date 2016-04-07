@@ -80,6 +80,7 @@ public class SwbEditUI extends AbstractSwbEditUI
 		chklasted.setEnabled(false);
 	
 		super.onLoad();
+		setUITitle("室外总布工程经济指标表");
 		chkMenuItemSubmitAndAddNew.setSelected(false); //连续新增设置不可编辑
 		btnAudit.setIcon(EASResource.getIcon("imgTbtn_auditing"));
 		btnUnAudit.setIcon(EASResource.getIcon("imgTbtn_fauditing"));
@@ -88,6 +89,7 @@ public class SwbEditUI extends AbstractSwbEditUI
 		kdtEntrys.getColumn("Areaproportion").getStyleAttributes().setLocked(true);
 		kdtEntrys.getColumn("Sumproportion").getStyleAttributes().setLocked(true);
 		kdtEntrys.getColumn("danwei").getStyleAttributes().setLocked(true);
+		kdtEntrys.getColumn("GreenAreaIndex").getStyleAttributes().setNumberFormat("#,##0.0000");
 		
 		kdtEntrys.getRow(0).getStyleAttributes().setLocked(true);
 		kdtEntrys.getRow(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
@@ -363,7 +365,7 @@ public class SwbEditUI extends AbstractSwbEditUI
 			value = FDCHelper.add(value,txtGreenH.getBigDecimalValue());
 		else
 			value = FDCHelper.add(value,BigDecimal.ZERO);
-		txtSumArea.setValue(value);
+		txtSumAreaIndax.setValue(value);
 		
 		Price = BigDecimal.ZERO;
 		GreenArea = BigDecimal.ZERO;
@@ -399,7 +401,7 @@ public class SwbEditUI extends AbstractSwbEditUI
 				value = FDCHelper.add(value,txtlandscape.getBigDecimalValue());
 			else
 				value = FDCHelper.add(value,BigDecimal.ZERO);
-			txtSumArea.setValue(value);
+			txtSumAreaIndax.setValue(value);
     	for(int i=15;i<17;i++){
     		Price = FDCHelper.add(Price,(kdtEntrys.getCell(i, "Price").getValue()));
     		GreenArea = FDCHelper.add(GreenArea,(kdtEntrys.getCell(i, "GreenArea").getValue()));
@@ -451,7 +453,7 @@ public class SwbEditUI extends AbstractSwbEditUI
         			value = FDCHelper.add(value,txtGreenH.getBigDecimalValue());
         		else
         			value = FDCHelper.add(value,BigDecimal.ZERO);
-        		txtSumArea.setValue(value);
+        		txtSumAreaIndax.setValue(value);
         }
         //1.1的总造价赋值
         kdtEntrys.getCell(2, "Sumproportion").setValue(FDCHelper.divide(kdtEntrys.getCell(2,"Price").getValue(),kdtEntrys.getCell(0,"Price").getValue(),4,4));

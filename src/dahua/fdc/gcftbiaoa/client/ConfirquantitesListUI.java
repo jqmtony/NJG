@@ -128,6 +128,7 @@ public class ConfirquantitesListUI extends AbstractConfirquantitesListUI
     	buildProjectTree();
     	buildContractTypeTree();
     	tblMain.getColumn("version").getStyleAttributes().setHided(true);
+    	actionModify.setEnabled(false);
     	
     	initButtonStatus();
     	initTable();
@@ -235,8 +236,7 @@ public class ConfirquantitesListUI extends AbstractConfirquantitesListUI
 	protected void checkBeforeEditOrRemove(ConfirquantitesInfo info,String warning) throws BOSException {
 		FDCClientUtils.checkBillInWorkflow(this,info.getId().toString());
 		FDCBillStateEnum state = info.getStatus();
-		if (state != null
-				&& (state == FDCBillStateEnum.AUDITTING || state == FDCBillStateEnum.AUDITTED || state == FDCBillStateEnum.CANCEL )) {
+		if (state != null&& (state == FDCBillStateEnum.AUDITTING || state == FDCBillStateEnum.AUDITTED || state == FDCBillStateEnum.CANCEL )) {
 			MsgBox.showWarning(this, ContractClientUtils.getRes(warning));
 			SysUtil.abort();
 		}
@@ -401,13 +401,11 @@ public class ConfirquantitesListUI extends AbstractConfirquantitesListUI
     }
     
 	public DefaultKingdeeTreeNode getProjSelectedTreeNode() {
-		return (DefaultKingdeeTreeNode) kDTree2
-				.getLastSelectedPathComponent();
+		return (DefaultKingdeeTreeNode) kDTree2.getLastSelectedPathComponent();
 	}
 
 	public DefaultKingdeeTreeNode getTypeSelectedTreeNode() {
-		return (DefaultKingdeeTreeNode) kDTree1
-				.getLastSelectedPathComponent();
+		return (DefaultKingdeeTreeNode) kDTree1.getLastSelectedPathComponent();
 	}
 	
 	protected void tblMain_tableSelectChanged(KDTSelectEvent e)throws Exception {
@@ -471,11 +469,11 @@ public class ConfirquantitesListUI extends AbstractConfirquantitesListUI
 			String orderId = this.kDTable1.getCell(selectIndex, "id").getValue().toString();
 			
 			try {
-				if(ConfirquantitesFactory.getRemoteInstance().exists("select id where contractNumber.id='"+orderId+"'"))
-				{
-					MsgBox.showWarning("已存在工程量确认单，不允许新增！");SysUtil.abort();
-				}
-				
+//				if(ConfirquantitesFactory.getRemoteInstance().exists("select id where contractNumber.id='"+orderId+"'"))
+//				{
+//					MsgBox.showWarning("已存在工程量确认单，不允许新增！");SysUtil.abort();
+//				}
+//				
 				SelectorItemCollection sic = new SelectorItemCollection();
 				sic.add("*");
 				sic.add("curProject.*");
@@ -669,34 +667,34 @@ public class ConfirquantitesListUI extends AbstractConfirquantitesListUI
 		return kDTree1;
 	}
     
-	public void actionModify_actionPerformed(ActionEvent e) throws Exception {
-		super.actionModify_actionPerformed(e);
-		checkSelected();
-		ConfirquantitesInfo info = getSelectorsForBillInfo(this.getSelectedKeyValue());
-		if(!info.getStatus().equals(FDCBillStateEnum.AUDITTED)){
-			FDCMsgBox.showWarning("单据未审批，不允许修订！");
-			return;
-		}
-		if(!info.isIsLast()){
-			FDCMsgBox.showWarning("不是最新版，不允许修订！");
-			return;
-		}
-		FilterInfo filter=new FilterInfo();
-		filter.getFilterItems().add(new FilterItemInfo("contractNumber.id",info.getContractNumber().getId()));
-		filter.getFilterItems().add(new FilterItemInfo("version",info.getVersion(),CompareType.GREATER));
-		if(ConfirquantitesFactory.getRemoteInstance().exists(filter)){
-			FDCMsgBox.showWarning(this,"单据已修订！");
-			return;
-		}
-		
-		UIContext uiContext = new UIContext(this);
-		uiContext.put("ForInfo", info);
-		uiContext.put("IsModify", true);
-		uiContext.put("verson", FDCHelper.add(info.getVersion(), BigDecimal.ONE));
-		
-		IUIWindow ui = UIFactory.createUIFactory(getEditUIModal()).create(getEditUIName(), uiContext, null,	OprtState.ADDNEW);
-		ui.show();
-	}
+//	public void actionModify_actionPerformed(ActionEvent e) throws Exception {
+//		super.actionModify_actionPerformed(e);
+//		checkSelected();
+//		ConfirquantitesInfo info = getSelectorsForBillInfo(this.getSelectedKeyValue());
+//		if(!info.getStatus().equals(FDCBillStateEnum.AUDITTED)){
+//			FDCMsgBox.showWarning("单据未审批，不允许修订！");
+//			return;
+//		}
+//		if(!info.isIsLast()){
+//			FDCMsgBox.showWarning("不是最新版，不允许修订！");
+//			return;
+//		}
+//		FilterInfo filter=new FilterInfo();
+//		filter.getFilterItems().add(new FilterItemInfo("contractNumber.id",info.getContractNumber().getId()));
+//		filter.getFilterItems().add(new FilterItemInfo("version",info.getVersion(),CompareType.GREATER));
+//		if(ConfirquantitesFactory.getRemoteInstance().exists(filter)){
+//			FDCMsgBox.showWarning(this,"单据已修订！");
+//			return;
+//		}
+//		
+//		UIContext uiContext = new UIContext(this);
+//		uiContext.put("ForInfo", info);
+//		uiContext.put("IsModify", true);
+//		uiContext.put("verson", FDCHelper.add(info.getVersion(), BigDecimal.ONE));
+//		
+//		IUIWindow ui = UIFactory.createUIFactory(getEditUIModal()).create(getEditUIName(), uiContext, null,	OprtState.ADDNEW);
+//		ui.show();
+//	}
 	
    public ConfirquantitesInfo getSelectorsForBillInfo(String id) throws EASBizException, BOSException {
     	SelectorItemCollection sic = new SelectorItemCollection();
