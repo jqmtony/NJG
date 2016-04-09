@@ -661,11 +661,12 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     		row.getCell("siteCertificatAmount").setValue(siteChangeAmount==null ? BigDecimal.ZERO : siteChangeAmount);
     		settleAmount = (BigDecimal) settleMap.get(contractId);
     		row.getCell("settlementAmount").setValue(settleAmount==null ? BigDecimal.ZERO : settleAmount);
-//    		if(settleAmount != null) {
-//    			row.getCell("ContractAmount").setValue(BigDecimal.ZERO);
-//    			row.getCell("designChangeAmount").setValue(BigDecimal.ZERO);
-//    			row.getCell("siteCertificatAmount").setValue(BigDecimal.ZERO);
-//    		}
+    		//如果有结算金额 则合同、设计变更、现场签证金额为0
+    		if(settleAmount != null) {
+    			row.getCell("ContractAmount").setValue(BigDecimal.ZERO);
+    			row.getCell("designChangeAmount").setValue(BigDecimal.ZERO);
+    			row.getCell("siteCertificatAmount").setValue(BigDecimal.ZERO);
+    		}
     		
     		BigDecimal noTextContract = (BigDecimal) noContractMap.get(row.getCell("programmingId").getValue().toString());
     		row.getCell("notextContract").setValue(noTextContract == null ? BigDecimal.ZERO : noTextContract);
@@ -976,7 +977,8 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     				rate = THREE.divide(aimCost,2,BigDecimal.ROUND_HALF_UP);
     			}
     			
-    			row.getCell("alertIndex").setValue(ONE_HUNDRUD.add(rate));
+//    			row.getCell("alertIndex").setValue(ONE_HUNDRUD.add(rate));
+    			row.getCell("alertIndex").setValue(rate.multiply(new BigDecimal("-1")));
     		}
     		//小计B
     		BigDecimal contractAmount = row.getCell("Contract").getValue() == null ? BigDecimal.ZERO : (BigDecimal)row.getCell("Contract").getValue();
@@ -1126,6 +1128,8 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
         		BigDecimal unSignContract = BigDecimal.ZERO;
         		if(!pInfo.isIscse())//判断合约是否签完, 签完了则unSignContract 为0
         			unSignContract = planAmount.subtract(sumB).subtract(onWayCost);
+        		//未签合同不能为负数,最小为0
+        		unSignContract = unSignContract.compareTo(BigDecimal.ZERO) < 0 ? BigDecimal.ZERO:unSignContract;
         		detailMap.put("unSignContract",unSignContract);
         		
 //        		BigDecimal curMonthEstimateChange = (BigDecimal) row.getCell("curMonthEstimateChange").getValue();
@@ -1135,7 +1139,6 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
         		//记录当前行 在途成本+预估变更签证余额+本月其他调整+截至本月其他调整 之和
         		BigDecimal rowSum = EstimateChangeBalance.add(curMonthOtherAmount).add(otherAmount).add(onWayCost);
         		detailMap.put("rowSum", rowSum);
-//        		BigDecimal unSignContract = (BigDecimal) row.getCell("unSignContract").getValue();
         		BigDecimal sumC = rowSum.add(unSignContract);
         		detailMap.put("sumC",sumC);
         		
@@ -1184,6 +1187,8 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
 //        		BigDecimal unSignContract = planAmount.subtract(sumB).subtract(onWayCost);
 //        		BigDecimal preunSignContract = (BigDecimal) detailMap.get("unSignContract");
 //        		detailMap.put("unSignContract", preunSignContract.add(unSignContract));
+        		//未签合同不能为负数,最小为0
+        		unSignContract = unSignContract.compareTo(BigDecimal.ZERO) < 0 ? BigDecimal.ZERO:unSignContract;
         		detailMap.put("unSignContract", unSignContract);
         		
 //        		BigDecimal curMonthEstimateChange = (BigDecimal) row.getCell("curMonthEstimateChange").getValue();
