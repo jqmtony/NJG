@@ -80,6 +80,7 @@ public class CostAccountPriceIndexEditUI extends AbstractCostAccountPriceIndexEd
 			actionCopy.setEnabled(false);
 			actionSave.setEnabled(false);
 		}
+		prmtindexType.setRequired(true);
     }
     
     public void initTable(){
@@ -153,6 +154,12 @@ public class CostAccountPriceIndexEditUI extends AbstractCostAccountPriceIndexEd
     }
     
     protected void verifyInput(ActionEvent actionevent) throws Exception {
+    	if(prmtindexType.getValue() == null){
+    		MsgBox.showInfo("页签名称不能为空！");
+    		prmtindexType.grabFocus();
+    		SysUtil.abort();
+    	}
+    	
     	for(int i = 0; i < kdtEntrys.getRowCount3(); i++) {
     		if(FDCHelper.isEmpty(kdtEntrys.getCell(i,"fieldName").getValue())){
     			MsgBox.showInfo("第"+(i+1)+"行字段名称不能为空！");
