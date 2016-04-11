@@ -366,6 +366,8 @@ public class DesignApproveUI extends AbstractDesignApproveUI
     		beizu.append(rowset.getString("备注")+"\n");
     		this.kDTable1.getCell(0, 7).setValue(rowset.getString(7));
     		this.kDTable1.getCell(3, 7).setValue(rowset.getString("附图编号"));
+    		this.kDTable1.getCell(4, 3).setValue(Yuanyi);
+    		this.kDTable1.getCell(30, 1).setValue(beizu);
     		//估算工程金额
         	BigDecimal je = rowset.getBigDecimal("估算工程金额");
         	this.kDTable1.getCell(7, 3).setValue(je);

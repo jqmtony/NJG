@@ -358,8 +358,8 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	
     	String billId = editData.getId()!=null?editData.getId().toString():"++7pgRwQRf2paClUcxTBtsmlqGk=";
     	StringBuffer sb = new StringBuffer();
-    	sb.append(" select org.Fname_l2,bill.FBizDate,bill.FNumber,min.Fname_l2,try.FOriginalAmount,ier.Fname_l2, ject.Fname_l2,bill.FContractName");
-    	sb.append(" ,bill.FContractNo,bill.CFkxnr,con.FOriginalAmount,try.FAmount,bill.FMoneyDesc,u.Fname_l2");
+    	sb.append(" select org.Fname_l2,bill.FCreateTime,bill.FNumber,min.Fname_l2,try.FOriginalAmount,ier.Fname_l2, ject.Fname_l2,bill.FContractName");
+    	sb.append(" ,bill.FContractNo,bill.CFkxnr,con.FOriginalAmount,bill.FORIGINALAMOUNT,bill.FMoneyDesc,u.Fname_l2");
     	sb.append(" from T_CON_PayRequestBill bill  ");
     	sb.append(" left join T_FDC_CurProject ject on ject.fid = bill.FCurProjectID  ");
     	sb.append(" left join T_ORG_BaseUnit org on org.fid = ject.FFullOrgUnit ");
@@ -378,7 +378,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     			kDTextField2.setText(rowset.getString(2));
     		}
     		else{
-    			kDTextField2.setText("业务日期为空");
+    			kDTextField2.setText(" ");
     		}
     		//编号
     			kDTextField3.setText(rowset.getString(3));
@@ -433,7 +433,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
  			
 		//合同总价
 		this.kDTable1.getCell(14, 7).setValue(Htzj.subtract(Bchdje.add(lj)));
-		this.kDTable1.getCell(14, 1).setValue(FDCClientHelper.getChineseFormat(Htzj.subtract(lj), false));			
+		this.kDTable1.getCell(14, 1).setValue(FDCClientHelper.getChineseFormat(Htzj.subtract(Bchdje.add(lj)), false));			
  			
  			//工作流审批意见
 	 		Map<String, String> apporveResultForMap = WFResultApporveHelper.getApporveResultForPerson(billId);
