@@ -32,6 +32,20 @@ public class PhotoAuditControllerBean extends AbstractPhotoAuditControllerBean
 		}
     }
     
+    private void updateReportName(Context ctx,IObjectPK billId) throws EASBizException, BOSException{
+    	SelectorItemCollection sic = new SelectorItemCollection();
+    	sic.add("sourceBillId");
+    	sic.add("stage");
+    	PhotoAuditInfo photoAuditInfo = getPhotoAuditInfo(ctx,billId,sic);
+    	
+    	String repId = photoAuditInfo.getSourceBillId();
+    	String stage = photoAuditInfo.getStage();
+    	if(repId==null||"".equals(repId.trim()))return;
+    	if(stage==null||"".equals(stage.trim()))return;
+    	String sql = "/*dialect*/update T_ext_sssnapshot set fname=(SUBSTR(fname,0,(case when INSTR(fname,'@')=0 then length(fname) else INSTR(fname,'@')-1 end))||'@"+stage+"') where fid='"+repId+"' ";
+    	com.kingdee.eas.util.app.DbUtil.execute(ctx,sql);
+    }
+    
     private SelectorItemCollection getSelectorItem(){
     	SelectorItemCollection sic = new SelectorItemCollection();
     	sic.add("auditDate");
@@ -44,7 +58,15 @@ public class PhotoAuditControllerBean extends AbstractPhotoAuditControllerBean
     	checkDataStatus(ctx,model,"SUBMIT");
     	PhotoAuditInfo info = (PhotoAuditInfo)model;
     	info.setStatus(FDCBillStateEnum.SUBMITTED);
-    	return super._submit(ctx, model);
+    	IObjectPK _submit = super._submit(ctx, model);
+    	updateReportName(ctx,_submit);
+    	return _submit;
+    }
+    
+    protected IObjectPK _save(Context ctx, IObjectValue model)throws BOSException, EASBizException {
+    	IObjectPK _save = super._save(ctx, model);
+    	updateReportName(ctx,_save);
+    	return _save;
     }
     
     
