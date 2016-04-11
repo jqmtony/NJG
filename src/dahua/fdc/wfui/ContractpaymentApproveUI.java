@@ -384,7 +384,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     			kDTextField3.setText(rowset.getString(3));
     		
     		this.kDTable1.getCell(0, 1).setValue(rowset.getString(4));
-    		this.kDTable1.getCell(0, 6).setValue(rowset.getString(5));
+    		this.kDTable1.getCell(0, 6).setValue(rowset.getString(12));
     		this.kDTable1.getCell(1, 1).setValue(rowset.getString(6));
     		this.kDTable1.getCell(2, 1).setValue(rowset.getString(7));
     		this.kDTable1.getCell(3, 1).setValue(rowset.getString(8));
