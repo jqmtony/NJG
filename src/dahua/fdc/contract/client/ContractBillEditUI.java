@@ -6587,7 +6587,6 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			ContractClientUtils.checkConRelatedTaskSubmit(this.editData);
 		}
 		
-		
 		if(editData.getCurProject()!=null){
 			SelectorItemCollection sic = new SelectorItemCollection();
 			sic.add("isWholeAgeStage");
@@ -6597,9 +6596,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 				checkConProgram();
 		}
 		//modify by yxl 20151027  提交时检验面平米指标，五大类合同,现在改为在某些合同类型下进行校验
-		
 		if(isContractNeedCheck(((ContractTypeInfo)prmtcontractType.getValue()).getNumber())){
-			
 			if(FDCHelper.isEmpty(txtMIndexType.getText())){
 				FDCMsgBox.showWarning("综合单价不能为空！");
 				txtMIndexType.grabFocus();
@@ -6613,12 +6610,16 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		//拆分信息，如果是全期项目则检验合约规划不能为空；不是的话校验是否全部产品拆分。拆分比例不能超过100%
 		BigDecimal splitRate = FDCHelper.ZERO;
 		IRow row = null;
+		String programControlMode = null;
 		for(int i = 0; i < kdtSplitEntry.getRowCount3(); i++) {
 			row = kdtSplitEntry.getRow(i);
 			if(isWholeAgeProject){
 				if((Integer)row.getCell("level").getValue()==0 && row.getCell("programming").getValue() == null){
-					FDCMsgBox.showWarning("拆分信息第"+(i+1)+"行的合约规划不能为空！");
-					abort();
+					programControlMode = getProjectParamValue(((BOSUuid)row.getCell("costAccount.curProject.id").getValue()).toString());
+					if("0".equals(programControlMode) || "1".equals(programControlMode)){
+						FDCMsgBox.showWarning("拆分信息第"+(i+1)+"行的合约规划不能为空！");
+						abort();
+					}
 				}
 			}else if(FDCHelper.isEmpty(row.getCell("standard").getValue()) && FDCHelper.isEmpty(row.getCell("product").getValue())){
 				FDCMsgBox.showWarning("拆分信息第"+(i+1)+"行的科目须进行产品拆分！");
@@ -6641,7 +6642,7 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 			abort();
 		}
 	}
-	
+	//modify by yxl
 	private boolean isContractNeedCheck(String ctNumber){
 		if("004".equals(ctNumber) || "008".equals(ctNumber) || "1001".equals(ctNumber) || "1002".equals(ctNumber) 
 				|| "1003".equals(ctNumber) || "1004".equals(ctNumber) || "1000".equals(ctNumber))
@@ -6650,6 +6651,20 @@ public class ContractBillEditUI extends AbstractContractBillEditUI implements IW
 		return false;
 	}
 
+	//modify by yxl
+	private String getProjectParamValue(String projectId) {
+		FDCSQLBuilder builder = new FDCSQLBuilder();
+		builder.appendSql("select fcostcenterid from T_FDC_CurProject where fid='"+projectId+"'");
+		try {
+			IRowSet rs = builder.executeQuery();
+			if(rs.next() && rs.getString(1) != null)
+				return FDCUtils.getFDCParamByKey(null, rs.getString(1), FDCConstants.FDC_PARAM_CONTRACT_PROGRAM_AMOUNT);
+		} catch (Exception e) {
+			handUIExceptionAndAbort(e);
+		} 
+		return null;
+	}
+	
 	/**
 	 * by sl 大华需求，如果是总包合同，则不需要关联合约规划
 	 */

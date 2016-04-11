@@ -69,6 +69,7 @@ import com.kingdee.bos.metadata.entity.SelectorItemCollection;
 import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.ui.face.CoreUIObject;
+import com.kingdee.bos.ui.face.IUIObject;
 import com.kingdee.bos.ui.face.IUIWindow;
 import com.kingdee.bos.ui.face.UIFactory;
 import com.kingdee.bos.util.BOSUuid;
@@ -79,16 +80,13 @@ import com.kingdee.eas.base.attachment.BoAttchAssoInfo;
 import com.kingdee.eas.base.attachment.common.AttachmentClientManager;
 import com.kingdee.eas.base.attachment.common.AttachmentManagerFactory;
 import com.kingdee.eas.base.codingrule.CodingRuleException;
-import com.kingdee.eas.base.permission.OrgRangeCollection;
-import com.kingdee.eas.base.permission.OrgRangeFactory;
 import com.kingdee.eas.base.permission.UserInfo;
+import com.kingdee.eas.base.uiframe.client.UIFactoryHelper;
 import com.kingdee.eas.basedata.assistant.CurrencyInfo;
 import com.kingdee.eas.basedata.assistant.ExchangeRateInfo;
 import com.kingdee.eas.basedata.master.cssp.SupplierFactory;
 import com.kingdee.eas.basedata.master.cssp.SupplierInfo;
 import com.kingdee.eas.basedata.org.AdminOrgUnitInfo;
-import com.kingdee.eas.basedata.org.FullOrgUnitCollection;
-import com.kingdee.eas.basedata.org.FullOrgUnitFactory;
 import com.kingdee.eas.basedata.org.FullOrgUnitInfo;
 import com.kingdee.eas.common.EASBizException;
 import com.kingdee.eas.common.client.OprtState;
@@ -118,6 +116,7 @@ import com.kingdee.eas.fdc.basedata.util.KDDetailedArea;
 import com.kingdee.eas.fdc.basedata.util.KDDetailedAreaUtil;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditBillInfo;
+import com.kingdee.eas.fdc.contract.ChangeAuditBillType;
 import com.kingdee.eas.fdc.contract.ChangeAuditEntryFactory;
 import com.kingdee.eas.fdc.contract.ChangeAuditEntryInfo;
 import com.kingdee.eas.fdc.contract.ChangeAuditUtil;
@@ -230,6 +229,8 @@ public class ChangeAuditEditUI extends AbstractChangeAuditEditUI
 	boolean isOfferAndConstrReq = false;
 	//是否启用变更下发，默认为启用
 	boolean isDispatch = true;
+	
+	private IUIObject changeUI = null;
 	
 	private final static String RES_DED_AMOUNT = "责任扣款金额（备注）";
 	
@@ -741,28 +742,39 @@ public class ChangeAuditEditUI extends AbstractChangeAuditEditUI
         super.actionSave_actionPerformed(e);
     }
 
-    public void actionSubmit_actionPerformed(ActionEvent e) throws Exception
-    {
-    	checkBeforeSubmit();
-    	verfySuppEntrys();
-    	if (!isCheckCtrlAmountPass()) {
-			return;
-		}
-    	//by tim_gao 
-    	//合同变更发起提交时，最新造价小于累计工程量确认金额时，提示
-    	checkWorkLoadConfirm() ;
-    	
-    	// modified by zhaoqin for R130924-0329 on 2013/11/14
-    	if(StringUtils.isEmpty(txtSpecialtyType.getText()))
-    		setSpecialtyName();
-    	
-    	//提交前调用一下编码规则生成编码
-		this.handleCodingRule();
-        super.actionSubmit_actionPerformed(e);
-        doAfterSubmit();
-        setSaveActionStatus();
-        syncDataFromDB();
-        setEnabledByBillState();
+    public void actionSubmit_actionPerformed(ActionEvent e) throws Exception {
+    	if((Boolean)getUIContext().get("isFromWorkflow")){
+    		if(changeUI instanceof DesignChangeAuditEditUI)
+    			((DesignChangeAuditEditUI)changeUI).actionSubmit_actionPerformed(e);//设计变更审批表
+    		else if(changeUI instanceof ProjectChangeAuditEditUI)
+    			((ProjectChangeAuditEditUI)changeUI).actionSubmit_actionPerformed(e);//工程指令单
+    		else if(changeUI instanceof TechChangeAuditEditUI)
+    			((TechChangeAuditEditUI)changeUI).actionSubmit_actionPerformed(e);//技术核定审批表
+    		else if(changeUI instanceof ChangeAuditRequestEditUI)
+    			((ChangeAuditRequestEditUI)changeUI).actionSubmit_actionPerformed(e);//设计变更申请单
+    		else if(changeUI instanceof TechEconChangeAuditEditUI)
+    			((TechEconChangeAuditEditUI)changeUI).actionSubmit_actionPerformed(e);//技术经济签证单
+    			
+    	}else{
+    		checkBeforeSubmit();
+    		verfySuppEntrys();
+    		if (!isCheckCtrlAmountPass()) {
+    			return;
+    		}
+    		//by tim_gao 
+    		//合同变更发起提交时，最新造价小于累计工程量确认金额时，提示
+    		checkWorkLoadConfirm() ;
+    		// modified by zhaoqin for R130924-0329 on 2013/11/14
+    		if(StringUtils.isEmpty(txtSpecialtyType.getText()))
+    			setSpecialtyName();
+    		//提交前调用一下编码规则生成编码
+    		this.handleCodingRule();
+    		super.actionSubmit_actionPerformed(e);
+    		doAfterSubmit();
+    		setSaveActionStatus();
+    		syncDataFromDB();
+    		setEnabledByBillState();
+    	}
     }
     
     private Object getCtrlParam() {
@@ -1563,6 +1575,7 @@ public class ChangeAuditEditUI extends AbstractChangeAuditEditUI
 				}
 			}
 		});
+		
 	}
 	
 	
@@ -2587,7 +2600,37 @@ public class ChangeAuditEditUI extends AbstractChangeAuditEditUI
 		actionDisPatch.setVisible(false);
 		setOprtState(getOprtState());
 		setEnabledByBillState();
+		//如果是从工作流中跳转过来的，则根据变更类型跳转至相应的编辑界面  modify by yxl 20160407
+		if((Boolean)getUIContext().get("isFromWorkflow")){
+//			UIContext uiContext = new UIContext();
+//			uiContext.put("Owner",getUIContext().get("Owner"));
+//			uiContext.put("ID",getUIContext().get("ID"));
+			actionAttenTwo.setVisible(false);
+			actionRegister.setVisible(false);
+			actionViewContract.setVisible(false);
+			actionAddNew.setVisible(false);
+			actionSave.setEnabled(false);
+			String destUI = null;
+    		if(ChangeAuditBillType.DesignChangeAudit.equals(editData.getBillType()))
+    			destUI = "com.kingdee.eas.fdc.contract.client.DesignChangeAuditEditUI";//设计变更审批表
+    		else if(ChangeAuditBillType.ProjectChangeAudit.equals(editData.getBillType()))
+    			destUI = "com.kingdee.eas.fdc.contract.client.ProjectChangeAuditEditUI";//工程指令单
+    		else if(ChangeAuditBillType.TechChangeAudit.equals(editData.getBillType()))
+    			destUI = "com.kingdee.eas.fdc.contract.client.TechChangeAuditEditUI";//技术核定审批表
+    		else if(ChangeAuditBillType.ChangeAuditRequest.equals(editData.getBillType()))
+    			destUI = "com.kingdee.eas.fdc.contract.client.ChangeAuditRequestEditUI";//设计变更申请单
+    		else if(ChangeAuditBillType.TechEconChangeAudit.equals(editData.getBillType()))
+    			destUI = "com.kingdee.eas.fdc.contract.client.TechEconChangeAuditEditUI";//技术经济签证单
+//    		UIFactory.createUIFactory(UIFactoryName.MODEL).create(destUI,uiContext,null,OprtState.EDIT).show();
+//    		getUIWindow().setUIObject(UIFactory.createUIFactory(UIFactoryName.MODEL).create(destUI,uiContext,null,OprtState.EDIT).getUIObject());
+    		if(destUI != null){
+    			changeUI = UIFactoryHelper.initUIObject(destUI,getUIContext(),null,OprtState.EDIT);
+    			changeUI.getUIToolBar().setVisible(false);
+    			getUIWindow().setUIObject(changeUI);
+    		}
+		}
 	}
+	
 
 	/**
 	 * 描述：根据单据状态判断按钮编辑保存按钮是否可用
@@ -4089,6 +4132,7 @@ public class ChangeAuditEditUI extends AbstractChangeAuditEditUI
     }
     
     public boolean checkBeforeWindowClosing() {
+//    	return false;
 		if (hasWorkThreadRunning()) {
 			return false;
 		}
