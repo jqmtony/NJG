@@ -38,7 +38,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
-            <constraints>194,47,606,572,387</constraints>
+            <constraints>194,58,606,561,387</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -71,7 +71,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>197,14,185,19,385</constraints>
+            <constraints>194,34,200,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -95,6 +95,13 @@
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabelContainer1].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
             </properties>
             <parent>
                 <key name="name" value="CoreUI" />
@@ -106,7 +113,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>422,14,191,19,385</constraints>
+            <constraints>438,34,200,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -130,6 +137,13 @@
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabelContainer2].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
             </properties>
             <parent>
                 <key name="name" value="CoreUI" />
@@ -141,7 +155,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDButton</classType>
             <isContainer>false</isContainer>
-            <constraints>680,13,120,21,385</constraints>
+            <constraints>680,32,120,21,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -176,6 +190,48 @@
                     <userDefined>true</userDefined>
                 </eventBinding>
             </eventBindings>
+        </component>
+        <component>
+            <name>kDLabel1</name>
+            <alias>uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabel1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabel</classType>
+            <isContainer>false</isContainer>
+            <constraints>194,4,605,26,385</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabel1].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabel1].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>font</name>
+                    <type>java.awt.Font</type>
+                    <value>uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabel1].properties.property[font].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
         </component>
         <component>
             <name>kDTextField1</name>
@@ -669,6 +725,30 @@
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabel1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabel1].properties.property[font].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="family=宋体,name=宋体,style=1,size=16" />
+            <lang locale="zh_HK" value="family=宋體,name=宋體,style=1,size=16" />
+            <lang locale="zh_TW" value="family=宋體,name=宋體,style=1,size=16" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabel1].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="0" />
+            <lang locale="zh_CN" value="0" />
+            <lang locale="zh_HK" value="0" />
+            <lang locale="zh_TW" value="0" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabel1].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="设计变更审批表" />
+            <lang locale="zh_HK" value="設計變更審批表" />
+            <lang locale="zh_TW" value="設計變更審批表" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabelContainer1].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -676,16 +756,22 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabelContainer1].properties.property[boundLabelLength].value">
-            <lang locale="en_US" value="50" />
-            <lang locale="zh_CN" value="50" />
-            <lang locale="zh_HK" value="50" />
-            <lang locale="zh_TW" value="50" />
+            <lang locale="en_US" value="70" />
+            <lang locale="zh_CN" value="70" />
+            <lang locale="zh_HK" value="70" />
+            <lang locale="zh_TW" value="70" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabelContainer1].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="项目名称" />
             <lang locale="zh_HK" value="項目名稱" />
             <lang locale="zh_TW" value="項目名稱" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabelContainer1].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabelContainer2].alias">
             <lang locale="en_US" value="null" />
@@ -694,16 +780,22 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabelContainer2].properties.property[boundLabelLength].value">
-            <lang locale="en_US" value="80" />
-            <lang locale="zh_CN" value="80" />
-            <lang locale="zh_HK" value="80" />
-            <lang locale="zh_TW" value="80" />
+            <lang locale="en_US" value="70" />
+            <lang locale="zh_CN" value="70" />
+            <lang locale="zh_HK" value="70" />
+            <lang locale="zh_TW" value="70" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabelContainer2].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="变更单编号" />
             <lang locale="zh_HK" value="變更單編號" />
             <lang locale="zh_TW" value="變更單編號" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDLabelContainer2].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.DesignApproveUI].components.component[kDSeparator2].alias">
             <lang locale="en_US" value="null" />

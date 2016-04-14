@@ -38,7 +38,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
-            <constraints>195,5,603,618,387</constraints>
+            <constraints>198,39,603,584,387</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -64,6 +64,48 @@
                     <userDefined>true</userDefined>
                 </eventBinding>
             </eventBindings>
+        </component>
+        <component>
+            <name>kDLabel1</name>
+            <alias>uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].components.component[kDLabel1].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabel</classType>
+            <isContainer>false</isContainer>
+            <constraints>198,8,604,26,385</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].components.component[kDLabel1].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].components.component[kDLabel1].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>font</name>
+                    <type>java.awt.Font</type>
+                    <value>uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].components.component[kDLabel1].properties.property[font].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
         </component>
         <component>
             <name>btnCloud</name>
@@ -464,7 +506,7 @@
             <userDefined>false</userDefined>
         </dataObject>
     </dataObjects>
-	<statuses>
+    <statuses>
         <status>
             <id />
             <name>CostEdit</name>
@@ -476,18 +518,6 @@
         </status>
     </statuses>
     <resource>
-	    <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].statuses.status[CostEdit].alias">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="成本修改" />
-            <lang locale="zh_HK" value="成本修改" />
-            <lang locale="zh_TW" value="成本修改" />
-        </rs>
-        <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].statuses.status[CostEdit].description">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="在成本审批节点可修改影响阶段字段" />
-            <lang locale="zh_HK" value="在成本審批節點可修改影響階段字段" />
-            <lang locale="zh_TW" value="在成本審批節點可修改影響階段字段" />
-        </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="目标成本调整审批单审批界面" />
@@ -541,6 +571,30 @@
             <lang locale="zh_CN" value="false" />
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].components.component[kDLabel1].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].components.component[kDLabel1].properties.property[font].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="family=宋体,name=宋体,style=1,size=16" />
+            <lang locale="zh_HK" value="family=宋體,name=宋體,style=1,size=16" />
+            <lang locale="zh_TW" value="family=宋體,name=宋體,style=1,size=16" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].components.component[kDLabel1].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="0" />
+            <lang locale="zh_CN" value="0" />
+            <lang locale="zh_HK" value="0" />
+            <lang locale="zh_TW" value="0" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].components.component[kDLabel1].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="目标成本调整审批单" />
+            <lang locale="zh_HK" value="目標成本調整審批單" />
+            <lang locale="zh_TW" value="目標成本調整審批單" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].components.component[kDSeparator2].alias">
             <lang locale="en_US" value="null" />
@@ -757,6 +811,18 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].statuses.status[CostEdit].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="成本修改" />
+            <lang locale="zh_HK" value="成本修改" />
+            <lang locale="zh_TW" value="成本修改" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].statuses.status[CostEdit].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="在成本审批节点可修改影响阶段字段" />
+            <lang locale="zh_HK" value="在成本審批節點可修改影響階段字段" />
+            <lang locale="zh_TW" value="在成本審批節點可修改影響階段字段" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.TargetcostApproveUI].title">
             <lang locale="en_US" value="null" />

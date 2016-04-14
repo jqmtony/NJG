@@ -38,7 +38,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.kdf.table.KDTable</classType>
             <isContainer>false</isContainer>
-            <constraints>174,63,614,561,387</constraints>
+            <constraints>177,63,614,561,387</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -71,7 +71,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>240,38,259,19,385</constraints>
+            <constraints>198,38,260,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -95,6 +95,13 @@
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[业务日期].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
             </properties>
             <parent>
                 <key name="name" value="CoreUI" />
@@ -106,7 +113,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>511,38,231,19,385</constraints>
+            <constraints>511,38,260,19,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -130,6 +137,13 @@
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[kDLabelContainer1].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
             </properties>
             <parent>
                 <key name="name" value="CoreUI" />
@@ -141,7 +155,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabel</classType>
             <isContainer>false</isContainer>
-            <constraints>177,3,588,31,385</constraints>
+            <constraints>177,7,610,26,385</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -152,17 +166,17 @@
             </layoutInfo>
             <properties>
                 <property>
-                    <name>text</name>
-                    <type>java.lang.String</type>
-                    <value>uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[kDLabel1].properties.property[text].value</value>
-                    <isMultiLan>true</isMultiLan>
-                    <userDefined>true</userDefined>
-                </property>
-                <property>
                     <name>font</name>
                     <type>java.awt.Font</type>
                     <value>uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[kDLabel1].properties.property[font].value</value>
                     <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>horizontalAlignment</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[kDLabel1].properties.property[horizontalAlignment].value</value>
+                    <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
             </properties>
@@ -670,15 +684,15 @@
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[kDLabel1].properties.property[font].value">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="family=Dialog,name=Dialog,style=0,size=15" />
-            <lang locale="zh_HK" value="family=Dialog,name=Dialog,style=0,size=15" />
-            <lang locale="zh_TW" value="family=Dialog,name=Dialog,style=0,size=15" />
+            <lang locale="zh_CN" value="family=宋体,name=宋体,style=1,size=16" />
+            <lang locale="zh_HK" value="family=宋體,name=宋體,style=1,size=16" />
+            <lang locale="zh_TW" value="family=宋體,name=宋體,style=1,size=16" />
         </rs>
-        <rs key="uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[kDLabel1].properties.property[text].value">
-            <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="kDLabel1" />
-            <lang locale="zh_HK" value="kDLabel1" />
-            <lang locale="zh_TW" value="kDLabel1" />
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[kDLabel1].properties.property[horizontalAlignment].value">
+            <lang locale="en_US" value="0" />
+            <lang locale="zh_CN" value="0" />
+            <lang locale="zh_HK" value="0" />
+            <lang locale="zh_TW" value="0" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[kDLabelContainer1].alias">
             <lang locale="en_US" value="null" />
@@ -687,16 +701,22 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[kDLabelContainer1].properties.property[boundLabelLength].value">
-            <lang locale="en_US" value="40" />
-            <lang locale="zh_CN" value="40" />
-            <lang locale="zh_HK" value="40" />
-            <lang locale="zh_TW" value="40" />
+            <lang locale="en_US" value="60" />
+            <lang locale="zh_CN" value="60" />
+            <lang locale="zh_HK" value="60" />
+            <lang locale="zh_TW" value="60" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[kDLabelContainer1].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="编号：" />
-            <lang locale="zh_HK" value="編號：" />
-            <lang locale="zh_TW" value="編號：" />
+            <lang locale="zh_CN" value="编号" />
+            <lang locale="zh_HK" value="編號" />
+            <lang locale="zh_TW" value="編號" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[kDLabelContainer1].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[kDSeparator2].alias">
             <lang locale="en_US" value="null" />
@@ -927,16 +947,22 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[业务日期].properties.property[boundLabelLength].value">
-            <lang locale="en_US" value="80" />
-            <lang locale="zh_CN" value="80" />
-            <lang locale="zh_HK" value="80" />
-            <lang locale="zh_TW" value="80" />
+            <lang locale="en_US" value="60" />
+            <lang locale="zh_CN" value="60" />
+            <lang locale="zh_HK" value="60" />
+            <lang locale="zh_TW" value="60" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[业务日期].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="业务日期" />
             <lang locale="zh_HK" value="業務日期" />
             <lang locale="zh_TW" value="業務日期" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].components.component[业务日期].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.wfui.ContractpaymentApproveUI].description">
             <lang locale="en_US" value="null" />
