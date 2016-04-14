@@ -125,13 +125,15 @@ public abstract class AbstractContractpaymentApproveUI extends com.kingdee.eas.f
 
         // 业务日期		
         this.业务日期.setBoundLabelText(resHelper.getString("业务日期.boundLabelText"));		
-        this.业务日期.setBoundLabelLength(80);
+        this.业务日期.setBoundLabelLength(60);		
+        this.业务日期.setBoundLabelUnderline(true);
         // kDLabelContainer1		
         this.kDLabelContainer1.setBoundLabelText(resHelper.getString("kDLabelContainer1.boundLabelText"));		
-        this.kDLabelContainer1.setBoundLabelLength(40);
+        this.kDLabelContainer1.setBoundLabelLength(60);		
+        this.kDLabelContainer1.setBoundLabelUnderline(true);
         // kDLabel1		
-        this.kDLabel1.setText(resHelper.getString("kDLabel1.text"));		
-        this.kDLabel1.setFont(resHelper.getFont("kDLabel1.font"));
+        this.kDLabel1.setFont(resHelper.getFont("kDLabel1.font"));		
+        this.kDLabel1.setHorizontalAlignment(0);
         // kDTextField2
         // kDTextField3
 		//Register control's property binding
@@ -161,14 +163,14 @@ public abstract class AbstractContractpaymentApproveUI extends com.kingdee.eas.f
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        kDTable1.setBounds(new Rectangle(174, 63, 614, 561));
-        this.add(kDTable1, new KDLayout.Constraints(174, 63, 614, 561, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        业务日期.setBounds(new Rectangle(240, 38, 259, 19));
-        this.add(业务日期, new KDLayout.Constraints(240, 38, 259, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer1.setBounds(new Rectangle(511, 38, 231, 19));
-        this.add(kDLabelContainer1, new KDLayout.Constraints(511, 38, 231, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabel1.setBounds(new Rectangle(177, 3, 588, 31));
-        this.add(kDLabel1, new KDLayout.Constraints(177, 3, 588, 31, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDTable1.setBounds(new Rectangle(177, 63, 614, 561));
+        this.add(kDTable1, new KDLayout.Constraints(177, 63, 614, 561, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        业务日期.setBounds(new Rectangle(198, 38, 260, 19));
+        this.add(业务日期, new KDLayout.Constraints(198, 38, 260, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer1.setBounds(new Rectangle(511, 38, 260, 19));
+        this.add(kDLabelContainer1, new KDLayout.Constraints(511, 38, 260, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel1.setBounds(new Rectangle(177, 7, 610, 26));
+        this.add(kDLabel1, new KDLayout.Constraints(177, 7, 610, 26, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //业务日期
         业务日期.setBoundEditor(kDTextField2);
         //kDLabelContainer1

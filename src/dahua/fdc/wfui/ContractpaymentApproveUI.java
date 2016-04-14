@@ -73,12 +73,12 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     
     public void onLoad() throws Exception {
     	super.onLoad();
-    	kDLabel1.setText("");
-    	kDLabel1 = new KDLabel("Hello",JLabel.CENTER);
-    	kDLabel1.setFont(resHelper.getFont("kDLabel1.font"));
-    	
-    	kDLabel1.setBounds(new Rectangle(177, 3, 588, 31));
-        this.add(kDLabel1, new KDLayout.Constraints(177, 3, 588, 31, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+//    	kDLabel1.setText("");
+//    	kDLabel1 = new KDLabel("Hello",JLabel.CENTER);
+//    	kDLabel1.setFont(resHelper.getFont("kDLabel1.font"));
+//    	
+//    	kDLabel1.setBounds(new Rectangle(177, 3, 588, 31));
+//        this.add(kDLabel1, new KDLayout.Constraints(177, 3, 588, 31, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         initUI();
     }
 
@@ -372,7 +372,7 @@ public class ContractpaymentApproveUI extends AbstractContractpaymentApproveUI
     	
     	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
     	while(rowset.next()){
-    		kDLabel1.setText(rowset.getString(1));
+    		kDLabel1.setText(rowset.getString(1)+"合同付款申请单");
     		//日期
     		if(rowset.getString(2) != null){
     			kDTextField2.setText(rowset.getString(2));

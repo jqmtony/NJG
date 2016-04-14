@@ -228,6 +228,8 @@ public class TargetCost1UI extends AbstractTargetCost1UI
     	
     	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
     	while(rowset.next()){
+    		//设置标题
+    		kDLabel1.setText(rowset.getString(1)+"目标成本（执行版）");
     		this.kDTable1.getCell(1, 1).setValue(rowset.getString(1));
     		this.kDTable1.getCell(2, 1).setValue(rowset.getString(3));
     		this.kDTable1.getCell(3, 1).setValue(rowset.getString(2));

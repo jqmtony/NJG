@@ -47,6 +47,7 @@ public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.cl
 {
     private static final Logger logger = CoreUIObject.getLogger(AbstractTargetCost1UI.class);
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel1;
     protected com.kingdee.eas.framework.CoreBillBaseInfo editData = null;
     /**
      * output class constructor
@@ -68,7 +69,9 @@ public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.cl
         this.resHelper = new ResourceBundleHelper(AbstractTargetCost1UI.class.getName());
         this.setUITitle(resHelper.getString("this.title"));
         this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
+        this.kDLabel1 = new com.kingdee.bos.ctrl.swing.KDLabel();
         this.kDTable1.setName("kDTable1");
+        this.kDLabel1.setName("kDLabel1");
         // CoreUI		
         this.btnPageSetup.setVisible(false);		
         this.btnCloud.setVisible(false);		
@@ -98,6 +101,9 @@ public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.cl
 
         
 
+        // kDLabel1		
+        this.kDLabel1.setHorizontalAlignment(0);		
+        this.kDLabel1.setFont(resHelper.getFont("kDLabel1.font"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -125,8 +131,10 @@ public abstract class AbstractTargetCost1UI extends com.kingdee.eas.framework.cl
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        kDTable1.setBounds(new Rectangle(187, 0, 617, 630));
-        this.add(kDTable1, new KDLayout.Constraints(187, 0, 617, 630, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDTable1.setBounds(new Rectangle(187, 41, 617, 589));
+        this.add(kDTable1, new KDLayout.Constraints(187, 41, 617, 589, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel1.setBounds(new Rectangle(187, 5, 617, 26));
+        this.add(kDLabel1, new KDLayout.Constraints(187, 5, 617, 26, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
 
     }
 

@@ -49,6 +49,7 @@ public abstract class AbstractTechnologyeconomyApproveUI extends com.kingdee.eas
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
     protected com.kingdee.bos.ctrl.swing.KDButton yd;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel1;
     protected com.kingdee.bos.ctrl.swing.KDTextField kDTextField1;
     protected com.kingdee.eas.fdc.contract.ChangeAuditBillInfo editData = null;
     /**
@@ -73,10 +74,12 @@ public abstract class AbstractTechnologyeconomyApproveUI extends com.kingdee.eas
         this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
         this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.yd = new com.kingdee.bos.ctrl.swing.KDButton();
+        this.kDLabel1 = new com.kingdee.bos.ctrl.swing.KDLabel();
         this.kDTextField1 = new com.kingdee.bos.ctrl.swing.KDTextField();
         this.kDTable1.setName("kDTable1");
         this.kDLabelContainer1.setName("kDLabelContainer1");
         this.yd.setName("yd");
+        this.kDLabel1.setName("kDLabel1");
         this.kDTextField1.setName("kDTextField1");
         // CoreUI		
         this.btnPageSetup.setVisible(false);		
@@ -119,7 +122,8 @@ public abstract class AbstractTechnologyeconomyApproveUI extends com.kingdee.eas
 
         // kDLabelContainer1		
         this.kDLabelContainer1.setBoundLabelText(resHelper.getString("kDLabelContainer1.boundLabelText"));		
-        this.kDLabelContainer1.setBoundLabelLength(80);
+        this.kDLabelContainer1.setBoundLabelLength(80);		
+        this.kDLabelContainer1.setBoundLabelUnderline(true);
         // yd		
         this.yd.setText(resHelper.getString("yd.text"));
         this.yd.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +138,10 @@ public abstract class AbstractTechnologyeconomyApproveUI extends com.kingdee.eas
                 }
             }
         });
+        // kDLabel1		
+        this.kDLabel1.setText(resHelper.getString("kDLabel1.text"));		
+        this.kDLabel1.setHorizontalAlignment(0);		
+        this.kDLabel1.setFont(resHelper.getFont("kDLabel1.font"));
         // kDTextField1
 		//Register control's property binding
 		registerBindings();
@@ -162,12 +170,14 @@ public abstract class AbstractTechnologyeconomyApproveUI extends com.kingdee.eas
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        kDTable1.setBounds(new Rectangle(201, 46, 599, 577));
-        this.add(kDTable1, new KDLayout.Constraints(201, 46, 599, 577, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer1.setBounds(new Rectangle(200, 12, 270, 19));
-        this.add(kDLabelContainer1, new KDLayout.Constraints(200, 12, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        yd.setBounds(new Rectangle(589, 11, 142, 21));
-        this.add(yd, new KDLayout.Constraints(589, 11, 142, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDTable1.setBounds(new Rectangle(201, 60, 599, 563));
+        this.add(kDTable1, new KDLayout.Constraints(201, 60, 599, 563, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer1.setBounds(new Rectangle(201, 35, 270, 19));
+        this.add(kDLabelContainer1, new KDLayout.Constraints(201, 35, 270, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        yd.setBounds(new Rectangle(589, 33, 142, 21));
+        this.add(yd, new KDLayout.Constraints(589, 33, 142, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel1.setBounds(new Rectangle(201, 5, 599, 26));
+        this.add(kDLabel1, new KDLayout.Constraints(201, 5, 599, 26, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //kDLabelContainer1
         kDLabelContainer1.setBoundEditor(kDTextField1);
 

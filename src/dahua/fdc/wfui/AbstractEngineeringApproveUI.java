@@ -50,6 +50,7 @@ public abstract class AbstractEngineeringApproveUI extends com.kingdee.eas.frame
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer2;
     protected com.kingdee.bos.ctrl.swing.KDLabelContainer kDLabelContainer1;
     protected com.kingdee.bos.ctrl.swing.KDButton yd;
+    protected com.kingdee.bos.ctrl.swing.KDLabel kDLabel1;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel1;
     protected com.kingdee.bos.ctrl.swing.KDPanel kDPanel2;
     protected com.kingdee.bos.ctrl.kdf.table.KDTable kDTable1;
@@ -80,6 +81,7 @@ public abstract class AbstractEngineeringApproveUI extends com.kingdee.eas.frame
         this.kDLabelContainer2 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.kDLabelContainer1 = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.yd = new com.kingdee.bos.ctrl.swing.KDButton();
+        this.kDLabel1 = new com.kingdee.bos.ctrl.swing.KDLabel();
         this.kDPanel1 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDPanel2 = new com.kingdee.bos.ctrl.swing.KDPanel();
         this.kDTable1 = new com.kingdee.bos.ctrl.kdf.table.KDTable();
@@ -90,6 +92,7 @@ public abstract class AbstractEngineeringApproveUI extends com.kingdee.eas.frame
         this.kDLabelContainer2.setName("kDLabelContainer2");
         this.kDLabelContainer1.setName("kDLabelContainer1");
         this.yd.setName("yd");
+        this.kDLabel1.setName("kDLabel1");
         this.kDPanel1.setName("kDPanel1");
         this.kDPanel2.setName("kDPanel2");
         this.kDTable1.setName("kDTable1");
@@ -124,10 +127,12 @@ public abstract class AbstractEngineeringApproveUI extends com.kingdee.eas.frame
         // kDTabbedPane1
         // kDLabelContainer2		
         this.kDLabelContainer2.setBoundLabelText(resHelper.getString("kDLabelContainer2.boundLabelText"));		
-        this.kDLabelContainer2.setBoundLabelLength(80);
+        this.kDLabelContainer2.setBoundLabelLength(80);		
+        this.kDLabelContainer2.setBoundLabelUnderline(true);
         // kDLabelContainer1		
         this.kDLabelContainer1.setBoundLabelText(resHelper.getString("kDLabelContainer1.boundLabelText"));		
-        this.kDLabelContainer1.setBoundLabelLength(80);
+        this.kDLabelContainer1.setBoundLabelLength(80);		
+        this.kDLabelContainer1.setBoundLabelUnderline(true);
         // yd		
         this.yd.setText(resHelper.getString("yd.text"));
         this.yd.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +147,10 @@ public abstract class AbstractEngineeringApproveUI extends com.kingdee.eas.frame
                 }
             }
         });
+        // kDLabel1		
+        this.kDLabel1.setText(resHelper.getString("kDLabel1.text"));		
+        this.kDLabel1.setFont(resHelper.getFont("kDLabel1.font"));		
+        this.kDLabel1.setHorizontalAlignment(0);
         // kDPanel1		
         this.kDPanel1.setBorder(null);
         // kDPanel2
@@ -202,24 +211,26 @@ public abstract class AbstractEngineeringApproveUI extends com.kingdee.eas.frame
         this.setBounds(new Rectangle(10, 10, 1013, 629));
         this.setLayout(new KDLayout());
         this.putClientProperty("OriginalBounds", new Rectangle(10, 10, 1013, 629));
-        kDTabbedPane1.setBounds(new Rectangle(186, 42, 609, 584));
-        this.add(kDTabbedPane1, new KDLayout.Constraints(186, 42, 609, 584, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer2.setBounds(new Rectangle(419, 12, 200, 19));
-        this.add(kDLabelContainer2, new KDLayout.Constraints(419, 12, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        kDLabelContainer1.setBounds(new Rectangle(186, 12, 200, 19));
-        this.add(kDLabelContainer1, new KDLayout.Constraints(186, 12, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
-        yd.setBounds(new Rectangle(652, 11, 138, 21));
-        this.add(yd, new KDLayout.Constraints(652, 11, 138, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDTabbedPane1.setBounds(new Rectangle(186, 64, 609, 562));
+        this.add(kDTabbedPane1, new KDLayout.Constraints(186, 64, 609, 562, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer2.setBounds(new Rectangle(419, 38, 200, 19));
+        this.add(kDLabelContainer2, new KDLayout.Constraints(419, 38, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabelContainer1.setBounds(new Rectangle(186, 38, 200, 19));
+        this.add(kDLabelContainer1, new KDLayout.Constraints(186, 38, 200, 19, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        yd.setBounds(new Rectangle(652, 36, 138, 21));
+        this.add(yd, new KDLayout.Constraints(652, 36, 138, 21, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
+        kDLabel1.setBounds(new Rectangle(186, 7, 600, 26));
+        this.add(kDLabel1, new KDLayout.Constraints(186, 7, 600, 26, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_LEFT_SCALE | KDLayout.Constraints.ANCHOR_RIGHT_SCALE));
         //kDTabbedPane1
         kDTabbedPane1.add(kDPanel1, resHelper.getString("kDPanel1.constraints"));
         kDTabbedPane1.add(kDPanel2, resHelper.getString("kDPanel2.constraints"));
         //kDPanel1
         kDPanel1.setLayout(new KDLayout());
-        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 608, 551));        kDTable1.setBounds(new Rectangle(3, 3, 600, 547));
+        kDPanel1.putClientProperty("OriginalBounds", new Rectangle(0, 0, 608, 529));        kDTable1.setBounds(new Rectangle(3, 3, 600, 547));
         kDPanel1.add(kDTable1, new KDLayout.Constraints(3, 3, 600, 547, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //kDPanel2
         kDPanel2.setLayout(new KDLayout());
-        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(0, 0, 608, 551));        kDTable2.setBounds(new Rectangle(1, -1, 602, 549));
+        kDPanel2.putClientProperty("OriginalBounds", new Rectangle(0, 0, 608, 529));        kDTable2.setBounds(new Rectangle(1, -1, 602, 549));
         kDPanel2.add(kDTable2, new KDLayout.Constraints(1, -1, 602, 549, KDLayout.Constraints.ANCHOR_TOP | KDLayout.Constraints.ANCHOR_BOTTOM | KDLayout.Constraints.ANCHOR_LEFT | KDLayout.Constraints.ANCHOR_RIGHT));
         //kDLabelContainer2
         kDLabelContainer2.setBoundEditor(kDTextField2);

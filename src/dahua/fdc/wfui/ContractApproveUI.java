@@ -68,21 +68,21 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	IRow addRow = this.kDTable1.addRow();
     	addRow.getCell(0).setValue("建设单位");
 //    	addRow.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
-    	addRow.getCell(3).setValue("项目名称");
+    	addRow.getCell(5).setValue("项目名称");
 //    	addRow.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
-    	mergeManager.mergeBlock(0, 1, 0, 2);
-    	mergeManager.mergeBlock(0, 4, 0, 9);
+    	mergeManager.mergeBlock(0, 1, 0, 4);
+    	mergeManager.mergeBlock(0, 6, 0, 9);
     	
     	//第二行
     	IRow addRowtwo = this.kDTable1.addRow();
     	addRowtwo.getCell(0).setValue("合同名称");
 //    	addRowtwo.getCell(0).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
-    	addRowtwo.getCell(3).setValue("合同变号");
+    	addRowtwo.getCell(5).setValue("合同编号");
 //    	addRowtwo.getCell(3).getStyleAttributes().setBackground(FDCTableHelper.cantEditColor);
     	//融合(1)-(3)是行 2-4是列
-    	mergeManager.mergeBlock(1, 1, 1, 2);
-    	mergeManager.mergeBlock(1, 4, 1, 9);
+    	mergeManager.mergeBlock(1, 1, 1, 4);
+    	mergeManager.mergeBlock(1, 6, 1, 9);
     	
     	//第三行
     	IRow addRowthree = this.kDTable1.addRow();
@@ -311,11 +311,11 @@ public class ContractApproveUI extends AbstractContractApproveUI
     	//是否是五大类
     	boolean isFiveClass = false;
     	IRowSet rowset = new FDCSQLBuilder().appendSql(sb.toString()).executeQuery();
-    	while(rowset.next()){
+    	if(rowset.next()){
     		this.kDTable1.getCell(0, 1).setValue(rowset.getString(1));
-    		this.kDTable1.getCell(0, 4).setValue(rowset.getString(2));
-    		this.kDTable1.getCell(1, 1).setValue(rowset.getString(3));
-    		this.kDTable1.getCell(1, 4).setValue(rowset.getString(4));
+    		this.kDTable1.getCell(0, 6).setValue(rowset.getString(2));//项目名称
+    		this.kDTable1.getCell(1, 1).setValue(rowset.getString(3));//合同名称
+    		this.kDTable1.getCell(1, 6).setValue(rowset.getString(4));
     		this.kDTable1.getCell(2, 1).setValue(rowset.getString(5));
     		this.kDTable1.getCell(2, 4).setValue(rowset.getString(6));
     		this.kDTable1.getCell(3, 1).setValue(rowset.getString(7));
