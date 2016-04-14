@@ -2802,6 +2802,28 @@
             </propertyBindings>
         </component>
         <component>
+            <name>btnAddNew</name>
+            <alias>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnAddNew].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>0</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnCloud</name>
+            <alias>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnCloud].alias</alias>
+            <userDefined>false</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>1</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+        </component>
+        <component>
             <name>btnEdit</name>
             <alias>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnEdit].alias</alias>
             <userDefined>false</userDefined>
@@ -2976,6 +2998,11 @@
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
             <properties>
                 <property>
                     <name>text</name>
@@ -3485,6 +3512,41 @@
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
+        </component>
+        <component>
+            <name>btnRevise</name>
+            <alias>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnRevise].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
+            <isContainer>false</isContainer>
+            <constraints>51</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>text</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnRevise].properties.property[text].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>action</name>
+                    <type>javax.swing.Action</type>
+                    <value>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnRevise].properties.property[action].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI_toolbar" />
+            </parent>
         </component>
         <component>
             <name>separator1</name>
@@ -4065,6 +4127,36 @@
             <daemonRun>false</daemonRun>
             <actionExtendProperty />
             <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;</services>
+            <userDefined>true</userDefined>
+            <userDefinedLogic />
+            <oprtIntent />
+            <nextUI />
+            <isUIPNavigator>false</isUIPNavigator>
+            <isBatchAction>false</isBatchAction>
+            <isEntryAction>false</isEntryAction>
+            <batchMethodName />
+        </action>
+        <action>
+            <instanceName>actionRevise</instanceName>
+            <className>ActionRevise</className>
+            <name>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionRevise].name</name>
+            <enabled>true</enabled>
+            <actionPerformed />
+            <beforeActionPerformed />
+            <afterActionPerformed />
+            <finallyActionPerformed />
+            <actionCommandKey />
+            <acceleratorKey />
+            <mnemonicKey />
+            <smallIcon>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionRevise].smallIcon</smallIcon>
+            <shortDescription>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionRevise].shortDescription</shortDescription>
+            <longDescription>uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionRevise].longDescription</longDescription>
+            <isBindWorkFlow>false</isBindWorkFlow>
+            <herited>false</herited>
+            <daemonRun>false</daemonRun>
+            <actionExtendProperty />
+            <services>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;root&gt;&lt;service class="com.kingdee.eas.framework.client.service.PermissionService" /&gt;&lt;/root&gt;
 </services>
             <userDefined>true</userDefined>
@@ -4193,6 +4285,30 @@
             <lang locale="zh_TW" value="列印" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionPrint].smallIcon">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionRevise].longDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionRevise].name">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionRevise].shortDescription">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].actions.action[actionRevise].smallIcon">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -4342,6 +4458,12 @@
             <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnAddNew].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnAttachment].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
@@ -4409,6 +4531,12 @@
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnCancel].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnCloud].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
@@ -4563,6 +4691,24 @@
             <lang locale="zh_CN" value="null" />
             <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnRevise].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnRevise].properties.property[action].value">
+            <lang locale="en_US" value="actionRevise" />
+            <lang locale="zh_CN" value="actionRevise" />
+            <lang locale="zh_HK" value="actionRevise" />
+            <lang locale="zh_TW" value="actionRevise" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnRevise].properties.property[text].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="修订" />
+            <lang locale="zh_HK" value="修訂" />
+            <lang locale="zh_TW" value="修訂" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.aimcost.client.ForecastChangeVisEditUI].components.component[btnSave].alias">
             <lang locale="en_US" value="null" />
