@@ -50,6 +50,7 @@ import com.kingdee.bos.ctrl.swing.KDComboBox;
 import com.kingdee.bos.ctrl.swing.KDContainer;
 import com.kingdee.bos.ctrl.swing.KDFormattedTextField;
 import com.kingdee.bos.ctrl.swing.KDWorkButton;
+import com.kingdee.bos.ctrl.swing.StringUtils;
 import com.kingdee.bos.ctrl.swing.event.DataChangeEvent;
 import com.kingdee.bos.dao.IObjectCollection;
 import com.kingdee.bos.dao.IObjectPK;
@@ -59,6 +60,7 @@ import com.kingdee.bos.metadata.entity.EntityViewInfo;
 import com.kingdee.bos.metadata.entity.FilterInfo;
 import com.kingdee.bos.metadata.entity.FilterItemInfo;
 import com.kingdee.bos.metadata.entity.SelectorItemCollection;
+import com.kingdee.bos.metadata.entity.SelectorItemInfo;
 import com.kingdee.bos.metadata.entity.SorterItemInfo;
 import com.kingdee.bos.metadata.query.util.CompareType;
 import com.kingdee.bos.sql.ParserException;
@@ -186,6 +188,9 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
         this.txtBanane.setPrecision(2);		
         this.chkMenuItemSubmitAndAddNew.setSelected(false);
     	this.chkMenuItemSubmitAndAddNew.setEnabled(false);
+    	
+    	this.toolBar.addComponentAfterComponent(this.btnRevise, this.btnBananZreo);
+    	this.btnRevise.setIcon(com.kingdee.eas.util.client.EASResource.getIcon("imgTbtn_duizsetting"));
     	super.onLoad();
     	initButtonStatus();
     	initTable();
@@ -692,6 +697,146 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
         editData2 = editData;
     }
 
+    /**
+     * 修订
+     */
+    public void actionRevise_actionPerformed(ActionEvent e) throws Exception {
+    	if(editData.getId() == null) {
+    		FDCMsgBox.showWarning("请先保存单据！");
+			return;
+    	}
+    	if(!editData.getStatus().equals(FDCBillStateEnum.AUDITTED)){
+			FDCMsgBox.showWarning("单据未审批，不允许修订！");
+			return;
+		}
+		if(!editData.isIsLast()){
+			FDCMsgBox.showWarning("不是最新版，不允许修订！");
+			return;
+		}
+    	ForecastChangeVisInfo info = getSelectorsForBillInfo(editData.getId().toString());
+		FilterInfo filter=new FilterInfo();
+		filter.getFilterItems().add(new FilterItemInfo("contractNumber.id",info.getContractNumber().getId()));
+		filter.getFilterItems().add(new FilterItemInfo("version",info.getVersion(),CompareType.GREATER));
+		if(ForecastChangeVisFactory.getRemoteInstance().exists(filter)){
+			FDCMsgBox.showWarning(this,"单据已修订！");
+			return;
+		}
+		
+		UIContext uiContext = new UIContext(this);
+		uiContext.put("ForInfo", info);
+		uiContext.put("IsModify", true);
+		uiContext.put("verson", FDCHelper.add(info.getVersion(), BigDecimal.ONE));
+		
+		IUIWindow ui = UIFactory.createUIFactory().create(getEditUIName(), uiContext, null,	OprtState.ADDNEW);
+		ui.show();
+    }
+    public ForecastChangeVisInfo getSelectorsForBillInfo(String id) throws EASBizException, BOSException {
+    	SelectorItemCollection sic = new SelectorItemCollection();
+		String selectorAll = System.getProperty("selector.all");
+		if(StringUtils.isEmpty(selectorAll)){
+			selectorAll = "true";
+		}
+        sic.add(new SelectorItemInfo("isLast"));
+        sic.add(new SelectorItemInfo("banZreo"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("creator.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("creator.id"));
+        	sic.add(new SelectorItemInfo("creator.number"));
+        	sic.add(new SelectorItemInfo("creator.name"));
+		}
+        sic.add(new SelectorItemInfo("createTime"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("lastUpdateUser.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("lastUpdateUser.id"));
+        	sic.add(new SelectorItemInfo("lastUpdateUser.number"));
+        	sic.add(new SelectorItemInfo("lastUpdateUser.name"));
+		}
+        sic.add(new SelectorItemInfo("lastUpdateTime"));
+        sic.add(new SelectorItemInfo("number"));
+        sic.add(new SelectorItemInfo("bizDate"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("auditor.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("auditor.id"));
+        	sic.add(new SelectorItemInfo("auditor.number"));
+        	sic.add(new SelectorItemInfo("auditor.name"));
+		}
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("contractNumber.*"));
+		}
+		else{
+        	sic.add(new SelectorItemInfo("contractNumber.id"));
+        	sic.add(new SelectorItemInfo("contractNumber.number"));
+        	sic.add(new SelectorItemInfo("contractNumber.name"));
+		}
+        sic.add(new SelectorItemInfo("contractName"));
+        sic.add(new SelectorItemInfo("version"));
+        sic.add(new SelectorItemInfo("amount"));
+        sic.add(new SelectorItemInfo("remake"));
+        sic.add(new SelectorItemInfo("auditDate"));
+    	sic.add(new SelectorItemInfo("entrys.id"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("entrys.*"));
+		}
+		else{
+		}
+    	sic.add(new SelectorItemInfo("entrys.itemName"));
+    	sic.add(new SelectorItemInfo("entrys.amount"));
+    	sic.add(new SelectorItemInfo("entrys.remake"));
+    	sic.add(new SelectorItemInfo("splitEntry.id"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("splitEntry.*"));
+		}
+		else{
+		}
+    	sic.add(new SelectorItemInfo("splitEntry.amount"));
+		if(selectorAll.equalsIgnoreCase("true"))
+		{
+			sic.add(new SelectorItemInfo("splitEntry.product.*"));
+		}
+		else{
+	    	sic.add(new SelectorItemInfo("splitEntry.product.id"));
+			sic.add(new SelectorItemInfo("splitEntry.product.name"));
+        	sic.add(new SelectorItemInfo("splitEntry.product.number"));
+		}
+    	sic.add(new SelectorItemInfo("splitEntry.costAccount.curProject.id"));
+    	sic.add(new SelectorItemInfo("splitEntry.costAccount.id"));
+    	sic.add(new SelectorItemInfo("splitEntry.level"));
+    	sic.add(new SelectorItemInfo("splitEntry.apportionType.name"));
+    	sic.add(new SelectorItemInfo("splitEntry.apportionValue"));
+    	sic.add(new SelectorItemInfo("splitEntry.directAmount"));
+    	sic.add(new SelectorItemInfo("splitEntry.apportionValueTotal"));
+    	sic.add(new SelectorItemInfo("splitEntry.directAmountTotal"));
+    	sic.add(new SelectorItemInfo("splitEntry.otherRatioTotal"));
+    	sic.add(new SelectorItemInfo("splitEntry.splitType"));
+    	sic.add(new SelectorItemInfo("splitEntry.workLoad"));
+    	sic.add(new SelectorItemInfo("splitEntry.price"));
+    	sic.add(new SelectorItemInfo("splitEntry.splitScale"));
+        sic.add(new SelectorItemInfo("status"));
+        sic.add(new SelectorItemInfo("contractAmount"));
+        sic.add(new SelectorItemInfo("SplitedAmount"));
+        sic.add(new SelectorItemInfo("UnSplitAmount"));
+        sic.add("splitEntry.costAccount.curProject.isLeaf");
+        sic.add("splitEntry.costAccount.curProject.longNumber");
+        sic.add("splitEntry.costAccount.curProject.number");
+        sic.add("splitEntry.costAccount.curProject.name");
+        sic.add("splitEntry.costAccount.curProject.displayName");
+        sic.add("splitEntry.costAccount.name");
+        sic.add("splitEntry.costAccount.longNumber");
+        sic.add("splitEntry.costAccount.displayName");
+    	return ForecastChangeVisFactory.getRemoteInstance().getForecastChangeVisInfo(new ObjectUuidPK(id),sic);
+    }
     public void actionUnAudit_actionPerformed(ActionEvent e) throws Exception {
     	if(!editData.isIsLast()){
     		FDCMsgBox.showInfo("不是最新版，不能反审批！");

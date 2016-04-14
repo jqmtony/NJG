@@ -221,6 +221,10 @@ public class OtherSplitBillEditUI extends AbstractOtherSplitBillEditUI
     		MsgBox.showWarning("调整金额为空!请修改!");
     		SysUtil.abort();
     	}
+    	if(txtcomment.getText() == null || txtcomment.getText().trim().equals("")) {
+    		MsgBox.showWarning("备注为空!请修改!");
+    		SysUtil.abort();
+    	}
     	if(prmtcontract.getValue() == null) {
     		MsgBox.showWarning("合同为空!请修改!");
     		SysUtil.abort();

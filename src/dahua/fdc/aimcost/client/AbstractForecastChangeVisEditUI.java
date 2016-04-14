@@ -101,6 +101,7 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnBananZreo;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnAudit;
     protected com.kingdee.bos.ctrl.swing.KDWorkButton btnUnAudit;
+    protected com.kingdee.bos.ctrl.swing.KDWorkButton btnRevise;
     protected com.kingdee.eas.fdc.aimcost.ForecastChangeVisInfo editData = null;
     protected ActionAudit actionAudit = null;
     protected ActionUnAudit actionUnAudit = null;
@@ -109,6 +110,7 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
     protected actionSplitBotUp actionSplitBotUp = null;
     protected actionSplitProd actionSplitProd = null;
     protected actionBananZreo actionBananZreo = null;
+    protected ActionRevise actionRevise = null;
     /**
      * output class constructor
      */
@@ -208,6 +210,10 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
         this.actionBananZreo = new actionBananZreo(this);
         getActionManager().registerAction("actionBananZreo", actionBananZreo);
          this.actionBananZreo.addService(new com.kingdee.eas.framework.client.service.PermissionService());
+        //actionRevise
+        this.actionRevise = new ActionRevise(this);
+        getActionManager().registerAction("actionRevise", actionRevise);
+         this.actionRevise.addService(new com.kingdee.eas.framework.client.service.PermissionService());
         this.contCreator = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contCreateTime = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
         this.contLastUpdateUser = new com.kingdee.bos.ctrl.swing.KDLabelContainer();
@@ -262,6 +268,7 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
         this.btnBananZreo = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.btnUnAudit = new com.kingdee.bos.ctrl.swing.KDWorkButton();
+        this.btnRevise = new com.kingdee.bos.ctrl.swing.KDWorkButton();
         this.contCreator.setName("contCreator");
         this.contCreateTime.setName("contCreateTime");
         this.contLastUpdateUser.setName("contLastUpdateUser");
@@ -316,6 +323,7 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
         this.btnBananZreo.setName("btnBananZreo");
         this.btnAudit.setName("btnAudit");
         this.btnUnAudit.setName("btnUnAudit");
+        this.btnRevise.setName("btnRevise");
         // CoreUI		
         this.btnAddLine.setVisible(false);		
         this.btnCopyLine.setVisible(false);		
@@ -669,6 +677,9 @@ public abstract class AbstractForecastChangeVisEditUI extends com.kingdee.eas.fr
         // btnUnAudit
         this.btnUnAudit.setAction((IItemAction)ActionProxyFactory.getProxy(actionUnAudit, new Class[] { IItemAction.class }, getServiceContext()));		
         this.btnUnAudit.setText(resHelper.getString("btnUnAudit.text"));
+        // btnRevise
+        this.btnRevise.setAction((IItemAction)ActionProxyFactory.getProxy(actionRevise, new Class[] { IItemAction.class }, getServiceContext()));		
+        this.btnRevise.setText(resHelper.getString("btnRevise.text"));
 		//Register control's property binding
 		registerBindings();
 		registerUIState();
@@ -965,6 +976,7 @@ kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         this.toolBar.add(btnWFViewdoProccess);
         this.toolBar.add(btnWFViewSubmitProccess);
         this.toolBar.add(btnNextPerson);
+        this.toolBar.add(btnRevise);
 
 
     }
@@ -1440,6 +1452,14 @@ kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     public void actionBananZreo_actionPerformed(ActionEvent e) throws Exception
     {
     }
+    	
+
+    /**
+     * output actionRevise_actionPerformed method
+     */
+    public void actionRevise_actionPerformed(ActionEvent e) throws Exception
+    {
+    }
 	public RequestContext prepareActionSubmit(IItemAction itemAction) throws Exception {
 			RequestContext request = super.prepareActionSubmit(itemAction);		
 		if (request != null) {
@@ -1548,6 +1568,17 @@ kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
     }
 	
 	public boolean isPrepareactionBananZreo() {
+    	return false;
+    }
+	public RequestContext prepareActionRevise(IItemAction itemAction) throws Exception {
+			RequestContext request = new RequestContext();		
+		if (request != null) {
+    		request.setClassName(getUIHandlerClassName());
+		}
+		return request;
+    }
+	
+	public boolean isPrepareActionRevise() {
     	return false;
     }
 
@@ -1763,6 +1794,36 @@ kDContainer3.getContentPane().setLayout(new BorderLayout(0, 0));        kDContai
         {
         	getUIContext().put("ORG.PK", getOrgPK(this));
             innerActionPerformed("eas", AbstractForecastChangeVisEditUI.this, "actionBananZreo", "actionBananZreo_actionPerformed", e);
+        }
+    }
+
+    /**
+     * output ActionRevise class
+     */     
+    protected class ActionRevise extends ItemAction {     
+    
+        public ActionRevise()
+        {
+            this(null);
+        }
+
+        public ActionRevise(IUIObject uiObject)
+        {     
+		super(uiObject);     
+        
+            String _tempStr = null;
+            _tempStr = resHelper.getString("ActionRevise.SHORT_DESCRIPTION");
+            this.putValue(ItemAction.SHORT_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionRevise.LONG_DESCRIPTION");
+            this.putValue(ItemAction.LONG_DESCRIPTION, _tempStr);
+            _tempStr = resHelper.getString("ActionRevise.NAME");
+            this.putValue(ItemAction.NAME, _tempStr);
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+        	getUIContext().put("ORG.PK", getOrgPK(this));
+            innerActionPerformed("eas", AbstractForecastChangeVisEditUI.this, "ActionRevise", "actionRevise_actionPerformed", e);
         }
     }
 

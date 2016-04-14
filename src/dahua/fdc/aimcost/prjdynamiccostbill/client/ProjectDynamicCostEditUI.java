@@ -112,7 +112,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     Map programUnSignContractMap = new HashMap();
     BigDecimal ONE_HUNDRUD = new BigDecimal(100);
     BigDecimal ONE_MILLION = new BigDecimal(1000000);
-    BigDecimal HALF_ONE_MILLION = new BigDecimal(5000000);
+    BigDecimal HALF_ONE_MILLION = new BigDecimal(500000);
     BigDecimal THREE = new BigDecimal(300000);
     String[][] columns = new String[][]{
     		{"firstAimCost", "firstDynaCost", "firstDiffAmount", "firstDiffRate"},
@@ -178,6 +178,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	this.kDTabbedPane2.remove(1);
     	this.kDTabbedPane2.remove(0);
     	kdtEntrysAccount.getColumn("diffRate").getStyleAttributes().setNumberFormat("0.00%");
+    	kdtEntrysAccount.getColumn("alertIndex").getStyleAttributes().setNumberFormat("0.00%");
     	
     	int year = this.spYear.getIntegerVlaue().intValue();
     	int month = this.spMonth.getIntegerVlaue().intValue();
@@ -300,6 +301,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	this.kdtEntrysContract.getStyleAttributes().setLocked(true);
     	this.kdtEntrysAccount.getStyleAttributes().setLocked(true);
     	this.kdtEntrysAccount.getColumn("seq").getStyleAttributes().setHided(true);
+    	this.kdtEntrysAccount.getColumn("level").getStyleAttributes().setHided(true);
     	this.kdtEentryTotal.getColumn("seq").getStyleAttributes().setHided(true);
     	this.kdtEntrySixMonth.getColumn("seq").getStyleAttributes().setHided(true);
     	
@@ -673,7 +675,6 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     		ForecastChangeVisInfo forecastInfo = getForecastChangeVisInfoByContract(null, contractId);
     		ForecastChangeVisInfo preForecastInfo = getPreForecastChangeVisInfoByContract(null, contractId);
     		//预估变更
-//    		Map forecasetDetailMap = (Map) forecasetChangeMap.get(contractId);
     		BigDecimal actForecastAmount = getgetForecasetChangeBalanceSql(editData.getCurProject(), contractId);//变更实际发生额
     		if(forecastInfo != null) {
     			forecasetChangeamount = forecastInfo.getAmount();
@@ -693,7 +694,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     		} else {
     			row.getCell("curMonthEstimateChange").setValue(BigDecimal.ZERO);
     			actForecastAmount = actForecastAmount == null ? BigDecimal.ZERO : actForecastAmount;
-    			if(preForecastInfo != null)
+    			if(preForecastInfo != null && !preForecastInfo.isBanZreo()) //余额归零则余额为0
     				row.getCell("EstimateChangeBalance").setValue(preForecastInfo.getAmount().subtract(actForecastAmount));
     			else
     				row.getCell("EstimateChangeBalance").setValue(BigDecimal.ZERO);
@@ -1432,12 +1433,12 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	sb.append(" where 1=1");
     	sb.append(" and forecastChange.CFIsLast='1'");
     	sb.append(" and curProject.fid='"+info.getId().toString()+"'");
-    	sb.append(" and forecastChange.FBizDate>={ts '"+FDCConstants.FORMAT_TIME.format(FDCDateHelper.getSQLBegin(date))+"'}");
+    	sb.append(" and forecastChange.FBizDate>={ts '"+FDCConstants.FORMAT_TIME.format(FDCDateHelper.getFirstDayOfMonth(date))+"'}");
     	sb.append(" and forecastChange.FBizDate<={ts '"+FDCConstants.FORMAT_TIME.format(FDCDateHelper.getLastDayOfMonth(date))+"'}");
     	return sb.toString();
     }
     /**
-     * 获取预估变更已发生金额
+     * 获取预估变更已发生金额(ForecastChangeVisEditUI getSql 方法)
      */
     private BigDecimal getgetForecasetChangeBalanceSql(CurProjectInfo info, String contractId) throws Exception{
     	StringBuilder sb = new StringBuilder();
@@ -1450,7 +1451,7 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	sb.append(" where 1 = 1 ");
     	sb.append(" and SUPPENTRY.CFforecastChangeVi in (select fid from CT_AIM_ForecastChangeVis where CFContractNumberID='"+contractId+"')");
     	sb.append(" and CURPROJECT.FID='"+info.getId().toString()+"'");
-    	sb.append(" and CHANGEAUDITBILL.FChangeState='7Visa'");
+//    	sb.append(" and (CHANGEAUDITBILL.FChangeState='7Visa' or CHANGEAUDITBILL.FChangeState='5Audit')");
     	sb.append(" and SUPPENTRY.FContractBillID is not null");
     	sb.append(" group by CONTRACTBILL.Fid");
     	
@@ -1507,21 +1508,25 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	
     	int year = this.spYear.getIntegerVlaue().intValue();
     	int month = this.spMonth.getIntegerVlaue().intValue();
-//    	Date date = getCurrentMonthDate(year, month);
+//    	if(month-1 == 0) {
+//    		year = year -1;
+//    		month = 12;
+//    	}
+    	Date date = getCurrentMonthDate(year, month);
     	
     	EntityViewInfo evi = new EntityViewInfo();
     	FilterInfo filter = new FilterInfo();
     	evi.setFilter(filter);
     	filter.getFilterItems().add(new FilterItemInfo("contractNumber.id", ContractId, CompareType.EQUALS));
-//    	filter.getFilterItems().add(new FilterItemInfo("bizDate", FDCDateHelper.getFirstDayOfMonth(date), CompareType.LESS));
+    	filter.getFilterItems().add(new FilterItemInfo("bizDate", FDCDateHelper.getFirstDayOfMonth(date), CompareType.LESS));
     	
     	SorterItemInfo sorterItemInfo = new SorterItemInfo("version");
     	sorterItemInfo.setSortType(SortType.DESCEND);
     	evi.getSorter().add(sorterItemInfo);
     	
     	ForecastChangeVisCollection forecastChangeVisCollection = iForecastChangeVis.getForecastChangeVisCollection(evi);
-    	if(forecastChangeVisCollection.size() > 1)
-    		forcastinfo = forecastChangeVisCollection.get(1);
+    	if(forecastChangeVisCollection.size() > 0)
+    		forcastinfo = forecastChangeVisCollection.get(0);
     	return forcastinfo;
     }
     /**
