@@ -148,7 +148,9 @@ public class OtherSplitBillEditUI extends AbstractOtherSplitBillEditUI
 			this.spMonth.setValue(month);
 		}
     	this.spYear.setModel(new SpinnerNumberModel(this.spYear.getIntegerVlaue().intValue(),1,10000,1));
+    	this.spYear.setEnabled(false);
 		this.spMonth.setModel(new SpinnerNumberModel(this.spMonth.getIntegerVlaue().intValue(),1,12,1));
+		this.spMonth.setEnabled(false);
     	chkMenuItemSubmitAndAddNew.setSelected(false);
     	menuSubmitOption.setEnabled(false);
     	CurProjectInfo project = this.editData.getCurProject();

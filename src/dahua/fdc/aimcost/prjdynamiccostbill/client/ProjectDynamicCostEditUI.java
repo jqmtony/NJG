@@ -216,6 +216,9 @@ public class ProjectDynamicCostEditUI extends AbstractProjectDynamicCostEditUI
     	prmtthirdLevelPos.setEntityViewInfo(evi);
     	
     	this.btnCopy.setVisible(false);//隐藏复制按钮
+    	
+    	spYear.setEnabled(false);
+    	spMonth.setEnabled(false);
     }
     /**
      * 职位树状显示(只能单选)

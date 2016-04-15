@@ -210,6 +210,8 @@ public class ForecastChangeVisEditUI extends AbstractForecastChangeVisEditUI
 //    	DecimalFormat df2 = new DecimalFormat("V###,##0.0");
 //    	this.txtversion.setFormatterFactory(new DefaultFormatterFactory(new NumberFormatter(df2)));
     	editData2 = editData;
+    	
+    	pkBizDate.setEnabled(false);
     }
     
     public void onShow() throws Exception {
