@@ -13,6 +13,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -56,6 +57,8 @@ import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleEntryInfo;
 import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleFacadeFactory;
 import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleFactory;
 import com.kingdee.eas.fdc.dahuaschedule.schedule.DahuaScheduleInfo;
+import com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.DhScheduleLogFactory;
+import com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.DhScheduleLogInfo;
 import com.kingdee.jdbc.rowset.IRowSet;
 
 import java.lang.String;
@@ -78,6 +81,9 @@ public class DahuaScheduleFacadeControllerBean extends AbstractDahuaScheduleFaca
 			Element rootElement = document.getRootElement();
 			List<Element> tempDatas = rootElement.elements("tempData");
 			
+			if(tempDatas.size() == 0) {
+				return new String[]{"N", "xml数据为空!请检查节点!"};
+			}
 			Iterator<Element> iterator = tempDatas.iterator();
 			
 			while(iterator.hasNext()) {
@@ -92,6 +98,10 @@ public class DahuaScheduleFacadeControllerBean extends AbstractDahuaScheduleFaca
 				
 				Element billEntrys = tempData.element("billEntrys");
 				List<Element> entrys = billEntrys.elements("entry");
+				
+				if(entrys.size() == 0) {
+					return new String[]{"N", "xml中不包含分录信息!请检查!"};
+				}
 				
 				Iterator<Element> itEntry = entrys.iterator();
 				while(itEntry.hasNext()) {
@@ -126,7 +136,9 @@ public class DahuaScheduleFacadeControllerBean extends AbstractDahuaScheduleFaca
 					
 					bilder.appendSql(insertSql.toString());
 				}
-				bilder.execute();
+				String sql = bilder.getSql();
+				if(sql != null && sql.trim().equals(""))
+					bilder.execute();
 				bilder.clear();
 			}
 		} catch (DocumentException e) {
@@ -162,7 +174,9 @@ public class DahuaScheduleFacadeControllerBean extends AbstractDahuaScheduleFaca
 				
 				CurProjectInfo curProjectInfo = getCurProjectInfo(ctx, projectNumber, projectName);
 				if(curProjectInfo == null) {
-					return new String[] {"N", "编码为"+projectNumber+"名称为"+projectName+"的工程项目未找到!"};
+					String[] msg = new String[] {"N", "明源系统中编码为"+projectNumber+"名称为"+projectName+"的工程项目在EAS中未能找到!"};
+					saveScheduleLog(ctx, msg);
+					return msg;
 				}
 				info.setProject(curProjectInfo);
 				info.setBizDate(parseCustomDateString(bizDate, "yyyy-MM-dd"));
@@ -174,7 +188,8 @@ public class DahuaScheduleFacadeControllerBean extends AbstractDahuaScheduleFaca
 					DahuaScheduleEntryInfo entryInfo = new DahuaScheduleEntryInfo();
 					entryInfo.setId(BOSUuid.create(entryInfo.getBOSType()));
 					entryInfo.setSeq((Integer)entry[0]);
-					entryInfo.setNumber((String) entry[1]); //任务编码
+//					entryInfo.setNumber((String) entry[1]); //任务编码
+					entryInfo.setNumber((String) entry[3]); //任务编码
 					entryInfo.setTask((String) entry[2]); //任务名称
 					ProgrammingContractInfo programmingInfo = getProgrammingInfo(ctx, (String) entry[2], curProjectInfo.getId().toString());
 					entryInfo.setProgamming(programmingInfo);
@@ -210,14 +225,34 @@ public class DahuaScheduleFacadeControllerBean extends AbstractDahuaScheduleFaca
 				builder.appendSql(sb.toString());
 				builder.execute();
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		} catch (EASBizException e) {
-			e.printStackTrace();
+			String[] msg = new String[]{"N",e.getMessage()};
+			saveScheduleLog(ctx, msg);
+			return msg;
 		}
     	return new String[] {"Y"};
     }
     
+    private void saveScheduleLog(Context ctx, String[] errorMsg) {
+    	if(errorMsg != null && !errorMsg[0].equals("Y")) {
+    		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    		DhScheduleLogInfo info = new DhScheduleLogInfo();
+    		info.setId(BOSUuid.create(info.getBOSType()));
+    		String date = dateFormat.format(Calendar.getInstance().getTime());
+    		info.setNumber(date);
+    		info.setName(date);
+    		info.setErrorMsg(errorMsg[1]);
+    		
+    		try {
+				DhScheduleLogFactory.getLocalInstance(ctx).save(info);
+			} catch (EASBizException e) {
+				e.printStackTrace();
+			} catch (BOSException e) {
+				e.printStackTrace();
+			}
+    	}
+    }
     /**
      * 抓取临时表未生成过进度单据的数据
      * @param ctx
@@ -231,7 +266,7 @@ public class DahuaScheduleFacadeControllerBean extends AbstractDahuaScheduleFaca
     	
     	FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
     	StringBuilder sb = new StringBuilder("");
-    	sb.append(" select * from "+tempTable+" where fflag is null order by fnumber, fseq");
+    	sb.append(" select * from "+tempTable+" where fflag is null order by fnumber, to_number(fseq)");
     	builder.appendSql(sb.toString());
     	IRowSet rowSet = builder.executeQuery();
 
@@ -300,6 +335,8 @@ public class DahuaScheduleFacadeControllerBean extends AbstractDahuaScheduleFaca
     	DateFormat dateFormat = new SimpleDateFormat(format);
     	Date d = null;
     	try {
+    		if(sDate == null || sDate.equals(""))
+    			return null;
     		d = dateFormat.parse(sDate);
     	} catch (ParseException e) {
     		e.printStackTrace();
@@ -321,7 +358,7 @@ public class DahuaScheduleFacadeControllerBean extends AbstractDahuaScheduleFaca
 //			ICurProject iCurProject = CurProjectFactory.getLocalInstance(ctx);
 //			if(iCurProject.exists(oql)) 
 //				project = iCurProject.getCurProjectInfo(oql);
-    		String sql = "select fid from t_fdc_curProject where fnumber='"+number+"' and fname_l2='"+name+"'";
+    		String sql = "select fid from t_fdc_curProject where /*fnumber='"+number+"' and*/ fname_l2='"+name+"'";
     		FDCSQLBuilder builder = new FDCSQLBuilder(ctx);
     		builder.appendSql(sql);
     		IRowSet rowSet = builder.executeQuery();
