@@ -177,6 +177,28 @@
         <key name="package" value="com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app" />
         <key name="name" value="CT_SCH_DhScheduleLog" />
     </table>
+    <properties>
+        <ownProperty>
+            <name>errorMsg</name>
+            <alias>entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].alias</alias>
+            <description>entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].description</description>
+            <userDefined>true</userDefined>
+            <configured>false</configured>
+            <dataType>String</dataType>
+            <metadataRef />
+            <isMultilingual>false</isMultilingual>
+            <isNullable>false</isNullable>
+            <formula />
+            <length>2000</length>
+            <precision>0</precision>
+            <decimalDigits>0</decimalDigits>
+            <defaultValue>entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].defaultValue</defaultValue>
+            <displayFormat />
+            <mappingField>
+                <key name="name" value="CFErrorMsg" />
+            </mappingField>
+        </ownProperty>
+    </properties>
     <logicalKey>
         <name>id</name>
         <alias>entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].logicalKey[id].alias</alias>
@@ -193,11 +215,12 @@
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="进度日志" />
-            <lang locale="zh_TW" value="單級基礎資料範本" />
+            <lang locale="zh_HK" value="進度日誌" />
+            <lang locale="zh_TW" value="進度日誌" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="单级基础资料模板" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="單級基礎資料範本" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].extendedProperty.OrgType">
@@ -225,6 +248,11 @@
             <lang locale="zh_CN" value="com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI" />
             <lang locale="zh_TW" value="com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI" />
         </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].extendedProperty.isAsstAcctType">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
@@ -248,82 +276,166 @@
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].logicalKey[id].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].logicalKey[id].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getCollection].alias">
             <lang locale="en_US" value="getCollection" />
             <lang locale="zh_CN" value="取集合" />
+            <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getCollection].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getCollection].parameters.parameter[oql].alias">
             <lang locale="en_US" value="getCollection" />
             <lang locale="zh_CN" value="取集合" />
+            <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getCollection].parameters.parameter[oql].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getCollection].parameters.parameter[view].alias">
             <lang locale="en_US" value="getCollection" />
             <lang locale="zh_CN" value="取集合" />
+            <lang locale="zh_HK" value="取集合" />
             <lang locale="zh_TW" value="取集合" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getCollection].parameters.parameter[view].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getValue].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getValue].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getValue].parameters.parameter[oql].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getValue].parameters.parameter[oql].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getValue].parameters.parameter[pk].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getValue].parameters.parameter[pk].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getValue].parameters.parameter[selector].alias">
             <lang locale="en_US" value="getValue" />
             <lang locale="zh_CN" value="取值" />
+            <lang locale="zh_HK" value="取值" />
             <lang locale="zh_TW" value="取值" />
         </rs>
         <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].methods.method[getValue].parameters.parameter[selector].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="错误日志" />
+            <lang locale="zh_HK" value="錯誤日誌" />
+            <lang locale="zh_TW" value="錯誤日誌" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].defaultValue">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="错误日志" />
+            <lang locale="zh_HK" value="錯誤日誌" />
+            <lang locale="zh_TW" value="錯誤日誌" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].extendedProperty.ColWidthInKDTable">
+            <lang locale="en_US" value="50" />
+            <lang locale="zh_CN" value="50" />
+            <lang locale="zh_TW" value="50" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].extendedProperty.bizDataType">
+            <lang locale="en_US" value="NOTE" />
+            <lang locale="zh_CN" value="NOTE" />
+            <lang locale="zh_TW" value="NOTE" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].extendedProperty.enableFieldPermission">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].extendedProperty.isAsstAcctType">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].extendedProperty.isForGrouping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].extendedProperty.isForMapping">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].extendedProperty.isForMatching">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].extendedProperty.isForWrittenBack">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].extendedProperty.isInCode">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="entityObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog].properties.ownProperty[errorMsg].extendedProperty.isVisibleForKDTable">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
     </resource>
 </entityObject>

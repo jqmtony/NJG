@@ -147,6 +147,20 @@
             <scale>0</scale>
             <precision>0</precision>
         </column>
+        <column>
+            <name>CFErrorMsg</name>
+            <alias>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[CFErrorMsg].alias</alias>
+            <description>dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[CFErrorMsg].description</description>
+            <userDefined>true</userDefined>
+            <isMultilingual>false</isMultilingual>
+            <isEncoded>false</isEncoded>
+            <isNullable>true</isNullable>
+            <defaultValue />
+            <sqlType>NVARCHAR</sqlType>
+            <length>2000</length>
+            <scale>0</scale>
+            <precision>0</precision>
+        </column>
     </columns>
     <primaryKey>
         <name>CPK_SCH_DhSLIDv4mo</name>
@@ -224,111 +238,144 @@
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="进度日志" />
-            <lang locale="zh_TW" value="單級基礎資料範本" />
+            <lang locale="zh_HK" value="進度日誌" />
+            <lang locale="zh_TW" value="進度日誌" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[CFErrorMsg].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="错误日志" />
+            <lang locale="zh_HK" value="錯誤日誌" />
+            <lang locale="zh_TW" value="錯誤日誌" />
+        </rs>
+        <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[CFErrorMsg].description">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="错误日志" />
+            <lang locale="zh_HK" value="錯誤日誌" />
+            <lang locale="zh_TW" value="錯誤日誌" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FControlUnitID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
             <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FControlUnitID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="控制单元" />
+            <lang locale="zh_HK" value="控制單元" />
             <lang locale="zh_TW" value="控制單元" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FCreateTime].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FCreateTime].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建时间" />
+            <lang locale="zh_HK" value="創建時間" />
+            <lang locale="zh_TW" value="創建時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FCreatorID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FCreatorID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="创建者" />
+            <lang locale="zh_HK" value="創建者" />
+            <lang locale="zh_TW" value="創建者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FDescription].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
             <lang locale="zh_TW" value="描述" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FDescription].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
             <lang locale="zh_TW" value="描述" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FID].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FID].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FLastUpdateTime].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FLastUpdateTime].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改时间" />
+            <lang locale="zh_HK" value="最後修改時間" />
+            <lang locale="zh_TW" value="最後修改時間" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FLastUpdateUserID].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FLastUpdateUserID].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="最后修改者" />
+            <lang locale="zh_HK" value="最後修改者" />
+            <lang locale="zh_TW" value="最後修改者" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FName].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FNumber].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FNumber].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FSimpleName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
+            <lang locale="zh_TW" value="簡稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].columns.column[FSimpleName].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
+            <lang locale="zh_TW" value="簡稱" />
         </rs>
         <rs key="dataTable[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.CT_SCH_DhScheduleLog].description">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="单级基础资料模板" />
+            <lang locale="zh_CN" value="" />
             <lang locale="zh_TW" value="單級基礎資料範本" />
         </rs>
     </resource>

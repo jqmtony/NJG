@@ -23,10 +23,10 @@
         <component>
             <name>CoreUI</name>
             <alias>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[CoreUI].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDPanel</classType>
             <isContainer>true</isContainer>
-            <constraints>0,0,1013,629</constraints>
+            <constraints>0,0,600,300</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -37,7 +37,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>102,44,270,19</constraints>
+            <constraints>18,19,270,19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -79,7 +79,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>102,81,270,19</constraints>
+            <constraints>313,19,270,19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -121,7 +121,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>102,118,270,19</constraints>
+            <constraints>94,389,270,19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -163,7 +163,7 @@
             <userDefined>true</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
             <isContainer>true</isContainer>
-            <constraints>102,155,270,19</constraints>
+            <constraints>448,389,270,19</constraints>
             <tabIndex>0</tabIndex>
             <herited>false</herited>
             <bimUIObjectPK />
@@ -205,6 +205,55 @@
                     <name>visible</name>
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer4].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="CoreUI" />
+            </parent>
+        </component>
+        <component>
+            <name>conterrorMsg</name>
+            <alias>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[conterrorMsg].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDLabelContainer</classType>
+            <isContainer>true</isContainer>
+            <constraints>18,52,565,220</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>LabelContainerLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>boundLabelText</name>
+                    <type>java.lang.String</type>
+                    <value>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[conterrorMsg].properties.property[boundLabelText].value</value>
+                    <isMultiLan>true</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[conterrorMsg].properties.property[boundLabelLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>boundLabelUnderline</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[conterrorMsg].properties.property[boundLabelUnderline].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[conterrorMsg].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
                     <userDefined>true</userDefined>
                 </property>
@@ -360,9 +409,83 @@
             </propertyBindings>
         </component>
         <component>
+            <name>scrollPaneerrorMsg</name>
+            <alias>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[scrollPaneerrorMsg].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDScrollPane</classType>
+            <isContainer>true</isContainer>
+            <constraints>7</constraints>
+            <tabIndex>0</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>SameGridLayout</type>
+                <value>1,1,0,0,0,0</value>
+            </layoutInfo>
+            <parent>
+                <key name="name" value="conterrorMsg" />
+            </parent>
+        </component>
+        <component>
+            <name>txterrorMsg</name>
+            <alias>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txterrorMsg].alias</alias>
+            <userDefined>true</userDefined>
+            <classType>com.kingdee.bos.ctrl.swing.KDTextArea</classType>
+            <isContainer>false</isContainer>
+            <constraints>0,0,1,1</constraints>
+            <tabIndex>10</tabIndex>
+            <herited>false</herited>
+            <bimUIObjectPK />
+            <layoutInfo>
+                <name />
+                <type>XYLayout</type>
+                <value />
+            </layoutInfo>
+            <properties>
+                <property>
+                    <name>visible</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txterrorMsg].properties.property[visible].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>required</name>
+                    <type>boolean</type>
+                    <value>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txterrorMsg].properties.property[required].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+                <property>
+                    <name>maxLength</name>
+                    <type>int</type>
+                    <value>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txterrorMsg].properties.property[maxLength].value</value>
+                    <isMultiLan>false</isMultiLan>
+                    <userDefined>true</userDefined>
+                </property>
+            </properties>
+            <parent>
+                <key name="name" value="scrollPaneerrorMsg" />
+            </parent>
+            <propertyBindings>
+                <propertyBinding>
+                    <propertyName>text</propertyName>
+                    <propertyType>java.lang.String</propertyType>
+                    <bindingObject>editData</bindingObject>
+                    <bindingField>errorMsg</bindingField>
+                    <fieldType>String</fieldType>
+                    <accessType>2</accessType>
+                    <autoMode>false</autoMode>
+                    <herited>false</herited>
+                    <userDefined>true</userDefined>
+                </propertyBinding>
+            </propertyBindings>
+        </component>
+        <component>
             <name>btnPrint</name>
             <alias>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[btnPrint].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
             <constraints />
@@ -382,7 +505,7 @@
         <component>
             <name>btnPrintPreview</name>
             <alias>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[btnPrintPreview].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDWorkButton</classType>
             <isContainer>false</isContainer>
             <constraints />
@@ -402,7 +525,7 @@
         <component>
             <name>menuItemPrint</name>
             <alias>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[menuItemPrint].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDMenuItem</classType>
             <isContainer>false</isContainer>
             <constraints />
@@ -415,14 +538,14 @@
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[menuItemPrint].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
+                    <userDefined>false</userDefined>
                 </property>
             </properties>
         </component>
         <component>
             <name>menuItemPrintPreview</name>
             <alias>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[menuItemPrintPreview].alias</alias>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
             <classType>com.kingdee.bos.ctrl.swing.KDMenuItem</classType>
             <isContainer>false</isContainer>
             <constraints />
@@ -435,7 +558,7 @@
                     <type>boolean</type>
                     <value>uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[menuItemPrintPreview].properties.property[visible].value</value>
                     <isMultiLan>false</isMultiLan>
-                    <userDefined>true</userDefined>
+                    <userDefined>false</userDefined>
                 </property>
             </properties>
         </component>
@@ -446,7 +569,7 @@
             <type>com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.app.DhScheduleLog</type>
             <objectType>enty</objectType>
             <herited>true</herited>
-            <userDefined>true</userDefined>
+            <userDefined>false</userDefined>
         </dataObject>
     </dataObjects>
     <statuses>
@@ -572,176 +695,271 @@
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="进度日志" />
-            <lang locale="zh_TW" value="單級基礎資料範本介面" />
+            <lang locale="zh_HK" value="進度日誌" />
+            <lang locale="zh_TW" value="進度日誌" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[CoreUI].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[btnPrintPreview].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[btnPrintPreview].properties.property[visible].value">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[btnPrint].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[btnPrint].properties.property[visible].value">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[conterrorMsg].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[conterrorMsg].properties.property[boundLabelLength].value">
+            <lang locale="en_US" value="100" />
+            <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
+            <lang locale="zh_TW" value="100" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[conterrorMsg].properties.property[boundLabelText].value">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="错误日志" />
+            <lang locale="zh_HK" value="錯誤日誌" />
+            <lang locale="zh_TW" value="錯誤日誌" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[conterrorMsg].properties.property[boundLabelUnderline].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[conterrorMsg].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer1].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer1].properties.property[boundLabelLength].value">
             <lang locale="en_US" value="100" />
             <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer1].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="编码:" />
+            <lang locale="zh_HK" value="編碼:" />
             <lang locale="zh_TW" value="編碼:" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer1].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer2].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer2].properties.property[boundLabelLength].value">
             <lang locale="en_US" value="100" />
             <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer2].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="名称:" />
+            <lang locale="zh_HK" value="名稱:" />
             <lang locale="zh_TW" value="名稱:" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer2].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer3].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer3].properties.property[boundLabelLength].value">
             <lang locale="en_US" value="100" />
             <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer3].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="简称:" />
+            <lang locale="zh_HK" value="簡稱:" />
             <lang locale="zh_TW" value="簡稱:" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer3].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer4].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer4].properties.property[boundLabelAlignment].value">
             <lang locale="en_US" value="7" />
             <lang locale="zh_CN" value="7" />
+            <lang locale="zh_HK" value="7" />
             <lang locale="zh_TW" value="7" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer4].properties.property[boundLabelLength].value">
             <lang locale="en_US" value="100" />
             <lang locale="zh_CN" value="100" />
+            <lang locale="zh_HK" value="100" />
             <lang locale="zh_TW" value="100" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer4].properties.property[boundLabelText].value">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="描述:" />
+            <lang locale="zh_HK" value="描述:" />
             <lang locale="zh_TW" value="描述:" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer4].properties.property[boundLabelUnderline].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[kDLabelContainer4].properties.property[visible].value">
             <lang locale="en_US" value="true" />
             <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
             <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[menuItemPrintPreview].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[menuItemPrintPreview].properties.property[visible].value">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[menuItemPrint].alias">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
             <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[menuItemPrint].properties.property[visible].value">
             <lang locale="en_US" value="false" />
             <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
             <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[scrollPaneerrorMsg].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="null" />
+            <lang locale="zh_HK" value="null" />
+            <lang locale="zh_TW" value="null" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txtDescription].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="描述" />
+            <lang locale="zh_HK" value="描述" />
+            <lang locale="zh_TW" value="描述" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txtName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="名称" />
+            <lang locale="zh_HK" value="名稱" />
+            <lang locale="zh_TW" value="名稱" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txtNumber].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="编码" />
+            <lang locale="zh_HK" value="編碼" />
+            <lang locale="zh_TW" value="編碼" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txtNumber].properties.property[maxLength].value">
             <lang locale="en_US" value="80" />
             <lang locale="zh_CN" value="80" />
+            <lang locale="zh_HK" value="80" />
             <lang locale="zh_TW" value="80" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txtSimpleName].alias">
             <lang locale="en_US" value="null" />
-            <lang locale="zh_CN" value="null" />
-            <lang locale="zh_TW" value="null" />
+            <lang locale="zh_CN" value="简称" />
+            <lang locale="zh_HK" value="簡稱" />
+            <lang locale="zh_TW" value="簡稱" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txtSimpleName].properties.property[maxLength].value">
             <lang locale="en_US" value="80" />
             <lang locale="zh_CN" value="80" />
+            <lang locale="zh_HK" value="80" />
             <lang locale="zh_TW" value="80" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txterrorMsg].alias">
+            <lang locale="en_US" value="null" />
+            <lang locale="zh_CN" value="错误日志" />
+            <lang locale="zh_HK" value="錯誤日誌" />
+            <lang locale="zh_TW" value="錯誤日誌" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txterrorMsg].properties.property[maxLength].value">
+            <lang locale="en_US" value="2000" />
+            <lang locale="zh_CN" value="2000" />
+            <lang locale="zh_HK" value="2000" />
+            <lang locale="zh_TW" value="2000" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txterrorMsg].properties.property[required].value">
+            <lang locale="en_US" value="false" />
+            <lang locale="zh_CN" value="false" />
+            <lang locale="zh_HK" value="false" />
+            <lang locale="zh_TW" value="false" />
+        </rs>
+        <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].components.component[txterrorMsg].properties.property[visible].value">
+            <lang locale="en_US" value="true" />
+            <lang locale="zh_CN" value="true" />
+            <lang locale="zh_HK" value="true" />
+            <lang locale="zh_TW" value="true" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].description">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="单级基础资料模板界面" />
+            <lang locale="zh_HK" value="單級基礎資料範本介面" />
             <lang locale="zh_TW" value="單級基礎資料範本介面" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].extendedProperty.bimTemplateType">
@@ -757,37 +975,44 @@
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].statuses.status[ADDNEW].alias">
             <lang locale="en_US" value="AddNew" />
             <lang locale="zh_CN" value="AddNew" />
+            <lang locale="zh_HK" value="AddNew" />
             <lang locale="zh_TW" value="AddNew" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].statuses.status[ADDNEW].description">
             <lang locale="en_US" value="AddNew" />
             <lang locale="zh_CN" value="AddNew" />
+            <lang locale="zh_HK" value="AddNew" />
             <lang locale="zh_TW" value="AddNew" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].statuses.status[EDIT].alias">
             <lang locale="en_US" value="EDIT" />
             <lang locale="zh_CN" value="EDIT" />
+            <lang locale="zh_HK" value="EDIT" />
             <lang locale="zh_TW" value="EDIT" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].statuses.status[EDIT].description">
             <lang locale="en_US" value="EDIT" />
             <lang locale="zh_CN" value="EDIT" />
+            <lang locale="zh_HK" value="EDIT" />
             <lang locale="zh_TW" value="EDIT" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].statuses.status[VIEW].alias">
             <lang locale="en_US" value="View" />
             <lang locale="zh_CN" value="View" />
+            <lang locale="zh_HK" value="View" />
             <lang locale="zh_TW" value="View" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].statuses.status[VIEW].description">
             <lang locale="en_US" value="View" />
             <lang locale="zh_CN" value="View" />
+            <lang locale="zh_HK" value="View" />
             <lang locale="zh_TW" value="View" />
         </rs>
         <rs key="uiObject[com.kingdee.eas.fdc.dahuaschedule.schedule.schedulelog.client.DhScheduleLogEditUI].title">
             <lang locale="en_US" value="null" />
             <lang locale="zh_CN" value="进度日志" />
-            <lang locale="zh_TW" value="單級基礎資料範本" />
+            <lang locale="zh_HK" value="進度日誌" />
+            <lang locale="zh_TW" value="進度日誌" />
         </rs>
     </resource>
 </uiObject>
